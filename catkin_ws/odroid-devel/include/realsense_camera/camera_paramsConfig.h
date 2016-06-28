@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h

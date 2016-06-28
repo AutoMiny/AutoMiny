@@ -1,0 +1,7 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/cv_bridge/cmake/cv_bridgeConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libcv_bridge.so
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/cv_bridge.pc
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/cv_bridge/__init__.py
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/cv_bridge/boost/__init__.py

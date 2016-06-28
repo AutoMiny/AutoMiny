@@ -1,0 +1,1 @@
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  -fPIC -std=c++11  --sysroot=/opt/odroid-x2/sdk   -shared -Wl,-soname,libserial.so -o /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/libserial.so CMakeFiles/serial.dir/src/serial.cc.o CMakeFiles/serial.dir/src/impl/unix.cc.o CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o -lrt -lpthread 

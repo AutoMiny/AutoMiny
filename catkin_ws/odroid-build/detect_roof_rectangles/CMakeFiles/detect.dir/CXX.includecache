@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mi/boroujeni/model_car/catkin_ws/src/detect_roof_rectangles/src/detect.cpp
+ros/ros.h
+-
+cmvision/Blobs.h
+-
+cmvision/Blob.h
+-
+map
+-
+

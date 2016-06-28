@@ -1,0 +1,1 @@
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  -fPIC  --sysroot=/opt/odroid-x2/sdk   -shared -Wl,-soname,libkalman_3d.so -o /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps/lib/libkalman_3d.so CMakeFiles/kalman_3d.dir/src/kalman_3d.cpp.o 

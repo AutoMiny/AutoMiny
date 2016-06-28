@@ -1,0 +1,5 @@
+<launch>
+  <param name="motor_serial_port" value="/dev/ttyUSB0" />
+  <param name="motor_baud_rate" value="115200" />
+  <node pkg="motor_communication" type="motor_communication_node" name="motor_communication" output="screen"></node>
+</launch>

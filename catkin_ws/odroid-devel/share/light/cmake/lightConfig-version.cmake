@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/light/share/light/cmake/lightConfig-version.cmake

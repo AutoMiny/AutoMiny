@@ -1,0 +1,5 @@
+##test
+
+	roslaunch send_steering servo.launch 
+
+ 	rostopic pub -r 1 /manual_control/steering std_msgs/Int16 '{data: 160}'

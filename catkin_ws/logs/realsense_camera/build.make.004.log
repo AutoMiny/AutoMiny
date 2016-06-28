@@ -1,0 +1,15 @@
+[  0%] [  0%] Built target std_msgs_generate_messages_lisp
+Built target std_msgs_generate_messages_py
+[ 11%] Built target realsense_camera_gencfg
+[ 22%] Built target gtest
+[ 22%] Built target std_msgs_generate_messages_cpp
+[ 22%] Built target _realsense_camera_generate_messages_check_deps_cameraConfiguration
+[ 66%] [ 55%] [ 66%] Built target realsense_camera_generate_messages_lisp
+Built target realsense_camera_generate_messages_cpp
+Built target realsense_camera_generate_messages_py
+make[2]: *** No rule to make target `/usr/lib/librealsense.so', needed by `/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so'.  Stop.
+make[1]: *** [CMakeFiles/realsense_camera_nodelet.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 77%] [ 88%] Built target realsense_camera_test_rgbd
+Built target realsense_camera_test
+make: *** [all] Error 2

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="usb_cam" pkg="usb_cam" type="usb_cam_node" required="true"
+		output="screen">
+		<param name="video_device" value="/dev/video1" />
+		<param name="image_width" value="640" />
+		<param name="image_height" value="480" />
+		<param name="pixel_format" value="yuyv" />
+		<param name="camera_frame_id" value="usb_cam" />
+		<param name="io_method" value="mmap" />
+		<param name="autoexposure" value="false" />
+        <param name="exposure" value="8" />
+	</node>
+	<node name="image_proc" pkg="image_proc" type="image_proc" ns="usb_cam" required="true" output="screen">
+	
+	</node>
+	<node name="colorgui" pkg="cmvision" type="colorgui" respawn="true" output="screen"> 
+		<remap from="image" to="usb_cam/image_rect_color" />
+ 	</node> 
+	<!-- <node name="cmvision" pkg="cmvision" type="cmvision" output="screen"
+		required="true">
+		<remap from="image" to="/usb_cam/image_raw" />
+		<param name="color_file"
+			value="/home/mi/boroujeni/catkin_ws/src/detect_roof_rectangles/colors.txt" />
+		<param name="mean_shift_on" value="false" />
+		<param name="color_radius_pix" value="0" />
+		<param name="spatial_radius_pix" value="0" />
+		<param name="debug_on" value="true" />
+	</node> -->
+	<node pkg="detect_roof_rectangles" type="detect"
+		name="detect" output="screen" />
+</launch>

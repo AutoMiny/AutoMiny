@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find motor_communication)/launch/motor_odroid.launch"/>
+    <include file="$(find send_steering)/launch/servo_odroid.launch"/>
+    <include file="$(find auto_stop)/launch/auto_stop.launch"/>
+    <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+    <include file="$(find heading)/launch/heading_odroid.launch"/>
+    <include file="$(find odometry)/launch/odometry.launch"/>
+</launch>

@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/ip_mapping/share/ip_mapping/cmake/ip_mappingConfig.cmake

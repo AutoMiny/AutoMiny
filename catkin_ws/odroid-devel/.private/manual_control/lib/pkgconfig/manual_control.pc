@@ -1,0 +1,8 @@
+prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control
+
+Name: manual_control
+Description: Description of manual_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/lib -lmanual_control
+Requires: send_steering

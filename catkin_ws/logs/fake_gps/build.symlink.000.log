@@ -1,0 +1,17 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gpsConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gpsConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gps-msg-extras.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gps-msg-paths.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/fake_gps-msg.asd
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/_package_Transform.lisp
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/_package.lisp
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/Transform.lisp
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/include/fake_gps/Transform.h
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libkalman_2d.so
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libkalman_3d.so
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/fake_gps/fake_gps_2d_node
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/fake_gps/fake_gps_3d_node
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/fake_gps.pc
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/__init__.py
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/msg/_Transform.py
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/msg/__init__.py

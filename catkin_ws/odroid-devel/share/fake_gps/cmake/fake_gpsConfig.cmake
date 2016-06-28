@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps/share/fake_gps/cmake/fake_gpsConfig.cmake

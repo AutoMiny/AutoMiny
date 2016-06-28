@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="light" type="light_node" name="light" output="screen">
+    <param name="lights_serial_port" value="/dev/ttyUSB3" />
+    <param name="lights_baud_rate" value="115200" />
+  </node>
+</launch>

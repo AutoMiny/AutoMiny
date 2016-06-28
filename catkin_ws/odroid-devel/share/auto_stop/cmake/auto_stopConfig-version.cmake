@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/auto_stop/share/auto_stop/cmake/auto_stopConfig-version.cmake

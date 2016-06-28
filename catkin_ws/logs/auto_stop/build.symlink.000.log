@@ -1,0 +1,4 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/auto_stop/cmake/auto_stopConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/auto_stop/cmake/auto_stopConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/auto_stop.pc

@@ -1,0 +1,13 @@
+[ 11%] Built target realsense_camera_gencfg
+[ 11%] Built target std_msgs_generate_messages_lisp
+[ 11%] Built target std_msgs_generate_messages_py
+[ 11%] Built target std_msgs_generate_messages_cpp
+[ 11%] Built target _realsense_camera_generate_messages_check_deps_cameraConfiguration
+[ 22%] Built target gtest
+[ 55%] [ 55%] Built target realsense_camera_generate_messages_py
+Built target realsense_camera_generate_messages_lisp
+[ 66%] Built target realsense_camera_generate_messages_cpp
+[ 66%] Built target realsense_camera_generate_messages
+[ 77%] Built target realsense_camera_nodelet
+[ 88%] Built target realsense_camera_test
+[100%] Built target realsense_camera_test_rgbd

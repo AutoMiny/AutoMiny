@@ -1,0 +1,5 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/light/cmake/lightConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/light/cmake/lightConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/liblight.so
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/light.pc
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/light/light_node

@@ -1,0 +1,8 @@
+prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-install
+
+Name: detect_roof_rectangles
+Description: Description of detect_roof_rectangles
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-install/lib 
+Requires: cmvision

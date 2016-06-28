@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake

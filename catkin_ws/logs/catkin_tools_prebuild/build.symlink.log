@@ -1,0 +1,8 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/./setup.zsh
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/./setup.sh
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/./env.sh
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/./setup.bash
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/./_setup_util.py
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/catkin_tools_prebuild.pc

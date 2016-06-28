@@ -1,0 +1,17 @@
+<launch>
+  <!--include file="$(find openni2_launch)/launch/openni2.launch" /-->
+
+  <!--node name="openni2_node" pkg="openni2_launch" type="openni2_launch" /-->
+  <node name="ip_mapper_node" pkg="ip_mapping" type="ip_mapper_node" output="screen">
+  <param name="camera_name"     type="string"   value="/usb_cam/image_raw"/>  
+  <param name="ow"         		  type="int" 		  value="640"/>  
+  <param name="oh"		   		    type="int" 		  value="480"/>
+  <param name="f_u"            	type="double" 	value="624.650635"/>
+  <param name="f_v"            	type="double" 	value="626.987244"/>
+  <param name="c_u"            	type="double" 	value="309.703230"/>
+  <param name="c_v"            	type="double" 	value="231.473613"/>
+  <param name="deg"            	type="double" 	value="27"/>
+  <param name="cam_h"         	type="double" 	value="18"/>
+  </node>
+
+</launch>

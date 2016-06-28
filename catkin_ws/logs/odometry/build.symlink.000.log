@@ -1,0 +1,4 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/odometry/cmake/odometryConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/odometry/cmake/odometryConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/odometry.pc
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/odometry/odometry_publisher

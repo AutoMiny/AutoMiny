@@ -1,0 +1,18 @@
+<launch>
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="mjpeg" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node>
+  <node name="cmvision" pkg="cmvision" type="cmvision" respawn="false">
+    <remap from="image" to="/usb_cam/image_raw"/>
+    <param name="color_file" value="/home/mi/boroujeni/catkin_ws/src/cmvision/colors.txt" />
+    <param name="mean_shift_on" value="false" />
+    <param name="color_radius_pix" value="1" />
+    <param name="spatial_radius_pix" value="1" />
+    <param name="debug_on" value="true" />
+  </node>
+</launch>

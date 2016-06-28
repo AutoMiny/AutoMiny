@@ -1,0 +1,8 @@
+prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-install
+
+Name: usb_cam
+Description: Description of usb_cam
+Version: 0.3.4
+Cflags: -I/home/mi/boroujeni/model_car/catkin_ws/odroid-install/include
+Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-install/lib -lusb_cam
+Requires: 

@@ -1,0 +1,6 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/motor_communication/cmake/motor_communicationConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/motor_communication/cmake/motor_communicationConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libmotor_communication.so
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/motor_communication/motor_control_node
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/motor_communication/motor_communication_node
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/motor_communication.pc

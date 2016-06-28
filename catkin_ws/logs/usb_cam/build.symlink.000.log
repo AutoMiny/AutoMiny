@@ -1,0 +1,5 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/usb_cam/cmake/usb_camConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/usb_cam/cmake/usb_camConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/usb_cam.pc
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/usb_cam/usb_cam_node

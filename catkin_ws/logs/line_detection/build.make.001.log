@@ -1,0 +1,19 @@
+[ 11%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o
+[0m[ 22%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o
+[0m[ 33%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o
+[0m[ 44%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/Feature.cpp.o
+[0m[ 55%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o
+[0m[ 66%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o
+[0m[ 77%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o
+[0m[ 88%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/Circle.cpp.o
+/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp: In member function ‘void LaneModel::initialize(bool, bool)’:
+/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp:54:26: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp:54:26: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+[0m[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so
+[0m[ 88%] Built target LaneDetector
+[35m[1mScanning dependencies of target line_detection_node
+[0m[100%] [32mBuilding CXX object CMakeFiles/line_detection_node.dir/src/laneDetection.cpp.o
+[0m[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/line_detection/line_detection_node
+/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/ld: warning: libGL.so.1, needed by /opt/odroid-x2/sdk//usr/lib/libpcl_visualization.so, not found (try using -rpath or -rpath-link)
+/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/ld: warning: libEGL.so.1, needed by /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libQtGui.so.4, not found (try using -rpath or -rpath-link)
+[0m[100%] Built target line_detection_node

@@ -1,0 +1,1 @@
+/usr/bin/cc      CMakeFiles/boing.dir/boing.c.o  -o boing -rdynamic ../src/libglfw.so.3.1 -lGL -lm -lrt -lm -lX11 -lpthread -lXrandr -lXinerama -lXi -lXxf86vm -lXcursor -lGL -ldl -Wl,-rpath,/root/glfw/src 

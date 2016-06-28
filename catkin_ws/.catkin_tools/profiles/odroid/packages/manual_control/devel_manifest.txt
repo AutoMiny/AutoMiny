@@ -1,0 +1,6 @@
+manual_control
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/share/manual_control/cmake/manual_controlConfig-version.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/manual_control/cmake/manual_controlConfig-version.cmake
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/share/manual_control/cmake/manual_controlConfig.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/manual_control/cmake/manual_controlConfig.cmake
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/lib/libmanual_control.so /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libmanual_control.so
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/lib/pkgconfig/manual_control.pc /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/manual_control.pc
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/lib/manual_control/manual_control_node /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/manual_control/manual_control_node

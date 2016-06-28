@@ -1,0 +1,7 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/manual_control.dir/src/manual_control_node.cpp.o
+[0m[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/lib/libmanual_control.so
+[0m[ 50%] Built target manual_control
+[35m[1mScanning dependencies of target manual_control_node
+[0m[100%] [32mBuilding CXX object CMakeFiles/manual_control_node.dir/src/manual_control_node.cpp.o
+[0m[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/lib/manual_control/manual_control_node
+[0m[100%] Built target manual_control_node

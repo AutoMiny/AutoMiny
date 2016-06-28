@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/setup.sh

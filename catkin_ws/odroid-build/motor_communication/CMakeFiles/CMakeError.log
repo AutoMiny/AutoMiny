@@ -1,0 +1,54 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec300639859/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec300639859.dir/build.make CMakeFiles/cmTryCompileExec300639859.dir/build
+make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec300639859.dir/CheckSymbolExists.c.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec300639859.dir/CheckSymbolExists.c.o   -c /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec300639859
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec300639859.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc       CMakeFiles/cmTryCompileExec300639859.dir/CheckSymbolExists.c.o  -o cmTryCompileExec300639859 -rdynamic 
+CMakeFiles/cmTryCompileExec300639859.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
+CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec300639859] Error 1
+make[1]: Leaving directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec300639859/fast] Error 2
+
+File /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2406961046/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2406961046.dir/build.make CMakeFiles/cmTryCompileExec2406961046.dir/build
+make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2406961046.dir/CheckFunctionExists.c.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2406961046.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2406961046
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2406961046.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2406961046.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2406961046 -rdynamic -lpthreads 
+/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: Leaving directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2406961046] Error 1
+make: *** [cmTryCompileExec2406961046/fast] Error 2
+
+

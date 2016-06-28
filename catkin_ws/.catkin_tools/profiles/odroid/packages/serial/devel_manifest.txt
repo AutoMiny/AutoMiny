@@ -1,0 +1,6 @@
+serial
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/share/serial/cmake/serialConfig.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/serial/cmake/serialConfig.cmake
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/share/serial/cmake/serialConfig-version.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/serial/cmake/serialConfig-version.cmake
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/libserial.so /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libserial.so
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/pkgconfig/serial.pc /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/serial.pc
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial_example /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/serial/serial_example

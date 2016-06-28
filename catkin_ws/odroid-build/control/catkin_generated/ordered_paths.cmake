@@ -1,0 +1,1 @@
+set(ORDERED_PATHS "/opt/odroid-x2/sdk//opt/ros/indigo/lib")

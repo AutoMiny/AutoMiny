@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /root/glfw/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec576196365/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec576196365.dir/build.make CMakeFiles/cmTryCompileExec576196365.dir/build
+make[1]: Entering directory `/root/glfw/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /root/glfw/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec576196365.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec576196365.dir/CheckSymbolExists.c.o   -c /root/glfw/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec576196365
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec576196365.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec576196365.dir/CheckSymbolExists.c.o  -o cmTryCompileExec576196365 -rdynamic 
+CMakeFiles/cmTryCompileExec576196365.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
+CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec576196365] Error 1
+make[1]: Leaving directory `/root/glfw/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec576196365/fast] Error 2
+
+File /root/glfw/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/glfw/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3597006352/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3597006352.dir/build.make CMakeFiles/cmTryCompileExec3597006352.dir/build
+make[1]: Entering directory `/root/glfw/CMakeFiles/CMakeTmp'
+make[1]: Warning: File `/usr/share/cmake-2.8/Modules/CheckFunctionExists.c' has modification time 3.3e+07 s in the future
+/usr/bin/cmake -E cmake_progress_report /root/glfw/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3597006352.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3597006352.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3597006352
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3597006352.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3597006352.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3597006352 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec3597006352] Error 1
+make[1]: Leaving directory `/root/glfw/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3597006352/fast] Error 2
+
+

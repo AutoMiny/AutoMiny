@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/send_steering/share/send_steering/cmake/send_steeringConfig.cmake

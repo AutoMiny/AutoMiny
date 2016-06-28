@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mi/boroujeni/model_car/catkin_ws/src/control/src/control_node.cpp
+ros/ros.h
+/home/mi/boroujeni/model_car/catkin_ws/src/control/src/ros/ros.h
+std_msgs/Int16.h
+-
+std_msgs/Float32.h
+-
+

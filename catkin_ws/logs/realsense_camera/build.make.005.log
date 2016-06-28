@@ -1,0 +1,14 @@
+[  0%] [ 11%] [ 22%] [ 22%] Built target std_msgs_generate_messages_lisp
+Built target gtest
+Built target realsense_camera_gencfg
+[ 22%] Built target std_msgs_generate_messages_py
+Built target std_msgs_generate_messages_cpp
+[ 22%] Built target _realsense_camera_generate_messages_check_deps_cameraConfiguration
+[ 55%] [ 66%] [ 66%] Built target realsense_camera_generate_messages_py
+Built target realsense_camera_generate_messages_lisp
+Built target realsense_camera_generate_messages_cpp
+[ 66%] Built target realsense_camera_generate_messages
+[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so
+[0m[ 77%] Built target realsense_camera_test
+[ 88%] Built target realsense_camera_test_rgbd
+[100%] Built target realsense_camera_nodelet

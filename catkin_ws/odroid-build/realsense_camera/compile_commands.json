@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera",
+  "command": "/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\\\"realsense_camera\\\" -Drealsense_camera_nodelet_EXPORTS -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  --sysroot=/opt/odroid-x2/sdk -fPIC -I/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include -I/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include -I/opt/odroid-x2/sdk/opt/ros/indigo/include -I/opt/odroid-x2/sdk/usr/include/opencv -I/opt/odroid-x2/sdk/usr/include -I/usr/include/eigen3 -I/usr/include/pcl-1.7 -I/usr/include/ni -I/usr/include/vtk-5.8    -o CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/camera/src/realsense_camera_nodelet.cpp",
+  "file": "/home/mi/boroujeni/model_car/catkin_ws/src/camera/src/realsense_camera_nodelet.cpp"
+},
+{
+  "directory": "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera",
+  "command": "/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\\\"realsense_camera\\\" -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  --sysroot=/opt/odroid-x2/sdk -I/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include -I/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include -I/opt/odroid-x2/sdk/opt/ros/indigo/include -I/opt/odroid-x2/sdk/usr/include/opencv -I/opt/odroid-x2/sdk/usr/include -I/usr/include/eigen3 -I/usr/include/pcl-1.7 -I/usr/include/ni -I/usr/include/vtk-5.8    -o CMakeFiles/realsense_camera_test.dir/test/realsense_camera_test_node.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/camera/test/realsense_camera_test_node.cpp",
+  "file": "/home/mi/boroujeni/model_car/catkin_ws/src/camera/test/realsense_camera_test_node.cpp"
+},
+{
+  "directory": "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera",
+  "command": "/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\\\"realsense_camera\\\" -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  --sysroot=/opt/odroid-x2/sdk -I/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include -I/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include -I/opt/odroid-x2/sdk/opt/ros/indigo/include -I/opt/odroid-x2/sdk/usr/include/opencv -I/opt/odroid-x2/sdk/usr/include -I/usr/include/eigen3 -I/usr/include/pcl-1.7 -I/usr/include/ni -I/usr/include/vtk-5.8    -o CMakeFiles/realsense_camera_test_rgbd.dir/test/realsense_camera_test_rgbd_node.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/camera/test/realsense_camera_test_rgbd_node.cpp",
+  "file": "/home/mi/boroujeni/model_car/catkin_ws/src/camera/test/realsense_camera_test_rgbd_node.cpp"
+},
+{
+  "directory": "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera/gtest",
+  "command": "/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_EXPORTS -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  --sysroot=/opt/odroid-x2/sdk -fPIC -I/usr/src/gtest/include -I/usr/src/gtest    -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  --sysroot=/opt/odroid-x2/sdk -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /usr/src/gtest/src/gtest-all.cc",
+  "file": "/usr/src/gtest/src/gtest-all.cc"
+},
+{
+  "directory": "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera/gtest",
+  "command": "/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_main_EXPORTS -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  --sysroot=/opt/odroid-x2/sdk -fPIC -I/usr/src/gtest/include -I/usr/src/gtest    -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  --sysroot=/opt/odroid-x2/sdk -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/gtest/src/gtest_main.cc",
+  "file": "/usr/src/gtest/src/gtest_main.cc"
+}
+]

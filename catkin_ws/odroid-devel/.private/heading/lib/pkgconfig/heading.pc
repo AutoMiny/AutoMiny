@@ -1,0 +1,8 @@
+prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/heading
+
+Name: heading
+Description: Description of heading
+Version: 0.0.0
+Cflags: -I/home/mi/boroujeni/model_car/catkin_ws/src/heading/include/
+Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/heading/lib -lheading
+Requires: serial std_msgs

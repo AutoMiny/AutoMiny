@@ -1,0 +1,31 @@
+[35m[1mScanning dependencies of target realsense_camera_gencfg
+[0m[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_cameraConfiguration
+[0m[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp
+[0m[35m[1mScanning dependencies of target std_msgs_generate_messages_py
+[0m[ 11%] [ 11%] [ 11%] [35m[1mScanning dependencies of target std_msgs_generate_messages_lisp
+[0mBuilt target std_msgs_generate_messages_py
+Built target std_msgs_generate_messages_cpp
+[34m[1mGenerating dynamic reconfigure files from cfg/camera_params.cfg: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py
+[0m[35m[1mScanning dependencies of target gtest
+[ 11%] Built target std_msgs_generate_messages_lisp
+[0m[ 22%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[0m[ 22%] Built target _realsense_camera_generate_messages_check_deps_cameraConfiguration
+[35m[1mScanning dependencies of target realsense_camera_generate_messages_cpp
+[0mGenerating reconfiguration files for camera_params in realsense_camera
+/usr/src/gtest/src/gtest-all.cc:39:25: fatal error: gtest/gtest.h: No such file or directory
+compilation terminated.
+[35m[1mScanning dependencies of target realsense_camera_generate_messages_lisp
+[0mWrote header file in /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h
+make[2]: *** [gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o] Error 1
+make[1]: *** [gtest/CMakeFiles/gtest.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 33%] [35m[1mScanning dependencies of target realsense_camera_generate_messages_py
+[0m[ 44%] [34m[1mGenerating C++ code from realsense_camera/cameraConfiguration.srv
+[0m[ 55%] [ 55%] [34m[1mGenerating Lisp code from realsense_camera/cameraConfiguration.srv
+[0mBuilt target realsense_camera_gencfg
+[34m[1mGenerating Python code from SRV realsense_camera/cameraConfiguration
+[0m[ 55%] [ 66%] Built target realsense_camera_generate_messages_lisp
+[34m[1mGenerating Python srv __init__.py for realsense_camera
+[0m[ 66%] Built target realsense_camera_generate_messages_py
+[ 66%] Built target realsense_camera_generate_messages_cpp
+make: *** [all] Error 2

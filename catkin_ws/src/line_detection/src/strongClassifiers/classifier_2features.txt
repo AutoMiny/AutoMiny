@@ -1,0 +1,2 @@
+<type>13<x>0<y>3<w>10<h>15<thresh>3333<pol>g<alpha>2.0<end>
+<type>13<x>5<y>8<w>3<h>3<thresh>-11<pol>l<alpha>1.5<end>

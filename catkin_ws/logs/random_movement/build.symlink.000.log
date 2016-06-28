@@ -1,0 +1,4 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/random_movement/cmake/random_movementConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/random_movement/cmake/random_movementConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/random_movement.pc
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/random_movement/random_movement_node

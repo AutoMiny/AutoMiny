@@ -1,0 +1,5 @@
+control
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/control/share/control/cmake/controlConfig.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/control/cmake/controlConfig.cmake
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/control/share/control/cmake/controlConfig-version.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/control/cmake/controlConfig-version.cmake
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/control/lib/control/control_node /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/control/control_node
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/control/lib/pkgconfig/control.pc /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/control.pc

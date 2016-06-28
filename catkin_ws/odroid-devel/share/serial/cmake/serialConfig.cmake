@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/share/serial/cmake/serialConfig.cmake

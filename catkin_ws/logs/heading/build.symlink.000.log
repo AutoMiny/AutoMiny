@@ -1,0 +1,5 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/heading/cmake/headingConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/heading/cmake/headingConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libheading.so
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/heading.pc
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/heading/heading_node

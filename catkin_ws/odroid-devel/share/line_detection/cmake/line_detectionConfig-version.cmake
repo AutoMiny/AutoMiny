@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/share/line_detection/cmake/line_detectionConfig-version.cmake

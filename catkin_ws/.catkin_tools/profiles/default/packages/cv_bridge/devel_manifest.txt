@@ -1,0 +1,8 @@
+cv_bridge
+/home/mi/boroujeni/model_car/catkin_ws/devel/.private/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig.cmake /home/mi/boroujeni/model_car/catkin_ws/devel/share/cv_bridge/cmake/cv_bridgeConfig.cmake
+/home/mi/boroujeni/model_car/catkin_ws/devel/.private/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake /home/mi/boroujeni/model_car/catkin_ws/devel/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake
+/home/mi/boroujeni/model_car/catkin_ws/devel/.private/cv_bridge/lib/libcv_bridge.so /home/mi/boroujeni/model_car/catkin_ws/devel/lib/libcv_bridge.so
+/home/mi/boroujeni/model_car/catkin_ws/devel/.private/cv_bridge/lib/pkgconfig/cv_bridge.pc /home/mi/boroujeni/model_car/catkin_ws/devel/lib/pkgconfig/cv_bridge.pc
+/home/mi/boroujeni/model_car/catkin_ws/devel/.private/cv_bridge/lib/python2.7/dist-packages/cv_bridge/__init__.py /home/mi/boroujeni/model_car/catkin_ws/devel/lib/python2.7/dist-packages/cv_bridge/__init__.py
+/home/mi/boroujeni/model_car/catkin_ws/devel/.private/cv_bridge/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so /home/mi/boroujeni/model_car/catkin_ws/devel/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so
+/home/mi/boroujeni/model_car/catkin_ws/devel/.private/cv_bridge/lib/python2.7/dist-packages/cv_bridge/boost/__init__.py /home/mi/boroujeni/model_car/catkin_ws/devel/lib/python2.7/dist-packages/cv_bridge/boost/__init__.py

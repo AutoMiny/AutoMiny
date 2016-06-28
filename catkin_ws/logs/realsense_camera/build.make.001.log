@@ -1,0 +1,29 @@
+[ 11%] Built target realsense_camera_gencfg
+[ 11%] Built target _realsense_camera_generate_messages_check_deps_cameraConfiguration
+[ 11%] Built target std_msgs_generate_messages_cpp
+[ 11%] Built target std_msgs_generate_messages_lisp
+[ 11%] Built target std_msgs_generate_messages_py
+[ 22%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[0m[31m[1mLinking CXX shared library libgtest.so
+[0m[ 22%] Built target gtest
+[ 33%] [ 55%] [ 66%] Built target realsense_camera_generate_messages_cpp
+Built target realsense_camera_generate_messages_py
+Built target realsense_camera_generate_messages_lisp
+[35m[1mScanning dependencies of target realsense_camera_test_rgbd
+[35m[1mScanning dependencies of target realsense_camera_nodelet
+[35m[1mScanning dependencies of target realsense_camera_generate_messages
+[35m[1mScanning dependencies of target realsense_camera_test
+[0m[ 66%] Built target realsense_camera_generate_messages
+[0m[0m[ 77%] [32mBuilding CXX object CMakeFiles/realsense_camera_test_rgbd.dir/test/realsense_camera_test_rgbd_node.cpp.o
+[0m[ 88%] [32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o
+[0m[0m[100%] [32mBuilding CXX object CMakeFiles/realsense_camera_test.dir/test/realsense_camera_test_node.cpp.o
+[0m[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/realsense_camera/realsense_camera_test_rgbd
+/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/ld: warning: libGL.so.1, needed by /opt/odroid-x2/sdk//usr/lib/libpcl_visualization.so, not found (try using -rpath or -rpath-link)
+/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/ld: warning: libEGL.so.1, needed by /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libQtGui.so.4, not found (try using -rpath or -rpath-link)
+[0m[100%] Built target realsense_camera_test_rgbd
+[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/realsense_camera/realsense_camera_test
+[0m[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so
+/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/ld: warning: libGL.so.1, needed by /opt/odroid-x2/sdk//usr/lib/libpcl_visualization.so, not found (try using -rpath or -rpath-link)
+/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/ld: warning: libEGL.so.1, needed by /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libQtGui.so.4, not found (try using -rpath or -rpath-link)
+[0m[100%] Built target realsense_camera_test
+[100%] Built target realsense_camera_nodelet

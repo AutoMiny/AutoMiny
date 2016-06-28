@@ -1,0 +1,4 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/control/cmake/controlConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/control/cmake/controlConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/control/control_node
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/control.pc

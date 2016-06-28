@@ -1,0 +1,5 @@
+odometry
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/share/odometry/cmake/odometryConfig-version.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/odometry/cmake/odometryConfig-version.cmake
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/share/odometry/cmake/odometryConfig.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/odometry/cmake/odometryConfig.cmake
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/pkgconfig/odometry.pc /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/odometry.pc
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/odometry/odometry_publisher

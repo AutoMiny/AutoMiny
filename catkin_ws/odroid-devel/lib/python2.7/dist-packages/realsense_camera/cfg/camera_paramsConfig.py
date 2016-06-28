@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py

@@ -1,0 +1,8 @@
+prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision
+
+Name: cmvision
+Description: Description of cmvision
+Version: 0.4.2
+Cflags: -I/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/include
+Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib 
+Requires: message_runtime std_msgs

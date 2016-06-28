@@ -1,0 +1,9 @@
+[35m[1mScanning dependencies of target detect
+[0m[100%] [32mBuilding CXX object CMakeFiles/detect.dir/src/detect.cpp.o
+In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/detect_roof_rectangles/src/detect.cpp:1:
+/opt/odroid-x2/sdk/opt/ros/indigo/include/ros/time.h:58:50: fatal error: boost/math/special_functions/round.hpp: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/detect.dir/src/detect.cpp.o] Error 1
+make[1]: *** [CMakeFiles/detect.dir/all] Error 2
+make: *** [all] Error 2

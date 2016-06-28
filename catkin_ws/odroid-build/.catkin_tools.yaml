@@ -1,0 +1,6 @@
+devel_space: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel
+install: false
+install_space: /home/mi/boroujeni/model_car/catkin_ws/odroid-install
+profile: odroid
+source_space: /home/mi/boroujeni/model_car/catkin_ws/src
+workspace: /home/mi/boroujeni/model_car/catkin_ws

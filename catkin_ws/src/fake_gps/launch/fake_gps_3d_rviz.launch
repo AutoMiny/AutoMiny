@@ -1,0 +1,11 @@
+<launch>
+  <!-- args = list of led id -->
+  <node pkg="fake_gps" type="fake_gps_3d_node" name="fake_gps_3d" args="0 1 2" output="screen">
+    <param name="map_file" value="$(find fake_gps)/config/FEATURE_FILES/map.txt" />
+    <param name="camera_file" value="$(find fake_gps)/config/FEATURE_FILES/camera.txt" />
+    <param name="start_frame" value="/world" />
+    <param name="end_frame" value="/camera"/>
+  </node>
+    <node pkg="tf" type="static_transform_publisher" name="ftsensor_FRAME" args="0 0 0 0 0 0 /world /Features_markers 500" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fake_gps)/markers.rviz" />
+</launch>

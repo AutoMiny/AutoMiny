@@ -1,0 +1,8 @@
+prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-install
+
+Name: cv_bridge
+Description: Description of cv_bridge
+Version: 1.12.0
+Cflags: -I/home/mi/boroujeni/model_car/catkin_ws/odroid-install/include -I/opt/odroid-x2/sdk/usr/include/opencv -I/opt/odroid-x2/sdk/usr/include
+Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-install/lib -lcv_bridge -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_videostab.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_video.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_superres.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_stitching.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_photo.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ocl.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_objdetect.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ml.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_legacy.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_imgproc.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_highgui.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_gpu.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_flann.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_features2d.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_core.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_contrib.so.2.4.8 -l:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_calib3d.so.2.4.8
+Requires: rosconsole sensor_msgs

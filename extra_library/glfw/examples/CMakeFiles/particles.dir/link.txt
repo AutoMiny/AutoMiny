@@ -1,0 +1,1 @@
+/usr/bin/cc      CMakeFiles/particles.dir/particles.c.o CMakeFiles/particles.dir/__/deps/tinycthread.c.o CMakeFiles/particles.dir/__/deps/getopt.c.o  -o particles -rdynamic ../src/libglfw.so.3.1 -lGL -lm -lpthread -lrt -lX11 -lpthread -lXrandr -lXinerama -lXi -lXxf86vm -lXcursor -lGL -ldl -Wl,-rpath,/root/glfw/src 

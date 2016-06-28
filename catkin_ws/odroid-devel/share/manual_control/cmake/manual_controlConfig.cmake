@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/share/manual_control/cmake/manual_controlConfig.cmake

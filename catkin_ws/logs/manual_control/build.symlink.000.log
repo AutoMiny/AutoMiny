@@ -1,0 +1,5 @@
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/manual_control/cmake/manual_controlConfig-version.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/manual_control/cmake/manual_controlConfig.cmake
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libmanual_control.so
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/manual_control.pc
+Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/manual_control/manual_control_node

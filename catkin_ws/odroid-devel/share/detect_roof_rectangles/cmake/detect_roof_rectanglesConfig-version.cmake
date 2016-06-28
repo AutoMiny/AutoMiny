@@ -1,0 +1,1 @@
+/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/detect_roof_rectangles/share/detect_roof_rectangles/cmake/detect_roof_rectanglesConfig-version.cmake
