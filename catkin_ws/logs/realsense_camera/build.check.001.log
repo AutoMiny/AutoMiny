@@ -1,3 +1,4 @@
+/usr/bin/cmake -H/home/mi/boroujeni/model_car/catkin_ws/src/camera -B/home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera --check-build-system CMakeFiles/Makefile.cmake 0
 [36m--[0m Using CATKIN_DEVEL_PREFIX: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera
 [36m--[0m Using CMAKE_PREFIX_PATH: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel;/opt/odroid-x2/sdk/opt/ros/indigo;/opt/odroid-x2/sdk//opt/ros/indigo
 [36m--[0m This workspace overlays: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel;/opt/odroid-x2/sdk/opt/ros/indigo;/opt/odroid-x2/sdk//opt/ros/indigo

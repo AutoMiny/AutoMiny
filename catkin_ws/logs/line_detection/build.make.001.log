@@ -4,11 +4,11 @@
 [0m[ 44%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/Feature.cpp.o
 [0m[ 55%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o
 [0m[ 66%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o
-[0m[ 77%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o
-[0m[ 88%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/Circle.cpp.o
 /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp: In member function ‘void LaneModel::initialize(bool, bool)’:
 /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp:54:26: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
 /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp:54:26: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+[0m[ 77%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o
+[0m[ 88%] [32mBuilding CXX object CMakeFiles/LaneDetector.dir/src/Circle.cpp.o
 [0m[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so
 [0m[ 88%] Built target LaneDetector
 [35m[1mScanning dependencies of target line_detection_node

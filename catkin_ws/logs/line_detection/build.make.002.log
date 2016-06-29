@@ -1,2 +1,4 @@
-[ 88%] Built target LaneDetector
-[100%] Built target line_detection_node
+[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so
+[0m[ 88%] Built target LaneDetector
+[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/line_detection/line_detection_node
+[0m[100%] Built target line_detection_node

@@ -1,2 +1,4 @@
-[ 50%] Built target send_steering
-[100%] Built target send_steering_node
+[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/send_steering/lib/libsend_steering.so
+[0m[ 50%] Built target send_steering
+[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/send_steering/lib/send_steering/send_steering_node
+[0m[100%] Built target send_steering_node

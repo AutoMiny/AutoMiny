@@ -6,3 +6,27 @@ Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/./_setup_util.py
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/catkin_tools_prebuild.pc
+Cleaning: (/root/catkin_ws/odroid-devel/.private/catkin_tools_prebuild/setup.zsh, /root/catkin_ws/odroid-devel/./setup.zsh)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/catkin_tools_prebuild/setup.sh, /root/catkin_ws/odroid-devel/./setup.sh)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/catkin_tools_prebuild/env.sh, /root/catkin_ws/odroid-devel/./env.sh)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/catkin_tools_prebuild/setup.bash, /root/catkin_ws/odroid-devel/./setup.bash)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/catkin_tools_prebuild/_setup_util.py, /root/catkin_ws/odroid-devel/./_setup_util.py)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/catkin_tools_prebuild/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake, /root/catkin_ws/odroid-devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/catkin_tools_prebuild/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake, /root/catkin_ws/odroid-devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/catkin_tools_prebuild/lib/pkgconfig/catkin_tools_prebuild.pc, /root/catkin_ws/odroid-devel/lib/pkgconfig/catkin_tools_prebuild.pc)
+Unlinking: /root/catkin_ws/odroid-devel/./setup.zsh
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/./setup.sh
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/./env.sh
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/./setup.bash
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/./_setup_util.py
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/pkgconfig/catkin_tools_prebuild.pc
+Already unlinked: {}

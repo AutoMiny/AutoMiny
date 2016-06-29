@@ -3,3 +3,18 @@ Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/usb_cam/cma
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/usb_cam.pc
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/usb_cam/usb_cam_node
+Cleaning: (/root/catkin_ws/odroid-devel/.private/usb_cam/share/usb_cam/cmake/usb_camConfig.cmake, /root/catkin_ws/odroid-devel/share/usb_cam/cmake/usb_camConfig.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/usb_cam/share/usb_cam/cmake/usb_camConfig-version.cmake, /root/catkin_ws/odroid-devel/share/usb_cam/cmake/usb_camConfig-version.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/usb_cam/lib/libusb_cam.so, /root/catkin_ws/odroid-devel/lib/libusb_cam.so)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/usb_cam/lib/pkgconfig/usb_cam.pc, /root/catkin_ws/odroid-devel/lib/pkgconfig/usb_cam.pc)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/usb_cam/lib/usb_cam/usb_cam_node, /root/catkin_ws/odroid-devel/lib/usb_cam/usb_cam_node)
+Unlinking: /root/catkin_ws/odroid-devel/share/usb_cam/cmake/usb_camConfig.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/usb_cam/cmake/usb_camConfig-version.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/libusb_cam.so
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/pkgconfig/usb_cam.pc
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/usb_cam/usb_cam_node
+Already unlinked: {}

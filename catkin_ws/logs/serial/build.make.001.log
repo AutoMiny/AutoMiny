@@ -1,8 +1,2 @@
-[ 25%] [32mBuilding CXX object CMakeFiles/serial.dir/src/serial.cc.o
-[0m[ 50%] [32mBuilding CXX object CMakeFiles/serial.dir/src/impl/unix.cc.o
-[0m[ 75%] [32mBuilding CXX object CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o
-[0m[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/libserial.so
-[0m[ 75%] Built target serial
-[100%] [32mBuilding CXX object CMakeFiles/serial_example.dir/examples/serial_otto.cc.o
-[0m[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial_example
-[0m[100%] Built target serial_example
+[ 75%] Built target serial
+[100%] Built target serial_example

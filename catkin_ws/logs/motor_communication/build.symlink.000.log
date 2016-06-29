@@ -4,3 +4,21 @@ Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libmotor_comm
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/motor_communication/motor_control_node
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/motor_communication/motor_communication_node
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/motor_communication.pc
+Cleaning: (/root/catkin_ws/odroid-devel/.private/motor_communication/share/motor_communication/cmake/motor_communicationConfig-version.cmake, /root/catkin_ws/odroid-devel/share/motor_communication/cmake/motor_communicationConfig-version.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/motor_communication/share/motor_communication/cmake/motor_communicationConfig.cmake, /root/catkin_ws/odroid-devel/share/motor_communication/cmake/motor_communicationConfig.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/motor_communication/lib/libmotor_communication.so, /root/catkin_ws/odroid-devel/lib/libmotor_communication.so)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_control_node, /root/catkin_ws/odroid-devel/lib/motor_communication/motor_control_node)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_communication_node, /root/catkin_ws/odroid-devel/lib/motor_communication/motor_communication_node)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/motor_communication/lib/pkgconfig/motor_communication.pc, /root/catkin_ws/odroid-devel/lib/pkgconfig/motor_communication.pc)
+Unlinking: /root/catkin_ws/odroid-devel/share/motor_communication/cmake/motor_communicationConfig-version.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/motor_communication/cmake/motor_communicationConfig.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/libmotor_communication.so
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/motor_communication/motor_control_node
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/motor_communication/motor_communication_node
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/pkgconfig/motor_communication.pc
+Already unlinked: {}

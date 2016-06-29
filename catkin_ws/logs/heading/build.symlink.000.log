@@ -3,3 +3,18 @@ Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/heading/cma
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libheading.so
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/heading.pc
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/heading/heading_node
+Cleaning: (/root/catkin_ws/odroid-devel/.private/heading/share/heading/cmake/headingConfig-version.cmake, /root/catkin_ws/odroid-devel/share/heading/cmake/headingConfig-version.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/heading/share/heading/cmake/headingConfig.cmake, /root/catkin_ws/odroid-devel/share/heading/cmake/headingConfig.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/heading/lib/libheading.so, /root/catkin_ws/odroid-devel/lib/libheading.so)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/heading/lib/pkgconfig/heading.pc, /root/catkin_ws/odroid-devel/lib/pkgconfig/heading.pc)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/heading/lib/heading/heading_node, /root/catkin_ws/odroid-devel/lib/heading/heading_node)
+Unlinking: /root/catkin_ws/odroid-devel/share/heading/cmake/headingConfig-version.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/heading/cmake/headingConfig.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/libheading.so
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/pkgconfig/heading.pc
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/heading/heading_node
+Already unlinked: {}

@@ -1,2 +1,4 @@
-[ 50%] Built target usb_cam
-[100%] Built target usb_cam_node
+[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/usb_cam/lib/libusb_cam.so
+[0m[ 50%] Built target usb_cam
+[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/usb_cam/lib/usb_cam/usb_cam_node
+[0m[100%] Built target usb_cam_node

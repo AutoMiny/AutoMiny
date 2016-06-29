@@ -30,30 +30,30 @@ The CXX compiler identification is GNU, found in "/home/mi/boroujeni/model_car/c
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1502779057/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1502779057.dir/build.make CMakeFiles/cmTryCompileExec1502779057.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec1676826971/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1676826971.dir/build.make CMakeFiles/cmTryCompileExec1676826971.dir/build
 make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1502779057.dir/testCCompiler.c.o
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec1502779057.dir/testCCompiler.c.o   -c /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTryCompileExec1502779057
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1502779057.dir/link.txt --verbose=1
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc       CMakeFiles/cmTryCompileExec1502779057.dir/testCCompiler.c.o  -o cmTryCompileExec1502779057 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec1676826971.dir/testCCompiler.c.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec1676826971.dir/testCCompiler.c.o   -c /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec1676826971
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1676826971.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc       CMakeFiles/cmTryCompileExec1676826971.dir/testCCompiler.c.o  -o cmTryCompileExec1676826971 -rdynamic 
 make[1]: Leaving directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec4133140639/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec4133140639.dir/build.make CMakeFiles/cmTryCompileExec4133140639.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec1482140095/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1482140095.dir/build.make CMakeFiles/cmTryCompileExec1482140095.dir/build
 make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec4133140639.dir/CMakeCCompilerABI.c.o
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec4133140639.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
-Linking C executable cmTryCompileExec4133140639
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4133140639.dir/link.txt --verbose=1
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc     -v CMakeFiles/cmTryCompileExec4133140639.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec4133140639 -rdynamic  
+Building C object CMakeFiles/cmTryCompileExec1482140095.dir/CMakeCCompilerABI.c.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec1482140095.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec1482140095
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1482140095.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc     -v CMakeFiles/cmTryCompileExec1482140095.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1482140095 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc
 COLLECT_LTO_WRAPPER=/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/lto-wrapper
@@ -63,8 +63,8 @@ Thread model: posix
 gcc version 4.7.2 20120731 (prerelease) (crosstool-NG linaro-1.13.1-2012.08-20120827 - Linaro GCC 2012.08) 
 COMPILER_PATH=/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/:/opt/odroid-x2/compiler/bin/../libexec/gcc/:/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/
 LIBRARY_PATH=/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/:/opt/odroid-x2/compiler/bin/../lib/gcc/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec4133140639' '-rdynamic' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
- /opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2 --sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec4133140639 /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2 -L/opt/odroid-x2/compiler/bin/../lib/gcc -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTryCompileExec4133140639.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtend.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1482140095' '-rdynamic' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
+ /opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2 --sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec1482140095 /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2 -L/opt/odroid-x2/compiler/bin/../lib/gcc -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTryCompileExec1482140095.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtend.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crtn.o
 make[1]: Leaving directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 
 
@@ -72,15 +72,15 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-gnueabihf-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec4133140639/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec4133140639.dir/build.make CMakeFiles/cmTryCompileExec4133140639.dir/build]
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec1482140095/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec1482140095.dir/build.make CMakeFiles/cmTryCompileExec1482140095.dir/build]
   ignore line: [make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp']
   ignore line: [/usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building C object CMakeFiles/cmTryCompileExec4133140639.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec4133140639.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTryCompileExec4133140639]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4133140639.dir/link.txt --verbose=1]
-  ignore line: [/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc     -v CMakeFiles/cmTryCompileExec4133140639.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec4133140639 -rdynamic  ]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec1482140095.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec1482140095.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec1482140095]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1482140095.dir/link.txt --verbose=1]
+  ignore line: [/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc     -v CMakeFiles/cmTryCompileExec1482140095.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1482140095 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc]
   ignore line: [COLLECT_LTO_WRAPPER=/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/lto-wrapper]
@@ -90,8 +90,8 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.7.2 20120731 (prerelease) (crosstool-NG linaro-1.13.1-2012.08-20120827 - Linaro GCC 2012.08) ]
   ignore line: [COMPILER_PATH=/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/:/opt/odroid-x2/compiler/bin/../libexec/gcc/:/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/]
   ignore line: [LIBRARY_PATH=/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/:/opt/odroid-x2/compiler/bin/../lib/gcc/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec4133140639' '-rdynamic' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu']
-  link line: [ /opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2 --sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec4133140639 /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2 -L/opt/odroid-x2/compiler/bin/../lib/gcc -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTryCompileExec4133140639.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtend.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1482140095' '-rdynamic' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu']
+  link line: [ /opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2 --sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec1482140095 /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2 -L/opt/odroid-x2/compiler/bin/../lib/gcc -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTryCompileExec1482140095.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtend.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crtn.o]
     arg [/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2] ==> ignore
     arg [--sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc] ==> ignore
     arg [--build-id] ==> ignore
@@ -103,7 +103,7 @@ Parsed C implicit link information from above output:
     arg [-m] ==> ignore
     arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTryCompileExec4133140639] ==> ignore
+    arg [cmTryCompileExec1482140095] ==> ignore
     arg [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o] ==> ignore
     arg [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o] ==> ignore
     arg [/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o] ==> ignore
@@ -115,7 +115,7 @@ Parsed C implicit link information from above output:
     arg [-L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf] ==> dir [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf]
     arg [-L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> dir [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib]
     arg [-L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf] ==> dir [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf]
-    arg [CMakeFiles/cmTryCompileExec4133140639.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec1482140095.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -147,30 +147,30 @@ Parsed C implicit link information from above output:
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec363392958/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec363392958.dir/build.make CMakeFiles/cmTryCompileExec363392958.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec391110382/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec391110382.dir/build.make CMakeFiles/cmTryCompileExec391110382.dir/build
 make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec363392958.dir/testCXXCompiler.cxx.o
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++     -o CMakeFiles/cmTryCompileExec363392958.dir/testCXXCompiler.cxx.o -c /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTryCompileExec363392958
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec363392958.dir/link.txt --verbose=1
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++        CMakeFiles/cmTryCompileExec363392958.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec363392958 -rdynamic 
+Building CXX object CMakeFiles/cmTryCompileExec391110382.dir/testCXXCompiler.cxx.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++     -o CMakeFiles/cmTryCompileExec391110382.dir/testCXXCompiler.cxx.o -c /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec391110382
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec391110382.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++        CMakeFiles/cmTryCompileExec391110382.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec391110382 -rdynamic 
 make[1]: Leaving directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3384346745/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3384346745.dir/build.make CMakeFiles/cmTryCompileExec3384346745.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec358983804/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec358983804.dir/build.make CMakeFiles/cmTryCompileExec358983804.dir/build
 make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec3384346745.dir/CMakeCXXCompilerABI.cpp.o
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++     -o CMakeFiles/cmTryCompileExec3384346745.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTryCompileExec3384346745
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3384346745.dir/link.txt --verbose=1
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++      -v CMakeFiles/cmTryCompileExec3384346745.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec3384346745 -rdynamic  
+Building CXX object CMakeFiles/cmTryCompileExec358983804.dir/CMakeCXXCompilerABI.cpp.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++     -o CMakeFiles/cmTryCompileExec358983804.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec358983804
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec358983804.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++      -v CMakeFiles/cmTryCompileExec358983804.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec358983804 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++
 COLLECT_LTO_WRAPPER=/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/lto-wrapper
@@ -180,8 +180,8 @@ Thread model: posix
 gcc version 4.7.2 20120731 (prerelease) (crosstool-NG linaro-1.13.1-2012.08-20120827 - Linaro GCC 2012.08) 
 COMPILER_PATH=/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/:/opt/odroid-x2/compiler/bin/../libexec/gcc/:/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/
 LIBRARY_PATH=/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/:/opt/odroid-x2/compiler/bin/../lib/gcc/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec3384346745' '-rdynamic' '-shared-libgcc' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
- /opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2 --sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec3384346745 /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2 -L/opt/odroid-x2/compiler/bin/../lib/gcc -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTryCompileExec3384346745.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtend.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec358983804' '-rdynamic' '-shared-libgcc' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
+ /opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2 --sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec358983804 /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2 -L/opt/odroid-x2/compiler/bin/../lib/gcc -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTryCompileExec358983804.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtend.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crtn.o
 make[1]: Leaving directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 
 
@@ -189,15 +189,15 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-gnueabihf-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec3384346745/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec3384346745.dir/build.make CMakeFiles/cmTryCompileExec3384346745.dir/build]
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec358983804/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec358983804.dir/build.make CMakeFiles/cmTryCompileExec358983804.dir/build]
   ignore line: [make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp']
   ignore line: [/usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec3384346745.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++     -o CMakeFiles/cmTryCompileExec3384346745.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTryCompileExec3384346745]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3384346745.dir/link.txt --verbose=1]
-  ignore line: [/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++      -v CMakeFiles/cmTryCompileExec3384346745.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec3384346745 -rdynamic  ]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec358983804.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++     -o CMakeFiles/cmTryCompileExec358983804.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec358983804]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec358983804.dir/link.txt --verbose=1]
+  ignore line: [/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++      -v CMakeFiles/cmTryCompileExec358983804.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec358983804 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++]
   ignore line: [COLLECT_LTO_WRAPPER=/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/lto-wrapper]
@@ -207,8 +207,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.7.2 20120731 (prerelease) (crosstool-NG linaro-1.13.1-2012.08-20120827 - Linaro GCC 2012.08) ]
   ignore line: [COMPILER_PATH=/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/:/opt/odroid-x2/compiler/bin/../libexec/gcc/:/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/]
   ignore line: [LIBRARY_PATH=/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/:/opt/odroid-x2/compiler/bin/../lib/gcc/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/:/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec3384346745' '-rdynamic' '-shared-libgcc' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu']
-  link line: [ /opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2 --sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec3384346745 /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2 -L/opt/odroid-x2/compiler/bin/../lib/gcc -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTryCompileExec3384346745.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtend.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec358983804' '-rdynamic' '-shared-libgcc' '-march=armv7-a' '-mtune=cortex-a9' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu']
+  link line: [ /opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2 --sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec358983804 /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2 -L/opt/odroid-x2/compiler/bin/../lib/gcc -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib -L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTryCompileExec358983804.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtend.o /opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crtn.o]
     arg [/opt/odroid-x2/compiler/bin/../libexec/gcc/arm-linux-gnueabihf/4.7.2/collect2] ==> ignore
     arg [--sysroot=/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc] ==> ignore
     arg [--build-id] ==> ignore
@@ -220,7 +220,7 @@ Parsed CXX implicit link information from above output:
     arg [-m] ==> ignore
     arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTryCompileExec3384346745] ==> ignore
+    arg [cmTryCompileExec358983804] ==> ignore
     arg [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crt1.o] ==> ignore
     arg [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/crti.o] ==> ignore
     arg [/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/crtbegin.o] ==> ignore
@@ -232,7 +232,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf] ==> dir [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf]
     arg [-L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> dir [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib]
     arg [-L/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf] ==> dir [/opt/odroid-x2/compiler/bin/../arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf]
-    arg [CMakeFiles/cmTryCompileExec3384346745.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec358983804.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -262,30 +262,30 @@ Parsed CXX implicit link information from above output:
 Determining if files pthread.h exist passed with the following output:
 Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3169642963/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3169642963.dir/build.make CMakeFiles/cmTryCompileExec3169642963.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec80814833/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec80814833.dir/build.make CMakeFiles/cmTryCompileExec80814833.dir/build
 make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3169642963.dir/CheckIncludeFiles.c.o
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec3169642963.dir/CheckIncludeFiles.c.o   -c /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
-Linking C executable cmTryCompileExec3169642963
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3169642963.dir/link.txt --verbose=1
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc       CMakeFiles/cmTryCompileExec3169642963.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3169642963 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec80814833.dir/CheckIncludeFiles.c.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec80814833.dir/CheckIncludeFiles.c.o   -c /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec80814833
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec80814833.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc       CMakeFiles/cmTryCompileExec80814833.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec80814833 -rdynamic 
 make[1]: Leaving directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 
 
 Determining if the function pthread_create exists in the pthread passed with the following output:
 Change Dir: /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec4060809283/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec4060809283.dir/build.make CMakeFiles/cmTryCompileExec4060809283.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec1879472714/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1879472714.dir/build.make CMakeFiles/cmTryCompileExec1879472714.dir/build
 make[1]: Entering directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec4060809283.dir/CheckFunctionExists.c.o
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec4060809283.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec4060809283
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4060809283.dir/link.txt --verbose=1
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec4060809283.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4060809283 -rdynamic -lpthread 
+Building C object CMakeFiles/cmTryCompileExec1879472714.dir/CheckFunctionExists.c.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1879472714.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1879472714
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1879472714.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1879472714.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1879472714 -rdynamic -lpthread 
 make[1]: Leaving directory `/home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
 
 

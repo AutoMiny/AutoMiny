@@ -5,7 +5,7 @@ project(realsense_camera)
 # Save the command line compile commands in the build output
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 # View the makefile commands during build
-#set(CMAKE_VERBOSE_MAKEFILE on)
+set(CMAKE_VERBOSE_MAKEFILE on)
 
 set(CMAKE_CXX_FLAGS "-fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall ${CMAKE_CXX_FLAGS}")
 # Flags executables
@@ -51,7 +51,12 @@ add_library(realsense_camera_nodelet src/realsense_camera_nodelet.cpp)
 target_link_libraries(realsense_camera_nodelet
   ${catkin_LIBRARIES}
   /usr/local/lib/librealsense.so
+  /opt/odroid-x2/sdk/usr/lib/librealsense.so
 )
+
+#cross compiling!
+#link_directories(/opt/sdk/usr/lib/arm-linux-gnueabihf/mesa-egl/  /opt/sdk/usr/lib/arm-linux-gnueabihf/mesa/)
+
 add_dependencies(realsense_camera_nodelet realsense_camera_generate_messages_cpp ${PROJECT_NAME}_gencfg)
 
 add_executable(realsense_camera_test test/realsense_camera_test_node.cpp)

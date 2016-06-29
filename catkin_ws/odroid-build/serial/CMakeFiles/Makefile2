@@ -512,8 +512,8 @@ clean: tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/clean
 # Target rules for target tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir
 
 # All Build rule for target.
-tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/all: tests/CMakeFiles/serial-test-timer.dir/all
 tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/all: CMakeFiles/tests.dir/all
+tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/all: tests/CMakeFiles/serial-test-timer.dir/all
 tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/all: tests/CMakeFiles/clean_test_results_serial.dir/all
 	$(MAKE) -f tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build.make tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/depend
 	$(MAKE) -f tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build.make tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build
@@ -701,9 +701,9 @@ clean: tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/clean
 # Target rules for target tests/CMakeFiles/serial-test.dir
 
 # All Build rule for target.
+tests/CMakeFiles/serial-test.dir/all: gtest/CMakeFiles/gtest_main.dir/all
 tests/CMakeFiles/serial-test.dir/all: CMakeFiles/serial.dir/all
 tests/CMakeFiles/serial-test.dir/all: gtest/CMakeFiles/gtest.dir/all
-tests/CMakeFiles/serial-test.dir/all: gtest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) -f tests/CMakeFiles/serial-test.dir/build.make tests/CMakeFiles/serial-test.dir/depend
 	$(MAKE) -f tests/CMakeFiles/serial-test.dir/build.make tests/CMakeFiles/serial-test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/CMakeFiles  6
@@ -734,9 +734,9 @@ clean: tests/CMakeFiles/serial-test.dir/clean
 # Target rules for target tests/CMakeFiles/serial-test-timer.dir
 
 # All Build rule for target.
+tests/CMakeFiles/serial-test-timer.dir/all: gtest/CMakeFiles/gtest_main.dir/all
 tests/CMakeFiles/serial-test-timer.dir/all: CMakeFiles/serial.dir/all
 tests/CMakeFiles/serial-test-timer.dir/all: gtest/CMakeFiles/gtest.dir/all
-tests/CMakeFiles/serial-test-timer.dir/all: gtest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) -f tests/CMakeFiles/serial-test-timer.dir/build.make tests/CMakeFiles/serial-test-timer.dir/depend
 	$(MAKE) -f tests/CMakeFiles/serial-test-timer.dir/build.make tests/CMakeFiles/serial-test-timer.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/CMakeFiles  7

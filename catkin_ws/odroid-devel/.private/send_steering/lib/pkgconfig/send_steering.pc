@@ -1,8 +1,8 @@
-prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/send_steering
+prefix=/root/catkin_ws/odroid-devel/.private/send_steering
 
 Name: send_steering
 Description: Description of send_steering
 Version: 0.0.0
-Cflags: -I/home/mi/boroujeni/model_car/catkin_ws/src/send_steering/include
-Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/send_steering/lib -lsend_steering
+Cflags: -I/root/catkin_ws/src/send_steering/include
+Libs: -L/root/catkin_ws/odroid-devel/.private/send_steering/lib -lsend_steering
 Requires: serial

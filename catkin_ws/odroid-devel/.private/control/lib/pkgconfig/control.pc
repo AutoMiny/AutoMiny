@@ -1,8 +1,8 @@
-prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/control
+prefix=/root/catkin_ws/odroid-devel/.private/control
 
 Name: control
 Description: Description of control
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/control/lib 
+Libs: -L/root/catkin_ws/odroid-devel/.private/control/lib 
 Requires: 

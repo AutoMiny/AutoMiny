@@ -18,3 +18,63 @@ Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dis
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test_rgbd
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig-usage.dox, /root/catkin_ws/odroid-devel/share/realsense_camera/docs/camera_paramsConfig-usage.dox)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig.wikidoc, /root/catkin_ws/odroid-devel/share/realsense_camera/docs/camera_paramsConfig.wikidoc)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig.dox, /root/catkin_ws/odroid-devel/share/realsense_camera/docs/camera_paramsConfig.dox)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/share/realsense_camera/cmake/realsense_camera-msg-paths.cmake, /root/catkin_ws/odroid-devel/share/realsense_camera/cmake/realsense_camera-msg-paths.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/_package_cameraConfiguration.lisp, /root/catkin_ws/odroid-devel/share/common-lisp/ros/realsense_camera/srv/_package_cameraConfiguration.lisp)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/realsense_camera-srv.asd, /root/catkin_ws/odroid-devel/share/common-lisp/ros/realsense_camera/srv/realsense_camera-srv.asd)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/_package.lisp, /root/catkin_ws/odroid-devel/share/common-lisp/ros/realsense_camera/srv/_package.lisp)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/cameraConfiguration.lisp, /root/catkin_ws/odroid-devel/share/common-lisp/ros/realsense_camera/srv/cameraConfiguration.lisp)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/cameraConfigurationRequest.h, /root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfigurationRequest.h)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/cameraConfiguration.h, /root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfiguration.h)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/cameraConfigurationResponse.h, /root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfigurationResponse.h)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h, /root/catkin_ws/odroid-devel/include/realsense_camera/camera_paramsConfig.h)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so, /root/catkin_ws/odroid-devel/lib/librealsense_camera_nodelet.so)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/__init__.py, /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/__init__.py)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py, /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/__init__.py, /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/cfg/__init__.py)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_cameraConfiguration.py, /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/srv/_cameraConfiguration.py)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py, /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/lib/realsense_camera/realsense_camera_test, /root/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/realsense_camera/lib/realsense_camera/realsense_camera_test_rgbd, /root/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test_rgbd)
+Unlinking: /root/catkin_ws/odroid-devel/share/realsense_camera/docs/camera_paramsConfig-usage.dox
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/realsense_camera/docs/camera_paramsConfig.wikidoc
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/realsense_camera/docs/camera_paramsConfig.dox
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/realsense_camera/cmake/realsense_camera-msg-paths.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/common-lisp/ros/realsense_camera/srv/_package_cameraConfiguration.lisp
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/common-lisp/ros/realsense_camera/srv/realsense_camera-srv.asd
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/common-lisp/ros/realsense_camera/srv/_package.lisp
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/common-lisp/ros/realsense_camera/srv/cameraConfiguration.lisp
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfigurationRequest.h
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfiguration.h
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfigurationResponse.h
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/include/realsense_camera/camera_paramsConfig.h
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/librealsense_camera_nodelet.so
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/__init__.py
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/cfg/__init__.py
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/srv/_cameraConfiguration.py
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test_rgbd
+Already unlinked: {}

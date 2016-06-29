@@ -1,8 +1,8 @@
-prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps
+prefix=/root/catkin_ws/odroid-devel/.private/fake_gps
 
 Name: fake_gps
 Description: Description of fake_gps
 Version: 0.0.0
-Cflags: -I/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps/include
-Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps/lib 
+Cflags: -I/root/catkin_ws/odroid-devel/.private/fake_gps/include
+Libs: -L/root/catkin_ws/odroid-devel/.private/fake_gps/lib 
 Requires: std_msgs geometry_msgs message_runtime

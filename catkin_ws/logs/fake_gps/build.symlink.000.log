@@ -15,3 +15,54 @@ Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/fak
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/__init__.py
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/msg/_Transform.py
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/msg/__init__.py
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/share/fake_gps/cmake/fake_gpsConfig.cmake, /root/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gpsConfig.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/share/fake_gps/cmake/fake_gpsConfig-version.cmake, /root/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gpsConfig-version.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/share/fake_gps/cmake/fake_gps-msg-extras.cmake, /root/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gps-msg-extras.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/share/fake_gps/cmake/fake_gps-msg-paths.cmake, /root/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gps-msg-paths.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/share/common-lisp/ros/fake_gps/msg/fake_gps-msg.asd, /root/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/fake_gps-msg.asd)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/share/common-lisp/ros/fake_gps/msg/_package_Transform.lisp, /root/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/_package_Transform.lisp)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/share/common-lisp/ros/fake_gps/msg/_package.lisp, /root/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/_package.lisp)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/share/common-lisp/ros/fake_gps/msg/Transform.lisp, /root/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/Transform.lisp)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/include/fake_gps/Transform.h, /root/catkin_ws/odroid-devel/include/fake_gps/Transform.h)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/lib/libkalman_2d.so, /root/catkin_ws/odroid-devel/lib/libkalman_2d.so)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/lib/libkalman_3d.so, /root/catkin_ws/odroid-devel/lib/libkalman_3d.so)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/lib/fake_gps/fake_gps_2d_node, /root/catkin_ws/odroid-devel/lib/fake_gps/fake_gps_2d_node)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/lib/fake_gps/fake_gps_3d_node, /root/catkin_ws/odroid-devel/lib/fake_gps/fake_gps_3d_node)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/lib/pkgconfig/fake_gps.pc, /root/catkin_ws/odroid-devel/lib/pkgconfig/fake_gps.pc)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/lib/python2.7/dist-packages/fake_gps/__init__.py, /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/__init__.py)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/lib/python2.7/dist-packages/fake_gps/msg/_Transform.py, /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/msg/_Transform.py)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/fake_gps/lib/python2.7/dist-packages/fake_gps/msg/__init__.py, /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/msg/__init__.py)
+Unlinking: /root/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gpsConfig.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gpsConfig-version.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gps-msg-extras.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/fake_gps/cmake/fake_gps-msg-paths.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/fake_gps-msg.asd
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/_package_Transform.lisp
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/_package.lisp
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/common-lisp/ros/fake_gps/msg/Transform.lisp
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/include/fake_gps/Transform.h
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/libkalman_2d.so
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/libkalman_3d.so
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/fake_gps/fake_gps_2d_node
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/fake_gps/fake_gps_3d_node
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/pkgconfig/fake_gps.pc
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/__init__.py
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/msg/_Transform.py
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/fake_gps/msg/__init__.py
+Already unlinked: {}

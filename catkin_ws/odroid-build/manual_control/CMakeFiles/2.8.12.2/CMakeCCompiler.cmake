@@ -49,7 +49,7 @@ endif()
 
 
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "c")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/opt/odroid-x2/compiler/lib/gcc/arm-linux-gnueabihf/4.7.2;/opt/odroid-x2/compiler/lib/gcc;/opt/odroid-x2/compiler/lib/gcc/arm-linux-gnueabihf;/opt/odroid-x2/compiler/arm-linux-gnueabihf/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/usr/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/opt/sdk/usr/lib/arm-linux-gnueabihf/mesa-egl;/opt/sdk/usr/lib/arm-linux-gnueabihf/mesa;/opt/odroid-x2/compiler/lib/gcc/arm-linux-gnueabihf/4.7.2;/opt/odroid-x2/compiler/lib/gcc;/opt/odroid-x2/compiler/lib/gcc/arm-linux-gnueabihf;/opt/odroid-x2/compiler/arm-linux-gnueabihf/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/usr/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 
 

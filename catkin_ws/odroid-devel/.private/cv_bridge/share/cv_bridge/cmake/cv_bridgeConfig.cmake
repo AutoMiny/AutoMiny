@@ -67,14 +67,14 @@ set(cv_bridge_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(cv_bridge_SOURCE_PREFIX /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge)
-  set(cv_bridge_DEVEL_PREFIX /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cv_bridge)
+  set(cv_bridge_SOURCE_PREFIX /root/catkin_ws/src/cv_bridge)
+  set(cv_bridge_DEVEL_PREFIX /root/catkin_ws/odroid-devel/.private/cv_bridge)
   set(cv_bridge_INSTALL_PREFIX "")
   set(cv_bridge_PREFIX ${cv_bridge_DEVEL_PREFIX})
 else()
   set(cv_bridge_SOURCE_PREFIX "")
   set(cv_bridge_DEVEL_PREFIX "")
-  set(cv_bridge_INSTALL_PREFIX /home/mi/boroujeni/model_car/catkin_ws/odroid-install)
+  set(cv_bridge_INSTALL_PREFIX /root/catkin_ws/odroid-install)
   set(cv_bridge_PREFIX ${cv_bridge_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(cv_bridge_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include;/opt/odroid-x2/sdk/usr/include/opencv;/opt/odroid-x2/sdk/usr/include " STREQUAL " ")
+if(NOT "/root/catkin_ws/src/cv_bridge/include;/opt/odroid-x2/sdk/usr/include/opencv;/opt/odroid-x2/sdk/usr/include " STREQUAL " ")
   set(cv_bridge_INCLUDE_DIRS "")
-  set(_include_dirs "/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include;/opt/odroid-x2/sdk/usr/include/opencv;/opt/odroid-x2/sdk/usr/include")
+  set(_include_dirs "/root/catkin_ws/src/cv_bridge/include;/opt/odroid-x2/sdk/usr/include/opencv;/opt/odroid-x2/sdk/usr/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,7 +103,7 @@ if(NOT "/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include;/opt/odroid
         message(FATAL_ERROR "Project 'cv_bridge' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'Vincent Rabaud <vincent.rabaud@gmail.com>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'cv_bridge' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/${idir}'.  Ask the maintainer 'Vincent Rabaud <vincent.rabaud@gmail.com>' to fix it.")
+      message(FATAL_ERROR "Project 'cv_bridge' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/root/catkin_ws/src/cv_bridge/${idir}'.  Ask the maintainer 'Vincent Rabaud <vincent.rabaud@gmail.com>' to fix it.")
     endif()
     _list_append_unique(cv_bridge_INCLUDE_DIRS ${include})
   endforeach()
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cv_bridge/lib;/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib;/opt/odroid-x2/sdk/opt/ros/indigo/lib;/opt/odroid-x2/sdk//opt/ros/indigo/lib)
+    foreach(path /root/catkin_ws/odroid-devel/.private/cv_bridge/lib;/root/catkin_ws/odroid-devel/lib;/opt/odroid-x2/sdk/opt/ros/indigo/lib;/opt/odroid-x2/sdk//opt/ros/indigo/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

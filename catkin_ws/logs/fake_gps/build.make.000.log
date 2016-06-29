@@ -1,38 +1,29 @@
+[35m[1mScanning dependencies of target kalman_2d
 [35m[1mScanning dependencies of target _fake_gps_generate_messages_check_deps_Transform
-[0m[35m[1mScanning dependencies of target kalman_3d
-[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp
-[0m[35m[1mScanning dependencies of target kalman_2d
-[35m[1mScanning dependencies of target geometry_msgs_generate_messages_py
-[  0%] [35m[1mScanning dependencies of target std_msgs_generate_messages_py
-[0m[0m[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target kalman_3d
+[0m[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp
+[0m[35m[1mScanning dependencies of target geometry_msgs_generate_messages_py
+[0m[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp
+[0m[  0%] [35m[1mScanning dependencies of target std_msgs_generate_messages_py
+[0mBuilt target geometry_msgs_generate_messages_cpp
+[  0%] [  0%] Built target geometry_msgs_generate_messages_py
 Built target std_msgs_generate_messages_cpp
-[0m[  0%] [  0%] [  0%] Built target std_msgs_generate_messages_py
-Built target geometry_msgs_generate_messages_py
-Built target geometry_msgs_generate_messages_cpp
-[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp
+[  0%] [35m[1mScanning dependencies of target std_msgs_generate_messages_lisp
+Built target std_msgs_generate_messages_py
 [0m[35m[1mScanning dependencies of target geometry_msgs_generate_messages_lisp
-[0m[  0%] Built target std_msgs_generate_messages_lisp
-[  0%] Built target geometry_msgs_generate_messages_lisp
-[  0%] Built target _fake_gps_generate_messages_check_deps_Transform
-[35m[1mScanning dependencies of target fake_gps_generate_messages_cpp
-[0m[35m[1mScanning dependencies of target fake_gps_generate_messages_py
-[0m[0m[ 12%] [0m[ 25%] [35m[1mScanning dependencies of target fake_gps_generate_messages_lisp
+[0m[0m[  0%] [  0%] [  0%] Built target std_msgs_generate_messages_lisp
+Built target _fake_gps_generate_messages_check_deps_Transform
+Built target geometry_msgs_generate_messages_lisp
+[0m[35m[1mScanning dependencies of target fake_gps_generate_messages_cpp
+[35m[1mScanning dependencies of target fake_gps_generate_messages_lisp
+[0m[0m[35m[1mScanning dependencies of target fake_gps_generate_messages_py
+[0m[ 25%] [ 25%] [ 37%] [ 50%] [ 62%] [32mBuilding CXX object CMakeFiles/kalman_3d.dir/src/kalman_3d.cpp.o
 [0m[34m[1mGenerating C++ code from fake_gps/Transform.msg
-[34m[1mGenerating Python from MSG fake_gps/Transform
-[0m[0m[ 37%] [ 50%] [ 62%] [32mBuilding CXX object CMakeFiles/kalman_3d.dir/src/kalman_3d.cpp.o
-[32mBuilding CXX object CMakeFiles/kalman_2d.dir/src/kalman_2d.cpp.o
-[0m[0m[34m[1mGenerating Lisp code from fake_gps/Transform.msg
-[0m[ 75%] [ 75%] [34m[1mGenerating Python msg __init__.py for fake_gps
-[0mBuilt target fake_gps_generate_messages_lisp
-[ 75%] Built target fake_gps_generate_messages_py
-In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
-                 from /home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/include/kalman_3d.h:5,
-                 from /home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/src/kalman_3d.cpp:1:
-/opt/odroid-x2/sdk/opt/ros/indigo/include/ros/time.h:58:50: fatal error: boost/math/special_functions/round.hpp: No such file or directory
-compilation terminated.
-make[2]: *** [CMakeFiles/kalman_3d.dir/src/kalman_3d.cpp.o] Error 1
-make[1]: *** [CMakeFiles/kalman_3d.dir/all] Error 2
-make[1]: *** Waiting for unfinished jobs....
+[0m[32mBuilding CXX object CMakeFiles/kalman_2d.dir/src/kalman_2d.cpp.o
+[0m[34m[1mGenerating Python from MSG fake_gps/Transform
+[0m[34m[1mGenerating Lisp code from fake_gps/Transform.msg
+[0m[ 62%] Built target fake_gps_generate_messages_lisp
+[ 75%] [34m[1mGenerating Python msg __init__.py for fake_gps
 In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
                  from /home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/include/kalman_2d.h:5,
                  from /home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/src/kalman_2d.cpp:1:
@@ -40,5 +31,14 @@ In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
 compilation terminated.
 make[2]: *** [CMakeFiles/kalman_2d.dir/src/kalman_2d.cpp.o] Error 1
 make[1]: *** [CMakeFiles/kalman_2d.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[0m[ 75%] Built target fake_gps_generate_messages_py
+In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/include/kalman_3d.h:5,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/src/kalman_3d.cpp:1:
+/opt/odroid-x2/sdk/opt/ros/indigo/include/ros/time.h:58:50: fatal error: boost/math/special_functions/round.hpp: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/kalman_3d.dir/src/kalman_3d.cpp.o] Error 1
+make[1]: *** [CMakeFiles/kalman_3d.dir/all] Error 2
 [ 75%] Built target fake_gps_generate_messages_cpp
 make: *** [all] Error 2

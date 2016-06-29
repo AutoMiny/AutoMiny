@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/setup.sh
+    local-name: /root/catkin_ws/odroid-devel/.private/motor_communication/setup.sh

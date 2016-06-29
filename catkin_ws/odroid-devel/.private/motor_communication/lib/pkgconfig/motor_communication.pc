@@ -1,8 +1,8 @@
-prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication
+prefix=/root/catkin_ws/odroid-devel/.private/motor_communication
 
 Name: motor_communication
 Description: Description of motor_communication
 Version: 0.0.0
-Cflags: -I/home/mi/boroujeni/model_car/catkin_ws/src/motor_communication/include
-Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib -lmotor_communication
+Cflags: -I/root/catkin_ws/src/motor_communication/include
+Libs: -L/root/catkin_ws/odroid-devel/.private/motor_communication/lib -lmotor_communication
 Requires: geometry_msgs serial std_msgs

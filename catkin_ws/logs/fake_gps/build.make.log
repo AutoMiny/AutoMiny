@@ -1,15 +1,15 @@
-[  0%] [  0%] [  0%] Built target std_msgs_generate_messages_lisp
+[  0%] [  0%] [  0%] Built target std_msgs_generate_messages_py
+[  0%] [ 12%] Built target geometry_msgs_generate_messages_py
+Built target geometry_msgs_generate_messages_cpp
 Built target geometry_msgs_generate_messages_lisp
-[  0%] Built target geometry_msgs_generate_messages_cpp
-Built target std_msgs_generate_messages_cpp
-[  0%] Built target std_msgs_generate_messages_py
-[ 12%] Built target kalman_2d
-[ 25%] Built target kalman_3d
-[ 25%] Built target geometry_msgs_generate_messages_py
+Built target kalman_3d
+[ 25%] Built target kalman_2d
+[ 25%] Built target std_msgs_generate_messages_lisp
+[ 25%] Built target std_msgs_generate_messages_cpp
 [ 25%] Built target _fake_gps_generate_messages_check_deps_Transform
-[ 37%] Built target fake_gps_2d_node
-[ 50%] Built target fake_gps_3d_node
-[ 62%] [ 87%] [100%] Built target fake_gps_generate_messages_cpp
-Built target fake_gps_generate_messages_py
+[ 37%] [ 50%] Built target fake_gps_3d_node
+Built target fake_gps_2d_node
+[ 75%] [ 87%] [100%] Built target fake_gps_generate_messages_py
 Built target fake_gps_generate_messages_lisp
+Built target fake_gps_generate_messages_cpp
 [100%] Built target fake_gps_generate_messages

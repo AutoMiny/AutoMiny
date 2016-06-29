@@ -1,7 +1,2 @@
-[ 50%] [32mBuilding CXX object CMakeFiles/heading.dir/src/heading.cpp.o
-[0m[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/heading/lib/libheading.so
-[0m[ 50%] Built target heading
-[35m[1mScanning dependencies of target heading_node
-[0m[100%] [32mBuilding CXX object CMakeFiles/heading_node.dir/src/heading_node.cpp.o
-[0m[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/heading/lib/heading/heading_node
-[0m[100%] Built target heading_node
+[ 50%] Built target heading
+[100%] Built target heading_node

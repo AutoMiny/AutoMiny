@@ -1,2 +1,4 @@
-[ 16%] Built target rplidarNodeClient
-[100%] Built target rplidarNode
+[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNode
+[0m[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNodeClient
+[0m[ 83%] Built target rplidarNode
+[100%] Built target rplidarNodeClient

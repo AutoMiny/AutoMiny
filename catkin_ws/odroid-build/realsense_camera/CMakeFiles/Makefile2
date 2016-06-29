@@ -24,6 +24,9 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -960,8 +963,8 @@ clean: CMakeFiles/realsense_camera_gencpp.dir/clean
 
 # All Build rule for target.
 CMakeFiles/realsense_camera_generate_messages.dir/all: CMakeFiles/realsense_camera_generate_messages_py.dir/all
-CMakeFiles/realsense_camera_generate_messages.dir/all: CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
 CMakeFiles/realsense_camera_generate_messages.dir/all: CMakeFiles/realsense_camera_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_generate_messages.dir/all: CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages.dir/build.make CMakeFiles/realsense_camera_generate_messages.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages.dir/build.make CMakeFiles/realsense_camera_generate_messages.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera/CMakeFiles 
@@ -996,8 +999,8 @@ clean: CMakeFiles/realsense_camera_generate_messages.dir/clean
 # Target rules for target CMakeFiles/realsense_camera_generate_messages_cpp.dir
 
 # All Build rule for target.
-CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/all
+CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_cpp.dir/build.make CMakeFiles/realsense_camera_generate_messages_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_cpp.dir/build.make CMakeFiles/realsense_camera_generate_messages_cpp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera/CMakeFiles  4
@@ -1028,8 +1031,8 @@ clean: CMakeFiles/realsense_camera_generate_messages_cpp.dir/clean
 # Target rules for target CMakeFiles/realsense_camera_generate_messages_lisp.dir
 
 # All Build rule for target.
-CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/all
+CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_lisp.dir/build.make CMakeFiles/realsense_camera_generate_messages_lisp.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_lisp.dir/build.make CMakeFiles/realsense_camera_generate_messages_lisp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera/CMakeFiles  5
@@ -1060,8 +1063,8 @@ clean: CMakeFiles/realsense_camera_generate_messages_lisp.dir/clean
 # Target rules for target CMakeFiles/realsense_camera_generate_messages_py.dir
 
 # All Build rule for target.
-CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/std_msgs_generate_messages_py.dir/all
 CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/all
+CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_py.dir/build.make CMakeFiles/realsense_camera_generate_messages_py.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_py.dir/build.make CMakeFiles/realsense_camera_generate_messages_py.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera/CMakeFiles  6 7

@@ -3,3 +3,18 @@ Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/send_steeri
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libsend_steering.so
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/send_steering.pc
 Symlinking /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/send_steering/send_steering_node
+Cleaning: (/root/catkin_ws/odroid-devel/.private/send_steering/share/send_steering/cmake/send_steeringConfig.cmake, /root/catkin_ws/odroid-devel/share/send_steering/cmake/send_steeringConfig.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/send_steering/share/send_steering/cmake/send_steeringConfig-version.cmake, /root/catkin_ws/odroid-devel/share/send_steering/cmake/send_steeringConfig-version.cmake)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/send_steering/lib/libsend_steering.so, /root/catkin_ws/odroid-devel/lib/libsend_steering.so)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/send_steering/lib/pkgconfig/send_steering.pc, /root/catkin_ws/odroid-devel/lib/pkgconfig/send_steering.pc)
+Cleaning: (/root/catkin_ws/odroid-devel/.private/send_steering/lib/send_steering/send_steering_node, /root/catkin_ws/odroid-devel/lib/send_steering/send_steering_node)
+Unlinking: /root/catkin_ws/odroid-devel/share/send_steering/cmake/send_steeringConfig.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/share/send_steering/cmake/send_steeringConfig-version.cmake
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/libsend_steering.so
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/pkgconfig/send_steering.pc
+Already unlinked: {}
+Unlinking: /root/catkin_ws/odroid-devel/lib/send_steering/send_steering_node
+Already unlinked: {}

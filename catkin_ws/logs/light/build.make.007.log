@@ -1,2 +1,4 @@
-[ 50%] Built target light
-[100%] Built target light_node
+[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/light/lib/liblight.so
+[0m[ 50%] Built target light
+[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/light/lib/light/light_node
+[0m[100%] Built target light_node

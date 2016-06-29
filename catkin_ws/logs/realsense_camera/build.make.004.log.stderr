@@ -1,4 +1,5 @@
-make[2]: *** No rule to make target `/usr/lib/librealsense.so', needed by `/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so'.  Stop.
+/usr/local/lib/librealsense.so: file not recognized: File format not recognized
+collect2: error: ld returned 1 exit status
+make[2]: *** [/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so] Error 1
 make[1]: *** [CMakeFiles/realsense_camera_nodelet.dir/all] Error 2
-make[1]: *** Waiting for unfinished jobs....
 make: *** [all] Error 2

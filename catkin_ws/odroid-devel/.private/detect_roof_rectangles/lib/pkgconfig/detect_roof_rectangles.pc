@@ -1,8 +1,8 @@
-prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/detect_roof_rectangles
+prefix=/root/catkin_ws/odroid-devel/.private/detect_roof_rectangles
 
 Name: detect_roof_rectangles
 Description: Description of detect_roof_rectangles
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/detect_roof_rectangles/lib 
+Libs: -L/root/catkin_ws/odroid-devel/.private/detect_roof_rectangles/lib 
 Requires: cmvision

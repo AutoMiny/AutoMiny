@@ -1,10 +1,16 @@
 [ 16%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/src/node.cpp.o
-[0m[ 33%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/net_serial.cpp.o
-[0m[ 50%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/timer.cpp.o
-[0m[ 66%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/hal/thread.cpp.o
-[0m[ 83%] [32mBuilding CXX object CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o
-[0m[100%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/rplidar_driver.cpp.o
-[0m[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNode
-[0m[100%] Built target rplidarNode
-[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNodeClient
-[0m[100%] Built target rplidarNodeClient
+[0m[ 33%] [32mBuilding CXX object CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o
+In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/rplidar_ros/src/node.cpp:39:
+/opt/odroid-x2/sdk/opt/ros/indigo/include/ros/time.h:58:50: fatal error: boost/math/special_functions/round.hpp: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/rplidarNode.dir/src/node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/rplidarNode.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/rplidar_ros/src/client.cpp:38:
+/opt/odroid-x2/sdk/opt/ros/indigo/include/ros/time.h:58:50: fatal error: boost/math/special_functions/round.hpp: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o] Error 1
+make[1]: *** [CMakeFiles/rplidarNodeClient.dir/all] Error 2
+make: *** [all] Error 2

@@ -1,0 +1,14 @@
+In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/rplidar_ros/src/node.cpp:39:
+/opt/odroid-x2/sdk/opt/ros/indigo/include/ros/time.h:58:50: fatal error: boost/math/special_functions/round.hpp: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/rplidarNode.dir/src/node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/rplidarNode.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/rplidar_ros/src/client.cpp:38:
+/opt/odroid-x2/sdk/opt/ros/indigo/include/ros/time.h:58:50: fatal error: boost/math/special_functions/round.hpp: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o] Error 1
+make[1]: *** [CMakeFiles/rplidarNodeClient.dir/all] Error 2
+make: *** [all] Error 2

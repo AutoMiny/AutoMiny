@@ -1,18 +1,30 @@
-[  0%] Built target std_msgs_generate_messages_cpp
-[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target sensor_msgs_generate_messages_cpp
 [  0%] Built target sensor_msgs_generate_messages_lisp
 [  0%] Built target geometry_msgs_generate_messages_cpp
-[  0%] Built target sensor_msgs_generate_messages_py
-[  0%] Built target sensor_msgs_generate_messages_cpp
 [  0%] Built target std_msgs_generate_messages_lisp
 [  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_py
 [  0%] Built target std_msgs_generate_messages_py
-[ 25%] [32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/cv_bridge.cpp.o
-[0m[ 50%] [32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/rgb_colors.cpp.o
-[0m[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cv_bridge/lib/libcv_bridge.so
-[0m[ 50%] Built target cv_bridge
-[35m[1mScanning dependencies of target cv_bridge_boost
-[0m[ 75%] [32mBuilding CXX object src/CMakeFiles/cv_bridge_boost.dir/module.cpp.o
-[0m[100%] [32mBuilding CXX object src/CMakeFiles/cv_bridge_boost.dir/module_opencv2.cpp.o
-[0m[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cv_bridge/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so
-[0m[100%] Built target cv_bridge_boost
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_cpp
+[ 50%] [ 50%] [32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/rgb_colors.cpp.o
+[32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/cv_bridge.cpp.o
+In file included from /opt/odroid-x2/sdk/usr/include/opencv2/core/types_c.h:56:0,
+                 from /opt/odroid-x2/sdk/usr/include/opencv2/core/core_c.h:47,
+                 from /opt/odroid-x2/sdk/usr/include/opencv2/opencv.hpp:46,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include/cv_bridge/rgb_colors.h:39,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/src/rgb_colors.cpp:36:
+/opt/odroid-x2/sdk/usr/include/stdlib.h:955:31: fatal error: bits/stdlib-float.h: No such file or directory
+compilation terminated.
+make[2]: *** [src/CMakeFiles/cv_bridge.dir/rgb_colors.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+In file included from /opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cstdlib:66:0,
+                 from /opt/odroid-x2/sdk/usr/include/boost/config/platform/linux.hpp:15,
+                 from /opt/odroid-x2/sdk/usr/include/boost/config.hpp:53,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/src/boost/endian/conversion.hpp:11,
+                 from /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/src/cv_bridge.cpp:36:
+/opt/odroid-x2/sdk/usr/include/stdlib.h:955:31: fatal error: bits/stdlib-float.h: No such file or directory
+compilation terminated.
+make[2]: *** [src/CMakeFiles/cv_bridge.dir/cv_bridge.cpp.o] Error 1
+make[1]: *** [src/CMakeFiles/cv_bridge.dir/all] Error 2
+make: *** [all] Error 2

@@ -1,11 +1,13 @@
-[  0%] Built target std_msgs_generate_messages_lisp
-[  0%] Built target sensor_msgs_generate_messages_cpp
-[  0%] Built target sensor_msgs_generate_messages_lisp
 [  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_cpp
 [  0%] Built target geometry_msgs_generate_messages_cpp
-[  0%] [  0%] [  0%] Built target geometry_msgs_generate_messages_lisp
-Built target sensor_msgs_generate_messages_py
-Built target geometry_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_lisp
 [  0%] Built target std_msgs_generate_messages_py
-[ 50%] Built target cv_bridge
-[100%] Built target cv_bridge_boost
+[  0%] Built target std_msgs_generate_messages_lisp
+[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cv_bridge/lib/libcv_bridge.so
+[0m[ 50%] Built target cv_bridge
+[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cv_bridge/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so
+[0m[100%] Built target cv_bridge_boost

@@ -263,7 +263,7 @@ if __name__ == '__main__':
             sys.exit(1)
 
         # environment at generation time
-        CMAKE_PREFIX_PATH = '/home/mi/boroujeni/model_car/catkin_ws/odroid-devel;/opt/odroid-x2/sdk/opt/ros/indigo;/opt/odroid-x2/sdk//opt/ros/indigo'.split(';')
+        CMAKE_PREFIX_PATH = '/root/catkin_ws/odroid-devel;/opt/odroid-x2/sdk/opt/ros/indigo;/opt/odroid-x2/sdk//opt/ros/indigo'.split(';')
         # prepend current workspace if not already part of CPP
         base_path = os.path.dirname(__file__)
         if base_path not in CMAKE_PREFIX_PATH:
