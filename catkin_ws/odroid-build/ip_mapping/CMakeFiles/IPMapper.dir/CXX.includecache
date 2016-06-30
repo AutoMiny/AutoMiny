@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/src/ip_mapping/src/IPMapper.cpp
+/root/catkin_ws/src/ip_mapping/src/IPMapper.cpp
 IPMapper.h
-/home/mi/boroujeni/model_car/catkin_ws/src/ip_mapping/src/IPMapper.h
+/root/catkin_ws/src/ip_mapping/src/IPMapper.h
 
-/home/mi/boroujeni/model_car/catkin_ws/src/ip_mapping/src/IPMapper.h
+/root/catkin_ws/src/ip_mapping/src/IPMapper.h
 stdio.h
 -
 opencv2/core/core.hpp

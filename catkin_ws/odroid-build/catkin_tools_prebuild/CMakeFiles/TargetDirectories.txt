@@ -1,8 +1,0 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-build/catkin_tools_prebuild/CMakeFiles/_catkin_empty_exported_target.dir
-/home/mi/boroujeni/model_car/catkin_ws/odroid-build/catkin_tools_prebuild/CMakeFiles/clean_test_results.dir
-/home/mi/boroujeni/model_car/catkin_ws/odroid-build/catkin_tools_prebuild/CMakeFiles/download_extra_data.dir
-/home/mi/boroujeni/model_car/catkin_ws/odroid-build/catkin_tools_prebuild/CMakeFiles/doxygen.dir
-/home/mi/boroujeni/model_car/catkin_ws/odroid-build/catkin_tools_prebuild/gtest/CMakeFiles/gtest.dir
-/home/mi/boroujeni/model_car/catkin_ws/odroid-build/catkin_tools_prebuild/gtest/CMakeFiles/gtest_main.dir
-/home/mi/boroujeni/model_car/catkin_ws/odroid-build/catkin_tools_prebuild/CMakeFiles/run_tests.dir
-/home/mi/boroujeni/model_car/catkin_ws/odroid-build/catkin_tools_prebuild/CMakeFiles/tests.dir

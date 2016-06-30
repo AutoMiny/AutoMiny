@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/serial
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/serial
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/serial
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/serial-test-timer.dir/depend.make
@@ -50,18 +50,18 @@ include tests/CMakeFiles/serial-test-timer.dir/progress.make
 include tests/CMakeFiles/serial-test-timer.dir/flags.make
 
 tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o: tests/CMakeFiles/serial-test-timer.dir/flags.make
-tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o: /home/mi/boroujeni/model_car/catkin_ws/src/serial/tests/unit/unix_timer_tests.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/CMakeFiles $(CMAKE_PROGRESS_1)
+tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o: /root/catkin_ws/src/serial/tests/unit/unix_timer_tests.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/serial/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o"
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests && /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o -c /home/mi/boroujeni/model_car/catkin_ws/src/serial/tests/unit/unix_timer_tests.cc
+	cd /root/catkin_ws/odroid-build/serial/tests && /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o -c /root/catkin_ws/src/serial/tests/unit/unix_timer_tests.cc
 
 tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.i"
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests && /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/serial/tests/unit/unix_timer_tests.cc > CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.i
+	cd /root/catkin_ws/odroid-build/serial/tests && /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/serial/tests/unit/unix_timer_tests.cc > CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.i
 
 tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.s"
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests && /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/serial/tests/unit/unix_timer_tests.cc -o CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.s
+	cd /root/catkin_ws/odroid-build/serial/tests && /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/serial/tests/unit/unix_timer_tests.cc -o CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.s
 
 tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o.requires:
 .PHONY : tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o.requires
@@ -79,26 +79,26 @@ serial__test__timer_OBJECTS = \
 # External object files for target serial-test-timer
 serial__test__timer_EXTERNAL_OBJECTS =
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer: tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer: tests/CMakeFiles/serial-test-timer.dir/build.make
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer: gtest/libgtest.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/libserial.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer: tests/CMakeFiles/serial-test-timer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer"
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/serial-test-timer.dir/link.txt --verbose=$(VERBOSE)
+/root/catkin_ws/odroid-devel/lib/serial/serial-test-timer: tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o
+/root/catkin_ws/odroid-devel/lib/serial/serial-test-timer: tests/CMakeFiles/serial-test-timer.dir/build.make
+/root/catkin_ws/odroid-devel/lib/serial/serial-test-timer: gtest/libgtest.so
+/root/catkin_ws/odroid-devel/lib/serial/serial-test-timer: /root/catkin_ws/odroid-devel/lib/libserial.so
+/root/catkin_ws/odroid-devel/lib/serial/serial-test-timer: tests/CMakeFiles/serial-test-timer.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /root/catkin_ws/odroid-devel/lib/serial/serial-test-timer"
+	cd /root/catkin_ws/odroid-build/serial/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/serial-test-timer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-tests/CMakeFiles/serial-test-timer.dir/build: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer
+tests/CMakeFiles/serial-test-timer.dir/build: /root/catkin_ws/odroid-devel/lib/serial/serial-test-timer
 .PHONY : tests/CMakeFiles/serial-test-timer.dir/build
 
 tests/CMakeFiles/serial-test-timer.dir/requires: tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o.requires
 .PHONY : tests/CMakeFiles/serial-test-timer.dir/requires
 
 tests/CMakeFiles/serial-test-timer.dir/clean:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/serial-test-timer.dir/cmake_clean.cmake
+	cd /root/catkin_ws/odroid-build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/serial-test-timer.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/serial-test-timer.dir/clean
 
 tests/CMakeFiles/serial-test-timer.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/serial /home/mi/boroujeni/model_car/catkin_ws/src/serial/tests /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests/CMakeFiles/serial-test-timer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/serial /root/catkin_ws/src/serial/tests /root/catkin_ws/odroid-build/serial /root/catkin_ws/odroid-build/serial/tests /root/catkin_ws/odroid-build/serial/tests/CMakeFiles/serial-test-timer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tests/CMakeFiles/serial-test-timer.dir/depend
 

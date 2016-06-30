@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/cv_bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cv_bridge
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,9 +120,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/CMakeFiles /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/cv_bridge/CMakeFiles /root/catkin_ws/odroid-build/cv_bridge/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/cv_bridge/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -161,6 +161,19 @@ clean_test_results: cmake_check_build_system
 clean_test_results/fast:
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
 .PHONY : clean_test_results/fast
+
+#=============================================================================
+# Target rules for targets named clean_test_results_cv_bridge
+
+# Build rule for target.
+clean_test_results_cv_bridge: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_cv_bridge
+.PHONY : clean_test_results_cv_bridge
+
+# fast build rule for target.
+clean_test_results_cv_bridge/fast:
+	$(MAKE) -f CMakeFiles/clean_test_results_cv_bridge.dir/build.make CMakeFiles/clean_test_results_cv_bridge.dir/build
+.PHONY : clean_test_results_cv_bridge/fast
 
 #=============================================================================
 # Target rules for targets named download_extra_data
@@ -462,19 +475,6 @@ _run_tests_cv_bridge_nosetests_python_bindings.py/fast:
 .PHONY : _run_tests_cv_bridge_nosetests_python_bindings.py/fast
 
 #=============================================================================
-# Target rules for targets named clean_test_results_cv_bridge
-
-# Build rule for target.
-clean_test_results_cv_bridge: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_cv_bridge
-.PHONY : clean_test_results_cv_bridge
-
-# fast build rule for target.
-clean_test_results_cv_bridge/fast:
-	$(MAKE) -f test/CMakeFiles/clean_test_results_cv_bridge.dir/build.make test/CMakeFiles/clean_test_results_cv_bridge.dir/build
-.PHONY : clean_test_results_cv_bridge/fast
-
-#=============================================================================
 # Target rules for targets named cv_bridge-utest
 
 # Build rule for target.
@@ -572,6 +572,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... clean_test_results"
+	@echo "... clean_test_results_cv_bridge"
 	@echo "... download_extra_data"
 	@echo "... doxygen"
 	@echo "... edit_cache"
@@ -602,7 +603,6 @@ help:
 	@echo "... _run_tests_cv_bridge_nosetests"
 	@echo "... _run_tests_cv_bridge_nosetests_enumerants.py"
 	@echo "... _run_tests_cv_bridge_nosetests_python_bindings.py"
-	@echo "... clean_test_results_cv_bridge"
 	@echo "... cv_bridge-utest"
 	@echo "... run_tests_cv_bridge"
 	@echo "... run_tests_cv_bridge_gtest"

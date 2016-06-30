@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/src/rplidar_ros/src/client.cpp
+/root/catkin_ws/src/rplidar_ros/src/client.cpp
 ros/ros.h
-/home/mi/boroujeni/model_car/catkin_ws/src/rplidar_ros/src/ros/ros.h
+/root/catkin_ws/src/rplidar_ros/src/ros/ros.h
 sensor_msgs/LaserScan.h
-/home/mi/boroujeni/model_car/catkin_ws/src/rplidar_ros/src/sensor_msgs/LaserScan.h
+/root/catkin_ws/src/rplidar_ros/src/sensor_msgs/LaserScan.h
 

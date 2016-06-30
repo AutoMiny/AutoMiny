@@ -1,6 +1,0 @@
-[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/libmotor_communication.so
-[0m[ 33%] Built target motor_communication
-[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_communication_node
-[0m[ 66%] Built target motor_communication_node
-[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_control_node
-[0m[100%] Built target motor_control_node

@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/motor_communication
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/motor_communication
 
 # Include any dependencies generated for this target.
 include CMakeFiles/motor_communication.dir/depend.make
@@ -50,18 +50,18 @@ include CMakeFiles/motor_communication.dir/progress.make
 include CMakeFiles/motor_communication.dir/flags.make
 
 CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o: CMakeFiles/motor_communication.dir/flags.make
-CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication/src/motor_communication.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o: /root/catkin_ws/src/motor_communication/src/motor_communication.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/motor_communication/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication/src/motor_communication.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o -c /root/catkin_ws/src/motor_communication/src/motor_communication.cpp
 
 CMakeFiles/motor_communication.dir/src/motor_communication.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/motor_communication.dir/src/motor_communication.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication/src/motor_communication.cpp > CMakeFiles/motor_communication.dir/src/motor_communication.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/motor_communication/src/motor_communication.cpp > CMakeFiles/motor_communication.dir/src/motor_communication.cpp.i
 
 CMakeFiles/motor_communication.dir/src/motor_communication.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/motor_communication.dir/src/motor_communication.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication/src/motor_communication.cpp -o CMakeFiles/motor_communication.dir/src/motor_communication.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/motor_communication/src/motor_communication.cpp -o CMakeFiles/motor_communication.dir/src/motor_communication.cpp.s
 
 CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o.requires:
 .PHONY : CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o.requires
@@ -79,14 +79,14 @@ motor_communication_OBJECTS = \
 # External object files for target motor_communication
 motor_communication_EXTERNAL_OBJECTS =
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/libmotor_communication.so: CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/libmotor_communication.so: CMakeFiles/motor_communication.dir/build.make
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/libmotor_communication.so: CMakeFiles/motor_communication.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/libmotor_communication.so"
+/root/catkin_ws/odroid-devel/lib/libmotor_communication.so: CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o
+/root/catkin_ws/odroid-devel/lib/libmotor_communication.so: CMakeFiles/motor_communication.dir/build.make
+/root/catkin_ws/odroid-devel/lib/libmotor_communication.so: CMakeFiles/motor_communication.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /root/catkin_ws/odroid-devel/lib/libmotor_communication.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/motor_communication.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/motor_communication.dir/build: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/libmotor_communication.so
+CMakeFiles/motor_communication.dir/build: /root/catkin_ws/odroid-devel/lib/libmotor_communication.so
 .PHONY : CMakeFiles/motor_communication.dir/build
 
 CMakeFiles/motor_communication.dir/requires: CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o.requires
@@ -97,6 +97,6 @@ CMakeFiles/motor_communication.dir/clean:
 .PHONY : CMakeFiles/motor_communication.dir/clean
 
 CMakeFiles/motor_communication.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/motor_communication.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/motor_communication && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/motor_communication /root/catkin_ws/src/motor_communication /root/catkin_ws/odroid-build/motor_communication /root/catkin_ws/odroid-build/motor_communication /root/catkin_ws/odroid-build/motor_communication/CMakeFiles/motor_communication.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/motor_communication.dir/depend
 

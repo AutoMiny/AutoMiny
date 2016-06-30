@@ -20,6 +20,7 @@ include_directories(
   ${RPLIDAR_SDK_PATH}/src
 )
 
+
 catkin_package()
 
 add_executable(rplidarNode src/node.cpp ${RPLIDAR_SDK_SRC})

@@ -1,0 +1,19 @@
+[[36mfake_gps[0m] [1m[34m==>[0m '[1m/root/catkin_ws/odroid-build/fake_gps/build_env.sh /usr/bin/make cmake_check_build_system[0m' [30m[1min[0m '[1m/root/catkin_ws/odroid-build/fake_gps[0m'[0m
+[[36mfake_gps[0m] [32m<==[0m '[1m/root/catkin_ws/odroid-build/fake_gps/build_env.sh /usr/bin/make cmake_check_build_system[0m' finished with return code '[1m0[0m'[0m
+[[36mfake_gps[0m] [1m[34m==>[0m '[1m/root/catkin_ws/odroid-build/fake_gps/build_env.sh /usr/bin/make --jobserver-fds=3,6 -j[0m' [30m[1min[0m '[1m/root/catkin_ws/odroid-build/fake_gps[0m'[0m
+[ 12%] [ 12%] Built target geometry_msgs_generate_messages_cpp
+Built target kalman_2d
+[ 25%] Built target kalman_3d
+[ 25%] [ 25%] Built target geometry_msgs_generate_messages_lisp
+Built target std_msgs_generate_messages_cpp
+[ 25%] Built target _fake_gps_generate_messages_check_deps_Transform
+[ 25%] Built target std_msgs_generate_messages_lisp
+[ 25%] Built target geometry_msgs_generate_messages_py
+[ 25%] Built target std_msgs_generate_messages_py
+[ 37%] Built target fake_gps_2d_node
+[ 50%] [ 62%] Built target fake_gps_generate_messages_lisp
+Built target fake_gps_3d_node
+[ 75%] Built target fake_gps_generate_messages_cpp
+[100%] Built target fake_gps_generate_messages_py
+[100%] Built target fake_gps_generate_messages
+[[36mfake_gps[0m] [32m<==[0m '[1m/root/catkin_ws/odroid-build/fake_gps/build_env.sh /usr/bin/make --jobserver-fds=3,6 -j[0m' finished with return code '[1m0[0m'[0m

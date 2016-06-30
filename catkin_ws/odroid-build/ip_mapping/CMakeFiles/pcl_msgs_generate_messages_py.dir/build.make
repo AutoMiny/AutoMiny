@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/ip_mapping
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/ip_mapping
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/ip_mapping
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/ip_mapping
 
 # Utility rule file for pcl_msgs_generate_messages_py.
 
@@ -60,6 +60,6 @@ CMakeFiles/pcl_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/pcl_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/pcl_msgs_generate_messages_py.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/ip_mapping && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/ip_mapping /home/mi/boroujeni/model_car/catkin_ws/src/ip_mapping /home/mi/boroujeni/model_car/catkin_ws/odroid-build/ip_mapping /home/mi/boroujeni/model_car/catkin_ws/odroid-build/ip_mapping /home/mi/boroujeni/model_car/catkin_ws/odroid-build/ip_mapping/CMakeFiles/pcl_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/ip_mapping && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/ip_mapping /root/catkin_ws/src/ip_mapping /root/catkin_ws/odroid-build/ip_mapping /root/catkin_ws/odroid-build/ip_mapping /root/catkin_ws/odroid-build/ip_mapping/CMakeFiles/pcl_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/pcl_msgs_generate_messages_py.dir/depend
 

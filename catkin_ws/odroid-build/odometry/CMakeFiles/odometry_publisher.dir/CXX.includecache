@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/src/odometry/src/odometry_publisher.cpp
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp
 ros/ros.h
 -
 tf/transform_broadcaster.h
@@ -444,8 +444,6 @@ set
 list
 -
 boost/shared_ptr.hpp
--
-boost/make_shared.hpp
 -
 boost/weak_ptr.hpp
 -

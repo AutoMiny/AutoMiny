@@ -1,8 +1,8 @@
-# Install script for directory: /home/mi/boroujeni/model_car/catkin_ws/src/odometry
+# Install script for directory: /root/catkin_ws/src/odometry
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/mi/boroujeni/model_car/catkin_ws/odroid-install")
+  SET(CMAKE_INSTALL_PREFIX "/root/catkin_ws/odroid-install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,89 +44,89 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/_setup_util.py")
+   "/root/catkin_ws/odroid-install/_setup_util.py")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE PROGRAM FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/catkin_generated/installspace/_setup_util.py")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE PROGRAM FILES "/root/catkin_ws/odroid-build/odometry/catkin_generated/installspace/_setup_util.py")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/env.sh")
+   "/root/catkin_ws/odroid-install/env.sh")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE PROGRAM FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/catkin_generated/installspace/env.sh")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE PROGRAM FILES "/root/catkin_ws/odroid-build/odometry/catkin_generated/installspace/env.sh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/setup.bash")
+   "/root/catkin_ws/odroid-install/setup.bash")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/catkin_generated/installspace/setup.bash")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/odometry/catkin_generated/installspace/setup.bash")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/setup.sh")
+   "/root/catkin_ws/odroid-install/setup.sh")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/catkin_generated/installspace/setup.sh")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/odometry/catkin_generated/installspace/setup.sh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/setup.zsh")
+   "/root/catkin_ws/odroid-install/setup.zsh")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/catkin_generated/installspace/setup.zsh")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/odometry/catkin_generated/installspace/setup.zsh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/.rosinstall")
+   "/root/catkin_ws/odroid-install/.rosinstall")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/catkin_generated/installspace/.rosinstall")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/odometry/catkin_generated/installspace/.rosinstall")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/catkin_generated/installspace/odometry.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/root/catkin_ws/odroid-build/odometry/catkin_generated/installspace/odometry.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/odometry/cmake" TYPE FILE FILES
-    "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/catkin_generated/installspace/odometryConfig.cmake"
-    "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/catkin_generated/installspace/odometryConfig-version.cmake"
+    "/root/catkin_ws/odroid-build/odometry/catkin_generated/installspace/odometryConfig.cmake"
+    "/root/catkin_ws/odroid-build/odometry/catkin_generated/installspace/odometryConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/odometry" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/src/odometry/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/odometry" TYPE FILE FILES "/root/catkin_ws/src/odometry/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -136,7 +136,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/odometry/odometry_publisher"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/odometry" TYPE EXECUTABLE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/odometry" TYPE EXECUTABLE FILES "/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/odometry/odometry_publisher" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/odometry/odometry_publisher")
     FILE(RPATH_REMOVE
@@ -149,7 +149,7 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/gtest/cmake_install.cmake")
+  INCLUDE("/root/catkin_ws/odroid-build/odometry/gtest/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -159,7 +159,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/root/catkin_ws/odroid-build/odometry/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/root/catkin_ws/odroid-build/odometry/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

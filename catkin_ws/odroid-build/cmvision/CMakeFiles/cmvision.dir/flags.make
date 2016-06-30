@@ -3,11 +3,11 @@
 
 # compile C with /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc
 # compile CXX with /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++
-C_FLAGS =  --sysroot=/opt/odroid-x2/sdk -I/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/include -I/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include -I/opt/odroid-x2/sdk/opt/ros/indigo/include -I/opt/odroid-x2/sdk/usr/include/opencv -I/opt/odroid-x2/sdk/usr/include   
+C_FLAGS =  --sysroot=/opt/odroid-x2/sdk -I/root/catkin_ws/odroid-devel/include -I/root/catkin_ws/src/cv_bridge/include -I/opt/odroid-x2/sdk/opt/ros/indigo/include -I/opt/odroid-x2/sdk/usr/include/opencv -I/opt/odroid-x2/sdk/usr/include   
 
 C_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\"cmvision\"
 
-CXX_FLAGS =  --sysroot=/opt/odroid-x2/sdk -I/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/include -I/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include -I/opt/odroid-x2/sdk/opt/ros/indigo/include -I/opt/odroid-x2/sdk/usr/include/opencv -I/opt/odroid-x2/sdk/usr/include   
+CXX_FLAGS =  --sysroot=/opt/odroid-x2/sdk -I/root/catkin_ws/odroid-devel/include -I/root/catkin_ws/src/cv_bridge/include -I/opt/odroid-x2/sdk/opt/ros/indigo/include -I/opt/odroid-x2/sdk/usr/include/opencv -I/opt/odroid-x2/sdk/usr/include   
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\"cmvision\"
 

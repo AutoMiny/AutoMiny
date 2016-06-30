@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/motor_communication
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/motor_communication
 
 # Utility rule file for rosgraph_msgs_generate_messages_py.
 
@@ -60,6 +60,6 @@ CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication /home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/motor_communication && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/motor_communication /root/catkin_ws/src/motor_communication /root/catkin_ws/odroid-build/motor_communication /root/catkin_ws/odroid-build/motor_communication /root/catkin_ws/odroid-build/motor_communication/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
 

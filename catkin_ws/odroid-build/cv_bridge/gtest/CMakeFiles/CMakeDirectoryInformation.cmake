@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 SET(CMAKE_RELATIVE_PATH_TOP_SOURCE "/usr/src/gtest")
-SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge")
+SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/root/catkin_ws/odroid-build/cv_bridge")
 
 # Force unix paths in dependencies.
 SET(CMAKE_FORCE_UNIX_PATHS 1)

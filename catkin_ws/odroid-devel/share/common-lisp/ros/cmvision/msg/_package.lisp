@@ -1,1 +1,9 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/share/common-lisp/ros/cmvision/msg/_package.lisp
+(cl:defpackage cmvision-msg
+  (:use )
+  (:export
+   "<BLOB>"
+   "BLOB"
+   "<BLOBS>"
+   "BLOBS"
+  ))
+

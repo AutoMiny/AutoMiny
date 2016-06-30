@@ -1,5 +1,0 @@
-/usr/local/lib/librealsense.so: file not recognized: File format not recognized
-collect2: error: ld returned 1 exit status
-make[2]: *** [/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so] Error 1
-make[1]: *** [CMakeFiles/realsense_camera_nodelet.dir/all] Error 2
-make: *** [all] Error 2

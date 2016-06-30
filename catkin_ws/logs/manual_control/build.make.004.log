@@ -1,4 +1,0 @@
-[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/lib/libmanual_control.so
-[0m[ 50%] Built target manual_control
-[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/lib/manual_control/manual_control_node
-[0m[100%] Built target manual_control_node

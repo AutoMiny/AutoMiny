@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/cmvision
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/cmvision
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cmvision
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cmvision.dir/depend.make
@@ -50,18 +50,18 @@ include CMakeFiles/cmvision.dir/progress.make
 include CMakeFiles/cmvision.dir/flags.make
 
 CMakeFiles/cmvision.dir/src/cmvision.cc.o: CMakeFiles/cmvision.dir/flags.make
-CMakeFiles/cmvision.dir/src/cmvision.cc.o: /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/cmvision.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/cmvision.dir/src/cmvision.cc.o: /root/catkin_ws/src/cmvision/src/cmvision.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/cmvision/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cmvision.dir/src/cmvision.cc.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cmvision.dir/src/cmvision.cc.o -c /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/cmvision.cc
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cmvision.dir/src/cmvision.cc.o -c /root/catkin_ws/src/cmvision/src/cmvision.cc
 
 CMakeFiles/cmvision.dir/src/cmvision.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cmvision.dir/src/cmvision.cc.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/cmvision.cc > CMakeFiles/cmvision.dir/src/cmvision.cc.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/cmvision/src/cmvision.cc > CMakeFiles/cmvision.dir/src/cmvision.cc.i
 
 CMakeFiles/cmvision.dir/src/cmvision.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cmvision.dir/src/cmvision.cc.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/cmvision.cc -o CMakeFiles/cmvision.dir/src/cmvision.cc.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/cmvision/src/cmvision.cc -o CMakeFiles/cmvision.dir/src/cmvision.cc.s
 
 CMakeFiles/cmvision.dir/src/cmvision.cc.o.requires:
 .PHONY : CMakeFiles/cmvision.dir/src/cmvision.cc.o.requires
@@ -73,18 +73,18 @@ CMakeFiles/cmvision.dir/src/cmvision.cc.o.provides: CMakeFiles/cmvision.dir/src/
 CMakeFiles/cmvision.dir/src/cmvision.cc.o.provides.build: CMakeFiles/cmvision.dir/src/cmvision.cc.o
 
 CMakeFiles/cmvision.dir/src/conversions.c.o: CMakeFiles/cmvision.dir/flags.make
-CMakeFiles/cmvision.dir/src/conversions.c.o: /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/conversions.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision/CMakeFiles $(CMAKE_PROGRESS_2)
+CMakeFiles/cmvision.dir/src/conversions.c.o: /root/catkin_ws/src/cmvision/src/conversions.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/cmvision/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/cmvision.dir/src/conversions.c.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/cmvision.dir/src/conversions.c.o   -c /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/conversions.c
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/cmvision.dir/src/conversions.c.o   -c /root/catkin_ws/src/cmvision/src/conversions.c
 
 CMakeFiles/cmvision.dir/src/conversions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cmvision.dir/src/conversions.c.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc  $(C_DEFINES) $(C_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/conversions.c > CMakeFiles/cmvision.dir/src/conversions.c.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc  $(C_DEFINES) $(C_FLAGS) -E /root/catkin_ws/src/cmvision/src/conversions.c > CMakeFiles/cmvision.dir/src/conversions.c.i
 
 CMakeFiles/cmvision.dir/src/conversions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cmvision.dir/src/conversions.c.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc  $(C_DEFINES) $(C_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/conversions.c -o CMakeFiles/cmvision.dir/src/conversions.c.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc  $(C_DEFINES) $(C_FLAGS) -S /root/catkin_ws/src/cmvision/src/conversions.c -o CMakeFiles/cmvision.dir/src/conversions.c.s
 
 CMakeFiles/cmvision.dir/src/conversions.c.o.requires:
 .PHONY : CMakeFiles/cmvision.dir/src/conversions.c.o.requires
@@ -96,18 +96,18 @@ CMakeFiles/cmvision.dir/src/conversions.c.o.provides: CMakeFiles/cmvision.dir/sr
 CMakeFiles/cmvision.dir/src/conversions.c.o.provides.build: CMakeFiles/cmvision.dir/src/conversions.c.o
 
 CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o: CMakeFiles/cmvision.dir/flags.make
-CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision/CMakeFiles $(CMAKE_PROGRESS_3)
+CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o: /root/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/cmvision/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o -c /root/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp
 
 CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp > CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp > CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.i
 
 CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp -o CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp -o CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.s
 
 CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o.requires:
 .PHONY : CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o.requires
@@ -119,18 +119,18 @@ CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o.provides: CMakeFile
 CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o.provides.build: CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o
 
 CMakeFiles/cmvision.dir/src/main.cpp.o: CMakeFiles/cmvision.dir/flags.make
-CMakeFiles/cmvision.dir/src/main.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision/CMakeFiles $(CMAKE_PROGRESS_4)
+CMakeFiles/cmvision.dir/src/main.cpp.o: /root/catkin_ws/src/cmvision/src/main.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/cmvision/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cmvision.dir/src/main.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cmvision.dir/src/main.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/main.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cmvision.dir/src/main.cpp.o -c /root/catkin_ws/src/cmvision/src/main.cpp
 
 CMakeFiles/cmvision.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cmvision.dir/src/main.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/main.cpp > CMakeFiles/cmvision.dir/src/main.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/cmvision/src/main.cpp > CMakeFiles/cmvision.dir/src/main.cpp.i
 
 CMakeFiles/cmvision.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cmvision.dir/src/main.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/src/main.cpp -o CMakeFiles/cmvision.dir/src/main.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/cmvision/src/main.cpp -o CMakeFiles/cmvision.dir/src/main.cpp.s
 
 CMakeFiles/cmvision.dir/src/main.cpp.o.requires:
 .PHONY : CMakeFiles/cmvision.dir/src/main.cpp.o.requires
@@ -151,81 +151,81 @@ cmvision_OBJECTS = \
 # External object files for target cmvision
 cmvision_EXTERNAL_OBJECTS =
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/src/cmvision.cc.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/src/conversions.c.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/src/main.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/build.make
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cv_bridge/lib/libcv_bridge.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_videostab.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_video.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_superres.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_stitching.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_photo.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ocl.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_objdetect.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ml.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_legacy.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_imgproc.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_highgui.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_gpu.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_flann.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_features2d.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_core.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_contrib.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_calib3d.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_videostab.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_video.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_superres.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_stitching.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_photo.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ocl.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_objdetect.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ml.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_legacy.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_imgproc.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_highgui.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_gpu.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_flann.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_features2d.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_core.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_contrib.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_calib3d.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_photo.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_legacy.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_video.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_objdetect.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ml.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_calib3d.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_features2d.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_highgui.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_imgproc.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_flann.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_core.so.2.4.8
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision"
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/src/cmvision.cc.o
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/src/conversions.c.o
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/src/main.cpp.o
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/build.make
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /root/catkin_ws/odroid-devel/lib/libcv_bridge.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_videostab.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_video.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_superres.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_stitching.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_photo.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ocl.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_objdetect.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ml.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_legacy.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_imgproc.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_highgui.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_gpu.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_flann.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_features2d.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_core.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_contrib.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_calib3d.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_videostab.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_video.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_superres.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_stitching.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_photo.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ocl.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_objdetect.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ml.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_legacy.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_imgproc.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_highgui.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_gpu.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_flann.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_features2d.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_core.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_contrib.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_calib3d.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_photo.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_legacy.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_video.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_objdetect.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_ml.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_calib3d.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_features2d.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_highgui.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_imgproc.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_flann.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libopencv_core.so.2.4.8
+/root/catkin_ws/odroid-devel/lib/cmvision/cmvision: CMakeFiles/cmvision.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /root/catkin_ws/odroid-devel/lib/cmvision/cmvision"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cmvision.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/cmvision.dir/build: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/cmvision/cmvision
+CMakeFiles/cmvision.dir/build: /root/catkin_ws/odroid-devel/lib/cmvision/cmvision
 .PHONY : CMakeFiles/cmvision.dir/build
 
 CMakeFiles/cmvision.dir/requires: CMakeFiles/cmvision.dir/src/cmvision.cc.o.requires
@@ -239,6 +239,6 @@ CMakeFiles/cmvision.dir/clean:
 .PHONY : CMakeFiles/cmvision.dir/clean
 
 CMakeFiles/cmvision.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/cmvision /home/mi/boroujeni/model_car/catkin_ws/src/cmvision /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision/CMakeFiles/cmvision.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/cmvision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/cmvision /root/catkin_ws/src/cmvision /root/catkin_ws/odroid-build/cmvision /root/catkin_ws/odroid-build/cmvision /root/catkin_ws/odroid-build/cmvision/CMakeFiles/cmvision.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cmvision.dir/depend
 

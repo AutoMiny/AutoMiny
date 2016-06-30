@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/serial
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/serial
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/serial
 
 # Utility rule file for _run_tests_serial_gtest_serial-test-timer.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial
 include tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/progress.make
 
 tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests && ../catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/run_tests.py /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/test_results/serial/gtest-serial-test-timer.xml /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer\ --gtest_output=xml:/home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/test_results/serial/gtest-serial-test-timer.xml
+	cd /root/catkin_ws/odroid-build/serial/tests && ../catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/run_tests.py /root/catkin_ws/odroid-build/serial/test_results/serial/gtest-serial-test-timer.xml /root/catkin_ws/odroid-devel/lib/serial/serial-test-timer\ --gtest_output=xml:/root/catkin_ws/odroid-build/serial/test_results/serial/gtest-serial-test-timer.xml
 
 _run_tests_serial_gtest_serial-test-timer: tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer
 _run_tests_serial_gtest_serial-test-timer: tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build.make
@@ -57,10 +57,10 @@ tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build: _run_tests
 .PHONY : tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build
 
 tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/clean:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/cmake_clean.cmake
+	cd /root/catkin_ws/odroid-build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/clean
 
 tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/serial /home/mi/boroujeni/model_car/catkin_ws/src/serial/tests /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/serial /root/catkin_ws/src/serial/tests /root/catkin_ws/odroid-build/serial /root/catkin_ws/odroid-build/serial/tests /root/catkin_ws/odroid-build/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/depend
 

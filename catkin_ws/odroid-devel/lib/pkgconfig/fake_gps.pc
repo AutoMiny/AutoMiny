@@ -1,1 +1,8 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps/lib/pkgconfig/fake_gps.pc
+prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+
+Name: fake_gps
+Description: Description of fake_gps
+Version: 0.0.0
+Cflags: -I/home/zargol/model_car/catkin_ws/odroid-devel/include
+Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib 
+Requires: std_msgs geometry_msgs message_runtime

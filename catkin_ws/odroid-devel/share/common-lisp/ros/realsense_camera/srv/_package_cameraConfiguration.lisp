@@ -1,1 +1,4 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/_package_cameraConfiguration.lisp
+(cl:in-package realsense_camera-srv)
+(cl:export '(CONFIGURATION_STR-VAL
+          CONFIGURATION_STR
+))

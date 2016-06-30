@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/src/camera/test/realsense_camera_test_rgbd_node.cpp
+/root/catkin_ws/src/realsense_camera/test/realsense_camera_test_rgbd_node.cpp
 realsense_camera_test_rgbd_node.h
-/home/mi/boroujeni/model_car/catkin_ws/src/camera/test/realsense_camera_test_rgbd_node.h
+/root/catkin_ws/src/realsense_camera/test/realsense_camera_test_rgbd_node.h
 
-/home/mi/boroujeni/model_car/catkin_ws/src/camera/test/realsense_camera_test_rgbd_node.h
+/root/catkin_ws/src/realsense_camera/test/realsense_camera_test_rgbd_node.h
 sensor_msgs/image_encodings.h
 -
 camera_info_manager/camera_info_manager.h
@@ -296,8 +296,6 @@ set
 list
 -
 boost/shared_ptr.hpp
--
-boost/make_shared.hpp
 -
 boost/weak_ptr.hpp
 -

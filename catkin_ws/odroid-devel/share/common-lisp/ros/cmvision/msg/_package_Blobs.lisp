@@ -1,1 +1,12 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/share/common-lisp/ros/cmvision/msg/_package_Blobs.lisp
+(cl:in-package cmvision-msg)
+(cl:export '(HEADER-VAL
+          HEADER
+          IMAGE_WIDTH-VAL
+          IMAGE_WIDTH
+          IMAGE_HEIGHT-VAL
+          IMAGE_HEIGHT
+          BLOB_COUNT-VAL
+          BLOB_COUNT
+          BLOBS-VAL
+          BLOBS
+))

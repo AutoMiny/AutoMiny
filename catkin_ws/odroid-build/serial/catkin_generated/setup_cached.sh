@@ -7,9 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD="/home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/mi/boroujeni/model_car/catkin_ws/src/serial:$ROS_PACKAGE_PATH"
+export LD_LIBRARY_PATH="/root/catkin_ws/odroid-devel/lib/x86_64-linux-gnu:/opt/odroid-x2/sdk/opt/ros/indigo/lib/x86_64-linux-gnu:/opt/odroid-x2/sdk//opt/ros/indigo/lib/x86_64-linux-gnu:/root/catkin_ws/odroid-devel/lib:/opt/odroid-x2/sdk/opt/ros/indigo/lib:/opt/odroid-x2/sdk/opt/ros/indigo/lib/arm-linux-gnueabihf:/opt/odroid-x2/sdk//opt/ros/indigo/lib:/opt/odroid-x2/sdk//opt/ros/indigo/lib/arm-linux-gnueabihf:/home/zargol/catkin_work_space/devel/lib/x86_64-linux-gnu:/opt/ros/indigo/lib/x86_64-linux-gnu:/home/zargol/catkin_ws/devel/lib:/home/zargol/catkin_ws/install/lib:/opt/ros/indigo/lib/python2.7/dist-packages:/opt/ros/indigo/lib/python2.7/dist-packages:/opt/ros/indigo/lib/python2.7/dist-packages"
+export PKG_CONFIG_PATH="/root/catkin_ws/odroid-devel/lib/x86_64-linux-gnu/pkgconfig:/opt/odroid-x2/sdk/opt/ros/indigo/lib/x86_64-linux-gnu/pkgconfig:/opt/odroid-x2/sdk//opt/ros/indigo/lib/x86_64-linux-gnu/pkgconfig:/root/catkin_ws/odroid-devel/lib/pkgconfig:/opt/odroid-x2/sdk/opt/ros/indigo/lib/pkgconfig:/opt/odroid-x2/sdk/opt/ros/indigo/lib/arm-linux-gnueabihf/pkgconfig:/opt/odroid-x2/sdk//opt/ros/indigo/lib/pkgconfig:/opt/odroid-x2/sdk//opt/ros/indigo/lib/arm-linux-gnueabihf/pkgconfig:/home/zargol/catkin_work_space/devel/lib/x86_64-linux-gnu/pkgconfig:/opt/ros/indigo/lib/x86_64-linux-gnu/pkgconfig:/home/zargol/catkin_ws/devel/lib/pkgconfig:/home/zargol/catkin_ws/install/lib/pkgconfig"

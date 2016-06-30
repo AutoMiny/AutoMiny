@@ -1,7 +1,0 @@
-motor_communication
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/share/motor_communication/cmake/motor_communicationConfig-version.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/motor_communication/cmake/motor_communicationConfig-version.cmake
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/share/motor_communication/cmake/motor_communicationConfig.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/motor_communication/cmake/motor_communicationConfig.cmake
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/libmotor_communication.so /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libmotor_communication.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_control_node /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/motor_communication/motor_control_node
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_communication_node /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/motor_communication/motor_communication_node
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/pkgconfig/motor_communication.pc /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/motor_communication.pc

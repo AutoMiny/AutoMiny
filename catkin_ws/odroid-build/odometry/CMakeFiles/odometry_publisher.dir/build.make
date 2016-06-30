@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/odometry
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/odometry
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/odometry
 
 # Include any dependencies generated for this target.
 include CMakeFiles/odometry_publisher.dir/depend.make
@@ -50,18 +50,18 @@ include CMakeFiles/odometry_publisher.dir/progress.make
 include CMakeFiles/odometry_publisher.dir/flags.make
 
 CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o: CMakeFiles/odometry_publisher.dir/flags.make
-CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/odometry/src/odometry_publisher.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o: /root/catkin_ws/src/odometry/src/odometry_publisher.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/odometry/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/odometry/src/odometry_publisher.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o -c /root/catkin_ws/src/odometry/src/odometry_publisher.cpp
 
 CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/odometry/src/odometry_publisher.cpp > CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/odometry/src/odometry_publisher.cpp > CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.i
 
 CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/odometry/src/odometry_publisher.cpp -o CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/odometry/src/odometry_publisher.cpp -o CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.s
 
 CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o.requires:
 .PHONY : CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o.requires
@@ -79,37 +79,37 @@ odometry_publisher_OBJECTS = \
 # External object files for target odometry_publisher
 odometry_publisher_EXTERNAL_OBJECTS =
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: CMakeFiles/odometry_publisher.dir/build.make
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libtf.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libtf2_ros.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libactionlib.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libmessage_filters.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libtf2.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher: CMakeFiles/odometry_publisher.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher"
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: CMakeFiles/odometry_publisher.dir/build.make
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libtf.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libtf2_ros.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libactionlib.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libmessage_filters.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libtf2.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
+/root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher: CMakeFiles/odometry_publisher.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/odometry_publisher.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/odometry_publisher.dir/build: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/odometry/odometry_publisher
+CMakeFiles/odometry_publisher.dir/build: /root/catkin_ws/odroid-devel/lib/odometry/odometry_publisher
 .PHONY : CMakeFiles/odometry_publisher.dir/build
 
 CMakeFiles/odometry_publisher.dir/requires: CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o.requires
@@ -120,6 +120,6 @@ CMakeFiles/odometry_publisher.dir/clean:
 .PHONY : CMakeFiles/odometry_publisher.dir/clean
 
 CMakeFiles/odometry_publisher.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/odometry /home/mi/boroujeni/model_car/catkin_ws/src/odometry /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/CMakeFiles/odometry_publisher.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/odometry && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/odometry /root/catkin_ws/src/odometry /root/catkin_ws/odroid-build/odometry /root/catkin_ws/odroid-build/odometry /root/catkin_ws/odroid-build/odometry/CMakeFiles/odometry_publisher.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/odometry_publisher.dir/depend
 

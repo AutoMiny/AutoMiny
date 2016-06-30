@@ -1,8 +1,8 @@
-prefix=/home/mi/boroujeni/model_car/catkin_ws/odroid-install
+prefix=/root/catkin_ws/odroid-install
 
 Name: cmvision
 Description: Description of cmvision
 Version: 0.4.2
-Cflags: -I/home/mi/boroujeni/model_car/catkin_ws/odroid-install/include
-Libs: -L/home/mi/boroujeni/model_car/catkin_ws/odroid-install/lib 
+Cflags: -I/root/catkin_ws/odroid-install/include
+Libs: -L/root/catkin_ws/odroid-install/lib 
 Requires: message_runtime std_msgs

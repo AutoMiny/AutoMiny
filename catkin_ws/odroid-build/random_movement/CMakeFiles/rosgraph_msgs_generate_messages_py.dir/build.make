@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/random_movement
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/random_movement
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/random_movement
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/random_movement
 
 # Utility rule file for rosgraph_msgs_generate_messages_py.
 
@@ -60,6 +60,6 @@ CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/random_movement && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/random_movement /home/mi/boroujeni/model_car/catkin_ws/src/random_movement /home/mi/boroujeni/model_car/catkin_ws/odroid-build/random_movement /home/mi/boroujeni/model_car/catkin_ws/odroid-build/random_movement /home/mi/boroujeni/model_car/catkin_ws/odroid-build/random_movement/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/random_movement && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/random_movement /root/catkin_ws/src/random_movement /root/catkin_ws/odroid-build/random_movement /root/catkin_ws/odroid-build/random_movement /root/catkin_ws/odroid-build/random_movement/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
 

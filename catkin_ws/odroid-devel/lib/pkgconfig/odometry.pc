@@ -1,1 +1,8 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/odometry/lib/pkgconfig/odometry.pc
+prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+
+Name: odometry
+Description: Description of odometry
+Version: 0.2.3
+Cflags: 
+Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib 
+Requires: 

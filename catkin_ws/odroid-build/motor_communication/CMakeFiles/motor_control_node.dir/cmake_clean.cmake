@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/motor_control_node.dir/src/motor_control_node.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_control_node.pdb"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_control_node"
+  "/root/catkin_ws/odroid-devel/lib/motor_communication/motor_control_node.pdb"
+  "/root/catkin_ws/odroid-devel/lib/motor_communication/motor_control_node"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/cv_bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cv_bridge
 
 # Utility rule file for _run_tests_cv_bridge_nosetests_python_bindings.py.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge
 include test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/progress.make
 
 test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test && ../catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/run_tests.py /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge/nosetests-python_bindings.py.xml /usr/bin/cmake\ -E\ make_directory\ /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge /usr/bin/nosetests-2.7\ -P\ --process-timeout=60\ /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/test/python_bindings.py\ --with-xunit\ --xunit-file=/home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge/nosetests-python_bindings.py.xml
+	cd /root/catkin_ws/odroid-build/cv_bridge/test && ../catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/run_tests.py /root/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge/nosetests-python_bindings.py.xml /usr/bin/cmake\ -E\ make_directory\ /root/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge /usr/bin/nosetests-2.7\ -P\ --process-timeout=60\ /root/catkin_ws/src/cv_bridge/test/python_bindings.py\ --with-xunit\ --xunit-file=/root/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge/nosetests-python_bindings.py.xml
 
 _run_tests_cv_bridge_nosetests_python_bindings.py: test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py
 _run_tests_cv_bridge_nosetests_python_bindings.py: test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/build.make
@@ -57,10 +57,10 @@ test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/build: _ru
 .PHONY : test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/build
 
 test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/clean:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/cmake_clean.cmake
+	cd /root/catkin_ws/odroid-build/cv_bridge/test && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/clean
 
 test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/test /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/cv_bridge /root/catkin_ws/src/cv_bridge/test /root/catkin_ws/odroid-build/cv_bridge /root/catkin_ws/odroid-build/cv_bridge/test /root/catkin_ws/odroid-build/cv_bridge/test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/_run_tests_cv_bridge_nosetests_python_bindings.py.dir/depend
 

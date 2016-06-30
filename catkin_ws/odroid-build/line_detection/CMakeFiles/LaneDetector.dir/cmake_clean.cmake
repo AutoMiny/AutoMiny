@@ -7,8 +7,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o"
   "CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o"
   "CMakeFiles/LaneDetector.dir/src/Circle.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.pdb"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so"
+  "/root/catkin_ws/odroid-devel/lib/libLaneDetector.pdb"
+  "/root/catkin_ws/odroid-devel/lib/libLaneDetector.so"
 )
 
 # Per-language clean rules from dependency scanning.

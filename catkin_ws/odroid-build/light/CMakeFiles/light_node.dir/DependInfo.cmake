@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mi/boroujeni/model_car/catkin_ws/src/light/src/light_node.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/light/CMakeFiles/light_node.dir/src/light_node.cpp.o"
+  "/root/catkin_ws/src/light/src/light_node.cpp" "/root/catkin_ws/odroid-build/light/CMakeFiles/light_node.dir/src/light_node.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,13 +16,13 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/light/CMakeFiles/light.dir/DependInfo.cmake"
+  "/root/catkin_ws/odroid-build/light/CMakeFiles/light.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/mi/boroujeni/model_car/catkin_ws/src/light/include"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/serial/include"
+  "/root/catkin_ws/src/light/include"
+  "/root/catkin_ws/src/serial/include"
   "/opt/odroid-x2/sdk/opt/ros/indigo/include"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

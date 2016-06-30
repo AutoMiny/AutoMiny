@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/include/kalman_3d.h
+/root/catkin_ws/src/fake_gps/include/kalman_3d.h
 fstream
 -
 iostream
@@ -28,9 +28,9 @@ std_msgs/String.h
 Eigen/Eigen
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/src/kalman_3d.cpp
+/root/catkin_ws/src/fake_gps/src/kalman_3d.cpp
 kalman_3d.h
-/home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/src/kalman_3d.h
+/root/catkin_ws/src/fake_gps/src/kalman_3d.h
 
 /opt/odroid-x2/sdk/opt/ros/indigo/include/XmlRpcDecl.h
 ros/macros.h
@@ -448,8 +448,6 @@ set
 list
 -
 boost/shared_ptr.hpp
--
-boost/make_shared.hpp
 -
 boost/weak_ptr.hpp
 -

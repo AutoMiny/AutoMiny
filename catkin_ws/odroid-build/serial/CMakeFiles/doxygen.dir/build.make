@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/serial
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/serial
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/serial
 
 # Utility rule file for doxygen.
 
@@ -60,6 +60,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/serial /home/mi/boroujeni/model_car/catkin_ws/src/serial /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/serial /root/catkin_ws/src/serial /root/catkin_ws/odroid-build/serial /root/catkin_ws/odroid-build/serial /root/catkin_ws/odroid-build/serial/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

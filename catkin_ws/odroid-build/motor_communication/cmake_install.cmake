@@ -1,8 +1,8 @@
-# Install script for directory: /home/mi/boroujeni/model_car/catkin_ws/src/motor_communication
+# Install script for directory: /root/catkin_ws/src/motor_communication
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/mi/boroujeni/model_car/catkin_ws/odroid-install")
+  SET(CMAKE_INSTALL_PREFIX "/root/catkin_ws/odroid-install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,89 +44,89 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/_setup_util.py")
+   "/root/catkin_ws/odroid-install/_setup_util.py")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE PROGRAM FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/_setup_util.py")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE PROGRAM FILES "/root/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/_setup_util.py")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/env.sh")
+   "/root/catkin_ws/odroid-install/env.sh")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE PROGRAM FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/env.sh")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE PROGRAM FILES "/root/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/env.sh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/setup.bash")
+   "/root/catkin_ws/odroid-install/setup.bash")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/setup.bash")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/setup.bash")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/setup.sh")
+   "/root/catkin_ws/odroid-install/setup.sh")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/setup.sh")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/setup.sh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/setup.zsh")
+   "/root/catkin_ws/odroid-install/setup.zsh")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/setup.zsh")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/setup.zsh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/mi/boroujeni/model_car/catkin_ws/odroid-install/.rosinstall")
+   "/root/catkin_ws/odroid-install/.rosinstall")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/mi/boroujeni/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/.rosinstall")
+FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/.rosinstall")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/motor_communication.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/root/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/motor_communication.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/motor_communication/cmake" TYPE FILE FILES
-    "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/motor_communicationConfig.cmake"
-    "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/motor_communicationConfig-version.cmake"
+    "/root/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/motor_communicationConfig.cmake"
+    "/root/catkin_ws/odroid-build/motor_communication/catkin_generated/installspace/motor_communicationConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/motor_communication" TYPE FILE FILES "/home/mi/boroujeni/model_car/catkin_ws/src/motor_communication/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/motor_communication" TYPE FILE FILES "/root/catkin_ws/src/motor_communication/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -136,7 +136,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmotor_communication.so"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/libmotor_communication.so")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/root/catkin_ws/odroid-devel/lib/libmotor_communication.so")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmotor_communication.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmotor_communication.so")
     IF(CMAKE_INSTALL_DO_STRIP)
@@ -152,7 +152,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/motor_communication/motor_communication_node"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/motor_communication" TYPE EXECUTABLE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_communication_node")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/motor_communication" TYPE EXECUTABLE FILES "/root/catkin_ws/odroid-devel/lib/motor_communication/motor_communication_node")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/motor_communication/motor_communication_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/motor_communication/motor_communication_node")
     FILE(RPATH_REMOVE
@@ -170,7 +170,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/motor_communication/motor_control_node"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/motor_communication" TYPE EXECUTABLE FILES "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/motor_communication/motor_control_node")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/motor_communication" TYPE EXECUTABLE FILES "/root/catkin_ws/odroid-devel/lib/motor_communication/motor_control_node")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/motor_communication/motor_control_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/motor_communication/motor_control_node")
     FILE(RPATH_REMOVE
@@ -182,12 +182,12 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/motor_communication" TYPE DIRECTORY FILES "/home/mi/boroujeni/model_car/catkin_ws/src/motor_communication/include/motor_communication/" FILES_MATCHING REGEX "/[^/]*\\.h$" REGEX "/\\.svn$" EXCLUDE)
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/motor_communication" TYPE DIRECTORY FILES "/root/catkin_ws/src/motor_communication/include/motor_communication/" FILES_MATCHING REGEX "/[^/]*\\.h$" REGEX "/\\.svn$" EXCLUDE)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/gtest/cmake_install.cmake")
+  INCLUDE("/root/catkin_ws/odroid-build/motor_communication/gtest/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -197,7 +197,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/root/catkin_ws/odroid-build/motor_communication/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/motor_communication/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/root/catkin_ws/odroid-build/motor_communication/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

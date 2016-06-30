@@ -4,8 +4,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/timer.cpp.o"
   "CMakeFiles/rplidarNode.dir/sdk/src/hal/thread.cpp.o"
   "CMakeFiles/rplidarNode.dir/sdk/src/rplidar_driver.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNode.pdb"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNode"
+  "/root/catkin_ws/odroid-devel/lib/rplidar_ros/rplidarNode.pdb"
+  "/root/catkin_ws/odroid-devel/lib/rplidar_ros/rplidarNode"
 )
 
 # Per-language clean rules from dependency scanning.

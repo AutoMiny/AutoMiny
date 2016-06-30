@@ -1,1 +1,6 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps/share/common-lisp/ros/fake_gps/msg/_package_Transform.lisp
+(cl:in-package fake_gps-msg)
+(cl:export '(HEADER-VAL
+          HEADER
+          TRANSF-VAL
+          TRANSF
+))

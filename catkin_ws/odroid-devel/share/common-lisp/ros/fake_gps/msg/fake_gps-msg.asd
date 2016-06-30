@@ -1,1 +1,11 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps/share/common-lisp/ros/fake_gps/msg/fake_gps-msg.asd
+
+(cl:in-package :asdf)
+
+(defsystem "fake_gps-msg"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils :geometry_msgs-msg
+               :std_msgs-msg
+)
+  :components ((:file "_package")
+    (:file "Transform" :depends-on ("_package_Transform"))
+    (:file "_package_Transform" :depends-on ("_package"))
+  ))

@@ -1,1 +1,8 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/rplidar_ros/lib/pkgconfig/rplidar_ros.pc
+prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+
+Name: rplidar_ros
+Description: Description of rplidar_ros
+Version: 1.0.1
+Cflags: 
+Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib 
+Requires: 

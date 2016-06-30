@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/line_detection
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/line_detection
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/line_detection
 
 # Include any dependencies generated for this target.
 include CMakeFiles/LaneDetector.dir/depend.make
@@ -50,18 +50,18 @@ include CMakeFiles/LaneDetector.dir/progress.make
 include CMakeFiles/LaneDetector.dir/flags.make
 
 CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o: CMakeFiles/LaneDetector.dir/flags.make
-CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneDetector.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o: /root/catkin_ws/src/line_detection/src/LaneDetector.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneDetector.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o -c /root/catkin_ws/src/line_detection/src/LaneDetector.cpp
 
 CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneDetector.cpp > CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/line_detection/src/LaneDetector.cpp > CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.i
 
 CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneDetector.cpp -o CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/line_detection/src/LaneDetector.cpp -o CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.s
 
 CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o.requires:
 .PHONY : CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o.requires
@@ -73,18 +73,18 @@ CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o.provides: CMakeFiles/LaneDete
 CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o.provides.build: CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o
 
 CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o: CMakeFiles/LaneDetector.dir/flags.make
-CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/StrongClassifier.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_2)
+CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o: /root/catkin_ws/src/line_detection/src/StrongClassifier.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/StrongClassifier.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o -c /root/catkin_ws/src/line_detection/src/StrongClassifier.cpp
 
 CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/StrongClassifier.cpp > CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/line_detection/src/StrongClassifier.cpp > CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.i
 
 CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/StrongClassifier.cpp -o CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/line_detection/src/StrongClassifier.cpp -o CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.s
 
 CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o.requires:
 .PHONY : CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o.requires
@@ -96,18 +96,18 @@ CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o.provides: CMakeFiles/Lane
 CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o.provides.build: CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o
 
 CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o: CMakeFiles/LaneDetector.dir/flags.make
-CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/WeakClassifier.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_3)
+CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o: /root/catkin_ws/src/line_detection/src/WeakClassifier.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/WeakClassifier.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o -c /root/catkin_ws/src/line_detection/src/WeakClassifier.cpp
 
 CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/WeakClassifier.cpp > CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/line_detection/src/WeakClassifier.cpp > CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.i
 
 CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/WeakClassifier.cpp -o CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/line_detection/src/WeakClassifier.cpp -o CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.s
 
 CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o.requires:
 .PHONY : CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o.requires
@@ -119,18 +119,18 @@ CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o.provides: CMakeFiles/LaneDe
 CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o.provides.build: CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o
 
 CMakeFiles/LaneDetector.dir/src/Feature.cpp.o: CMakeFiles/LaneDetector.dir/flags.make
-CMakeFiles/LaneDetector.dir/src/Feature.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Feature.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_4)
+CMakeFiles/LaneDetector.dir/src/Feature.cpp.o: /root/catkin_ws/src/line_detection/src/Feature.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/LaneDetector.dir/src/Feature.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/Feature.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Feature.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/Feature.cpp.o -c /root/catkin_ws/src/line_detection/src/Feature.cpp
 
 CMakeFiles/LaneDetector.dir/src/Feature.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LaneDetector.dir/src/Feature.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Feature.cpp > CMakeFiles/LaneDetector.dir/src/Feature.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/line_detection/src/Feature.cpp > CMakeFiles/LaneDetector.dir/src/Feature.cpp.i
 
 CMakeFiles/LaneDetector.dir/src/Feature.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LaneDetector.dir/src/Feature.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Feature.cpp -o CMakeFiles/LaneDetector.dir/src/Feature.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/line_detection/src/Feature.cpp -o CMakeFiles/LaneDetector.dir/src/Feature.cpp.s
 
 CMakeFiles/LaneDetector.dir/src/Feature.cpp.o.requires:
 .PHONY : CMakeFiles/LaneDetector.dir/src/Feature.cpp.o.requires
@@ -142,18 +142,18 @@ CMakeFiles/LaneDetector.dir/src/Feature.cpp.o.provides: CMakeFiles/LaneDetector.
 CMakeFiles/LaneDetector.dir/src/Feature.cpp.o.provides.build: CMakeFiles/LaneDetector.dir/src/Feature.cpp.o
 
 CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o: CMakeFiles/LaneDetector.dir/flags.make
-CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/ContourModel.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_5)
+CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o: /root/catkin_ws/src/line_detection/src/ContourModel.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/ContourModel.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o -c /root/catkin_ws/src/line_detection/src/ContourModel.cpp
 
 CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/ContourModel.cpp > CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/line_detection/src/ContourModel.cpp > CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.i
 
 CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/ContourModel.cpp -o CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/line_detection/src/ContourModel.cpp -o CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.s
 
 CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o.requires:
 .PHONY : CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o.requires
@@ -165,18 +165,18 @@ CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o.provides: CMakeFiles/LaneDete
 CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o.provides.build: CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o
 
 CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o: CMakeFiles/LaneDetector.dir/flags.make
-CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_6)
+CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o: /root/catkin_ws/src/line_detection/src/LaneModel.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o -c /root/catkin_ws/src/line_detection/src/LaneModel.cpp
 
 CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp > CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/line_detection/src/LaneModel.cpp > CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.i
 
 CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp -o CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/line_detection/src/LaneModel.cpp -o CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.s
 
 CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o.requires:
 .PHONY : CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o.requires
@@ -188,18 +188,18 @@ CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o.provides: CMakeFiles/LaneDetecto
 CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o.provides.build: CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o
 
 CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o: CMakeFiles/LaneDetector.dir/flags.make
-CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/PointSet.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_7)
+CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o: /root/catkin_ws/src/line_detection/src/PointSet.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/PointSet.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o -c /root/catkin_ws/src/line_detection/src/PointSet.cpp
 
 CMakeFiles/LaneDetector.dir/src/PointSet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LaneDetector.dir/src/PointSet.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/PointSet.cpp > CMakeFiles/LaneDetector.dir/src/PointSet.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/line_detection/src/PointSet.cpp > CMakeFiles/LaneDetector.dir/src/PointSet.cpp.i
 
 CMakeFiles/LaneDetector.dir/src/PointSet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LaneDetector.dir/src/PointSet.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/PointSet.cpp -o CMakeFiles/LaneDetector.dir/src/PointSet.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/line_detection/src/PointSet.cpp -o CMakeFiles/LaneDetector.dir/src/PointSet.cpp.s
 
 CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o.requires:
 .PHONY : CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o.requires
@@ -211,18 +211,18 @@ CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o.provides: CMakeFiles/LaneDetector
 CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o.provides.build: CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o
 
 CMakeFiles/LaneDetector.dir/src/Circle.cpp.o: CMakeFiles/LaneDetector.dir/flags.make
-CMakeFiles/LaneDetector.dir/src/Circle.cpp.o: /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Circle.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_8)
+CMakeFiles/LaneDetector.dir/src/Circle.cpp.o: /root/catkin_ws/src/line_detection/src/Circle.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/line_detection/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/LaneDetector.dir/src/Circle.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/Circle.cpp.o -c /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Circle.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/LaneDetector.dir/src/Circle.cpp.o -c /root/catkin_ws/src/line_detection/src/Circle.cpp
 
 CMakeFiles/LaneDetector.dir/src/Circle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LaneDetector.dir/src/Circle.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Circle.cpp > CMakeFiles/LaneDetector.dir/src/Circle.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/line_detection/src/Circle.cpp > CMakeFiles/LaneDetector.dir/src/Circle.cpp.i
 
 CMakeFiles/LaneDetector.dir/src/Circle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LaneDetector.dir/src/Circle.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Circle.cpp -o CMakeFiles/LaneDetector.dir/src/Circle.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/line_detection/src/Circle.cpp -o CMakeFiles/LaneDetector.dir/src/Circle.cpp.s
 
 CMakeFiles/LaneDetector.dir/src/Circle.cpp.o.requires:
 .PHONY : CMakeFiles/LaneDetector.dir/src/Circle.cpp.o.requires
@@ -247,21 +247,21 @@ LaneDetector_OBJECTS = \
 # External object files for target LaneDetector
 LaneDetector_EXTERNAL_OBJECTS =
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/Feature.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/Circle.cpp.o
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/build.make
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so"
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/Feature.cpp.o
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/src/Circle.cpp.o
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/build.make
+/root/catkin_ws/odroid-devel/lib/libLaneDetector.so: CMakeFiles/LaneDetector.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /root/catkin_ws/odroid-devel/lib/libLaneDetector.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LaneDetector.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/LaneDetector.dir/build: /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/line_detection/lib/libLaneDetector.so
+CMakeFiles/LaneDetector.dir/build: /root/catkin_ws/odroid-devel/lib/libLaneDetector.so
 .PHONY : CMakeFiles/LaneDetector.dir/build
 
 CMakeFiles/LaneDetector.dir/requires: CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o.requires
@@ -279,6 +279,6 @@ CMakeFiles/LaneDetector.dir/clean:
 .PHONY : CMakeFiles/LaneDetector.dir/clean
 
 CMakeFiles/LaneDetector.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/line_detection /home/mi/boroujeni/model_car/catkin_ws/src/line_detection /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection /home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/line_detection && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/line_detection /root/catkin_ws/src/line_detection /root/catkin_ws/odroid-build/line_detection /root/catkin_ws/odroid-build/line_detection /root/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/LaneDetector.dir/depend
 

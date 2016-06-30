@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/odroid-devel/.private/rplidar_ros
-
-Name: rplidar_ros
-Description: Description of rplidar_ros
-Version: 1.0.1
-Cflags: 
-Libs: -L/root/catkin_ws/odroid-devel/.private/rplidar_ros/lib 
-Requires: 

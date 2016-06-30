@@ -1,1 +1,8 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/send_steering/lib/pkgconfig/send_steering.pc
+prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+
+Name: send_steering
+Description: Description of send_steering
+Version: 0.0.0
+Cflags: -I/home/zargol/model_car/catkin_ws/src/send_steering/include
+Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib -lsend_steering
+Requires: serial

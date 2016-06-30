@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/cmvision
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/cmvision
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cmvision
 
 # Utility rule file for _cmvision_generate_messages_check_deps_Blob.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision
 include CMakeFiles/_cmvision_generate_messages_check_deps_Blob.dir/progress.make
 
 CMakeFiles/_cmvision_generate_messages_check_deps_Blob:
-	catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py cmvision /home/mi/boroujeni/model_car/catkin_ws/src/cmvision/msg/Blob.msg 
+	catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py cmvision /root/catkin_ws/src/cmvision/msg/Blob.msg 
 
 _cmvision_generate_messages_check_deps_Blob: CMakeFiles/_cmvision_generate_messages_check_deps_Blob
 _cmvision_generate_messages_check_deps_Blob: CMakeFiles/_cmvision_generate_messages_check_deps_Blob.dir/build.make
@@ -61,6 +61,6 @@ CMakeFiles/_cmvision_generate_messages_check_deps_Blob.dir/clean:
 .PHONY : CMakeFiles/_cmvision_generate_messages_check_deps_Blob.dir/clean
 
 CMakeFiles/_cmvision_generate_messages_check_deps_Blob.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/cmvision /home/mi/boroujeni/model_car/catkin_ws/src/cmvision /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cmvision/CMakeFiles/_cmvision_generate_messages_check_deps_Blob.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/cmvision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/cmvision /root/catkin_ws/src/cmvision /root/catkin_ws/odroid-build/cmvision /root/catkin_ws/odroid-build/cmvision /root/catkin_ws/odroid-build/cmvision/CMakeFiles/_cmvision_generate_messages_check_deps_Blob.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/_cmvision_generate_messages_check_deps_Blob.dir/depend
 

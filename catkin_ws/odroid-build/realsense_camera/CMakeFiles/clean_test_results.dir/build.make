@@ -38,10 +38,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/camera
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/realsense_camera
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/realsense_camera
 
 # Utility rule file for clean_test_results.
 
@@ -49,7 +49,7 @@ CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera/test_results
+	/usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /root/catkin_ws/odroid-build/realsense_camera/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -64,6 +64,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/camera /home/mi/boroujeni/model_car/catkin_ws/src/camera /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/realsense_camera && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/odroid-build/realsense_camera /root/catkin_ws/odroid-build/realsense_camera /root/catkin_ws/odroid-build/realsense_camera/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 

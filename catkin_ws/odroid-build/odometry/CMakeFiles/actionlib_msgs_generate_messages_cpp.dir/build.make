@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/odometry
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/odometry
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/odometry
 
 # Utility rule file for actionlib_msgs_generate_messages_cpp.
 
@@ -60,6 +60,6 @@ CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean:
 .PHONY : CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
 
 CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/odometry /home/mi/boroujeni/model_car/catkin_ws/src/odometry /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry /home/mi/boroujeni/model_car/catkin_ws/odroid-build/odometry/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/odometry && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/odometry /root/catkin_ws/src/odometry /root/catkin_ws/odroid-build/odometry /root/catkin_ws/odroid-build/odometry /root/catkin_ws/odroid-build/odometry/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/depend
 

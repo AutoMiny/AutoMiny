@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/odroid-devel/.private/detect_roof_rectangles
-
-Name: detect_roof_rectangles
-Description: Description of detect_roof_rectangles
-Version: 0.0.0
-Cflags: 
-Libs: -L/root/catkin_ws/odroid-devel/.private/detect_roof_rectangles/lib 
-Requires: cmvision

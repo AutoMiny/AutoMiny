@@ -1,1 +1,8 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/control/lib/pkgconfig/control.pc
+prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+
+Name: control
+Description: Description of control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib 
+Requires: 

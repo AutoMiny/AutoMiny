@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/odroid-devel/.private/control
-
-Name: control
-Description: Description of control
-Version: 0.0.0
-Cflags: 
-Libs: -L/root/catkin_ws/odroid-devel/.private/control/lib 
-Requires: 

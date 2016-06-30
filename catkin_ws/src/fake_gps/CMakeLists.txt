@@ -10,7 +10,6 @@ find_library(eigen REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-
  
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -27,6 +26,7 @@ find_library(eigen REQUIRED)
 	Transform.msg
 #   Message2.msg
  )
+ 
 
 ## Generate services in the 'srv' folder
 # add_service_files(

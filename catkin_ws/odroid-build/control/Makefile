@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/control
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/control
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/control
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/control
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,9 +120,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/control/CMakeFiles /home/mi/boroujeni/model_car/catkin_ws/odroid-build/control/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/control/CMakeFiles /root/catkin_ws/odroid-build/control/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/control/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/control/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -161,6 +161,19 @@ clean_test_results: cmake_check_build_system
 clean_test_results/fast:
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
 .PHONY : clean_test_results/fast
+
+#=============================================================================
+# Target rules for targets named clean_test_results_control
+
+# Build rule for target.
+clean_test_results_control: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_control
+.PHONY : clean_test_results_control
+
+# fast build rule for target.
+clean_test_results_control/fast:
+	$(MAKE) -f CMakeFiles/clean_test_results_control.dir/build.make CMakeFiles/clean_test_results_control.dir/build
+.PHONY : clean_test_results_control/fast
 
 #=============================================================================
 # Target rules for targets named control_node
@@ -401,6 +414,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... clean_test_results"
+	@echo "... clean_test_results_control"
 	@echo "... control_node"
 	@echo "... download_extra_data"
 	@echo "... doxygen"

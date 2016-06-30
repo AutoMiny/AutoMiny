@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer.pdb"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial-test-timer"
+  "/root/catkin_ws/odroid-devel/lib/serial/serial-test-timer.pdb"
+  "/root/catkin_ws/odroid-devel/lib/serial/serial-test-timer"
 )
 
 # Per-language clean rules from dependency scanning.

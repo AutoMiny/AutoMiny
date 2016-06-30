@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/random_movement
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/random_movement
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/random_movement
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/random_movement
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,9 +120,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/random_movement/CMakeFiles /home/mi/boroujeni/model_car/catkin_ws/odroid-build/random_movement/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/random_movement/CMakeFiles /root/catkin_ws/odroid-build/random_movement/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/random_movement/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/random_movement/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -161,6 +161,19 @@ clean_test_results: cmake_check_build_system
 clean_test_results/fast:
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
 .PHONY : clean_test_results/fast
+
+#=============================================================================
+# Target rules for targets named clean_test_results_random_movement
+
+# Build rule for target.
+clean_test_results_random_movement: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_random_movement
+.PHONY : clean_test_results_random_movement
+
+# fast build rule for target.
+clean_test_results_random_movement/fast:
+	$(MAKE) -f CMakeFiles/clean_test_results_random_movement.dir/build.make CMakeFiles/clean_test_results_random_movement.dir/build
+.PHONY : clean_test_results_random_movement/fast
 
 #=============================================================================
 # Target rules for targets named download_extra_data
@@ -479,6 +492,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... clean_test_results"
+	@echo "... clean_test_results_random_movement"
 	@echo "... download_extra_data"
 	@echo "... doxygen"
 	@echo "... edit_cache"

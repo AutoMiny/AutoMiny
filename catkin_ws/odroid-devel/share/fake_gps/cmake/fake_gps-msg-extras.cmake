@@ -1,1 +1,2 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps/share/fake_gps/cmake/fake_gps-msg-extras.cmake
+set(fake_gps_MESSAGE_FILES "/home/zargol/model_car/catkin_ws/src/fake_gps/msg/Transform.msg")
+set(fake_gps_SERVICE_FILES "")

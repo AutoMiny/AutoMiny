@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/usb_cam_node.dir/nodes/usb_cam_node.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/usb_cam/lib/usb_cam/usb_cam_node.pdb"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/usb_cam/lib/usb_cam/usb_cam_node"
+  "/root/catkin_ws/odroid-devel/lib/usb_cam/usb_cam_node.pdb"
+  "/root/catkin_ws/odroid-devel/lib/usb_cam/usb_cam_node"
 )
 
 # Per-language clean rules from dependency scanning.

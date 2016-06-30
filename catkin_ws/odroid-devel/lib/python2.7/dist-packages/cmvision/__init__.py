@@ -1,1 +1,0 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/lib/python2.7/dist-packages/cmvision/__init__.py

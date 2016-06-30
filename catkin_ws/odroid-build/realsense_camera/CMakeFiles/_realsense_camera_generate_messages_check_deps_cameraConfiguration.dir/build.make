@@ -38,10 +38,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/camera
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/realsense_camera
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/realsense_camera
 
 # Utility rule file for _realsense_camera_generate_messages_check_deps_cameraConfiguration.
 
@@ -49,7 +49,7 @@ CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense
 include CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/progress.make
 
 CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration:
-	catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py realsense_camera /home/mi/boroujeni/model_car/catkin_ws/src/camera/srv/cameraConfiguration.srv 
+	catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py realsense_camera /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv 
 
 _realsense_camera_generate_messages_check_deps_cameraConfiguration: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration
 _realsense_camera_generate_messages_check_deps_cameraConfiguration: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build.make
@@ -64,6 +64,6 @@ CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.di
 .PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/clean
 
 CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/camera /home/mi/boroujeni/model_car/catkin_ws/src/camera /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera /home/mi/boroujeni/model_car/catkin_ws/odroid-build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/realsense_camera && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/odroid-build/realsense_camera /root/catkin_ws/odroid-build/realsense_camera /root/catkin_ws/odroid-build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/depend
 

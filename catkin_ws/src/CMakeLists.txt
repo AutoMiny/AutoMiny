@@ -14,6 +14,7 @@ execute_process(COMMAND ${_cmd}
   OUTPUT_STRIP_TRAILING_WHITESPACE
   ERROR_STRIP_TRAILING_WHITESPACE
 )
+
 if(NOT _res EQUAL 0 AND NOT _res EQUAL 2)
   # searching fot catkin resulted in an error
   string(REPLACE ";" " " _cmd_str "${_cmd}")

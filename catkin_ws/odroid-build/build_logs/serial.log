@@ -1,0 +1,6 @@
+[[36mserial[0m] [1m[34m==>[0m '[1m/root/catkin_ws/odroid-build/serial/build_env.sh /usr/bin/make cmake_check_build_system[0m' [30m[1min[0m '[1m/root/catkin_ws/odroid-build/serial[0m'[0m
+[[36mserial[0m] [32m<==[0m '[1m/root/catkin_ws/odroid-build/serial/build_env.sh /usr/bin/make cmake_check_build_system[0m' finished with return code '[1m0[0m'[0m
+[[36mserial[0m] [1m[34m==>[0m '[1m/root/catkin_ws/odroid-build/serial/build_env.sh /usr/bin/make --jobserver-fds=3,6 -j[0m' [30m[1min[0m '[1m/root/catkin_ws/odroid-build/serial[0m'[0m
+[ 75%] Built target serial
+[100%] Built target serial_example
+[[36mserial[0m] [32m<==[0m '[1m/root/catkin_ws/odroid-build/serial/build_env.sh /usr/bin/make --jobserver-fds=3,6 -j[0m' finished with return code '[1m0[0m'[0m

@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/ip_mapping
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/ip_mapping
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/ip_mapping
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/ip_mapping
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,9 +120,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/ip_mapping/CMakeFiles /home/mi/boroujeni/model_car/catkin_ws/odroid-build/ip_mapping/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/ip_mapping/CMakeFiles /root/catkin_ws/odroid-build/ip_mapping/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/ip_mapping/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/ip_mapping/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -291,6 +291,19 @@ clean_test_results: cmake_check_build_system
 clean_test_results/fast:
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
 .PHONY : clean_test_results/fast
+
+#=============================================================================
+# Target rules for targets named clean_test_results_ip_mapping
+
+# Build rule for target.
+clean_test_results_ip_mapping: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_ip_mapping
+.PHONY : clean_test_results_ip_mapping
+
+# fast build rule for target.
+clean_test_results_ip_mapping/fast:
+	$(MAKE) -f CMakeFiles/clean_test_results_ip_mapping.dir/build.make CMakeFiles/clean_test_results_ip_mapping.dir/build
+.PHONY : clean_test_results_ip_mapping/fast
 
 #=============================================================================
 # Target rules for targets named download_extra_data
@@ -903,6 +916,7 @@ help:
 	@echo "... bond_generate_messages_lisp"
 	@echo "... bond_generate_messages_py"
 	@echo "... clean_test_results"
+	@echo "... clean_test_results_ip_mapping"
 	@echo "... download_extra_data"
 	@echo "... doxygen"
 	@echo "... dynamic_reconfigure_gencfg"

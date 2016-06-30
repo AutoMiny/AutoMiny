@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/serial
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/serial
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/serial
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,9 +120,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/CMakeFiles /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/serial/CMakeFiles /root/catkin_ws/odroid-build/serial/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/serial/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/serial/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -174,6 +174,19 @@ clean_test_results: cmake_check_build_system
 clean_test_results/fast:
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
 .PHONY : clean_test_results/fast
+
+#=============================================================================
+# Target rules for targets named clean_test_results_serial
+
+# Build rule for target.
+clean_test_results_serial: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_serial
+.PHONY : clean_test_results_serial
+
+# fast build rule for target.
+clean_test_results_serial/fast:
+	$(MAKE) -f CMakeFiles/clean_test_results_serial.dir/build.make CMakeFiles/clean_test_results_serial.dir/build
+.PHONY : clean_test_results_serial/fast
 
 #=============================================================================
 # Target rules for targets named download_extra_data
@@ -330,19 +343,6 @@ _run_tests_serial_gtest_serial-test-timer: cmake_check_build_system
 _run_tests_serial_gtest_serial-test-timer/fast:
 	$(MAKE) -f tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build.make tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build
 .PHONY : _run_tests_serial_gtest_serial-test-timer/fast
-
-#=============================================================================
-# Target rules for targets named clean_test_results_serial
-
-# Build rule for target.
-clean_test_results_serial: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_serial
-.PHONY : clean_test_results_serial
-
-# fast build rule for target.
-clean_test_results_serial/fast:
-	$(MAKE) -f tests/CMakeFiles/clean_test_results_serial.dir/build.make tests/CMakeFiles/clean_test_results_serial.dir/build
-.PHONY : clean_test_results_serial/fast
 
 #=============================================================================
 # Target rules for targets named run_tests_serial
@@ -526,6 +526,7 @@ help:
 	@echo "... depend"
 	@echo "... _catkin_empty_exported_target"
 	@echo "... clean_test_results"
+	@echo "... clean_test_results_serial"
 	@echo "... download_extra_data"
 	@echo "... doxygen"
 	@echo "... edit_cache"
@@ -545,7 +546,6 @@ help:
 	@echo "... _run_tests_serial_gtest"
 	@echo "... _run_tests_serial_gtest_serial-test"
 	@echo "... _run_tests_serial_gtest_serial-test-timer"
-	@echo "... clean_test_results_serial"
 	@echo "... run_tests_serial"
 	@echo "... run_tests_serial_gtest"
 	@echo "... run_tests_serial_gtest_serial-test"

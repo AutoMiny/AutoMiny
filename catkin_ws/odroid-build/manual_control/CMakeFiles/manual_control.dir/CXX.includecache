@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/src/manual_control/src/manual_control_node.cpp
+/root/catkin_ws/src/manual_control/src/manual_control_node.cpp
 send_steering.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/send_steering/include/send_steering.h
+/root/catkin_ws/src/send_steering/include/send_steering.h
 ros/ros.h
 -
 ros/message_operations.h
@@ -30,7 +30,7 @@ cstdio
 unistd.h
 -
 serial/serial.h
-/home/mi/boroujeni/model_car/catkin_ws/src/send_steering/include/serial/serial.h
+/root/catkin_ws/src/send_steering/include/serial/serial.h
 sstream
 -
 ros/console.h
@@ -180,8 +180,6 @@ set
 list
 -
 boost/shared_ptr.hpp
--
-boost/make_shared.hpp
 -
 boost/weak_ptr.hpp
 -

@@ -1,1 +1,8 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/motor_communication/lib/pkgconfig/motor_communication.pc
+prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+
+Name: motor_communication
+Description: Description of motor_communication
+Version: 0.0.0
+Cflags: -I/home/zargol/model_car/catkin_ws/src/motor_communication/include
+Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib -lmotor_communication
+Requires: geometry_msgs serial std_msgs

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/include/cmvision/Blob.h
+/root/catkin_ws/odroid-devel/include/cmvision/Blob.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/include/cmvision/Blobs.h
+/root/catkin_ws/odroid-devel/include/cmvision/Blobs.h
 string
 -
 vector
@@ -42,7 +42,7 @@ std_msgs/Header.h
 cmvision/Blob.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/include/kalman_2d.h
+/root/catkin_ws/src/fake_gps/include/kalman_2d.h
 fstream
 -
 iostream
@@ -64,7 +64,7 @@ std_msgs/String.h
 Eigen/Eigen
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/src/fake_gps_2d_node.cpp
+/root/catkin_ws/src/fake_gps/src/fake_gps_2d_node.cpp
 fstream
 -
 iostream
@@ -78,17 +78,17 @@ tf/transform_broadcaster.h
 tf/transform_listener.h
 -
 tf/transform_datatypes.h
-/home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/src/tf/transform_datatypes.h
+/root/catkin_ws/src/fake_gps/src/tf/transform_datatypes.h
 visualization_msgs/MarkerArray.h
 -
 std_msgs/String.h
 -
 kalman_2d.h
-/home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/src/kalman_2d.h
+/root/catkin_ws/src/fake_gps/src/kalman_2d.h
 math.h
 -
 geometry_msgs/Transform.h
-/home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/src/geometry_msgs/Transform.h
+/root/catkin_ws/src/fake_gps/src/geometry_msgs/Transform.h
 Eigen/Eigen
 -
 cmvision/Blobs.h
@@ -510,8 +510,6 @@ set
 list
 -
 boost/shared_ptr.hpp
--
-boost/make_shared.hpp
 -
 boost/weak_ptr.hpp
 -

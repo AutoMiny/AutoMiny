@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/auto_stop
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/auto_stop
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/auto_stop
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,9 +120,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/auto_stop/CMakeFiles /root/catkin_ws/odroid-build/auto_stop/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mi/boroujeni/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/odroid-build/auto_stop/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -174,6 +174,19 @@ clean_test_results: cmake_check_build_system
 clean_test_results/fast:
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
 .PHONY : clean_test_results/fast
+
+#=============================================================================
+# Target rules for targets named clean_test_results_auto_stop
+
+# Build rule for target.
+clean_test_results_auto_stop: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_auto_stop
+.PHONY : clean_test_results_auto_stop
+
+# fast build rule for target.
+clean_test_results_auto_stop/fast:
+	$(MAKE) -f CMakeFiles/clean_test_results_auto_stop.dir/build.make CMakeFiles/clean_test_results_auto_stop.dir/build
+.PHONY : clean_test_results_auto_stop/fast
 
 #=============================================================================
 # Target rules for targets named download_extra_data
@@ -480,6 +493,7 @@ help:
 	@echo "... depend"
 	@echo "... auto_stop_node"
 	@echo "... clean_test_results"
+	@echo "... clean_test_results_auto_stop"
 	@echo "... download_extra_data"
 	@echo "... doxygen"
 	@echo "... edit_cache"

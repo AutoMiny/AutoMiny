@@ -1,6 +1,0 @@
-heading
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/heading/share/heading/cmake/headingConfig-version.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/heading/cmake/headingConfig-version.cmake
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/heading/share/heading/cmake/headingConfig.cmake /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/share/heading/cmake/headingConfig.cmake
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/heading/lib/libheading.so /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/libheading.so
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/heading/lib/pkgconfig/heading.pc /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/pkgconfig/heading.pc
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/heading/lib/heading/heading_node /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/lib/heading/heading_node

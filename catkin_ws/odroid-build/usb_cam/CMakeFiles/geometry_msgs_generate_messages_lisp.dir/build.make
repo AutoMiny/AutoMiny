@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/usb_cam
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/usb_cam
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/usb_cam
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/usb_cam
 
 # Utility rule file for geometry_msgs_generate_messages_lisp.
 
@@ -60,6 +60,6 @@ CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 
 CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/usb_cam && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/usb_cam /home/mi/boroujeni/model_car/catkin_ws/src/usb_cam /home/mi/boroujeni/model_car/catkin_ws/odroid-build/usb_cam /home/mi/boroujeni/model_car/catkin_ws/odroid-build/usb_cam /home/mi/boroujeni/model_car/catkin_ws/odroid-build/usb_cam/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/usb_cam && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/usb_cam /root/catkin_ws/src/usb_cam /root/catkin_ws/odroid-build/usb_cam /root/catkin_ws/odroid-build/usb_cam /root/catkin_ws/odroid-build/usb_cam/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
 

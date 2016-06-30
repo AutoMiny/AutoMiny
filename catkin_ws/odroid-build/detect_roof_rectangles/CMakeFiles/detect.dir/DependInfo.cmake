@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mi/boroujeni/model_car/catkin_ws/src/detect_roof_rectangles/src/detect.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/detect_roof_rectangles/CMakeFiles/detect.dir/src/detect.cpp.o"
+  "/root/catkin_ws/src/detect_roof_rectangles/src/detect.cpp" "/root/catkin_ws/odroid-build/detect_roof_rectangles/CMakeFiles/detect.dir/src/detect.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

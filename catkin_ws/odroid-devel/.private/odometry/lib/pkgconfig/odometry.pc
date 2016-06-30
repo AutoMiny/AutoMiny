@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/odroid-devel/.private/odometry
-
-Name: odometry
-Description: Description of odometry
-Version: 0.2.3
-Cflags: 
-Libs: -L/root/catkin_ws/odroid-devel/.private/odometry/lib 
-Requires: 

@@ -1,4 +1,0 @@
-[31m[1mLinking CXX shared library /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/libserial.so
-[0m[ 75%] Built target serial
-[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/serial/lib/serial/serial_example
-[0m[100%] Built target serial_example

@@ -15,9 +15,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/fake_gps/include"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/fake_gps/include"
-  "/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/include"
+  "/root/catkin_ws/odroid-devel/include"
+  "/root/catkin_ws/src/fake_gps/include"
   "/opt/odroid-x2/sdk/opt/ros/indigo/include"
   "/usr/include/eigen3"
   )

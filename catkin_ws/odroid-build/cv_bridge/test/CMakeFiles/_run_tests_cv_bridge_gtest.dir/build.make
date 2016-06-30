@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/cv_bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cv_bridge
 
 # Utility rule file for _run_tests_cv_bridge_gtest.
 
@@ -56,10 +56,10 @@ test/CMakeFiles/_run_tests_cv_bridge_gtest.dir/build: _run_tests_cv_bridge_gtest
 .PHONY : test/CMakeFiles/_run_tests_cv_bridge_gtest.dir/build
 
 test/CMakeFiles/_run_tests_cv_bridge_gtest.dir/clean:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_cv_bridge_gtest.dir/cmake_clean.cmake
+	cd /root/catkin_ws/odroid-build/cv_bridge/test && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_cv_bridge_gtest.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/_run_tests_cv_bridge_gtest.dir/clean
 
 test/CMakeFiles/_run_tests_cv_bridge_gtest.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge /home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/test /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test /home/mi/boroujeni/model_car/catkin_ws/odroid-build/cv_bridge/test/CMakeFiles/_run_tests_cv_bridge_gtest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/cv_bridge /root/catkin_ws/src/cv_bridge/test /root/catkin_ws/odroid-build/cv_bridge /root/catkin_ws/odroid-build/cv_bridge/test /root/catkin_ws/odroid-build/cv_bridge/test/CMakeFiles/_run_tests_cv_bridge_gtest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/_run_tests_cv_bridge_gtest.dir/depend
 

@@ -1,1 +1,24 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/cmvision/share/common-lisp/ros/cmvision/msg/_package_Blob.lisp
+(cl:in-package cmvision-msg)
+(cl:export '(NAME-VAL
+          NAME
+          RED-VAL
+          RED
+          GREEN-VAL
+          GREEN
+          BLUE-VAL
+          BLUE
+          AREA-VAL
+          AREA
+          X-VAL
+          X
+          Y-VAL
+          Y
+          LEFT-VAL
+          LEFT
+          RIGHT-VAL
+          RIGHT
+          TOP-VAL
+          TOP
+          BOTTOM-VAL
+          BOTTOM
+))

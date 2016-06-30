@@ -1,1 +1,8 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/manual_control/lib/pkgconfig/manual_control.pc
+prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+
+Name: manual_control
+Description: Description of manual_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib -lmanual_control
+Requires: send_steering

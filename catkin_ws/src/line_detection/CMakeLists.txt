@@ -21,6 +21,8 @@ find_package(catkin REQUIRED COMPONENTS roscpp std_msgs sensor_msgs cv_bridge pc
 ## Declare ROS messages and services ##
 #######################################
 
+
+
 ## Generate messages in the 'msg' folder
 # add_message_files(
 #   FILES

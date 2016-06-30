@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/src/light/include/lights.h
+/root/catkin_ws/src/light/include/lights.h
 ros/ros.h
 -
 ros/message_operations.h
@@ -26,7 +26,7 @@ cstdio
 unistd.h
 -
 serial/serial.h
-/home/mi/boroujeni/model_car/catkin_ws/src/light/include/serial/serial.h
+/root/catkin_ws/src/light/include/serial/serial.h
 sstream
 -
 ros/console.h
@@ -34,11 +34,11 @@ ros/console.h
 sstream
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/light/src/lights.cpp
+/root/catkin_ws/src/light/src/lights.cpp
 lights.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/serial/include/serial/serial.h
+/root/catkin_ws/src/serial/include/serial/serial.h
 limits
 -
 vector
@@ -56,7 +56,7 @@ stdexcept
 serial/v8stdint.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/serial/include/serial/v8stdint.h
+/root/catkin_ws/src/serial/include/serial/v8stdint.h
 stddef.h
 -
 stdio.h
@@ -206,8 +206,6 @@ set
 list
 -
 boost/shared_ptr.hpp
--
-boost/make_shared.hpp
 -
 boost/weak_ptr.hpp
 -

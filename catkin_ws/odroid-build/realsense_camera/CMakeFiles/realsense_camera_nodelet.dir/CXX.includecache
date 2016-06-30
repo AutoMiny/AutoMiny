@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/cameraConfiguration.h
+/root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfiguration.h
 ros/service_traits.h
 -
 realsense_camera/cameraConfigurationRequest.h
@@ -14,7 +14,7 @@ realsense_camera/cameraConfigurationRequest.h
 realsense_camera/cameraConfigurationResponse.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/cameraConfigurationRequest.h
+/root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfigurationRequest.h
 string
 -
 vector
@@ -30,7 +30,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/cameraConfigurationResponse.h
+/root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfigurationResponse.h
 string
 -
 vector
@@ -46,7 +46,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h
+/root/catkin_ws/odroid-devel/include/realsense_camera/camera_paramsConfig.h
 dynamic_reconfigure/config_tools.h
 -
 limits
@@ -64,15 +64,33 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/camera/src/realsense_camera_nodelet.cpp
+/root/catkin_ws/src/cv_bridge/include/cv_bridge/cv_bridge.h
+sensor_msgs/Image.h
+-
+sensor_msgs/CompressedImage.h
+-
+sensor_msgs/image_encodings.h
+-
+ros/static_assert.h
+-
+opencv2/core/core.hpp
+-
+opencv2/imgproc/imgproc.hpp
+-
+opencv2/imgproc/types_c.h
+-
+stdexcept
+-
+
+/root/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.cpp
 realsense_camera_nodelet.h
-/home/mi/boroujeni/model_car/catkin_ws/src/camera/src/realsense_camera_nodelet.h
+/root/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.h
 pluginlib/class_list_macros.h
 -
 tf/transform_broadcaster.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/camera/src/realsense_camera_nodelet.h
+/root/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.h
 ros/ros.h
 -
 nodelet/nodelet.h
@@ -122,24 +140,6 @@ realsense_camera/cameraConfiguration.h
 dynamic_reconfigure/server.h
 -
 realsense_camera/camera_paramsConfig.h
--
-
-/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include/cv_bridge/cv_bridge.h
-sensor_msgs/Image.h
--
-sensor_msgs/CompressedImage.h
--
-sensor_msgs/image_encodings.h
--
-ros/static_assert.h
--
-opencv2/core/core.hpp
--
-opencv2/imgproc/imgproc.hpp
--
-opencv2/imgproc/types_c.h
--
-stdexcept
 -
 
 /opt/odroid-x2/sdk/opt/ros/indigo/include/XmlRpcDecl.h
@@ -904,8 +904,6 @@ set
 list
 -
 boost/shared_ptr.hpp
--
-boost/make_shared.hpp
 -
 boost/weak_ptr.hpp
 -

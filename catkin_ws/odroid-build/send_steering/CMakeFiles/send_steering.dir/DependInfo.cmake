@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mi/boroujeni/model_car/catkin_ws/src/send_steering/src/send_steering.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/send_steering/CMakeFiles/send_steering.dir/src/send_steering.cpp.o"
+  "/root/catkin_ws/src/send_steering/src/send_steering.cpp" "/root/catkin_ws/odroid-build/send_steering/CMakeFiles/send_steering.dir/src/send_steering.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,8 +20,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/mi/boroujeni/model_car/catkin_ws/src/send_steering/include"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/serial/include"
+  "/root/catkin_ws/src/send_steering/include"
+  "/root/catkin_ws/src/serial/include"
   "/opt/odroid-x2/sdk/opt/ros/indigo/include"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

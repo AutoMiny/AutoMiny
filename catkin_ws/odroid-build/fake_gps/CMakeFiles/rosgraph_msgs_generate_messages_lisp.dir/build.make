@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mi/boroujeni/model_car/catkin_ws/src/fake_gps
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/fake_gps
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mi/boroujeni/model_car/catkin_ws/odroid-build/fake_gps
+CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/fake_gps
 
 # Utility rule file for rosgraph_msgs_generate_messages_lisp.
 
@@ -60,6 +60,6 @@ CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 
 CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend:
-	cd /home/mi/boroujeni/model_car/catkin_ws/odroid-build/fake_gps && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mi/boroujeni/model_car/catkin_ws/src/fake_gps /home/mi/boroujeni/model_car/catkin_ws/src/fake_gps /home/mi/boroujeni/model_car/catkin_ws/odroid-build/fake_gps /home/mi/boroujeni/model_car/catkin_ws/odroid-build/fake_gps /home/mi/boroujeni/model_car/catkin_ws/odroid-build/fake_gps/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/odroid-build/fake_gps && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/fake_gps /root/catkin_ws/src/fake_gps /root/catkin_ws/odroid-build/fake_gps /root/catkin_ws/odroid-build/fake_gps /root/catkin_ws/odroid-build/fake_gps/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
 

@@ -4,14 +4,14 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Circle.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/Circle.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/ContourModel.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/Feature.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/Feature.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneDetector.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/PointSet.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/StrongClassifier.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/src/WeakClassifier.cpp" "/home/mi/boroujeni/model_car/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o"
+  "/root/catkin_ws/src/line_detection/src/Circle.cpp" "/root/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/Circle.cpp.o"
+  "/root/catkin_ws/src/line_detection/src/ContourModel.cpp" "/root/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/ContourModel.cpp.o"
+  "/root/catkin_ws/src/line_detection/src/Feature.cpp" "/root/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/Feature.cpp.o"
+  "/root/catkin_ws/src/line_detection/src/LaneDetector.cpp" "/root/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o"
+  "/root/catkin_ws/src/line_detection/src/LaneModel.cpp" "/root/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o"
+  "/root/catkin_ws/src/line_detection/src/PointSet.cpp" "/root/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o"
+  "/root/catkin_ws/src/line_detection/src/StrongClassifier.cpp" "/root/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/StrongClassifier.cpp.o"
+  "/root/catkin_ws/src/line_detection/src/WeakClassifier.cpp" "/root/catkin_ws/odroid-build/line_detection/CMakeFiles/LaneDetector.dir/src/WeakClassifier.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -30,8 +30,8 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/opt/odroid-x2/sdk/usr/include/opencv"
   "/opt/odroid-x2/sdk/usr/include"
   "/opt/odroid-x2/sdk/usr/include/vtk-5.8"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/line_detection/include"
-  "/home/mi/boroujeni/model_car/catkin_ws/src/cv_bridge/include"
+  "/root/catkin_ws/src/line_detection/include"
+  "/root/catkin_ws/src/cv_bridge/include"
   "/opt/odroid-x2/sdk/opt/ros/indigo/include"
   "/usr/include/eigen3"
   "/usr/include/pcl-1.7"

@@ -1,3 +1,0 @@
-[100%] [32mBuilding CXX object CMakeFiles/random_movement_node.dir/src/random_movement_node.cpp.o
-[0m[31m[1mLinking CXX executable /home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/random_movement/lib/random_movement/random_movement_node
-[0m[100%] Built target random_movement_node

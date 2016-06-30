@@ -1,1 +1,0 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/catkin_tools_prebuild/lib/pkgconfig/catkin_tools_prebuild.pc

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mi/boroujeni/model_car/catkin_ws/src/usb_cam/include/usb_cam/usb_cam.h
+/root/catkin_ws/src/usb_cam/include/usb_cam/usb_cam.h
 asm/types.h
 -
 linux/videodev2.h
@@ -26,7 +26,7 @@ sstream
 sensor_msgs/Image.h
 -
 
-/home/mi/boroujeni/model_car/catkin_ws/src/usb_cam/nodes/usb_cam_node.cpp
+/root/catkin_ws/src/usb_cam/nodes/usb_cam_node.cpp
 ros/ros.h
 -
 usb_cam/usb_cam.h
@@ -264,8 +264,6 @@ set
 list
 -
 boost/shared_ptr.hpp
--
-boost/make_shared.hpp
 -
 boost/weak_ptr.hpp
 -

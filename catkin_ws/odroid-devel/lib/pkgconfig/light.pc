@@ -1,1 +1,8 @@
-/home/mi/boroujeni/model_car/catkin_ws/odroid-devel/.private/light/lib/pkgconfig/light.pc
+prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+
+Name: light
+Description: Description of light
+Version: 0.0.0
+Cflags: -I/home/zargol/model_car/catkin_ws/src/light/include
+Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib -llight
+Requires: serial

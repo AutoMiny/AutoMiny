@@ -22,6 +22,7 @@ include_directories(
 )
 
 
+
 add_executable(random_movement_node src/random_movement_node.cpp)
 add_dependencies(random_movement_node ${PROJECT_NAME})
 target_link_libraries(random_movement_node ${catkin_LIBRARIES})
