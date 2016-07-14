@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC    -shared -Wl,-soname,libmanual_control.so -o /home/ros/model_car/catkin_ws/devel/lib/libmanual_control.so CMakeFiles/manual_control.dir/src/manual_control_node.cpp.o 

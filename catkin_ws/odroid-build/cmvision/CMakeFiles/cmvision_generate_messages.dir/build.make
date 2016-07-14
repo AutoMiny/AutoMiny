@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/cmvision
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/cmvision
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cmvision
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/cmvision
 
 # Utility rule file for cmvision_generate_messages.
 
@@ -60,6 +60,6 @@ CMakeFiles/cmvision_generate_messages.dir/clean:
 .PHONY : CMakeFiles/cmvision_generate_messages.dir/clean
 
 CMakeFiles/cmvision_generate_messages.dir/depend:
-	cd /root/catkin_ws/odroid-build/cmvision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/cmvision /root/catkin_ws/src/cmvision /root/catkin_ws/odroid-build/cmvision /root/catkin_ws/odroid-build/cmvision /root/catkin_ws/odroid-build/cmvision/CMakeFiles/cmvision_generate_messages.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/cmvision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/cmvision /home/ros/model_car/catkin_ws/src/cmvision /home/ros/model_car/catkin_ws/odroid-build/cmvision /home/ros/model_car/catkin_ws/odroid-build/cmvision /home/ros/model_car/catkin_ws/odroid-build/cmvision/CMakeFiles/cmvision_generate_messages.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cmvision_generate_messages.dir/depend
 

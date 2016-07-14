@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/detect.dir/src/detect.cpp.o"
-  "/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect.pdb"
-  "/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect.pdb"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect"
 )
 
 # Per-language clean rules from dependency scanning.

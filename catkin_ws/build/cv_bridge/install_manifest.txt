@@ -1,0 +1,15 @@
+/home/ros/model_car/catkin_ws/install/_setup_util.py
+/home/ros/model_car/catkin_ws/install/env.sh
+/home/ros/model_car/catkin_ws/install/setup.bash
+/home/ros/model_car/catkin_ws/install/setup.sh
+/home/ros/model_car/catkin_ws/install/setup.zsh
+/home/ros/model_car/catkin_ws/install/.rosinstall
+/home/ros/model_car/catkin_ws/install/lib/pkgconfig/cv_bridge.pc
+/home/ros/model_car/catkin_ws/install/share/cv_bridge/cmake/cv_bridgeConfig.cmake
+/home/ros/model_car/catkin_ws/install/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake
+/home/ros/model_car/catkin_ws/install/share/cv_bridge/package.xml
+/home/ros/model_car/catkin_ws/install/include/cv_bridge/cv_bridge.h
+/home/ros/model_car/catkin_ws/install/include/cv_bridge/rgb_colors.h
+/home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/cv_bridge/boost/__init__.py
+/home/ros/model_car/catkin_ws/install/lib/libcv_bridge.so
+/home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so

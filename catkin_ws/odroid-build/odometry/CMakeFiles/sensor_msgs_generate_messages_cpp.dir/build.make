@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/odometry
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/odometry
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/odometry
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/odometry
 
 # Utility rule file for sensor_msgs_generate_messages_cpp.
 
@@ -60,6 +60,6 @@ CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
 .PHONY : CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
 
 CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend:
-	cd /root/catkin_ws/odroid-build/odometry && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/odometry /root/catkin_ws/src/odometry /root/catkin_ws/odroid-build/odometry /root/catkin_ws/odroid-build/odometry /root/catkin_ws/odroid-build/odometry/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/odometry && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/odometry /home/ros/model_car/catkin_ws/src/odometry /home/ros/model_car/catkin_ws/odroid-build/odometry /home/ros/model_car/catkin_ws/odroid-build/odometry /home/ros/model_car/catkin_ws/odroid-build/odometry/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
 

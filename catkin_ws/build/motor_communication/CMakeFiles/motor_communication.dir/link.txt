@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -std=c++11    -shared -Wl,-soname,libmotor_communication.so -o /home/ros/model_car/catkin_ws/devel/lib/libmotor_communication.so CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o 

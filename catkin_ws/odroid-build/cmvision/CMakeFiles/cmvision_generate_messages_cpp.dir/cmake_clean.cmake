@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/cmvision_generate_messages_cpp"
-  "/root/catkin_ws/odroid-devel/include/cmvision/Blob.h"
-  "/root/catkin_ws/odroid-devel/include/cmvision/Blobs.h"
+  "/home/ros/model_car/catkin_ws/odroid-devel/include/cmvision/Blobs.h"
+  "/home/ros/model_car/catkin_ws/odroid-devel/include/cmvision/Blob.h"
 )
 
 # Per-language clean rules from dependency scanning.

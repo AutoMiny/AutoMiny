@@ -1,0 +1,4 @@
+make[2]: *** No rule to make target `/usr/lib/librealsense.so', needed by `/home/ros/model_car/catkin_ws/devel/lib/librealsense_camera_nodelet.so'.  Stop.
+make[1]: *** [CMakeFiles/realsense_camera_nodelet.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2

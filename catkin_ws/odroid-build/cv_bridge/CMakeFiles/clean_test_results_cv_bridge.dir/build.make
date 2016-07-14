@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/cv_bridge
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/cv_bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cv_bridge
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/cv_bridge
 
 # Utility rule file for clean_test_results_cv_bridge.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cv_bridge
 include CMakeFiles/clean_test_results_cv_bridge.dir/progress.make
 
 CMakeFiles/clean_test_results_cv_bridge:
-	/usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /root/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge
+	/usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge
 
 clean_test_results_cv_bridge: CMakeFiles/clean_test_results_cv_bridge
 clean_test_results_cv_bridge: CMakeFiles/clean_test_results_cv_bridge.dir/build.make
@@ -61,6 +61,6 @@ CMakeFiles/clean_test_results_cv_bridge.dir/clean:
 .PHONY : CMakeFiles/clean_test_results_cv_bridge.dir/clean
 
 CMakeFiles/clean_test_results_cv_bridge.dir/depend:
-	cd /root/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/cv_bridge /root/catkin_ws/src/cv_bridge /root/catkin_ws/odroid-build/cv_bridge /root/catkin_ws/odroid-build/cv_bridge /root/catkin_ws/odroid-build/cv_bridge/CMakeFiles/clean_test_results_cv_bridge.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/cv_bridge /home/ros/model_car/catkin_ws/src/cv_bridge /home/ros/model_car/catkin_ws/odroid-build/cv_bridge /home/ros/model_car/catkin_ws/odroid-build/cv_bridge /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/CMakeFiles/clean_test_results_cv_bridge.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results_cv_bridge.dir/depend
 

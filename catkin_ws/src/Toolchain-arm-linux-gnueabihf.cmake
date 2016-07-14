@@ -18,7 +18,6 @@ else()
 endif ()
 SET(CMAKE_FIND_ROOT_PATH "/opt/odroid-x2/sdk" CACHE INTERNAL "" FORCE)
 
-
 ## search for programs in the build host directories
 SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 ## for libraries and headers in the target directories
@@ -32,7 +31,6 @@ SET(ENV{PKG_CONFIG_DIR} "")
 SET(ENV{PKG_CONFIG_LIBDIR} ${CMAKE_FIND_ROOT_PATH}/usr/lib/pkgconfig:${CMAKE_FIND_ROOT_PATH}/usr/share/pkgconfig:${CMAKE_FIND_ROOT_PATH}/usr/lib/arm-linux-gnueabihf/pkgconfig/)
 SET(ENV{PKG_CONFIG_SYSROOT_DIR} ${CMAKE_FIND_ROOT_PATH})
 
-#
 #INCLUDE(${CMAKE_MODULE_PATH}/ForceAddFlags.cmake)
 #FORCE_ADD_FLAGS(CMAKE_C_FLAGS -Wl,--allow-shlib-undefined --sysroot=${CMAKE_FIND_ROOT_PATH})
 #FORCE_ADD_FLAGS(CMAKE_CXX_FLAGS -Wl,--allow-shlib-undefined --sysroot=${CMAKE_FIND_ROOT_PATH})

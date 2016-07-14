@@ -1,8 +1,8 @@
-prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+prefix=/home/ros/model_car/catkin_ws/odroid-devel
 
 Name: auto_stop
 Description: Description of auto_stop
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib -lauto_stop
+Libs: -L/home/ros/model_car/catkin_ws/odroid-devel/lib -lauto_stop
 Requires: std_msgs sensor_msgs geometry_msgs

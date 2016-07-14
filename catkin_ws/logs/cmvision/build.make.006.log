@@ -1,0 +1,16 @@
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] [  0%] Built target _cmvision_generate_messages_check_deps_Blob
+Built target _cmvision_generate_messages_check_deps_Blobs
+[ 18%] Built target cmvision_generate_messages_cpp
+[ 45%] [ 63%] Built target cmvision_generate_messages_py
+Built target cmvision_generate_messages_lisp
+[ 63%] Built target cmvision_gencpp
+[ 63%] Built target cmvision_generate_messages
+[ 72%] [ 81%] [32mBuilding C object CMakeFiles/cmvision.dir/src/conversions.c.o
+[32mBuilding CXX object CMakeFiles/cmvision.dir/src/cmvision.cc.o
+[ 90%] [0m[0m[100%] [32mBuilding CXX object CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o
+[0m[32mBuilding CXX object CMakeFiles/cmvision.dir/src/main.cpp.o
+[0m[31m[1mLinking CXX executable /home/ros/model_car/catkin_ws/odroid-devel/lib/cmvision/cmvision
+[0m[100%] Built target cmvision

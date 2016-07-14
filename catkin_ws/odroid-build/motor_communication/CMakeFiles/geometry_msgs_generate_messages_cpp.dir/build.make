@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/motor_communication
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/motor_communication
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/motor_communication
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/motor_communication
 
 # Utility rule file for geometry_msgs_generate_messages_cpp.
 
@@ -60,6 +60,6 @@ CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 
 CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend:
-	cd /root/catkin_ws/odroid-build/motor_communication && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/motor_communication /root/catkin_ws/src/motor_communication /root/catkin_ws/odroid-build/motor_communication /root/catkin_ws/odroid-build/motor_communication /root/catkin_ws/odroid-build/motor_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/motor_communication && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/motor_communication /home/ros/model_car/catkin_ws/src/motor_communication /home/ros/model_car/catkin_ws/odroid-build/motor_communication /home/ros/model_car/catkin_ws/odroid-build/motor_communication /home/ros/model_car/catkin_ws/odroid-build/motor_communication/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
 

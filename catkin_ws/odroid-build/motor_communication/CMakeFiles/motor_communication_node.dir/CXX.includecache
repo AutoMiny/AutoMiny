@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/root/catkin_ws/src/motor_communication/include/motor_communication/motor_communication.h
+/home/ros/model_car/catkin_ws/src/motor_communication/include/motor_communication/motor_communication.h
 ros/ros.h
 -
 ros/message_operations.h
@@ -26,7 +26,7 @@ cstdio
 unistd.h
 -
 serial/serial.h
-/root/catkin_ws/src/motor_communication/include/motor_communication/serial/serial.h
+/home/ros/model_car/catkin_ws/src/motor_communication/include/motor_communication/serial/serial.h
 sstream
 -
 ros/console.h
@@ -34,11 +34,11 @@ ros/console.h
 sstream
 -
 
-/root/catkin_ws/src/motor_communication/src/motor_communication_node.cpp
+/home/ros/model_car/catkin_ws/src/motor_communication/src/motor_communication_node.cpp
 motor_communication/motor_communication.h
 -
 
-/root/catkin_ws/src/serial/include/serial/serial.h
+/home/ros/model_car/catkin_ws/src/serial/include/serial/serial.h
 limits
 -
 vector
@@ -56,7 +56,7 @@ stdexcept
 serial/v8stdint.h
 -
 
-/root/catkin_ws/src/serial/include/serial/v8stdint.h
+/home/ros/model_car/catkin_ws/src/serial/include/serial/v8stdint.h
 stddef.h
 -
 stdio.h

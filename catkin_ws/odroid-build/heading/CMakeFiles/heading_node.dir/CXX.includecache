@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/root/catkin_ws/src/heading/include/heading/heading.h
+/home/ros/model_car/catkin_ws/src/heading/include/heading/heading.h
 ros/ros.h
 -
 std_msgs/Float32.h
 -
 serial/serial.h
-/root/catkin_ws/src/heading/include/heading/serial/serial.h
+/home/ros/model_car/catkin_ws/src/heading/include/heading/serial/serial.h
 
-/root/catkin_ws/src/heading/src/heading_node.cpp
+/home/ros/model_car/catkin_ws/src/heading/src/heading_node.cpp
 heading/heading.h
 -
 
-/root/catkin_ws/src/serial/include/serial/serial.h
+/home/ros/model_car/catkin_ws/src/serial/include/serial/serial.h
 limits
 -
 vector
@@ -36,7 +36,7 @@ stdexcept
 serial/v8stdint.h
 -
 
-/root/catkin_ws/src/serial/include/serial/v8stdint.h
+/home/ros/model_car/catkin_ws/src/serial/include/serial/v8stdint.h
 stddef.h
 -
 stdio.h

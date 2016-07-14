@@ -1,0 +1,6 @@
+devel_space: /home/ros/model_car/catkin_ws/devel
+install: true
+install_space: /home/ros/model_car/catkin_ws/install
+profile: default
+source_space: /home/ros/model_car/catkin_ws/src
+workspace: /home/ros/model_car/catkin_ws

@@ -1,0 +1,12 @@
+/home/ros/model_car/catkin_ws/odroid-install/_setup_util.py
+/home/ros/model_car/catkin_ws/odroid-install/env.sh
+/home/ros/model_car/catkin_ws/odroid-install/setup.bash
+/home/ros/model_car/catkin_ws/odroid-install/setup.sh
+/home/ros/model_car/catkin_ws/odroid-install/setup.zsh
+/home/ros/model_car/catkin_ws/odroid-install/.rosinstall
+/home/ros/model_car/catkin_ws/odroid-install/lib/pkgconfig/line_detection.pc
+/home/ros/model_car/catkin_ws/odroid-install/share/line_detection/cmake/line_detectionConfig.cmake
+/home/ros/model_car/catkin_ws/odroid-install/share/line_detection/cmake/line_detectionConfig-version.cmake
+/home/ros/model_car/catkin_ws/odroid-install/share/line_detection/package.xml
+/home/ros/model_car/catkin_ws/odroid-install/lib/line_detection/line_detection_node
+/home/ros/model_car/catkin_ws/odroid-install/share/line_detection/launch/vision.launch

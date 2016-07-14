@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/heading
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/heading
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/heading
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/heading
 
 # Utility rule file for std_msgs_generate_messages_lisp.
 
@@ -60,6 +60,6 @@ CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
 .PHONY : CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 
 CMakeFiles/std_msgs_generate_messages_lisp.dir/depend:
-	cd /root/catkin_ws/odroid-build/heading && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/heading /root/catkin_ws/src/heading /root/catkin_ws/odroid-build/heading /root/catkin_ws/odroid-build/heading /root/catkin_ws/odroid-build/heading/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/heading && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/heading /home/ros/model_car/catkin_ws/src/heading /home/ros/model_car/catkin_ws/odroid-build/heading /home/ros/model_car/catkin_ws/odroid-build/heading /home/ros/model_car/catkin_ws/odroid-build/heading/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
 

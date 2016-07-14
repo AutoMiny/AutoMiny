@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/rplidar_ros
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/rplidar_ros
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/rplidar_ros
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/rplidar_ros
 
 # Utility rule file for rosgraph_msgs_generate_messages_lisp.
 
@@ -60,6 +60,6 @@ CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 
 CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend:
-	cd /root/catkin_ws/odroid-build/rplidar_ros && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/rplidar_ros /root/catkin_ws/src/rplidar_ros /root/catkin_ws/odroid-build/rplidar_ros /root/catkin_ws/odroid-build/rplidar_ros /root/catkin_ws/odroid-build/rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/rplidar_ros && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/rplidar_ros /home/ros/model_car/catkin_ws/src/rplidar_ros /home/ros/model_car/catkin_ws/odroid-build/rplidar_ros /home/ros/model_car/catkin_ws/odroid-build/rplidar_ros /home/ros/model_car/catkin_ws/odroid-build/rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
 

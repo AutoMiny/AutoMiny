@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/serial_example.dir/examples/serial_otto.cc.o"
-  "/root/catkin_ws/odroid-devel/lib/serial/serial_example.pdb"
-  "/root/catkin_ws/odroid-devel/lib/serial/serial_example"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/serial/serial_example.pdb"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/serial/serial_example"
 )
 
 # Per-language clean rules from dependency scanning.

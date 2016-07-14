@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/heading
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/heading
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/heading
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/heading
 
 # Utility rule file for clean_test_results_heading.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/heading
 include CMakeFiles/clean_test_results_heading.dir/progress.make
 
 CMakeFiles/clean_test_results_heading:
-	/usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /root/catkin_ws/odroid-build/heading/test_results/heading
+	/usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /home/ros/model_car/catkin_ws/odroid-build/heading/test_results/heading
 
 clean_test_results_heading: CMakeFiles/clean_test_results_heading
 clean_test_results_heading: CMakeFiles/clean_test_results_heading.dir/build.make
@@ -61,6 +61,6 @@ CMakeFiles/clean_test_results_heading.dir/clean:
 .PHONY : CMakeFiles/clean_test_results_heading.dir/clean
 
 CMakeFiles/clean_test_results_heading.dir/depend:
-	cd /root/catkin_ws/odroid-build/heading && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/heading /root/catkin_ws/src/heading /root/catkin_ws/odroid-build/heading /root/catkin_ws/odroid-build/heading /root/catkin_ws/odroid-build/heading/CMakeFiles/clean_test_results_heading.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/heading && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/heading /home/ros/model_car/catkin_ws/src/heading /home/ros/model_car/catkin_ws/odroid-build/heading /home/ros/model_car/catkin_ws/odroid-build/heading /home/ros/model_car/catkin_ws/odroid-build/heading/CMakeFiles/clean_test_results_heading.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results_heading.dir/depend
 

@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
+services_str = "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
 pkg_name = "realsense_camera"
 dependencies_str = "std_msgs"
 langs = "gencpp;genlisp;genpy"

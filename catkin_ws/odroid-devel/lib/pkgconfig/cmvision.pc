@@ -1,8 +1,8 @@
-prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+prefix=/home/ros/model_car/catkin_ws/odroid-devel
 
 Name: cmvision
 Description: Description of cmvision
 Version: 0.4.2
-Cflags: -I/home/zargol/model_car/catkin_ws/odroid-devel/include
-Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib 
+Cflags: -I/home/ros/model_car/catkin_ws/odroid-devel/include
+Libs: -L/home/ros/model_car/catkin_ws/odroid-devel/lib 
 Requires: message_runtime std_msgs

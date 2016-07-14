@@ -1,0 +1,10 @@
+In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/platform.h:53:0,
+                 from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/time.h:53,
+                 from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/model_car/catkin_ws/src/line_detection/src/LaneDetector.h:29,
+                 from /home/ros/model_car/catkin_ws/src/line_detection/src/LaneDetector.cpp:24:
+/opt/odroid-x2/sdk/usr/include/stdlib.h:955:31: fatal error: bits/stdlib-float.h: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/LaneDetector.dir/src/LaneDetector.cpp.o] Error 1
+make[1]: *** [CMakeFiles/LaneDetector.dir/all] Error 2
+make: *** [all] Error 2

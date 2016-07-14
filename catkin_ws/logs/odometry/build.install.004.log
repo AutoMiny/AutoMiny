@@ -1,0 +1,28 @@
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target nav_msgs_generate_messages_lisp
+[  0%] Built target nav_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_py
+[  0%] Built target nav_msgs_generate_messages_cpp
+[  0%] Built target actionlib_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_cpp
+[100%] Built target odometry_publisher
+[36mInstall the project...
+[0m-- Install configuration: ""
+-- Installing: /home/ros/model_car/catkin_ws/install/_setup_util.py
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/env.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.bash
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.zsh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/.rosinstall
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/lib/pkgconfig/odometry.pc
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/odometry/cmake/odometryConfig.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/odometry/cmake/odometryConfig-version.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/odometry/package.xml
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/lib/odometry/odometry_publisher
+-- Installing: /home/ros/model_car/catkin_ws/install/share/odometry/launch
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/odometry/launch/odometry.launch

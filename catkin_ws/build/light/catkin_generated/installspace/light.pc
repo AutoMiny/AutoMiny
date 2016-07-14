@@ -1,0 +1,8 @@
+prefix=/home/ros/model_car/catkin_ws/install
+
+Name: light
+Description: Description of light
+Version: 0.0.0
+Cflags: -I/home/ros/model_car/catkin_ws/install/include
+Libs: -L/home/ros/model_car/catkin_ws/install/lib -llight
+Requires: serial

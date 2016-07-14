@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o"
-  "/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node.pdb"
-  "/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node.pdb"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node"
 )
 
 # Per-language clean rules from dependency scanning.

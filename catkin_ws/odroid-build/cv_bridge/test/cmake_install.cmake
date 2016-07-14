@@ -1,8 +1,8 @@
-# Install script for directory: /root/catkin_ws/src/cv_bridge/test
+# Install script for directory: /home/ros/model_car/catkin_ws/src/cv_bridge/test
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/root/catkin_ws/odroid-install")
+  SET(CMAKE_INSTALL_PREFIX "/home/ros/model_car/catkin_ws/odroid-install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

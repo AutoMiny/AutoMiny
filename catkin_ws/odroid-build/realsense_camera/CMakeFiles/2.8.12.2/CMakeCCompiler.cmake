@@ -1,7 +1,7 @@
 set(CMAKE_C_COMPILER "/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
-set(CMAKE_C_COMPILER_VERSION "4.8.3")
+set(CMAKE_C_COMPILER_VERSION "4.7.2")
 set(CMAKE_C_PLATFORM_ID "Linux")
 
 set(CMAKE_AR "/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-ar")
@@ -49,7 +49,7 @@ endif()
 
 
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "c")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/opt/odroid-x2/compiler/lib/gcc/arm-linux-gnueabihf/4.8.3;/opt/odroid-x2/compiler/lib/gcc/arm-linux-gnueabihf;/opt/odroid-x2/compiler/lib/gcc;/opt/odroid-x2/compiler/arm-linux-gnueabihf/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/usr/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/opt/odroid-x2/compiler/lib/gcc/arm-linux-gnueabihf/4.7.2;/opt/odroid-x2/compiler/lib/gcc;/opt/odroid-x2/compiler/lib/gcc/arm-linux-gnueabihf;/opt/odroid-x2/compiler/arm-linux-gnueabihf/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/lib/arm-linux-gnueabihf;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/usr/lib;/opt/odroid-x2/compiler/arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 
 

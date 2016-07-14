@@ -1,0 +1,8 @@
+prefix=/home/ros/model_car/catkin_ws/install
+
+Name: detect_roof_rectangles
+Description: Description of detect_roof_rectangles
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ros/model_car/catkin_ws/install/lib 
+Requires: cmvision

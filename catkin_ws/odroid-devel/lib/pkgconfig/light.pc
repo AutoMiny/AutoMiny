@@ -1,8 +1,8 @@
-prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+prefix=/home/ros/model_car/catkin_ws/odroid-devel
 
 Name: light
 Description: Description of light
 Version: 0.0.0
-Cflags: -I/home/zargol/model_car/catkin_ws/src/light/include
-Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib -llight
+Cflags: -I/home/ros/model_car/catkin_ws/src/light/include
+Libs: -L/home/ros/model_car/catkin_ws/odroid-devel/lib -llight
 Requires: serial

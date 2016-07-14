@@ -1,1 +1,1 @@
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  -fPIC -std=c++11  --sysroot=/opt/odroid-x2/sdk   -shared -Wl,-soname,libmotor_communication.so -o /root/catkin_ws/odroid-devel/lib/libmotor_communication.so CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o 
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  -fPIC -std=c++11  --sysroot=/opt/odroid-x2/sdk   -shared -Wl,-soname,libmotor_communication.so -o /home/ros/model_car/catkin_ws/odroid-devel/lib/libmotor_communication.so CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o 

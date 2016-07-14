@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/ip_mapping
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/ip_mapping
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/ip_mapping
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/ip_mapping
 
 # Utility rule file for actionlib_msgs_generate_messages_py.
 
@@ -60,6 +60,6 @@ CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/actionlib_msgs_generate_messages_py.dir/depend:
-	cd /root/catkin_ws/odroid-build/ip_mapping && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/ip_mapping /root/catkin_ws/src/ip_mapping /root/catkin_ws/odroid-build/ip_mapping /root/catkin_ws/odroid-build/ip_mapping /root/catkin_ws/odroid-build/ip_mapping/CMakeFiles/actionlib_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/ip_mapping && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/ip_mapping /home/ros/model_car/catkin_ws/src/ip_mapping /home/ros/model_car/catkin_ws/odroid-build/ip_mapping /home/ros/model_car/catkin_ws/odroid-build/ip_mapping /home/ros/model_car/catkin_ws/odroid-build/ip_mapping/CMakeFiles/actionlib_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/actionlib_msgs_generate_messages_py.dir/depend
 

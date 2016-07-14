@@ -49,7 +49,9 @@ include_directories(
 add_library(realsense_camera_nodelet src/realsense_camera_nodelet.cpp)
 target_link_libraries(realsense_camera_nodelet
   ${catkin_LIBRARIES}
-  /opt/odroid-x2/sdk/usr/lib/librealsense.so
+  #/opt/odroid-x2/sdk/usr/lib/librealsense.so
+ /usr/local/lib/librealsense.so
+
 )
 
 #cross compiling!

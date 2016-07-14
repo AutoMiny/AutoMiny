@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="send_steering" type="send_steering_node" name="send_steering" output="screen">
+    <param name="servo_serial_port" value="/dev/ttyUSB3" />
+  	<param name="servo_baud_rate" value="115200" />
+  </node>
+</launch>

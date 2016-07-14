@@ -1,0 +1,10 @@
+[35m[1mScanning dependencies of target manual_control
+[0m[ 50%] [32mBuilding CXX object CMakeFiles/manual_control.dir/src/manual_control_node.cpp.o
+In file included from /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/ros.h:38:0,
+                 from /home/ros/model_car/catkin_ws/src/send_steering/include/send_steering.h:1,
+                 from /home/ros/model_car/catkin_ws/src/manual_control/src/manual_control_node.cpp:1:
+/opt/odroid-x2/sdk/opt/ros/indigo/include/ros/time.h:58:50: fatal error: boost/math/special_functions/round.hpp: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/manual_control.dir/src/manual_control_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/manual_control.dir/all] Error 2
+make: *** [all] Error 2

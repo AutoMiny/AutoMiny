@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/cmvision_generate_messages_lisp"
-  "/root/catkin_ws/odroid-devel/share/common-lisp/ros/cmvision/msg/Blob.lisp"
-  "/root/catkin_ws/odroid-devel/share/common-lisp/ros/cmvision/msg/Blobs.lisp"
+  "/home/ros/model_car/catkin_ws/odroid-devel/share/common-lisp/ros/cmvision/msg/Blobs.lisp"
+  "/home/ros/model_car/catkin_ws/odroid-devel/share/common-lisp/ros/cmvision/msg/Blob.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

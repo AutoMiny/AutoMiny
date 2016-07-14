@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/root/catkin_ws/odroid-devel/include/cmvision/Blob.h
+/home/ros/model_car/catkin_ws/odroid-devel/include/cmvision/Blob.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/root/catkin_ws/odroid-devel/include/cmvision/Blobs.h
+/home/ros/model_car/catkin_ws/odroid-devel/include/cmvision/Blobs.h
 string
 -
 vector
@@ -42,17 +42,17 @@ std_msgs/Header.h
 cmvision/Blob.h
 -
 
-/root/catkin_ws/src/cmvision/src/capture.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/capture.h
 
-/root/catkin_ws/src/cmvision/src/cmvision.cc
+/home/ros/model_car/catkin_ws/src/cmvision/src/cmvision.cc
 cmvision.h
-/root/catkin_ws/src/cmvision/src/cmvision.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/cmvision.h
 string.h
 -
 strings.h
 -
 
-/root/catkin_ws/src/cmvision/src/cmvision.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/cmvision.h
 stdlib.h
 -
 string.h
@@ -60,7 +60,7 @@ string.h
 stdio.h
 -
 
-/root/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp
+/home/ros/model_car/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.cpp
 opencv/highgui.h
 -
 ros/time.h
@@ -68,9 +68,9 @@ ros/time.h
 cv_bridge/cv_bridge.h
 -
 cmvision_color_blob_finder.h
-/root/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.h
 
-/root/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.h
 ros/ros.h
 -
 sensor_msgs/Image.h
@@ -80,25 +80,25 @@ opencv/cv.h
 cmvision/Blobs.h
 -
 conversions.h
-/root/catkin_ws/src/cmvision/src/conversions.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/conversions.h
 cmvision.h
-/root/catkin_ws/src/cmvision/src/cmvision.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/cmvision.h
 capture.h
-/root/catkin_ws/src/cmvision/src/capture.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/capture.h
 
-/root/catkin_ws/src/cmvision/src/conversions.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/conversions.h
 stdlib.h
 -
 stdio.h
 -
 
-/root/catkin_ws/src/cmvision/src/main.cpp
+/home/ros/model_car/catkin_ws/src/cmvision/src/main.cpp
 ros/ros.h
 -
 cmvision_color_blob_finder.h
-/root/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.h
+/home/ros/model_car/catkin_ws/src/cmvision/src/cmvision_color_blob_finder.h
 
-/root/catkin_ws/src/cv_bridge/include/cv_bridge/cv_bridge.h
+/home/ros/model_car/catkin_ws/src/cv_bridge/include/cv_bridge/cv_bridge.h
 sensor_msgs/Image.h
 -
 sensor_msgs/CompressedImage.h

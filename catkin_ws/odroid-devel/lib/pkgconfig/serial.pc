@@ -1,8 +1,8 @@
-prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+prefix=/home/ros/model_car/catkin_ws/odroid-devel
 
 Name: serial
 Description: Description of serial
 Version: 1.2.1
-Cflags: -I/home/zargol/model_car/catkin_ws/src/serial/include
-Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib -lserial
+Cflags: -I/home/ros/model_car/catkin_ws/src/serial/include
+Libs: -L/home/ros/model_car/catkin_ws/odroid-devel/lib -lserial
 Requires: 

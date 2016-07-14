@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/root/catkin_ws/src/odometry/src/odometry_publisher.cpp
+/home/ros/model_car/catkin_ws/src/odometry/src/odometry_publisher.cpp
 ros/ros.h
 -
 tf/transform_broadcaster.h

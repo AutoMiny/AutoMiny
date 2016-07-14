@@ -1,0 +1,102 @@
+[33m[1mCMake Warning[0m at /home/ros/model_car/catkin_ws/src/realsense_camera/CMakeLists.txt:49 (add_library):
+  Cannot generate a safe linker search path for target
+  realsense_camera_nodelet because files in some directories may conflict
+  with libraries in implicit directories:
+
+    link library [libpcl_common.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_octree.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_io.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_kdtree.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_search.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_sample_consensus.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_filters.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_features.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_keypoints.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_segmentation.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_visualization.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_outofcore.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_registration.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_recognition.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_surface.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_people.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_tracking.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libpcl_apps.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libOpenNI.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [libPocoFoundation.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    link library [liblog4cxx.so] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+
+  Some of these libraries may not be found correctly.
+
+
+[33m[1mCMake Warning[0m at /home/ros/model_car/catkin_ws/src/realsense_camera/CMakeLists.txt:49 (add_library):
+  Cannot generate a safe runtime search path for target
+  realsense_camera_nodelet because files in some directories may conflict
+  with libraries in implicit directories:
+
+    runtime library [libpcl_common.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_octree.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_io.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_kdtree.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_search.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_sample_consensus.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_filters.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_features.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_keypoints.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_segmentation.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_visualization.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_outofcore.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_registration.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_recognition.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_surface.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_people.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_tracking.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libpcl_apps.so.1.7] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libOpenNI.so.0] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [libPocoFoundation.so.9] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+    runtime library [liblog4cxx.so.10] in /usr/lib may be hidden by files in:
+      /opt/odroid-x2/sdk/usr/lib
+
+  Some of these libraries may not be found correctly.
+
+

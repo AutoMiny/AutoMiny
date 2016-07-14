@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/usb_cam
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/usb_cam
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/usb_cam
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/usb_cam
 
 # Include any dependencies generated for this target.
 include CMakeFiles/usb_cam.dir/depend.make
@@ -50,18 +50,18 @@ include CMakeFiles/usb_cam.dir/progress.make
 include CMakeFiles/usb_cam.dir/flags.make
 
 CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o: CMakeFiles/usb_cam.dir/flags.make
-CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o: /root/catkin_ws/src/usb_cam/src/usb_cam.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/usb_cam/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o: /home/ros/model_car/catkin_ws/src/usb_cam/src/usb_cam.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/model_car/catkin_ws/odroid-build/usb_cam/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o -c /root/catkin_ws/src/usb_cam/src/usb_cam.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o -c /home/ros/model_car/catkin_ws/src/usb_cam/src/usb_cam.cpp
 
 CMakeFiles/usb_cam.dir/src/usb_cam.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/usb_cam.dir/src/usb_cam.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/usb_cam/src/usb_cam.cpp > CMakeFiles/usb_cam.dir/src/usb_cam.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ros/model_car/catkin_ws/src/usb_cam/src/usb_cam.cpp > CMakeFiles/usb_cam.dir/src/usb_cam.cpp.i
 
 CMakeFiles/usb_cam.dir/src/usb_cam.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/usb_cam.dir/src/usb_cam.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/usb_cam/src/usb_cam.cpp -o CMakeFiles/usb_cam.dir/src/usb_cam.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ros/model_car/catkin_ws/src/usb_cam/src/usb_cam.cpp -o CMakeFiles/usb_cam.dir/src/usb_cam.cpp.s
 
 CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o.requires:
 .PHONY : CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o.requires
@@ -79,40 +79,40 @@ usb_cam_OBJECTS = \
 # External object files for target usb_cam
 usb_cam_EXTERNAL_OBJECTS =
 
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: CMakeFiles/usb_cam.dir/build.make
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libimage_transport.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libmessage_filters.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libtinyxml.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libclass_loader.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/libPocoFoundation.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libdl.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroslib.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcamera_info_manager.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
-/root/catkin_ws/odroid-devel/lib/libusb_cam.so: CMakeFiles/usb_cam.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /root/catkin_ws/odroid-devel/lib/libusb_cam.so"
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: CMakeFiles/usb_cam.dir/build.make
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libimage_transport.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libmessage_filters.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libtinyxml.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libclass_loader.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/libPocoFoundation.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libdl.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroslib.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcamera_info_manager.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so: CMakeFiles/usb_cam.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/usb_cam.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/usb_cam.dir/build: /root/catkin_ws/odroid-devel/lib/libusb_cam.so
+CMakeFiles/usb_cam.dir/build: /home/ros/model_car/catkin_ws/odroid-devel/lib/libusb_cam.so
 .PHONY : CMakeFiles/usb_cam.dir/build
 
 CMakeFiles/usb_cam.dir/requires: CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o.requires
@@ -123,6 +123,6 @@ CMakeFiles/usb_cam.dir/clean:
 .PHONY : CMakeFiles/usb_cam.dir/clean
 
 CMakeFiles/usb_cam.dir/depend:
-	cd /root/catkin_ws/odroid-build/usb_cam && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/usb_cam /root/catkin_ws/src/usb_cam /root/catkin_ws/odroid-build/usb_cam /root/catkin_ws/odroid-build/usb_cam /root/catkin_ws/odroid-build/usb_cam/CMakeFiles/usb_cam.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/usb_cam && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/usb_cam /home/ros/model_car/catkin_ws/src/usb_cam /home/ros/model_car/catkin_ws/odroid-build/usb_cam /home/ros/model_car/catkin_ws/odroid-build/usb_cam /home/ros/model_car/catkin_ws/odroid-build/usb_cam/CMakeFiles/usb_cam.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/usb_cam.dir/depend
 

@@ -1,0 +1,19 @@
+Not searching for unused variables given on the command line.
+[36m--[0m Configuring incomplete, errors occurred!
+See also "/home/ros/model_car/catkin_ws/build/ip_mapping/CMakeFiles/CMakeOutput.log".
+[31m[1mCMake Error[0m at /home/ros/model_car/catkin_ws/src/ip_mapping/CMakeLists.txt:8 (find_package):
+  By not providing "FindPCL.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "PCL", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "PCL" with any of
+  the following names:
+
+    PCLConfig.cmake
+    pcl-config.cmake
+
+  Add the installation prefix of "PCL" to CMAKE_PREFIX_PATH or set "PCL_DIR"
+  to a directory containing one of the above files.  If "PCL" provides a
+  separate development package or SDK, be sure it has been installed.
+
+

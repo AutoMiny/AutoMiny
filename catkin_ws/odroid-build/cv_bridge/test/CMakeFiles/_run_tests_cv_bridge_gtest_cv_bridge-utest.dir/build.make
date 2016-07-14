@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/cv_bridge
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/cv_bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cv_bridge
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/cv_bridge
 
 # Utility rule file for _run_tests_cv_bridge_gtest_cv_bridge-utest.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cv_bridge
 include test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/progress.make
 
 test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest:
-	cd /root/catkin_ws/odroid-build/cv_bridge/test && ../catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/run_tests.py /root/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge/gtest-cv_bridge-utest.xml /root/catkin_ws/odroid-devel/lib/cv_bridge/cv_bridge-utest\ --gtest_output=xml:/root/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge/gtest-cv_bridge-utest.xml
+	cd /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/test && ../catkin_generated/env_cached.sh /usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/run_tests.py /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge/gtest-cv_bridge-utest.xml /home/ros/model_car/catkin_ws/odroid-devel/lib/cv_bridge/cv_bridge-utest\ --gtest_output=xml:/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/test_results/cv_bridge/gtest-cv_bridge-utest.xml
 
 _run_tests_cv_bridge_gtest_cv_bridge-utest: test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest
 _run_tests_cv_bridge_gtest_cv_bridge-utest: test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/build.make
@@ -57,10 +57,10 @@ test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/build: _run_tests
 .PHONY : test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/build
 
 test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/clean:
-	cd /root/catkin_ws/odroid-build/cv_bridge/test && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/cmake_clean.cmake
+	cd /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/test && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/clean
 
 test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/depend:
-	cd /root/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/cv_bridge /root/catkin_ws/src/cv_bridge/test /root/catkin_ws/odroid-build/cv_bridge /root/catkin_ws/odroid-build/cv_bridge/test /root/catkin_ws/odroid-build/cv_bridge/test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/cv_bridge /home/ros/model_car/catkin_ws/src/cv_bridge/test /home/ros/model_car/catkin_ws/odroid-build/cv_bridge /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/test /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/_run_tests_cv_bridge_gtest_cv_bridge-utest.dir/depend
 

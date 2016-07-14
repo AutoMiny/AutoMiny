@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -std=c++11    -shared -Wl,-soname,libsend_steering.so -o /home/ros/model_car/catkin_ws/devel/lib/libsend_steering.so CMakeFiles/send_steering.dir/src/send_steering.cpp.o 

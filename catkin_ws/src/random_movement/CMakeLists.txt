@@ -28,3 +28,14 @@ add_dependencies(random_movement_node ${PROJECT_NAME})
 target_link_libraries(random_movement_node ${catkin_LIBRARIES})
 
 
+install(TARGETS random_movement_node
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+## Mark cpp header files for installation
+
+install(DIRECTORY launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  USE_SOURCE_PERMISSIONS
+)

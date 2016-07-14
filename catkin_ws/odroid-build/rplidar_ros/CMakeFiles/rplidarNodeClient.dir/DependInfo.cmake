@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/root/catkin_ws/src/rplidar_ros/src/client.cpp" "/root/catkin_ws/odroid-build/rplidar_ros/CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o"
+  "/home/ros/model_car/catkin_ws/src/rplidar_ros/src/client.cpp" "/home/ros/model_car/catkin_ws/odroid-build/rplidar_ros/CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,8 +20,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/root/catkin_ws/src/rplidar_ros/./sdk/include"
-  "/root/catkin_ws/src/rplidar_ros/./sdk/src"
+  "/home/ros/model_car/catkin_ws/src/rplidar_ros/./sdk/include"
+  "/home/ros/model_car/catkin_ws/src/rplidar_ros/./sdk/src"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

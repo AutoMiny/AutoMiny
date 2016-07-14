@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/serial_example.dir/examples/serial_otto.cc.o  -o /home/ros/model_car/catkin_ws/devel/lib/serial/serial_example -rdynamic /home/ros/model_car/catkin_ws/devel/lib/libserial.so -lrt -lpthread -Wl,-rpath,/home/ros/model_car/catkin_ws/devel/lib 

@@ -1,8 +1,8 @@
-prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+prefix=/home/ros/model_car/catkin_ws/odroid-devel
 
 Name: usb_cam
 Description: Description of usb_cam
 Version: 0.3.4
-Cflags: -I/home/zargol/model_car/catkin_ws/src/usb_cam/include
-Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib -lusb_cam
+Cflags: -I/home/ros/model_car/catkin_ws/src/usb_cam/include
+Libs: -L/home/ros/model_car/catkin_ws/odroid-devel/lib -lusb_cam
 Requires: 

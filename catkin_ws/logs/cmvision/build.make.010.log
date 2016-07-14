@@ -1,0 +1,11 @@
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target _cmvision_generate_messages_check_deps_Blob
+[  0%] Built target _cmvision_generate_messages_check_deps_Blobs
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_py
+[ 18%] Built target cmvision_generate_messages_cpp
+[ 36%] Built target cmvision_generate_messages_lisp
+[ 63%] Built target cmvision_generate_messages_py
+[ 63%] Built target cmvision_gencpp
+[ 63%] Built target cmvision_generate_messages
+[100%] Built target cmvision

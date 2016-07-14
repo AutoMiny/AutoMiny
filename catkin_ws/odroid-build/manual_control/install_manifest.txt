@@ -1,0 +1,13 @@
+/home/ros/model_car/catkin_ws/odroid-install/_setup_util.py
+/home/ros/model_car/catkin_ws/odroid-install/env.sh
+/home/ros/model_car/catkin_ws/odroid-install/setup.bash
+/home/ros/model_car/catkin_ws/odroid-install/setup.sh
+/home/ros/model_car/catkin_ws/odroid-install/setup.zsh
+/home/ros/model_car/catkin_ws/odroid-install/.rosinstall
+/home/ros/model_car/catkin_ws/odroid-install/lib/pkgconfig/manual_control.pc
+/home/ros/model_car/catkin_ws/odroid-install/share/manual_control/cmake/manual_controlConfig.cmake
+/home/ros/model_car/catkin_ws/odroid-install/share/manual_control/cmake/manual_controlConfig-version.cmake
+/home/ros/model_car/catkin_ws/odroid-install/share/manual_control/package.xml
+/home/ros/model_car/catkin_ws/odroid-install/lib/manual_control/manual_control_node
+/home/ros/model_car/catkin_ws/odroid-install/share/manual_control/launch/manual_odroid.launch
+/home/ros/model_car/catkin_ws/odroid-install/share/manual_control/launch/manual_PC.launch

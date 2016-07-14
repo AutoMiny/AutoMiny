@@ -1,0 +1,6 @@
+/usr/src/gtest/src/gtest-all.cc:39:25: fatal error: gtest/gtest.h: No such file or directory
+compilation terminated.
+make[2]: *** [gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o] Error 1
+make[1]: *** [gtest/CMakeFiles/gtest.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2

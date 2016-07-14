@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/control
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/control
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/control
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/control
 
 # Utility rule file for std_msgs_generate_messages_cpp.
 
@@ -60,6 +60,6 @@ CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
 .PHONY : CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 CMakeFiles/std_msgs_generate_messages_cpp.dir/depend:
-	cd /root/catkin_ws/odroid-build/control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/control /root/catkin_ws/src/control /root/catkin_ws/odroid-build/control /root/catkin_ws/odroid-build/control /root/catkin_ws/odroid-build/control/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/control /home/ros/model_car/catkin_ws/src/control /home/ros/model_car/catkin_ws/odroid-build/control /home/ros/model_car/catkin_ws/odroid-build/control /home/ros/model_car/catkin_ws/odroid-build/control/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 

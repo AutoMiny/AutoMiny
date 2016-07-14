@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/realsense_camera_test_rgbd.dir/test/realsense_camera_test_rgbd_node.cpp.o"
-  "/root/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test_rgbd.pdb"
-  "/root/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test_rgbd"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test_rgbd.pdb"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/realsense_camera/realsense_camera_test_rgbd"
 )
 
 # Per-language clean rules from dependency scanning.

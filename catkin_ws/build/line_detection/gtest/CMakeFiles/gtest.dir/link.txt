@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC   -Wno-deprecated    -shared -Wl,-soname,libgtest.so -o libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o  -L/home/ros/model_car/catkin_ws/build/line_detection/gtest/src -lpthread -Wl,-rpath,/home/ros/model_car/catkin_ws/build/line_detection/gtest/src 

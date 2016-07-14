@@ -1,0 +1,7 @@
+<launch>
+	<node pkg="auto_stop" type="auto_stop_node" name="auto_stop" output="screen">	
+	  	<param name="angle_front"		type="int" 		value="35" />
+	  	<param name="angle_back"		type="int" 		value="35"/>		
+	  	<param name="break_distance"		type="double"		 	value="0.6"/>
+	</node>
+</launch>

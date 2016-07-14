@@ -1,0 +1,51 @@
+[ 12%] Built target kalman_2d
+[ 25%] Built target kalman_3d
+[ 37%] Built target visual_gps_2d_node
+[ 50%] Built target visual_gps_3d_node
+[ 50%] Built target geometry_msgs_generate_messages_cpp
+[ 50%] Built target _visual_gps_generate_messages_check_deps_Transform
+[ 50%] Built target std_msgs_generate_messages_cpp
+[ 62%] Built target visual_gps_generate_messages_cpp
+[ 62%] Built target geometry_msgs_generate_messages_py
+[ 62%] Built target std_msgs_generate_messages_py
+[ 87%] Built target visual_gps_generate_messages_py
+[ 87%] Built target geometry_msgs_generate_messages_lisp
+[ 87%] Built target std_msgs_generate_messages_lisp
+[100%] Built target visual_gps_generate_messages_lisp
+[100%] Built target visual_gps_generate_messages
+[36mInstall the project...
+[0m-- Install configuration: ""
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/_setup_util.py
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/env.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.bash
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.zsh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/.rosinstall
+-- Installing: /home/ros/model_car/catkin_ws/install/share/visual_gps/msg/Transform.msg
+-- Installing: /home/ros/model_car/catkin_ws/install/share/visual_gps/cmake/visual_gps-msg-paths.cmake
+-- Installing: /home/ros/model_car/catkin_ws/install/include/visual_gps
+-- Installing: /home/ros/model_car/catkin_ws/install/include/visual_gps/Transform.h
+-- Installing: /home/ros/model_car/catkin_ws/install/share/common-lisp/ros/visual_gps
+-- Installing: /home/ros/model_car/catkin_ws/install/share/common-lisp/ros/visual_gps/msg
+-- Installing: /home/ros/model_car/catkin_ws/install/share/common-lisp/ros/visual_gps/msg/_package_Transform.lisp
+-- Installing: /home/ros/model_car/catkin_ws/install/share/common-lisp/ros/visual_gps/msg/_package.lisp
+-- Installing: /home/ros/model_car/catkin_ws/install/share/common-lisp/ros/visual_gps/msg/visual_gps-msg.asd
+-- Installing: /home/ros/model_car/catkin_ws/install/share/common-lisp/ros/visual_gps/msg/Transform.lisp
+Listing /home/ros/model_car/catkin_ws/devel/lib/python2.7/dist-packages/visual_gps ...
+Compiling /home/ros/model_car/catkin_ws/devel/lib/python2.7/dist-packages/visual_gps/__init__.py ...
+Listing /home/ros/model_car/catkin_ws/devel/lib/python2.7/dist-packages/visual_gps/msg ...
+Compiling /home/ros/model_car/catkin_ws/devel/lib/python2.7/dist-packages/visual_gps/msg/_Transform.py ...
+Compiling /home/ros/model_car/catkin_ws/devel/lib/python2.7/dist-packages/visual_gps/msg/__init__.py ...
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/visual_gps
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/visual_gps/__init__.py
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/visual_gps/__init__.pyc
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/visual_gps/msg
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/visual_gps/msg/_Transform.py
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/visual_gps/msg/_Transform.pyc
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/visual_gps/msg/__init__.py
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/python2.7/dist-packages/visual_gps/msg/__init__.pyc
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/pkgconfig/visual_gps.pc
+-- Installing: /home/ros/model_car/catkin_ws/install/share/visual_gps/cmake/visual_gps-msg-extras.cmake
+-- Installing: /home/ros/model_car/catkin_ws/install/share/visual_gps/cmake/visual_gpsConfig.cmake
+-- Installing: /home/ros/model_car/catkin_ws/install/share/visual_gps/cmake/visual_gpsConfig-version.cmake
+-- Installing: /home/ros/model_car/catkin_ws/install/share/visual_gps/package.xml

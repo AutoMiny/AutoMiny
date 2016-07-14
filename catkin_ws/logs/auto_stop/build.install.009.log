@@ -1,0 +1,16 @@
+[100%] Built target auto_stop_node
+[36mInstall the project...
+[0m-- Install configuration: ""
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/_setup_util.py
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/env.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/setup.bash
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/setup.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/setup.zsh
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/.rosinstall
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/lib/pkgconfig/auto_stop.pc
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/share/auto_stop/cmake/auto_stopConfig.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/share/auto_stop/cmake/auto_stopConfig-version.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/share/auto_stop/package.xml
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/lib/auto_stop/auto_stop_node
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/auto_stop/launch
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/share/auto_stop/launch/auto_stop.launch

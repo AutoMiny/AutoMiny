@@ -1,0 +1,59 @@
+Not searching for unused variables given on the command line.
+[36m--[0m The C compiler identification is unknown
+[36m--[0m The CXX compiler identification is unknown
+[36m--[0m Check for working C compiler: /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc
+[36m--[0m Check for working C compiler: /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc -- broken
+[31m[1mCMake Error[0m at /usr/share/cmake-2.8/Modules/CMakeTestCCompiler.cmake:61 (message):
+  The C compiler "/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc" is not
+  able to compile a simple test program.
+
+  It fails with the following output:
+
+   Change Dir: /home/ros/model_car/catkin_ws/odroid-build/control/CMakeFiles/CMakeTmp
+
+
+
+  Run Build Command:/usr/bin/make "cmTryCompileExec971766585/fast"
+
+  /usr/bin/make -f CMakeFiles/cmTryCompileExec971766585.dir/build.make
+  CMakeFiles/cmTryCompileExec971766585.dir/build
+
+  make[1]: Entering directory
+  `/home/ros/model_car/catkin_ws/odroid-build/control/CMakeFiles/CMakeTmp'
+
+  /usr/bin/cmake -E cmake_progress_report
+  /home/ros/model_car/catkin_ws/odroid-build/control/CMakeFiles/CMakeTmp/CMakeFiles
+  1
+
+  Building C object
+  CMakeFiles/cmTryCompileExec971766585.dir/testCCompiler.c.o
+
+  /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc -std=c++11
+  --sysroot=/opt/odroid-x2/sdk -o
+  CMakeFiles/cmTryCompileExec971766585.dir/testCCompiler.c.o -c
+  /home/ros/model_car/catkin_ws/odroid-build/control/CMakeFiles/CMakeTmp/testCCompiler.c
+
+
+  make[1]: /opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc: Command not
+  found
+
+  make[1]: *** [CMakeFiles/cmTryCompileExec971766585.dir/testCCompiler.c.o]
+  Error 127
+
+  make[1]: Leaving directory
+  `/home/ros/model_car/catkin_ws/odroid-build/control/CMakeFiles/CMakeTmp'
+
+  make: *** [cmTryCompileExec971766585/fast] Error 2
+
+
+
+
+
+  CMake will not be able to correctly generate this project.
+[36mCall Stack (most recent call first):[0m
+  CMakeLists.txt:3 (project)
+
+
+[36m--[0m Configuring incomplete, errors occurred!
+See also "/home/ros/model_car/catkin_ws/odroid-build/control/CMakeFiles/CMakeOutput.log".
+See also "/home/ros/model_car/catkin_ws/odroid-build/control/CMakeFiles/CMakeError.log".

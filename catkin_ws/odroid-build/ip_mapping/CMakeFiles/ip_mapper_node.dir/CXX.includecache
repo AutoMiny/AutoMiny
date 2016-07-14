@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/root/catkin_ws/src/cv_bridge/include/cv_bridge/cv_bridge.h
+/home/ros/model_car/catkin_ws/src/cv_bridge/include/cv_bridge/cv_bridge.h
 sensor_msgs/Image.h
 -
 sensor_msgs/CompressedImage.h
@@ -24,7 +24,7 @@ opencv2/imgproc/types_c.h
 stdexcept
 -
 
-/root/catkin_ws/src/ip_mapping/src/IPMapper.h
+/home/ros/model_car/catkin_ws/src/ip_mapping/src/IPMapper.h
 stdio.h
 -
 opencv2/core/core.hpp
@@ -36,7 +36,7 @@ opencv2/opencv.hpp
 opencv2/video/background_segm.hpp
 -
 
-/root/catkin_ws/src/ip_mapping/src/ip_mapper_node.cpp
+/home/ros/model_car/catkin_ws/src/ip_mapping/src/ip_mapper_node.cpp
 iostream
 -
 ros/ros.h
@@ -52,7 +52,7 @@ opencv2/imgproc/imgproc.hpp
 opencv2/highgui/highgui.hpp
 -
 IPMapper.h
-/root/catkin_ws/src/ip_mapping/src/IPMapper.h
+/home/ros/model_car/catkin_ws/src/ip_mapping/src/IPMapper.h
 image_transport/image_transport.h
 -
 

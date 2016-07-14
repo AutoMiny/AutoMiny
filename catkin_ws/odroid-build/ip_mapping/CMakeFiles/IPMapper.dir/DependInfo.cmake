@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/root/catkin_ws/src/ip_mapping/src/IPMapper.cpp" "/root/catkin_ws/odroid-build/ip_mapping/CMakeFiles/IPMapper.dir/src/IPMapper.cpp.o"
+  "/home/ros/model_car/catkin_ws/src/ip_mapping/src/IPMapper.cpp" "/home/ros/model_car/catkin_ws/odroid-build/ip_mapping/CMakeFiles/IPMapper.dir/src/IPMapper.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -23,8 +23,8 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/opt/odroid-x2/sdk/usr/include/opencv"
   "/opt/odroid-x2/sdk/usr/include"
   "/opt/odroid-x2/sdk/usr/include/vtk-5.8"
-  "/root/catkin_ws/src/ip_mapping/include"
-  "/root/catkin_ws/src/cv_bridge/include"
+  "/home/ros/model_car/catkin_ws/src/ip_mapping/include"
+  "/home/ros/model_car/catkin_ws/src/cv_bridge/include"
   "/opt/odroid-x2/sdk/opt/ros/indigo/include"
   "/usr/include/eigen3"
   "/usr/include/pcl-1.7"

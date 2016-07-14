@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ros/model_car/catkin_ws/src/ip_mapping/src/IPMapper.cpp
+IPMapper.h
+/home/ros/model_car/catkin_ws/src/ip_mapping/src/IPMapper.h
+
+/home/ros/model_car/catkin_ws/src/ip_mapping/src/IPMapper.h
+stdio.h
+-
+opencv2/core/core.hpp
+-
+opencv2/highgui/highgui.hpp
+-
+opencv2/opencv.hpp
+-
+opencv2/video/background_segm.hpp
+-
+

@@ -1,8 +1,8 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/cv_bridge_boost.dir/module.cpp.o"
   "CMakeFiles/cv_bridge_boost.dir/module_opencv2.cpp.o"
-  "/root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.pdb"
-  "/root/catkin_ws/odroid-devel/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.pdb"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so"
 )
 
 # Per-language clean rules from dependency scanning.

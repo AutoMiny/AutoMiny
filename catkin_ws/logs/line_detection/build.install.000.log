@@ -1,0 +1,16 @@
+[ 88%] Built target LaneDetector
+[100%] Built target line_detection_node
+[36mInstall the project...
+[0m-- Install configuration: ""
+-- Installing: /home/ros/model_car/catkin_ws/install/_setup_util.py
+-- Installing: /home/ros/model_car/catkin_ws/install/env.sh
+-- Installing: /home/ros/model_car/catkin_ws/install/setup.bash
+-- Installing: /home/ros/model_car/catkin_ws/install/setup.sh
+-- Installing: /home/ros/model_car/catkin_ws/install/setup.zsh
+-- Installing: /home/ros/model_car/catkin_ws/install/.rosinstall
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/pkgconfig/line_detection.pc
+-- Installing: /home/ros/model_car/catkin_ws/install/share/line_detection/cmake/line_detectionConfig.cmake
+-- Installing: /home/ros/model_car/catkin_ws/install/share/line_detection/cmake/line_detectionConfig-version.cmake
+-- Installing: /home/ros/model_car/catkin_ws/install/share/line_detection/package.xml
+-- Installing: /home/ros/model_car/catkin_ws/install/lib/line_detection/line_detection_node
+-- Removed runtime path from "/home/ros/model_car/catkin_ws/install/lib/line_detection/line_detection_node"

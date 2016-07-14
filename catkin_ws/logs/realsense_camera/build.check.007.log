@@ -1,0 +1,18 @@
+/usr/bin/cmake -H/home/ros/model_car/catkin_ws/src/realsense_camera -B/home/ros/model_car/catkin_ws/odroid-build/realsense_camera --check-build-system CMakeFiles/Makefile.cmake 0
+[36m--[0m Using CATKIN_DEVEL_PREFIX: /home/ros/model_car/catkin_ws/odroid-devel
+[36m--[0m Using CMAKE_PREFIX_PATH: /home/ros/model_car/catkin_ws/odroid-install;/opt/odroid-x2/sdk/opt/ros/indigo;/opt/odroid-x2/sdk//opt/ros/indigo
+[36m--[0m This workspace overlays: /home/ros/model_car/catkin_ws/odroid-install;/opt/odroid-x2/sdk/opt/ros/indigo;/opt/odroid-x2/sdk//opt/ros/indigo
+[36m--[0m Using PYTHON_EXECUTABLE: /usr/bin/python
+[36m--[0m Using Debian Python package layout
+[36m--[0m Using empy: /usr/bin/empy
+[36m--[0m Using CATKIN_ENABLE_TESTING: ON
+[36m--[0m Call enable_testing()
+[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /home/ros/model_car/catkin_ws/odroid-build/realsense_camera/test_results
+[36m--[0m Found gtest sources under '/usr/src/gtest': gtests will be built
+[36m--[0m Using Python nosetests: /usr/bin/nosetests-2.7
+[36m--[0m catkin 0.6.16
+[36m--[0m Using these message generators: gencpp;genlisp;genpy
+[36m--[0m realsense_camera: 0 messages, 1 services
+[36m--[0m Configuring done
+[36m--[0m Generating done
+[36m--[0m Build files have been written to: /home/ros/model_car/catkin_ws/odroid-build/realsense_camera

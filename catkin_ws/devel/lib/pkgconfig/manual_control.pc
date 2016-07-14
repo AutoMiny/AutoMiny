@@ -1,0 +1,8 @@
+prefix=/home/ros/model_car/catkin_ws/devel
+
+Name: manual_control
+Description: Description of manual_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ros/model_car/catkin_ws/devel/lib -lmanual_control
+Requires: send_steering

@@ -15,8 +15,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/root/catkin_ws/src/rplidar_ros/./sdk/include"
-  "/root/catkin_ws/src/rplidar_ros/./sdk/src"
+  "/home/ros/model_car/catkin_ws/src/rplidar_ros/./sdk/include"
+  "/home/ros/model_car/catkin_ws/src/rplidar_ros/./sdk/src"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

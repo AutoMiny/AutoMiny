@@ -1,0 +1,4 @@
+/home/ros/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp: In member function ‘void LaneModel::initialize(bool, bool)’:
+/home/ros/model_car/catkin_ws/src/line_detection/src/LaneModel.cpp:54:24: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+     streetHistoryMutex = PTHREAD_MUTEX_INITIALIZER;
+                        ^

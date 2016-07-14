@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/auto_stop
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/auto_stop
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/auto_stop
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/auto_stop
 
 # Include any dependencies generated for this target.
 include CMakeFiles/auto_stop_node.dir/depend.make
@@ -50,18 +50,18 @@ include CMakeFiles/auto_stop_node.dir/progress.make
 include CMakeFiles/auto_stop_node.dir/flags.make
 
 CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o: CMakeFiles/auto_stop_node.dir/flags.make
-CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o: /root/catkin_ws/src/auto_stop/src/auto_stop.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/auto_stop/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o: /home/ros/model_car/catkin_ws/src/auto_stop/src/auto_stop.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o -c /root/catkin_ws/src/auto_stop/src/auto_stop.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o -c /home/ros/model_car/catkin_ws/src/auto_stop/src/auto_stop.cpp
 
 CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/auto_stop/src/auto_stop.cpp > CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ros/model_car/catkin_ws/src/auto_stop/src/auto_stop.cpp > CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.i
 
 CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/auto_stop/src/auto_stop.cpp -o CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ros/model_car/catkin_ws/src/auto_stop/src/auto_stop.cpp -o CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.s
 
 CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o.requires:
 .PHONY : CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o.requires
@@ -79,32 +79,32 @@ auto_stop_node_OBJECTS = \
 # External object files for target auto_stop_node
 auto_stop_node_EXTERNAL_OBJECTS =
 
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: CMakeFiles/auto_stop_node.dir/build.make
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
-/root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: CMakeFiles/auto_stop_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node"
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: CMakeFiles/auto_stop_node.dir/build.make
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node: CMakeFiles/auto_stop_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/auto_stop_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/auto_stop_node.dir/build: /root/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node
+CMakeFiles/auto_stop_node.dir/build: /home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node
 .PHONY : CMakeFiles/auto_stop_node.dir/build
 
 CMakeFiles/auto_stop_node.dir/requires: CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o.requires
@@ -115,6 +115,6 @@ CMakeFiles/auto_stop_node.dir/clean:
 .PHONY : CMakeFiles/auto_stop_node.dir/clean
 
 CMakeFiles/auto_stop_node.dir/depend:
-	cd /root/catkin_ws/odroid-build/auto_stop && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/auto_stop /root/catkin_ws/src/auto_stop /root/catkin_ws/odroid-build/auto_stop /root/catkin_ws/odroid-build/auto_stop /root/catkin_ws/odroid-build/auto_stop/CMakeFiles/auto_stop_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/auto_stop && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/auto_stop /home/ros/model_car/catkin_ws/src/auto_stop /home/ros/model_car/catkin_ws/odroid-build/auto_stop /home/ros/model_car/catkin_ws/odroid-build/auto_stop /home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/auto_stop_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/auto_stop_node.dir/depend
 

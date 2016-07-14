@@ -15,8 +15,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/root/catkin_ws/src/manual_control/include"
-  "/root/catkin_ws/src/send_steering/include"
+  "/home/ros/model_car/catkin_ws/src/manual_control/include"
+  "/home/ros/model_car/catkin_ws/src/send_steering/include"
   "/opt/odroid-x2/sdk/opt/ros/indigo/include"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

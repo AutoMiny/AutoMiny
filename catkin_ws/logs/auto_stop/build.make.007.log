@@ -1,0 +1,4 @@
+[35m[1mScanning dependencies of target auto_stop_node
+[0m[100%] [32mBuilding CXX object CMakeFiles/auto_stop_node.dir/src/auto_stop.cpp.o
+[0m[31m[1mLinking CXX executable /home/ros/model_car/catkin_ws/odroid-devel/lib/auto_stop/auto_stop_node
+[0m[100%] Built target auto_stop_node

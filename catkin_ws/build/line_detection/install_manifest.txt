@@ -1,0 +1,11 @@
+/home/ros/model_car/catkin_ws/install/_setup_util.py
+/home/ros/model_car/catkin_ws/install/env.sh
+/home/ros/model_car/catkin_ws/install/setup.bash
+/home/ros/model_car/catkin_ws/install/setup.sh
+/home/ros/model_car/catkin_ws/install/setup.zsh
+/home/ros/model_car/catkin_ws/install/.rosinstall
+/home/ros/model_car/catkin_ws/install/lib/pkgconfig/line_detection.pc
+/home/ros/model_car/catkin_ws/install/share/line_detection/cmake/line_detectionConfig.cmake
+/home/ros/model_car/catkin_ws/install/share/line_detection/cmake/line_detectionConfig-version.cmake
+/home/ros/model_car/catkin_ws/install/share/line_detection/package.xml
+/home/ros/model_car/catkin_ws/install/lib/line_detection/line_detection_node

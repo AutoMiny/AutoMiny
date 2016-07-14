@@ -1,0 +1,10 @@
+/home/ros/model_car/catkin_ws/install/_setup_util.py
+/home/ros/model_car/catkin_ws/install/env.sh
+/home/ros/model_car/catkin_ws/install/setup.bash
+/home/ros/model_car/catkin_ws/install/setup.sh
+/home/ros/model_car/catkin_ws/install/setup.zsh
+/home/ros/model_car/catkin_ws/install/.rosinstall
+/home/ros/model_car/catkin_ws/install/lib/pkgconfig/detect_roof_rectangles.pc
+/home/ros/model_car/catkin_ws/install/share/detect_roof_rectangles/cmake/detect_roof_rectanglesConfig.cmake
+/home/ros/model_car/catkin_ws/install/share/detect_roof_rectangles/cmake/detect_roof_rectanglesConfig-version.cmake
+/home/ros/model_car/catkin_ws/install/share/detect_roof_rectangles/package.xml

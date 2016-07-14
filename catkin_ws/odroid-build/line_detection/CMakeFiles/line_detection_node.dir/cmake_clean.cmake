@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/line_detection_node.dir/src/laneDetection.cpp.o"
-  "/root/catkin_ws/odroid-devel/lib/line_detection/line_detection_node.pdb"
-  "/root/catkin_ws/odroid-devel/lib/line_detection/line_detection_node"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/line_detection/line_detection_node.pdb"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/line_detection/line_detection_node"
 )
 
 # Per-language clean rules from dependency scanning.

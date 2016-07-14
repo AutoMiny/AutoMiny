@@ -1,0 +1,23 @@
+[31m[1mCMake Error[0m at /usr/share/cmake-2.8/Modules/CMakeDetermineSystem.cmake:99 (message):
+  Could not find toolchain file:
+  /home/zargol/model_car/catkin_ws/src/Toolchain-arm-linux-gnueabihf.cmake
+[36mCall Stack (most recent call first):[0m
+  CMakeLists.txt:2 (project)
+
+
+CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.
+Missing variable is:
+CMAKE_C_COMPILER_ENV_VAR
+CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.
+Missing variable is:
+CMAKE_C_COMPILER
+CMake Error: Could not find cmake module file: /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/CMakeFiles/2.8.12.2/CMakeCCompiler.cmake
+CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.
+Missing variable is:
+CMAKE_CXX_COMPILER_ENV_VAR
+CMake Error: Error required internal CMake variable not set, cmake may be not be built correctly.
+Missing variable is:
+CMAKE_CXX_COMPILER
+CMake Error: Could not find cmake module file: /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/CMakeFiles/2.8.12.2/CMakeCXXCompiler.cmake
+CMake Error: CMAKE_C_COMPILER not set, after EnableLanguage
+CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage

@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/root/catkin_ws/src/usb_cam/src/usb_cam.cpp" "/root/catkin_ws/odroid-build/usb_cam/CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o"
+  "/home/ros/model_car/catkin_ws/src/usb_cam/src/usb_cam.cpp" "/home/ros/model_car/catkin_ws/odroid-build/usb_cam/CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,7 +20,7 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/root/catkin_ws/src/usb_cam/include"
+  "/home/ros/model_car/catkin_ws/src/usb_cam/include"
   "/opt/odroid-x2/sdk/opt/ros/indigo/include"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

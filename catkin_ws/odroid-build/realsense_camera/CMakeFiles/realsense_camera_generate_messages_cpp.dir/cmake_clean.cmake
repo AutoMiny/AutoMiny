@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/realsense_camera_generate_messages_cpp"
-  "/root/catkin_ws/odroid-devel/include/realsense_camera/cameraConfiguration.h"
+  "/home/ros/model_car/catkin_ws/odroid-devel/include/realsense_camera/cameraConfiguration.h"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,0 +1,20 @@
+[ 50%] Built target usb_cam
+[100%] Built target usb_cam_node
+[36mInstall the project...
+[0m-- Install configuration: ""
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/_setup_util.py
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/env.sh
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/setup.bash
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/setup.sh
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/setup.zsh
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/.rosinstall
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/lib/pkgconfig/usb_cam.pc
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/share/usb_cam/cmake/usb_camConfig.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/share/usb_cam/cmake/usb_camConfig-version.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/share/usb_cam/package.xml
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/lib/usb_cam/usb_cam_node
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/lib/libusb_cam.so
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/usb_cam/launch
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/share/usb_cam/launch/usb_cam-test.launch
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/include/usb_cam
+-- Up-to-date: /home/ros/model_car/catkin_ws/odroid-install/include/usb_cam/usb_cam.h

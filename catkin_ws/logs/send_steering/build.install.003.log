@@ -1,0 +1,21 @@
+[ 50%] Built target send_steering
+[100%] Built target send_steering_node
+[36mInstall the project...
+[0m-- Install configuration: ""
+-- Installing: /home/ros/model_car/catkin_ws/install/_setup_util.py
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/env.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.bash
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.zsh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/.rosinstall
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/lib/pkgconfig/send_steering.pc
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/send_steering/cmake/send_steeringConfig.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/send_steering/cmake/send_steeringConfig-version.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/send_steering/package.xml
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/lib/libsend_steering.so
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/lib/send_steering/send_steering_node
+-- Installing: /home/ros/model_car/catkin_ws/install/include/send_steering
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/include/send_steering/send_steering.h
+-- Installing: /home/ros/model_car/catkin_ws/install/share/send_steering/launch
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/send_steering/launch/servo_PC.launch
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/send_steering/launch/servo_odroid.launch

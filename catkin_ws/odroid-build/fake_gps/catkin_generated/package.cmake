@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "fake_gps")
-set(fake_gps_MAINTAINER "zargol <zargol@todo.todo>")
-set(fake_gps_DEPRECATED "")
-set(fake_gps_VERSION "0.0.0")
-set(fake_gps_BUILD_DEPENDS "rosconsole" "rostime" "roscpp_serialization" "geometry_msgs" "roscpp" "std_msgs" "tf" "message_generation" "detect_roof_rectangles")
-set(fake_gps_RUN_DEPENDS "geometry_msgs" "roscpp" "std_msgs" "tf" "message_runtime" "detect_roof_rectangles")
-set(fake_gps_BUILDTOOL_DEPENDS "catkin")

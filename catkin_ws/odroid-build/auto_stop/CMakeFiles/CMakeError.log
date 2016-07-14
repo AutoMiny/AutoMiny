@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
+Change Dir: /home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3995808585/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3995808585.dir/build.make CMakeFiles/cmTryCompileExec3995808585.dir/build
-make[1]: Entering directory `/root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3995808585.dir/CheckSymbolExists.c.o
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec3995808585.dir/CheckSymbolExists.c.o   -c /root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTryCompileExec3995808585
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3995808585.dir/link.txt --verbose=1
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc       CMakeFiles/cmTryCompileExec3995808585.dir/CheckSymbolExists.c.o  -o cmTryCompileExec3995808585 -rdynamic 
-CMakeFiles/cmTryCompileExec3995808585.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:/usr/bin/make "cmTryCompileExec896510825/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec896510825.dir/build.make CMakeFiles/cmTryCompileExec896510825.dir/build
+make[1]: Entering directory `/home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec896510825.dir/CheckSymbolExists.c.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc    -o CMakeFiles/cmTryCompileExec896510825.dir/CheckSymbolExists.c.o   -c /home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec896510825
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec896510825.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc       CMakeFiles/cmTryCompileExec896510825.dir/CheckSymbolExists.c.o  -o cmTryCompileExec896510825 -rdynamic 
+CMakeFiles/cmTryCompileExec896510825.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
 CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-make[1]: Leaving directory `/root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
-make[1]: *** [cmTryCompileExec3995808585] Error 1
-make: *** [cmTryCompileExec3995808585/fast] Error 2
+make[1]: Leaving directory `/home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec896510825] Error 1
+make: *** [cmTryCompileExec896510825/fast] Error 2
 
-File /root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,21 +34,21 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
+Change Dir: /home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1733338034/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1733338034.dir/build.make CMakeFiles/cmTryCompileExec1733338034.dir/build
-make[1]: Entering directory `/root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1733338034.dir/CheckFunctionExists.c.o
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1733338034.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1733338034
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1733338034.dir/link.txt --verbose=1
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1733338034.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1733338034 -rdynamic -lpthreads 
-/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.8.3/../../../../arm-linux-gnueabihf/bin/ld: cannot find -lpthreads
+Run Build Command:/usr/bin/make "cmTryCompileExec911506761/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec911506761.dir/build.make CMakeFiles/cmTryCompileExec911506761.dir/build
+make[1]: Entering directory `/home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec911506761.dir/CheckFunctionExists.c.o
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec911506761.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec911506761
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec911506761.dir/link.txt --verbose=1
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-gcc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec911506761.dir/CheckFunctionExists.c.o  -o cmTryCompileExec911506761 -rdynamic -lpthreads 
+/opt/odroid-x2/compiler/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec1733338034] Error 1
-make[1]: Leaving directory `/root/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec1733338034/fast] Error 2
+make[1]: Leaving directory `/home/ros/model_car/catkin_ws/odroid-build/auto_stop/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec911506761] Error 1
+make: *** [cmTryCompileExec911506761/fast] Error 2
 
 

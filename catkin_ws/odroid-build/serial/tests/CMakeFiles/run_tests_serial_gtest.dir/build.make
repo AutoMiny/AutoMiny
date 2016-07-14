@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/serial
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/serial
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/serial
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/serial
 
 # Utility rule file for run_tests_serial_gtest.
 
@@ -56,10 +56,10 @@ tests/CMakeFiles/run_tests_serial_gtest.dir/build: run_tests_serial_gtest
 .PHONY : tests/CMakeFiles/run_tests_serial_gtest.dir/build
 
 tests/CMakeFiles/run_tests_serial_gtest.dir/clean:
-	cd /root/catkin_ws/odroid-build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_serial_gtest.dir/cmake_clean.cmake
+	cd /home/ros/model_car/catkin_ws/odroid-build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_serial_gtest.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/run_tests_serial_gtest.dir/clean
 
 tests/CMakeFiles/run_tests_serial_gtest.dir/depend:
-	cd /root/catkin_ws/odroid-build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/serial /root/catkin_ws/src/serial/tests /root/catkin_ws/odroid-build/serial /root/catkin_ws/odroid-build/serial/tests /root/catkin_ws/odroid-build/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/serial /home/ros/model_car/catkin_ws/src/serial/tests /home/ros/model_car/catkin_ws/odroid-build/serial /home/ros/model_car/catkin_ws/odroid-build/serial/tests /home/ros/model_car/catkin_ws/odroid-build/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tests/CMakeFiles/run_tests_serial_gtest.dir/depend
 

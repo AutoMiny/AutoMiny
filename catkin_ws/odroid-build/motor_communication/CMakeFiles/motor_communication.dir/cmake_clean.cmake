@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o"
-  "/root/catkin_ws/odroid-devel/lib/libmotor_communication.pdb"
-  "/root/catkin_ws/odroid-devel/lib/libmotor_communication.so"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/libmotor_communication.pdb"
+  "/home/ros/model_car/catkin_ws/odroid-devel/lib/libmotor_communication.so"
 )
 
 # Per-language clean rules from dependency scanning.

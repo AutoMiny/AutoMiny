@@ -1,6 +1,6 @@
-devel_space: /root/catkin_ws/odroid-devel
-install: false
-install_space: /root/catkin_ws/odroid-install
+devel_space: /home/ros/model_car/catkin_ws/odroid-devel
+install: true
+install_space: /home/ros/model_car/catkin_ws/odroid-install
 profile: odroid
-source_space: /root/catkin_ws/src
-workspace: /root/catkin_ws
+source_space: /home/ros/model_car/catkin_ws/src
+workspace: /home/ros/model_car/catkin_ws

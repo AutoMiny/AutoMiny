@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/detect_roof_rectangles
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/detect_roof_rectangles
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/detect_roof_rectangles
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/detect_roof_rectangles
 
 # Include any dependencies generated for this target.
 include CMakeFiles/detect.dir/depend.make
@@ -50,18 +50,18 @@ include CMakeFiles/detect.dir/progress.make
 include CMakeFiles/detect.dir/flags.make
 
 CMakeFiles/detect.dir/src/detect.cpp.o: CMakeFiles/detect.dir/flags.make
-CMakeFiles/detect.dir/src/detect.cpp.o: /root/catkin_ws/src/detect_roof_rectangles/src/detect.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/odroid-build/detect_roof_rectangles/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/detect.dir/src/detect.cpp.o: /home/ros/model_car/catkin_ws/src/detect_roof_rectangles/src/detect.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/model_car/catkin_ws/odroid-build/detect_roof_rectangles/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/detect.dir/src/detect.cpp.o"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/detect.dir/src/detect.cpp.o -c /root/catkin_ws/src/detect_roof_rectangles/src/detect.cpp
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/detect.dir/src/detect.cpp.o -c /home/ros/model_car/catkin_ws/src/detect_roof_rectangles/src/detect.cpp
 
 CMakeFiles/detect.dir/src/detect.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/detect.dir/src/detect.cpp.i"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/detect_roof_rectangles/src/detect.cpp > CMakeFiles/detect.dir/src/detect.cpp.i
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ros/model_car/catkin_ws/src/detect_roof_rectangles/src/detect.cpp > CMakeFiles/detect.dir/src/detect.cpp.i
 
 CMakeFiles/detect.dir/src/detect.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/detect.dir/src/detect.cpp.s"
-	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/detect_roof_rectangles/src/detect.cpp -o CMakeFiles/detect.dir/src/detect.cpp.s
+	/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ros/model_car/catkin_ws/src/detect_roof_rectangles/src/detect.cpp -o CMakeFiles/detect.dir/src/detect.cpp.s
 
 CMakeFiles/detect.dir/src/detect.cpp.o.requires:
 .PHONY : CMakeFiles/detect.dir/src/detect.cpp.o.requires
@@ -79,32 +79,32 @@ detect_OBJECTS = \
 # External object files for target detect
 detect_EXTERNAL_OBJECTS =
 
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: CMakeFiles/detect.dir/src/detect.cpp.o
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: CMakeFiles/detect.dir/build.make
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
-/root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: CMakeFiles/detect.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect"
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: CMakeFiles/detect.dir/src/detect.cpp.o
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: CMakeFiles/detect.dir/build.make
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_signals.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_log4cxx.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librosconsole_backend_interface.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/liblog4cxx.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_regex.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libxmlrpcpp.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libroscpp_serialization.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/librostime.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_date_time.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/opt/ros/indigo/lib/libcpp_common.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_system.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libboost_thread.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libpthread.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: /opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
+/home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect: CMakeFiles/detect.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/detect.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/detect.dir/build: /root/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect
+CMakeFiles/detect.dir/build: /home/ros/model_car/catkin_ws/odroid-devel/lib/detect_roof_rectangles/detect
 .PHONY : CMakeFiles/detect.dir/build
 
 CMakeFiles/detect.dir/requires: CMakeFiles/detect.dir/src/detect.cpp.o.requires
@@ -115,6 +115,6 @@ CMakeFiles/detect.dir/clean:
 .PHONY : CMakeFiles/detect.dir/clean
 
 CMakeFiles/detect.dir/depend:
-	cd /root/catkin_ws/odroid-build/detect_roof_rectangles && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/detect_roof_rectangles /root/catkin_ws/src/detect_roof_rectangles /root/catkin_ws/odroid-build/detect_roof_rectangles /root/catkin_ws/odroid-build/detect_roof_rectangles /root/catkin_ws/odroid-build/detect_roof_rectangles/CMakeFiles/detect.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/detect_roof_rectangles && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/detect_roof_rectangles /home/ros/model_car/catkin_ws/src/detect_roof_rectangles /home/ros/model_car/catkin_ws/odroid-build/detect_roof_rectangles /home/ros/model_car/catkin_ws/odroid-build/detect_roof_rectangles /home/ros/model_car/catkin_ws/odroid-build/detect_roof_rectangles/CMakeFiles/detect.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/detect.dir/depend
 

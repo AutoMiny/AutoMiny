@@ -1,0 +1,17 @@
+[ 50%] Built target heading
+[100%] Built target heading_node
+[36mInstall the project...
+[0m-- Install configuration: ""
+-- Installing: /home/ros/model_car/catkin_ws/install/_setup_util.py
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/env.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.bash
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.sh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/setup.zsh
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/.rosinstall
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/lib/pkgconfig/heading.pc
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/heading/cmake/headingConfig.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/heading/cmake/headingConfig-version.cmake
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/share/heading/package.xml
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/lib/heading/heading_node
+-- Installing: /home/ros/model_car/catkin_ws/install/include/heading
+-- Up-to-date: /home/ros/model_car/catkin_ws/install/include/heading/heading.h

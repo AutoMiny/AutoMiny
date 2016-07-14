@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/usb_cam
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/usb_cam
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/usb_cam
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/usb_cam
 
 # Utility rule file for roscpp_generate_messages_cpp.
 
@@ -60,6 +60,6 @@ CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
 .PHONY : CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 
 CMakeFiles/roscpp_generate_messages_cpp.dir/depend:
-	cd /root/catkin_ws/odroid-build/usb_cam && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/usb_cam /root/catkin_ws/src/usb_cam /root/catkin_ws/odroid-build/usb_cam /root/catkin_ws/odroid-build/usb_cam /root/catkin_ws/odroid-build/usb_cam/CMakeFiles/roscpp_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/usb_cam && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/usb_cam /home/ros/model_car/catkin_ws/src/usb_cam /home/ros/model_car/catkin_ws/odroid-build/usb_cam /home/ros/model_car/catkin_ws/odroid-build/usb_cam /home/ros/model_car/catkin_ws/odroid-build/usb_cam/CMakeFiles/roscpp_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/roscpp_generate_messages_cpp.dir/depend
 

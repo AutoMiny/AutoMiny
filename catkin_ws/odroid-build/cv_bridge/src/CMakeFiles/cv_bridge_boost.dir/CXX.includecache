@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/root/catkin_ws/src/cv_bridge/include/cv_bridge/cv_bridge.h
+/home/ros/model_car/catkin_ws/src/cv_bridge/include/cv_bridge/cv_bridge.h
 sensor_msgs/Image.h
 -
 sensor_msgs/CompressedImage.h
@@ -24,11 +24,11 @@ opencv2/imgproc/types_c.h
 stdexcept
 -
 
-/root/catkin_ws/src/cv_bridge/src/module.cpp
+/home/ros/model_car/catkin_ws/src/cv_bridge/src/module.cpp
 module.hpp
-/root/catkin_ws/src/cv_bridge/src/module.hpp
+/home/ros/model_car/catkin_ws/src/cv_bridge/src/module.hpp
 
-/root/catkin_ws/src/cv_bridge/src/module.hpp
+/home/ros/model_car/catkin_ws/src/cv_bridge/src/module.hpp
 iostream
 -
 boost/python.hpp
@@ -42,9 +42,9 @@ numpy/ndarrayobject.h
 opencv2/core/core.hpp
 -
 
-/root/catkin_ws/src/cv_bridge/src/module_opencv2.cpp
+/home/ros/model_car/catkin_ws/src/cv_bridge/src/module_opencv2.cpp
 module.hpp
-/root/catkin_ws/src/cv_bridge/src/module.hpp
+/home/ros/model_car/catkin_ws/src/cv_bridge/src/module.hpp
 
 /opt/odroid-x2/sdk/opt/ros/indigo/include/ros/builtin_message_traits.h
 message_traits.h

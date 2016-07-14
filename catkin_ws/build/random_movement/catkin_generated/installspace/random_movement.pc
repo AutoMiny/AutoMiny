@@ -1,0 +1,8 @@
+prefix=/home/ros/model_car/catkin_ws/install
+
+Name: random_movement
+Description: Description of random_movement
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ros/model_car/catkin_ws/install/lib -lrandom_movement
+Requires: std_msgs sensor_msgs geometry_msgs

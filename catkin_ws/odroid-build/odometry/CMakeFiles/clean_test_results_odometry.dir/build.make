@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/odometry
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/odometry
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/odometry
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/odometry
 
 # Utility rule file for clean_test_results_odometry.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/odometry
 include CMakeFiles/clean_test_results_odometry.dir/progress.make
 
 CMakeFiles/clean_test_results_odometry:
-	/usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /root/catkin_ws/odroid-build/odometry/test_results/odometry
+	/usr/bin/python /opt/odroid-x2/sdk/opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /home/ros/model_car/catkin_ws/odroid-build/odometry/test_results/odometry
 
 clean_test_results_odometry: CMakeFiles/clean_test_results_odometry
 clean_test_results_odometry: CMakeFiles/clean_test_results_odometry.dir/build.make
@@ -61,6 +61,6 @@ CMakeFiles/clean_test_results_odometry.dir/clean:
 .PHONY : CMakeFiles/clean_test_results_odometry.dir/clean
 
 CMakeFiles/clean_test_results_odometry.dir/depend:
-	cd /root/catkin_ws/odroid-build/odometry && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/odometry /root/catkin_ws/src/odometry /root/catkin_ws/odroid-build/odometry /root/catkin_ws/odroid-build/odometry /root/catkin_ws/odroid-build/odometry/CMakeFiles/clean_test_results_odometry.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/odometry && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/odometry /home/ros/model_car/catkin_ws/src/odometry /home/ros/model_car/catkin_ws/odroid-build/odometry /home/ros/model_car/catkin_ws/odroid-build/odometry /home/ros/model_car/catkin_ws/odroid-build/odometry/CMakeFiles/clean_test_results_odometry.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results_odometry.dir/depend
 

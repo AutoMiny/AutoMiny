@@ -1,0 +1,18 @@
+[ 50%] Built target light
+[100%] Built target light_node
+[36mInstall the project...
+[0m-- Install configuration: ""
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/_setup_util.py
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/env.sh
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/setup.bash
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/setup.sh
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/setup.zsh
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/.rosinstall
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/lib/pkgconfig/light.pc
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/light/cmake/lightConfig.cmake
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/light/cmake/lightConfig-version.cmake
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/light/package.xml
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/lib/light/light_node
+-- Removed runtime path from "/home/ros/model_car/catkin_ws/odroid-install/lib/light/light_node"
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/light/launch
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/light/launch/light.launch

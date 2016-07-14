@@ -67,14 +67,14 @@ set(send_steering_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(send_steering_SOURCE_PREFIX /home/zargol/model_car/catkin_ws/src/send_steering)
-  set(send_steering_DEVEL_PREFIX /home/zargol/model_car/catkin_ws/odroid-devel)
+  set(send_steering_SOURCE_PREFIX /home/ros/model_car/catkin_ws/src/send_steering)
+  set(send_steering_DEVEL_PREFIX /home/ros/model_car/catkin_ws/odroid-devel)
   set(send_steering_INSTALL_PREFIX "")
   set(send_steering_PREFIX ${send_steering_DEVEL_PREFIX})
 else()
   set(send_steering_SOURCE_PREFIX "")
   set(send_steering_DEVEL_PREFIX "")
-  set(send_steering_INSTALL_PREFIX /home/zargol/model_car/catkin_ws/odroid-install)
+  set(send_steering_INSTALL_PREFIX /home/ros/model_car/catkin_ws/odroid-install)
   set(send_steering_PREFIX ${send_steering_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(send_steering_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/zargol/model_car/catkin_ws/src/send_steering/include " STREQUAL " ")
+if(NOT "/home/ros/model_car/catkin_ws/src/send_steering/include " STREQUAL " ")
   set(send_steering_INCLUDE_DIRS "")
-  set(_include_dirs "/home/zargol/model_car/catkin_ws/src/send_steering/include")
+  set(_include_dirs "/home/ros/model_car/catkin_ws/src/send_steering/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,7 +103,7 @@ if(NOT "/home/zargol/model_car/catkin_ws/src/send_steering/include " STREQUAL " 
         message(FATAL_ERROR "Project 'send_steering' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'zargol <zahra.boroujeni@gmail.com>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'send_steering' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/zargol/model_car/catkin_ws/src/send_steering/${idir}'.  Ask the maintainer 'zargol <zahra.boroujeni@gmail.com>' to fix it.")
+      message(FATAL_ERROR "Project 'send_steering' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ros/model_car/catkin_ws/src/send_steering/${idir}'.  Ask the maintainer 'zargol <zahra.boroujeni@gmail.com>' to fix it.")
     endif()
     _list_append_unique(send_steering_INCLUDE_DIRS ${include})
   endforeach()
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/zargol/model_car/catkin_ws/odroid-devel/lib;/home/zargol/model_car/catkin_ws/odroid-devel/lib;/opt/odroid-x2/sdk/opt/ros/indigo/lib;/opt/odroid-x2/sdk//opt/ros/indigo/lib)
+    foreach(path /home/ros/model_car/catkin_ws/odroid-devel/lib;/home/ros/model_car/catkin_ws/odroid-install/lib;/opt/odroid-x2/sdk/opt/ros/indigo/lib;/opt/odroid-x2/sdk//opt/ros/indigo/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

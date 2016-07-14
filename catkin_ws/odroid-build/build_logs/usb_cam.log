@@ -1,6 +1,0 @@
-[[36musb_cam[0m] [1m[34m==>[0m '[1m/root/catkin_ws/odroid-build/usb_cam/build_env.sh /usr/bin/make cmake_check_build_system[0m' [30m[1min[0m '[1m/root/catkin_ws/odroid-build/usb_cam[0m'[0m
-[[36musb_cam[0m] [32m<==[0m '[1m/root/catkin_ws/odroid-build/usb_cam/build_env.sh /usr/bin/make cmake_check_build_system[0m' finished with return code '[1m0[0m'[0m
-[[36musb_cam[0m] [1m[34m==>[0m '[1m/root/catkin_ws/odroid-build/usb_cam/build_env.sh /usr/bin/make --jobserver-fds=3,6 -j[0m' [30m[1min[0m '[1m/root/catkin_ws/odroid-build/usb_cam[0m'[0m
-[ 50%] Built target usb_cam
-[100%] Built target usb_cam_node
-[[36musb_cam[0m] [32m<==[0m '[1m/root/catkin_ws/odroid-build/usb_cam/build_env.sh /usr/bin/make --jobserver-fds=3,6 -j[0m' finished with return code '[1m0[0m'[0m

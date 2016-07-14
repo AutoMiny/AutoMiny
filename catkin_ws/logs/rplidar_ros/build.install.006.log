@@ -1,0 +1,57 @@
+[ 83%] Built target rplidarNode
+[100%] Built target rplidarNodeClient
+[36mInstall the project...
+[0m-- Install configuration: ""
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/_setup_util.py
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/env.sh
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/setup.bash
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/setup.sh
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/setup.zsh
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/.rosinstall
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/lib/pkgconfig/rplidar_ros.pc
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/cmake/rplidar_rosConfig.cmake
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/cmake/rplidar_rosConfig-version.cmake
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/package.xml
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/lib/rplidar_ros/rplidarNode
+-- Removed runtime path from "/home/ros/model_car/catkin_ws/odroid-install/lib/rplidar_ros/rplidarNode"
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/lib/rplidar_ros/rplidarNodeClient
+-- Removed runtime path from "/home/ros/model_car/catkin_ws/odroid-install/lib/rplidar_ros/rplidarNodeClient"
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/launch
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/launch/rplidar.launch
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/launch/view_rplidar.launch
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/rviz
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/rviz/rplidar.rviz
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/sdkcommon.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/win32
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/win32/net_serial.cpp
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/win32/net_serial.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/win32/timer.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/win32/winthread.hpp
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/win32/arch_win32.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/win32/timer.cpp
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/linux
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/linux/net_serial.cpp
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/linux/net_serial.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/linux/timer.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/linux/timer.cpp
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/linux/thread.hpp
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/arch/linux/arch_linux.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/hal
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/hal/thread.cpp
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/hal/event.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/hal/locker.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/hal/util.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/hal/thread.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/hal/abs_rxtx.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/rplidar_driver.cpp
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/src/rplidar_driver_serial.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/README.txt
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/include
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/include/rplidar_driver.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/include/rplidar_protocol.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/include/rplidar.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/include/rplidar_cmd.h
+-- Installing: /home/ros/model_car/catkin_ws/odroid-install/share/rplidar_ros/sdk/include/rptypes.h

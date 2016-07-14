@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/cv_bridge
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/cv_bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/cv_bridge
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/cv_bridge
 
 # Utility rule file for std_msgs_generate_messages_lisp.
 
@@ -60,6 +60,6 @@ CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
 .PHONY : CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 
 CMakeFiles/std_msgs_generate_messages_lisp.dir/depend:
-	cd /root/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/cv_bridge /root/catkin_ws/src/cv_bridge /root/catkin_ws/odroid-build/cv_bridge /root/catkin_ws/odroid-build/cv_bridge /root/catkin_ws/odroid-build/cv_bridge/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/cv_bridge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/cv_bridge /home/ros/model_car/catkin_ws/src/cv_bridge /home/ros/model_car/catkin_ws/odroid-build/cv_bridge /home/ros/model_car/catkin_ws/odroid-build/cv_bridge /home/ros/model_car/catkin_ws/odroid-build/cv_bridge/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
 

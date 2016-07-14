@@ -1,8 +1,8 @@
-prefix=/home/zargol/model_car/catkin_ws/odroid-devel
+prefix=/home/ros/model_car/catkin_ws/odroid-devel
 
 Name: control
 Description: Description of control
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/zargol/model_car/catkin_ws/odroid-devel/lib 
+Libs: -L/home/ros/model_car/catkin_ws/odroid-devel/lib 
 Requires: 

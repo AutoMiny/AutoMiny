@@ -38,10 +38,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/catkin_ws/src/realsense_camera
+CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/realsense_camera
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/catkin_ws/odroid-build/realsense_camera
+CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/odroid-build/realsense_camera
 
 # Utility rule file for realsense_camera_genlisp.
 
@@ -63,6 +63,6 @@ CMakeFiles/realsense_camera_genlisp.dir/clean:
 .PHONY : CMakeFiles/realsense_camera_genlisp.dir/clean
 
 CMakeFiles/realsense_camera_genlisp.dir/depend:
-	cd /root/catkin_ws/odroid-build/realsense_camera && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/odroid-build/realsense_camera /root/catkin_ws/odroid-build/realsense_camera /root/catkin_ws/odroid-build/realsense_camera/CMakeFiles/realsense_camera_genlisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros/model_car/catkin_ws/odroid-build/realsense_camera && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/realsense_camera /home/ros/model_car/catkin_ws/src/realsense_camera /home/ros/model_car/catkin_ws/odroid-build/realsense_camera /home/ros/model_car/catkin_ws/odroid-build/realsense_camera /home/ros/model_car/catkin_ws/odroid-build/realsense_camera/CMakeFiles/realsense_camera_genlisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/realsense_camera_genlisp.dir/depend
 

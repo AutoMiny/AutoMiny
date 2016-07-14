@@ -108,6 +108,11 @@ install(DIRECTORY include/${PROJECT_NAME}/
   PATTERN ".svn" EXCLUDE
 )
 
+install(DIRECTORY launch
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  USE_SOURCE_PERMISSIONS
+)
+
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES
 #   # myfile1

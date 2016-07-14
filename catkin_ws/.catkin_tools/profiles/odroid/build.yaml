@@ -1,0 +1,18 @@
+blacklist: []
+build_space: odroid-build
+catkin_make_args: []
+cmake_args:
+- -DCMAKE_TOOLCHAIN_FILE=/home/ros/model_car/catkin_ws/src/Toolchain-arm-linux-gnueabihf.cmake
+devel_layout: merged
+devel_space: odroid-devel
+extend_path: /opt/odroid-x2/sdk/opt/ros/indigo
+install: true
+install_space: odroid-install
+isolate_install: false
+jobs_args: []
+log_space: logs
+make_args: []
+source_space: src
+use_env_cache: false
+use_internal_make_jobserver: true
+whitelist: []

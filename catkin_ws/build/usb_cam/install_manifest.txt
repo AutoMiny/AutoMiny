@@ -1,0 +1,14 @@
+/home/ros/model_car/catkin_ws/install/_setup_util.py
+/home/ros/model_car/catkin_ws/install/env.sh
+/home/ros/model_car/catkin_ws/install/setup.bash
+/home/ros/model_car/catkin_ws/install/setup.sh
+/home/ros/model_car/catkin_ws/install/setup.zsh
+/home/ros/model_car/catkin_ws/install/.rosinstall
+/home/ros/model_car/catkin_ws/install/lib/pkgconfig/usb_cam.pc
+/home/ros/model_car/catkin_ws/install/share/usb_cam/cmake/usb_camConfig.cmake
+/home/ros/model_car/catkin_ws/install/share/usb_cam/cmake/usb_camConfig-version.cmake
+/home/ros/model_car/catkin_ws/install/share/usb_cam/package.xml
+/home/ros/model_car/catkin_ws/install/lib/usb_cam/usb_cam_node
+/home/ros/model_car/catkin_ws/install/lib/libusb_cam.so
+/home/ros/model_car/catkin_ws/install/share/usb_cam/launch/usb_cam-test.launch
+/home/ros/model_car/catkin_ws/install/include/usb_cam/usb_cam.h

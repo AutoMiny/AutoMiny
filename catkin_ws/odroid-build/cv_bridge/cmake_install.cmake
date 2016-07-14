@@ -1,8 +1,8 @@
-# Install script for directory: /root/catkin_ws/src/cv_bridge
+# Install script for directory: /home/ros/model_car/catkin_ws/src/cv_bridge
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/root/catkin_ws/odroid-install")
+  SET(CMAKE_INSTALL_PREFIX "/home/ros/model_car/catkin_ws/odroid-install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,105 +44,105 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/root/catkin_ws/odroid-install/_setup_util.py")
+   "/home/ros/model_car/catkin_ws/odroid-install/_setup_util.py")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE PROGRAM FILES "/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/_setup_util.py")
+FILE(INSTALL DESTINATION "/home/ros/model_car/catkin_ws/odroid-install" TYPE PROGRAM FILES "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/_setup_util.py")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/root/catkin_ws/odroid-install/env.sh")
+   "/home/ros/model_car/catkin_ws/odroid-install/env.sh")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE PROGRAM FILES "/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/env.sh")
+FILE(INSTALL DESTINATION "/home/ros/model_car/catkin_ws/odroid-install" TYPE PROGRAM FILES "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/env.sh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/root/catkin_ws/odroid-install/setup.bash")
+   "/home/ros/model_car/catkin_ws/odroid-install/setup.bash")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/setup.bash")
+FILE(INSTALL DESTINATION "/home/ros/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/setup.bash")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/root/catkin_ws/odroid-install/setup.sh")
+   "/home/ros/model_car/catkin_ws/odroid-install/setup.sh")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/setup.sh")
+FILE(INSTALL DESTINATION "/home/ros/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/setup.sh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/root/catkin_ws/odroid-install/setup.zsh")
+   "/home/ros/model_car/catkin_ws/odroid-install/setup.zsh")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/setup.zsh")
+FILE(INSTALL DESTINATION "/home/ros/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/setup.zsh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/root/catkin_ws/odroid-install/.rosinstall")
+   "/home/ros/model_car/catkin_ws/odroid-install/.rosinstall")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/root/catkin_ws/odroid-install" TYPE FILE FILES "/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/.rosinstall")
+FILE(INSTALL DESTINATION "/home/ros/model_car/catkin_ws/odroid-install" TYPE FILE FILES "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/.rosinstall")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/cv_bridge.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/cv_bridge.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cv_bridge/cmake" TYPE FILE FILES
-    "/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/cv_bridgeConfig.cmake"
-    "/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/cv_bridgeConfig-version.cmake"
+    "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/cv_bridgeConfig.cmake"
+    "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/installspace/cv_bridgeConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cv_bridge" TYPE FILE FILES "/root/catkin_ws/src/cv_bridge/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cv_bridge" TYPE FILE FILES "/home/ros/model_car/catkin_ws/src/cv_bridge/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  INCLUDE("/root/catkin_ws/odroid-build/cv_bridge/catkin_generated/safe_execute_install.cmake")
+  INCLUDE("/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/catkin_generated/safe_execute_install.cmake")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/cv_bridge" TYPE DIRECTORY FILES "/root/catkin_ws/src/cv_bridge/include/cv_bridge/")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/cv_bridge" TYPE DIRECTORY FILES "/home/ros/model_car/catkin_ws/src/cv_bridge/include/cv_bridge/")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/root/catkin_ws/odroid-build/cv_bridge/gtest/cmake_install.cmake")
-  INCLUDE("/root/catkin_ws/odroid-build/cv_bridge/python/cmake_install.cmake")
-  INCLUDE("/root/catkin_ws/odroid-build/cv_bridge/src/cmake_install.cmake")
-  INCLUDE("/root/catkin_ws/odroid-build/cv_bridge/test/cmake_install.cmake")
+  INCLUDE("/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/gtest/cmake_install.cmake")
+  INCLUDE("/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/python/cmake_install.cmake")
+  INCLUDE("/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/src/cmake_install.cmake")
+  INCLUDE("/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/test/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -152,7 +152,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/root/catkin_ws/odroid-build/cv_bridge/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/root/catkin_ws/odroid-build/cv_bridge/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/ros/model_car/catkin_ws/odroid-build/cv_bridge/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

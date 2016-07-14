@@ -1,1 +1,1 @@
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  -fPIC -std=c++11  --sysroot=/opt/odroid-x2/sdk   -shared -Wl,-soname,libmanual_control.so -o /root/catkin_ws/odroid-devel/lib/libmanual_control.so CMakeFiles/manual_control.dir/src/manual_control_node.cpp.o 
+/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  -fPIC -std=c++11  --sysroot=/opt/odroid-x2/sdk   -shared -Wl,-soname,libmanual_control.so -o /home/ros/model_car/catkin_ws/odroid-devel/lib/libmanual_control.so CMakeFiles/manual_control.dir/src/manual_control_node.cpp.o 

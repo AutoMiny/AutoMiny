@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /root/catkin_ws/odroid-devel/setup.sh
+    local-name: /home/ros/model_car/catkin_ws/odroid-devel/setup.sh
