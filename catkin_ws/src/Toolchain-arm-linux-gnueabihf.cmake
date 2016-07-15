@@ -17,7 +17,7 @@ else()
 	GET_FILENAME_COMPONENT(CMAKE_FIND_ROOT_PATH "${CMAKE_FIND_ROOT_PATH}" ABSOLUTE)
 endif ()
 SET(CMAKE_FIND_ROOT_PATH "/opt/odroid-x2/sdk" CACHE INTERNAL "" FORCE)
-
+link_directories(/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf)
 ## search for programs in the build host directories
 SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 ## for libraries and headers in the target directories
