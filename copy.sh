@@ -1,6 +1,11 @@
- scp -r /home/zargol/emmc/model_car/catkin_ws/src/ root@192.168.1.199:./catkin_ws
- scp -r /home/zargol/emmc/model_car/catkin_ws/build/  root@192.168.1.199:./catkin_ws/
-scp -r /home/zargol/emmc/model_car/catkin_ws/devel/  root@192.168.1.199:./catkin_ws/
-scp /home/zargol/emmc/model_car/autostart.sh root@192.168.1.199:./
+sudo scp -r catkin_ws root@192.168.1.199:./
+sudo scp -r extra_library/glfw root@192.168.1.199:./
+sudo scp -r extra_library/librealsense root@192.168.1.199:./
+sudo scp autostart.sh root@192.168.1.199:./
+sudo scp .bashrc root@192.168.1.199:./
+sudo scp extra_library/set.sh root@192.168.1.199:./
+sudo scp extra_library/set2.sh root@192.168.1.199:./
+
+echo "copy finished!"
 
 
