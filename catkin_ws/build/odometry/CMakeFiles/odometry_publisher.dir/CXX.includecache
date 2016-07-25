@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/ros/model_car/catkin_ws/src/odometry/src/odometry_publisher.cpp
-ros/ros.h
--
-tf/transform_broadcaster.h
--
-nav_msgs/Odometry.h
--
-std_msgs/Float32.h
--
-
 /opt/ros/indigo/include/XmlRpcDecl.h
 ros/macros.h
 -
@@ -1263,4 +1253,14 @@ ros/ros.h
 /opt/ros/indigo/include/tf2_ros/ros/ros.h
 geometry_msgs/TransformStamped.h
 /opt/ros/indigo/include/tf2_ros/geometry_msgs/TransformStamped.h
+
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp
+ros/ros.h
+-
+tf/transform_broadcaster.h
+-
+nav_msgs/Odometry.h
+-
+std_msgs/Float32.h
+-
 

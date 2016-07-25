@@ -1,6 +1,0 @@
-CMake Error at cmake_install.cmake:167 (FILE):
-  file INSTALL cannot find
-  "/home/ros/model_car/catkin_ws/src/send_steering/include/send_steering".
-
-
-make: *** [install] Error 1

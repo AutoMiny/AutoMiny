@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "motor_communication")
-set(motor_communication_MAINTAINER "zargol <zahra.boroujeni@gmail.com>")
-set(motor_communication_DEPRECATED "")
-set(motor_communication_VERSION "0.0.0")
-set(motor_communication_BUILD_DEPENDS "serial" "roscpp" "std_msgs" "geometry_msgs")
-set(motor_communication_RUN_DEPENDS "serial" "roscpp" "std_msgs" "geometry_msgs")
-set(motor_communication_BUILDTOOL_DEPENDS "catkin" "catkin")

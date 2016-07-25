@@ -3,11 +3,11 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_FLAGS = -I/home/ros/model_car/catkin_ws/devel/include -I/home/ros/model_car/catkin_ws/src/cv_bridge/include -I/opt/ros/indigo/include -I/usr/include/opencv   
+C_FLAGS = -I/root/catkin_ws/devel/.private/cmvision/include -I/root/catkin_ws/src/cv_bridge/include -I/opt/ros/indigo/include -I/usr/include/opencv   
 
 C_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\"cmvision\"
 
-CXX_FLAGS = -I/home/ros/model_car/catkin_ws/devel/include -I/home/ros/model_car/catkin_ws/src/cv_bridge/include -I/opt/ros/indigo/include -I/usr/include/opencv   
+CXX_FLAGS = -I/root/catkin_ws/devel/.private/cmvision/include -I/root/catkin_ws/src/cv_bridge/include -I/opt/ros/indigo/include -I/usr/include/opencv   
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\"cmvision\"
 

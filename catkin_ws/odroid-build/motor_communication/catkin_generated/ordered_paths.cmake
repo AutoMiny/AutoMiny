@@ -1,1 +1,0 @@
-set(ORDERED_PATHS "/home/ros/model_car/catkin_ws/odroid-devel/lib;/opt/odroid-x2/sdk//opt/ros/indigo/lib")

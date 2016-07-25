@@ -67,14 +67,14 @@ set(cv_bridge_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(cv_bridge_SOURCE_PREFIX /home/ros/model_car/catkin_ws/src/cv_bridge)
-  set(cv_bridge_DEVEL_PREFIX /home/ros/model_car/catkin_ws/devel)
+  set(cv_bridge_SOURCE_PREFIX /root/catkin_ws/src/cv_bridge)
+  set(cv_bridge_DEVEL_PREFIX /root/catkin_ws/devel/.private/cv_bridge)
   set(cv_bridge_INSTALL_PREFIX "")
   set(cv_bridge_PREFIX ${cv_bridge_DEVEL_PREFIX})
 else()
   set(cv_bridge_SOURCE_PREFIX "")
   set(cv_bridge_DEVEL_PREFIX "")
-  set(cv_bridge_INSTALL_PREFIX /home/ros/model_car/catkin_ws/install)
+  set(cv_bridge_INSTALL_PREFIX /root/catkin_ws/install)
   set(cv_bridge_PREFIX ${cv_bridge_INSTALL_PREFIX})
 endif()
 
@@ -103,13 +103,13 @@ if(NOT "include;/usr/include/opencv;/usr/include " STREQUAL " ")
         message(FATAL_ERROR "Project 'cv_bridge' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'Vincent Rabaud <vincent.rabaud@gmail.com>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'cv_bridge' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ros/model_car/catkin_ws/install/${idir}'.  Ask the maintainer 'Vincent Rabaud <vincent.rabaud@gmail.com>' to fix it.")
+      message(FATAL_ERROR "Project 'cv_bridge' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/root/catkin_ws/install/${idir}'.  Ask the maintainer 'Vincent Rabaud <vincent.rabaud@gmail.com>' to fix it.")
     endif()
     _list_append_unique(cv_bridge_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "cv_bridge;/usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_superres.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_stitching.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_photo.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_ocl.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_ml.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_legacy.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_gpu.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_flann.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_features2d.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_core.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_contrib.so.2.4.8;/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.2.4.8")
+set(libraries "cv_bridge;/usr/lib/arm-linux-gnueabihf/libopencv_videostab.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_video.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_superres.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_stitching.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_photo.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_ocl.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_objdetect.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_ml.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_legacy.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_imgproc.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_highgui.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_gpu.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_flann.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_features2d.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_core.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_contrib.so.2.4.8;/usr/lib/arm-linux-gnueabihf/libopencv_calib3d.so.2.4.8")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ros/model_car/catkin_ws/install/lib;/opt/ros/indigo/lib)
+    foreach(path /root/catkin_ws/install/lib;/root/catkin_ws/devel/lib;/root/catkin_ws_user/odroid-devel/lib;/opt/ros/indigo/lib;//opt/ros/indigo/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

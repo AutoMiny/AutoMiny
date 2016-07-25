@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/libmotor_communication.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/libmotor_communication.so"
+  "/root/catkin_ws/devel/.private/motor_communication/lib/libmotor_communication.pdb"
+  "/root/catkin_ws/devel/.private/motor_communication/lib/libmotor_communication.so"
 )
 
 # Per-language clean rules from dependency scanning.

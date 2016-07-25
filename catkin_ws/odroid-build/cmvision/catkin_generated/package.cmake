@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "cmvision")
-set(cmvision_MAINTAINER "Piyush Khandelwal <piyushk@gmail.com>")
-set(cmvision_DEPRECATED "")
-set(cmvision_VERSION "0.4.2")
-set(cmvision_BUILD_DEPENDS "cv_bridge" "fltk" "message_generation" "opencv2" "roscpp" "sensor_msgs" "std_msgs" "wxwidgets")
-set(cmvision_RUN_DEPENDS "cv_bridge" "fltk" "message_runtime" "opencv2" "roscpp" "sensor_msgs" "std_msgs" "wxwidgets")
-set(cmvision_BUILDTOOL_DEPENDS "catkin")

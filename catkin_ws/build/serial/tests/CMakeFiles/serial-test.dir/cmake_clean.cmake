@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/serial-test.dir/unix_serial_tests.cc.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/serial/serial-test.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/serial/serial-test"
+  "/root/catkin_ws/devel/.private/serial/lib/serial/serial-test.pdb"
+  "/root/catkin_ws/devel/.private/serial/lib/serial/serial-test"
 )
 
 # Per-language clean rules from dependency scanning.

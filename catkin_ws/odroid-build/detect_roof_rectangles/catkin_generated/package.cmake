@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "detect_roof_rectangles")
-set(detect_roof_rectangles_MAINTAINER "Daniel Neumann <daniel.neumann@fu-berlin.de>")
-set(detect_roof_rectangles_DEPRECATED "")
-set(detect_roof_rectangles_VERSION "0.0.0")
-set(detect_roof_rectangles_BUILD_DEPENDS "cmvision" "roscpp")
-set(detect_roof_rectangles_RUN_DEPENDS "cmvision" "roscpp")
-set(detect_roof_rectangles_BUILDTOOL_DEPENDS "catkin")

@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/cmvision_generate_messages_cpp"
-  "/home/ros/model_car/catkin_ws/devel/include/cmvision/Blobs.h"
-  "/home/ros/model_car/catkin_ws/devel/include/cmvision/Blob.h"
+  "/root/catkin_ws/devel/.private/cmvision/include/cmvision/Blob.h"
+  "/root/catkin_ws/devel/.private/cmvision/include/cmvision/Blobs.h"
 )
 
 # Per-language clean rules from dependency scanning.

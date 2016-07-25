@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/ros/model_car/catkin_ws/src/cmvision/src/conversions.c
+/root/catkin_ws/src/cmvision/src/conversions.c
 string.h
 -
 conversions.h
-/home/ros/model_car/catkin_ws/src/cmvision/src/conversions.h
+/root/catkin_ws/src/cmvision/src/conversions.h
 
-/home/ros/model_car/catkin_ws/src/cmvision/src/conversions.h
+/root/catkin_ws/src/cmvision/src/conversions.h
 stdlib.h
 -
 stdio.h

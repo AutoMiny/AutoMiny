@@ -1,8 +1,0 @@
-prefix=/home/ros/model_car/catkin_ws/odroid-install
-
-Name: serial
-Description: Description of serial
-Version: 1.2.1
-Cflags: -I/home/ros/model_car/catkin_ws/odroid-install/include
-Libs: -L/home/ros/model_car/catkin_ws/odroid-install/lib -lserial
-Requires: 

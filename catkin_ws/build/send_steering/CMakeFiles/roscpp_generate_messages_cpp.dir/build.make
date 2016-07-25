@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/send_steering
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/send_steering
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/send_steering
+CMAKE_BINARY_DIR = /root/catkin_ws/build/send_steering
 
 # Utility rule file for roscpp_generate_messages_cpp.
 
@@ -60,6 +60,6 @@ CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
 .PHONY : CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 
 CMakeFiles/roscpp_generate_messages_cpp.dir/depend:
-	cd /home/ros/model_car/catkin_ws/build/send_steering && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/send_steering /home/ros/model_car/catkin_ws/src/send_steering /home/ros/model_car/catkin_ws/build/send_steering /home/ros/model_car/catkin_ws/build/send_steering /home/ros/model_car/catkin_ws/build/send_steering/CMakeFiles/roscpp_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/build/send_steering && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/send_steering /root/catkin_ws/src/send_steering /root/catkin_ws/build/send_steering /root/catkin_ws/build/send_steering /root/catkin_ws/build/send_steering/CMakeFiles/roscpp_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/roscpp_generate_messages_cpp.dir/depend
 

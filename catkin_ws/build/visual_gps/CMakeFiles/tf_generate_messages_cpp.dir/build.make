@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/visual_gps
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/visual_gps
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/visual_gps
+CMAKE_BINARY_DIR = /root/catkin_ws/build/visual_gps
 
 # Utility rule file for tf_generate_messages_cpp.
 
@@ -60,6 +60,6 @@ CMakeFiles/tf_generate_messages_cpp.dir/clean:
 .PHONY : CMakeFiles/tf_generate_messages_cpp.dir/clean
 
 CMakeFiles/tf_generate_messages_cpp.dir/depend:
-	cd /home/ros/model_car/catkin_ws/build/visual_gps && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/visual_gps /home/ros/model_car/catkin_ws/src/visual_gps /home/ros/model_car/catkin_ws/build/visual_gps /home/ros/model_car/catkin_ws/build/visual_gps /home/ros/model_car/catkin_ws/build/visual_gps/CMakeFiles/tf_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/build/visual_gps && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/visual_gps /root/catkin_ws/src/visual_gps /root/catkin_ws/build/visual_gps /root/catkin_ws/build/visual_gps /root/catkin_ws/build/visual_gps/CMakeFiles/tf_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tf_generate_messages_cpp.dir/depend
 

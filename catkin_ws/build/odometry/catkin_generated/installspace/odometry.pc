@@ -1,8 +1,8 @@
-prefix=/home/ros/model_car/catkin_ws/install
+prefix=/root/catkin_ws/install
 
 Name: odometry
 Description: Description of odometry
 Version: 0.2.3
 Cflags: 
-Libs: -L/home/ros/model_car/catkin_ws/install/lib 
+Libs: -L/root/catkin_ws/install/lib 
 Requires: 

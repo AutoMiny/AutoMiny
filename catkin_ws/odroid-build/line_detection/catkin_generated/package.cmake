@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "line_detection")
-set(line_detection_MAINTAINER "zargol <zahra.boroujeni@gmail.com>")
-set(line_detection_DEPRECATED "")
-set(line_detection_VERSION "0.0.0")
-set(line_detection_BUILD_DEPENDS "roscpp" "sensor_msgs" "cv_bridge" "pcl_ros" "std_msgs")
-set(line_detection_RUN_DEPENDS "roscpp" "sensor_msgs" "cv_bridge" "pcl_ros" "std_msgs")
-set(line_detection_BUILDTOOL_DEPENDS "catkin")

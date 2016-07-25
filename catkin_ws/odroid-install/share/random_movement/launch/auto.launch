@@ -1,8 +1,0 @@
-<launch>
-  	<include file="$(find motor_communication)/launch/motor_odroid.launch"/>
-    <include file="$(find send_steering)/launch/servo_odroid.launch"/>
-    <include file="$(find realsense_camera)/launch/realsense_sr300.launch"/>
-    <include file="$(find random_movement)/launch/random_movement.launch"/>
-    <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
-    <include file="$(find light)/launch/light.launch"/>
-</launch>

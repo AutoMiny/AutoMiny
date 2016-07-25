@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "send_steering")
-set(send_steering_MAINTAINER "zargol <zahra.boroujeni@gmail.com>")
-set(send_steering_DEPRECATED "")
-set(send_steering_VERSION "0.0.0")
-set(send_steering_BUILD_DEPENDS "serial" "roscpp" "sensor_msgs" "std_msgs")
-set(send_steering_RUN_DEPENDS "serial" "roscpp" "sensor_msgs" "std_msgs")
-set(send_steering_BUILDTOOL_DEPENDS "catkin" "catkin")

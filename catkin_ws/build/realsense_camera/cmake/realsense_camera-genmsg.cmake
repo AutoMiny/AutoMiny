@@ -15,9 +15,9 @@ add_custom_target(realsense_camera_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
 add_custom_target(_realsense_camera_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "realsense_camera" "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "realsense_camera" "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" ""
 )
 
 #
@@ -29,7 +29,7 @@ add_custom_target(_realsense_camera_generate_messages_check_deps_${_filename}
 
 ### Generating Services
 _generate_srv_cpp(realsense_camera
-  "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
+  "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/realsense_camera
@@ -47,7 +47,7 @@ add_custom_target(realsense_camera_generate_messages_cpp
 add_dependencies(realsense_camera_generate_messages realsense_camera_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
 add_dependencies(realsense_camera_generate_messages_cpp _realsense_camera_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -62,7 +62,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS realsense_camera_generate_messages_
 
 ### Generating Services
 _generate_srv_lisp(realsense_camera
-  "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
+  "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/realsense_camera
@@ -80,7 +80,7 @@ add_custom_target(realsense_camera_generate_messages_lisp
 add_dependencies(realsense_camera_generate_messages realsense_camera_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
 add_dependencies(realsense_camera_generate_messages_lisp _realsense_camera_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -95,7 +95,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS realsense_camera_generate_messages_
 
 ### Generating Services
 _generate_srv_py(realsense_camera
-  "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
+  "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/realsense_camera
@@ -113,7 +113,7 @@ add_custom_target(realsense_camera_generate_messages_py
 add_dependencies(realsense_camera_generate_messages realsense_camera_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
 add_dependencies(realsense_camera_generate_messages_py _realsense_camera_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

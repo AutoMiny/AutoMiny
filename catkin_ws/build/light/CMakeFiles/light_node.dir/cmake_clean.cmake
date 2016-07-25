@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/light_node.dir/src/light_node.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/light/light_node.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/light/light_node"
+  "/root/catkin_ws/devel/.private/light/lib/light/light_node.pdb"
+  "/root/catkin_ws/devel/.private/light/lib/light/light_node"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -2,10 +2,10 @@ blacklist: []
 build_space: build
 catkin_make_args: []
 cmake_args: []
-devel_layout: merged
+devel_layout: linked
 devel_space: devel
-extend_path: /opt/ros/indigo
-install: true
+extend_path: null
+install: false
 install_space: install
 isolate_install: false
 jobs_args: []

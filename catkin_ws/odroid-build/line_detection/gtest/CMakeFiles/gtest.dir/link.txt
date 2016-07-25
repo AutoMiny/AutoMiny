@@ -1,1 +1,0 @@
-/opt/odroid-x2/compiler/bin/arm-linux-gnueabihf-g++  -fPIC  --sysroot=/opt/odroid-x2/sdk  -Wno-deprecated    -shared -Wl,-soname,libgtest.so -o libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o  -L/home/ros/model_car/catkin_ws/odroid-build/line_detection/gtest/src -lpthread -Wl,-rpath,/home/ros/model_car/catkin_ws/odroid-build/line_detection/gtest/src 

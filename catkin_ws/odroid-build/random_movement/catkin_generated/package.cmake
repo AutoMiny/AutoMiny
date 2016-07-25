@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "random_movement")
-set(random_movement_MAINTAINER "zargol <zahra.boroujeni@gmail.com>")
-set(random_movement_DEPRECATED "")
-set(random_movement_VERSION "0.0.0")
-set(random_movement_BUILD_DEPENDS "roscpp" "std_msgs" "sensor_msgs" "geometry_msgs")
-set(random_movement_RUN_DEPENDS "roscpp" "std_msgs" "sensor_msgs" "geometry_msgs")
-set(random_movement_BUILDTOOL_DEPENDS "catkin")

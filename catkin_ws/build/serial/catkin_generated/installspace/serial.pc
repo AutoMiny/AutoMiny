@@ -1,8 +1,8 @@
-prefix=/home/ros/model_car/catkin_ws/install
+prefix=/root/catkin_ws/install
 
 Name: serial
 Description: Description of serial
 Version: 1.2.1
-Cflags: -I/home/ros/model_car/catkin_ws/install/include
-Libs: -L/home/ros/model_car/catkin_ws/install/lib -lserial
+Cflags: -I/root/catkin_ws/install/include
+Libs: -L/root/catkin_ws/install/lib -lserial
 Requires: 

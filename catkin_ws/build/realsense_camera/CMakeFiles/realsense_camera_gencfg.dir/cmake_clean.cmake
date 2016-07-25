@@ -1,10 +1,10 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/realsense_camera_gencfg"
-  "/home/ros/model_car/catkin_ws/devel/include/realsense_camera/camera_paramsConfig.h"
-  "/home/ros/model_car/catkin_ws/devel/share/realsense_camera/docs/camera_paramsConfig.dox"
-  "/home/ros/model_car/catkin_ws/devel/share/realsense_camera/docs/camera_paramsConfig-usage.dox"
-  "/home/ros/model_car/catkin_ws/devel/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py"
-  "/home/ros/model_car/catkin_ws/devel/share/realsense_camera/docs/camera_paramsConfig.wikidoc"
+  "/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h"
+  "/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig.dox"
+  "/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig-usage.dox"
+  "/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py"
+  "/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig.wikidoc"
 )
 
 # Per-language clean rules from dependency scanning.

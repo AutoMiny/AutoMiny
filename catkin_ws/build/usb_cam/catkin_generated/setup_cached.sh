@@ -7,11 +7,9 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ros/model_car/catkin_ws/devel:$CMAKE_PREFIX_PATH"
-export CPATH="/home/ros/model_car/catkin_ws/devel/include:$CPATH"
-export LD_LIBRARY_PATH="/home/ros/model_car/catkin_ws/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/ros/model_car/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD="/home/ros/model_car/catkin_ws/build/usb_cam"
-export PYTHONPATH="/home/ros/model_car/catkin_ws/devel/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ros/model_car/catkin_ws/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/ros/model_car/catkin_ws/src/auto_stop:/home/ros/model_car/catkin_ws/src/odometry:/home/ros/model_car/catkin_ws/src/cv_bridge:/home/ros/model_car/catkin_ws/src/control:/home/ros/model_car/catkin_ws/src/random_movement:/home/ros/model_car/catkin_ws/src/rplidar_ros:/home/ros/model_car/catkin_ws/src/serial:/home/ros/model_car/catkin_ws/src/usb_cam:/home/ros/model_car/catkin_ws/src/cmvision:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/root/catkin_ws/devel/.private/usb_cam:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/root/catkin_ws/devel/.private/usb_cam/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/root/catkin_ws/devel/.private/usb_cam/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PWD="/root/catkin_ws/build/usb_cam"
+export ROSLISP_PACKAGE_DIRECTORIES="/root/catkin_ws/devel/.private/usb_cam/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/root/catkin_ws/src/usb_cam:$ROS_PACKAGE_PATH"

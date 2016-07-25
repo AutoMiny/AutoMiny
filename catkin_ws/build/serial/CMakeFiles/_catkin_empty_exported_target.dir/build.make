@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/serial
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/serial
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/serial
+CMAKE_BINARY_DIR = /root/catkin_ws/build/serial
 
 # Utility rule file for _catkin_empty_exported_target.
 
@@ -60,6 +60,6 @@ CMakeFiles/_catkin_empty_exported_target.dir/clean:
 .PHONY : CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 CMakeFiles/_catkin_empty_exported_target.dir/depend:
-	cd /home/ros/model_car/catkin_ws/build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/serial /home/ros/model_car/catkin_ws/src/serial /home/ros/model_car/catkin_ws/build/serial /home/ros/model_car/catkin_ws/build/serial /home/ros/model_car/catkin_ws/build/serial/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/serial /root/catkin_ws/src/serial /root/catkin_ws/build/serial /root/catkin_ws/build/serial /root/catkin_ws/build/serial/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/_catkin_empty_exported_target.dir/depend
 

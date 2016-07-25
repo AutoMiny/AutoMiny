@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/line_detection
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/line_detection
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/line_detection
+CMAKE_BINARY_DIR = /root/catkin_ws/build/line_detection
 
 # Utility rule file for doxygen.
 
@@ -60,6 +60,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/ros/model_car/catkin_ws/build/line_detection && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/line_detection /home/ros/model_car/catkin_ws/src/line_detection /home/ros/model_car/catkin_ws/build/line_detection /home/ros/model_car/catkin_ws/build/line_detection /home/ros/model_car/catkin_ws/build/line_detection/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/build/line_detection && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/line_detection /root/catkin_ws/src/line_detection /root/catkin_ws/build/line_detection /root/catkin_ws/build/line_detection /root/catkin_ws/build/line_detection/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

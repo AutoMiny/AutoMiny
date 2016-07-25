@@ -1,0 +1,6 @@
+manual_control
+/root/catkin_ws/devel/.private/manual_control/share/manual_control/cmake/manual_controlConfig.cmake /root/catkin_ws/devel/share/manual_control/cmake/manual_controlConfig.cmake
+/root/catkin_ws/devel/.private/manual_control/share/manual_control/cmake/manual_controlConfig-version.cmake /root/catkin_ws/devel/share/manual_control/cmake/manual_controlConfig-version.cmake
+/root/catkin_ws/devel/.private/manual_control/lib/libmanual_control.so /root/catkin_ws/devel/lib/libmanual_control.so
+/root/catkin_ws/devel/.private/manual_control/lib/pkgconfig/manual_control.pc /root/catkin_ws/devel/lib/pkgconfig/manual_control.pc
+/root/catkin_ws/devel/.private/manual_control/lib/manual_control/manual_control_node /root/catkin_ws/devel/lib/manual_control/manual_control_node

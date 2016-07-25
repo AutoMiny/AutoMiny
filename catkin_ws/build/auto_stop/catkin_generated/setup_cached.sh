@@ -7,7 +7,9 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ros/model_car/catkin_ws/devel:$CMAKE_PREFIX_PATH"
-export PWD="/home/ros/model_car/catkin_ws/build/auto_stop"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ros/model_car/catkin_ws/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/ros/model_car/catkin_ws/src/auto_stop:/home/ros/model_car/catkin_ws/src/odometry:/home/ros/model_car/catkin_ws/src/cv_bridge:/home/ros/model_car/catkin_ws/src/control:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/root/catkin_ws/devel/.private/auto_stop:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/root/catkin_ws/devel/.private/auto_stop/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/root/catkin_ws/devel/.private/auto_stop/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PWD="/root/catkin_ws/build/auto_stop"
+export ROSLISP_PACKAGE_DIRECTORIES="/root/catkin_ws/devel/.private/auto_stop/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/root/catkin_ws/src/auto_stop:$ROS_PACKAGE_PATH"

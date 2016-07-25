@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/heading.dir/src/heading.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/libheading.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/libheading.so"
+  "/root/catkin_ws/devel/.private/heading/lib/libheading.pdb"
+  "/root/catkin_ws/devel/.private/heading/lib/libheading.so"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,9 +1,0 @@
-In file included from /home/ros/model_car/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.cpp:31:0:
-/home/ros/model_car/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.h:61:31: fatal error: librealsense/rs.hpp: No such file or directory
- #include <librealsense/rs.hpp>
-                               ^
-compilation terminated.
-make[2]: *** [CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o] Error 1
-make[1]: *** [CMakeFiles/realsense_camera_nodelet.dir/all] Error 2
-make[1]: *** Waiting for unfinished jobs....
-make: *** [all] Error 2

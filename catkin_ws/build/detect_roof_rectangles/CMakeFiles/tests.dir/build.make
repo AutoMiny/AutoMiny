@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/detect_roof_rectangles
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/detect_roof_rectangles
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/detect_roof_rectangles
+CMAKE_BINARY_DIR = /root/catkin_ws/build/detect_roof_rectangles
 
 # Utility rule file for tests.
 
@@ -60,6 +60,6 @@ CMakeFiles/tests.dir/clean:
 .PHONY : CMakeFiles/tests.dir/clean
 
 CMakeFiles/tests.dir/depend:
-	cd /home/ros/model_car/catkin_ws/build/detect_roof_rectangles && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/detect_roof_rectangles /home/ros/model_car/catkin_ws/src/detect_roof_rectangles /home/ros/model_car/catkin_ws/build/detect_roof_rectangles /home/ros/model_car/catkin_ws/build/detect_roof_rectangles /home/ros/model_car/catkin_ws/build/detect_roof_rectangles/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/build/detect_roof_rectangles && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/detect_roof_rectangles /root/catkin_ws/src/detect_roof_rectangles /root/catkin_ws/build/detect_roof_rectangles /root/catkin_ws/build/detect_roof_rectangles /root/catkin_ws/build/detect_roof_rectangles/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tests.dir/depend
 

@@ -15,8 +15,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/ros/model_car/catkin_ws/devel/include"
-  "/home/ros/model_car/catkin_ws/src/cv_bridge/include"
+  "/root/catkin_ws/devel/.private/cmvision/include"
+  "/root/catkin_ws/src/cv_bridge/include"
   "/opt/ros/indigo/include"
   "/usr/include/opencv"
   )

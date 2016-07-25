@@ -17,8 +17,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/include/opencv"
   "/usr/include/vtk-5.8"
-  "/home/ros/model_car/catkin_ws/src/line_detection/include"
-  "/home/ros/model_car/catkin_ws/src/cv_bridge/include"
+  "/root/catkin_ws/src/line_detection/include"
+  "/root/catkin_ws/src/cv_bridge/include"
   "/opt/ros/indigo/include"
   "/usr/include/eigen3"
   "/usr/include/pcl-1.7"

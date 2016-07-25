@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ros/model_car/catkin_ws/src/motor_communication/src/motor_communication.cpp" "/home/ros/model_car/catkin_ws/build/motor_communication/CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o"
+  "/root/catkin_ws/src/motor_communication/src/motor_communication.cpp" "/root/catkin_ws/build/motor_communication/CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,8 +20,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/ros/model_car/catkin_ws/src/motor_communication/include"
-  "/home/ros/model_car/catkin_ws/src/serial/include"
+  "/root/catkin_ws/src/motor_communication/include"
+  "/root/catkin_ws/src/serial/include"
   "/opt/ros/indigo/include"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/light.dir/src/lights.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/liblight.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/liblight.so"
+  "/root/catkin_ws/devel/.private/light/lib/liblight.pdb"
+  "/root/catkin_ws/devel/.private/light/lib/liblight.so"
 )
 
 # Per-language clean rules from dependency scanning.

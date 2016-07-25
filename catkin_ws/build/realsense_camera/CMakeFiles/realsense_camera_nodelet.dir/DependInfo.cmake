@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ros/model_car/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.cpp" "/home/ros/model_car/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o"
+  "/root/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.cpp" "/root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,8 +20,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/ros/model_car/catkin_ws/devel/include"
-  "/home/ros/model_car/catkin_ws/src/cv_bridge/include"
+  "/root/catkin_ws/devel/.private/realsense_camera/include"
+  "/root/catkin_ws/src/cv_bridge/include"
   "/opt/ros/indigo/include"
   "/usr/include/opencv"
   "/usr/include/eigen3"

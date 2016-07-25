@@ -1,5 +1,0 @@
-[31m[1mCMake Error[0m at /home/ros/model_car/catkin_ws/src/auto_stop/CMakeLists.txt:30 (install):
-  install TARGETS given target "auto_stop" which does not exist in this
-  directory.
-
-

@@ -1,8 +1,0 @@
-prefix=/home/ros/model_car/catkin_ws/odroid-devel
-
-Name: motor_communication
-Description: Description of motor_communication
-Version: 0.0.0
-Cflags: -I/home/ros/model_car/catkin_ws/src/motor_communication/include
-Libs: -L/home/ros/model_car/catkin_ws/odroid-devel/lib -lmotor_communication
-Requires: geometry_msgs serial std_msgs

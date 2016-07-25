@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/control_node.dir/src/control_node.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/control/control_node.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/control/control_node"
+  "/root/catkin_ws/devel/.private/control/lib/control/control_node.pdb"
+  "/root/catkin_ws/devel/.private/control/lib/control/control_node"
 )
 
 # Per-language clean rules from dependency scanning.

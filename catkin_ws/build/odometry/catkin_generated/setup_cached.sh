@@ -7,10 +7,9 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ros/model_car/catkin_ws/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/ros/model_car/catkin_ws/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/ros/model_car/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD="/home/ros/model_car/catkin_ws/build/odometry"
-export PYTHONPATH="/home/ros/model_car/catkin_ws/devel/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ros/model_car/catkin_ws/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/ros/model_car/catkin_ws/src/auto_stop:/home/ros/model_car/catkin_ws/src/odometry:/home/ros/model_car/catkin_ws/src/cv_bridge:/home/ros/model_car/catkin_ws/src/control:/home/ros/model_car/catkin_ws/src/random_movement:/home/ros/model_car/catkin_ws/src/rplidar_ros:/home/ros/model_car/catkin_ws/src/serial:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/root/catkin_ws/devel/.private/odometry:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/root/catkin_ws/devel/.private/odometry/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/root/catkin_ws/devel/.private/odometry/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PWD="/root/catkin_ws/build/odometry"
+export ROSLISP_PACKAGE_DIRECTORIES="/root/catkin_ws/devel/.private/odometry/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/root/catkin_ws/src/odometry:$ROS_PACKAGE_PATH"

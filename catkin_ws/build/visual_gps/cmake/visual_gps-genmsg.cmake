@@ -2,7 +2,7 @@
 
 message(STATUS "visual_gps: 1 messages, 0 services")
 
-set(MSG_I_FLAGS "-Ivisual_gps:/home/ros/model_car/catkin_ws/src/visual_gps/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Ivisual_gps:/root/catkin_ws/src/visual_gps/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -15,9 +15,9 @@ add_custom_target(visual_gps_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/ros/model_car/catkin_ws/src/visual_gps/msg/Transform.msg" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/visual_gps/msg/Transform.msg" NAME_WE)
 add_custom_target(_visual_gps_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "visual_gps" "/home/ros/model_car/catkin_ws/src/visual_gps/msg/Transform.msg" "geometry_msgs/Quaternion:geometry_msgs/Transform:std_msgs/Header:geometry_msgs/Vector3"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "visual_gps" "/root/catkin_ws/src/visual_gps/msg/Transform.msg" "geometry_msgs/Quaternion:geometry_msgs/Transform:std_msgs/Header:geometry_msgs/Vector3"
 )
 
 #
@@ -27,7 +27,7 @@ add_custom_target(_visual_gps_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(visual_gps
-  "/home/ros/model_car/catkin_ws/src/visual_gps/msg/Transform.msg"
+  "/root/catkin_ws/src/visual_gps/msg/Transform.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/visual_gps
@@ -47,7 +47,7 @@ add_custom_target(visual_gps_generate_messages_cpp
 add_dependencies(visual_gps_generate_messages visual_gps_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ros/model_car/catkin_ws/src/visual_gps/msg/Transform.msg" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/visual_gps/msg/Transform.msg" NAME_WE)
 add_dependencies(visual_gps_generate_messages_cpp _visual_gps_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -60,7 +60,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS visual_gps_generate_messages_cpp)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(visual_gps
-  "/home/ros/model_car/catkin_ws/src/visual_gps/msg/Transform.msg"
+  "/root/catkin_ws/src/visual_gps/msg/Transform.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/visual_gps
@@ -80,7 +80,7 @@ add_custom_target(visual_gps_generate_messages_lisp
 add_dependencies(visual_gps_generate_messages visual_gps_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ros/model_car/catkin_ws/src/visual_gps/msg/Transform.msg" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/visual_gps/msg/Transform.msg" NAME_WE)
 add_dependencies(visual_gps_generate_messages_lisp _visual_gps_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -93,7 +93,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS visual_gps_generate_messages_lisp)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(visual_gps
-  "/home/ros/model_car/catkin_ws/src/visual_gps/msg/Transform.msg"
+  "/root/catkin_ws/src/visual_gps/msg/Transform.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/visual_gps
@@ -113,7 +113,7 @@ add_custom_target(visual_gps_generate_messages_py
 add_dependencies(visual_gps_generate_messages visual_gps_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ros/model_car/catkin_ws/src/visual_gps/msg/Transform.msg" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/visual_gps/msg/Transform.msg" NAME_WE)
 add_dependencies(visual_gps_generate_messages_py _visual_gps_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

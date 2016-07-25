@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/control
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/control
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/control
+CMAKE_BINARY_DIR = /root/catkin_ws/build/control
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,9 +120,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/model_car/catkin_ws/build/control/CMakeFiles /home/ros/model_car/catkin_ws/build/control/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/control/CMakeFiles /root/catkin_ws/build/control/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/model_car/catkin_ws/build/control/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/control/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

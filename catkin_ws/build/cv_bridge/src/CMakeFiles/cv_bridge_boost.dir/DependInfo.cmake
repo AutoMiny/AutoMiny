@@ -4,8 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ros/model_car/catkin_ws/src/cv_bridge/src/module.cpp" "/home/ros/model_car/catkin_ws/build/cv_bridge/src/CMakeFiles/cv_bridge_boost.dir/module.cpp.o"
-  "/home/ros/model_car/catkin_ws/src/cv_bridge/src/module_opencv2.cpp" "/home/ros/model_car/catkin_ws/build/cv_bridge/src/CMakeFiles/cv_bridge_boost.dir/module_opencv2.cpp.o"
+  "/root/catkin_ws/src/cv_bridge/src/module.cpp" "/root/catkin_ws/build/cv_bridge/src/CMakeFiles/cv_bridge_boost.dir/module.cpp.o"
+  "/root/catkin_ws/src/cv_bridge/src/module_opencv2.cpp" "/root/catkin_ws/build/cv_bridge/src/CMakeFiles/cv_bridge_boost.dir/module_opencv2.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,15 +17,15 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ros/model_car/catkin_ws/build/cv_bridge/src/CMakeFiles/cv_bridge.dir/DependInfo.cmake"
+  "/root/catkin_ws/build/cv_bridge/src/CMakeFiles/cv_bridge.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/include/opencv"
-  "/home/ros/model_car/catkin_ws/src/cv_bridge/include"
+  "/root/catkin_ws/src/cv_bridge/include"
   "/opt/ros/indigo/include"
-  "/home/ros/model_car/catkin_ws/src/cv_bridge/src/."
+  "/root/catkin_ws/src/cv_bridge/src/."
   "/usr/include/python2.7"
   "/usr/lib/python2.7/dist-packages/numpy/core/include"
   )

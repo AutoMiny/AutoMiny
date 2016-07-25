@@ -1,0 +1,5 @@
+Linked: (/root/catkin_ws/devel/.private/light/share/light/cmake/lightConfig-version.cmake, /root/catkin_ws/devel/share/light/cmake/lightConfig-version.cmake)
+Linked: (/root/catkin_ws/devel/.private/light/share/light/cmake/lightConfig.cmake, /root/catkin_ws/devel/share/light/cmake/lightConfig.cmake)
+Linked: (/root/catkin_ws/devel/.private/light/lib/liblight.so, /root/catkin_ws/devel/lib/liblight.so)
+Linked: (/root/catkin_ws/devel/.private/light/lib/light/light_node, /root/catkin_ws/devel/lib/light/light_node)
+Linked: (/root/catkin_ws/devel/.private/light/lib/pkgconfig/light.pc, /root/catkin_ws/devel/lib/pkgconfig/light.pc)

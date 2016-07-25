@@ -1,8 +1,0 @@
-prefix=/home/ros/model_car/catkin_ws/odroid-devel
-
-Name: rplidar_ros
-Description: Description of rplidar_ros
-Version: 1.0.1
-Cflags: 
-Libs: -L/home/ros/model_car/catkin_ws/odroid-devel/lib 
-Requires: 

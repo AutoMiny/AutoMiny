@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ros/model_car/catkin_ws/src/detect_roof_rectangles/src/detect.cpp
+/root/catkin_ws/src/detect_roof_rectangles/src/detect.cpp
 ros/ros.h
 -
 cmvision/Blobs.h

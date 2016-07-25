@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/rplidar_ros
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/rplidar_ros
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/rplidar_ros
+CMAKE_BINARY_DIR = /root/catkin_ws/build/rplidar_ros
 
 # Utility rule file for std_msgs_generate_messages_py.
 
@@ -60,6 +60,6 @@ CMakeFiles/std_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/std_msgs_generate_messages_py.dir/depend:
-	cd /home/ros/model_car/catkin_ws/build/rplidar_ros && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/rplidar_ros /home/ros/model_car/catkin_ws/src/rplidar_ros /home/ros/model_car/catkin_ws/build/rplidar_ros /home/ros/model_car/catkin_ws/build/rplidar_ros /home/ros/model_car/catkin_ws/build/rplidar_ros/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/build/rplidar_ros && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/rplidar_ros /root/catkin_ws/src/rplidar_ros /root/catkin_ws/build/rplidar_ros /root/catkin_ws/build/rplidar_ros /root/catkin_ws/build/rplidar_ros/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/std_msgs_generate_messages_py.dir/depend
 

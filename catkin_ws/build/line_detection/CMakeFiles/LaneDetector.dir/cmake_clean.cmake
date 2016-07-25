@@ -7,8 +7,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/LaneDetector.dir/src/LaneModel.cpp.o"
   "CMakeFiles/LaneDetector.dir/src/PointSet.cpp.o"
   "CMakeFiles/LaneDetector.dir/src/Circle.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/libLaneDetector.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/libLaneDetector.so"
+  "/root/catkin_ws/devel/.private/line_detection/lib/libLaneDetector.pdb"
+  "/root/catkin_ws/devel/.private/line_detection/lib/libLaneDetector.so"
 )
 
 # Per-language clean rules from dependency scanning.

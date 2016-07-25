@@ -1,0 +1,6 @@
+Symlinking /root/catkin_ws/devel/share/motor_communication/cmake/motor_communicationConfig-version.cmake
+Symlinking /root/catkin_ws/devel/share/motor_communication/cmake/motor_communicationConfig.cmake
+Symlinking /root/catkin_ws/devel/lib/libmotor_communication.so
+Symlinking /root/catkin_ws/devel/lib/pkgconfig/motor_communication.pc
+Symlinking /root/catkin_ws/devel/lib/motor_communication/motor_control_node
+Symlinking /root/catkin_ws/devel/lib/motor_communication/motor_communication_node

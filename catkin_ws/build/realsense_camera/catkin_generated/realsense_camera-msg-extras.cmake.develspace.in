@@ -1,2 +1,2 @@
 set(realsense_camera_MESSAGE_FILES "")
-set(realsense_camera_SERVICE_FILES "/home/ros/model_car/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv")
+set(realsense_camera_SERVICE_FILES "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv")

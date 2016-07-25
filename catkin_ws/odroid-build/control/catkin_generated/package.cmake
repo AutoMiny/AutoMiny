@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "control")
-set(control_MAINTAINER "zargol <zahra.boroujeni@gmail.com>")
-set(control_DEPRECATED "")
-set(control_VERSION "0.0.0")
-set(control_BUILD_DEPENDS "roscpp" "std_msgs")
-set(control_RUN_DEPENDS "roscpp" "std_msgs")
-set(control_BUILDTOOL_DEPENDS "catkin" "catkin")

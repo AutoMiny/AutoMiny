@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "odometry")
-set(odometry_MAINTAINER "William Woodall <william@osrfoundation.org>")
-set(odometry_DEPRECATED "")
-set(odometry_VERSION "0.2.3")
-set(odometry_BUILD_DEPENDS "nav_msgs" "std_msgs" "roscpp" "tf")
-set(odometry_RUN_DEPENDS "nav_msgs" "std_msgs" "roscpp" "tf")
-set(odometry_BUILDTOOL_DEPENDS "catkin")

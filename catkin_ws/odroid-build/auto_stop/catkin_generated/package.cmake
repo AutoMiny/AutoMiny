@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "auto_stop")
-set(auto_stop_MAINTAINER "strodl <strodl@todo.todo>")
-set(auto_stop_DEPRECATED "")
-set(auto_stop_VERSION "0.0.0")
-set(auto_stop_BUILD_DEPENDS "roscpp" "std_msgs" "sensor_msgs" "geometry_msgs")
-set(auto_stop_RUN_DEPENDS "roscpp" "std_msgs" "sensor_msgs" "geometry_msgs")
-set(auto_stop_BUILDTOOL_DEPENDS "catkin")

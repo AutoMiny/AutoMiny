@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/ros/model_car/catkin_ws/src/random_movement/src/random_movement_node.cpp
-ros/ros.h
-/home/ros/model_car/catkin_ws/src/random_movement/src/ros/ros.h
-sensor_msgs/LaserScan.h
-/home/ros/model_car/catkin_ws/src/random_movement/src/sensor_msgs/LaserScan.h
-std_msgs/Int16.h
--
-geometry_msgs/Twist.h
--
-ros/ros.h
--
-
 /opt/ros/indigo/include/XmlRpcDecl.h
 ros/macros.h
 -
@@ -746,5 +734,17 @@ ros/serialization.h
 ros/builtin_message_traits.h
 -
 ros/message_operations.h
+-
+
+/root/catkin_ws/src/random_movement/src/random_movement_node.cpp
+ros/ros.h
+/root/catkin_ws/src/random_movement/src/ros/ros.h
+sensor_msgs/LaserScan.h
+/root/catkin_ws/src/random_movement/src/sensor_msgs/LaserScan.h
+std_msgs/Int16.h
+-
+geometry_msgs/Twist.h
+-
+ros/ros.h
 -
 

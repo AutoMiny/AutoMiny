@@ -1,15 +1,15 @@
-[36m--[0m Using CATKIN_DEVEL_PREFIX: /home/ros/model_car/catkin_ws/devel
-[36m--[0m Using CMAKE_PREFIX_PATH: /home/ros/model_car/catkin_ws/install;/opt/ros/indigo
-[36m--[0m This workspace overlays: /home/ros/model_car/catkin_ws/install;/opt/ros/indigo
+[36m--[0m Using CATKIN_DEVEL_PREFIX: /root/catkin_ws/devel/.private/send_steering
+[36m--[0m Using CMAKE_PREFIX_PATH: /root/catkin_ws/devel;/root/catkin_ws_user/odroid-devel;/opt/ros/indigo;//opt/ros/indigo
+[36m--[0m This workspace overlays: /root/catkin_ws/devel;/root/catkin_ws_user/odroid-devel;/opt/ros/indigo;//opt/ros/indigo
 [36m--[0m Using PYTHON_EXECUTABLE: /usr/bin/python
 [36m--[0m Using Debian Python package layout
 [36m--[0m Using empy: /usr/bin/empy
 [36m--[0m Using CATKIN_ENABLE_TESTING: ON
 [36m--[0m Call enable_testing()
-[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /home/ros/model_car/catkin_ws/build/send_steering/test_results
+[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /root/catkin_ws/build/send_steering/test_results
 [36m--[0m Found gtest sources under '/usr/src/gtest': gtests will be built
 [36m--[0m Using Python nosetests: /usr/bin/nosetests-2.7
 [36m--[0m catkin 0.6.18
 [36m--[0m Configuring done
 [36m--[0m Generating done
-[36m--[0m Build files have been written to: /home/ros/model_car/catkin_ws/build/send_steering
+[36m--[0m Build files have been written to: /root/catkin_ws/build/send_steering

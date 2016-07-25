@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/odometry/odometry_publisher.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/odometry/odometry_publisher"
+  "/root/catkin_ws/devel/.private/odometry/lib/odometry/odometry_publisher.pdb"
+  "/root/catkin_ws/devel/.private/odometry/lib/odometry/odometry_publisher"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,0 @@
-prefix=/home/ros/model_car/catkin_ws/odroid-install
-
-Name: visual_gps
-Description: Description of visual_gps
-Version: 0.0.0
-Cflags: -I/home/ros/model_car/catkin_ws/odroid-install/include
-Libs: -L/home/ros/model_car/catkin_ws/odroid-install/lib 
-Requires: std_msgs geometry_msgs message_runtime

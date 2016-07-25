@@ -1,0 +1,25 @@
+-- Using CATKIN_DEVEL_PREFIX: /root/catkin_ws/devel/.private/serial
+-- Using CMAKE_PREFIX_PATH: /root/catkin_ws/devel;/root/catkin_ws_user/odroid-devel;/opt/ros/indigo;//opt/ros/indigo
+-- This workspace overlays: /root/catkin_ws/devel;/root/catkin_ws_user/odroid-devel;/opt/ros/indigo;//opt/ros/indigo
+-- Using PYTHON_EXECUTABLE: /usr/bin/python
+-- Using Debian Python package layout
+-- Using empy: /usr/bin/empy
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /root/catkin_ws/build/serial/test_results
+-- Found gtest sources under '/usr/src/gtest': gtests will be built
+-- Using Python nosetests: /usr/bin/nosetests-2.7
+-- catkin 0.6.18
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/catkin_ws/build/serial
+[35m[1mScanning dependencies of target serial
+[0m[ 25%] [32mBuilding CXX object CMakeFiles/serial.dir/src/serial.cc.o
+[0m[ 50%] [32mBuilding CXX object CMakeFiles/serial.dir/src/impl/unix.cc.o
+[0m[ 75%] [32mBuilding CXX object CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o
+[0m[31m[1mLinking CXX shared library /root/catkin_ws/devel/.private/serial/lib/libserial.so
+[0m[ 75%] Built target serial
+[35m[1mScanning dependencies of target serial_example
+[0m[100%] [32mBuilding CXX object CMakeFiles/serial_example.dir/examples/serial_otto.cc.o
+[0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/serial/lib/serial/serial_example
+[0m[100%] Built target serial_example

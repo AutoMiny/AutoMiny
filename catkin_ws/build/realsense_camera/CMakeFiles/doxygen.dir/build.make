@@ -38,10 +38,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/realsense_camera
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/realsense_camera
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/realsense_camera
+CMAKE_BINARY_DIR = /root/catkin_ws/build/realsense_camera
 
 # Utility rule file for doxygen.
 
@@ -63,6 +63,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/ros/model_car/catkin_ws/build/realsense_camera && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/realsense_camera /home/ros/model_car/catkin_ws/src/realsense_camera /home/ros/model_car/catkin_ws/build/realsense_camera /home/ros/model_car/catkin_ws/build/realsense_camera /home/ros/model_car/catkin_ws/build/realsense_camera/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/build/realsense_camera && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

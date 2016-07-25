@@ -1,9 +1,2 @@
-[35m[1mScanning dependencies of target send_steering
-[0m[ 50%] [32mBuilding CXX object CMakeFiles/send_steering.dir/src/send_steering.cpp.o
-/home/ros/model_car/catkin_ws/src/send_steering/src/send_steering.cpp:1:27: fatal error: send_steering.h: No such file or directory
- #include <send_steering.h>
-                           ^
-compilation terminated.
-make[2]: *** [CMakeFiles/send_steering.dir/src/send_steering.cpp.o] Error 1
-make[1]: *** [CMakeFiles/send_steering.dir/all] Error 2
-make: *** [all] Error 2
+[ 50%] Built target send_steering
+[100%] Built target send_steering_node

@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "light")
-set(light_MAINTAINER "zargol <zahra.boroujeni@gmail.com>")
-set(light_DEPRECATED "")
-set(light_VERSION "0.0.0")
-set(light_BUILD_DEPENDS "serial" "roscpp" "std_msgs")
-set(light_RUN_DEPENDS "serial" "roscpp" "std_msgs")
-set(light_BUILDTOOL_DEPENDS "catkin" "catkin")

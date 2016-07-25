@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "serial")
-set(serial_MAINTAINER "William Woodall <william@osrfoundation.org>")
-set(serial_DEPRECATED "")
-set(serial_VERSION "1.2.1")
-set(serial_BUILD_DEPENDS )
-set(serial_RUN_DEPENDS )
-set(serial_BUILDTOOL_DEPENDS "catkin")

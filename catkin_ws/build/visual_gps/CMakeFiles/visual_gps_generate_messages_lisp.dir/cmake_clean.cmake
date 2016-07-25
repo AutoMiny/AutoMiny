@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/visual_gps_generate_messages_lisp"
-  "/home/ros/model_car/catkin_ws/devel/share/common-lisp/ros/visual_gps/msg/Transform.lisp"
+  "/root/catkin_ws/devel/.private/visual_gps/share/common-lisp/ros/visual_gps/msg/Transform.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

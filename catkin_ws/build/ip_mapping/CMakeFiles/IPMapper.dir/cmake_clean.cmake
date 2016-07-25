@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/IPMapper.dir/src/IPMapper.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/libIPMapper.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/libIPMapper.so"
+  "/root/catkin_ws/devel/.private/ip_mapping/lib/libIPMapper.pdb"
+  "/root/catkin_ws/devel/.private/ip_mapping/lib/libIPMapper.so"
 )
 
 # Per-language clean rules from dependency scanning.

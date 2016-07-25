@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/detect.dir/src/detect.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/detect_roof_rectangles/detect.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/detect_roof_rectangles/detect"
+  "/root/catkin_ws/devel/.private/detect_roof_rectangles/lib/detect_roof_rectangles/detect.pdb"
+  "/root/catkin_ws/devel/.private/detect_roof_rectangles/lib/detect_roof_rectangles/detect"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,0 +1,5 @@
+Symlinking /root/catkin_ws/devel/share/manual_control/cmake/manual_controlConfig.cmake
+Symlinking /root/catkin_ws/devel/share/manual_control/cmake/manual_controlConfig-version.cmake
+Symlinking /root/catkin_ws/devel/lib/libmanual_control.so
+Symlinking /root/catkin_ws/devel/lib/pkgconfig/manual_control.pc
+Symlinking /root/catkin_ws/devel/lib/manual_control/manual_control_node

@@ -1,5 +1,0 @@
-[31m[1mCMake Error[0m at /home/ros/model_car/catkin_ws/src/odometry/CMakeLists.txt:25 (install):
-  install TARGETS given target "odometry" which does not exist in this
-  directory.
-
-

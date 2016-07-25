@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "odometry"
-PROJECT_SPACE_DIR = "/home/ros/model_car/catkin_ws/devel"
+PROJECT_SPACE_DIR = "/root/catkin_ws/devel/.private/odometry"
 PROJECT_VERSION = "0.2.3"

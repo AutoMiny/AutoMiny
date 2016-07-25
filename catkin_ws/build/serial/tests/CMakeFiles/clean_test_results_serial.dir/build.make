@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/model_car/catkin_ws/src/serial
+CMAKE_SOURCE_DIR = /root/catkin_ws/src/serial
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/serial
+CMAKE_BINARY_DIR = /root/catkin_ws/build/serial
 
 # Utility rule file for clean_test_results_serial.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /home/ros/model_car/catkin_ws/build/serial
 include tests/CMakeFiles/clean_test_results_serial.dir/progress.make
 
 tests/CMakeFiles/clean_test_results_serial:
-	cd /home/ros/model_car/catkin_ws/build/serial/tests && /usr/bin/python /opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /home/ros/model_car/catkin_ws/build/serial/test_results/serial
+	cd /root/catkin_ws/build/serial/tests && /usr/bin/python /opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /root/catkin_ws/build/serial/test_results/serial
 
 clean_test_results_serial: tests/CMakeFiles/clean_test_results_serial
 clean_test_results_serial: tests/CMakeFiles/clean_test_results_serial.dir/build.make
@@ -57,10 +57,10 @@ tests/CMakeFiles/clean_test_results_serial.dir/build: clean_test_results_serial
 .PHONY : tests/CMakeFiles/clean_test_results_serial.dir/build
 
 tests/CMakeFiles/clean_test_results_serial.dir/clean:
-	cd /home/ros/model_car/catkin_ws/build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_serial.dir/cmake_clean.cmake
+	cd /root/catkin_ws/build/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_serial.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/clean_test_results_serial.dir/clean
 
 tests/CMakeFiles/clean_test_results_serial.dir/depend:
-	cd /home/ros/model_car/catkin_ws/build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/model_car/catkin_ws/src/serial /home/ros/model_car/catkin_ws/src/serial/tests /home/ros/model_car/catkin_ws/build/serial /home/ros/model_car/catkin_ws/build/serial/tests /home/ros/model_car/catkin_ws/build/serial/tests/CMakeFiles/clean_test_results_serial.dir/DependInfo.cmake --color=$(COLOR)
+	cd /root/catkin_ws/build/serial && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/serial /root/catkin_ws/src/serial/tests /root/catkin_ws/build/serial /root/catkin_ws/build/serial/tests /root/catkin_ws/build/serial/tests/CMakeFiles/clean_test_results_serial.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tests/CMakeFiles/clean_test_results_serial.dir/depend
 

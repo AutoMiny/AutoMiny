@@ -1,0 +1,7 @@
+c++: internal compiler error: Killed (program cc1plus)
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <file:///usr/share/doc/gcc-4.8/README.Bugs> for instructions.
+make[2]: *** [CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o] Error 4
+make[1]: *** [CMakeFiles/odometry_publisher.dir/all] Error 2
+make: *** [all] Error 2

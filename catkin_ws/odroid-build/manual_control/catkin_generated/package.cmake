@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "manual_control")
-set(manual_control_MAINTAINER "zargol <zahra.boroujeni@gmail.com>")
-set(manual_control_DEPRECATED "")
-set(manual_control_VERSION "0.0.0")
-set(manual_control_BUILD_DEPENDS "roscpp" "sensor_msgs" "motor_communication" "send_steering")
-set(manual_control_RUN_DEPENDS "motor_communication" "send_steering")
-set(manual_control_BUILDTOOL_DEPENDS "catkin")

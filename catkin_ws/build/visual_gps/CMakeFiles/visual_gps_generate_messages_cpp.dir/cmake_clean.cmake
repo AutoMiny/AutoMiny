@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/visual_gps_generate_messages_cpp"
-  "/home/ros/model_car/catkin_ws/devel/include/visual_gps/Transform.h"
+  "/root/catkin_ws/devel/.private/visual_gps/include/visual_gps/Transform.h"
 )
 
 # Per-language clean rules from dependency scanning.

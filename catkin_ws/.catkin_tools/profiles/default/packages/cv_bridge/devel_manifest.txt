@@ -1,0 +1,8 @@
+cv_bridge
+/root/catkin_ws/devel/.private/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake /root/catkin_ws/devel/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake
+/root/catkin_ws/devel/.private/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig.cmake /root/catkin_ws/devel/share/cv_bridge/cmake/cv_bridgeConfig.cmake
+/root/catkin_ws/devel/.private/cv_bridge/lib/libcv_bridge.so /root/catkin_ws/devel/lib/libcv_bridge.so
+/root/catkin_ws/devel/.private/cv_bridge/lib/pkgconfig/cv_bridge.pc /root/catkin_ws/devel/lib/pkgconfig/cv_bridge.pc
+/root/catkin_ws/devel/.private/cv_bridge/lib/python2.7/dist-packages/cv_bridge/__init__.py /root/catkin_ws/devel/lib/python2.7/dist-packages/cv_bridge/__init__.py
+/root/catkin_ws/devel/.private/cv_bridge/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so /root/catkin_ws/devel/lib/python2.7/dist-packages/cv_bridge/boost/cv_bridge_boost.so
+/root/catkin_ws/devel/.private/cv_bridge/lib/python2.7/dist-packages/cv_bridge/boost/__init__.py /root/catkin_ws/devel/lib/python2.7/dist-packages/cv_bridge/boost/__init__.py

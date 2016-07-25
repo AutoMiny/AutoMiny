@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/kalman_3d.dir/src/kalman_3d.cpp.o"
-  "/home/ros/model_car/catkin_ws/devel/lib/libkalman_3d.pdb"
-  "/home/ros/model_car/catkin_ws/devel/lib/libkalman_3d.so"
+  "/root/catkin_ws/devel/.private/visual_gps/lib/libkalman_3d.pdb"
+  "/root/catkin_ws/devel/.private/visual_gps/lib/libkalman_3d.so"
 )
 
 # Per-language clean rules from dependency scanning.

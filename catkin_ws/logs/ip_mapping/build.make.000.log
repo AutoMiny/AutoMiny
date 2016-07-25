@@ -1,8 +1,8 @@
 [35m[1mScanning dependencies of target IPMapper
 [0m[ 50%] [32mBuilding CXX object CMakeFiles/IPMapper.dir/src/IPMapper.cpp.o
-[0m[31m[1mLinking CXX shared library /home/ros/model_car/catkin_ws/devel/lib/libIPMapper.so
+[0m[31m[1mLinking CXX shared library /root/catkin_ws/devel/.private/ip_mapping/lib/libIPMapper.so
 [0m[ 50%] Built target IPMapper
 [35m[1mScanning dependencies of target ip_mapper_node
 [0m[100%] [32mBuilding CXX object CMakeFiles/ip_mapper_node.dir/src/ip_mapper_node.cpp.o
-[0m[31m[1mLinking CXX executable /home/ros/model_car/catkin_ws/devel/lib/ip_mapping/ip_mapper_node
+[0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/ip_mapping/lib/ip_mapping/ip_mapper_node
 [0m[100%] Built target ip_mapper_node

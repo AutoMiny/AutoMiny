@@ -1,7 +1,0 @@
-/home/ros/model_car/catkin_ws/src/motor_communication/src/motor_communication.cpp: In member function ‘void motor_communication::run(int)’:
-/home/ros/model_car/catkin_ws/src/motor_communication/src/motor_communication.cpp:72:34: error: ‘to_string’ is not a member of ‘std’
-       std::string speed_string = std::to_string(speed);;
-                                  ^
-make[2]: *** [CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o] Error 1
-make[1]: *** [CMakeFiles/motor_communication.dir/all] Error 2
-make: *** [all] Error 2

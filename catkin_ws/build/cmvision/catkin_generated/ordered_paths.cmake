@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/home/ros/model_car/catkin_ws/devel/lib;/opt/ros/indigo/lib")
+set(ORDERED_PATHS "/root/catkin_ws/devel/.private/cv_bridge/lib;/opt/ros/indigo/lib")
