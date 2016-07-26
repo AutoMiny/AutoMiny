@@ -1,5 +1,0 @@
-Symlinking /root/catkin_ws/devel/share/line_detection/cmake/line_detectionConfig.cmake
-Symlinking /root/catkin_ws/devel/share/line_detection/cmake/line_detectionConfig-version.cmake
-Symlinking /root/catkin_ws/devel/lib/libLaneDetector.so
-Symlinking /root/catkin_ws/devel/lib/line_detection/line_detection_node
-Symlinking /root/catkin_ws/devel/lib/pkgconfig/line_detection.pc

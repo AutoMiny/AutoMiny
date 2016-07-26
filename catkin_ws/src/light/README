@@ -1,5 +1,0 @@
-##test
-
-	roslaunch light light.launch 
-
- 	rostopic pub -r 1 /manual_control/lights std_msgs/String '{data: le}'

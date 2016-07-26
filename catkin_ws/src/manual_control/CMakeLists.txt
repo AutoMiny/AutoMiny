@@ -5,7 +5,7 @@ project(manual_control)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED roscpp send_steering)
+find_package(catkin REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system) 
@@ -47,10 +47,10 @@ find_package(catkin REQUIRED roscpp send_steering)
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
-	LIBRARIES ${PROJECT_NAME}
-	CATKIN_DEPENDS send_steering
-)
+#catkin_package(
+#	LIBRARIES ${PROJECT_NAME}
+#	CATKIN_DEPENDS send_steering
+#)
 
 
 ###########
@@ -64,19 +64,19 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 
-include_directories(include
-	${catkin_INCLUDE_DIRS})
+#include_directories(include
+#	${catkin_INCLUDE_DIRS})
 
 
 ## Declare a cpp library
-add_library(${PROJECT_NAME} src/manual_control_node.cpp)
+#add_library(${PROJECT_NAME} src/manual_control_node.cpp)
 
 
 ## Declare a cpp executable
 # add_executable(object_node src/object_node.cpp)
-add_executable(manual_control_node src/manual_control_node.cpp)
-add_dependencies(manual_control_node ${PROJECT_NAME})
-target_link_libraries(manual_control_node ${PROJECT_NAME} ${catkin_LIBRARIES})
+#add_executable(manual_control_node src/manual_control_node.cpp)
+#add_dependencies(manual_control_node ${PROJECT_NAME})
+#target_link_libraries(manual_control_node ${PROJECT_NAME} ${catkin_LIBRARIES})
 #target_link_libraries(motor_communication_node ${PROJECT_NAME} ${catkin_LIBRARIES})
  
 #############
@@ -94,15 +94,15 @@ target_link_libraries(manual_control_node ${PROJECT_NAME} ${catkin_LIBRARIES})
 # )
 
 ## Mark executables and/or libraries for installation
-install(TARGETS manual_control_node
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-install(DIRECTORY launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-  USE_SOURCE_PERMISSIONS
-)
+#install(TARGETS manual_control_node
+#  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#)
+#install(DIRECTORY launch
+#  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+#  USE_SOURCE_PERMISSIONS
+#)
 ## Mark cpp header files for installation
 # install(DIRECTORY include/${PROJECT_NAME}/
 #   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}

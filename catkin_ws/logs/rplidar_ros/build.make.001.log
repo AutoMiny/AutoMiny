@@ -1,4 +1,0 @@
-[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNode
-[0m[ 83%] Built target rplidarNode
-[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNodeClient
-[0m[100%] Built target rplidarNodeClient

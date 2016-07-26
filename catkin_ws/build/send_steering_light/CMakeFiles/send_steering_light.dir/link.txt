@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -std=gnu++11    -shared -Wl,-soname,libsend_steering_light.so -o /root/catkin_ws/devel/.private/send_steering_light/lib/libsend_steering_light.so CMakeFiles/send_steering_light.dir/src/send_steering_light.cpp.o 

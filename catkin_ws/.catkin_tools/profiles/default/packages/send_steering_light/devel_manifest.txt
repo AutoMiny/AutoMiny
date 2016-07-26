@@ -1,0 +1,6 @@
+send_steering_light
+/root/catkin_ws/devel/.private/send_steering_light/share/send_steering_light/cmake/send_steering_lightConfig-version.cmake /root/catkin_ws/devel/share/send_steering_light/cmake/send_steering_lightConfig-version.cmake
+/root/catkin_ws/devel/.private/send_steering_light/share/send_steering_light/cmake/send_steering_lightConfig.cmake /root/catkin_ws/devel/share/send_steering_light/cmake/send_steering_lightConfig.cmake
+/root/catkin_ws/devel/.private/send_steering_light/lib/libsend_steering_light.so /root/catkin_ws/devel/lib/libsend_steering_light.so
+/root/catkin_ws/devel/.private/send_steering_light/lib/pkgconfig/send_steering_light.pc /root/catkin_ws/devel/lib/pkgconfig/send_steering_light.pc
+/root/catkin_ws/devel/.private/send_steering_light/lib/send_steering_light/send_steering_light_node /root/catkin_ws/devel/lib/send_steering_light/send_steering_light_node
