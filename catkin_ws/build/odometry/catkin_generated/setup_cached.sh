@@ -8,8 +8,6 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/root/catkin_ws/devel/.private/odometry:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/root/catkin_ws/devel/.private/odometry/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/root/catkin_ws/devel/.private/odometry/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/root/catkin_ws/build/odometry"
 export ROSLISP_PACKAGE_DIRECTORIES="/root/catkin_ws/devel/.private/odometry/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/root/catkin_ws/src/odometry:$ROS_PACKAGE_PATH"

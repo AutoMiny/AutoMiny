@@ -1,1 +1,1 @@
-/usr/bin/c++  -fPIC -std=c++11    -shared -Wl,-soname,libsend_steering.so -o /root/catkin_ws/devel/.private/send_steering/lib/libsend_steering.so CMakeFiles/send_steering.dir/src/send_steering.cpp.o 
+/usr/bin/c++  -fPIC -std=c++0x -std=c++11    -shared -Wl,-soname,libsend_steering.so -o /root/catkin_ws/devel/.private/send_steering/lib/libsend_steering.so CMakeFiles/send_steering.dir/src/send_steering.cpp.o 

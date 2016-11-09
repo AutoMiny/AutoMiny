@@ -474,7 +474,7 @@ camera_paramsConfig::GroupDescription<camera_paramsConfig::DEFAULT, camera_param
 //#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __max__.color_brightness = 255;
 //#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.color_brightness = 56;
+      __default__.color_brightness = 150;
 //#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(camera_paramsConfig::AbstractParamDescriptionConstPtr(new camera_paramsConfig::ParamDescription<int>("color_brightness", "int", 0, "Brightness", "", &camera_paramsConfig::color_brightness)));
 //#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"

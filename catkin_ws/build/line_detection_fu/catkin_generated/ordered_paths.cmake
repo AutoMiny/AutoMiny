@@ -1,0 +1,1 @@
+set(ORDERED_PATHS "/root/catkin_ws/devel/.private/cv_bridge/lib;/opt/ros/indigo/lib")

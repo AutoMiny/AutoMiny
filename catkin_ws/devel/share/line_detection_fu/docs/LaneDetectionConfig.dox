@@ -1,0 +1,29 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~defaultXLeft" : \b [int] LEFT lane border position min: 0, default: 20, max: 160
+- \b "~defaultXCenter" : \b [int] CENTER lane border position min: 0, default: 60, max: 160
+- \b "~defaultXRight" : \b [int] RIGHT lane border position min: 0, default: 100, max: 160
+- \b "~interestDistancePoly" : \b [int] interestDistancePoly - to previous poly min: 0, default: 5, max: 100
+- \b "~interestDistanceDefault" : \b [int] interestDistanceDefault - to default lines min: 0, default: 20, max: 100
+- \b "~iterationsRansac" : \b [int] iterationsRansac min: 0, default: 30, max: 100
+- \b "~maxYRoi" : \b [int] max Y roi min: 0, default: 159, max: 160
+- \b "~minYDefaultRoi" : \b [int] min Y default roi min: 0, default: 110, max: 160
+- \b "~minYPolyRoi" : \b [int] min Y poly roi min: 0, default: 50, max: 160
+- \b "~polyY1" : \b [int] Y of first point for generating lane poly min: 0, default: 155, max: 160
+- \b "~polyY2" : \b [int] Y of second point for generating lane poly min: 0, default: 145, max: 160
+- \b "~polyY3" : \b [int] Y of third point for generating lane poly min: 0, default: 130, max: 160
+- \b "~detectLaneStartX" : \b [int] beginning point for gradients etc min: 0, default: 155, max: 160
+- \b "~maxAngleDiff" : \b [int] maxAngleDiff - optional smoothing when angle diff larger than this min: 1, default: 999, max: 999
+- \b "~proj_y_start" : \b [int] Y position of processed window inside of IPmapped img min: 0, default: 50, max: 80
+- \b "~roi_top_w" : \b [int] roi_top_width min: 0, default: 70, max: 160
+- \b "~roi_bottom_w" : \b [int] roi_bottom_width min: 0, default: 70, max: 160
+- \b "~proportionThreshould" : \b [double] supporter proportionThreshould min: 0.0, default: 0.6, max: 1.0
+- \b "~m_gradientThreshold" : \b [int] m_gradientThreshold min: 0, default: 10, max: 100
+- \b "~m_nonMaxWidth" : \b [int] m_nonMaxWidth min: 0, default: 10, max: 100
+- \b "~laneMarkingSquaredThreshold" : \b [int] laneMarkingSquaredThreshold min: 0, default: 36, max: 100
+- \b "~angleAdjacentLeg" : \b [int] -Y position of where the angle of polynomial is computed min: 0, default: 100, max: 160
+- \b "~scanlinesVerticalDistance" : \b [int] scanlinesVerticalDistance min: 0, default: 2, max: 160
+- \b "~scanlinesMaxCount" : \b [int] scanlinesMaxCount min: 0, default: 100, max: 160
+

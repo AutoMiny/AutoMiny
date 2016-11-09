@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/install
-
-Name: light
-Description: Description of light
-Version: 0.0.0
-Cflags: -I/root/catkin_ws/install/include
-Libs: -L/root/catkin_ws/install/lib -llight
-Requires: serial

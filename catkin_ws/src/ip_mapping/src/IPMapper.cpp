@@ -1,4 +1,5 @@
 #include "IPMapper.h"
+#include <ros/ros.h>
 
 
 Mat IPMapper::remap(Mat input)

@@ -4,7 +4,7 @@ Reads and maintains the following parameters on the ROS server
 
 - \b "~enable_depth" : \b [bool] Enable Depth min: False, default: True, max: True
 - \b "~color_backlight_compensation" : \b [int] Backlight Compensation min: 0, default: 1, max: 4
-- \b "~color_brightness" : \b [int] Brightness min: 0, default: 56, max: 255
+- \b "~color_brightness" : \b [int] Brightness min: 0, default: 150, max: 255
 - \b "~color_contrast" : \b [int] Contrast min: 16, default: 32, max: 64
 - \b "~color_gain" : \b [int] Gain min: 0, default: 32, max: 256
 - \b "~color_gamma" : \b [int] Gamma min: 100, default: 220, max: 280

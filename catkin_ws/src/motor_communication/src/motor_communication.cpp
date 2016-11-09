@@ -72,7 +72,7 @@ void motor_communication::run(int speed)
       std::string speed_string = std::to_string(speed);;
 	  string test_string="v"+ speed_string +"\r\n";
 	  bytes_wrote =my_serial.write(test_string);
-      //result = my_serial.read(test_string.length()+2);
+      	  result = my_serial.read(test_string.length()+2);
       //ROS_INFO("read speed:%s \n",result.c_str());
     }
     catch(const std::exception& e)

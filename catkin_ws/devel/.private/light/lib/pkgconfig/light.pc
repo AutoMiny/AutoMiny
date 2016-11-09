@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/devel/.private/light
-
-Name: light
-Description: Description of light
-Version: 0.0.0
-Cflags: -I/root/catkin_ws/src/light/include
-Libs: -L/root/catkin_ws/devel/.private/light/lib -llight
-Requires: serial

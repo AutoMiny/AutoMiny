@@ -3,7 +3,7 @@
 <node name="realsense_camera" pkg="realsense_camera" type="realsense_camera">
   <param name="enable_depth" type="bool" value="True" />
   <param name="color_backlight_compensation" type="int" value="1" />
-  <param name="color_brightness" type="int" value="56" />
+  <param name="color_brightness" type="int" value="150" />
   <param name="color_contrast" type="int" value="32" />
   <param name="color_gain" type="int" value="32" />
   <param name="color_gamma" type="int" value="220" />
