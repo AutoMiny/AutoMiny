@@ -1,0 +1,7 @@
+/root/catkin_ws/src/send_steering/src/send_steering.cpp: In member function 'void send_steering::run(int)':
+/root/catkin_ws/src/send_steering/src/send_steering.cpp:49:34: error: 'to_string' is not a member of 'std'
+       std::string speed_string = std::to_string(speed);;
+                                  ^
+make[2]: *** [CMakeFiles/send_steering.dir/src/send_steering.cpp.o] Error 1
+make[1]: *** [CMakeFiles/send_steering.dir/all] Error 2
+make: *** [all] Error 2

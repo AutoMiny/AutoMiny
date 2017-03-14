@@ -8,8 +8,6 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/root/catkin_ws/devel/.private/motor_communication:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/root/catkin_ws/devel/.private/motor_communication/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/root/catkin_ws/devel/.private/motor_communication/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/root/catkin_ws/build/motor_communication"
 export ROSLISP_PACKAGE_DIRECTORIES="/root/catkin_ws/devel/.private/motor_communication/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/root/catkin_ws/src/motor_communication:$ROS_PACKAGE_PATH"

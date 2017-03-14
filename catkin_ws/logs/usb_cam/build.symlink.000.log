@@ -1,0 +1,5 @@
+Symlinking /root/catkin_ws/devel/share/usb_cam/cmake/usb_camConfig-version.cmake
+Symlinking /root/catkin_ws/devel/share/usb_cam/cmake/usb_camConfig.cmake
+Symlinking /root/catkin_ws/devel/lib/libusb_cam.so
+Symlinking /root/catkin_ws/devel/lib/usb_cam/usb_cam_node
+Symlinking /root/catkin_ws/devel/lib/pkgconfig/usb_cam.pc

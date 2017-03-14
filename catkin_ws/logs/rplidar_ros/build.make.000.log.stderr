@@ -1,0 +1,7 @@
+In file included from /root/catkin_ws/src/rplidar_ros/sdk/src/arch/linux/net_serial.cpp:38:0:
+/root/catkin_ws/src/rplidar_ros/./sdk/src/arch/linux/net_serial.h:53:82: warning: converting to non-pointer type 'uint32_t {aka unsigned int}' from NULL [-Wconversion-null]
+     virtual bool bind(const char * portname, uint32_t baudrate, uint32_t flags = NULL);
+                                                                                  ^
+/root/catkin_ws/src/rplidar_ros/./sdk/src/arch/linux/net_serial.h:73:74: warning: converting to non-pointer type 'uint32_t {aka unsigned int}' from NULL [-Wconversion-null]
+     bool open(const char * portname, uint32_t baudrate, uint32_t flags = NULL);
+                                                                          ^

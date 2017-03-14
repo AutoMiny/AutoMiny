@@ -1,0 +1,34 @@
+[35m[1mScanning dependencies of target _cmvision_generate_messages_check_deps_Blob
+[0m[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target _cmvision_generate_messages_check_deps_Blobs
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp
+[0m[0m[0m[  0%] [  0%] Built target std_msgs_generate_messages_lisp
+Built target std_msgs_generate_messages_cpp
+[  0%] [35m[1mScanning dependencies of target std_msgs_generate_messages_py
+[  0%] [0mBuilt target _cmvision_generate_messages_check_deps_Blob
+Built target _cmvision_generate_messages_check_deps_Blobs
+[  0%] Built target std_msgs_generate_messages_py
+[35m[1mScanning dependencies of target cmvision_generate_messages_cpp
+[0m[35m[1mScanning dependencies of target cmvision_generate_messages_lisp
+[0m[35m[1mScanning dependencies of target cmvision_generate_messages_py
+[0m[  9%] [ 18%] [ 27%] [ 36%] [34m[1mGenerating C++ code from cmvision/Blob.msg
+[0m[34m[1mGenerating C++ code from cmvision/Blobs.msg
+[0m[34m[1mGenerating Lisp code from cmvision/Blob.msg
+[0m[34m[1mGenerating Python from MSG cmvision/Blob
+[0m[ 45%] [34m[1mGenerating Lisp code from cmvision/Blobs.msg
+[0m[ 54%] [34m[1mGenerating Python from MSG cmvision/Blobs
+[0m[ 54%] Built target cmvision_generate_messages_lisp
+[ 54%] [ 63%] Built target cmvision_generate_messages_cpp
+[34m[1mGenerating Python msg __init__.py for cmvision
+[0m[35m[1mScanning dependencies of target cmvision_gencpp
+[0m[ 63%] Built target cmvision_gencpp
+[35m[1mScanning dependencies of target cmvision
+[ 63%] [0mBuilt target cmvision_generate_messages_py
+[ 72%] [35m[1mScanning dependencies of target cmvision_generate_messages
+[0m[ 81%] [ 90%] [32mBuilding C object CMakeFiles/cmvision.dir/src/conversions.c.o
+[0m[ 90%] [32mBuilding CXX object CMakeFiles/cmvision.dir/src/cmvision.cc.o
+[0mBuilt target cmvision_generate_messages
+[32mBuilding CXX object CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o
+[0m[100%] [32mBuilding CXX object CMakeFiles/cmvision.dir/src/main.cpp.o
+[0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/cmvision/lib/cmvision/cmvision
+[0m[100%] Built target cmvision

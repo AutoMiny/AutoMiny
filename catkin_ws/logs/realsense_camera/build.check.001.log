@@ -1,0 +1,1 @@
+/usr/bin/cmake -H/root/catkin_ws/src/realsense_camera -B/root/catkin_ws/build/realsense_camera --check-build-system CMakeFiles/Makefile.cmake 0

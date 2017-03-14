@@ -1,0 +1,4 @@
+Symlinking /root/catkin_ws/devel/share/auto_stop/cmake/auto_stopConfig-version.cmake
+Symlinking /root/catkin_ws/devel/share/auto_stop/cmake/auto_stopConfig.cmake
+Symlinking /root/catkin_ws/devel/lib/pkgconfig/auto_stop.pc
+Symlinking /root/catkin_ws/devel/lib/auto_stop/auto_stop_node

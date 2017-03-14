@@ -1,1 +1,1 @@
-/usr/bin/c++  -fPIC -std=c++0x -std=c++11    -shared -Wl,-soname,libmotor_communication.so -o /root/catkin_ws/devel/.private/motor_communication/lib/libmotor_communication.so CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o 
+/usr/bin/c++  -fPIC -std=c++0x    -shared -Wl,-soname,libmotor_communication.so -o /root/catkin_ws/devel/.private/motor_communication/lib/libmotor_communication.so CMakeFiles/motor_communication.dir/src/motor_communication.cpp.o 
