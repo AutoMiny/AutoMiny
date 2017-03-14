@@ -11,7 +11,7 @@ double th = 0.0;
 
 double head=0.0;
 double last_head=0.0;
-
+double initial_head=0.0;
 double vx = 0.0;
 double vy = 0.0;
 double vth = 0.0;
@@ -19,8 +19,8 @@ bool init=false;
 ros::Time current_time_twist, last_time_twist;
 void twistCallback(const geometry_msgs::Twist& msg)
 {
-  float vx_=round(msg.linear.x / (9.54929659643*6.0))*(0.31);// 9.54929659643 rpm = 1rad/s and gear ratio: 6  and the wheel Radius 0.31 meter
-  vx = roundf(vx_ * -100) / 100;  /* Result: 37.78 */
+  float vx_=round(msg.linear.x / (9.54929659643*5.5))*(0.031);// 9.54929659643 rpm = 1rad/s and gear ratio: 6  and the wheel Radius 0.031 meter
+  vx = roundf(vx_ * -100) / 100;  /* Result: 37.78 */ ///0,00054 -> 0.00081
 }
 void headingCallback(const std_msgs::Float32& msg)
 {
@@ -28,7 +28,7 @@ void headingCallback(const std_msgs::Float32& msg)
   {
     init=true;
     head=msg.data* (3.14/180.0); //rad
-    last_head=head;
+    initial_head=head;
     vth=0.0;
     current_time_twist = ros::Time::now();
     last_time_twist=current_time_twist;
@@ -36,20 +36,20 @@ void headingCallback(const std_msgs::Float32& msg)
   }
   else
   {
-    last_time_twist=current_time_twist;
-    current_time_twist = ros::Time::now();
-    last_head=head;
+    // last_time_twist=current_time_twist;
+    // current_time_twist = ros::Time::now();
+    //last_head=head;
     head=msg.data* (3.14/180.0); //rad
-    double dt_twist = (current_time_twist - last_time_twist).toSec();
-    double delta_head=head-last_head;
+    // double dt_twist = (current_time_twist - last_time_twist).toSec();
+    double delta_head=head-initial_head;
     if (delta_head>180)
       delta_head=delta_head-360;
     else if (delta_head<-180.0)
       delta_head=delta_head+360;
-    float vth_=0.0;
-    vth_= delta_head*100;//dt_twist;
-    vth = roundf(vth_ * 1000) / 1000;  /* Result: 37.78 */
-    th = roundf(head * 100) / 100;
+    // float vth_=0.0;
+    // vth_= delta_head/dt_twist;//100
+    // vth = roundf(vth_ * 1000) / 1000;  /* Result: 37.78 */
+    th = roundf(delta_head * 100) / 100;
   }
   
 }
@@ -78,12 +78,12 @@ int main(int argc, char** argv){
     dt = roundf(dt * 10000) / 10000;
     double delta_x = (vx * cos(th) - vy * sin(th)) * dt;
     double delta_y = (vx * sin(th) + vy * cos(th)) * dt;
-    double delta_th = vth * 0.01 ; //* dt;
+    // double delta_th = vth * 0.01 ; //* dt;
     x += delta_x;
     y += delta_y;
     //th += delta_th;
 
-    ROS_INFO("t %0.6f",dt);
+    // ROS_INFO("t %0.6f",dt);
 
     //since all odometry is 6DOF we'll need a quaternion created from yaw
     geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);

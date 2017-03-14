@@ -1,0 +1,35 @@
+[  0%] [  0%] Built target actionlib_msgs_generate_messages_lisp
+Built target nav_msgs_generate_messages_cpp
+[  0%] [  0%] [  0%] Built target nav_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_cpp
+Built target std_msgs_generate_messages_cpp
+[  0%] Built target actionlib_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_cpp
+Built target geometry_msgs_generate_messages_lisp
+[  0%] [  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_py
+Built target nav_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_py
+[35m[1mScanning dependencies of target odometry_publisher
+[0m[100%] [32mBuilding CXX object CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp: In function 'void headingCallback(const Float32&)':
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp:53:5: error: 'initial_head' was not declared in this scope
+     initial_head=head;
+     ^
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp:66:28: error: 'initial_head' was not declared in this scope
+     double delta_head=head-initial_head;
+                            ^
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp: In function 'int main(int, char**)':
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp:167:1: error: a function-definition is not allowed here before '{' token
+ {
+ ^
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp:172:1: error: a function-definition is not allowed here before '{' token
+ {
+ ^
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp:277:1: error: expected '}' at end of input
+ }
+ ^
+/root/catkin_ws/src/odometry/src/odometry_publisher.cpp:277:1: error: expected '}' at end of input
+make[2]: *** [CMakeFiles/odometry_publisher.dir/src/odometry_publisher.cpp.o] Error 1
+make[1]: *** [CMakeFiles/odometry_publisher.dir/all] Error 2
+make: *** [all] Error 2
