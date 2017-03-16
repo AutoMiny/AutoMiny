@@ -35,7 +35,7 @@ class send_steering_light
     send_steering_light();
     ~send_steering_light();
     void init();
-    void run(int steering, std::string light_string);
+    void run(int steering, int speed,std::string light_string);
     void stop();
     void start();
     

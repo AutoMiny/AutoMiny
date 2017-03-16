@@ -42,18 +42,19 @@ void send_steering_light::start()
       ROS_ERROR("send_steering_light::could not find serial port");
     }
 }
-void send_steering_light::run(int steering,std::string light_string)
+void send_steering_light::run(int steering,int speed,std::string light_string)
 {
   	try
     {
-        std::string steering_string = std::to_string(steering);
-	string test_string="S"+steering_string +"L"+light_string+"\r";
-//        ROS_INFO("send_steering_light::%s",test_string.c_str());
-	bytes_wrote =arduino_serial.write(test_string);
+      std::string steering_string = std::to_string(steering);
+      std::string speed_string = std::to_string(speed);
+	    string test_string="S"+steering_string +"L"+light_string+"M"+speed_string+"\r";
+      //ROS_INFO("send_steering_light::%s",test_string.c_str());
+	    bytes_wrote =arduino_serial.write(test_string);
     }
     catch(const std::exception& e)
     {	 
-      	ROS_ERROR("send_steering_light::could not find serial port");
+      ROS_ERROR("send_steering_light::could not find serial port");
     }
 }
 void send_steering_light::stop()

@@ -42,10 +42,10 @@ void headingCallback(const std_msgs::Float32& msg)
     head=msg.data* (3.14/180.0); //rad
     // double dt_twist = (current_time_twist - last_time_twist).toSec();
     double delta_head=head-initial_head;
-    if (delta_head>180)
-      delta_head=delta_head-360;
-    else if (delta_head<-180.0)
-      delta_head=delta_head+360;
+    if (delta_head>3.14)
+      delta_head=delta_head-6.28;
+    else if (delta_head<-3.14)
+      delta_head=delta_head+6.28;
     // float vth_=0.0;
     // vth_= delta_head/dt_twist;//100
     // vth = roundf(vth_ * 1000) / 1000;  /* Result: 37.78 */
