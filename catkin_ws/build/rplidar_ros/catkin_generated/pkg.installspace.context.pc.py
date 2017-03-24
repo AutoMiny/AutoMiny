@@ -5,4 +5,4 @@ PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "rplidar_ros"
 PROJECT_SPACE_DIR = "/root/catkin_ws/install"
-PROJECT_VERSION = "1.0.1"
+PROJECT_VERSION = "1.5.7"

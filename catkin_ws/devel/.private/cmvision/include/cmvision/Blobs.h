@@ -221,7 +221,7 @@ namespace serialization
       stream.next(m.blobs);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER;
+    ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct Blobs_
 
 } // namespace serialization

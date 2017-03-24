@@ -10,8 +10,8 @@ Not searching for unused variables given on the command line.
 [36m--[0m Detecting CXX compiler ABI info
 [36m--[0m Detecting CXX compiler ABI info - done
 [36m--[0m Using CATKIN_DEVEL_PREFIX: /root/catkin_ws/devel/.private/catkin_tools_prebuild
-[36m--[0m Using CMAKE_PREFIX_PATH: /opt/ros/indigo
-[36m--[0m This workspace overlays: /opt/ros/indigo
+[36m--[0m Using CMAKE_PREFIX_PATH: /root/catkin_ws/devel;/opt/ros/indigo
+[36m--[0m This workspace overlays: /root/catkin_ws/devel;/opt/ros/indigo
 [36m--[0m Found PythonInterp: /usr/bin/python (found version "2.7.6")
 [36m--[0m Using PYTHON_EXECUTABLE: /usr/bin/python
 [36m--[0m Using Debian Python package layout

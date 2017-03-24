@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/install
-
-Name: send_steering_light
-Description: Description of send_steering_light
-Version: 0.0.0
-Cflags: -I/root/catkin_ws/install/include
-Libs: -L/root/catkin_ws/install/lib -lsend_steering_light
-Requires: serial

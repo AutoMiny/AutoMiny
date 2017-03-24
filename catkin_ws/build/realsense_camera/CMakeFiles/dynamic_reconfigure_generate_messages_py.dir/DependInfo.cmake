@@ -16,6 +16,7 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/root/catkin_ws/devel/.private/realsense_camera/include"
+  "/root/catkin_ws/src/realsense_camera/include"
   "/root/catkin_ws/src/cv_bridge/include"
   "/opt/ros/indigo/include"
   "/usr/include/opencv"

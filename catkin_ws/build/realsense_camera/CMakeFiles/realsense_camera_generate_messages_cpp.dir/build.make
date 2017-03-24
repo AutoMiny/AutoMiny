@@ -12,9 +12,6 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -48,18 +45,70 @@ CMAKE_BINARY_DIR = /root/catkin_ws/build/realsense_camera
 # Include the progress variables for this target.
 include CMakeFiles/realsense_camera_generate_messages_cpp.dir/progress.make
 
-CMakeFiles/realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/cameraConfiguration.h
+CMakeFiles/realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IMUInfo.h
+CMakeFiles/realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/SetPower.h
+CMakeFiles/realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/CameraConfiguration.h
+CMakeFiles/realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/GetIMUInfo.h
+CMakeFiles/realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/ForcePower.h
+CMakeFiles/realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IsPowered.h
 
-/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/cameraConfiguration.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/cameraConfiguration.h: /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv
-/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/cameraConfiguration.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/cameraConfiguration.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IMUInfo.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IMUInfo.h: /root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IMUInfo.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IMUInfo.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from realsense_camera/cameraConfiguration.srv"
-	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera -e /opt/ros/indigo/share/gencpp/cmake/..
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from realsense_camera/IMUInfo.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/SetPower.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/SetPower.h: /root/catkin_ws/src/realsense_camera/srv/SetPower.srv
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/SetPower.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/SetPower.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from realsense_camera/SetPower.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /root/catkin_ws/src/realsense_camera/srv/SetPower.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/CameraConfiguration.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/CameraConfiguration.h: /root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/CameraConfiguration.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/CameraConfiguration.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from realsense_camera/CameraConfiguration.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/GetIMUInfo.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/GetIMUInfo.h: /root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/GetIMUInfo.h: /root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/GetIMUInfo.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/GetIMUInfo.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/GetIMUInfo.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from realsense_camera/GetIMUInfo.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/ForcePower.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/ForcePower.h: /root/catkin_ws/src/realsense_camera/srv/ForcePower.srv
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/ForcePower.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/ForcePower.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from realsense_camera/ForcePower.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /root/catkin_ws/src/realsense_camera/srv/ForcePower.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IsPowered.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IsPowered.h: /root/catkin_ws/src/realsense_camera/srv/IsPowered.srv
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IsPowered.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IsPowered.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from realsense_camera/IsPowered.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /root/catkin_ws/src/realsense_camera/srv/IsPowered.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera -e /opt/ros/indigo/share/gencpp/cmake/..
 
 realsense_camera_generate_messages_cpp: CMakeFiles/realsense_camera_generate_messages_cpp
-realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/cameraConfiguration.h
+realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IMUInfo.h
+realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/SetPower.h
+realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/CameraConfiguration.h
+realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/GetIMUInfo.h
+realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/ForcePower.h
+realsense_camera_generate_messages_cpp: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/IsPowered.h
 realsense_camera_generate_messages_cpp: CMakeFiles/realsense_camera_generate_messages_cpp.dir/build.make
 .PHONY : realsense_camera_generate_messages_cpp
 

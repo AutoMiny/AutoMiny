@@ -16,7 +16,7 @@ public:
 		n_.param<float>("break_distance", break_distance, 0.45);
 		pubEmergencyStop_=nh.advertise<std_msgs::Int16>(nh.resolveName("manual_control/speed"), 1);
 		subScan_ = n_.subscribe("scan", 1, &auto_stop::scanCallback,this);
-		subTwist_ = n_.subscribe("motor_control/twist",1,&auto_stop::speedCallback,this); 
+		subTwist_ = n_.subscribe("model_car/twist",1,&auto_stop::speedCallback,this); 
 	}
 	~auto_stop(){}
 
@@ -29,12 +29,12 @@ public:
 	{
 	    int count = scan->scan_time / scan->time_increment;
 	    float  break_distance_=break_distance;
-	    if (abs(direction)>500)
-	    	break_distance_=(abs(direction)/500)*break_distance;
+	    if (abs(direction)>50)
+	    	break_distance_=(abs(direction)/50)*break_distance;
 	    std_msgs::Int16 speed;
 	    speed.data=0;
 	    //ROS_INFO("speed %f",break_distance_);	
-		if(direction < 0){	//backw.
+		if(direction > 0){	//backw.
 			for(int i = 0; i < (angle_back/2)+1; i++){
 				if (scan->ranges[i] <= break_distance_){
 				
@@ -51,7 +51,7 @@ public:
 			}
 		}
 
-		if(direction > 0){ //forw.
+		if(direction < 0){ //forw.
 			for(int j = (180-(angle_front/2)); j < (180+(angle_front/2))+1; j++){
 				if (scan->ranges[j] <= break_distance_){
 					pubEmergencyStop_.publish(speed);

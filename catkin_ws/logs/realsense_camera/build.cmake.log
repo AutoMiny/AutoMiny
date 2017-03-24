@@ -32,7 +32,7 @@ Not searching for unused variables given on the command line.
 [36m--[0m Using Python nosetests: /usr/bin/nosetests-2.7
 [36m--[0m catkin 0.6.18
 [36m--[0m Using these message generators: gencpp;genlisp;genpy
-[36m--[0m realsense_camera: 0 messages, 1 services
+[36m--[0m realsense_camera: 1 messages, 5 services
 [36m--[0m Configuring done
 [36m--[0m Generating done
 [36m--[0m Build files have been written to: /root/catkin_ws/build/realsense_camera

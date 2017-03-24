@@ -1,185 +1,170 @@
-/usr/bin/cmake -H/root/catkin_ws/src/realsense_camera -B/root/catkin_ws/build/realsense_camera --check-build-system CMakeFiles/Makefile.cmake 0
-/usr/bin/cmake -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles /root/catkin_ws/build/realsense_camera/CMakeFiles/progress.marks
-/usr/bin/make -f CMakeFiles/Makefile2 all
-make[1]: Entering directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/realsense_camera_gencfg.dir/build.make CMakeFiles/realsense_camera_gencfg.dir/depend
-/usr/bin/make -f CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/depend
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_gencfg.dir/DependInfo.cmake --color=
-/usr/bin/make -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/DependInfo.cmake --color=
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=
 [35m[1mScanning dependencies of target realsense_camera_gencfg
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/realsense_camera_gencfg.dir/build.make CMakeFiles/realsense_camera_gencfg.dir/build
-[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_cameraConfiguration
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 3
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py realsense_camera /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv 
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_ForcePower
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_CameraConfiguration
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_IsPowered
+[0m[0m[0m[0m[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_IMUInfo
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_GetIMUInfo
+[0m[0m[  3%] [35m[1mScanning dependencies of target std_msgs_generate_messages_py
+[0m[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_SetPower
+[0m[34m[1mGenerating dynamic reconfigure files from cfg/r200_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/r200_paramsConfig.py
+[0m[  3%] Built target std_msgs_generate_messages_py
 [35m[1mScanning dependencies of target std_msgs_generate_messages_lisp
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-make[2]: Nothing to be done for `CMakeFiles/std_msgs_generate_messages_lisp.dir/build'.
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
-[ 11%] [ 11%] Built target std_msgs_generate_messages_lisp
-/usr/bin/make -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
-[34m[1mGenerating dynamic reconfigure files from cfg/camera_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py
-[0mcatkin_generated/env_cached.sh /root/catkin_ws/build/realsense_camera/setup_custom_pythonpath.sh /root/catkin_ws/src/realsense_camera/cfg/camera_params.cfg /opt/ros/indigo/share/dynamic_reconfigure/cmake/.. /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
+[0m[  3%] Built target _realsense_camera_generate_messages_check_deps_CameraConfiguration
+[  3%] [  3%] Built target std_msgs_generate_messages_lisp
+Built target _realsense_camera_generate_messages_check_deps_GetIMUInfo
 [35m[1mScanning dependencies of target std_msgs_generate_messages_cpp
-[0m[ 11%] make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-make[2]: Nothing to be done for `CMakeFiles/std_msgs_generate_messages_cpp.dir/build'.
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
-Built target _realsense_camera_generate_messages_check_deps_cameraConfiguration
-/usr/bin/make -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/depend
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=
-[ 11%] Built target std_msgs_generate_messages_cpp
-/usr/bin/make -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /usr/src/gtest /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/gtest /root/catkin_ws/build/realsense_camera/gtest/CMakeFiles/gtest.dir/DependInfo.cmake --color=
-[35m[1mScanning dependencies of target std_msgs_generate_messages_py
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/build
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-make[2]: Nothing to be done for `CMakeFiles/std_msgs_generate_messages_py.dir/build'.
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
-[35m[1mScanning dependencies of target gtest
-Generating reconfiguration files for camera_params in realsense_camera
-[ 11%] [0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-Built target std_msgs_generate_messages_py
-/usr/bin/make -f CMakeFiles/realsense_camera_generate_messages_lisp.dir/build.make CMakeFiles/realsense_camera_generate_messages_lisp.dir/depend
-Wrote header file in /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 1
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_generate_messages_lisp.dir/DependInfo.cmake --color=
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  3
-[ 22%] [35m[1mScanning dependencies of target realsense_camera_generate_messages_lisp
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/realsense_camera_generate_messages_lisp.dir/build.make CMakeFiles/realsense_camera_generate_messages_lisp.dir/build
-[ 22%] make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-[32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
-[0mBuilt target realsense_camera_gencfg
-/usr/bin/make -f CMakeFiles/realsense_camera_generate_messages_cpp.dir/build.make CMakeFiles/realsense_camera_generate_messages_cpp.dir/depend
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 5
-cd /root/catkin_ws/build/realsense_camera/gtest && /usr/bin/c++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_EXPORTS -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  -fPIC -I/usr/src/gtest/include -I/usr/src/gtest    -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /usr/src/gtest/src/gtest-all.cc
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_generate_messages_cpp.dir/DependInfo.cmake --color=
-[ 33%] [35m[1mScanning dependencies of target realsense_camera_generate_messages_cpp
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/realsense_camera_generate_messages_cpp.dir/build.make CMakeFiles/realsense_camera_generate_messages_cpp.dir/build
-[34m[1mGenerating Lisp code from realsense_camera/cameraConfiguration.srv
-[0mcatkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 4
-[ 44%] [34m[1mGenerating C++ code from realsense_camera/cameraConfiguration.srv
-[0mcatkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera -e /opt/ros/indigo/share/gencpp/cmake/..
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  5
-[ 44%] Built target realsense_camera_generate_messages_lisp
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  4
-[ 44%] Built target realsense_camera_generate_messages_cpp
-/usr/bin/make -f CMakeFiles/realsense_camera_generate_messages_py.dir/build.make CMakeFiles/realsense_camera_generate_messages_py.dir/depend
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_generate_messages_py.dir/DependInfo.cmake --color=
+[0m[35m[1mScanning dependencies of target topic_tools_generate_messages_cpp
+[  6%] [0m[  6%] Built target _realsense_camera_generate_messages_check_deps_IMUInfo
+[  6%] [  6%] Built target std_msgs_generate_messages_cpp
+Built target _realsense_camera_generate_messages_check_deps_ForcePower
+[  6%] Built target topic_tools_generate_messages_cpp
+[34m[1mGenerating dynamic reconfigure files from cfg/f200_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/f200_paramsConfig.py
+[0m[  6%] Built target _realsense_camera_generate_messages_check_deps_IsPowered
+[  9%] [35m[1mScanning dependencies of target roscpp_generate_messages_py
+[ 12%] [0m[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_py
+[0m[34m[1mGenerating dynamic reconfigure files from cfg/zr300_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/zr300_paramsConfig.py
+[0m[35m[1mScanning dependencies of target roscpp_generate_messages_cpp
+[0m[ 12%] [34m[1mGenerating dynamic reconfigure files from cfg/sr300_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/sr300_paramsConfig.py
+[0m[ 12%] [ 12%] Built target roscpp_generate_messages_py
+Built target _realsense_camera_generate_messages_check_deps_SetPower
+Built target rosgraph_msgs_generate_messages_py
+[ 12%] Built target roscpp_generate_messages_cpp
+Generating reconfiguration files for r200_params in realsense_camera
+[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_cpp
+[0m[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_lisp
+[0m[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_py
+[0m[ 12%] [35m[1mScanning dependencies of target dynamic_reconfigure_gencfg
+[0m[ 12%] Generating reconfiguration files for f200_params in realsense_camera
+Built target dynamic_reconfigure_generate_messages_lisp
+Built target dynamic_reconfigure_generate_messages_cpp
+Wrote header file in /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h
+Wrote header file in /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h
+[ 12%] Built target dynamic_reconfigure_gencfg
+[ 12%] [35m[1mScanning dependencies of target sensor_msgs_generate_messages_py
+[0mBuilt target dynamic_reconfigure_generate_messages_py
+[35m[1mScanning dependencies of target tf_generate_messages_py
+[0m[35m[1mScanning dependencies of target nodelet_generate_messages_cpp
+Generating reconfiguration files for sr300_params in realsense_camera
+[0m[ 12%] Built target sensor_msgs_generate_messages_py
+[35m[1mScanning dependencies of target nodelet_generate_messages_lisp
+[0mWrote header file in /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h
+[ 12%] [35m[1mScanning dependencies of target roscpp_generate_messages_lisp
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_cpp
+[0m[ 12%] [0mBuilt target nodelet_generate_messages_cpp
+Built target tf_generate_messages_py
+[35m[1mScanning dependencies of target tf_generate_messages_cpp
+[0m[ 12%] [ 12%] [ 12%] [35m[1mScanning dependencies of target bond_generate_messages_lisp
+Built target roscpp_generate_messages_lisp
+Built target nodelet_generate_messages_lisp
+[0mBuilt target sensor_msgs_generate_messages_cpp
+[ 12%] [35m[1mScanning dependencies of target bond_generate_messages_cpp
+[35m[1mScanning dependencies of target bond_generate_messages_py
+[0m[0mBuilt target tf_generate_messages_cpp
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_lisp
+Generating reconfiguration files for zr300_params in realsense_camera
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_cpp
+[0m[0m[ 12%] Built target bond_generate_messages_lisp
+[ 12%] [35m[1mScanning dependencies of target nodelet_generate_messages_py
+[0m[ 12%] Built target bond_generate_messages_cpp
+Built target bond_generate_messages_py
+[ 12%] Built target rosgraph_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target tf_generate_messages_lisp
+[0m[ 12%] [ 12%] [35m[1mScanning dependencies of target pcl_ros_gencfg
+Built target rosgraph_msgs_generate_messages_cpp
+[0mBuilt target nodelet_generate_messages_py
+[35m[1mScanning dependencies of target pcl_msgs_generate_messages_cpp
+[0m[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp
+[0m[ 12%] Wrote header file in /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h
+[ 12%] [35m[1mScanning dependencies of target geometry_msgs_generate_messages_py
+[0m[35m[1mScanning dependencies of target topic_tools_generate_messages_lisp
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_lisp
+Built target pcl_ros_gencfg
+[0mBuilt target tf_generate_messages_lisp
+[0m[ 12%] [ 12%] Built target pcl_msgs_generate_messages_cpp
+Built target geometry_msgs_generate_messages_cpp
+[ 12%] [ 12%] Built target geometry_msgs_generate_messages_py
+[ 12%] Built target topic_tools_generate_messages_lisp
+Built target geometry_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_py
+[ 12%] [35m[1mScanning dependencies of target actionlib_msgs_generate_messages_lisp
+[0m[0m[0mBuilt target realsense_camera_gencfg
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_py
+[0m[35m[1mScanning dependencies of target actionlib_generate_messages_cpp
+[0m[ 12%] [35m[1mScanning dependencies of target actionlib_generate_messages_lisp
+[35m[1mScanning dependencies of target actionlib_generate_messages_py
+[0m[0m[ 12%] [35m[1mScanning dependencies of target pcl_msgs_generate_messages_lisp
+Built target actionlib_msgs_generate_messages_cpp
+[0m[ 12%] Built target tf2_msgs_generate_messages_py
+[ 12%] Built target actionlib_msgs_generate_messages_lisp
+[ 12%] Built target actionlib_msgs_generate_messages_py
+Built target actionlib_generate_messages_cpp
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_lisp
+[ 12%] [0m[ 12%] [35m[1mScanning dependencies of target pcl_msgs_generate_messages_py
+[0mBuilt target actionlib_generate_messages_lisp
+Built target actionlib_generate_messages_py
+[ 12%] [35m[1mScanning dependencies of target tf2_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_cpp
+[0m[35m[1mScanning dependencies of target topic_tools_generate_messages_py
+[0m[0mBuilt target pcl_msgs_generate_messages_lisp
+[ 12%] [35m[1mScanning dependencies of target gtest
+Built target sensor_msgs_generate_messages_lisp
+[ 12%] [ 12%] Built target tf2_msgs_generate_messages_lisp
+[ 12%] Built target tf2_msgs_generate_messages_cpp
 [35m[1mScanning dependencies of target realsense_camera_generate_messages_py
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/realsense_camera_generate_messages_py.dir/build.make CMakeFiles/realsense_camera_generate_messages_py.dir/build
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 6
-[ 55%] [34m[1mGenerating Python code from SRV realsense_camera/cameraConfiguration
-[0mcatkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 7
-[ 66%] [34m[1mGenerating Python srv __init__.py for realsense_camera
-[0mcatkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv --initpy
-/usr/bin/make -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/depend
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_nodelet.dir/DependInfo.cmake --color=
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  6 7
-[35m[1mScanning dependencies of target realsense_camera_nodelet
-[ 66%] Built target realsense_camera_generate_messages_py
-/usr/bin/make -f CMakeFiles/realsense_camera_generate_messages.dir/build.make CMakeFiles/realsense_camera_generate_messages.dir/depend
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_generate_messages.dir/DependInfo.cmake --color=
+Built target pcl_msgs_generate_messages_py
+[0m[35m[1mScanning dependencies of target realsense_camera_generate_messages_lisp
+[0m[ 12%] [0mBuilt target topic_tools_generate_messages_py
+[35m[1mScanning dependencies of target realsense_camera_generate_messages_cpp
+[0m[ 15%] [ 18%] [ 25%] [ 25%] [ 28%] [ 31%] [ 34%] [34m[1mGenerating Python from MSG realsense_camera/IMUInfo
+[0m[34m[1mGenerating Python code from SRV realsense_camera/CameraConfiguration
+[0m[ 37%] [34m[1mGenerating Python code from SRV realsense_camera/ForcePower
+[34m[1mGenerating Lisp code from realsense_camera/IMUInfo.msg
+[0m[0m[32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[0m[34m[1mGenerating Python code from SRV realsense_camera/SetPower
+[34m[1mGenerating Python code from SRV realsense_camera/GetIMUInfo
+[0m[0m[34m[1mGenerating C++ code from realsense_camera/IMUInfo.msg
+[0m[ 40%] [ 43%] [34m[1mGenerating C++ code from realsense_camera/SetPower.srv
+[0m[34m[1mGenerating Python code from SRV realsense_camera/IsPowered
+[0m[ 46%] [ 50%] [ 53%] [ 56%] [34m[1mGenerating Lisp code from realsense_camera/CameraConfiguration.srv
+[0m[34m[1mGenerating Lisp code from realsense_camera/SetPower.srv
+[0m[34m[1mGenerating C++ code from realsense_camera/GetIMUInfo.srv
+[0m[34m[1mGenerating C++ code from realsense_camera/CameraConfiguration.srv
+[0m[ 59%] [34m[1mGenerating Python msg __init__.py for realsense_camera
+[0m[ 62%] [34m[1mGenerating Python srv __init__.py for realsense_camera
+[0m[ 65%] [34m[1mGenerating C++ code from realsense_camera/ForcePower.srv
+[0m[ 68%] [34m[1mGenerating Lisp code from realsense_camera/GetIMUInfo.srv
+[0m[ 71%] [34m[1mGenerating Lisp code from realsense_camera/ForcePower.srv
+[0m[ 71%] Built target realsense_camera_generate_messages_py
+[ 75%] [34m[1mGenerating C++ code from realsense_camera/IsPowered.srv
+[0m[ 78%] [34m[1mGenerating Lisp code from realsense_camera/IsPowered.srv
+[0m[ 78%] Built target realsense_camera_generate_messages_lisp
+[ 78%] Built target realsense_camera_generate_messages_cpp
 [35m[1mScanning dependencies of target realsense_camera_generate_messages
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/realsense_camera_generate_messages.dir/build.make CMakeFiles/realsense_camera_generate_messages.dir/build
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-make[2]: Nothing to be done for `CMakeFiles/realsense_camera_generate_messages.dir/build'.
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/build
-[ 66%] Built target realsense_camera_generate_messages
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 8
-[ 77%] [32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o
-[0m/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\"realsense_camera\" -Drealsense_camera_nodelet_EXPORTS -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  -fPIC -I/root/catkin_ws/devel/.private/realsense_camera/include -I/root/catkin_ws/src/cv_bridge/include -I/opt/ros/indigo/include -I/usr/include/opencv -I/usr/include/eigen3 -I/usr/include/pcl-1.7 -I/usr/include/ni -I/usr/include/vtk-5.8    -o CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o -c /root/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.cpp
-[31m[1mLinking CXX shared library libgtest.so
-[0mcd /root/catkin_ws/build/realsense_camera/gtest && /usr/bin/cmake -E cmake_link_script CMakeFiles/gtest.dir/link.txt --verbose=1
-/usr/bin/c++  -fPIC -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  -z noexecstack -z relro -z now -shared -Wl,-soname,libgtest.so -o libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o  -L/root/catkin_ws/build/realsense_camera/gtest/src -lpthread -Wl,-rpath,/root/catkin_ws/build/realsense_camera/gtest/src 
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  1
-[ 77%] Built target gtest
-/usr/bin/make -f CMakeFiles/realsense_camera_test.dir/build.make CMakeFiles/realsense_camera_test.dir/depend
-/usr/bin/make -f CMakeFiles/realsense_camera_test_rgbd.dir/build.make CMakeFiles/realsense_camera_test_rgbd.dir/depend
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_test.dir/DependInfo.cmake --color=
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-cd /root/catkin_ws/build/realsense_camera && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /root/catkin_ws/src/realsense_camera /root/catkin_ws/src/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_test_rgbd.dir/DependInfo.cmake --color=
-[35m[1mScanning dependencies of target realsense_camera_test
-[35m[1mScanning dependencies of target realsense_camera_test_rgbd
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/realsense_camera_test_rgbd.dir/build.make CMakeFiles/realsense_camera_test_rgbd.dir/build
-[0mmake[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/make -f CMakeFiles/realsense_camera_test.dir/build.make CMakeFiles/realsense_camera_test.dir/build
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 10
-make[2]: Entering directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 9
-[ 88%] [100%] [32mBuilding CXX object CMakeFiles/realsense_camera_test.dir/test/realsense_camera_test_node.cpp.o
-[0m/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\"realsense_camera\" -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  -I/root/catkin_ws/devel/.private/realsense_camera/include -I/root/catkin_ws/src/cv_bridge/include -I/opt/ros/indigo/include -I/usr/include/opencv -I/usr/include/eigen3 -I/usr/include/pcl-1.7 -I/usr/include/ni -I/usr/include/vtk-5.8    -o CMakeFiles/realsense_camera_test.dir/test/realsense_camera_test_node.cpp.o -c /root/catkin_ws/src/realsense_camera/test/realsense_camera_test_node.cpp
-[32mBuilding CXX object CMakeFiles/realsense_camera_test_rgbd.dir/test/realsense_camera_test_rgbd_node.cpp.o
-[0m/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_PACKAGE_NAME=\"realsense_camera\" -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall  -I/root/catkin_ws/devel/.private/realsense_camera/include -I/root/catkin_ws/src/cv_bridge/include -I/opt/ros/indigo/include -I/usr/include/opencv -I/usr/include/eigen3 -I/usr/include/pcl-1.7 -I/usr/include/ni -I/usr/include/vtk-5.8    -o CMakeFiles/realsense_camera_test_rgbd.dir/test/realsense_camera_test_rgbd_node.cpp.o -c /root/catkin_ws/src/realsense_camera/test/realsense_camera_test_rgbd_node.cpp
-c++: internal compiler error: Killed (program cc1plus)
-Please submit a full bug report,
-with preprocessed source if appropriate.
-See <file:///usr/share/doc/gcc-4.8/README.Bugs> for instructions.
-make[2]: *** [CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o] Error 4
+[0m[35m[1mScanning dependencies of target realsense_camera_nodelet
+[ 78%] Built target realsense_camera_generate_messages
+[0m[ 81%] [ 87%] [ 87%] [ 90%] [ 93%] [32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o
+[0m[32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o
+[32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o
+[0m[0m[32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o
+[0m[32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o
+virtual memory exhausted:virtual memory exhausted C:annot allocate memory 
+Cannot allocate memory
+virtual memory exhausted: Cannot allocate memory
+make[2]: *** [CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o] Error 1
+make[2]: *** [CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o] Error 1
+[0m[31m[1mLinking CXX shared library libgtest.so
+[0m[ 93%] Built target gtest
+[35m[1mScanning dependencies of target tests_camera_core
+[35m[1mScanning dependencies of target tests_rgbd_topics
+[0m[0m[ 96%] [100%] [32mBuilding CXX object CMakeFiles/tests_camera_core.dir/test/camera_core.cpp.o
+[32mBuilding CXX object CMakeFiles/tests_rgbd_topics.dir/test/rgbd_topics.cpp.o
 make[1]: *** [CMakeFiles/realsense_camera_nodelet.dir/all] Error 2
 make[1]: *** Waiting for unfinished jobs....
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-c++: internal compiler error: Killed (program cc1plus)
-Please submit a full bug report,
-with preprocessed source if appropriate.
-See <file:///usr/share/doc/gcc-4.8/README.Bugs> for instructions.
-make[2]: *** [CMakeFiles/realsense_camera_test.dir/test/realsense_camera_test_node.cpp.o] Error 4
-make[1]: *** [CMakeFiles/realsense_camera_test.dir/all] Error 2
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/realsense_camera/lib/realsense_camera/realsense_camera_test_rgbd
-[0m/usr/bin/cmake -E cmake_link_script CMakeFiles/realsense_camera_test_rgbd.dir/link.txt --verbose=1
-/usr/bin/c++   -fPIE -fPIC -std=c++11 -O2 -D_FORTIFY_SOURCE=2 -fstack-protector -Wformat -Wformat-security -Wall   -pie -z noexecstack -z relro -z now CMakeFiles/realsense_camera_test_rgbd.dir/test/realsense_camera_test_rgbd_node.cpp.o  -o /root/catkin_ws/devel/.private/realsense_camera/lib/realsense_camera/realsense_camera_test_rgbd  -L/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/mesa-egl  -L/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/mesa -rdynamic /root/catkin_ws/devel/.private/cv_bridge/lib/libcv_bridge.so /usr/lib/arm-linux-gnueabihf/libopencv_videostab.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_video.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_superres.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_stitching.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_photo.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_ocl.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_objdetect.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_ml.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_legacy.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_imgproc.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_highgui.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_gpu.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_flann.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_features2d.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_core.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_contrib.so.2.4.8 /usr/lib/arm-linux-gnueabihf/libopencv_calib3d.so.2.4.8 /opt/ros/indigo/lib/libimage_transport.so /opt/ros/indigo/lib/libcamera_info_manager.so /opt/ros/indigo/lib/libpcl_ros_filters.so /opt/ros/indigo/lib/libpcl_ros_io.so /opt/ros/indigo/lib/libpcl_ros_tf.so -lpcl_common -lpcl_kdtree -lpcl_octree -lpcl_search -lpcl_sample_consensus -lpcl_filters -lpcl_features -lpcl_io -lpcl_visualization -lpcl_segmentation -lpcl_people -lpcl_surface -lpcl_registration -lpcl_keypoints -lpcl_tracking -lpcl_recognition -lpcl_apps -lpcl_outofcore -lboost_iostreams -lboost_mpi -lboost_serialization -lqhull -lOpenNI -Wl,-Bstatic -lflann_cpp_s -Wl,-Bdynamic /usr/lib/libvtkCommon.so.5.8.0 /usr/lib/libvtkRendering.so.5.8.0 /usr/lib/libvtkHybrid.so.5.8.0 /usr/lib/libvtkCharts.so.5.8.0 /opt/ros/indigo/lib/libdynamic_reconfigure_config_init_mutex.so /opt/ros/indigo/lib/libnodeletlib.so /opt/ros/indigo/lib/libbondcpp.so -luuid -ltinyxml /opt/ros/indigo/lib/libclass_loader.so -lPocoFoundation -ldl /opt/ros/indigo/lib/libroslib.so /opt/ros/indigo/lib/librosbag.so /opt/ros/indigo/lib/librosbag_storage.so -lboost_program_options /opt/ros/indigo/lib/libroslz4.so -llz4 /opt/ros/indigo/lib/libtopic_tools.so /opt/ros/indigo/lib/libtf.so /opt/ros/indigo/lib/libtf2_ros.so /opt/ros/indigo/lib/libactionlib.so /opt/ros/indigo/lib/libmessage_filters.so /opt/ros/indigo/lib/libroscpp.so -lboost_signals -lboost_filesystem /opt/ros/indigo/lib/libxmlrpcpp.so /opt/ros/indigo/lib/libtf2.so /opt/ros/indigo/lib/libroscpp_serialization.so /opt/ros/indigo/lib/librosconsole.so /opt/ros/indigo/lib/librosconsole_log4cxx.so /opt/ros/indigo/lib/librosconsole_backend_interface.so -llog4cxx -lboost_regex /opt/ros/indigo/lib/librostime.so -lboost_date_time /opt/ros/indigo/lib/libcpp_common.so -lboost_system -lboost_thread -lpthread -lconsole_bridge gtest/libgtest.so -lpthread -Wl,-rpath,/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/mesa-egl:/opt/odroid-x2/sdk/usr/lib/arm-linux-gnueabihf/mesa:/root/catkin_ws/devel/.private/cv_bridge/lib:/opt/ros/indigo/lib:/root/catkin_ws/build/realsense_camera/gtest 
-make[2]: Leaving directory `/root/catkin_ws/build/realsense_camera'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  10
-[100%] Built target realsense_camera_test_rgbd
-make[1]: Leaving directory `/root/catkin_ws/build/realsense_camera'
+[0m[0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/realsense_camera/lib/realsense_camera/tests_camera_core
+[0m[100%] Built target tests_camera_core
+[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/realsense_camera/lib/realsense_camera/tests_rgbd_topics
+[0m[100%] Built target tests_rgbd_topics
 make: *** [all] Error 2

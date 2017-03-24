@@ -12,9 +12,6 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -48,30 +45,96 @@ CMAKE_BINARY_DIR = /root/catkin_ws/build/realsense_camera
 # Include the progress variables for this target.
 include CMakeFiles/realsense_camera_gencfg.dir/progress.make
 
-CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h
-CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py
+CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h
+CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/r200_paramsConfig.py
+CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h
+CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/f200_paramsConfig.py
+CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h
+CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/sr300_paramsConfig.py
+CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h
+CMakeFiles/realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/zr300_paramsConfig.py
 
-/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h: /root/catkin_ws/src/realsense_camera/cfg/camera_params.cfg
-/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.py.template
-/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h: /root/catkin_ws/src/realsense_camera/cfg/r200_params.cfg
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.py.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating dynamic reconfigure files from cfg/camera_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py"
-	catkin_generated/env_cached.sh /root/catkin_ws/build/realsense_camera/setup_custom_pythonpath.sh /root/catkin_ws/src/realsense_camera/cfg/camera_params.cfg /opt/ros/indigo/share/dynamic_reconfigure/cmake/.. /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating dynamic reconfigure files from cfg/r200_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/r200_paramsConfig.py"
+	catkin_generated/env_cached.sh /root/catkin_ws/build/realsense_camera/setup_custom_pythonpath.sh /root/catkin_ws/src/realsense_camera/cfg/r200_params.cfg /opt/ros/indigo/share/dynamic_reconfigure/cmake/.. /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera
 
-/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/r200_paramsConfig.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h
 
-/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig-usage.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/r200_paramsConfig-usage.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h
 
-/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/r200_paramsConfig.py: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h
 
-/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig.wikidoc: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/r200_paramsConfig.wikidoc: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h: /root/catkin_ws/src/realsense_camera/cfg/f200_params.cfg
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.py.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating dynamic reconfigure files from cfg/f200_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/f200_paramsConfig.py"
+	catkin_generated/env_cached.sh /root/catkin_ws/build/realsense_camera/setup_custom_pythonpath.sh /root/catkin_ws/src/realsense_camera/cfg/f200_params.cfg /opt/ros/indigo/share/dynamic_reconfigure/cmake/.. /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera
+
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/f200_paramsConfig.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/f200_paramsConfig-usage.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/f200_paramsConfig.py: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/f200_paramsConfig.wikidoc: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h: /root/catkin_ws/src/realsense_camera/cfg/sr300_params.cfg
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.py.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating dynamic reconfigure files from cfg/sr300_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/sr300_paramsConfig.py"
+	catkin_generated/env_cached.sh /root/catkin_ws/build/realsense_camera/setup_custom_pythonpath.sh /root/catkin_ws/src/realsense_camera/cfg/sr300_params.cfg /opt/ros/indigo/share/dynamic_reconfigure/cmake/.. /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera
+
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/sr300_paramsConfig.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/sr300_paramsConfig-usage.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/sr300_paramsConfig.py: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/sr300_paramsConfig.wikidoc: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h: /root/catkin_ws/src/realsense_camera/cfg/zr300_params.cfg
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.py.template
+/root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h: /opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating dynamic reconfigure files from cfg/zr300_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/zr300_paramsConfig.py"
+	catkin_generated/env_cached.sh /root/catkin_ws/build/realsense_camera/setup_custom_pythonpath.sh /root/catkin_ws/src/realsense_camera/cfg/zr300_params.cfg /opt/ros/indigo/share/dynamic_reconfigure/cmake/.. /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera
+
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/zr300_paramsConfig.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/zr300_paramsConfig-usage.dox: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/zr300_paramsConfig.py: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h
+
+/root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/zr300_paramsConfig.wikidoc: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h
 
 realsense_camera_gencfg: CMakeFiles/realsense_camera_gencfg
-realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/camera_paramsConfig.h
-realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig.dox
-realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig-usage.dox
-realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/camera_paramsConfig.py
-realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/camera_paramsConfig.wikidoc
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/r200_paramsConfig.dox
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/r200_paramsConfig-usage.dox
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/r200_paramsConfig.py
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/r200_paramsConfig.wikidoc
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/f200_paramsConfig.dox
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/f200_paramsConfig-usage.dox
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/f200_paramsConfig.py
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/f200_paramsConfig.wikidoc
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/sr300_paramsConfig.dox
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/sr300_paramsConfig-usage.dox
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/sr300_paramsConfig.py
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/sr300_paramsConfig.wikidoc
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/zr300_paramsConfig.dox
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/zr300_paramsConfig-usage.dox
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/zr300_paramsConfig.py
+realsense_camera_gencfg: /root/catkin_ws/devel/.private/realsense_camera/share/realsense_camera/docs/zr300_paramsConfig.wikidoc
 realsense_camera_gencfg: CMakeFiles/realsense_camera_gencfg.dir/build.make
 .PHONY : realsense_camera_gencfg
 

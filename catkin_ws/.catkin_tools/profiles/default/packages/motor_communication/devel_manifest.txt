@@ -1,7 +1,0 @@
-motor_communication
-/root/catkin_ws/devel/.private/motor_communication/share/motor_communication/cmake/motor_communicationConfig-version.cmake /root/catkin_ws/devel/share/motor_communication/cmake/motor_communicationConfig-version.cmake
-/root/catkin_ws/devel/.private/motor_communication/share/motor_communication/cmake/motor_communicationConfig.cmake /root/catkin_ws/devel/share/motor_communication/cmake/motor_communicationConfig.cmake
-/root/catkin_ws/devel/.private/motor_communication/lib/libmotor_communication.so /root/catkin_ws/devel/lib/libmotor_communication.so
-/root/catkin_ws/devel/.private/motor_communication/lib/pkgconfig/motor_communication.pc /root/catkin_ws/devel/lib/pkgconfig/motor_communication.pc
-/root/catkin_ws/devel/.private/motor_communication/lib/motor_communication/motor_control_node /root/catkin_ws/devel/lib/motor_communication/motor_control_node
-/root/catkin_ws/devel/.private/motor_communication/lib/motor_communication/motor_communication_node /root/catkin_ws/devel/lib/motor_communication/motor_communication_node

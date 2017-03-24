@@ -12,9 +12,6 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -52,37 +49,137 @@ include CMakeFiles/realsense_camera_nodelet.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/realsense_camera_nodelet.dir/flags.make
 
-CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o: CMakeFiles/realsense_camera_nodelet.dir/flags.make
-CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o: /root/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.cpp
+CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o: CMakeFiles/realsense_camera_nodelet.dir/flags.make
+CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o: /root/catkin_ws/src/realsense_camera/src/base_nodelet.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o -c /root/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o -c /root/catkin_ws/src/realsense_camera/src/base_nodelet.cpp
 
-CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.cpp > CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.i
+CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/realsense_camera/src/base_nodelet.cpp > CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.i
 
-CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/realsense_camera/src/realsense_camera_nodelet.cpp -o CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.s
+CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/realsense_camera/src/base_nodelet.cpp -o CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.s
 
-CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o.requires:
-.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o.requires
+CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o.requires:
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o.requires
 
-CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o.provides: CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o.requires
-	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o.provides.build
-.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o.provides
+CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o.provides: CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o.requires
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o.provides.build
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o.provides
 
-CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o.provides.build: CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o
+CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o.provides.build: CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o
+
+CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o: CMakeFiles/realsense_camera_nodelet.dir/flags.make
+CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o: /root/catkin_ws/src/realsense_camera/src/r200_nodelet.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o -c /root/catkin_ws/src/realsense_camera/src/r200_nodelet.cpp
+
+CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/realsense_camera/src/r200_nodelet.cpp > CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.i
+
+CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/realsense_camera/src/r200_nodelet.cpp -o CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.s
+
+CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o.requires:
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o.requires
+
+CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o.provides: CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o.requires
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o.provides.build
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o.provides
+
+CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o.provides.build: CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o
+
+CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o: CMakeFiles/realsense_camera_nodelet.dir/flags.make
+CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o: /root/catkin_ws/src/realsense_camera/src/f200_nodelet.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o -c /root/catkin_ws/src/realsense_camera/src/f200_nodelet.cpp
+
+CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/realsense_camera/src/f200_nodelet.cpp > CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.i
+
+CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/realsense_camera/src/f200_nodelet.cpp -o CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.s
+
+CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o.requires:
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o.requires
+
+CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o.provides: CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o.requires
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o.provides.build
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o.provides
+
+CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o.provides.build: CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o
+
+CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o: CMakeFiles/realsense_camera_nodelet.dir/flags.make
+CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o: /root/catkin_ws/src/realsense_camera/src/sr300_nodelet.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o -c /root/catkin_ws/src/realsense_camera/src/sr300_nodelet.cpp
+
+CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/realsense_camera/src/sr300_nodelet.cpp > CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.i
+
+CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/realsense_camera/src/sr300_nodelet.cpp -o CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.s
+
+CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o.requires:
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o.requires
+
+CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o.provides: CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o.requires
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o.provides.build
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o.provides
+
+CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o.provides.build: CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o
+
+CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o: CMakeFiles/realsense_camera_nodelet.dir/flags.make
+CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o: /root/catkin_ws/src/realsense_camera/src/zr300_nodelet.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o -c /root/catkin_ws/src/realsense_camera/src/zr300_nodelet.cpp
+
+CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/catkin_ws/src/realsense_camera/src/zr300_nodelet.cpp > CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.i
+
+CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/catkin_ws/src/realsense_camera/src/zr300_nodelet.cpp -o CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.s
+
+CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o.requires:
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o.requires
+
+CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o.provides: CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o.requires
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o.provides.build
+.PHONY : CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o.provides
+
+CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o.provides.build: CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o
 
 # Object files for target realsense_camera_nodelet
 realsense_camera_nodelet_OBJECTS = \
-"CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o"
+"CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o" \
+"CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o" \
+"CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o" \
+"CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o" \
+"CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o"
 
 # External object files for target realsense_camera_nodelet
 realsense_camera_nodelet_EXTERNAL_OBJECTS =
 
-/root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o
+/root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o
+/root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o
+/root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o
+/root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o
+/root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o
 /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: CMakeFiles/realsense_camera_nodelet.dir/build.make
 /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: /root/catkin_ws/devel/.private/cv_bridge/lib/libcv_bridge.so
 /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: /usr/lib/arm-linux-gnueabihf/libopencv_videostab.so.2.4.8
@@ -172,7 +269,7 @@ realsense_camera_nodelet_EXTERNAL_OBJECTS =
 /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: /usr/lib/arm-linux-gnueabihf/libboost_thread.so
 /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: /usr/lib/arm-linux-gnueabihf/libpthread.so
 /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: /usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
-/root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: /usr/local/lib/librealsense.so
+/root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: /usr/local/lib/arm-linux-gnueabihf/librealsense.so
 /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so: CMakeFiles/realsense_camera_nodelet.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/realsense_camera_nodelet.dir/link.txt --verbose=$(VERBOSE)
@@ -181,7 +278,11 @@ realsense_camera_nodelet_EXTERNAL_OBJECTS =
 CMakeFiles/realsense_camera_nodelet.dir/build: /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so
 .PHONY : CMakeFiles/realsense_camera_nodelet.dir/build
 
-CMakeFiles/realsense_camera_nodelet.dir/requires: CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o.requires
+CMakeFiles/realsense_camera_nodelet.dir/requires: CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o.requires
+CMakeFiles/realsense_camera_nodelet.dir/requires: CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o.requires
+CMakeFiles/realsense_camera_nodelet.dir/requires: CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o.requires
+CMakeFiles/realsense_camera_nodelet.dir/requires: CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o.requires
+CMakeFiles/realsense_camera_nodelet.dir/requires: CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o.requires
 .PHONY : CMakeFiles/realsense_camera_nodelet.dir/requires
 
 CMakeFiles/realsense_camera_nodelet.dir/clean:

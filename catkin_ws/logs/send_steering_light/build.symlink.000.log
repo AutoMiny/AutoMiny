@@ -1,5 +1,0 @@
-Symlinking /root/catkin_ws/devel/share/send_steering_light/cmake/send_steering_lightConfig-version.cmake
-Symlinking /root/catkin_ws/devel/share/send_steering_light/cmake/send_steering_lightConfig.cmake
-Symlinking /root/catkin_ws/devel/lib/libsend_steering_light.so
-Symlinking /root/catkin_ws/devel/lib/pkgconfig/send_steering_light.pc
-Symlinking /root/catkin_ws/devel/lib/send_steering_light/send_steering_light_node

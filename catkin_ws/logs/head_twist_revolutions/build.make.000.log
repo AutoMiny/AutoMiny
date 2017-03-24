@@ -1,0 +1,8 @@
+[35m[1mScanning dependencies of target head_twist_revolutions
+[0m[ 50%] [32mBuilding CXX object CMakeFiles/head_twist_revolutions.dir/src/head_twist_revolutions.cpp.o
+[0m[31m[1mLinking CXX shared library /root/catkin_ws/devel/.private/head_twist_revolutions/lib/libhead_twist_revolutions.so
+[0m[ 50%] Built target head_twist_revolutions
+[35m[1mScanning dependencies of target head_twist_revolutions_node
+[0m[100%] [32mBuilding CXX object CMakeFiles/head_twist_revolutions_node.dir/src/head_twist_revolutions_node.cpp.o
+[0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/head_twist_revolutions/lib/head_twist_revolutions/head_twist_revolutions_node
+[0m[100%] Built target head_twist_revolutions_node

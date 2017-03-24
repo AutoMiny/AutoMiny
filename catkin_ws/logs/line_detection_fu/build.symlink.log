@@ -1,12 +1,12 @@
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/share/line_detection_fu/docs/LaneDetectionConfig.dox, /root/catkin_ws/devel/share/line_detection_fu/docs/LaneDetectionConfig.dox)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/share/line_detection_fu/docs/LaneDetectionConfig-usage.dox, /root/catkin_ws/devel/share/line_detection_fu/docs/LaneDetectionConfig-usage.dox)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/share/line_detection_fu/docs/LaneDetectionConfig.wikidoc, /root/catkin_ws/devel/share/line_detection_fu/docs/LaneDetectionConfig.wikidoc)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/share/line_detection_fu/cmake/line_detection_fuConfig-version.cmake, /root/catkin_ws/devel/share/line_detection_fu/cmake/line_detection_fuConfig-version.cmake)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/share/line_detection_fu/cmake/line_detection_fuConfig.cmake, /root/catkin_ws/devel/share/line_detection_fu/cmake/line_detection_fuConfig.cmake)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/include/line_detection_fu/LaneDetectionConfig.h, /root/catkin_ws/devel/include/line_detection_fu/LaneDetectionConfig.h)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/lib/libLaneDetectorFu.so, /root/catkin_ws/devel/lib/libLaneDetectorFu.so)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/lib/pkgconfig/line_detection_fu.pc, /root/catkin_ws/devel/lib/pkgconfig/line_detection_fu.pc)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/lib/line_detection_fu/line_detection_fu_node, /root/catkin_ws/devel/lib/line_detection_fu/line_detection_fu_node)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/lib/python2.7/dist-packages/line_detection_fu/__init__.py, /root/catkin_ws/devel/lib/python2.7/dist-packages/line_detection_fu/__init__.py)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/lib/python2.7/dist-packages/line_detection_fu/cfg/LaneDetectionConfig.py, /root/catkin_ws/devel/lib/python2.7/dist-packages/line_detection_fu/cfg/LaneDetectionConfig.py)
-Linked: (/root/catkin_ws/devel/.private/line_detection_fu/lib/python2.7/dist-packages/line_detection_fu/cfg/__init__.py, /root/catkin_ws/devel/lib/python2.7/dist-packages/line_detection_fu/cfg/__init__.py)
+Symlinking /root/catkin_ws/devel/lib/libLaneDetectorFu.so
+Symlinking /root/catkin_ws/devel/lib/line_detection_fu/line_detection_fu_node
+Symlinking /root/catkin_ws/devel/lib/python2.7/dist-packages/line_detection_fu/__init__.py
+Symlinking /root/catkin_ws/devel/lib/python2.7/dist-packages/line_detection_fu/cfg/LaneDetectionConfig.py
+Symlinking /root/catkin_ws/devel/lib/python2.7/dist-packages/line_detection_fu/cfg/__init__.py
+Symlinking /root/catkin_ws/devel/lib/pkgconfig/line_detection_fu.pc
+Symlinking /root/catkin_ws/devel/include/line_detection_fu/LaneDetectionConfig.h
+Symlinking /root/catkin_ws/devel/share/line_detection_fu/docs/LaneDetectionConfig.dox
+Symlinking /root/catkin_ws/devel/share/line_detection_fu/docs/LaneDetectionConfig.wikidoc
+Symlinking /root/catkin_ws/devel/share/line_detection_fu/docs/LaneDetectionConfig-usage.dox
+Symlinking /root/catkin_ws/devel/share/line_detection_fu/cmake/line_detection_fuConfig-version.cmake
+Symlinking /root/catkin_ws/devel/share/line_detection_fu/cmake/line_detection_fuConfig.cmake

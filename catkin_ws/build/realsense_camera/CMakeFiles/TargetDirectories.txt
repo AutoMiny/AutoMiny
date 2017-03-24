@@ -1,4 +1,9 @@
-/root/catkin_ws/build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir
+/root/catkin_ws/build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir
+/root/catkin_ws/build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir
+/root/catkin_ws/build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir
+/root/catkin_ws/build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir
+/root/catkin_ws/build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir
+/root/catkin_ws/build/realsense_camera/CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/actionlib_generate_messages_cpp.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/actionlib_generate_messages_lisp.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/actionlib_generate_messages_py.dir
@@ -36,8 +41,6 @@
 /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_genlisp.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_genpy.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_nodelet.dir
-/root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_test.dir
-/root/catkin_ws/build/realsense_camera/CMakeFiles/realsense_camera_test_rgbd.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/roscpp_generate_messages_cpp.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/roscpp_generate_messages_lisp.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/roscpp_generate_messages_py.dir
@@ -52,6 +55,8 @@
 /root/catkin_ws/build/realsense_camera/CMakeFiles/std_msgs_generate_messages_lisp.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/std_msgs_generate_messages_py.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/tests.dir
+/root/catkin_ws/build/realsense_camera/CMakeFiles/tests_camera_core.dir
+/root/catkin_ws/build/realsense_camera/CMakeFiles/tests_rgbd_topics.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/tf2_msgs_generate_messages_cpp.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/tf2_msgs_generate_messages_lisp.dir
 /root/catkin_ws/build/realsense_camera/CMakeFiles/tf2_msgs_generate_messages_py.dir

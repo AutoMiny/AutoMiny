@@ -16,9 +16,6 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -153,17 +150,82 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named _realsense_camera_generate_messages_check_deps_cameraConfiguration
+# Target rules for targets named _realsense_camera_generate_messages_check_deps_CameraConfiguration
 
 # Build rule for target.
-_realsense_camera_generate_messages_check_deps_cameraConfiguration: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _realsense_camera_generate_messages_check_deps_cameraConfiguration
-.PHONY : _realsense_camera_generate_messages_check_deps_cameraConfiguration
+_realsense_camera_generate_messages_check_deps_CameraConfiguration: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _realsense_camera_generate_messages_check_deps_CameraConfiguration
+.PHONY : _realsense_camera_generate_messages_check_deps_CameraConfiguration
 
 # fast build rule for target.
-_realsense_camera_generate_messages_check_deps_cameraConfiguration/fast:
-	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build
-.PHONY : _realsense_camera_generate_messages_check_deps_cameraConfiguration/fast
+_realsense_camera_generate_messages_check_deps_CameraConfiguration/fast:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/build
+.PHONY : _realsense_camera_generate_messages_check_deps_CameraConfiguration/fast
+
+#=============================================================================
+# Target rules for targets named _realsense_camera_generate_messages_check_deps_ForcePower
+
+# Build rule for target.
+_realsense_camera_generate_messages_check_deps_ForcePower: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _realsense_camera_generate_messages_check_deps_ForcePower
+.PHONY : _realsense_camera_generate_messages_check_deps_ForcePower
+
+# fast build rule for target.
+_realsense_camera_generate_messages_check_deps_ForcePower/fast:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/build
+.PHONY : _realsense_camera_generate_messages_check_deps_ForcePower/fast
+
+#=============================================================================
+# Target rules for targets named _realsense_camera_generate_messages_check_deps_GetIMUInfo
+
+# Build rule for target.
+_realsense_camera_generate_messages_check_deps_GetIMUInfo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _realsense_camera_generate_messages_check_deps_GetIMUInfo
+.PHONY : _realsense_camera_generate_messages_check_deps_GetIMUInfo
+
+# fast build rule for target.
+_realsense_camera_generate_messages_check_deps_GetIMUInfo/fast:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/build
+.PHONY : _realsense_camera_generate_messages_check_deps_GetIMUInfo/fast
+
+#=============================================================================
+# Target rules for targets named _realsense_camera_generate_messages_check_deps_IMUInfo
+
+# Build rule for target.
+_realsense_camera_generate_messages_check_deps_IMUInfo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _realsense_camera_generate_messages_check_deps_IMUInfo
+.PHONY : _realsense_camera_generate_messages_check_deps_IMUInfo
+
+# fast build rule for target.
+_realsense_camera_generate_messages_check_deps_IMUInfo/fast:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/build
+.PHONY : _realsense_camera_generate_messages_check_deps_IMUInfo/fast
+
+#=============================================================================
+# Target rules for targets named _realsense_camera_generate_messages_check_deps_IsPowered
+
+# Build rule for target.
+_realsense_camera_generate_messages_check_deps_IsPowered: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _realsense_camera_generate_messages_check_deps_IsPowered
+.PHONY : _realsense_camera_generate_messages_check_deps_IsPowered
+
+# fast build rule for target.
+_realsense_camera_generate_messages_check_deps_IsPowered/fast:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/build
+.PHONY : _realsense_camera_generate_messages_check_deps_IsPowered/fast
+
+#=============================================================================
+# Target rules for targets named _realsense_camera_generate_messages_check_deps_SetPower
+
+# Build rule for target.
+_realsense_camera_generate_messages_check_deps_SetPower: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _realsense_camera_generate_messages_check_deps_SetPower
+.PHONY : _realsense_camera_generate_messages_check_deps_SetPower
+
+# fast build rule for target.
+_realsense_camera_generate_messages_check_deps_SetPower/fast:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/build
+.PHONY : _realsense_camera_generate_messages_check_deps_SetPower/fast
 
 #=============================================================================
 # Target rules for targets named actionlib_generate_messages_cpp
@@ -621,32 +683,6 @@ realsense_camera_nodelet/fast:
 .PHONY : realsense_camera_nodelet/fast
 
 #=============================================================================
-# Target rules for targets named realsense_camera_test
-
-# Build rule for target.
-realsense_camera_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 realsense_camera_test
-.PHONY : realsense_camera_test
-
-# fast build rule for target.
-realsense_camera_test/fast:
-	$(MAKE) -f CMakeFiles/realsense_camera_test.dir/build.make CMakeFiles/realsense_camera_test.dir/build
-.PHONY : realsense_camera_test/fast
-
-#=============================================================================
-# Target rules for targets named realsense_camera_test_rgbd
-
-# Build rule for target.
-realsense_camera_test_rgbd: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 realsense_camera_test_rgbd
-.PHONY : realsense_camera_test_rgbd
-
-# fast build rule for target.
-realsense_camera_test_rgbd/fast:
-	$(MAKE) -f CMakeFiles/realsense_camera_test_rgbd.dir/build.make CMakeFiles/realsense_camera_test_rgbd.dir/build
-.PHONY : realsense_camera_test_rgbd/fast
-
-#=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
 
 # Build rule for target.
@@ -829,6 +865,32 @@ tests/fast:
 .PHONY : tests/fast
 
 #=============================================================================
+# Target rules for targets named tests_camera_core
+
+# Build rule for target.
+tests_camera_core: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tests_camera_core
+.PHONY : tests_camera_core
+
+# fast build rule for target.
+tests_camera_core/fast:
+	$(MAKE) -f CMakeFiles/tests_camera_core.dir/build.make CMakeFiles/tests_camera_core.dir/build
+.PHONY : tests_camera_core/fast
+
+#=============================================================================
+# Target rules for targets named tests_rgbd_topics
+
+# Build rule for target.
+tests_rgbd_topics: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tests_rgbd_topics
+.PHONY : tests_rgbd_topics
+
+# fast build rule for target.
+tests_rgbd_topics/fast:
+	$(MAKE) -f CMakeFiles/tests_rgbd_topics.dir/build.make CMakeFiles/tests_rgbd_topics.dir/build
+.PHONY : tests_rgbd_topics/fast
+
+#=============================================================================
 # Target rules for targets named tf2_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -971,77 +1033,173 @@ gtest_main/fast:
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-src/realsense_camera_nodelet.o: src/realsense_camera_nodelet.cpp.o
-.PHONY : src/realsense_camera_nodelet.o
+src/base_nodelet.o: src/base_nodelet.cpp.o
+.PHONY : src/base_nodelet.o
 
 # target to build an object file
-src/realsense_camera_nodelet.cpp.o:
-	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o
-.PHONY : src/realsense_camera_nodelet.cpp.o
+src/base_nodelet.cpp.o:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o
+.PHONY : src/base_nodelet.cpp.o
 
-src/realsense_camera_nodelet.i: src/realsense_camera_nodelet.cpp.i
-.PHONY : src/realsense_camera_nodelet.i
+src/base_nodelet.i: src/base_nodelet.cpp.i
+.PHONY : src/base_nodelet.i
 
 # target to preprocess a source file
-src/realsense_camera_nodelet.cpp.i:
-	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.i
-.PHONY : src/realsense_camera_nodelet.cpp.i
+src/base_nodelet.cpp.i:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.i
+.PHONY : src/base_nodelet.cpp.i
 
-src/realsense_camera_nodelet.s: src/realsense_camera_nodelet.cpp.s
-.PHONY : src/realsense_camera_nodelet.s
+src/base_nodelet.s: src/base_nodelet.cpp.s
+.PHONY : src/base_nodelet.s
 
 # target to generate assembly for a file
-src/realsense_camera_nodelet.cpp.s:
-	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.s
-.PHONY : src/realsense_camera_nodelet.cpp.s
+src/base_nodelet.cpp.s:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.s
+.PHONY : src/base_nodelet.cpp.s
 
-test/realsense_camera_test_node.o: test/realsense_camera_test_node.cpp.o
-.PHONY : test/realsense_camera_test_node.o
+src/f200_nodelet.o: src/f200_nodelet.cpp.o
+.PHONY : src/f200_nodelet.o
 
 # target to build an object file
-test/realsense_camera_test_node.cpp.o:
-	$(MAKE) -f CMakeFiles/realsense_camera_test.dir/build.make CMakeFiles/realsense_camera_test.dir/test/realsense_camera_test_node.cpp.o
-.PHONY : test/realsense_camera_test_node.cpp.o
+src/f200_nodelet.cpp.o:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o
+.PHONY : src/f200_nodelet.cpp.o
 
-test/realsense_camera_test_node.i: test/realsense_camera_test_node.cpp.i
-.PHONY : test/realsense_camera_test_node.i
+src/f200_nodelet.i: src/f200_nodelet.cpp.i
+.PHONY : src/f200_nodelet.i
 
 # target to preprocess a source file
-test/realsense_camera_test_node.cpp.i:
-	$(MAKE) -f CMakeFiles/realsense_camera_test.dir/build.make CMakeFiles/realsense_camera_test.dir/test/realsense_camera_test_node.cpp.i
-.PHONY : test/realsense_camera_test_node.cpp.i
+src/f200_nodelet.cpp.i:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.i
+.PHONY : src/f200_nodelet.cpp.i
 
-test/realsense_camera_test_node.s: test/realsense_camera_test_node.cpp.s
-.PHONY : test/realsense_camera_test_node.s
+src/f200_nodelet.s: src/f200_nodelet.cpp.s
+.PHONY : src/f200_nodelet.s
 
 # target to generate assembly for a file
-test/realsense_camera_test_node.cpp.s:
-	$(MAKE) -f CMakeFiles/realsense_camera_test.dir/build.make CMakeFiles/realsense_camera_test.dir/test/realsense_camera_test_node.cpp.s
-.PHONY : test/realsense_camera_test_node.cpp.s
+src/f200_nodelet.cpp.s:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.s
+.PHONY : src/f200_nodelet.cpp.s
 
-test/realsense_camera_test_rgbd_node.o: test/realsense_camera_test_rgbd_node.cpp.o
-.PHONY : test/realsense_camera_test_rgbd_node.o
+src/r200_nodelet.o: src/r200_nodelet.cpp.o
+.PHONY : src/r200_nodelet.o
 
 # target to build an object file
-test/realsense_camera_test_rgbd_node.cpp.o:
-	$(MAKE) -f CMakeFiles/realsense_camera_test_rgbd.dir/build.make CMakeFiles/realsense_camera_test_rgbd.dir/test/realsense_camera_test_rgbd_node.cpp.o
-.PHONY : test/realsense_camera_test_rgbd_node.cpp.o
+src/r200_nodelet.cpp.o:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o
+.PHONY : src/r200_nodelet.cpp.o
 
-test/realsense_camera_test_rgbd_node.i: test/realsense_camera_test_rgbd_node.cpp.i
-.PHONY : test/realsense_camera_test_rgbd_node.i
+src/r200_nodelet.i: src/r200_nodelet.cpp.i
+.PHONY : src/r200_nodelet.i
 
 # target to preprocess a source file
-test/realsense_camera_test_rgbd_node.cpp.i:
-	$(MAKE) -f CMakeFiles/realsense_camera_test_rgbd.dir/build.make CMakeFiles/realsense_camera_test_rgbd.dir/test/realsense_camera_test_rgbd_node.cpp.i
-.PHONY : test/realsense_camera_test_rgbd_node.cpp.i
+src/r200_nodelet.cpp.i:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.i
+.PHONY : src/r200_nodelet.cpp.i
 
-test/realsense_camera_test_rgbd_node.s: test/realsense_camera_test_rgbd_node.cpp.s
-.PHONY : test/realsense_camera_test_rgbd_node.s
+src/r200_nodelet.s: src/r200_nodelet.cpp.s
+.PHONY : src/r200_nodelet.s
 
 # target to generate assembly for a file
-test/realsense_camera_test_rgbd_node.cpp.s:
-	$(MAKE) -f CMakeFiles/realsense_camera_test_rgbd.dir/build.make CMakeFiles/realsense_camera_test_rgbd.dir/test/realsense_camera_test_rgbd_node.cpp.s
-.PHONY : test/realsense_camera_test_rgbd_node.cpp.s
+src/r200_nodelet.cpp.s:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.s
+.PHONY : src/r200_nodelet.cpp.s
+
+src/sr300_nodelet.o: src/sr300_nodelet.cpp.o
+.PHONY : src/sr300_nodelet.o
+
+# target to build an object file
+src/sr300_nodelet.cpp.o:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o
+.PHONY : src/sr300_nodelet.cpp.o
+
+src/sr300_nodelet.i: src/sr300_nodelet.cpp.i
+.PHONY : src/sr300_nodelet.i
+
+# target to preprocess a source file
+src/sr300_nodelet.cpp.i:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.i
+.PHONY : src/sr300_nodelet.cpp.i
+
+src/sr300_nodelet.s: src/sr300_nodelet.cpp.s
+.PHONY : src/sr300_nodelet.s
+
+# target to generate assembly for a file
+src/sr300_nodelet.cpp.s:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.s
+.PHONY : src/sr300_nodelet.cpp.s
+
+src/zr300_nodelet.o: src/zr300_nodelet.cpp.o
+.PHONY : src/zr300_nodelet.o
+
+# target to build an object file
+src/zr300_nodelet.cpp.o:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o
+.PHONY : src/zr300_nodelet.cpp.o
+
+src/zr300_nodelet.i: src/zr300_nodelet.cpp.i
+.PHONY : src/zr300_nodelet.i
+
+# target to preprocess a source file
+src/zr300_nodelet.cpp.i:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.i
+.PHONY : src/zr300_nodelet.cpp.i
+
+src/zr300_nodelet.s: src/zr300_nodelet.cpp.s
+.PHONY : src/zr300_nodelet.s
+
+# target to generate assembly for a file
+src/zr300_nodelet.cpp.s:
+	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.s
+.PHONY : src/zr300_nodelet.cpp.s
+
+test/camera_core.o: test/camera_core.cpp.o
+.PHONY : test/camera_core.o
+
+# target to build an object file
+test/camera_core.cpp.o:
+	$(MAKE) -f CMakeFiles/tests_camera_core.dir/build.make CMakeFiles/tests_camera_core.dir/test/camera_core.cpp.o
+.PHONY : test/camera_core.cpp.o
+
+test/camera_core.i: test/camera_core.cpp.i
+.PHONY : test/camera_core.i
+
+# target to preprocess a source file
+test/camera_core.cpp.i:
+	$(MAKE) -f CMakeFiles/tests_camera_core.dir/build.make CMakeFiles/tests_camera_core.dir/test/camera_core.cpp.i
+.PHONY : test/camera_core.cpp.i
+
+test/camera_core.s: test/camera_core.cpp.s
+.PHONY : test/camera_core.s
+
+# target to generate assembly for a file
+test/camera_core.cpp.s:
+	$(MAKE) -f CMakeFiles/tests_camera_core.dir/build.make CMakeFiles/tests_camera_core.dir/test/camera_core.cpp.s
+.PHONY : test/camera_core.cpp.s
+
+test/rgbd_topics.o: test/rgbd_topics.cpp.o
+.PHONY : test/rgbd_topics.o
+
+# target to build an object file
+test/rgbd_topics.cpp.o:
+	$(MAKE) -f CMakeFiles/tests_rgbd_topics.dir/build.make CMakeFiles/tests_rgbd_topics.dir/test/rgbd_topics.cpp.o
+.PHONY : test/rgbd_topics.cpp.o
+
+test/rgbd_topics.i: test/rgbd_topics.cpp.i
+.PHONY : test/rgbd_topics.i
+
+# target to preprocess a source file
+test/rgbd_topics.cpp.i:
+	$(MAKE) -f CMakeFiles/tests_rgbd_topics.dir/build.make CMakeFiles/tests_rgbd_topics.dir/test/rgbd_topics.cpp.i
+.PHONY : test/rgbd_topics.cpp.i
+
+test/rgbd_topics.s: test/rgbd_topics.cpp.s
+.PHONY : test/rgbd_topics.s
+
+# target to generate assembly for a file
+test/rgbd_topics.cpp.s:
+	$(MAKE) -f CMakeFiles/tests_rgbd_topics.dir/build.make CMakeFiles/tests_rgbd_topics.dir/test/rgbd_topics.cpp.s
+.PHONY : test/rgbd_topics.cpp.s
 
 # Help Target
 help:
@@ -1049,7 +1207,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... _realsense_camera_generate_messages_check_deps_cameraConfiguration"
+	@echo "... _realsense_camera_generate_messages_check_deps_CameraConfiguration"
+	@echo "... _realsense_camera_generate_messages_check_deps_ForcePower"
+	@echo "... _realsense_camera_generate_messages_check_deps_GetIMUInfo"
+	@echo "... _realsense_camera_generate_messages_check_deps_IMUInfo"
+	@echo "... _realsense_camera_generate_messages_check_deps_IsPowered"
+	@echo "... _realsense_camera_generate_messages_check_deps_SetPower"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_py"
@@ -1090,8 +1253,6 @@ help:
 	@echo "... realsense_camera_genlisp"
 	@echo "... realsense_camera_genpy"
 	@echo "... realsense_camera_nodelet"
-	@echo "... realsense_camera_test"
-	@echo "... realsense_camera_test_rgbd"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
@@ -1108,6 +1269,8 @@ help:
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... test"
 	@echo "... tests"
+	@echo "... tests_camera_core"
+	@echo "... tests_rgbd_topics"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_py"
@@ -1119,15 +1282,27 @@ help:
 	@echo "... topic_tools_generate_messages_py"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... src/realsense_camera_nodelet.o"
-	@echo "... src/realsense_camera_nodelet.i"
-	@echo "... src/realsense_camera_nodelet.s"
-	@echo "... test/realsense_camera_test_node.o"
-	@echo "... test/realsense_camera_test_node.i"
-	@echo "... test/realsense_camera_test_node.s"
-	@echo "... test/realsense_camera_test_rgbd_node.o"
-	@echo "... test/realsense_camera_test_rgbd_node.i"
-	@echo "... test/realsense_camera_test_rgbd_node.s"
+	@echo "... src/base_nodelet.o"
+	@echo "... src/base_nodelet.i"
+	@echo "... src/base_nodelet.s"
+	@echo "... src/f200_nodelet.o"
+	@echo "... src/f200_nodelet.i"
+	@echo "... src/f200_nodelet.s"
+	@echo "... src/r200_nodelet.o"
+	@echo "... src/r200_nodelet.i"
+	@echo "... src/r200_nodelet.s"
+	@echo "... src/sr300_nodelet.o"
+	@echo "... src/sr300_nodelet.i"
+	@echo "... src/sr300_nodelet.s"
+	@echo "... src/zr300_nodelet.o"
+	@echo "... src/zr300_nodelet.i"
+	@echo "... src/zr300_nodelet.s"
+	@echo "... test/camera_core.o"
+	@echo "... test/camera_core.i"
+	@echo "... test/camera_core.s"
+	@echo "... test/rgbd_topics.o"
+	@echo "... test/rgbd_topics.i"
+	@echo "... test/rgbd_topics.s"
 .PHONY : help
 
 

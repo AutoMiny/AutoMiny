@@ -1,5 +1,5 @@
-Linked: (/root/catkin_ws/devel/.private/ip_mapping/share/ip_mapping/cmake/ip_mappingConfig-version.cmake, /root/catkin_ws/devel/share/ip_mapping/cmake/ip_mappingConfig-version.cmake)
-Linked: (/root/catkin_ws/devel/.private/ip_mapping/share/ip_mapping/cmake/ip_mappingConfig.cmake, /root/catkin_ws/devel/share/ip_mapping/cmake/ip_mappingConfig.cmake)
-Linked: (/root/catkin_ws/devel/.private/ip_mapping/lib/libIPMapper.so, /root/catkin_ws/devel/lib/libIPMapper.so)
-Linked: (/root/catkin_ws/devel/.private/ip_mapping/lib/pkgconfig/ip_mapping.pc, /root/catkin_ws/devel/lib/pkgconfig/ip_mapping.pc)
-Linked: (/root/catkin_ws/devel/.private/ip_mapping/lib/ip_mapping/ip_mapper_node, /root/catkin_ws/devel/lib/ip_mapping/ip_mapper_node)
+Symlinking /root/catkin_ws/devel/lib/libIPMapper.so
+Symlinking /root/catkin_ws/devel/lib/ip_mapping/ip_mapper_node
+Symlinking /root/catkin_ws/devel/lib/pkgconfig/ip_mapping.pc
+Symlinking /root/catkin_ws/devel/share/ip_mapping/cmake/ip_mappingConfig-version.cmake
+Symlinking /root/catkin_ws/devel/share/ip_mapping/cmake/ip_mappingConfig.cmake

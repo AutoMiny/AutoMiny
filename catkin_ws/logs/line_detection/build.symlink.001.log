@@ -1,5 +1,0 @@
-Linked: (/root/catkin_ws/devel/.private/line_detection/share/line_detection/cmake/line_detectionConfig.cmake, /root/catkin_ws/devel/share/line_detection/cmake/line_detectionConfig.cmake)
-Linked: (/root/catkin_ws/devel/.private/line_detection/share/line_detection/cmake/line_detectionConfig-version.cmake, /root/catkin_ws/devel/share/line_detection/cmake/line_detectionConfig-version.cmake)
-Linked: (/root/catkin_ws/devel/.private/line_detection/lib/libLaneDetector.so, /root/catkin_ws/devel/lib/libLaneDetector.so)
-Linked: (/root/catkin_ws/devel/.private/line_detection/lib/line_detection/line_detection_node, /root/catkin_ws/devel/lib/line_detection/line_detection_node)
-Linked: (/root/catkin_ws/devel/.private/line_detection/lib/pkgconfig/line_detection.pc, /root/catkin_ws/devel/lib/pkgconfig/line_detection.pc)

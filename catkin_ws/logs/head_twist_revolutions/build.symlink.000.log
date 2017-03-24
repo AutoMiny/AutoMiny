@@ -1,0 +1,5 @@
+Symlinking /root/catkin_ws/devel/lib/libhead_twist_revolutions.so
+Symlinking /root/catkin_ws/devel/lib/head_twist_revolutions/head_twist_revolutions_node
+Symlinking /root/catkin_ws/devel/lib/pkgconfig/head_twist_revolutions.pc
+Symlinking /root/catkin_ws/devel/share/head_twist_revolutions/cmake/head_twist_revolutionsConfig-version.cmake
+Symlinking /root/catkin_ws/devel/share/head_twist_revolutions/cmake/head_twist_revolutionsConfig.cmake

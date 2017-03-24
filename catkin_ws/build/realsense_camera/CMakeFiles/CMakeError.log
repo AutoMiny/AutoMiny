@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1250185970/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1250185970.dir/build.make CMakeFiles/cmTryCompileExec1250185970.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec1474249482/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1474249482.dir/build.make CMakeFiles/cmTryCompileExec1474249482.dir/build
 make[1]: Entering directory `/root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1250185970.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1250185970.dir/CheckSymbolExists.c.o   -c /root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTryCompileExec1250185970
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1250185970.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec1250185970.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1250185970 -rdynamic 
-CMakeFiles/cmTryCompileExec1250185970.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTryCompileExec1474249482.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1474249482.dir/CheckSymbolExists.c.o   -c /root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1474249482
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1474249482.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1474249482.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1474249482 -rdynamic 
+CMakeFiles/cmTryCompileExec1474249482.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
 CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec1250185970] Error 1
+make[1]: *** [cmTryCompileExec1474249482] Error 1
 make[1]: Leaving directory `/root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec1250185970/fast] Error 2
+make: *** [cmTryCompileExec1474249482/fast] Error 2
 
 File /root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,19 +36,19 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec2313950865/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec2313950865.dir/build.make CMakeFiles/cmTryCompileExec2313950865.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec4020650894/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4020650894.dir/build.make CMakeFiles/cmTryCompileExec4020650894.dir/build
 make[1]: Entering directory `/root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec2313950865.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2313950865.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec2313950865
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2313950865.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2313950865.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2313950865 -rdynamic -lpthreads 
+Building C object CMakeFiles/cmTryCompileExec4020650894.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec4020650894.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4020650894
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4020650894.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec4020650894.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4020650894 -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec2313950865] Error 1
+make[1]: *** [cmTryCompileExec4020650894] Error 1
 make[1]: Leaving directory `/root/catkin_ws/build/realsense_camera/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec2313950865/fast] Error 2
+make: *** [cmTryCompileExec4020650894/fast] Error 2
 
 

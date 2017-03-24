@@ -12,9 +12,6 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -48,23 +45,84 @@ CMAKE_BINARY_DIR = /root/catkin_ws/build/realsense_camera
 # Include the progress variables for this target.
 include CMakeFiles/realsense_camera_generate_messages_py.dir/progress.make
 
-CMakeFiles/realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_cameraConfiguration.py
+CMakeFiles/realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/_IMUInfo.py
+CMakeFiles/realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_SetPower.py
+CMakeFiles/realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_CameraConfiguration.py
+CMakeFiles/realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_GetIMUInfo.py
+CMakeFiles/realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_ForcePower.py
+CMakeFiles/realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_IsPowered.py
+CMakeFiles/realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/__init__.py
 CMakeFiles/realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py
 
-/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_cameraConfiguration.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
-/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_cameraConfiguration.py: /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/_IMUInfo.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/_IMUInfo.py: /root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/_IMUInfo.py: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV realsense_camera/cameraConfiguration"
-	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG realsense_camera/IMUInfo"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg
+
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_SetPower.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_SetPower.py: /root/catkin_ws/src/realsense_camera/srv/SetPower.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV realsense_camera/SetPower"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /root/catkin_ws/src/realsense_camera/srv/SetPower.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv
+
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_CameraConfiguration.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_CameraConfiguration.py: /root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV realsense_camera/CameraConfiguration"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv
+
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_GetIMUInfo.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_GetIMUInfo.py: /root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_GetIMUInfo.py: /root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_GetIMUInfo.py: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV realsense_camera/GetIMUInfo"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv
+
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_ForcePower.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_ForcePower.py: /root/catkin_ws/src/realsense_camera/srv/ForcePower.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV realsense_camera/ForcePower"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /root/catkin_ws/src/realsense_camera/srv/ForcePower.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv
+
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_IsPowered.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_IsPowered.py: /root/catkin_ws/src/realsense_camera/srv/IsPowered.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV realsense_camera/IsPowered"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /root/catkin_ws/src/realsense_camera/srv/IsPowered.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv
+
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/__init__.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/_IMUInfo.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_SetPower.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_CameraConfiguration.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_GetIMUInfo.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_ForcePower.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_IsPowered.py
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python msg __init__.py for realsense_camera"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg --initpy
 
 /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
-/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_cameraConfiguration.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_2)
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/_IMUInfo.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_SetPower.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_CameraConfiguration.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_GetIMUInfo.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_ForcePower.py
+/root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_IsPowered.py
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python srv __init__.py for realsense_camera"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv --initpy
 
 realsense_camera_generate_messages_py: CMakeFiles/realsense_camera_generate_messages_py
-realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_cameraConfiguration.py
+realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/_IMUInfo.py
+realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_SetPower.py
+realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_CameraConfiguration.py
+realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_GetIMUInfo.py
+realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_ForcePower.py
+realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/_IsPowered.py
+realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/msg/__init__.py
 realsense_camera_generate_messages_py: /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/srv/__init__.py
 realsense_camera_generate_messages_py: CMakeFiles/realsense_camera_generate_messages_py.dir/build.make
 .PHONY : realsense_camera_generate_messages_py

@@ -7,19 +7,19 @@ FILE(GLOB RPLIDAR_SDK_SRC
   "${RPLIDAR_SDK_PATH}/src/arch/linux/*.cpp"
   "${RPLIDAR_SDK_PATH}/src/hal/*.cpp"
   "${RPLIDAR_SDK_PATH}/src/*.cpp"
-) 
+)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rosconsole
-  sensor_msgs 
-) 
+  sensor_msgs
+)
 
 include_directories(
   ${RPLIDAR_SDK_PATH}/include
   ${RPLIDAR_SDK_PATH}/src
+  ${catkin_INCLUDE_DIRS}
 )
-
 
 catkin_package()
 

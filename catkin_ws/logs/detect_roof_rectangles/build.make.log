@@ -1,1 +1,4 @@
-[100%] Built target detect
+[35m[1mScanning dependencies of target detect
+[0m[100%] [32mBuilding CXX object CMakeFiles/detect.dir/src/detect.cpp.o
+[0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/detect_roof_rectangles/lib/detect_roof_rectangles/detect
+[0m[100%] Built target detect

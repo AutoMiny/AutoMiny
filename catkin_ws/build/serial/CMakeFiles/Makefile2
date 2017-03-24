@@ -702,8 +702,8 @@ clean: tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/clean
 
 # All Build rule for target.
 tests/CMakeFiles/serial-test.dir/all: CMakeFiles/serial.dir/all
-tests/CMakeFiles/serial-test.dir/all: gtest/CMakeFiles/gtest.dir/all
 tests/CMakeFiles/serial-test.dir/all: gtest/CMakeFiles/gtest_main.dir/all
+tests/CMakeFiles/serial-test.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f tests/CMakeFiles/serial-test.dir/build.make tests/CMakeFiles/serial-test.dir/depend
 	$(MAKE) -f tests/CMakeFiles/serial-test.dir/build.make tests/CMakeFiles/serial-test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/serial/CMakeFiles  6
@@ -735,8 +735,8 @@ clean: tests/CMakeFiles/serial-test.dir/clean
 
 # All Build rule for target.
 tests/CMakeFiles/serial-test-timer.dir/all: CMakeFiles/serial.dir/all
-tests/CMakeFiles/serial-test-timer.dir/all: gtest/CMakeFiles/gtest.dir/all
 tests/CMakeFiles/serial-test-timer.dir/all: gtest/CMakeFiles/gtest_main.dir/all
+tests/CMakeFiles/serial-test-timer.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f tests/CMakeFiles/serial-test-timer.dir/build.make tests/CMakeFiles/serial-test-timer.dir/depend
 	$(MAKE) -f tests/CMakeFiles/serial-test-timer.dir/build.make tests/CMakeFiles/serial-test-timer.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/serial/CMakeFiles  7

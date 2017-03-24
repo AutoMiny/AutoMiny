@@ -24,9 +24,6 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -56,34 +53,189 @@ CMAKE_SOURCE_DIR = /root/catkin_ws/src/realsense_camera
 CMAKE_BINARY_DIR = /root/catkin_ws/build/realsense_camera
 
 #=============================================================================
-# Target rules for target CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir
+# Target rules for target CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir
 
 # All Build rule for target.
-CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/all:
-	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/depend
-	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build
+CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/all:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/depend
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
-	@echo "Built target _realsense_camera_generate_messages_check_deps_cameraConfiguration"
-.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/all
+	@echo "Built target _realsense_camera_generate_messages_check_deps_CameraConfiguration"
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/rule: cmake_check_build_system
+CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
-.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/rule
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/rule
 
 # Convenience name for target.
-_realsense_camera_generate_messages_check_deps_cameraConfiguration: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/rule
-.PHONY : _realsense_camera_generate_messages_check_deps_cameraConfiguration
+_realsense_camera_generate_messages_check_deps_CameraConfiguration: CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/rule
+.PHONY : _realsense_camera_generate_messages_check_deps_CameraConfiguration
 
 # clean rule for target.
-CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/clean:
-	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/clean
-.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/clean
+CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/clean:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/clean
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/clean
+clean: CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir
+
+# All Build rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/all:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/depend
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
+	@echo "Built target _realsense_camera_generate_messages_check_deps_ForcePower"
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/rule
+
+# Convenience name for target.
+_realsense_camera_generate_messages_check_deps_ForcePower: CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/rule
+.PHONY : _realsense_camera_generate_messages_check_deps_ForcePower
+
+# clean rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/clean:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/clean
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir
+
+# All Build rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/all:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/depend
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
+	@echo "Built target _realsense_camera_generate_messages_check_deps_GetIMUInfo"
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/rule
+
+# Convenience name for target.
+_realsense_camera_generate_messages_check_deps_GetIMUInfo: CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/rule
+.PHONY : _realsense_camera_generate_messages_check_deps_GetIMUInfo
+
+# clean rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/clean:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/clean
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir
+
+# All Build rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/all:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/depend
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
+	@echo "Built target _realsense_camera_generate_messages_check_deps_IMUInfo"
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/rule
+
+# Convenience name for target.
+_realsense_camera_generate_messages_check_deps_IMUInfo: CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/rule
+.PHONY : _realsense_camera_generate_messages_check_deps_IMUInfo
+
+# clean rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/clean:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/clean
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir
+
+# All Build rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/all:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/depend
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
+	@echo "Built target _realsense_camera_generate_messages_check_deps_IsPowered"
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/rule
+
+# Convenience name for target.
+_realsense_camera_generate_messages_check_deps_IsPowered: CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/rule
+.PHONY : _realsense_camera_generate_messages_check_deps_IsPowered
+
+# clean rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/clean:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/clean
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir
+
+# All Build rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/all:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/depend
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
+	@echo "Built target _realsense_camera_generate_messages_check_deps_SetPower"
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/rule
+
+# Convenience name for target.
+_realsense_camera_generate_messages_check_deps_SetPower: CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/rule
+.PHONY : _realsense_camera_generate_messages_check_deps_SetPower
+
+# clean rule for target.
+CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/clean:
+	$(MAKE) -f CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/build.make CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/clean
+.PHONY : CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -899,7 +1051,7 @@ clean: CMakeFiles/pcl_ros_gencfg.dir/clean
 CMakeFiles/realsense_camera_gencfg.dir/all:
 	$(MAKE) -f CMakeFiles/realsense_camera_gencfg.dir/build.make CMakeFiles/realsense_camera_gencfg.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_gencfg.dir/build.make CMakeFiles/realsense_camera_gencfg.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  3
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  3 4 5 6
 	@echo "Built target realsense_camera_gencfg"
 .PHONY : CMakeFiles/realsense_camera_gencfg.dir/all
 
@@ -909,7 +1061,7 @@ all: CMakeFiles/realsense_camera_gencfg.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/realsense_camera_gencfg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_gencfg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
 .PHONY : CMakeFiles/realsense_camera_gencfg.dir/rule
@@ -940,7 +1092,7 @@ CMakeFiles/realsense_camera_gencpp.dir/all: CMakeFiles/realsense_camera_generate
 
 # Build rule for subdir invocation for target.
 CMakeFiles/realsense_camera_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
 .PHONY : CMakeFiles/realsense_camera_gencpp.dir/rule
@@ -962,9 +1114,9 @@ clean: CMakeFiles/realsense_camera_gencpp.dir/clean
 # Target rules for target CMakeFiles/realsense_camera_generate_messages.dir
 
 # All Build rule for target.
+CMakeFiles/realsense_camera_generate_messages.dir/all: CMakeFiles/realsense_camera_generate_messages_lisp.dir/all
 CMakeFiles/realsense_camera_generate_messages.dir/all: CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
 CMakeFiles/realsense_camera_generate_messages.dir/all: CMakeFiles/realsense_camera_generate_messages_py.dir/all
-CMakeFiles/realsense_camera_generate_messages.dir/all: CMakeFiles/realsense_camera_generate_messages_lisp.dir/all
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages.dir/build.make CMakeFiles/realsense_camera_generate_messages.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages.dir/build.make CMakeFiles/realsense_camera_generate_messages.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles 
@@ -977,7 +1129,7 @@ all: CMakeFiles/realsense_camera_generate_messages.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/realsense_camera_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 20
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
 .PHONY : CMakeFiles/realsense_camera_generate_messages.dir/rule
@@ -999,17 +1151,22 @@ clean: CMakeFiles/realsense_camera_generate_messages.dir/clean
 # Target rules for target CMakeFiles/realsense_camera_generate_messages_cpp.dir
 
 # All Build rule for target.
+CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/all
 CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/all
+CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/all
+CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/all
+CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/all
+CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/all
+CMakeFiles/realsense_camera_generate_messages_cpp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/all
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_cpp.dir/build.make CMakeFiles/realsense_camera_generate_messages_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_cpp.dir/build.make CMakeFiles/realsense_camera_generate_messages_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  4
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  7 8 9 10 11 12
 	@echo "Built target realsense_camera_generate_messages_cpp"
 .PHONY : CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/realsense_camera_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
 .PHONY : CMakeFiles/realsense_camera_generate_messages_cpp.dir/rule
@@ -1031,17 +1188,22 @@ clean: CMakeFiles/realsense_camera_generate_messages_cpp.dir/clean
 # Target rules for target CMakeFiles/realsense_camera_generate_messages_lisp.dir
 
 # All Build rule for target.
+CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/all
+CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/all
+CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/all
+CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/all
 CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/all
+CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/all
+CMakeFiles/realsense_camera_generate_messages_lisp.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/all
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_lisp.dir/build.make CMakeFiles/realsense_camera_generate_messages_lisp.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_lisp.dir/build.make CMakeFiles/realsense_camera_generate_messages_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  5
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  13 14 15 16 17 18
 	@echo "Built target realsense_camera_generate_messages_lisp"
 .PHONY : CMakeFiles/realsense_camera_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/realsense_camera_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
 .PHONY : CMakeFiles/realsense_camera_generate_messages_lisp.dir/rule
@@ -1063,17 +1225,22 @@ clean: CMakeFiles/realsense_camera_generate_messages_lisp.dir/clean
 # Target rules for target CMakeFiles/realsense_camera_generate_messages_py.dir
 
 # All Build rule for target.
-CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_cameraConfiguration.dir/all
+CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_CameraConfiguration.dir/all
 CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/std_msgs_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_GetIMUInfo.dir/all
+CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_ForcePower.dir/all
+CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_IMUInfo.dir/all
+CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_IsPowered.dir/all
+CMakeFiles/realsense_camera_generate_messages_py.dir/all: CMakeFiles/_realsense_camera_generate_messages_check_deps_SetPower.dir/all
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_py.dir/build.make CMakeFiles/realsense_camera_generate_messages_py.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_generate_messages_py.dir/build.make CMakeFiles/realsense_camera_generate_messages_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  6 7
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  19 20 21 22 23 24 25 26
 	@echo "Built target realsense_camera_generate_messages_py"
 .PHONY : CMakeFiles/realsense_camera_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/realsense_camera_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
 .PHONY : CMakeFiles/realsense_camera_generate_messages_py.dir/rule
@@ -1104,7 +1271,7 @@ CMakeFiles/realsense_camera_genlisp.dir/all: CMakeFiles/realsense_camera_generat
 
 # Build rule for subdir invocation for target.
 CMakeFiles/realsense_camera_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
 .PHONY : CMakeFiles/realsense_camera_genlisp.dir/rule
@@ -1135,7 +1302,7 @@ CMakeFiles/realsense_camera_genpy.dir/all: CMakeFiles/realsense_camera_generate_
 
 # Build rule for subdir invocation for target.
 CMakeFiles/realsense_camera_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
 .PHONY : CMakeFiles/realsense_camera_genpy.dir/rule
@@ -1157,11 +1324,55 @@ clean: CMakeFiles/realsense_camera_genpy.dir/clean
 # Target rules for target CMakeFiles/realsense_camera_nodelet.dir
 
 # All Build rule for target.
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/roscpp_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/roscpp_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/dynamic_reconfigure_gencfg.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/tf_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/nodelet_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/nodelet_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/roscpp_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/tf_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/std_msgs_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/bond_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/bond_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/bond_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/nodelet_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/tf_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/pcl_ros_gencfg.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/pcl_msgs_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/topic_tools_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/tf2_msgs_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/actionlib_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/actionlib_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/actionlib_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/pcl_msgs_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/pcl_msgs_generate_messages_py.dir/all
 CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
 CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/realsense_camera_gencfg.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/topic_tools_generate_messages_py.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
+CMakeFiles/realsense_camera_nodelet.dir/all: CMakeFiles/topic_tools_generate_messages_cpp.dir/all
 	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/depend
 	$(MAKE) -f CMakeFiles/realsense_camera_nodelet.dir/build.make CMakeFiles/realsense_camera_nodelet.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  8
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  27 28 29 30 31
 	@echo "Built target realsense_camera_nodelet"
 .PHONY : CMakeFiles/realsense_camera_nodelet.dir/all
 
@@ -1171,7 +1382,7 @@ all: CMakeFiles/realsense_camera_nodelet.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/realsense_camera_nodelet.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 15
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_nodelet.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
 .PHONY : CMakeFiles/realsense_camera_nodelet.dir/rule
@@ -1187,79 +1398,6 @@ CMakeFiles/realsense_camera_nodelet.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/realsense_camera_nodelet.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/realsense_camera_test.dir
-
-# All Build rule for target.
-CMakeFiles/realsense_camera_test.dir/all: gtest/CMakeFiles/gtest.dir/all
-CMakeFiles/realsense_camera_test.dir/all: CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
-CMakeFiles/realsense_camera_test.dir/all: CMakeFiles/realsense_camera_gencfg.dir/all
-	$(MAKE) -f CMakeFiles/realsense_camera_test.dir/build.make CMakeFiles/realsense_camera_test.dir/depend
-	$(MAKE) -f CMakeFiles/realsense_camera_test.dir/build.make CMakeFiles/realsense_camera_test.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  9
-	@echo "Built target realsense_camera_test"
-.PHONY : CMakeFiles/realsense_camera_test.dir/all
-
-# Include target in all.
-all: CMakeFiles/realsense_camera_test.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/realsense_camera_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
-.PHONY : CMakeFiles/realsense_camera_test.dir/rule
-
-# Convenience name for target.
-realsense_camera_test: CMakeFiles/realsense_camera_test.dir/rule
-.PHONY : realsense_camera_test
-
-# clean rule for target.
-CMakeFiles/realsense_camera_test.dir/clean:
-	$(MAKE) -f CMakeFiles/realsense_camera_test.dir/build.make CMakeFiles/realsense_camera_test.dir/clean
-.PHONY : CMakeFiles/realsense_camera_test.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/realsense_camera_test.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/realsense_camera_test_rgbd.dir
-
-# All Build rule for target.
-CMakeFiles/realsense_camera_test_rgbd.dir/all: gtest/CMakeFiles/gtest.dir/all
-CMakeFiles/realsense_camera_test_rgbd.dir/all: CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
-	$(MAKE) -f CMakeFiles/realsense_camera_test_rgbd.dir/build.make CMakeFiles/realsense_camera_test_rgbd.dir/depend
-	$(MAKE) -f CMakeFiles/realsense_camera_test_rgbd.dir/build.make CMakeFiles/realsense_camera_test_rgbd.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  10
-	@echo "Built target realsense_camera_test_rgbd"
-.PHONY : CMakeFiles/realsense_camera_test_rgbd.dir/all
-
-# Include target in all.
-all: CMakeFiles/realsense_camera_test_rgbd.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/realsense_camera_test_rgbd.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/realsense_camera_test_rgbd.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
-.PHONY : CMakeFiles/realsense_camera_test_rgbd.dir/rule
-
-# Convenience name for target.
-realsense_camera_test_rgbd: CMakeFiles/realsense_camera_test_rgbd.dir/rule
-.PHONY : realsense_camera_test_rgbd
-
-# clean rule for target.
-CMakeFiles/realsense_camera_test_rgbd.dir/clean:
-	$(MAKE) -f CMakeFiles/realsense_camera_test_rgbd.dir/build.make CMakeFiles/realsense_camera_test_rgbd.dir/clean
-.PHONY : CMakeFiles/realsense_camera_test_rgbd.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/realsense_camera_test_rgbd.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -1694,6 +1832,167 @@ CMakeFiles/tests.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/tests.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tests_camera_core.dir
+
+# All Build rule for target.
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/roscpp_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/roscpp_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/dynamic_reconfigure_gencfg.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/tf_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/nodelet_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/nodelet_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/roscpp_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/tf_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/std_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/bond_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/bond_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/bond_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/nodelet_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/tf_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/pcl_ros_gencfg.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/pcl_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/topic_tools_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/tf2_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/actionlib_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/actionlib_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/actionlib_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/pcl_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: gtest/CMakeFiles/gtest.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/pcl_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/realsense_camera_gencfg.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/topic_tools_generate_messages_py.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_camera_core.dir/all: CMakeFiles/topic_tools_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/tests_camera_core.dir/build.make CMakeFiles/tests_camera_core.dir/depend
+	$(MAKE) -f CMakeFiles/tests_camera_core.dir/build.make CMakeFiles/tests_camera_core.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  32
+	@echo "Built target tests_camera_core"
+.PHONY : CMakeFiles/tests_camera_core.dir/all
+
+# Include target in all.
+all: CMakeFiles/tests_camera_core.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tests_camera_core.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tests_camera_core.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+.PHONY : CMakeFiles/tests_camera_core.dir/rule
+
+# Convenience name for target.
+tests_camera_core: CMakeFiles/tests_camera_core.dir/rule
+.PHONY : tests_camera_core
+
+# clean rule for target.
+CMakeFiles/tests_camera_core.dir/clean:
+	$(MAKE) -f CMakeFiles/tests_camera_core.dir/build.make CMakeFiles/tests_camera_core.dir/clean
+.PHONY : CMakeFiles/tests_camera_core.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/tests_camera_core.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tests_rgbd_topics.dir
+
+# All Build rule for target.
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/roscpp_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/roscpp_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/dynamic_reconfigure_gencfg.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/tf_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/nodelet_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/nodelet_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/roscpp_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/tf_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/std_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/bond_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/bond_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/bond_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/nodelet_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/tf_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/pcl_ros_gencfg.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/pcl_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/topic_tools_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/tf2_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/actionlib_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/actionlib_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/actionlib_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/pcl_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: gtest/CMakeFiles/gtest.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/pcl_msgs_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/realsense_camera_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/topic_tools_generate_messages_py.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
+CMakeFiles/tests_rgbd_topics.dir/all: CMakeFiles/topic_tools_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/tests_rgbd_topics.dir/build.make CMakeFiles/tests_rgbd_topics.dir/depend
+	$(MAKE) -f CMakeFiles/tests_rgbd_topics.dir/build.make CMakeFiles/tests_rgbd_topics.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles  33
+	@echo "Built target tests_rgbd_topics"
+.PHONY : CMakeFiles/tests_rgbd_topics.dir/all
+
+# Include target in all.
+all: CMakeFiles/tests_rgbd_topics.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tests_rgbd_topics.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tests_rgbd_topics.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/catkin_ws/build/realsense_camera/CMakeFiles 0
+.PHONY : CMakeFiles/tests_rgbd_topics.dir/rule
+
+# Convenience name for target.
+tests_rgbd_topics: CMakeFiles/tests_rgbd_topics.dir/rule
+.PHONY : tests_rgbd_topics
+
+# clean rule for target.
+CMakeFiles/tests_rgbd_topics.dir/clean:
+	$(MAKE) -f CMakeFiles/tests_rgbd_topics.dir/build.make CMakeFiles/tests_rgbd_topics.dir/clean
+.PHONY : CMakeFiles/tests_rgbd_topics.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/tests_rgbd_topics.dir/clean
 .PHONY : clean
 
 #=============================================================================

@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="send_steering_light_speed" type="send_steering_light_speed_node" name="send_steering_light_speed" output="screen">
+    <param name="arduino_serial_port" value="/dev/ttyArduino" />
+    <param name="arduino_baud_rate" value="115200" />
+  </node>
+</launch>

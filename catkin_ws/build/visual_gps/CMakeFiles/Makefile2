@@ -1380,8 +1380,8 @@ clean: CMakeFiles/visual_gps_generate_messages.dir/clean
 # Target rules for target CMakeFiles/visual_gps_generate_messages_cpp.dir
 
 # All Build rule for target.
-CMakeFiles/visual_gps_generate_messages_cpp.dir/all: CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 CMakeFiles/visual_gps_generate_messages_cpp.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+CMakeFiles/visual_gps_generate_messages_cpp.dir/all: CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 CMakeFiles/visual_gps_generate_messages_cpp.dir/all: CMakeFiles/_visual_gps_generate_messages_check_deps_Transform.dir/all
 	$(MAKE) -f CMakeFiles/visual_gps_generate_messages_cpp.dir/build.make CMakeFiles/visual_gps_generate_messages_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/visual_gps_generate_messages_cpp.dir/build.make CMakeFiles/visual_gps_generate_messages_cpp.dir/build

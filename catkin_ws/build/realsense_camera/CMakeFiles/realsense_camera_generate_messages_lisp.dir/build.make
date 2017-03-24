@@ -12,9 +12,6 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -48,16 +45,59 @@ CMAKE_BINARY_DIR = /root/catkin_ws/build/realsense_camera
 # Include the progress variables for this target.
 include CMakeFiles/realsense_camera_generate_messages_lisp.dir/progress.make
 
-CMakeFiles/realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/cameraConfiguration.lisp
+CMakeFiles/realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/msg/IMUInfo.lisp
+CMakeFiles/realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/SetPower.lisp
+CMakeFiles/realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/CameraConfiguration.lisp
+CMakeFiles/realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/GetIMUInfo.lisp
+CMakeFiles/realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/ForcePower.lisp
+CMakeFiles/realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/IsPowered.lisp
 
-/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/cameraConfiguration.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
-/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/cameraConfiguration.lisp: /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/msg/IMUInfo.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/msg/IMUInfo.lisp: /root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/msg/IMUInfo.lisp: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
 	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from realsense_camera/cameraConfiguration.srv"
-	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from realsense_camera/IMUInfo.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/msg
+
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/SetPower.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/SetPower.lisp: /root/catkin_ws/src/realsense_camera/srv/SetPower.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from realsense_camera/SetPower.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/catkin_ws/src/realsense_camera/srv/SetPower.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv
+
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/CameraConfiguration.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/CameraConfiguration.lisp: /root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from realsense_camera/CameraConfiguration.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv
+
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/GetIMUInfo.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/GetIMUInfo.lisp: /root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/GetIMUInfo.lisp: /root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/GetIMUInfo.lisp: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from realsense_camera/GetIMUInfo.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv
+
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/ForcePower.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/ForcePower.lisp: /root/catkin_ws/src/realsense_camera/srv/ForcePower.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from realsense_camera/ForcePower.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/catkin_ws/src/realsense_camera/srv/ForcePower.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv
+
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/IsPowered.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/IsPowered.lisp: /root/catkin_ws/src/realsense_camera/srv/IsPowered.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/catkin_ws/build/realsense_camera/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from realsense_camera/IsPowered.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/catkin_ws/src/realsense_camera/srv/IsPowered.srv -Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -p realsense_camera -o /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv
 
 realsense_camera_generate_messages_lisp: CMakeFiles/realsense_camera_generate_messages_lisp
-realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/cameraConfiguration.lisp
+realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/msg/IMUInfo.lisp
+realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/SetPower.lisp
+realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/CameraConfiguration.lisp
+realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/GetIMUInfo.lisp
+realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/ForcePower.lisp
+realsense_camera_generate_messages_lisp: /root/catkin_ws/devel/.private/realsense_camera/share/common-lisp/ros/realsense_camera/srv/IsPowered.lisp
 realsense_camera_generate_messages_lisp: CMakeFiles/realsense_camera_generate_messages_lisp.dir/build.make
 .PHONY : realsense_camera_generate_messages_lisp
 

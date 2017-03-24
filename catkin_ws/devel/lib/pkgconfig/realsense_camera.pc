@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/devel/.private/realsense_camera
+
+Name: realsense_camera
+Description: Description of realsense_camera
+Version: 1.7.2
+Cflags: -I/root/catkin_ws/devel/.private/realsense_camera/include -I/root/catkin_ws/src/realsense_camera/include
+Libs: -L/root/catkin_ws/devel/.private/realsense_camera/lib -lrealsense_camera_nodelet
+Requires: std_msgs message_runtime sensor_msgs

@@ -1,8 +1,8 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "realsense_camera: 0 messages, 1 services")
+message(STATUS "realsense_camera: 1 messages, 5 services")
 
-set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Irealsense_camera:/root/catkin_ws/src/realsense_camera/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -15,9 +15,34 @@ add_custom_target(realsense_camera_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/SetPower.srv" NAME_WE)
 add_custom_target(_realsense_camera_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "realsense_camera" "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "realsense_camera" "/root/catkin_ws/src/realsense_camera/srv/SetPower.srv" ""
+)
+
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/ForcePower.srv" NAME_WE)
+add_custom_target(_realsense_camera_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "realsense_camera" "/root/catkin_ws/src/realsense_camera/srv/ForcePower.srv" ""
+)
+
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/IsPowered.srv" NAME_WE)
+add_custom_target(_realsense_camera_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "realsense_camera" "/root/catkin_ws/src/realsense_camera/srv/IsPowered.srv" ""
+)
+
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv" NAME_WE)
+add_custom_target(_realsense_camera_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "realsense_camera" "/root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv" ""
+)
+
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv" NAME_WE)
+add_custom_target(_realsense_camera_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "realsense_camera" "/root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv" "realsense_camera/IMUInfo:std_msgs/Header"
+)
+
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg" NAME_WE)
+add_custom_target(_realsense_camera_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "realsense_camera" "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg" "std_msgs/Header"
 )
 
 #
@@ -26,10 +51,40 @@ add_custom_target(_realsense_camera_generate_messages_check_deps_${_filename}
 
 ### Section generating for lang: gencpp
 ### Generating Messages
+_generate_msg_cpp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/realsense_camera
+)
 
 ### Generating Services
 _generate_srv_cpp(realsense_camera
-  "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
+  "/root/catkin_ws/src/realsense_camera/srv/SetPower.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_cpp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_cpp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv"
+  "${MSG_I_FLAGS}"
+  "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_cpp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/ForcePower.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_cpp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/IsPowered.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/realsense_camera
@@ -47,7 +102,17 @@ add_custom_target(realsense_camera_generate_messages_cpp
 add_dependencies(realsense_camera_generate_messages realsense_camera_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/SetPower.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_cpp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/ForcePower.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_cpp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/IsPowered.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_cpp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_cpp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_cpp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg" NAME_WE)
 add_dependencies(realsense_camera_generate_messages_cpp _realsense_camera_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -59,10 +124,40 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS realsense_camera_generate_messages_
 
 ### Section generating for lang: genlisp
 ### Generating Messages
+_generate_msg_lisp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/realsense_camera
+)
 
 ### Generating Services
 _generate_srv_lisp(realsense_camera
-  "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
+  "/root/catkin_ws/src/realsense_camera/srv/SetPower.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_lisp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_lisp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv"
+  "${MSG_I_FLAGS}"
+  "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_lisp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/ForcePower.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_lisp(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/IsPowered.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/realsense_camera
@@ -80,7 +175,17 @@ add_custom_target(realsense_camera_generate_messages_lisp
 add_dependencies(realsense_camera_generate_messages realsense_camera_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/SetPower.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_lisp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/ForcePower.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_lisp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/IsPowered.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_lisp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_lisp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_lisp _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg" NAME_WE)
 add_dependencies(realsense_camera_generate_messages_lisp _realsense_camera_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -92,10 +197,40 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS realsense_camera_generate_messages_
 
 ### Section generating for lang: genpy
 ### Generating Messages
+_generate_msg_py(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/realsense_camera
+)
 
 ### Generating Services
 _generate_srv_py(realsense_camera
-  "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv"
+  "/root/catkin_ws/src/realsense_camera/srv/SetPower.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_py(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_py(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv"
+  "${MSG_I_FLAGS}"
+  "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_py(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/ForcePower.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/realsense_camera
+)
+_generate_srv_py(realsense_camera
+  "/root/catkin_ws/src/realsense_camera/srv/IsPowered.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/realsense_camera
@@ -113,7 +248,17 @@ add_custom_target(realsense_camera_generate_messages_py
 add_dependencies(realsense_camera_generate_messages realsense_camera_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/cameraConfiguration.srv" NAME_WE)
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/SetPower.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_py _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/ForcePower.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_py _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/IsPowered.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_py _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/CameraConfiguration.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_py _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/srv/GetIMUInfo.srv" NAME_WE)
+add_dependencies(realsense_camera_generate_messages_py _realsense_camera_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/catkin_ws/src/realsense_camera/msg/IMUInfo.msg" NAME_WE)
 add_dependencies(realsense_camera_generate_messages_py _realsense_camera_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

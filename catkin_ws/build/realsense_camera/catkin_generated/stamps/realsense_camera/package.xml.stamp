@@ -1,37 +1,48 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>catkin</name>
-  <version>0.6.18</version>
-  <description>Low-level build system macros and infrastructure for ROS.</description>
-  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
-  <license>BSD</license>
+  <name>realsense_camera</name>
+  <version>1.7.2</version>
+  <description>RealSense Camera package allowing access to Intel 3D cameras and advanced modules</description>
 
-  <url type="website">http://www.ros.org/wiki/catkin</url>
-  <url type="bugtracker">https://github.com/ros/catkin/issues</url>
-  <url type="repository">https://github.com/ros/catkin</url>
+  <maintainer email="matthew.c.curfman@intel.com">Matt Curfman</maintainer>
 
-  <author>Troy Straszheim</author>
-  <author>Morten Kjaergaard</author>
-  <author>Brian Gerkey</author>
-  <author>Dirk Thomas</author>
+  <license>BSD 3-clause. See license attached</license>
 
-  <buildtool_depend>cmake</buildtool_depend>
-  <buildtool_export_depend>cmake</buildtool_export_depend>
+  <url type="website">http://www.ros.org/wiki/RealSense</url>
+  <url type="bugtracker">https://github.com/intel-ros/realsense/issues</url>
 
-  <depend>python-argparse</depend>
-  <depend version_gt="0.2.9">python-catkin-pkg</depend>
+  <author email="rajvi.jingar@intel.com">Rajvi Jingar</author>
+  <author email="reagan.lopez@intel.com">Reagan Lopez</author>
+  <author email="matthew.k.hansen@intel.com">Matt Hansen</author>
+  <author email="mark.d.horn@intel.com">Mark Horn</author>
 
-  <build_depend>python-empy</build_depend>
+  <buildtool_depend>catkin</buildtool_depend>
 
-  <build_export_depend>gtest</build_export_depend>
-  <build_export_depend>python-empy</build_export_depend>
-  <build_export_depend>python-nose</build_export_depend>
+  <build_export_depend>message_runtime</build_export_depend>
 
-  <test_depend>python-mock</test_depend>
-  <test_depend>python-nose</test_depend>
+  <depend>roscpp</depend>
+  <depend>rostest</depend>
+  <depend>nodelet</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>camera_info_manager</depend>
+  <depend>tf</depend>
+  <depend>message_generation</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>pcl_ros</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>boost</depend>
+
+  <exec_depend>rgbd_launch</exec_depend>
+
+  <!-- <build_depend version_gte="1.11.0">librealsense</build_depend>
+  <build_export_depend>librealsense</build_export_depend>
+  <exec_depend>librealsense</exec_depend> -->
+
+  <!-- <build_depend>roslint</build_depend> -->
 
   <export>
-    <rosdoc config="rosdoc.yaml"/>
-    <architecture_independent/>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
   </export>
 </package>

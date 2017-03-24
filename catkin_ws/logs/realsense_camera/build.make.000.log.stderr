@@ -1,14 +1,10 @@
-c++: internal compiler error: Killed (program cc1plus)
-Please submit a full bug report,
-with preprocessed source if appropriate.
-See <file:///usr/share/doc/gcc-4.8/README.Bugs> for instructions.
-make[2]: *** [CMakeFiles/realsense_camera_nodelet.dir/src/realsense_camera_nodelet.cpp.o] Error 4
+virtual memory exhausted:virtual memory exhausted C:annot allocate memory 
+Cannot allocate memory
+virtual memory exhausted: Cannot allocate memory
+make[2]: *** [CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o] Error 1
+make[2]: *** [CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o] Error 1
 make[1]: *** [CMakeFiles/realsense_camera_nodelet.dir/all] Error 2
 make[1]: *** Waiting for unfinished jobs....
-c++: internal compiler error: Killed (program cc1plus)
-Please submit a full bug report,
-with preprocessed source if appropriate.
-See <file:///usr/share/doc/gcc-4.8/README.Bugs> for instructions.
-make[2]: *** [CMakeFiles/realsense_camera_test.dir/test/realsense_camera_test_node.cpp.o] Error 4
-make[1]: *** [CMakeFiles/realsense_camera_test.dir/all] Error 2
 make: *** [all] Error 2

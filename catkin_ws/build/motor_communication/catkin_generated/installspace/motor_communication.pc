@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/install
-
-Name: motor_communication
-Description: Description of motor_communication
-Version: 0.0.0
-Cflags: -I/root/catkin_ws/install/include
-Libs: -L/root/catkin_ws/install/lib -lmotor_communication
-Requires: geometry_msgs serial std_msgs
