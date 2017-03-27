@@ -33,7 +33,7 @@ Not searching for unused variables given on the command line.
 [36m--[0m catkin 0.6.18
 [36m--[0m Found PkgConfig: /usr/bin/pkg-config (found version "0.26")
 [36m--[0m checking for module 'libavcodec'
-[36m--[0m   found libavcodec, version 54.35.1
+[36m--[0m   found libavcodec, version 54.35.0
 [36m--[0m checking for module 'libswscale'
 [36m--[0m   found libswscale, version 2.1.1
 [36m--[0m Configuring done

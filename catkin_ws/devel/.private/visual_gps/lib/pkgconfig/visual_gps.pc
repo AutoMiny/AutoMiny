@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/devel/.private/visual_gps
-
-Name: visual_gps
-Description: Description of visual_gps
-Version: 0.0.0
-Cflags: -I/root/catkin_ws/devel/.private/visual_gps/include
-Libs: -L/root/catkin_ws/devel/.private/visual_gps/lib 
-Requires: std_msgs geometry_msgs message_runtime

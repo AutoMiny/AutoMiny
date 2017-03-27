@@ -1,9 +1,0 @@
-<launch>
-    <include file="$(find realsense_camera)/launch/realsense_sr300.launch"/>
-    <include file="$(find line_detection_fu)/launch/line_detection_fu.launch"/>
-    <include file="$(find control)/launch/control.launch"/>
-    <include file="$(find send_steering_light)/launch/servo_light_odroid.launch"/>
-    <include file="$(find motor_communication)/launch/motor_odroid.launch"/>
-    <!--include file="$(find web_video_server)/launch/web_video_server.launch"/-->
-</launch>
-

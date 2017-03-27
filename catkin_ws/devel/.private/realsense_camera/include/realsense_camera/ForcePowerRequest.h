@@ -159,7 +159,7 @@ namespace serialization
       stream.next(m.power_on);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER
+    ROS_DECLARE_ALLINONE_SERIALIZER;
   }; // struct ForcePowerRequest_
 
 } // namespace serialization

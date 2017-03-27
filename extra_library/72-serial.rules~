@@ -1,0 +1,8 @@
+# Lidar Serial
+KERNEL=="ttyUSB*", KERNELS=="ttyUSB*", DRIVERS=="cp210x", SYMLINK+="ttyLidar"
+
+# Arduino Serial
+KERNEL=="ttyUSB*", KERNELS=="ttyUSB*", DRIVERS=="ftdi_sio", SYMLINK+="ttyArduino"
+#KERNEL=="ttyUSB*", KERNELS=="ttyUSB*", DRIVERS=="ch341-uart", SYMLINK+="ttyArduino"
+
+

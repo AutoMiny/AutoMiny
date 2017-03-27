@@ -1,33 +1,33 @@
+[35m[1mScanning dependencies of target _cmvision_generate_messages_check_deps_Blobs
+[0m[  0%] Built target _cmvision_generate_messages_check_deps_Blobs
 [35m[1mScanning dependencies of target _cmvision_generate_messages_check_deps_Blob
 [0m[  0%] Built target _cmvision_generate_messages_check_deps_Blob
-[35m[1mScanning dependencies of target _cmvision_generate_messages_check_deps_Blobs
 [35m[1mScanning dependencies of target std_msgs_generate_messages_cpp
-[0m[0m[  0%] Built target std_msgs_generate_messages_cpp
+[0m[  0%] Built target std_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp
+[0m[  0%] Built target std_msgs_generate_messages_lisp
 [35m[1mScanning dependencies of target std_msgs_generate_messages_py
 [0m[  0%] Built target std_msgs_generate_messages_py
-[  0%] Built target _cmvision_generate_messages_check_deps_Blobs
-[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp
-[0m[35m[1mScanning dependencies of target cmvision_generate_messages_cpp
-[0m[  0%] Built target std_msgs_generate_messages_lisp
-[  9%] [35m[1mScanning dependencies of target cmvision_generate_messages_py
-[34m[1mGenerating C++ code from cmvision/Blob.msg
-[0m[0m[ 18%] [34m[1mGenerating Python from MSG cmvision/Blob
-[0m[ 27%] [34m[1mGenerating Python from MSG cmvision/Blobs
-[0m[ 36%] [34m[1mGenerating Python msg __init__.py for cmvision
-[0m[ 45%] [34m[1mGenerating C++ code from cmvision/Blobs.msg
-[0m[ 45%] Built target cmvision_generate_messages_py
+[35m[1mScanning dependencies of target cmvision_generate_messages_cpp
+[0m[  9%] [34m[1mGenerating C++ code from cmvision/Blob.msg
+[0m[ 18%] [34m[1mGenerating C++ code from cmvision/Blobs.msg
+[0m[ 18%] Built target cmvision_generate_messages_cpp
 [35m[1mScanning dependencies of target cmvision_generate_messages_lisp
-[0m[ 54%] [34m[1mGenerating Lisp code from cmvision/Blob.msg
-[0m[ 63%] [34m[1mGenerating Lisp code from cmvision/Blobs.msg
-[0m[ 63%] Built target cmvision_generate_messages_cpp
+[0m[ 27%] [34m[1mGenerating Lisp code from cmvision/Blob.msg
+[0m[ 36%] [34m[1mGenerating Lisp code from cmvision/Blobs.msg
+[0m[ 36%] Built target cmvision_generate_messages_lisp
+[35m[1mScanning dependencies of target cmvision_generate_messages_py
+[0m[ 45%] [34m[1mGenerating Python from MSG cmvision/Blob
+[0m[ 54%] [34m[1mGenerating Python from MSG cmvision/Blobs
+[0m[ 63%] [34m[1mGenerating Python msg __init__.py for cmvision
+[0m[ 63%] Built target cmvision_generate_messages_py
 [35m[1mScanning dependencies of target cmvision_gencpp
 [0m[ 63%] Built target cmvision_gencpp
-[ 63%] Built target cmvision_generate_messages_lisp
-[35m[1mScanning dependencies of target cmvision
 [35m[1mScanning dependencies of target cmvision_generate_messages
 [0m[ 63%] Built target cmvision_generate_messages
-[0m[ 72%] [ 81%] [32mBuilding CXX object CMakeFiles/cmvision.dir/src/cmvision.cc.o
-[0m[32mBuilding C object CMakeFiles/cmvision.dir/src/conversions.c.o
+[35m[1mScanning dependencies of target cmvision
+[0m[ 72%] [32mBuilding CXX object CMakeFiles/cmvision.dir/src/cmvision.cc.o
+[0m[ 81%] [32mBuilding C object CMakeFiles/cmvision.dir/src/conversions.c.o
 [0m[ 90%] [32mBuilding CXX object CMakeFiles/cmvision.dir/src/cmvision_color_blob_finder.cpp.o
 [0m[100%] [32mBuilding CXX object CMakeFiles/cmvision.dir/src/main.cpp.o
 [0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/cmvision/lib/cmvision/cmvision

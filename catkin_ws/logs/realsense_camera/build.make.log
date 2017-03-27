@@ -1,59 +1,162 @@
+[35m[1mScanning dependencies of target realsense_camera_gencfg
+[0m[  3%] [34m[1mGenerating dynamic reconfigure files from cfg/r200_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/r200_paramsConfig.py
+[0mGenerating reconfiguration files for r200_params in realsense_camera
+Wrote header file in /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/r200_paramsConfig.h
+[  6%] [34m[1mGenerating dynamic reconfigure files from cfg/f200_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/f200_paramsConfig.py
+[0mGenerating reconfiguration files for f200_params in realsense_camera
+Wrote header file in /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/f200_paramsConfig.h
+[  9%] [34m[1mGenerating dynamic reconfigure files from cfg/sr300_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/sr300_paramsConfig.py
+[0mGenerating reconfiguration files for sr300_params in realsense_camera
+Wrote header file in /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/sr300_paramsConfig.h
+[ 12%] [34m[1mGenerating dynamic reconfigure files from cfg/zr300_params.cfg: /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h /root/catkin_ws/devel/.private/realsense_camera/lib/python2.7/dist-packages/realsense_camera/cfg/zr300_paramsConfig.py
+[0mGenerating reconfiguration files for zr300_params in realsense_camera
+Wrote header file in /root/catkin_ws/devel/.private/realsense_camera/include/realsense_camera/zr300_paramsConfig.h
 [ 12%] Built target realsense_camera_gencfg
-[ 12%] Built target _realsense_camera_generate_messages_check_deps_SetPower
-[ 12%] Built target _realsense_camera_generate_messages_check_deps_CameraConfiguration
-[ 12%] Built target std_msgs_generate_messages_py
-[ 12%] Built target _realsense_camera_generate_messages_check_deps_GetIMUInfo
-[ 12%] Built target _realsense_camera_generate_messages_check_deps_ForcePower
-[ 12%] Built target _realsense_camera_generate_messages_check_deps_IMUInfo
-[ 12%] Built target _realsense_camera_generate_messages_check_deps_IsPowered
-[ 12%] Built target std_msgs_generate_messages_lisp
-[ 12%] Built target std_msgs_generate_messages_cpp
-[ 12%] Built target topic_tools_generate_messages_cpp
-[ 12%] Built target rosgraph_msgs_generate_messages_py
-[ 12%] Built target roscpp_generate_messages_py
-[ 12%] Built target roscpp_generate_messages_cpp
-[ 12%] Built target dynamic_reconfigure_generate_messages_cpp
-[ 12%] Built target dynamic_reconfigure_generate_messages_lisp
-[ 12%] Built target dynamic_reconfigure_generate_messages_py
-[ 12%] Built target dynamic_reconfigure_gencfg
-[ 12%] Built target sensor_msgs_generate_messages_py
-[ 12%] Built target tf_generate_messages_py
-[ 12%] Built target nodelet_generate_messages_cpp
-[ 12%] Built target nodelet_generate_messages_lisp
-[ 12%] Built target sensor_msgs_generate_messages_cpp
-[ 12%] Built target roscpp_generate_messages_lisp
-[ 12%] [ 12%] Built target tf_generate_messages_cpp
-Built target bond_generate_messages_lisp
-[ 12%] [ 12%] Built target bond_generate_messages_cpp
-Built target bond_generate_messages_py
-[ 12%] [ 12%] Built target rosgraph_msgs_generate_messages_lisp
-Built target rosgraph_msgs_generate_messages_cpp
-[ 12%] Built target nodelet_generate_messages_py
-[ 12%] Built target tf_generate_messages_lisp
-[ 12%] Built target pcl_ros_gencfg
-[ 12%] Built target pcl_msgs_generate_messages_cpp
-[ 12%] Built target geometry_msgs_generate_messages_cpp
-[ 12%] Built target geometry_msgs_generate_messages_lisp
-[ 12%] Built target geometry_msgs_generate_messages_py
-[ 12%] Built target topic_tools_generate_messages_lisp
-[ 12%] Built target actionlib_msgs_generate_messages_cpp
-[ 12%] Built target actionlib_msgs_generate_messages_lisp
-[ 12%] [ 12%] Built target actionlib_msgs_generate_messages_py
-Built target tf2_msgs_generate_messages_py
-[ 12%] [ 12%] Built target actionlib_generate_messages_cpp
-Built target actionlib_generate_messages_lisp
-[ 12%] Built target actionlib_generate_messages_py
-[ 12%] Built target pcl_msgs_generate_messages_lisp
-[ 12%] Built target sensor_msgs_generate_messages_lisp
-[ 12%] Built target pcl_msgs_generate_messages_py
-[ 12%] [ 12%] Built target topic_tools_generate_messages_py
-Built target tf2_msgs_generate_messages_cpp
-[ 12%] [ 15%] Built target tf2_msgs_generate_messages_lisp
-Built target gtest
-[ 46%] [ 59%] Built target realsense_camera_generate_messages_py
-Built target realsense_camera_generate_messages_lisp
-[ 78%] Built target realsense_camera_generate_messages_cpp
-[ 78%] Built target realsense_camera_generate_messages
-[ 93%] Built target realsense_camera_nodelet
-[ 96%] Built target tests_camera_core
-[100%] Built target tests_rgbd_topics
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_SetPower
+[0m[ 12%] Built target _realsense_camera_generate_messages_check_deps_SetPower
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_IsPowered
+[0m[ 12%] Built target _realsense_camera_generate_messages_check_deps_IsPowered
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_GetIMUInfo
+[0m[ 12%] Built target _realsense_camera_generate_messages_check_deps_GetIMUInfo
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_CameraConfiguration
+[0m[ 12%] Built target _realsense_camera_generate_messages_check_deps_CameraConfiguration
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_ForcePower
+[0m[ 12%] Built target _realsense_camera_generate_messages_check_deps_ForcePower
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp
+[0m[ 12%] Built target std_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target _realsense_camera_generate_messages_check_deps_IMUInfo
+[0m[ 12%] Built target _realsense_camera_generate_messages_check_deps_IMUInfo
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp
+[0m[ 12%] Built target std_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py
+[0m[ 12%] Built target std_msgs_generate_messages_py
+[35m[1mScanning dependencies of target pcl_msgs_generate_messages_lisp
+[0m[ 12%] Built target pcl_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target nodelet_generate_messages_cpp
+[0m[ 12%] Built target nodelet_generate_messages_cpp
+[35m[1mScanning dependencies of target nodelet_generate_messages_py
+[0m[ 12%] Built target nodelet_generate_messages_py
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_lisp
+[0m[ 12%] Built target rosgraph_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_cpp
+[0m[ 12%] Built target sensor_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target dynamic_reconfigure_gencfg
+[0m[ 12%] Built target dynamic_reconfigure_gencfg
+[35m[1mScanning dependencies of target roscpp_generate_messages_lisp
+[0m[ 12%] Built target roscpp_generate_messages_lisp
+[35m[1mScanning dependencies of target bond_generate_messages_cpp
+[0m[ 12%] Built target bond_generate_messages_cpp
+[35m[1mScanning dependencies of target bond_generate_messages_lisp
+[0m[ 12%] Built target bond_generate_messages_lisp
+[35m[1mScanning dependencies of target bond_generate_messages_py
+[0m[ 12%] Built target bond_generate_messages_py
+[35m[1mScanning dependencies of target tf_generate_messages_lisp
+[0m[ 12%] Built target tf_generate_messages_lisp
+[35m[1mScanning dependencies of target pcl_msgs_generate_messages_py
+[0m[ 12%] Built target pcl_msgs_generate_messages_py
+[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_cpp
+[0m[ 12%] Built target dynamic_reconfigure_generate_messages_cpp
+[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_lisp
+[0m[ 12%] Built target dynamic_reconfigure_generate_messages_lisp
+[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_py
+[0m[ 12%] Built target dynamic_reconfigure_generate_messages_py
+[35m[1mScanning dependencies of target tf_generate_messages_py
+[0m[ 12%] Built target tf_generate_messages_py
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_lisp
+[0m[ 12%] Built target sensor_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target roscpp_generate_messages_py
+[0m[ 12%] Built target roscpp_generate_messages_py
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_cpp
+[0m[ 12%] Built target rosgraph_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target nodelet_generate_messages_lisp
+[0m[ 12%] Built target nodelet_generate_messages_lisp
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_py
+[0m[ 12%] Built target sensor_msgs_generate_messages_py
+[35m[1mScanning dependencies of target tf_generate_messages_cpp
+[0m[ 12%] Built target tf_generate_messages_cpp
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp
+[0m[ 12%] Built target geometry_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_lisp
+[0m[ 12%] Built target geometry_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_py
+[0m[ 12%] Built target geometry_msgs_generate_messages_py
+[35m[1mScanning dependencies of target topic_tools_generate_messages_py
+[0m[ 12%] Built target topic_tools_generate_messages_py
+[35m[1mScanning dependencies of target actionlib_generate_messages_lisp
+[0m[ 12%] Built target actionlib_generate_messages_lisp
+[35m[1mScanning dependencies of target actionlib_generate_messages_py
+[0m[ 12%] Built target actionlib_generate_messages_py
+[35m[1mScanning dependencies of target topic_tools_generate_messages_cpp
+[0m[ 12%] Built target topic_tools_generate_messages_cpp
+[35m[1mScanning dependencies of target actionlib_generate_messages_cpp
+[0m[ 12%] Built target actionlib_generate_messages_cpp
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_lisp
+[0m[ 12%] Built target tf2_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_py
+[0m[ 12%] Built target tf2_msgs_generate_messages_py
+[35m[1mScanning dependencies of target pcl_ros_gencfg
+[0m[ 12%] Built target pcl_ros_gencfg
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_cpp
+[0m[ 12%] Built target actionlib_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target topic_tools_generate_messages_lisp
+[0m[ 12%] Built target topic_tools_generate_messages_lisp
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_py
+[0m[ 12%] Built target rosgraph_msgs_generate_messages_py
+[35m[1mScanning dependencies of target roscpp_generate_messages_cpp
+[0m[ 12%] Built target roscpp_generate_messages_cpp
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_lisp
+[0m[ 12%] Built target actionlib_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_py
+[0m[ 12%] Built target actionlib_msgs_generate_messages_py
+[35m[1mScanning dependencies of target pcl_msgs_generate_messages_cpp
+[0m[ 12%] Built target pcl_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_cpp
+[0m[ 12%] Built target tf2_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target gtest
+[0m[ 15%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[0m[31m[1mLinking CXX shared library libgtest.so
+[0m[ 15%] Built target gtest
+[35m[1mScanning dependencies of target realsense_camera_generate_messages_lisp
+[0m[ 18%] [34m[1mGenerating Lisp code from realsense_camera/IMUInfo.msg
+[0m[ 21%] [34m[1mGenerating Lisp code from realsense_camera/SetPower.srv
+[0m[ 25%] [34m[1mGenerating Lisp code from realsense_camera/CameraConfiguration.srv
+[0m[ 28%] [34m[1mGenerating Lisp code from realsense_camera/GetIMUInfo.srv
+[0m[ 31%] [34m[1mGenerating Lisp code from realsense_camera/ForcePower.srv
+[0m[ 34%] [34m[1mGenerating Lisp code from realsense_camera/IsPowered.srv
+[0m[ 34%] Built target realsense_camera_generate_messages_lisp
+[35m[1mScanning dependencies of target realsense_camera_generate_messages_cpp
+[0m[ 37%] [34m[1mGenerating C++ code from realsense_camera/IMUInfo.msg
+[0m[ 40%] [34m[1mGenerating C++ code from realsense_camera/SetPower.srv
+[0m[ 43%] [34m[1mGenerating C++ code from realsense_camera/CameraConfiguration.srv
+[0m[ 46%] [34m[1mGenerating C++ code from realsense_camera/GetIMUInfo.srv
+[0m[ 50%] [34m[1mGenerating C++ code from realsense_camera/ForcePower.srv
+[0m[ 53%] [34m[1mGenerating C++ code from realsense_camera/IsPowered.srv
+[0m[ 53%] Built target realsense_camera_generate_messages_cpp
+[35m[1mScanning dependencies of target realsense_camera_generate_messages_py
+[0m[ 56%] [34m[1mGenerating Python from MSG realsense_camera/IMUInfo
+[0m[ 59%] [34m[1mGenerating Python code from SRV realsense_camera/SetPower
+[0m[ 62%] [34m[1mGenerating Python code from SRV realsense_camera/CameraConfiguration
+[0m[ 65%] [34m[1mGenerating Python code from SRV realsense_camera/GetIMUInfo
+[0m[ 68%] [34m[1mGenerating Python code from SRV realsense_camera/ForcePower
+[0m[ 71%] [34m[1mGenerating Python code from SRV realsense_camera/IsPowered
+[0m[ 75%] [34m[1mGenerating Python msg __init__.py for realsense_camera
+[0m[ 78%] [34m[1mGenerating Python srv __init__.py for realsense_camera
+[0m[ 78%] Built target realsense_camera_generate_messages_py
+[35m[1mScanning dependencies of target realsense_camera_nodelet
+[0m[ 81%] [32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/base_nodelet.cpp.o
+[0m[ 84%] [32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/r200_nodelet.cpp.o
+[0m[35m[1mScanning dependencies of target tests_camera_core
+[0m[ 87%] [32mBuilding CXX object CMakeFiles/tests_camera_core.dir/test/camera_core.cpp.o
+[0m[ 90%] [32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/f200_nodelet.cpp.o
+[0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/realsense_camera/lib/realsense_camera/tests_camera_core
+[0m[ 90%] Built target tests_camera_core
+[ 93%] [32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/sr300_nodelet.cpp.o
+[0m[35m[1mScanning dependencies of target tests_rgbd_topics
+[0m[ 96%] [32mBuilding CXX object CMakeFiles/tests_rgbd_topics.dir/test/rgbd_topics.cpp.o
+[0m[100%] [32mBuilding CXX object CMakeFiles/realsense_camera_nodelet.dir/src/zr300_nodelet.cpp.o
+[0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/realsense_camera/lib/realsense_camera/tests_rgbd_topics
+[0m[100%] Built target tests_rgbd_topics
+[35m[1mScanning dependencies of target realsense_camera_generate_messages
+[0m[100%] Built target realsense_camera_generate_messages
+[31m[1mLinking CXX shared library /root/catkin_ws/devel/.private/realsense_camera/lib/librealsense_camera_nodelet.so
+[0m[100%] Built target realsense_camera_nodelet

@@ -154,7 +154,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream&, T)
     {}
 
-    ROS_DECLARE_ALLINONE_SERIALIZER
+    ROS_DECLARE_ALLINONE_SERIALIZER;
   }; // struct ForcePowerResponse_
 
 } // namespace serialization

@@ -195,7 +195,7 @@ namespace serialization
       stream.next(m.gyro);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER
+    ROS_DECLARE_ALLINONE_SERIALIZER;
   }; // struct GetIMUInfoResponse_
 
 } // namespace serialization

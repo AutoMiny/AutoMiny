@@ -160,7 +160,7 @@ namespace serialization
       stream.next(m.configuration_str);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER
+    ROS_DECLARE_ALLINONE_SERIALIZER;
   }; // struct CameraConfigurationResponse_
 
 } // namespace serialization

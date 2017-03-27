@@ -1,4 +1,4 @@
+Symlinking /root/catkin_ws/devel/share/odometry/cmake/odometryConfig-version.cmake
+Symlinking /root/catkin_ws/devel/share/odometry/cmake/odometryConfig.cmake
 Symlinking /root/catkin_ws/devel/lib/odometry/odometry_publisher
 Symlinking /root/catkin_ws/devel/lib/pkgconfig/odometry.pc
-Symlinking /root/catkin_ws/devel/share/odometry/cmake/odometryConfig.cmake
-Symlinking /root/catkin_ws/devel/share/odometry/cmake/odometryConfig-version.cmake

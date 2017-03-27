@@ -1,7 +1,3 @@
-# model_car
+# model_car version 3
 
-catkin_ws
-    scp -r catkin_ws root@192.168.1.199:./
-GlFW
-
-librealsense
+./copy.sh

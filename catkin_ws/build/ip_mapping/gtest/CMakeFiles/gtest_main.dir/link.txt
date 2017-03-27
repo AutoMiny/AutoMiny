@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC   -Wno-deprecated    -shared -Wl,-soname,libgtest_main.so -o libgtest_main.so CMakeFiles/gtest_main.dir/src/gtest_main.cc.o  -L/root/catkin_ws/build/ip_mapping/gtest/src -lpthread libgtest.so -lpthread -Wl,-rpath,/root/catkin_ws/build/ip_mapping/gtest/src:/root/catkin_ws/build/ip_mapping/gtest 

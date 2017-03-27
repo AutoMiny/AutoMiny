@@ -49,10 +49,6 @@ class_loader/class_loader_register_macro.h
 /opt/ros/indigo/include/class_loader/class_loader/class_loader_register_macro.h
 class_loader/class_loader_core.h
 /opt/ros/indigo/include/class_loader/class_loader/class_loader_core.h
-memory
--
-functional
--
 
 /opt/ros/indigo/include/class_loader/class_loader_core.h
 Poco/SharedLibrary.h

@@ -1,7 +1,0 @@
-ipch/
-packages/
-*/obj/
-*.opendb
-*.sdf
-*.suo
-*.user

@@ -1,5 +1,5 @@
 <launch>
-<remap from="usb_cam/image_raw" to="app/camera/rgb/image_raw" /> 
+<!--remap from="usb_cam/image_raw" to="app/camera/rgb/image_raw" /--> 
  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/usb_cam" />
     <param name="image_width" value="1280" />

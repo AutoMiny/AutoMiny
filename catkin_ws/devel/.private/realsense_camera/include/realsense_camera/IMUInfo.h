@@ -210,7 +210,7 @@ namespace serialization
       stream.next(m.bias_variances);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER
+    ROS_DECLARE_ALLINONE_SERIALIZER;
   }; // struct IMUInfo_
 
 } // namespace serialization
