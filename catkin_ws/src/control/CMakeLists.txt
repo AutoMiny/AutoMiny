@@ -5,7 +5,7 @@ project(control)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED roscpp std_msgs)
+find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
 
 
 ## System dependencies are found with CMake's conventions
@@ -61,7 +61,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 ## Include headers
-include_directories(
+include_directories(${catkin_INCLUDE_DIRS}
 )
 
 
