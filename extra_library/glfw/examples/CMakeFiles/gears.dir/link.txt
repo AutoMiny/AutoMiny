@@ -1,1 +1,0 @@
-/usr/bin/cc      CMakeFiles/gears.dir/gears.c.o  -o gears -rdynamic ../src/libglfw.so.3.1 -lGL -lm -lrt -lm -lX11 -lpthread -lXrandr -lXinerama -lXi -lXxf86vm -lXcursor -lGL -ldl -Wl,-rpath,/root/glfw/src 

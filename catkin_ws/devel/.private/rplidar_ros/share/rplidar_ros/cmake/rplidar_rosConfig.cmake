@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /root/catkin_ws/devel/.private/rplidar_ros/lib;/root/catkin_ws/devel/lib;/opt/ros/indigo/lib)
+    foreach(path /root/catkin_ws/devel/.private/rplidar_ros/lib;/root/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -162,12 +162,12 @@ foreach(depend ${depends})
   if(${count} EQUAL 1)
     # simple dependencies must only be find_package()-ed once
     if(NOT ${rplidar_ros_dep}_FOUND)
-      find_package(${rplidar_ros_dep} REQUIRED)
+      find_package(${rplidar_ros_dep} REQUIRED NO_MODULE)
     endif()
   else()
     # dependencies with components must be find_package()-ed again
     list(REMOVE_AT depend_list 0)
-    find_package(${rplidar_ros_dep} REQUIRED ${depend_list})
+    find_package(${rplidar_ros_dep} REQUIRED NO_MODULE ${depend_list})
   endif()
   _list_append_unique(rplidar_ros_INCLUDE_DIRS ${${rplidar_ros_dep}_INCLUDE_DIRS})
 

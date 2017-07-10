@@ -1,1 +1,1 @@
-/usr/bin/c++       CMakeFiles/serial_example.dir/examples/serial_otto.cc.o  -o /root/catkin_ws/devel/.private/serial/lib/serial/serial_example -rdynamic /root/catkin_ws/devel/.private/serial/lib/libserial.so -lrt -lpthread -Wl,-rpath,/root/catkin_ws/devel/.private/serial/lib 
+/usr/bin/c++      CMakeFiles/serial_example.dir/examples/serial_otto.cc.o  -o /root/catkin_ws/devel/.private/serial/lib/serial/serial_example -rdynamic /root/catkin_ws/devel/.private/serial/lib/libserial.so -lrt -lpthread -Wl,-rpath,/root/catkin_ws/devel/.private/serial/lib 

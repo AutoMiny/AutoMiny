@@ -1,8 +1,1 @@
-prefix=/root/catkin_ws/devel/.private/random_movement
-
-Name: random_movement
-Description: Description of random_movement
-Version: 0.0.0
-Cflags: 
-Libs: -L/root/catkin_ws/devel/.private/random_movement/lib -lrandom_movement
-Requires: std_msgs sensor_msgs geometry_msgs
+/root/catkin_ws/devel/.private/random_movement/lib/pkgconfig/random_movement.pc

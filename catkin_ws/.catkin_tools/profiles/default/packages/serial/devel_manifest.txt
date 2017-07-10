@@ -1,6 +1,6 @@
 serial
-/root/catkin_ws/devel/.private/serial/share/serial/cmake/serialConfig.cmake /root/catkin_ws/devel/share/serial/cmake/serialConfig.cmake
 /root/catkin_ws/devel/.private/serial/share/serial/cmake/serialConfig-version.cmake /root/catkin_ws/devel/share/serial/cmake/serialConfig-version.cmake
+/root/catkin_ws/devel/.private/serial/share/serial/cmake/serialConfig.cmake /root/catkin_ws/devel/share/serial/cmake/serialConfig.cmake
 /root/catkin_ws/devel/.private/serial/lib/libserial.so /root/catkin_ws/devel/lib/libserial.so
-/root/catkin_ws/devel/.private/serial/lib/serial/serial_example /root/catkin_ws/devel/lib/serial/serial_example
 /root/catkin_ws/devel/.private/serial/lib/pkgconfig/serial.pc /root/catkin_ws/devel/lib/pkgconfig/serial.pc
+/root/catkin_ws/devel/.private/serial/lib/serial/serial_example /root/catkin_ws/devel/lib/serial/serial_example

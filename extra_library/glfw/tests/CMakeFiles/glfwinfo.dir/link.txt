@@ -1,1 +1,0 @@
-/usr/bin/cc      CMakeFiles/glfwinfo.dir/glfwinfo.c.o CMakeFiles/glfwinfo.dir/__/deps/getopt.c.o  -o glfwinfo -rdynamic ../src/libglfw.so.3.1 -lGL -lm -lrt -lm -lX11 -lpthread -lXrandr -lXinerama -lXi -lXxf86vm -lXcursor -lGL -ldl -Wl,-rpath,/root/glfw/src 

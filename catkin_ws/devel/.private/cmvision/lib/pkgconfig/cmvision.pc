@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/devel/.private/cmvision
-
-Name: cmvision
-Description: Description of cmvision
-Version: 0.4.2
-Cflags: -I/root/catkin_ws/devel/.private/cmvision/include
-Libs: -L/root/catkin_ws/devel/.private/cmvision/lib 
-Requires: message_runtime std_msgs

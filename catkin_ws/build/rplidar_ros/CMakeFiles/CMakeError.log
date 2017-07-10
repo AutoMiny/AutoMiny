@@ -1,22 +1,23 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec961226930/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec961226930.dir/build.make CMakeFiles/cmTryCompileExec961226930.dir/build
-make[1]: Entering directory `/root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec961226930.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec961226930.dir/CheckSymbolExists.c.o   -c /root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTryCompileExec961226930
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec961226930.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec961226930.dir/CheckSymbolExists.c.o  -o cmTryCompileExec961226930 -rdynamic 
-CMakeFiles/cmTryCompileExec961226930.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_ec000/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ec000.dir/build.make CMakeFiles/cmTC_ec000.dir/build
+make[1]: Entering directory '/root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ec000.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_ec000.dir/CheckSymbolExists.c.o   -c /root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ec000
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec000.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_ec000.dir/CheckSymbolExists.c.o  -o cmTC_ec000 -rdynamic 
+CMakeFiles/cmTC_ec000.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
 CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec961226930] Error 1
-make[1]: Leaving directory `/root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec961226930/fast] Error 2
+CMakeFiles/cmTC_ec000.dir/build.make:97: recipe for target 'cmTC_ec000' failed
+make[1]: *** [cmTC_ec000] Error 1
+make[1]: Leaving directory '/root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ec000/fast' failed
+make: *** [cmTC_ec000/fast] Error 2
 
 File /root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,19 +37,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec264848103/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec264848103.dir/build.make CMakeFiles/cmTryCompileExec264848103.dir/build
-make[1]: Entering directory `/root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec264848103.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec264848103.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec264848103
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec264848103.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec264848103.dir/CheckFunctionExists.c.o  -o cmTryCompileExec264848103 -rdynamic -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_25b85/fast"
+/usr/bin/make -f CMakeFiles/cmTC_25b85.dir/build.make CMakeFiles/cmTC_25b85.dir/build
+make[1]: Entering directory '/root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_25b85.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_25b85.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_25b85
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_25b85.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_25b85.dir/CheckFunctionExists.c.o  -o cmTC_25b85 -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec264848103] Error 1
-make[1]: Leaving directory `/root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec264848103/fast] Error 2
+CMakeFiles/cmTC_25b85.dir/build.make:97: recipe for target 'cmTC_25b85' failed
+make[1]: *** [cmTC_25b85] Error 1
+make[1]: Leaving directory '/root/catkin_ws/build/rplidar_ros/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_25b85/fast' failed
+make: *** [cmTC_25b85/fast] Error 2
 
 

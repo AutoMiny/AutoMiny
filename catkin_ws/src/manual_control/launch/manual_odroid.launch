@@ -1,8 +1,9 @@
 <launch>
+    <include file="$(find manual_control)/launch/sr300.launch"/>
+    <include file="$(find manual_control)/launch/fish_eye_camera.launch"/>
     <include file="$(find head_twist_revolutions)/launch/head_twist_revolutions_odroid.launch"/>
     <include file="$(find send_steering_light_speed)/launch/servo_light_odroid.launch"/>
     <include file="$(find odometry)/launch/odometry.launch"/>
-    <include file="$(find realsense_camera)/launch/sr300_nodelet_rgbd_app.launch"/>
-    <!--include file="$(find auto_stop)/launch/auto_stop.launch"/-->
+    <include file="$(find auto_stop)/launch/auto_stop.launch"/>
     <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
 </launch>

@@ -1,12 +1,12 @@
-[35m[1mScanning dependencies of target rplidarNode
-[0m[ 16%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/src/node.cpp.o
-[0m[ 33%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/timer.cpp.o
-[0m[35m[1mScanning dependencies of target rplidarNodeClient
-[0m[ 50%] [32mBuilding CXX object CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o
-[0m[ 66%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/net_serial.cpp.o
-[0m[ 83%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/hal/thread.cpp.o
-[0m[100%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/rplidar_driver.cpp.o
-[0m[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNode
-[0m[100%] Built target rplidarNode
-[31m[1mLinking CXX executable /root/catkin_ws/devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNodeClient
-[0m[100%] Built target rplidarNodeClient
+[35m[1mScanning dependencies of target rplidarNodeClient[0m
+[35m[1mScanning dependencies of target rplidarNode[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/src/node.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/net_serial.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/timer.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/hal/thread.cpp.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/rplidar_driver.cpp.o[0m
+[ 87%] [32m[1mLinking CXX executable /root/catkin_ws/devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNode[0m
+[ 87%] Built target rplidarNode
+[100%] [32m[1mLinking CXX executable /root/catkin_ws/devel/.private/rplidar_ros/lib/rplidar_ros/rplidarNodeClient[0m
+[100%] Built target rplidarNodeClient

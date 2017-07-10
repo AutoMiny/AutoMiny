@@ -1,8 +1,5 @@
-FILE(REMOVE_RECURSE
-  "CMakeFiles/_run_tests_serial_gtest"
-)
 
 # Per-language clean rules from dependency scanning.
-FOREACH(lang)
-  INCLUDE(CMakeFiles/_run_tests_serial_gtest.dir/cmake_clean_${lang}.cmake OPTIONAL)
-ENDFOREACH(lang)
+foreach(lang )
+  include(CMakeFiles/_run_tests_serial_gtest.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
