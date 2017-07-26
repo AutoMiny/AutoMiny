@@ -18,6 +18,9 @@ head_twist_revolutions::head_twist_revolutions(ros::NodeHandle nh) : nh_(nh), pr
   direction=1.0;
   init();
   last_revolutions=0.0;
+  currentTwist.linear.x=0.0;
+  currentTwist.linear.y = 0.0;
+  currentTwist.linear.z = 0.0;
   
 }
     //! Empty stub
@@ -40,9 +43,10 @@ void head_twist_revolutions::init()
 }
 void head_twist_revolutions::directionCallback(const std_msgs::Int16& msg)
 {
+	if (std::abs(currentTwist.linear.x)<10)	
 	if (msg.data<0)
 		direction=1.0;
-	else
+	else if (msg.data>0)
 		direction=-1.0;
 }
 void head_twist_revolutions::get()
@@ -73,15 +77,17 @@ void head_twist_revolutions::get()
     revolutions.data=revolutions.data/6;
     pub_revolutions_.publish(revolutions);
 
-    geometry_msgs::Twist currentTwist;
     std::stringstream ss1(time_str);
     float delta_time;
+    float raw_data;
     ss1 >> delta_time;
     if (delta_time!=0.0)
-      currentTwist.linear.x=(3.14/3)/(delta_time*0.005*0.001); //rad/second -> each tick is 0.005 ms: Arduino timer is 2Mhz , but counter divided by 10 in arduino! 6 lines per revoloution!
+      raw_data=(3.14/3)/(delta_time*0.005*0.001); //rad/second -> each tick is 0.005 ms: Arduino timer is 2Mhz , but counter divided by 10 in arduino! 6 lines per revoloution!
     else
-      currentTwist.linear.x=0.0;
+      raw_data=0.0;
 
+    float beta=0.8;
+    currentTwist.linear.x=beta*currentTwist.linear.x+(1-beta)*raw_data;
 //    if (revolutions.data-last_revolutions<0.0)
     currentTwist.linear.x=currentTwist.linear.x*direction;
     currentTwist.linear.y = 0.0;

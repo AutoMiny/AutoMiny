@@ -1,8 +1,0 @@
-[35m[1mScanning dependencies of target send_steering_light_speed[0m
-[ 25%] [32mBuilding CXX object CMakeFiles/send_steering_light_speed.dir/src/send_steering_light_speed.cpp.o[0m
-[ 50%] [32m[1mLinking CXX shared library /root/catkin_ws/devel/.private/send_steering_light_speed/lib/libsend_steering_light_speed.so[0m
-[ 50%] Built target send_steering_light_speed
-[35m[1mScanning dependencies of target send_steering_light_speed_node[0m
-[ 75%] [32mBuilding CXX object CMakeFiles/send_steering_light_speed_node.dir/src/send_steering_light_speed_node.cpp.o[0m
-[100%] [32m[1mLinking CXX executable /root/catkin_ws/devel/.private/send_steering_light_speed/lib/send_steering_light_speed/send_steering_light_speed_node[0m
-[100%] Built target send_steering_light_speed_node

@@ -23,6 +23,8 @@ class head_twist_revolutions
     serial::Serial my_serial;
     float last_revolutions;
     float direction;
+    geometry_msgs::Twist currentTwist;
+
 
   public:
     

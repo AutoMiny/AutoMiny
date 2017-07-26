@@ -27,19 +27,18 @@ void headingCallback(const std_msgs::Float32& msg)
   if (init==false)
   {
     init=true;
-    head=msg.data* (3.14/180.0); //rad
+    head=msg.data* (-3.14/180.0); //rad
     initial_head=head;
     vth=0.0;
     current_time_twist = ros::Time::now();
     last_time_twist=current_time_twist;
-    th=msg.data* (3.14/180.0);
   }
   else
   {
     // last_time_twist=current_time_twist;
     // current_time_twist = ros::Time::now();
     //last_head=head;
-    head=msg.data* (3.14/180.0); //rad
+    head=msg.data* (-3.14/180.0); //rad
     // double dt_twist = (current_time_twist - last_time_twist).toSec();
     double delta_head=head-initial_head;
     if (delta_head>3.14)
@@ -59,7 +58,7 @@ int main(int argc, char** argv){
   ros::NodeHandle n;
   ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
 
-  ros::Subscriber twist_sub = n.subscribe( "motor_control/twist", 10, twistCallback);
+  ros::Subscriber twist_sub = n.subscribe( "model_car/twist", 10, twistCallback);
   ros::Subscriber theta_sub = n.subscribe( "model_car/yaw", 10, headingCallback);//degree
 
   tf::TransformBroadcaster odom_broadcaster;

@@ -46,7 +46,7 @@ void send_steering_light_speed::run(int steering,int speed,std::string light_str
 {
   	try
     {
-      std::string steering_string = std::to_string(steering);
+      std::string steering_string = std::to_string(180-steering);
       std::string speed_string = std::to_string(speed);
 	    string test_string="S"+steering_string +"L"+light_string+"M"+speed_string+"\r";
       //ROS_INFO("send_steering_light_speed::%s",test_string.c_str());
