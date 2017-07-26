@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/install
-
-Name: serial
-Description: Description of serial
-Version: 1.2.1
-Cflags: -I/root/catkin_ws/install/include
-Libs: -L/root/catkin_ws/install/lib -lserial
-Requires: 

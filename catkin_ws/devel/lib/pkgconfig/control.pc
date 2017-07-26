@@ -1,1 +1,0 @@
-/root/catkin_ws/devel/.private/control/lib/pkgconfig/control.pc

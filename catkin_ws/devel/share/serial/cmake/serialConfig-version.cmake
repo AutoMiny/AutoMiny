@@ -1,1 +1,0 @@
-/root/catkin_ws/devel/.private/serial/share/serial/cmake/serialConfig-version.cmake

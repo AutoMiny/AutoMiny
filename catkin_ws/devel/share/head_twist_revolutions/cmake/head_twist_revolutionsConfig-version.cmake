@@ -1,1 +1,0 @@
-/root/catkin_ws/devel/.private/head_twist_revolutions/share/head_twist_revolutions/cmake/head_twist_revolutionsConfig-version.cmake

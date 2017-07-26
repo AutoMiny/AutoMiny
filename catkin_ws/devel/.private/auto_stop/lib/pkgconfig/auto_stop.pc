@@ -1,8 +1,0 @@
-prefix=/root/catkin_ws/devel/.private/auto_stop
-
-Name: auto_stop
-Description: Description of auto_stop
-Version: 0.0.0
-Cflags: 
-Libs: -L/root/catkin_ws/devel/.private/auto_stop/lib -lauto_stop
-Requires: std_msgs sensor_msgs geometry_msgs

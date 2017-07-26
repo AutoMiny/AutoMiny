@@ -14,6 +14,8 @@ head_twist_revolutions::head_twist_revolutions(ros::NodeHandle nh) : nh_(nh), pr
   pub_yaw_=nh_.advertise<std_msgs::Float32>(nh_.resolveName("model_car/yaw"), 1);
   pub_revolutions_=nh_.advertise<std_msgs::Float32>(nh_.resolveName("model_car/revolutions"), 1);
   pub_velocity_=nh_.advertise<geometry_msgs::Twist>(nh_.resolveName("model_car/twist"), 1);
+  manual_speed_sub = nh_.subscribe( "/manual_control/speed", 10, &head_twist_revolutions::directionCallback,this);//
+  direction=1.0;
   init();
   last_revolutions=0.0;
   
@@ -35,6 +37,13 @@ void head_twist_revolutions::init()
     {  
         ROS_ERROR("head_twist_revolutions:: could not find serial port");
     }
+}
+void head_twist_revolutions::directionCallback(const std_msgs::Int16& msg)
+{
+	if (msg.data<0)
+		direction=1.0;
+	else
+		direction=-1.0;
 }
 void head_twist_revolutions::get()
 {
@@ -73,8 +82,8 @@ void head_twist_revolutions::get()
     else
       currentTwist.linear.x=0.0;
 
-    if (revolutions.data-last_revolutions<0.0)
-      currentTwist.linear.x=currentTwist.linear.x*(-1.0);
+//    if (revolutions.data-last_revolutions<0.0)
+    currentTwist.linear.x=currentTwist.linear.x*direction;
     currentTwist.linear.y = 0.0;
     currentTwist.linear.z = 0.0;
     pub_velocity_.publish(currentTwist);

@@ -1,1 +1,0 @@
-/root/catkin_ws/devel/.private/serial/lib/pkgconfig/serial.pc

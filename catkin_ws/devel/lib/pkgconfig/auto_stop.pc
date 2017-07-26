@@ -1,1 +1,0 @@
-/root/catkin_ws/devel/.private/auto_stop/lib/pkgconfig/auto_stop.pc

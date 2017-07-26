@@ -1,1 +1,0 @@
-/root/catkin_ws/devel/.private/random_movement/lib/pkgconfig/random_movement.pc
