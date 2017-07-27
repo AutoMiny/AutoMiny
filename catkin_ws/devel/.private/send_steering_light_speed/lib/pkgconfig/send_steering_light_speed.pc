@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/devel/.private/send_steering_light_speed
+
+Name: send_steering_light_speed
+Description: Description of send_steering_light_speed
+Version: 0.0.0
+Cflags: -I/root/catkin_ws/src/send_steering_light_speed/include
+Libs: -L/root/catkin_ws/devel/.private/send_steering_light_speed/lib -lsend_steering_light_speed
+Requires: serial std_msgs

@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/devel/.private/head_twist_revolutions
+
+Name: head_twist_revolutions
+Description: Description of head_twist_revolutions
+Version: 0.0.0
+Cflags: -I/root/catkin_ws/src/head_twist_encoder/include/
+Libs: -L/root/catkin_ws/devel/.private/head_twist_revolutions/lib -lhead_twist_revolutions
+Requires: geometry_msgs serial std_msgs

@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/root/catkin_ws/src/serial/examples/serial_otto.cc
+string
+-
+iostream
+-
+cstdio
+-
+unistd.h
+-
+serial/serial.h
+/root/catkin_ws/src/serial/examples/serial/serial.h
+
+/root/catkin_ws/src/serial/include/serial/serial.h
+limits
+-
+vector
+-
+string
+-
+cstring
+-
+sstream
+-
+exception
+-
+stdexcept
+-
+serial/v8stdint.h
+-
+
+/root/catkin_ws/src/serial/include/serial/v8stdint.h
+stddef.h
+-
+stdio.h
+-
+stdint.h
+-
+

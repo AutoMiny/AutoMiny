@@ -24,6 +24,7 @@ class head_twist_revolutions
     float last_revolutions;
     float direction;
     geometry_msgs::Twist currentTwist;
+    int manual_speed;
 
 
   public:

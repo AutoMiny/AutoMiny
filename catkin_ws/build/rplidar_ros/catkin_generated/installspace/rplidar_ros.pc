@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/install
+
+Name: rplidar_ros
+Description: Description of rplidar_ros
+Version: 1.5.7
+Cflags: 
+Libs: -L/root/catkin_ws/install/lib 
+Requires: 
