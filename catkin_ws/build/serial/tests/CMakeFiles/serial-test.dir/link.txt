@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/serial-test.dir/unix_serial_tests.cc.o  -o /root/catkin_ws/devel/.private/serial/lib/serial/serial-test  -L/root/catkin_ws/build/serial/gtest -rdynamic ../gtest/libgtest.so /root/catkin_ws/devel/.private/serial/lib/libserial.so -lutil -lpthread -lrt -lpthread -Wl,-rpath,/root/catkin_ws/build/serial/gtest:/root/catkin_ws/devel/.private/serial/lib 

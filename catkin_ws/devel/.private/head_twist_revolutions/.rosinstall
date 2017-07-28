@@ -1,2 +1,0 @@
-- setup-file:
-    local-name: /root/catkin_ws/devel/.private/head_twist_revolutions/setup.sh
