@@ -100,6 +100,7 @@ fi
 IP=192.168.43.102       # Wifi
 
 ### ROS Setup
+export ROS_IP=$IP
 export ROS_HOSTNAME=$IP
 export ROS_MASTER_URI=http://$IP:11311
 
