@@ -1,9 +1,9 @@
 #include <send_steering_light_speed.h>
 
-send_steering_light_speed::send_steering_light_speed() : priv_nh_("~"), arduino_serial("/dev/ttyUSB1",115200, serial::Timeout::simpleTimeout(1000))
+send_steering_light_speed::send_steering_light_speed() : priv_nh_("~"), arduino_serial("/dev/ttyUSB0",115200, serial::Timeout::simpleTimeout(1000))
 {
   result="";
-  priv_nh_.param<std::string>("arduino_serial_port", serial_port_, "/dev/ttyUSB3");
+  priv_nh_.param<std::string>("arduino_serial_port", serial_port_, "/dev/ttyUSB0");
   priv_nh_.param("arduino_baud_rate", baud_rate_,115200);
   arduino_serial.close();
   arduino_serial.setPort(serial_port_);
