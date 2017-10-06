@@ -1,9 +1,9 @@
 #include <head_twist_revolutions/head_twist_revolutions.h>
 
-head_twist_revolutions::head_twist_revolutions(ros::NodeHandle nh) : nh_(nh), priv_nh_("~"), my_serial("/dev/ttyUSB1",115200, serial::Timeout::simpleTimeout(1000))
+head_twist_revolutions::head_twist_revolutions(ros::NodeHandle nh) : nh_(nh), priv_nh_("~"), my_serial("/dev/ttyUSB0",115200, serial::Timeout::simpleTimeout(1000))
 {
   result="";
-  priv_nh_.param<std::string>("arduino_serial_port", serial_port_, "/dev/ttyUSB1");
+  priv_nh_.param<std::string>("arduino_serial_port", serial_port_, "/dev/ttyUSB0");
   priv_nh_.param("arduino_baud_rate", baud_rate_,115200);
   my_serial.close();
   my_serial.setPort(serial_port_);
