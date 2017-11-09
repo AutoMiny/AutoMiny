@@ -1,0 +1,9 @@
+build/
+devel/
+install/
+logs/
+odroid-build/
+odroid-devel/
+odroid-install/
+.catkin_tools/
+.metadata/
