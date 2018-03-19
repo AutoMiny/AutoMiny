@@ -181,14 +181,14 @@ save_xml()
 def save_xml():
 	boost_serialization = ET.Element("boost_serialization",signature="serialization::archive",version="12")
 	myPair = ET.SubElement(boost_serialization,"myPair",class_id="0",tracking_level="0",version="0")
-	count = ET.SubElement(myPair, "count",value=7)
-	item_version = ET.SubElement(myPair, "item_version",value=0)
-	item = ET.SubElement(myPair, "item")
+	count = ET.SubElement(myPair, "count",value='7')
+	item_version = ET.SubElement(myPair, "item_version",value='0')
 
 	for i in range(0,7):
-		ET.SubElement(item, "command").text = final_data[i,1]
-		ET.SubElement(item, "steering").text = final_data[i,3]
+		item = ET.SubElement(myPair, "item")
+		ET.SubElement(item, "command").text = str(final_data[i,1])
+		ET.SubElement(item, "steering").text = str(final_data[i,2])
 
 	
-	tree = ET.ElementTree(root)
-	tree.write("filename.xml")
+	tree = ET.ElementTree(boost_serialization)
+	tree.write("SteerAngleActuator.xml")
