@@ -1,4 +1,6 @@
 <launch>
- <node pkg="odometry" type="odometry_publisher" name="odometry_publisher" output="screen">
-  </node>
+	<param name="file_name" value="$(find odometry)/cfg/SteerAngleActuator.xml" />
+
+ 	<node pkg="odometry" type="odometry_publisher" name="odometry_publisher" output="screen"/>
+
 </launch>

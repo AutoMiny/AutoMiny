@@ -1,0 +1,4 @@
+An example is provided how to use the library:
+==================================================
+rosrun fub_modelcar_tools fub_modelcar_tools_test output:="screen"
+
