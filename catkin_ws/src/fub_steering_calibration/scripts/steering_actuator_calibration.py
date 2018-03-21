@@ -30,8 +30,9 @@ angles = [0,30,60,90,120,150,180]
 def evaluate_lidar(data, set_a=90, sanity=False):
 
     # convert to x,y
-    off = data.angle_min
-    inc = data.angle_increment
+    off = data.angle_min  #start angle of the scan [rad]
+    inc = data.angle_increment # angular distance between measurements [rad]
+
     l = len(data.ranges)
 
     # X: Liste von Listen, y Liste voller Nullen
@@ -50,26 +51,28 @@ def evaluate_lidar(data, set_a=90, sanity=False):
         X[i,3] = data.ranges[i]
         X[i,4] = a
     
+    if sanity:
+        # pull a copy for plotting
+        Y = X.copy()
     # do some cleanup
     # infinity is to far to fit    
     X = X[X[:,0] != np.inf]
     X = X[X[:,0] != -np.inf]
     
-    if sanity:
-        # pull a copy for plotting
-        Y = X.copy()
+   
     
     # we need to find the fricking table
     dist = 2.5
     # guess the direction of the table from steering angle
-    base = np.pi/4 + (np.pi/4)*(set_a/90)
-    ang = np.pi/8
+    base = np.pi - (np.pi/4 + (np.pi/4)*(set_a/90))
+    ang =  np.pi/4
     # data should be in front of us
     X = X[X[:,4] > base - ang]
     X = X[X[:,4] < base + ang]
     # and not to far away
     X = X[X[:,3] < dist]
     
+
     # print(X)
     # fit table as line:   
     a, b = np.linalg.lstsq(X[:,0:2], X[:,2], rcond=-1)[0]
@@ -100,6 +103,7 @@ def evaluate_lidar(data, set_a=90, sanity=False):
         ax.add_artist(ci)
         ax.set_xlim((-5, 5))
         ax.set_ylim((-5, 5))
+        plt.title('alpha= %1.3f'%alpha)
         plt.axes().set_aspect('equal', 'datalim')
         plt.show()
     
@@ -115,7 +119,10 @@ def calc_wheel_angle(results):
     
     # calc
     R = (d_02 - d_01) / np.sin(theta_02)
+
     gamma = np.arcsin(l/R)
+
+   
     
     return(R, gamma)
 final_data = np.zeros((len(angles), 3))
@@ -136,7 +143,7 @@ for angle in angles:
         else:
             results[set-1] = evaluate_lidar(data, angle, sanity=True)
    
-    print(results)
+    # print(results)
     
     results2 = calc_wheel_angle(results)
     print(results2)
@@ -177,7 +184,6 @@ def angle2steering(angle):
         if steering < STRAIGHT : return STRAIGHT
         elif steering > 180: return 180
         else: return steering 
-save_xml()
 def save_xml():
 	boost_serialization = ET.Element("boost_serialization",signature="serialization::archive",version="12")
 	myPair = ET.SubElement(boost_serialization,"myPair",class_id="0",tracking_level="0",version="0")
@@ -192,3 +198,4 @@ def save_xml():
 	
 	tree = ET.ElementTree(boost_serialization)
 	tree.write("SteerAngleActuator.xml")
+save_xml()
