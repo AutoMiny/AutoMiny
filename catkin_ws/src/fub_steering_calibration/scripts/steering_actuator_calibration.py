@@ -26,7 +26,7 @@ tree = ET.ElementTree(root)
 tree.write("filename.xml")
 
 print("done")
-angles = [0,30,60,90,105,120,150,180]
+angles = [0,30,60,90,120,150,180]
 def evaluate_lidar(data, set_a=90, sanity=False):
 
     # convert to x,y
@@ -126,7 +126,7 @@ for angle in angles:
     results = [None, None]
     for set in range(1,3):
         #read file
-        filename = "scans/steering_"+str(angle)+"_0"+str(set)+".pkl"
+        filename = "steering_"+str(angle)+"_0"+str(set)+".pkl"
         with open(filename, 'rb') as input:
             data = pickle.load(input)
         # giving the steering angle so we know where to 

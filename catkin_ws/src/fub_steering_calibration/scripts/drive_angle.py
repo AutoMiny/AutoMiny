@@ -17,8 +17,8 @@ from sensor_msgs.msg import LaserScan
 # we do somehing similar
 def drive_angle(angle):
     STRAIGHT = 105 # measured with car
-    SPEED = 100 #decent speed
-    DURATION = 10
+    SPEED = 150 #decent speed
+    DURATION = 6
 
     # setup the topics
     speed = rospy.Publisher('/manual_control/speed', Int16, queue_size=10)
@@ -50,11 +50,16 @@ def drive_angle(angle):
     with open(filename, 'wb') as output:
         pickle.dump(data, output, pickle.HIGHEST_PROTOCOL)
     
-    steer.publish(STRAIGHT)
+    #steer.publish(STRAIGHT)
 
     # Assemble message and send to our listener
     message = "data of " + angle + " is saved"
     print(message)
+    speed.publish(-SPEED)
+    rospy.sleep(DURATION)
+    speed.publish(0)
+    rospy.sleep(1)
+    steer.publish(STRAIGHT)
 
     # stop  
     exit()  
