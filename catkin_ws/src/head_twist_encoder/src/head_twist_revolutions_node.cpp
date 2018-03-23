@@ -6,7 +6,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "head_twist_revolutions_node");
   ros::NodeHandle nh;
   head_twist_revolutions ReadHeading(nh);
-  ros::Rate rate(100);
+  ros::Rate rate(1000);
    while(ros::ok())
   {
     ros::spinOnce();
