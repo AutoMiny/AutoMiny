@@ -213,17 +213,23 @@ def angle2steering(angle):
         elif steering > 180: return 180
         else: return steering 
 def save_xml():
+	
 	boost_serialization = ET.Element("boost_serialization",signature="serialization::archive",version="12")
 	myPair = ET.SubElement(boost_serialization,"myPair",class_id="0",tracking_level="0",version="0")
-	count = ET.SubElement(myPair, "count",value='7')
-	item_version = ET.SubElement(myPair, "item_version",value='0')
+	count = ET.SubElement(myPair, "count")
+    	count.text=str(7)
+	item_version = ET.SubElement(myPair, "item_version")
+	item_version.text=str(0)
 
 	for i in range(0,7):
 		item = ET.SubElement(myPair, "item")
-		ET.SubElement(item, "command").text = str(final_data[i,1])
+		ET.SubElement(item, "command").text = str(int(final_data[i,0]))
 		ET.SubElement(item, "steering").text = str(final_data[i,2])
 
 	
 	tree = ET.ElementTree(boost_serialization)
-	tree.write("SteerAngleActuator.xml")
+	file ="SteerAngleActuator.xml"
+	file = open(file, "wb")
+	file.write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<!DOCTYPE boost_serialization>\n")
+	tree.write(file) 
 save_xml()

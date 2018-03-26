@@ -85,6 +85,8 @@ int main(int argc, char** argv){
   ros::Subscriber theta_sub = n.subscribe( "model_car/yaw", 10, headingCallback);//degree
   ros::Subscriber steering_sub = n.subscribe( "manual_control/steering", 10, steeringCallback);//steering
   fub_modelcar_tools::restoreXML(steeringPairs,file_name.c_str());
+  for (int i=1;i<steeringPairs.size();i++)
+  	ROS_INFO_STREAM(i <<"-input command "<< steeringPairs.at(i).command<<", output steering "<<steeringPairs.at(i).steering<<" rad");
   tf::TransformBroadcaster odom_broadcaster;
   ros::Time current_time, last_time;
   current_time = ros::Time::now();
@@ -106,7 +108,7 @@ int main(int argc, char** argv){
     vth =v * sin(beta)/lr ; //* dt;
     x += delta_x;
     y += delta_y;
-    //th += delta_th;
+    th += -vth * dt;
 
     // ROS_INFO("t %0.6f",dt);
 
