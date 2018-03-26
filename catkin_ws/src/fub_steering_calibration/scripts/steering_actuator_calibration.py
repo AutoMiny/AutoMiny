@@ -16,18 +16,12 @@ from std_msgs.msg import Int16
 from sensor_msgs.msg import LaserScan
 import xml.etree.cElementTree as ET
 
-root = ET.Element("root")
-doc = ET.SubElement(root, "doc")
-
-ET.SubElement(doc, "field1", name="blah").text = "some value1"
-ET.SubElement(doc, "field2", name="asdfasd").text = "some vlaue2"
-
-tree = ET.ElementTree(root)
-tree.write("filename.xml")
-
-print("done")
 angles = [0,30,60,90,120,150,180]
+#diactive/active Plotting
+sanity=False
+
 def evaluate_lidar(data, set_a=90, sanity=False):
+    global x
 
     # convert to x,y
     off = data.angle_min  #start angle of the scan [rad]
@@ -79,17 +73,26 @@ def evaluate_lidar(data, set_a=90, sanity=False):
 
     # get d
     if a == 0:
-        alpha = np.pi 
+        alpha = 0
         d = b
     elif a > 0:
-        alpha = np.pi/2 - np.arctan(a)
-        d = np.sin(alpha) * b
+        alpha = np.arctan(a)
+        d = np.cos(alpha) * b
     else:
-        alpha = np.pi/2 + np.arctan(a)
-        d = np.sin(alpha) * b
+        alpha = np.arctan(a)
+        d = np.cos(alpha) * b
+
     
+    if (set_a<90):
+    	if (alpha<0):
+    		alpha=np.pi+alpha
+    if (set_a>91):
+        print(set_a)
+        if (alpha>0):
+            alpha=-np.pi+alpha
     # alpha is the smallest angle to the table
-    alpha = alpha % np.pi/2
+    # alpha = alpha % np.pi/2
+    beta=np.pi/2-alpha
     d = abs(d)
     
     if sanity:
@@ -98,31 +101,56 @@ def evaluate_lidar(data, set_a=90, sanity=False):
         plt.scatter(x, y)
         plt.scatter([0], [0],color='r')
         plt.plot(x, a*x + b, 'r')
+
+        # plt.plot(x*np.cos(beta)+((-b+x)/a)*np.sin(beta), x*np.sin(beta)-((-b+x)/a)*np.cos(beta), 'g')
         ax = plt.gca()
         ci = plt.Circle((0, 0), d, color='b', fill=False)
         ax.add_artist(ci)
         ax.set_xlim((-5, 5))
         ax.set_ylim((-5, 5))
-        plt.title('alpha= %1.3f'%alpha)
+        plt.title('alpha= %1.3f'%alpha+ ', a= %1.3f'%a)
         plt.axes().set_aspect('equal', 'datalim')
         plt.show()
     
     return(a, b, d, alpha)
-def calc_wheel_angle(results):
+def calc_wheel_angle(results,angle,sanity):
+    global x
     # this implements the formulas on Sketch 3,4
     l = 0.26        # 26cm in m
     # unpack
     d_01 = results[0][2]
     d_02 = results[1][2]
+
     # via sum of angles: theta_02 = 180 - 90 - alpha
-    theta_02 = np.pi/2 - results[1][3]
+    theta_01 = results[0][3]
+    theta_02 = results[1][3]
+    
     
     # calc
-    R = (d_02 - d_01) / np.sin(theta_02)
+    d=abs((d_02*np.sin(theta_01)-d_01*np.sin(theta_02))/(np.sin(theta_01)-np.sin(theta_02)))
+
+    R = abs((d_02 - d) / np.sin(theta_02))
+
+    if (sanity==True):
+        if (angle>91):
+            R_=R
+        else:
+            R_=-R
+        plt.plot(x,0*x+d, 'g')
+        plt.scatter(R_, 0,color='r')
+        plt.scatter(R_*(1-np.cos(theta_01)), [d-d_01],color='b')
+        plt.scatter(R_*(1-np.cos(theta_02)), [d-d_02],color='k')
+        ax = plt.gca()
+        ci = plt.Circle((R_, 0), R, color='b', fill=False)
+        ax.add_artist(ci)
+        ax.set_xlim((-5, 5))
+        ax.set_ylim((-5, 5))
+        plt.show()
 
     gamma = np.arcsin(l/R)
 
-   
+    if (angle<91):
+   		gamma=-gamma
     
     return(R, gamma)
 final_data = np.zeros((len(angles), 3))
@@ -131,6 +159,7 @@ i = 0
 for angle in angles:
     print("\n\n Angle Setting:"+str(angle))
     results = [None, None]
+
     for set in range(1,3):
         #read file
         filename = "steering_"+str(angle)+"_0"+str(set)+".pkl"
@@ -139,20 +168,19 @@ for angle in angles:
         # giving the steering angle so we know where to 
         # look for the table 
         if set == 1:
-            results[set-1] = evaluate_lidar(data, 90, sanity=True)
+            results[set-1] = evaluate_lidar(data, 90, sanity=sanity)
         else:
-            results[set-1] = evaluate_lidar(data, angle, sanity=True)
-   
-    # print(results)
-    
-    results2 = calc_wheel_angle(results)
+            results[set-1] = evaluate_lidar(data, angle, sanity=sanity)
+    results2 = calc_wheel_angle(results,angle,sanity)        
     print(results2)
     
+
     final_data[i,1:3] = results2
     i += 1
 print(final_data)
-plt.plot(final_data[:,0], final_data[:,2])
-plt.show()
+if (sanity==True):
+    plt.plot(final_data[:,0], final_data[:,2])
+    plt.show()
 def angle2steering(angle):
     # assume - goes to the left
     STRAIGHT = 105

@@ -1,0 +1,24 @@
+<launch>
+  <arg name="map_file" default="$(find dummy_cpp)/launch/map2.yaml"/>
+  <!-- Map file with 0,0 origin for visual GPS-->
+  <!--arg name="map_file" default="$(find dummy_cpp)/launch/map2.yaml"/-->
+  <!--arg name="map_file" default="$(find dummy_cpp)/launch/map4.yaml"/-->
+  <!-- Run the map server -->
+  <!--param name ="/use_sim_time" value="true"/-->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+    </node>
+  <!-- With map2.yaml - map 0,0 starts at the center line on map -->
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom"
+      args="0 -0.175 0 0 0 0 1 map odom 100" />
+  <node name="tf" pkg="tf" type="static_transform_publisher"
+      args="0 0 0 0 0 0 map my_frame 100"/>
+  <!--node pkg="tf" type="static_transform_publisher" name="map_to_odom"
+      args="0 0 0 0 0 0 /map /odom 100" /-->
+  <!--node pkg="tf" type="static_transform_publisher" name="odom_to_map"
+      args="0 0.175 0 0 0 0 /odom /map 100" /-->
+  <!-- Visual ODometry Transformation between map and odom frame -->
+  <!--node pkg="tf" type="static_transform_publisher" name="map_to_odom"
+      args="0 0.0 0 0 0 0 /map /odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="odom_to_map"
+      args="0 0.0 0 0 0 0 /odom /map 100" /-->
+</launch>
