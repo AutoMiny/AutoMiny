@@ -12,8 +12,8 @@ public:
 		nh_.param<int>("angle_back", angle_back, 40);
 		nh_.param<float>("break_distance", break_distance, 0.45);
 		pubEmergencyStop_ = nh.advertise<std_msgs::Int16>(nh.resolveName("manual_control/speed"), 1);
-		subScan_ = nh_.subscribe("scan", 1, &auto_stop::scanCallback,this);
-		subTwist_ = nh_.subscribe("motor_control/twist",1,&auto_stop::speedCallback,this);
+		subScan_ = nh.subscribe("scan", 1, &auto_stop::scanCallback,this);
+		subTwist_ = nh.subscribe("motor_control/twist",1,&auto_stop::speedCallback,this);
 	}
 	~auto_stop(){}
 
