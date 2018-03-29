@@ -11,7 +11,7 @@ public:
 		nh_.param<int>("angle_front", angle_front, 40);
 		nh_.param<int>("angle_back", angle_back, 40);
 		nh_.param<float>("break_distance", break_distance, 0.45);
-		distance = 0;
+		direction = 0;
 		pubEmergencyStop_ = nh.advertise<std_msgs::Int16>(nh.resolveName("manual_control/speed"), 1);
 		subScan_ = nh.subscribe("scan", 1, &auto_stop::scanCallback,this);
 		subTwist_ = nh.subscribe("model_car/twist",1,&auto_stop::speedCallback,this);
