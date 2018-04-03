@@ -36,9 +36,41 @@ pub_stop_start = rospy.Publisher("/manual_control/stop_start", Int16, queue_size
 pub_speed = rospy.Publisher("/manual_control/speed", Int16, queue_size=100, latch=True)
 pub_steering = rospy.Publisher("/manual_control/steering", Int16, queue_size=100, latch=True)
 
+import xml.etree.ElementTree
+
+
+
 if plotting:
 	ax_a, ax_b = plt.subplots(1, 2, figsize=(16, 7), facecolor='w')[1]
 	plt.show(block=False)
+
+def save_xml(command,steering):
+	
+	file ="SteerAngleActuator.xml"
+	tree = xml.etree.ElementTree.parse(file)
+	root = tree.getroot().iter("myPair")
+	for child in root:
+		if child.tag== 'myPair':
+			root2=child
+			found = False
+			i=0
+			for child2 in root2:
+				if child2.tag == 'item':
+					i+=1
+					for child3 in child2:
+						if child3.tag=='command' and child3.text==str(command):
+							print(command)
+							for child4 in child2:
+								if child4.tag=='steering':
+									child4.text=str(steering)
+							print("item is found")
+							found = True
+					if (found):
+						break
+							
+			print(i)
+
+	tree.write(file) 
 
 def get_distance(points, slope, intercept):
     """ return the distance for each point to the parametrised line """
@@ -99,11 +131,26 @@ initial_line = None
 
 LineParams = namedtuple('LineParams', ['slope', 'intercept', 'wall_dist', 'wall_angle', 'stamp'])
 
-def stop():
-	pub_speed.publish(0)rospy.sleep(1)
+def stop_driving():
+	pub_speed.publish(0)
+	rospy.sleep(1)
 	rospy.signal_shutdown('stop')
 	print('stop driving')
 	print ('close the plot to stop the program!')
+
+def save_xml(command,steering):
+	
+	file ="SteerAngleActuator.xml"
+	tree = xml.etree.ElementTree.parse(file)
+	root = tree.getroot().iter("boost_serialization/myPair")
+
+	for child in root:
+    	if child.tag == 'item':
+        	if child.iter("command").text==command:
+            	child.iter("steering").text = steering
+        break
+	tree.write(file) 
+
 
 def scan_callback(scan_msg):
     global initial_line, wall_angle, add_pi, last_theta
@@ -197,13 +244,10 @@ def scan_callback(scan_msg):
             pub_speed.publish(-150)
             if ((steering_angle<100) and (steering_angle>80)):
             	if (wall_dist < 1.0):
-            		pub_speed.publish(0)
-            		rospy.sleep(1)
-            		rospy.signal_shutdown('stop')
-            		print('stop driving')
-            		print ('close the plot to stop the program!')
+            		stop_driving()
             else:
             	if (abs(wall_angle)<0.1):
+            		stop_driving()
             		
 
     if plotting:
