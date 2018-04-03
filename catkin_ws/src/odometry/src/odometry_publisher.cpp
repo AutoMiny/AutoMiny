@@ -76,16 +76,21 @@ void steeringCallback(const std_msgs::Int16& msg)
 int main(int argc, char** argv){
   ros::init(argc, argv, "odometry_publisher");
 
-  ros::NodeHandle n;
-  std::string file_name;
+  ros::NodeHandle n("~");
+  
+  std::string file_name,model_car_twist,model_car_yaw,steering_command;
   n.param<std::string>("file_name",file_name,"/cfg/SteerAngleActuator.xml");
+  n.param<std::string>("model_car_twist",model_car_twist,"model_car/twistl");
+  n.param<std::string>("model_car_yaw",model_car_yaw,"model_car/yaw");
+  n.param<std::string>("steering_command",steering_command,"manual_control/steering");
+
   ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
 
-  ros::Subscriber twist_sub = n.subscribe( "motor_control/twist", 10, twistCallback);
-  ros::Subscriber theta_sub = n.subscribe( "model_car/yaw", 10, headingCallback);//degree
-  ros::Subscriber steering_sub = n.subscribe( "manual_control/steering", 10, steeringCallback);//steering
+  ros::Subscriber twist_sub = n.subscribe( model_car_twist, 1, twistCallback);
+  ros::Subscriber theta_sub = n.subscribe( model_car_yaw, 1, headingCallback);//degree
+  ros::Subscriber steering_sub = n.subscribe( steering_command, 1, steeringCallback);//steering
   fub_modelcar_tools::restoreXML(steeringPairs,file_name.c_str());
-  for (int i=1;i<steeringPairs.size();i++)
+  for (int i=0;i<steeringPairs.size();i++)
   	ROS_INFO_STREAM(i <<"-input command "<< steeringPairs.at(i).command<<", output steering "<<steeringPairs.at(i).steering<<" rad");
   tf::TransformBroadcaster odom_broadcaster;
   ros::Time current_time, last_time;
@@ -108,7 +113,7 @@ int main(int argc, char** argv){
     vth =v * sin(beta)/lr ; //* dt;
     x += delta_x;
     y += delta_y;
-    th += -vth * dt;
+    th += vth * dt;
 
     // ROS_INFO("t %0.6f",dt);
 

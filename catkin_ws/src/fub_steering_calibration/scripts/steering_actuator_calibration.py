@@ -9,6 +9,8 @@ import rospy
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
+from scipy import stats
+
 
 # Message types
 from std_msgs.msg import String
@@ -18,7 +20,56 @@ import xml.etree.cElementTree as ET
 
 angles = [0,30,60,90,120,150,180]
 #diactive/active Plotting
-sanity=False
+sanity=True
+
+def get_distance(points, slope, intercept):
+    """ return the distance for each point to the parametrised line """
+    pos = np.array((0, intercept))  # origin
+    dir = np.array((1, slope))  # line gradient
+    # element-wise cross product of each points origin offset with the gradient
+    c = np.cross(dir, pos - points, axisb=-1)
+    return np.abs(c) / np.linalg.norm(dir)
+
+
+def get_inliers(points, slope, intercept):
+    inlier_dist = 0.05  # max distance for inliers (in meters) since walls are very flat this can be low
+
+    """ return a numpy boolean array for each point (True if within 'inlier_dist' of the line, else False). """
+    return get_distance(points, slope, intercept) <= inlier_dist
+
+def find_best_params(xs,ys):
+    """ find the best params to describe a detected line using the RANSAC algorithm """
+    best_count = 0
+    best_params = (0, 0)
+    sample_count = 50  # number RANSAC samples to take
+    points = np.column_stack((xs, ys))
+
+
+    # randomly sample points to define a line and remember the one with the most inliers
+    for _ in xrange(sample_count):
+        ind = np.random.randint(0, len(xs), 2)
+        x_a, x_b = xs[ind]
+        if x_a == x_b:
+            continue  # avoid division by 0
+
+        y_a, y_b = ys[ind].astype(np.float64)
+
+        slope = (y_b - y_a) / (x_b - x_a)
+        intercept = y_a - x_a * slope
+
+        inlier = get_inliers(points, slope, intercept)
+        inl_count = np.sum(inlier)
+        if inl_count > best_count:
+            best_count = inl_count
+            best_params = (slope, intercept)
+
+    # the set of points within inlier distance of the best line we found
+    inlier_points = points[np.where(get_inliers(points, *best_params))]
+
+    # perform a linear regression on the selected inlier points
+    slope, intercept, _, _, _ = stats.linregress(*inlier_points.T)
+
+    return slope, intercept
 
 def evaluate_lidar(data, set_a=90, sanity=False):
     global x
@@ -56,31 +107,34 @@ def evaluate_lidar(data, set_a=90, sanity=False):
    
     
     # we need to find the fricking table
-    dist = 2.5
+    dist = 3.1
     # guess the direction of the table from steering angle
-    base = np.pi - (np.pi/4 + (np.pi/4)*(set_a/90))
+    base = 0.83*np.pi #np.pi - ((np.pi/4) + (np.pi/4)*(set_a/90))
     ang =  np.pi/4
     # data should be in front of us
     X = X[X[:,4] > base - ang]
     X = X[X[:,4] < base + ang]
     # and not to far away
     X = X[X[:,3] < dist]
+
+    # if sanity:
+    #     # pull a copy for plotting
+    #     Y = X.copy()
     
 
     # print(X)
     # fit table as line:   
-    a, b = np.linalg.lstsq(X[:,0:2], X[:,2], rcond=-1)[0]
+    # a, b = np.linalg.lstsq(X[:,0:2], X[:,2], rcond=-1)[0]
+    a, b = find_best_params(X[:,0], X[:,2])
 
     # get d
-    if a == 0:
-        alpha = 0
-        d = b
-    elif a > 0:
-        alpha = np.arctan(a)
-        d = np.cos(alpha) * b
-    else:
-        alpha = np.arctan(a)
-        d = np.cos(alpha) * b
+    d =abs(b)/pow(pow(a,2)+1.0,0.5)
+    print(d)
+    alpha = np.arctan(a)
+    print(b*np.cos(alpha))
+
+
+
 
     
     if (set_a<90):

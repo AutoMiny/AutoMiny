@@ -1,6 +1,7 @@
 <launch>
-	<param name="file_name" value="$(find odometry)/cfg/SteerAngleActuator.xml" />
-
- 	<node pkg="odometry" type="odometry_publisher" name="odometry_publisher" output="screen"/>
+ 	<node pkg="odometry" type="odometry_publisher" name="odometry_publisher" output="screen">
+ 		<param name="file_name" value="$(find odometry)/cfg/SteerAngleActuator.xml" />
+		<param name="model_car_yaw" value="/model_car/yaw2" />
+	</node>
 
 </launch>
