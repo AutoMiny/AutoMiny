@@ -6,4 +6,5 @@
     <include file="$(find auto_stop)/launch/auto_stop.launch"/>
     <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
     <include file="$(find map_publisher)/launch/robotics_lab.launch"/>
+    <include file="$(find car_robot_model)/launch/car_robot_model.launch"/>	
 </launch>
