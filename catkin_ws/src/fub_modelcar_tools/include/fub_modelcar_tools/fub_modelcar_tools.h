@@ -34,14 +34,15 @@ private:
     void serialize(Archive & ar, const unsigned int version)
     {
         ar & BOOST_SERIALIZATION_NVP(command);  //between -pi/2 and pi/2
+        ar & BOOST_SERIALIZATION_NVP(raduis); //between 0 and 180
         ar & BOOST_SERIALIZATION_NVP(steering); //between 0 and 180
     }
 
 public:
     IO_pair(){};
-    IO_pair(int c, float s) :command(c), steering(s){}
+    IO_pair(int c, float r, float s) :command(c), raduis(r), steering(s){}
     // copy constructor
-    IO_pair( const IO_pair & rhs ):command(rhs.command), steering(rhs.steering){}
+    IO_pair( const IO_pair & rhs ):command(rhs.command), raduis(rhs.raduis), steering(rhs.steering){}
 
     // destructor
     ~IO_pair(){}
@@ -54,11 +55,13 @@ public:
 	const IO_pair & operator =(const IO_pair & rhs){
 	    if(this != &rhs){ //Standard alias test
 	        command = rhs.command;
+            raduis= rhs.raduis;
 	        steering= rhs.steering;
 	    }
 	    return *this;
 	}
     int command;
+    float raduis;
     float steering;
 
 };

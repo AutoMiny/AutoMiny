@@ -9,6 +9,6 @@ do
 read -p "Press any key to continue... " -n1 -s
 echo
 echo "Desired command angle= " $i
-python angle_calibrator.py $i
+python angle_calibrator_online.py $i
 
 done

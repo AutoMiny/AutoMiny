@@ -48,7 +48,7 @@ if plotting:
 	ax_a, ax_b = plt.subplots(1, 2, figsize=(16, 7), facecolor='w')[1]
 	plt.show(block=False)
 
-def save_xml(command,steering):
+def save_xml(command,raduis,steering):
 	
 	file ="SteerAngleActuator.xml"
 	tree = xml.etree.ElementTree.parse(file)
@@ -61,10 +61,11 @@ def save_xml(command,steering):
 				if child2.tag == 'item':
 					for child3 in child2:
 						if child3.tag=='command' and child3.text==str(command):
-							print(command)
 							for child4 in child2:
-								if child4.tag=='steering':
-									child4.text=str(steering)
+								if child4.tag=='raduis':
+									child4.text=str(raduis)
+								elif child4.tag=='steering':
+									child4.text=str(steering)					
 							print("save_xml: item is found")
 							found = True
 					if (found):
@@ -203,7 +204,7 @@ def scan_callback(scan_msg):
         time_diff = scan_msg.header.stamp - initial_line.stamp
 
 
-        if (theta >0.04) and (theta<1.2) and (speed>0):
+        if (theta >0.06) and (theta<1.2) and (speed>0):
             last_theta = theta
             turn_radius = t*np.sin(phi)/np.sin(theta)
             time_offset = time_diff.secs + time_diff.nsecs * 1e-9
@@ -242,7 +243,7 @@ def scan_callback(scan_msg):
 	            		gamma = np.arcsin(l/average_r)
 	            		if (steering_angle<91):
 	            			gamma=-gamma
-	            		save_xml(int(steering_angle),gamma)
+	            		save_xml(int(steering_angle),average_r,gamma)
 	            	else:
 	            		print "turn radius is nan!!"
 	            	stop_driving()
@@ -258,7 +259,7 @@ def scan_callback(scan_msg):
         			gamma = np.arcsin(l/average_r)
         			if (steering_angle<91):
         				gamma=-gamma
-        			save_xml(int(steering_angle),gamma)
+        			save_xml(int(steering_angle),average_r,gamma)
         		else:
         			print "turn radius is nan!!"
         		stop_driving()
