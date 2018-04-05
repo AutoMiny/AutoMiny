@@ -57,23 +57,19 @@ def save_xml(command,steering):
 		if child.tag== 'myPair':
 			root2=child
 			found = False
-			i=0
 			for child2 in root2:
 				if child2.tag == 'item':
-					i+=1
 					for child3 in child2:
 						if child3.tag=='command' and child3.text==str(command):
 							print(command)
 							for child4 in child2:
 								if child4.tag=='steering':
 									child4.text=str(steering)
-							print("item is found")
+							print("save_xml: item is found")
 							found = True
 					if (found):
 						break
 							
-			print(i)
-
 	tree.write(file) 
 
 def get_distance(points, slope, intercept):
@@ -234,7 +230,24 @@ def scan_callback(scan_msg):
             speed=-speed_value
             pub_speed.publish(speed)
 
-            if (abs(wall_angle)<0.1) or (wall_dist<1.0 and 125>steering_angle and steering_angle>61) :
+            if (125>steering_angle and steering_angle>61):
+            	if (wall_dist<1.2):
+	            	if (len(turn_radii)>0):
+	            		average_r=0
+	            		for r in turn_radii:
+	            			average_r+=r[1]
+	            		average_r=average_r/float(len(turn_radii))
+	            		print ('average turn radius: %.3f' % average_r)
+	            		l = 0.26        # 26cm 
+	            		gamma = np.arcsin(l/average_r)
+	            		if (steering_angle<91):
+	            			gamma=-gamma
+	            		save_xml(int(steering_angle),gamma)
+	            	else:
+	            		print "turn radius is nan!!"
+	            	stop_driving()
+            elif (abs(wall_angle)<0.1):
+
         		if (len(turn_radii)>0):
         			average_r=0
         			for r in turn_radii:
