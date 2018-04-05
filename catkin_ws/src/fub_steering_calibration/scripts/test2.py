@@ -29,3 +29,4 @@ def save_xml(command,steering):
 	tree.write(file) 
 
 save_xml(60,1000)
+

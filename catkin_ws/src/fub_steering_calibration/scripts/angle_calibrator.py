@@ -13,8 +13,11 @@ from std_msgs.msg import Int16
 
 from time import localtime, strftime
 
-speed = 150
-steering_angle = 0
+speed_value =150 #speed value
+speed = +speed_value # initial direction is backward
+steering_angle = 0 
+
+max_y = 2.0 # initial y limitation is 2 meter
 
 inlier_dist = 0.05  # max distance for inliers (in meters) since walls are very flat this can be low
 drive_duration_max = 5  # number of seconds to drive
@@ -22,14 +25,15 @@ plotting = True  # whether to plot output
 
 manual_mode = False  # in manual mode we don't actually send commands to the motor
 
-mask_angles = False  # whether to mask any angle that's not on the right side of the car
+mask_angles = True  # whether to mask any angle that's not on the right side of the car
 
 sample_count = 50  # number RANSAC samples to take
 
 turn_radii = []  # store the detected turn radii in this list
 radius_theta = [] # store the detected turn radii in this list vs theta
 
-wall_angle = -np.pi
+wall_angle = 0
+target_angle = wall_angle #mask the lidar points
 add_pi = np.pi
 last_theta = 0
 pub_stop_start = rospy.Publisher("/manual_control/stop_start", Int16, queue_size=100, latch=True)
@@ -138,22 +142,9 @@ def stop_driving():
 	print('stop driving')
 	print ('close the plot to stop the program!')
 
-def save_xml(command,steering):
-	
-	file ="SteerAngleActuator.xml"
-	tree = xml.etree.ElementTree.parse(file)
-	root = tree.getroot().iter("boost_serialization/myPair")
-
-	for child in root:
-    	if child.tag == 'item':
-        	if child.iter("command").text==command:
-            	child.iter("steering").text = steering
-        break
-	tree.write(file) 
-
 
 def scan_callback(scan_msg):
-    global initial_line, wall_angle, add_pi, last_theta
+    global initial_line, wall_angle, add_pi, last_theta, speed, speed_value, max_y,target_angle
 
     radius = np.asarray(scan_msg.ranges)
     angles = np.arange(scan_msg.angle_min, scan_msg.angle_max + scan_msg.angle_increment / 2, scan_msg.angle_increment)
@@ -161,9 +152,10 @@ def scan_callback(scan_msg):
     mask_fin = np.isfinite(radius)  # only consider finite radii
 
     if mask_angles:
-        target_angle = wall_angle  # right side of the car
+    	if (abs(target_angle-wall_angle)<np.pi/4):
+    		target_angle = wall_angle # right side of the car
         angle_spread = np.pi / 4  # size of cone to consider
-        mask_angle = np.logical_and((target_angle - angle_spread) < angles, angles < (target_angle + angle_spread))
+        mask_angle = np.logical_or((-np.pi+target_angle + angle_spread) > angles, angles > (np.pi+target_angle - angle_spread))
         mask = np.logical_and(mask_fin, mask_angle)
     else:
         mask = mask_fin
@@ -182,7 +174,6 @@ def scan_callback(scan_msg):
     points = np.column_stack((x, y))
 
     slope, intercept = find_best_params(points)  # detect a line in these coordinates
-    print(slope, intercept)
     # slope, intercept = np.linalg.lstsq(X[:,0:2],X[:,2], rcond=-1)[0]
 
 
@@ -203,6 +194,7 @@ def scan_callback(scan_msg):
         if not manual_mode:
         	pub_steering.publish(steering_angle)
         	rospy.sleep(.2)
+        	speed=speed_value
         	pub_speed.publish(speed)
     else:
         theta = angle_diff(initial_line.wall_angle, wall_angle)
@@ -215,17 +207,15 @@ def scan_callback(scan_msg):
         time_diff = scan_msg.header.stamp - initial_line.stamp
 
 
-        if (theta >0.04) and (theta<1.4):
+        if (theta >0.04) and (theta<1.2) and (speed>0):
             last_theta = theta
             turn_radius = t*np.sin(phi)/np.sin(theta)
             time_offset = time_diff.secs + time_diff.nsecs * 1e-9
-            radius_theta.append([time_offset,theta])
 
 
             # reset turn_radii plot if rosbag loops
             if len(turn_radii) and time_offset < turn_radii[-1][0]:
                 del turn_radii[:]
-                del radius_theta[:]
 
             turn_radii.append([theta, turn_radius])
 
@@ -240,14 +230,26 @@ def scan_callback(scan_msg):
             # pub_speed.publish(0)
             
             # np.savez_compressed('angle-%03d-%s.txt' % (steering_angle, strftime('%H-%M-%S', localtime())), turn_radii)
-            # 
-            pub_speed.publish(-150)
-            if ((steering_angle<100) and (steering_angle>80)):
-            	if (wall_dist < 1.0):
-            		stop_driving()
-            else:
-            	if (abs(wall_angle)<0.1):
-            		stop_driving()
+            #
+            speed=-speed_value
+            pub_speed.publish(speed)
+
+            if (abs(wall_angle)<0.1) or (wall_dist<1.0 and 125>steering_angle and steering_angle>61) :
+        		if (len(turn_radii)>0):
+        			average_r=0
+        			for r in turn_radii:
+        				average_r+=r[1]
+        			average_r=average_r/float(len(turn_radii))
+        			print ('average turn radius: %.3f' % average_r)
+        			l = 0.26        # 26cm 
+        			gamma = np.arcsin(l/average_r)
+        			if (steering_angle<91):
+        				gamma=-gamma
+        			save_xml(int(steering_angle),gamma)
+        		else:
+        			print "turn radius is nan!!"
+        		stop_driving()
+
             		
 
     if plotting:
@@ -279,14 +281,12 @@ def scan_callback(scan_msg):
         ax_a.axhline(0, color='k')
 
         ax_b.cla()
-        ax_b.set_title('turn radii over difference angle')
+        ax_b.set_title('turn radius over the difference angle')
         ax_b.plot(*np.array(turn_radii).T, marker='o')
         # ax_b.plot(*np.array(radius_theta).T, marker='o')
-
-        if ((steering_angle<100) and (steering_angle>80)):
-        	ax_b.set_ylim([0, 16])  # cut off very large outliers
-       	else:
-       		ax_b.set_ylim([0, 3])  # cut off very large outliers
+        if len(turn_radii)>0 and (max_y<turn_radii[-1][1]):
+        	max_y=turn_radii[-1][1]
+        ax_b.set_ylim([0, max_y])  # cut off very large outliers
         plt.show(block=False)
         rospy.sleep(0.1)  # sleep to avoid threading issues with plotting
 
