@@ -1,1 +1,41 @@
-<boost_serialization signature="serialization::archive" version="12"><myPair class_id="0" tracking_level="0" version="0"><count>7</count><item_version>0</item_version><item><command>0</command><raduis>0.846490699486634</raduis><steering>-0.3121972894737317</steering></item><item><command>30</command><raduis>0.9819587614192239</raduis><steering>-0.2679725611643332</steering></item><item><command>60</command><raduis>1.6614453671514262</raduis><steering>-0.15713611273019293</steering></item><item><command>90</command><raduis>5.103704389783383</raduis><steering>-0.05096545011120175</steering></item><item><command>120</command><raduis>5.272190372147373</raduis><steering>0.049335377526608465</steering></item><item><command>150</command><raduis>2.165796813545815</raduis><steering>0.12033842917022389</steering></item><item><command>180</command><raduis>1.126092259974998</raduis><steering>0.23298915809989756</steering></item></myPair></boost_serialization>
+<boost_serialization signature="serialization::archive" version="12">
+<myPair class_id="0" tracking_level="0" version="0">
+	<count>7</count>
+	<item_version>0</item_version>
+	<item class_id="1" tracking_level="0" version="0">
+		<command>0</command>
+		<raduis>0.8366758755121259</raduis>
+		<steering>-0.31598573284427217</steering>
+	</item>
+	<item>
+		<command>30</command>
+		<raduis>1.0165065421431556</raduis>
+		<steering>-0.2586523773590401</steering>
+	</item>
+	<item>
+		<command>60</command>
+		<raduis>1.4882571195545073</raduis>
+		<steering>-0.17560208519207646</steering>
+	</item>
+	<item>
+		<command>90</command>
+		<raduis>4.869756865203527</raduis>
+		<steering>-0.05341615418265092</steering>
+	</item>
+	<item>
+		<command>120</command>
+		<raduis>5.667129591343156</raduis>
+		<steering>0.045894714832108024</steering>
+	</item>
+	<item>
+		<command>150</command>
+		<raduis>1.921174260720626</raduis>
+		<steering>0.1357504523289861</steering>
+	</item>
+	<item>
+		<command>180</command>
+		<raduis>1.1086003184181266</raduis>
+		<steering>0.23673502461591459</steering>
+	</item>
+</myPair>
+</boost_serialization>
