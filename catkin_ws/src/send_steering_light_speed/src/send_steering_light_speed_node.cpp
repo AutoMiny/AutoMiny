@@ -64,7 +64,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "send_steering_light_speed_node");
   ros::NodeHandle nh;
   steering_light_control slc(nh);
-  ros::Rate rate(100);
+  ros::Rate rate(1000);
    while(ros::ok())
   {
     if (slc.pub==true)

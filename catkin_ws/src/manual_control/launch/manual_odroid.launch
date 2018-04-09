@@ -6,4 +6,5 @@
     <include file="$(find odometry)/launch/odometry.launch"/>
     <include file="$(find auto_stop)/launch/auto_stop.launch"/>
     <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+    <include file="$(find  car_robot_model)/launch/car_robot_model.launch"/>	
 </launch>
