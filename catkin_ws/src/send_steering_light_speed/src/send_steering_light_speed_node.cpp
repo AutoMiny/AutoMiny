@@ -13,7 +13,7 @@ class steering_light_control
       
       sub_steering_ = nh.subscribe( "manual_control/steering", 1,  &steering_light_control::steeringCallback,this);
       sub_light_ = nh.subscribe( "manual_control/lights", 1,  &steering_light_control::lightCallback,this);
-      sub_speed_ = nh.subscribe( "manual_control/speed", 1, &steering_light_control::motorSpeedCallback,this);
+      sub_speed_ = nh.subscribe( "/checked/speed", 1, &steering_light_control::motorSpeedCallback,this);
       sub_stop_ = nh.subscribe( "manual_control/stop_start", 1,  &steering_light_control::motorStopStartCallback,this);
       pub=false;
       speed=0;

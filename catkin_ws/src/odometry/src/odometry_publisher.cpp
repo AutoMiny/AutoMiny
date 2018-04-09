@@ -9,12 +9,13 @@
 using namespace fub_modelcar_tools;
 
 
-double x = 2.5;
-double y = 0.5;
-double initial_x = 2.5;
-double initial_y = 0.5;
+double x = 0.0;
+double y = 0.0;
+double initial_x = 0.0;
+double initial_y = 0.0;
 double initial_yaw = 0.0;
 double th = 0.0;
+bool bicycle_model=false;
 
 double steer_angle=0.0;
 double steer=0;
@@ -38,8 +39,8 @@ ros::Time current_time_twist, last_time_twist;
 
 void twistCallback(const geometry_msgs::Twist& msg)
 {
-  float v_=round(msg.linear.x / (5.5))*(0.031);//rad/s and gear ratio: 5.5  and the wheel Radius 0.031 meter
-  v = roundf(v_ * 100) / 100;  /* Result: 37.78 */
+  float v_=round(msg.linear.x / (5.5))*31;//rad/ms and gear ratio: 5.5  and the wheel Radius 31 centimeter
+  v = roundf(v_ * 100) / 100;  /* Result: xx.xx */
 }
 void headingCallback(const std_msgs::Float32& msg)
 {
@@ -51,23 +52,17 @@ void headingCallback(const std_msgs::Float32& msg)
     vth=0.0;
     current_time_twist = ros::Time::now();
     last_time_twist=current_time_twist;
-    th=msg.data* (3.14/180.0);
+    th=initial_yaw;
   }
   else
   {
-    // last_time_twist=current_time_twist;
-    // current_time_twist = ros::Time::now();
-    //last_head=head;
     head=msg.data* (3.14/180.0); //rad
-    // double dt_twist = (current_time_twist - last_time_twist).toSec();
     double delta_head=head-initial_head+initial_yaw;
     if (delta_head>3.14)
       delta_head=delta_head-6.28;
     else if (delta_head<-3.14)
       delta_head=delta_head+6.28;
-    // float vth_=0.0;
-    // vth_= delta_head/dt_twist;//100
-    // vth = roundf(vth_ * 1000) / 1000;  /* Result: 37.78 */
+    //the yaw should increase clock wise -pi< yaw < pi
     th = -roundf(delta_head * 100) / 100;
   }
   
@@ -80,7 +75,6 @@ void steeringCallback(const std_msgs::Int16& msg)
       int i=int(steer/scale_factor);
       if (steeringPairs.size()>(i+1))
       {
-          // ROS_INFO_STREAM(" steeringPairs.size() " << steeringPairs.size());
           steer_angle=((steer-i*scale_factor)*(steeringPairs.at(i+1).steering-steeringPairs.at(i).steering))/scale_factor+steeringPairs.at(i).steering;
           raduis_drive=((steer-i*scale_factor)*(steeringPairs.at(i+1).raduis-steeringPairs.at(i).raduis))/scale_factor+steeringPairs.at(i).raduis;
           if (steer_angle<0)
@@ -101,7 +95,7 @@ void steeringCallback(const std_msgs::Int16& msg)
       initial_x=x;
       initial_y=y;
       last_head = th;
-      ROS_INFO_STREAM(" raduis_drive " << raduis_drive);
+      // ROS_INFO_STREAM(" raduis_drive " << raduis_drive);
     }
 }
 double find_delta(double th1,double th0)
@@ -111,32 +105,40 @@ double find_delta(double th1,double th0)
     delta_th+=2*M_PI;
   else if (delta_th>M_PI)
     delta_th-=2*M_PI;
-  // ROS_INFO_STREAM(" th1 " << th1 << " th0 " << th0 << " diff " <<delta_th);
   return delta_th;
 }
 int main(int argc, char** argv){
   ros::init(argc, argv, "odometry_publisher");
-
   ros::NodeHandle n("~");
   
   std::string file_name,model_car_twist,model_car_yaw,steering_command;
   n.param<std::string>("file_name",file_name,"/cfg/SteerAngleActuator.xml");
-  n.param<std::string>("model_car_twist",model_car_twist,"/model_car/twistl");
+  n.param<std::string>("model_car_twist",model_car_twist,"/model_car/twist");
   n.param<std::string>("model_car_yaw",model_car_yaw,"/model_car/yaw");
   n.param<std::string>("steering_command",steering_command,"/manual_control/steering");
-  // n.param<std::float>("initial_x",initial_x,2.5);
-  // n.param<std::float>("initial_y",initial_y,0.5);
-  // n.param<std::float>("initial_yaw",initial_yaw,0.0);
+  n.param("initial_x",initial_x,2.5);
+  n.param("initial_y",initial_y,0.5);
+  n.param("initial_yaw",initial_yaw,0.0);
+  n.param("bicycle_model",bicycle_model,false);
+  x=initial_x;
+  y=initial_y;
+  th=initial_yaw;
 
-  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
+  ROS_INFO_STREAM("initial_x:" << initial_x << " m, initial_y: " << initial_y << " m, initial_yaw: " << initial_yaw << " radians");
 
+  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 1);
   ros::Subscriber twist_sub = n.subscribe( model_car_twist, 1, twistCallback);
   ros::Subscriber theta_sub = n.subscribe( model_car_yaw, 1, headingCallback);//degree
   ros::Subscriber steering_sub = n.subscribe( steering_command, 1, steeringCallback);//steering
   fub_modelcar_tools::restoreXML(steeringPairs,file_name.c_str());
+  
+  ROS_INFO_STREAM("==== Steering Calibration XML file: =====");
 
   for (int i=0;i<steeringPairs.size();i++)
     ROS_INFO_STREAM(i <<"-input command "<< steeringPairs.at(i).command<<", raduis "<<steeringPairs.at(i).raduis<<" meters"<<", output steering "<<steeringPairs.at(i).steering<<" rad");
+  
+  ROS_INFO_STREAM("=========================================");
+
   tf::TransformBroadcaster odom_broadcaster;
   ros::Time current_time, last_time;
   current_time = ros::Time::now();
@@ -152,27 +154,44 @@ int main(int argc, char** argv){
     double dt = (current_time - last_time).toSec();
     dt = roundf(dt * 10000) / 10000;
     double beta=atan((lr/(lr+lf))*tan(steer_angle));
-    //double delta_x = (v * cos(th+beta)) * dt;
-    double delta_x = cos(last_head)*raduis_drive*sin(find_delta(th, last_head))-sin(last_head)*raduis_drive*(1-cos(find_delta(th, last_head)));
+    double delta_x = 0.0;
+    double delta_y = 0.0;
 
-    //double delta_x = -sin(last_head)*raduis_drive + sin(th)*raduis_drive;
+    if (bicycle_model==true)
+    {
+      delta_x = (v * cos(th+beta)) * dt * 0.001; //v unit = rad/ms
+      delta_y = (v * sin(th+beta)) * dt * 0.001;
+      x+=delta_x;
+      y+=delta_y;
+    }
+    else
+    {
+      //if we drive in a low speed, the speed feedback is not so reliable. 
+      //IF the car drive almost stright the yaw angle would not change
+      //or IF speed is more than a threshold, the car would not drive on a circle path anymore.
+      if(fabs(raduis_drive)>5.0 || v > 250){ 
+        delta_x = (v * cos(th+beta)) * dt * 0.001; //v unit = rad/ms
+        delta_y = (v * sin(th+beta)) * dt * 0.001;
+        x+=delta_x;
+        y+=delta_y;
+        initial_x=x;
+        initial_y=y;
+        last_head = th;
+      }else { 
+        delta_x = cos(last_head)*raduis_drive*sin(find_delta(th, last_head))-sin(last_head)*raduis_drive*(1-cos(find_delta(th, last_head)));
+        delta_y = sin(last_head)*raduis_drive*sin(find_delta(th, last_head))+cos(last_head)*raduis_drive*(1-cos(find_delta(th, last_head)));
+        x = delta_x+initial_x;
+        y = delta_y+initial_y;
+      }
+    }
 
-    // ROS_INFO_STREAM(delta_x);
 
-    //double delta_y = (v * sin(th+beta)) * dt;
-
-    double delta_y = sin(last_head)*raduis_drive*sin(find_delta(th, last_head))+cos(last_head)*raduis_drive*(1-cos(find_delta(th, last_head)));
-
-
-     //double delta_y = raduis_drive*cos(last_head)-raduis_drive*cos(th);
     vth =v * sin(beta)/lr ; //* dt;
-    x = delta_x+initial_x;
-    y = delta_y+initial_y;
+    // x+=delta_x;
+    // y+=delta_y;
     // th += vth * dt;
 
-    // ROS_INFO("t %0.6f",dt);
-
-    //since all odometry is 6DOF we'll need a quaternion created from yaw
+    //a quaternion created from yaw
     geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
 
     //first, we'll publish the transform over tf
@@ -180,7 +199,6 @@ int main(int argc, char** argv){
     odom_trans.header.stamp = current_time;
     odom_trans.header.frame_id = "odom";
     odom_trans.child_frame_id = "base_link";
-
     odom_trans.transform.translation.x = x;
     odom_trans.transform.translation.y = y;
     odom_trans.transform.translation.z = 0.0;

@@ -1,0 +1,6 @@
+image: fu_robotics_lab_map_600x400.png
+resolution: 0.0105
+origin: [0.0, 0.0, 0.0]
+occupied_thresh: 0.65
+free_thresh: 0.196
+negate: 0
