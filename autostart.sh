@@ -1,4 +1,4 @@
-q#!/bin/bash
+#!/bin/bash
 modprobe uvcvideo
 
 # clear ROS log
