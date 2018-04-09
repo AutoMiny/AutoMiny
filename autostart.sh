@@ -16,8 +16,13 @@ source /root/.bashrc
 roscore &
 sleep 5
 
+### Fisheye-Camera settings
+#v4l2-ctl --device=/dev/usb_cam --set-ctrl exposure_auto=1
+#v4l2-ctl --device=/dev/usb_cam --set-ctrl exposure_absolute=7
+
 ### Start ROS launch scripts
 roslaunch manual_control manual_odroid.launch &
+roslaunch map_publisher robotics_lab.launch &
 #roslaunch random_movement auto.launch
 
 ### Start Web Control Center

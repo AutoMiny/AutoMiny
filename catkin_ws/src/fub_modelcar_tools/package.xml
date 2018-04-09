@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>odometry</name>
-  <version>3.0.1</version>
-  <description>The odometry_publisher package</description>
+  <name>fub_modelcar_tools</name>
+  <version>0.2.3</version>
+  <description>The libraries package</description>
 
   <maintainer email="boroujeni@fu-berlin.de">Zahra Boroujeni</maintainer>
 
   <license>BSD</license>
+
   <author>Zahra Boroujeni</author>
+
   <buildtool_depend>catkin</buildtool_depend>
-  <depend>nav_msgs</depend>
-  <depend>std_msgs</depend>
   <depend>roscpp</depend>
-  <depend>tf</depend>
-  <depend>fub_modelcar_tools</depend>
+
+
 
 </package>
