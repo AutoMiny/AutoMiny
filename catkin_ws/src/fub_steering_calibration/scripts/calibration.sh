@@ -12,3 +12,5 @@ echo "Desired command angle= " $i
 python angle_calibrator_online.py $i
 
 done
+
+scp SteerAngleActuator.xml root@192.168.43.111:./catkin_ws/src/odometry/cfg/

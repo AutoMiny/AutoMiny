@@ -4,12 +4,13 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 from collections import namedtuple
+from decimal import Decimal 
 
 from scipy import stats
 
 import rospy
 from sensor_msgs.msg import LaserScan
-from std_msgs.msg import Int16
+from std_msgs.msg import Int16, UInt8
 
 from time import localtime, strftime
 
@@ -37,8 +38,8 @@ target_angle = wall_angle #mask the lidar points
 add_pi = np.pi
 last_theta = 0
 pub_stop_start = rospy.Publisher("/manual_control/stop_start", Int16, queue_size=100, latch=True)
-pub_speed = rospy.Publisher("/manual_control/speed", Int16, queue_size=100, latch=True)
-pub_steering = rospy.Publisher("/manual_control/steering", Int16, queue_size=100, latch=True)
+pub_speed = rospy.Publisher("/speed", Int16, queue_size=100, latch=True)
+pub_steering = rospy.Publisher("/steering", UInt8, queue_size=100, latch=True)
 
 import xml.etree.ElementTree
 
@@ -189,7 +190,7 @@ def scan_callback(scan_msg):
 
         print 'starting to drive: wall_dist: %.3f, wall_angle: %.1f ' % (wall_dist, np.rad2deg(wall_angle))
         if not manual_mode:
-        	pub_steering.publish(steering_angle)
+        	pub_steering.publish(UInt8(steering_angle))
         	rospy.sleep(.2)
         	speed=speed_value
         	pub_speed.publish(speed)

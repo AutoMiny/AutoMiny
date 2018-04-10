@@ -2,7 +2,7 @@
 #include <tf/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
 #include <std_msgs/Float32.h>
-#include <std_msgs/Int16.h>
+#include <std_msgs/UInt8.h>
 
 #include "fub_modelcar_tools/fub_modelcar_tools.h"
 #include <vector>
@@ -47,7 +47,7 @@ void headingCallback(const std_msgs::Float32& msg)
   if (init==false)
   {
     init=true;
-    head=msg.data* (3.14/180.0); //rad
+    head=msg.data; //rad
     initial_head=head;
     vth=0.0;
     current_time_twist = ros::Time::now();
@@ -56,7 +56,7 @@ void headingCallback(const std_msgs::Float32& msg)
   }
   else
   {
-    head=msg.data* (3.14/180.0); //rad
+    head=msg.data; //rad
     double delta_head=head-initial_head+initial_yaw;
     if (delta_head>3.14)
       delta_head=delta_head-6.28;
@@ -67,7 +67,7 @@ void headingCallback(const std_msgs::Float32& msg)
   }
   
 }
-void steeringCallback(const std_msgs::Int16& msg)
+void steeringCallback(const std_msgs::UInt8& msg)
 {
     if (steer !=msg.data)
     {
@@ -126,7 +126,7 @@ int main(int argc, char** argv){
 
   ROS_INFO_STREAM("initial_x:" << initial_x << " m, initial_y: " << initial_y << " m, initial_yaw: " << initial_yaw << " radians");
 
-  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 1);
+  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("/odom", 1);
   ros::Subscriber twist_sub = n.subscribe( model_car_twist, 1, twistCallback);
   ros::Subscriber theta_sub = n.subscribe( model_car_yaw, 1, headingCallback);//degree
   ros::Subscriber steering_sub = n.subscribe( steering_command, 1, steeringCallback);//steering

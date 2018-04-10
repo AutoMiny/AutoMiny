@@ -5,20 +5,20 @@ from nav_msgs.msg import Odometry
 from geometry_msgs.msg import PoseWithCovarianceStamped, PointStamped
 
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
-from std_msgs.msg import Int16, Float32
+from std_msgs.msg import Int16, UInt8, Float32
 
 
 class ForceController:
     def __init__(self):
         self.shutdown_=False
-        self.pub = rospy.Publisher("/manual_control/steering", Int16, queue_size=1)
+        self.pub = rospy.Publisher("/steering", UInt8, queue_size=1)
         self.pub_speed = rospy.Publisher("/manual_control/speed", Int16, queue_size=100, latch=True)
         self.pub_yaw = rospy.Publisher("/desired_yaw", Float32, queue_size=100, latch=True)
 
         #self.sub_yaw = rospy.Subscriber("/model_car/yaw", Float32, self.callback, queue_size=1)
 
         #self.sub_odom = rospy.Subscriber("/seat_car/amcl_pose", PoseWithCovarianceStamped, self.callback, queue_size=1)
-        self.sub_odom = rospy.Subscriber("/odometry_publisher/odom", Odometry, self.callback, queue_size=1)
+        self.sub_odom = rospy.Subscriber("/odom", Odometry, self.callback, queue_size=1)
         self.sub_points = rospy.Subscriber("/clicked_point", PointStamped, self.lane_callback, queue_size=1)
 
 
@@ -87,12 +87,12 @@ class ForceController:
 
         if (steering<-(np.pi)/2):
             steering = -(np.pi)/2
-        #if (f_x > 0):
-         #   speed = min(-130, speed * ((np.pi/3)/(abs(steering)+1)))
+        if (f_x > 0):
+            speed = min(-130, speed * ((np.pi/3)/(abs(steering)+1)))
 
 
-        steering = 90 + steering * (180/np.pi)
-        self.pub.publish(Int16(steering))
+        steering = 90 - steering * (180/np.pi)
+        self.pub.publish(UInt8(steering))
         if not self.shutdown_:
             self.pub_speed.publish(Int16(speed))
 

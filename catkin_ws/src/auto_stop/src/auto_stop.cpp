@@ -16,10 +16,9 @@ public:
 		ROS_INFO_STREAM("break_distance "<< break_distance << " m, angle_front " << angle_front <<" degrees, angle_back " << angle_back <<" degrees");
 		speedCommand.data=0;
 		emergencyStop.data=0;
-    direction = 0;
-		pubSpeed_ = nh.advertise<std_msgs::Int16>(nh.resolveName("/checked/speed"), 1);
+		pubSpeed_ = nh.advertise<std_msgs::Int16>(nh.resolveName("/speed"), 1);
 		subScan_ = nh_.subscribe("/scan", 1, &auto_stop::scanCallback,this);
-		subTwist_ = nh_.subscribe("/motor_control/twist",1,&auto_stop::speedCallback,this);
+		subTwist_ = nh_.subscribe("/twist",1,&auto_stop::speedCallback,this);
 		subSpeedCommand_= nh_.subscribe("/manual_control/speed",1,&auto_stop::speedCommandCallback,this);
 	}
 	~auto_stop(){}

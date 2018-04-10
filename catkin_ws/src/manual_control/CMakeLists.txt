@@ -17,7 +17,7 @@ find_package(catkin REQUIRED)
 #######################################
 ## Declare ROS messages and services ##
 #######################################
-
+ 
 ## Generate messages in the 'msg' folder
 # add_message_files(
 #   FILES
@@ -47,10 +47,10 @@ find_package(catkin REQUIRED)
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
+#catkin_package(
 #	LIBRARIES ${PROJECT_NAME}
 #	CATKIN_DEPENDS send_steering
-)
+#)
 
 
 ###########
@@ -78,7 +78,7 @@ catkin_package(
 #add_dependencies(manual_control_node ${PROJECT_NAME})
 #target_link_libraries(manual_control_node ${PROJECT_NAME} ${catkin_LIBRARIES})
 #target_link_libraries(motor_communication_node ${PROJECT_NAME} ${catkin_LIBRARIES})
-
+ 
 #############
 ## Install ##
 #############
@@ -99,10 +99,10 @@ catkin_package(
 #  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 #)
-install(DIRECTORY launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-  USE_SOURCE_PERMISSIONS
-)
+#install(DIRECTORY launch
+#  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+#  USE_SOURCE_PERMISSIONS
+#)
 ## Mark cpp header files for installation
 # install(DIRECTORY include/${PROJECT_NAME}/
 #   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}

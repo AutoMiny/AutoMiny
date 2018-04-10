@@ -1,6 +1,0 @@
-<launch>
- <node pkg="head_twist_revolutions" type="head_twist_revolutions_node" name="head_twist_revolutions_node" output="screen">
-    <param name="arduino_serial_port" value="/dev/ttyArduino" />
-    <param name="arduino_baud_rate" value="115200" /> 
-  </node>
-</launch>
