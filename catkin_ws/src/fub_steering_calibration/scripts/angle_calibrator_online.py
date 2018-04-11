@@ -4,7 +4,6 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 from collections import namedtuple
-from decimal import Decimal 
 
 from scipy import stats
 
