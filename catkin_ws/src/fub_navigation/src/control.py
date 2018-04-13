@@ -74,9 +74,9 @@ class ForceController:
         self.pub_yaw.publish(Float32(yaw))
 
         if (f_x>0):
-            speed = -self.speed_value
-        else:
             speed = self.speed_value
+        else:
+            speed = -self.speed_value
             if (f_y>0):
             	steering = np.pi/2
             if (f_y<0):
@@ -88,10 +88,10 @@ class ForceController:
         if (steering<-(np.pi)/2):
             steering = -(np.pi)/2
         if (f_x > 0):
-            speed = min(-130, speed * ((np.pi/3)/(abs(steering)+1)))
+            speed = min(250, speed * ((np.pi/3)/(abs(steering)+1)))
 
 
-        steering = 90 - steering * (180/np.pi)
+        steering = 90 + steering * (180/np.pi)
         self.pub.publish(UInt8(steering))
         if not self.shutdown_:
             self.pub_speed.publish(Int16(speed))

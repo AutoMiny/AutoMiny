@@ -37,10 +37,10 @@ public:
 	{
 	    int count = scan->scan_time / scan->time_increment;
 	    float break_distance_=break_distance;
-	    if (abs(direction)>50 & (break_distance_based_on_speed==true))
+	    if (abs(direction)>50 && (break_distance_based_on_speed==true))
 	    	break_distance_=(abs(direction)/50)*break_distance;
 	    //ROS_INFO("speed %f",break_distance_);
-		if(speedCommand.data < 0){	//backw.
+		if(speedCommand.data > 0){	//backw.
 			for(int i = 0; i < (angle_back/2)+1; i++){
 				if (scan->ranges[i] <= break_distance_){
 					pubSpeed_.publish(emergencyStop);
@@ -57,7 +57,7 @@ public:
 			}
 		}
 
-		if(speedCommand.data > 0){ //forw.
+		if(speedCommand.data < 0){ //forw.
 			for(int j = (180-(angle_front/2)); j < (180+(angle_front/2))+1; j++){
 				if (scan->ranges[j] <= break_distance_){
 					pubSpeed_.publish(emergencyStop);
