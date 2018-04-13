@@ -41,6 +41,7 @@ pub_speed = rospy.Publisher("/manual_control/speed", Int16, queue_size=100, latc
 pub_steering = rospy.Publisher("/steering", UInt8, queue_size=100, latch=True)
 steering_angle_feedback=0
 
+invert_sign_gamma = False
 
 import xml.etree.ElementTree
 
@@ -104,6 +105,9 @@ def find_best_params(points):
 
 	# randomly sample points to define a line and remember the one with the most inliers
 	for _ in xrange(sample_count):
+		if (len(xs)==0):
+			print("warn: The wall couldn't be found!")
+			continue
 		ind = np.random.randint(0, len(xs), 2)
 		x_a, x_b = xs[ind]
 		if x_a == x_b:
@@ -133,7 +137,7 @@ def find_best_params(points):
 def angle_diff(angle_a, angle_b):
 	""" computes the minimum angle distance between two angles in range [-pi, pi) """
 	angle_diff=angle_b - angle_a
-	return abs(angle_diff)
+	return angle_diff
 
 
 initial_line = None
@@ -149,7 +153,7 @@ def stop_driving():
 
 
 def scan_callback(scan_msg):
-	global initial_line, wall_angle, add_pi, last_theta, speed, speed_value, max_y,target_angle,steering_angle_feedback
+	global initial_line, wall_angle, add_pi, last_theta, speed, speed_value, max_y,target_angle,steering_angle_feedback,invert_sign_gamma
 
 	radius = np.asarray(scan_msg.ranges)
 	angles = np.arange(scan_msg.angle_min, scan_msg.angle_max + scan_msg.angle_increment / 2, scan_msg.angle_increment)
@@ -203,21 +207,23 @@ def scan_callback(scan_msg):
 			pub_speed.publish(speed)
 	else:
 		theta = angle_diff(initial_line.wall_angle, wall_angle)
-
 		dist_diff = initial_line.wall_dist - wall_dist
-		invert_sign_gamma = False
-		if (wall_angle<0):
-			invert_sign_gamma=True
+		abs_theta=abs(theta)
 		t=abs(dist_diff)/np.cos((initial_line.wall_angle+wall_angle)/2)
-		phi=(np.pi-theta)/2
+		phi=(np.pi-abs_theta)/2
 
 
 		time_diff = scan_msg.header.stamp - initial_line.stamp
 
 
-		if (theta >0.06) and (theta<1.2) and (speed<0):
+		if (abs_theta >0.06) and (abs_theta<1.2) and (speed<0):
+			if (theta<0):
+				invert_sign_gamma=True
+			else:
+				invert_sign_gamma = False
+
 			last_theta = theta
-			turn_radius = t*np.sin(phi)/np.sin(theta)
+			turn_radius = t*np.sin(phi)/np.sin(abs_theta)
 			time_offset = time_diff.secs + time_diff.nsecs * 1e-9
 
 
