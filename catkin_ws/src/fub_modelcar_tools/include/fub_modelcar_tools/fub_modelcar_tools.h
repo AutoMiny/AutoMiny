@@ -33,16 +33,17 @@ private:
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version)
     {
-        ar & BOOST_SERIALIZATION_NVP(command);  //between -pi/2 and pi/2
-        ar & BOOST_SERIALIZATION_NVP(raduis); //between 0 and 180
-        ar & BOOST_SERIALIZATION_NVP(steering); //between 0 and 180
+        ar & BOOST_SERIALIZATION_NVP(command);  //between 0 and 180 (90 is almost stright)
+        ar & BOOST_SERIALIZATION_NVP(raduis); //between 0 and 20 meter
+        ar & BOOST_SERIALIZATION_NVP(steering); //between -pi/2 and pi/2 radian
+        ar & BOOST_SERIALIZATION_NVP(feedback); //between 200 and 450 //?!Uint16 : arduino ADC output!
     }
 
 public:
     IO_pair(){};
-    IO_pair(int c, float r, float s) :command(c), raduis(r), steering(s){}
+    IO_pair(int c, float r, float s,float f) :command(c), raduis(r), steering(s), feedback(f){}
     // copy constructor
-    IO_pair( const IO_pair & rhs ):command(rhs.command), raduis(rhs.raduis), steering(rhs.steering){}
+    IO_pair( const IO_pair & rhs ):command(rhs.command), raduis(rhs.raduis), steering(rhs.steering), feedback(rhs.feedback){}
 
     // destructor
     ~IO_pair(){}
@@ -57,12 +58,14 @@ public:
 	        command = rhs.command;
             raduis= rhs.raduis;
 	        steering= rhs.steering;
+            feedback= rhs.feedback;
 	    }
 	    return *this;
 	}
     int command;
     float raduis;
     float steering;
+    float feedback;
 
 };
 

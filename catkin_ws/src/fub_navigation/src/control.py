@@ -26,7 +26,7 @@ class ForceController:
         self.map_size_y=400 #cm
         self.resolution = 10 # cm
         self.lane=1
-        self.speed_value= 300
+        self.speed_value= 500
         if (self.lane==1):
         	self.matrix = np.load('matrix50cm_lane1.npy')
         else:
@@ -88,7 +88,7 @@ class ForceController:
         if (steering<-(np.pi)/2):
             steering = -(np.pi)/2
         if (f_x > 0):
-            speed = min(250, speed * ((np.pi/3)/(abs(steering)+1)))
+            speed = max(300, speed * ((np.pi/3)/(abs(steering)+1)))
 
 
         steering = 90 + steering * (180/np.pi)

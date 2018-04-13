@@ -8,5 +8,7 @@
 		<param name="initial_y" value="0.0" />   <!--meters-->
 		<param name="initial_yaw" value="0.0" /> <!--radian-->
 		<param name="bicycle_model" value="true" /> <!--use just bicycle model-->
+		<param name="servo_with_feedback" value="true" /> <!--use just bicycle model-->
+
 	</node>
 </launch>

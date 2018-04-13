@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
 <boost_serialization signature="serialization::archive" version="12">
 <myPair class_id="0" tracking_level="0" version="0">
 	<count>7</count>
@@ -13,7 +15,6 @@
 		<raduis>0.601128772973</raduis>
 		<steering>0.447285464809</steering>
 		<feedback>238.136363636</feedback>
-
 	</item>
 	<item>
 		<command>60</command>

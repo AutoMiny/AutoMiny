@@ -1,6 +1,6 @@
 <launch>	
 	<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 1 0 base_link laser 100" />
-	<node pkg="tf" type="static_transform_publisher" name="map_broadcaster"   args="0 0 0 0 0 0 1 /odom /map 100" />
+	<node pkg="tf" type="static_transform_publisher" name="map_broadcaster"   args="0 0 0 0 0 0 1 odom map 100" />
 
 	<!-- Run the map server-->
 	<arg name="map_file" default="$(find map_publisher)/map/fu_robotics_lab_map.yaml"/> 

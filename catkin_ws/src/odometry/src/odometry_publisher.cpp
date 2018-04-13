@@ -3,6 +3,7 @@
 #include <nav_msgs/Odometry.h>
 #include <std_msgs/Float32.h>
 #include <std_msgs/UInt8.h>
+#include <std_msgs/UInt16.h>
 
 #include "fub_modelcar_tools/fub_modelcar_tools.h"
 #include <vector>
@@ -16,9 +17,10 @@ double initial_y = 0.0;
 double initial_yaw = 0.0;
 double th = 0.0;
 bool bicycle_model=false;
+bool servo_with_feedback=true;
 
 double steer_angle=0.0;
-double steer=0;
+double data_=0;
 double raduis_drive=0.8;
 double head=0.0;
 double last_head=0.0;
@@ -30,8 +32,7 @@ double lr=0.24;
 //Distance of IMU to the front axis
 double lf=0.02;
 bool init=false;
-//std::vector<double> scale(180/30);//scal factor= 30
-const double scale_factor=30;
+
 
 std::vector <IO_pair> steeringPairs;
 
@@ -67,16 +68,72 @@ void headingCallback(const std_msgs::Float32& msg)
   }
   
 }
-void steeringCallback(const std_msgs::UInt8& msg)
+void steeringFeedbackCallback(const std_msgs::UInt16& msg)
 {
-    if (steer !=msg.data)
+    if (data_ !=msg.data)
     {
-      steer=msg.data;
-      int i=int(steer/scale_factor);
+      data_=msg.data;
+      int i=-1;
+      for (int j=0;j<steeringPairs.size();j++)
+      {
+        if (data_>steeringPairs.at(j).feedback)
+          i++;
+      }
+      if (i<0)
+      { 
+        if (steeringPairs.size()>0)
+          ROS_WARN_STREAM("feedback " << data_ << " < steeringPairs.at(0).feedback " << steeringPairs.at(0).feedback);
+        else
+          ROS_WARN_STREAM("steeringPairs.size()=0");
+        return;
+      }
+
       if (steeringPairs.size()>(i+1))
       {
-          steer_angle=((steer-i*scale_factor)*(steeringPairs.at(i+1).steering-steeringPairs.at(i).steering))/scale_factor+steeringPairs.at(i).steering;
-          raduis_drive=((steer-i*scale_factor)*(steeringPairs.at(i+1).raduis-steeringPairs.at(i).raduis))/scale_factor+steeringPairs.at(i).raduis;
+          double scale_factor=steeringPairs.at(i+1).feedback-steeringPairs.at(i).feedback;
+          steer_angle=((data_-steeringPairs.at(i).feedback)*(steeringPairs.at(i+1).steering-steeringPairs.at(i).steering))/scale_factor+steeringPairs.at(i).steering;
+          raduis_drive=((data_-steeringPairs.at(i).feedback)*(steeringPairs.at(i+1).raduis-steeringPairs.at(i).raduis))/scale_factor+steeringPairs.at(i).raduis;
+          if (steer_angle<0)
+            raduis_drive=-1*raduis_drive;
+      }
+      else
+      {
+          ROS_WARN("odometry: steering feedback is out of SteerAngleActuator.xml rang");
+          double scale_factor=steeringPairs.at(i).feedback-steeringPairs.at(i-1).feedback;
+          steer_angle=((steeringPairs.at(i).feedback-data_)*(steeringPairs.at(i).steering-steeringPairs.at(i-1).steering))/scale_factor+steeringPairs.at(i).steering;
+          raduis_drive=((steeringPairs.at(i).feedback-data_)*(steeringPairs.at(i).raduis-steeringPairs.at(i-1).raduis))/scale_factor+steeringPairs.at(i).raduis;
+          if (steer_angle<0)
+            raduis_drive=-1*raduis_drive;
+      }
+    }
+}
+
+void steeringCommandCallback(const std_msgs::UInt8& msg)
+{
+    if (data_ !=msg.data)
+    {
+      data_=msg.data;
+      int i=-1;
+      for (int j=0;j<steeringPairs.size();j++)
+      {
+        if (data_>steeringPairs.at(j).feedback)
+          i++;
+      }
+      if (i<0)
+      { 
+        if (steeringPairs.size()>0)
+          ROS_WARN_STREAM("command " << data_ << " < steeringPairs.at(0).command " << steeringPairs.at(0).command);
+        else
+          ROS_WARN_STREAM("steeringPairs.size()=0");
+        steer_angle=steeringPairs.at(0).steering;
+        raduis_drive=steeringPairs.at(0).raduis;
+        return;
+      }
+      if (steeringPairs.size()>(i+1))
+      {
+          double scale_factor=steeringPairs.at(i+1).command-steeringPairs.at(i).command;
+          steer_angle=((data_-steeringPairs.at(i).command)*(steeringPairs.at(i+1).steering-steeringPairs.at(i).steering))/scale_factor+steeringPairs.at(i).steering;
+          raduis_drive=((data_-steeringPairs.at(i).command)*(steeringPairs.at(i+1).raduis-steeringPairs.at(i).raduis))/scale_factor+steeringPairs.at(i).raduis;
           if (steer_angle<0)
             raduis_drive=-1*raduis_drive;
       }
@@ -92,10 +149,6 @@ void steeringCallback(const std_msgs::UInt8& msg)
         else
           ROS_WARN("odometry: input steering command is bigger than 180");
       }
-      initial_x=x;
-      initial_y=y;
-      last_head = th;
-      // ROS_INFO_STREAM(" raduis_drive " << raduis_drive);
     }
 }
 double find_delta(double th1,double th0)
@@ -111,15 +164,18 @@ int main(int argc, char** argv){
   ros::init(argc, argv, "odometry_publisher");
   ros::NodeHandle n("~");
   
-  std::string file_name,model_car_twist,model_car_yaw,steering_command;
+  std::string file_name,model_car_twist,model_car_yaw,steering_command,steering_feedback;
   n.param<std::string>("file_name",file_name,"/cfg/SteerAngleActuator.xml");
   n.param<std::string>("model_car_twist",model_car_twist,"/model_car/twist");
   n.param<std::string>("model_car_yaw",model_car_yaw,"/model_car/yaw");
   n.param<std::string>("steering_command",steering_command,"/manual_control/steering");
+  n.param<std::string>("steering_feedback",steering_feedback,"/steering_angle");
+
   n.param("initial_x",initial_x,2.5);
   n.param("initial_y",initial_y,0.5);
   n.param("initial_yaw",initial_yaw,0.0);
   n.param("bicycle_model",bicycle_model,false);
+  n.param("servo_with_feedback",servo_with_feedback,false);
   x=initial_x;
   y=initial_y;
   th=initial_yaw;
@@ -129,13 +185,17 @@ int main(int argc, char** argv){
   ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("/odom", 1);
   ros::Subscriber twist_sub = n.subscribe( model_car_twist, 1, twistCallback);
   ros::Subscriber theta_sub = n.subscribe( model_car_yaw, 1, headingCallback);//degree
-  ros::Subscriber steering_sub = n.subscribe( steering_command, 1, steeringCallback);//steering
+  ros::Subscriber steering_sub;
+  if (servo_with_feedback)
+      steering_sub = n.subscribe( steering_feedback, 1, steeringFeedbackCallback);//steering feedback
+  else
+      steering_sub = n.subscribe( steering_command, 1, steeringCommandCallback);//steering
   fub_modelcar_tools::restoreXML(steeringPairs,file_name.c_str());
   
   ROS_INFO_STREAM("==== Steering Calibration XML file: =====");
 
   for (int i=0;i<steeringPairs.size();i++)
-    ROS_INFO_STREAM(i <<"-input command "<< steeringPairs.at(i).command<<", raduis "<<steeringPairs.at(i).raduis<<" meters"<<", output steering "<<steeringPairs.at(i).steering<<" rad");
+    ROS_INFO_STREAM(i <<"-input command "<< steeringPairs.at(i).command<<", raduis "<<steeringPairs.at(i).raduis<<" meters"<<", output steering "<<steeringPairs.at(i).steering<<" rad, feedback "<<steeringPairs.at(i).feedback);
   
   ROS_INFO_STREAM("=========================================");
 
@@ -166,23 +226,10 @@ int main(int argc, char** argv){
     }
     else
     {
-      //if we drive in a low speed, the speed feedback is not so reliable. 
-      //IF the car drive almost stright the yaw angle would not change
-      //or IF speed is more than a threshold, the car would not drive on a circle path anymore.
-      if(fabs(raduis_drive)>5.0 || v > 250){ 
-        delta_x = (v * cos(th+beta)) * dt * 0.001; //v unit = rad/ms
-        delta_y = (v * sin(th+beta)) * dt * 0.001;
-        x+=delta_x;
-        y+=delta_y;
-        initial_x=x;
-        initial_y=y;
-        last_head = th;
-      }else { 
-        delta_x = cos(last_head)*raduis_drive*sin(find_delta(th, last_head))-sin(last_head)*raduis_drive*(1-cos(find_delta(th, last_head)));
-        delta_y = sin(last_head)*raduis_drive*sin(find_delta(th, last_head))+cos(last_head)*raduis_drive*(1-cos(find_delta(th, last_head)));
-        x = delta_x+initial_x;
-        y = delta_y+initial_y;
-      }
+      delta_x = (v * cos(th)) * dt * 0.001; //v unit = rad/ms
+      delta_y = (v * sin(th)) * dt * 0.001;
+      x+=delta_x;
+      y+=delta_y;
     }
 
 
