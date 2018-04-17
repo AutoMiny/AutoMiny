@@ -6,47 +6,47 @@
 	<item_version>0</item_version>
 	<item class_id="1" tracking_level="0" version="0">
 		<command>0</command>
-		<raduis>0.458218924313</raduis>
-		<steering>0.603362376043</steering>
-		<feedback>204.647058824</feedback>
+		<raduis>0.4698015190347241</raduis>
+		<steering>0.5864710310392387</steering>
+		<feedback>182.64</feedback>
 	</item>
 	<item>
 		<command>30</command>
-		<raduis>0.601128772973</raduis>
-		<steering>0.447285464809</steering>
-		<feedback>238.136363636</feedback>
+		<raduis>0.4973626929590241</raduis>
+		<steering>0.5500822452369708</steering>
+		<feedback>207.41666666666666</feedback>
 	</item>
 	<item>
 		<command>60</command>
-		<raduis>1.17304497681</raduis>
-		<steering>0.223501497015</steering>
-		<feedback>272.961538462</feedback>
+		<raduis>0.7710957220973499</raduis>
+		<steering>0.3439225523847008</steering>
+		<feedback>239.17391304347825</feedback>
 	</item>
 	<item>
 		<command>90</command>
-		<raduis>4.1078240961</raduis>
-		<steering>0.0633361862085</steering>
-		<feedback>310.214285714</feedback>
+		<raduis>1.8608152386800738</raduis>
+		<steering>0.14018237734353606</steering>
+		<feedback>269.57894736842104</feedback>
 	</item>
 	<item>
 		<command>120</command>
-		<raduis>2.11440198497</raduis>
-		<steering>-0.123278227433</steering>
-		<feedback>344.5</feedback>
+		<raduis>5.1721006155850455</raduis>
+		<steering>-0.05029090678561368</steering>
+		<feedback>300.0</feedback>
 
 	</item>
 	<item>
 		<command>150</command>
-		<raduis>1.08244387233</raduis>
-		<steering>-0.242569005347</steering>
-		<feedback>378.52</feedback>
+		<raduis>1.4940400195291617</raduis>
+		<steering>-0.17491535984669962</steering>
+		<feedback>330.4583333333333</feedback>
 
 	</item>
 	<item>
 		<command>180</command>
-		<raduis>0.845961000624</raduis>
-		<steering>-0.312399387357</steering>
-		<feedback>412.423076923</feedback>
+		<raduis>0.6754034439588447</raduis>
+		<steering>-0.3951591724330244</steering>
+		<feedback>360.8333333333333</feedback>
 	</item>
 </myPair>
 </boost_serialization>

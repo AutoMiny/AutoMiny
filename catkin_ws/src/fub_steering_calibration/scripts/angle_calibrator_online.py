@@ -13,7 +13,7 @@ from std_msgs.msg import Int16, UInt8, UInt16
 
 from time import localtime, strftime
 
-speed_value =150 #speed value
+speed_value =100 #speed value
 speed = +speed_value # initial direction is backward
 steering_angle = 0 
 
