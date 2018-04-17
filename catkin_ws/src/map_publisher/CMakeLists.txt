@@ -175,10 +175,7 @@ include_directories(
 # )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
-install(FILES
-   launch/robotics_lab.launch
-   map/fu_robotics_lab_map.yaml
-   map/fu_robotics_lab_map_600x400.png
+install(DIRECTORY launch map
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
