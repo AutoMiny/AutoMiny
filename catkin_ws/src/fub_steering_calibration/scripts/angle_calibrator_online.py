@@ -165,9 +165,9 @@ def scan_callback(scan_msg):
 			target_angle = wall_angle # right side of the car
 		angle_spread = np.pi / 4  # size of cone to consider
 		#if Lidar installed inversed!
-		mask_angle = np.logical_or((-np.pi+target_angle + angle_spread) > angles, angles > (np.pi+target_angle - angle_spread))
+		#mask_angle = np.logical_or((-np.pi+target_angle + angle_spread) > angles, angles > (np.pi+target_angle - angle_spread))
 		#if Lidar installed direct!
-		#mask_angle = np.logical_or((target_angle + angle_spread) > angles, angles > (target_angle - angle_spread))
+		mask_angle = np.logical_or((target_angle + angle_spread) > angles, angles > (target_angle - angle_spread))
 
 		mask = np.logical_and(mask_fin, mask_angle)
 	else:
