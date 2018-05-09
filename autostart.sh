@@ -22,7 +22,6 @@ sleep 5
 
 ### Start ROS launch scripts
 roslaunch manual_control manual_odroid.launch &
-roslaunch map_publisher robotics_lab.launch &
 sleep 10
 roslaunch odometry odometry.launch 
 #roslaunch random_movement auto.launch

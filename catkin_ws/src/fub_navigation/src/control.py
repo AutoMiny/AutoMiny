@@ -26,7 +26,7 @@ class ForceController:
         self.map_size_y=400 #cm
         self.resolution = 10 # cm
         self.lane=1
-        self.speed_value= 500
+        self.speed_value= 300
         if (self.lane==1):
         	self.matrix = np.load('matrix50cm_lane1.npy')
         else:

@@ -74,11 +74,23 @@ void steeringFeedbackCallback(const std_msgs::UInt16& msg)
     {
       data_=msg.data;
       int i=-1;
-      for (int j=0;j<steeringPairs.size();j++)
+      if (steeringPairs.at(0).feedback<steeringPairs.at(1).feedback)
       {
-        if (data_>steeringPairs.at(j).feedback)
-          i++;
+      	for (int j=0;j<steeringPairs.size();j++)
+      	{
+        	if (data_>steeringPairs.at(j).feedback)
+          		i++;
+      	}
       }
+      else
+      {
+      	for (int j=0;j<steeringPairs.size();j++)
+      	{
+        	if (data_<steeringPairs.at(j).feedback)
+          		i++;
+      	}
+      }
+
       if (i<0)
       { 
         if (steeringPairs.size()>0)
@@ -116,7 +128,9 @@ void steeringCommandCallback(const std_msgs::UInt8& msg)
       int i=-1;
       for (int j=0;j<steeringPairs.size();j++)
       {
-        if (data_>steeringPairs.at(j).feedback)
+        if (data_>steeringPairs.at(j).command)
+          i++;
+        else if (data_==0)
           i++;
       }
       if (i<0)
