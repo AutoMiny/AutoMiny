@@ -3,7 +3,6 @@ import numpy as np
 import rospy
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import PoseWithCovarianceStamped, PointStamped
-from fub_navigation.srv import *
 
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 from std_msgs.msg import Int16, UInt8, Float32
@@ -13,20 +12,6 @@ import rospkg
 class VectorfieldController:
     def __init__(self):
         rospy.init_node('VectorfieldController')
-        self.pub_speed = rospy.Publisher("/manual_control/speed", Int16, queue_size=100, latch=True)
-        rospy.on_shutdown(self.shutdown)
-
-        self.shutdown_=False
-        self.pub = rospy.Publisher("/steering", UInt8, queue_size=1)
-        self.pub_yaw = rospy.Publisher("/desired_yaw", Float32, queue_size=100, latch=True)
-
-        #self.sub_yaw = rospy.Subscriber("/model_car/yaw", Float32, self.callback, queue_size=1)
-
-        #self.sub_odom = rospy.Subscriber("/seat_car/amcl_pose", PoseWithCovarianceStamped, self.callback, queue_size=1)
-        self.sub_odom = rospy.Subscriber("/odom", Odometry, self.callback, queue_size=1)
-        self.sub_points = rospy.Subscriber("/clicked_point", PointStamped, self.lane_callback, queue_size=1)
-
-
         self.map_size_x=600 #cm
         self.map_size_y=400 #cm
         self.resolution = 10 # cm
@@ -35,9 +20,21 @@ class VectorfieldController:
         rospack = rospkg.RosPack()
         file_path=rospack.get_path('fub_navigation')+'/src/'
         if (self.lane==1):
-        	self.matrix = np.load(file_path+'matrix50cm_lane1.npy')
+            self.matrix = np.load(file_path+'matrix50cm_lane1.npy')
         else:
-        	self.matrix = np.load(file_path+'matrix100cm_lane2.npy')
+            self.matrix = np.load(file_path+'matrix100cm_lane2.npy')
+
+        self.pub_speed = rospy.Publisher("/manual_control/speed", Int16, queue_size=100, latch=True)
+        rospy.on_shutdown(self.shutdown)
+
+        self.shutdown_=False
+        self.pub = rospy.Publisher("/steering", UInt8, queue_size=1)
+        self.pub_yaw = rospy.Publisher("/desired_yaw", Float32, queue_size=100, latch=True)
+        #self.sub_yaw = rospy.Subscriber("/model_car/yaw", Float32, self.callback, queue_size=1)
+        #self.sub_odom = rospy.Subscriber("/seat_car/amcl_pose", PoseWithCovarianceStamped, self.callback, queue_size=1)
+        self.sub_points = rospy.Subscriber("/clicked_point", PointStamped, self.lane_callback, queue_size=1)
+        self.sub_odom = rospy.Subscriber("/odom", Odometry, self.callback, queue_size=1)
+
 
     def lane_callback(self, data):
     	if (self.lane==1):
