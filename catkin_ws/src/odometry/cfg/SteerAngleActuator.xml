@@ -6,47 +6,47 @@
 	<item_version>0</item_version>
 	<item class_id="1" tracking_level="0" version="0">
 		<command>0</command>
-		<raduis>0.458218924313</raduis>
-		<steering>0.603362376043</steering>
-		<feedback>204.647058824</feedback>
+		<raduis>0.6727814919966862</raduis>
+		<steering>0.3967852340780831</steering>
+		<feedback>179.03703703703704</feedback>
 	</item>
 	<item>
 		<command>30</command>
-		<raduis>0.601128772973</raduis>
-		<steering>0.447285464809</steering>
-		<feedback>238.136363636</feedback>
+		<raduis>0.9198584417173391</raduis>
+		<steering>0.28655792116953055</steering>
+		<feedback>209.78571428571428</feedback>
 	</item>
 	<item>
 		<command>60</command>
-		<raduis>1.17304497681</raduis>
-		<steering>0.223501497015</steering>
-		<feedback>272.961538462</feedback>
+		<raduis>1.9125540382417678</raduis>
+		<steering>0.13636611612784297</steering>
+		<feedback>240.0</feedback>
 	</item>
 	<item>
 		<command>90</command>
-		<raduis>4.1078240961</raduis>
-		<steering>0.0633361862085</steering>
-		<feedback>310.214285714</feedback>
+		<raduis>10.0</raduis>
+		<steering>-0.01</steering>
+		<feedback>14.0</feedback>
 	</item>
 	<item>
 		<command>120</command>
-		<raduis>2.11440198497</raduis>
-		<steering>-0.123278227433</steering>
-		<feedback>344.5</feedback>
+		<raduis>1.8650679585647671</raduis>
+		<steering>-0.139860631021484</steering>
+		<feedback>44.0</feedback>
 
 	</item>
 	<item>
 		<command>150</command>
-		<raduis>1.08244387233</raduis>
-		<steering>-0.242569005347</steering>
-		<feedback>378.52</feedback>
+		<raduis>0.9834823119401702</raduis>
+		<steering>-0.2675472287070919</steering>
+		<feedback>74.22222222222223</feedback>
 
 	</item>
 	<item>
 		<command>180</command>
-		<raduis>0.845961000624</raduis>
-		<steering>-0.312399387357</steering>
-		<feedback>412.423076923</feedback>
+		<raduis>0.6397344317071991</raduis>
+		<steering>-0.41853095368099036</steering>
+		<feedback>104.51851851851852</feedback>
 	</item>
 </myPair>
 </boost_serialization>
