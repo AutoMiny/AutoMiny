@@ -1,9 +1,7 @@
 Add the line below to your .bashrc:
 
     export ROS_HOSTNAME=192.168.43.CAR_IP
-    
     export ROS_IP=192.168.43.CAR_IP
-
     export ROS_MASTER_URI=http://192.168.43.PC_IP:11311
 
 open a new terminal and run the script!
