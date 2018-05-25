@@ -233,14 +233,14 @@ int main(int argc, char** argv){
 
     if (bicycle_model==true)
     {
-      delta_x = (v * cos(th+beta)) * dt * 0.001; //v unit = rad/ms
+      delta_x = (v * cos(th+beta)) * dt * 0.001; //v unit = m/ms
       delta_y = (v * sin(th+beta)) * dt * 0.001;
       x+=delta_x;
       y+=delta_y;
     }
     else
     {
-      delta_x = (v * cos(th)) * dt * 0.001; //v unit = rad/ms
+      delta_x = (v * cos(th)) * dt * 0.001; //v unit = m/ms
       delta_y = (v * sin(th)) * dt * 0.001;
       x+=delta_x;
       y+=delta_y;
