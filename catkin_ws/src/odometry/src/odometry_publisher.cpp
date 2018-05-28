@@ -40,7 +40,7 @@ ros::Time current_time_twist, last_time_twist;
 
 void twistCallback(const geometry_msgs::Twist& msg)
 {
-  float v_=round(msg.linear.x / (5.5))*31;//rad/ms and gear ratio: 5.5  and the wheel Radius 31 centimeter
+  float v_=round(msg.linear.x / (5.5))*31;//rad/s and gear ratio: 5.5  and the wheel Radius 31 milimeter
   v = roundf(v_ * 100) / 100;  /* Result: xx.xx */
 }
 void headingCallback(const std_msgs::Float32& msg)
@@ -233,14 +233,14 @@ int main(int argc, char** argv){
 
     if (bicycle_model==true)
     {
-      delta_x = (v * cos(th+beta)) * dt * 0.001; //v unit = m/ms
+      delta_x = (v * cos(th+beta)) * dt * 0.001; //v unit = mm/s -> output : m
       delta_y = (v * sin(th+beta)) * dt * 0.001;
       x+=delta_x;
       y+=delta_y;
     }
     else
     {
-      delta_x = (v * cos(th)) * dt * 0.001; //v unit = m/ms
+      delta_x = (v * cos(th)) * dt * 0.001; //v unit = mm/s -> output : m
       delta_y = (v * sin(th)) * dt * 0.001;
       x+=delta_x;
       y+=delta_y;
@@ -281,8 +281,8 @@ int main(int argc, char** argv){
 
     //set the velocity
     odom.child_frame_id = "base_link";
-    odom.twist.twist.linear.x = v * cos(th+beta);
-    odom.twist.twist.linear.y = v * sin(th+beta);
+    odom.twist.twist.linear.x = v * 0.001; //v is mm/s -> output : m/s
+    odom.twist.twist.linear.y = 0;
     odom.twist.twist.angular.z=vth;
 
     //publish the message
