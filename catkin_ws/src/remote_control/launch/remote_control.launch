@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="remote_control" type="remote_control_node" name="remote_control" output="screen">
+	</node>
+</launch>
