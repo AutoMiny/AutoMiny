@@ -22,7 +22,6 @@ void SpeedCalibration::onTwist(geometry_msgs::TwistPtr const &twist) {
 }
 
 void SpeedCalibration::onIncreaseSpeed(ros::TimerEvent const &event) {
-    std_msgs::Int16 speedMsg;
     speedMsg.data += SPEED_STEP;
 
     if (speedMsg.data <= MAX_SPEED) {
