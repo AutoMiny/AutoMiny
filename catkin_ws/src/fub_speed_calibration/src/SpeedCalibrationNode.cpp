@@ -8,7 +8,7 @@ int main(int argc, char **argv)
     ros::NodeHandle nh;
     ros::NodeHandle nh_("~");
 
-    fub_speed_calibration::SpeedCalibration calibration(nh);
+    fub_speed_calibration::SpeedCalibration calibration(nh_);
 
 	ros::spin();
 }

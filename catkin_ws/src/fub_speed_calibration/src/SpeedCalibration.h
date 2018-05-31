@@ -27,6 +27,8 @@ class SpeedCalibration {
     std::vector<geometry_msgs::TwistPtr> measurements;
     std::vector<fub_speed_calibration::SpeedCalibrationData> calibrationData;
     std_msgs::Int16 speedMsg;
+
+    std::string fileName;
 };
 
 }

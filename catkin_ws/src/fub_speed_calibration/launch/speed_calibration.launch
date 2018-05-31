@@ -1,3 +1,0 @@
-<launch>
-	<node pkg="fub_speed_calibration" type="speed_calibration_node" name="speed_calibration" output="screen"></node>
-</launch>

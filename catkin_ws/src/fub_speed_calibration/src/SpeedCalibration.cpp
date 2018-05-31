@@ -14,6 +14,7 @@ SpeedCalibration::SpeedCalibration(ros::NodeHandle& nh) {
     startMeasurementTimer = nh.createTimer(ros::Duration(5), &SpeedCalibration::onStartMeasurement, this, true, false);
     stopMeasurementTimer = nh.createTimer(ros::Duration(10), &SpeedCalibration::onStopMeasurement, this, true, false);
     increaseSpeedTimer = nh.createTimer(ros::Duration(1), &SpeedCalibration::onIncreaseSpeed, this, true, true);
+    fileName = nh.param<std::string>("file_name", "/dev/stdout");
 
     speedMsg.data = MIN_SPEED - SPEED_STEP;
 }
@@ -36,7 +37,7 @@ void SpeedCalibration::onIncreaseSpeed(ros::TimerEvent const &event) {
     } else {
         ROS_INFO("Calibration finished");
 
-        std::ofstream ofs("test");
+        std::ofstream ofs(fileName);
         boost::archive::xml_oarchive oa(ofs);
         oa << BOOST_SERIALIZATION_NVP(calibrationData);
 
