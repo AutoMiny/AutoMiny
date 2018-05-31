@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="12">
+<calibrationData class_id="0" tracking_level="0" version="0">
+	<count>19</count>
+	<item_version>0</item_version>
+	<item class_id="1" tracking_level="0" version="0">
+		<command>100</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>150</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>200</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>250</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>300</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>350</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>400</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>450</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>500</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>550</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>600</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>650</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>700</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>750</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>800</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>850</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>900</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>950</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+	<item>
+		<command>1000</command>
+		<twist>0.00000000000000000e+00</twist>
+	</item>
+</calibrationData>
+</boost_serialization>
+
