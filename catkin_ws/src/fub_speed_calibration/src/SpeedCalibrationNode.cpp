@@ -10,5 +10,5 @@ int main(int argc, char **argv)
 
     fub_speed_calibration::SpeedCalibration calibration(nh_);
 
-	ros::spin();
+    ros::spin();
 }
