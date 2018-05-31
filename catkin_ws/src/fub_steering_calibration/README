@@ -8,3 +8,8 @@ open a new terminal and run the script!
 
     cd /catkin_ws/src/fub_steering_calibration/scripts
     ./calibration.sh
+    
+Hint:
+If the Lidar installed inversed, the steering calibration line 168 should be uncommented and line 170 commented. 
+
+    scripts/angle_calibrator_online.py
