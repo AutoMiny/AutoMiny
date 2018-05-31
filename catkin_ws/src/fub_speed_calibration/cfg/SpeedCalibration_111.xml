@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="12">
+<calibrationData class_id="0" tracking_level="0" version="0">
+	<count>19</count>
+	<item_version>0</item_version>
+	<item class_id="1" tracking_level="0" version="0">
+		<command>100</command>
+		<twist>1.45201254152720072e+01</twist>
+	</item>
+	<item>
+		<command>150</command>
+		<twist>5.09757634948173788e+01</twist>
+	</item>
+	<item>
+		<command>200</command>
+		<twist>8.03354908869816313e+01</twist>
+	</item>
+	<item>
+		<command>250</command>
+		<twist>1.04462161793428251e+02</twist>
+	</item>
+	<item>
+		<command>300</command>
+		<twist>1.30825578398949858e+02</twist>
+	</item>
+	<item>
+		<command>350</command>
+		<twist>1.55707035431642254e+02</twist>
+	</item>
+	<item>
+		<command>400</command>
+		<twist>1.81785748165768723e+02</twist>
+	</item>
+	<item>
+		<command>450</command>
+		<twist>2.06923158632265626e+02</twist>
+	</item>
+	<item>
+		<command>500</command>
+		<twist>2.33801838169346041e+02</twist>
+	</item>
+	<item>
+		<command>550</command>
+		<twist>2.58888094609629150e+02</twist>
+	</item>
+	<item>
+		<command>600</command>
+		<twist>2.85670956405640197e+02</twist>
+	</item>
+	<item>
+		<command>650</command>
+		<twist>3.10281780629363709e+02</twist>
+	</item>
+	<item>
+		<command>700</command>
+		<twist>3.38447333424835165e+02</twist>
+	</item>
+	<item>
+		<command>750</command>
+		<twist>3.60261104915951705e+02</twist>
+	</item>
+	<item>
+		<command>800</command>
+		<twist>3.91413468263430786e+02</twist>
+	</item>
+	<item>
+		<command>850</command>
+		<twist>4.15228694785526224e+02</twist>
+	</item>
+	<item>
+		<command>900</command>
+		<twist>4.374777855522447877+02</twist>
+	</item>
+	<item>
+		<command>950</command>
+		<twist>4.62876025876415522e+02</twist>
+	</item>
+	<item>
+		<command>1000</command>
+		<twist>4.77895233420231578e+02</twist>
+	</item>
+</calibrationData>
+</boost_serialization>
+
