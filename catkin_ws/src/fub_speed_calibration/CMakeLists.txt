@@ -6,22 +6,29 @@ project(fub_speed_calibration)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  std_msgs
+        roscpp
+        std_msgs
+        geometry_msgs
+)
+
+find_package(Boost REQUIRED COMPONENTS
+        serialization
 )
 
 catkin_package(
 #	LIBRARIES ${PROJECT_NAME}
-    CATKIN_DEPENDS std_msgs
+    CATKIN_DEPENDS std_msgs geometry_msgs
+    DEPENDS Boost
 )
 
 include_directories(
-  ${catkin_INCLUDE_DIRS}
+        ${Boost_INCLUDE_DIRS}
+        ${catkin_INCLUDE_DIRS}
 )
 
 
-add_executable(speed_calibration_node src/speed_calibration.cpp src/speed_calibration_node.cpp)
-target_link_libraries(speed_calibration_node ${catkin_LIBRARIES})
+add_executable(speed_calibration_node src/SpeedCalibration.cpp src/SpeedCalibrationNode.cpp src/SpeedCalibrationData.cpp src/SpeedCalibrationData.h)
+target_link_libraries(speed_calibration_node ${Boost_LIBRARIES} ${catkin_LIBRARIES})
 
 
 install(TARGETS speed_calibration_node
