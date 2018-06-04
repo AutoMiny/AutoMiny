@@ -25,6 +25,8 @@ void SpeedTickCalibration::onBrake(ros::TimerEvent const &event) {
     stopMeasurementTimer.setPeriod(ros::Duration(brakeTime));
     stopMeasurementTimer.start();
 
+    speedMsg.data = 0;
+    speedPublisher.publish(speedMsg);
     ROS_INFO("Braking");
 }
 
@@ -33,12 +35,12 @@ void SpeedTickCalibration::onStartMeasurement(ros::TimerEvent const &event) {
     breakTimer.setPeriod(ros::Duration(calibrationTime));
     breakTimer.start();
 
+    speedPublisher.publish(speedMsg);
+
     ROS_INFO("Starting calibration");
 }
 
 void SpeedTickCalibration::onStopMeasurement(ros::TimerEvent const &event) {
-    speedMsg.data = 0;
-    speedPublisher.publish(speedMsg);
     ROS_INFO("Total number of ticks: %d", ticks);
 
     ros::shutdown();
