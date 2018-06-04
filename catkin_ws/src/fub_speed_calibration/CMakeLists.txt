@@ -28,13 +28,21 @@ include_directories(
 
 
 add_executable(speed_calibration_node src/SpeedCalibration.cpp src/SpeedCalibrationNode.cpp src/SpeedCalibrationData.cpp src/SpeedCalibrationData.h)
+add_executable(speed_tick_calibration_node src/SpeedTickCalibration.cpp src/SpeedTickCalibration.h src/SpeedTickCalibrationNode.cpp)
 target_link_libraries(speed_calibration_node ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(speed_tick_calibration_node ${Boost_LIBRARIES} ${catkin_LIBRARIES})
 
 
 install(TARGETS speed_calibration_node
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS speed_tick_calibration_node
+        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 install(DIRECTORY launch
