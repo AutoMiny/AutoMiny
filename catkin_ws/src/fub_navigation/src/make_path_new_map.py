@@ -17,10 +17,11 @@ def frange(x, y, jump):
             x -=jump
 
 def save(csv_name,loop):
+    more_inside=0.05
     Width=3.85
-    Length=5.67
-    R1= 1.5
-    R2=0.8
+    Length=5.67-more_inside
+    R1= 1.5-more_inside
+    R2=0.835
     x = []
     y=[]
     dis_edge=(Width/2.0-R1)
@@ -34,7 +35,7 @@ def save(csv_name,loop):
     xo=Length-R1
     yo=R1+dis_edge
     R=R1-loop*((R1-R2)/4.0)
-    for i in frange(-np.pi/2.0,np.pi/2.0,0.1/R):
+    for i in frange(-np.pi/2.0,np.pi/2.0,0.05/R):
         xp = xo + R * np.cos(i)
         yp = yo + R * np.sin(i)
         y.append(yp)
@@ -48,9 +49,9 @@ def save(csv_name,loop):
         y.append(yp)
         print(xp, yp)
 
-    xo=R1
+    xo=R1+more_inside
     yo=R1+dis_edge
-    for i in frange(np.pi/2.0,3*np.pi/2.0,0.1/R):
+    for i in frange(np.pi/2.0,3*np.pi/2.0,0.05/R):
         xp = xo + R * np.cos(i)
         yp = yo + R * np.sin(i)
         y.append(yp)
@@ -74,7 +75,7 @@ def save(csv_name,loop):
 
 
 def main():
-    #save("new_map_loop1.txt",1)
+    save("new_map_loop1.txt",1)
     save("new_map_loop2.txt",3)
     plt.show()
 

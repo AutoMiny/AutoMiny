@@ -16,13 +16,14 @@ class VectorfieldController:
         self.map_size_y=400 #cm
         self.resolution = 10 # cm
         self.lane=1
-        self.speed_value= 300
+        self.speed_value= 100
+        print("speed", self.speed_value)
         rospack = rospkg.RosPack()
-        file_path=rospack.get_path('fub_navigation')+'/src/'
+        self.file_path=rospack.get_path('fub_navigation')+'/src/'
         if (self.lane==1):
-            self.matrix = np.load(file_path+'matrix100cm_lane1.npy')
+            self.matrix = np.load(self.file_path+'matrix100cm_lane1.npy')
         else:
-            self.matrix = np.load(file_path+'matrix100cm_lane2.npy')
+            self.matrix = np.load(self.file_path+'matrix100cm_lane2.npy')
 
         self.pub_speed = rospy.Publisher("/manual_control/speed", Int16, queue_size=100, latch=True)
         rospy.on_shutdown(self.shutdown)
@@ -39,10 +40,10 @@ class VectorfieldController:
     def lane_callback(self, data):
     	if (self.lane==1):
     		self.lane=2
-    		self.matrix = np.load(file_path+'matrix100cm_lane2.npy')
+    		self.matrix = np.load(self.file_path+'matrix100cm_lane2.npy')
     	else:
     		self.lane=1
-    		self.matrix = np.load(file_path+'matrix100cm_lane1.npy')
+    		self.matrix = np.load(self.file_path+'matrix100cm_lane1.npy')
 
     def callback(self, data):
         x = data.pose.pose.position.x
@@ -68,15 +69,15 @@ class VectorfieldController:
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
 
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
-        Kp=4.0
-        steering=Kp*np.arctan(f_y/(2.5*f_x))
+        Kp=-5.0
+        steering=Kp*np.arctan(f_y/(f_x))
         yaw = np.arctan(f_y/(f_x))
         self.pub_yaw.publish(Float32(yaw))
 
         if (f_x>0):
-            speed = self.speed_value
-        else:
             speed = -self.speed_value
+        else:
+            speed = self.speed_value
             if (f_y>0):
             	steering = -np.pi/2
             if (f_y<0):
@@ -88,7 +89,7 @@ class VectorfieldController:
         if (steering<-(np.pi)/2):
             steering = -(np.pi)/2
         if (f_x > 0):
-            speed = max(300, speed * ((np.pi/3)/(abs(steering)+1)))
+            speed = max(self.speed_value, speed * ((np.pi/3)/(abs(steering)+1)))
 
 
         steering = 90 + steering * (180/np.pi)
