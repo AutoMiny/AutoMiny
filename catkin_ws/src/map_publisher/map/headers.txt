@@ -1,0 +1,37 @@
+/* Sample RNDF change log*/
+/*                                                 */
+/* July 26, 2018 - RNDF - Anticlockwise road selection*/
+/*                                                 */
+/*                                                 */
+RNDF_name RNDF_Rev_1.0
+num_segments 1
+num_zones 0
+format_version 1.0
+creation_date 26-July-18
+segment 1
+num_lanes 1
+segment_name Outer_Loop
+lane 1.1
+num_waypoints 138
+lane_width 0.35
+left_boundary broken_white
+right_boundary solid_white
+
+/* Sample RNDF change log*/
+/*                                                 */
+/* July 26, 2018 - RNDF - Anticlockwise road selection*/
+/*                                                 */
+/*                                                 */
+RNDF_name RNDF_Rev_1.0
+num_segments 1
+num_zones 0
+format_version 1.0
+creation_date 26-July-18
+segment 1
+num_lanes 1
+segment_name Outer_Loop
+lane 1.2
+num_waypoints 116
+lane_width 0.35
+left_boundary solid_white
+right_boundary broken_white

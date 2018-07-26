@@ -18,7 +18,7 @@ def main(map_file):
     fig = plt.figure(figsize=(12, 10), facecolor='w')
     plt.plot(x, y, ':o', markersize=2)
     global matrix
-    matrix = np.load('matrixDynamic.npy')
+    matrix = np.load('matrixDynamic100cm_lane1.npy')
 
     plt.gca().set_aspect(1, 'datalim')  # keep circles as circles
     plt.tight_layout()
@@ -102,4 +102,4 @@ def main(map_file):
 
 
 if __name__ == '__main__':
-    main('sample_map_origin_map.txt')
+    main('new_map_loop1.txt')

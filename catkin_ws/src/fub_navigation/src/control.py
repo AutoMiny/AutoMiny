@@ -20,7 +20,7 @@ class VectorfieldController:
         rospack = rospkg.RosPack()
         file_path=rospack.get_path('fub_navigation')+'/src/'
         if (self.lane==1):
-            self.matrix = np.load(file_path+'matrix50cm_lane1.npy')
+            self.matrix = np.load(file_path+'matrix100cm_lane1.npy')
         else:
             self.matrix = np.load(file_path+'matrix100cm_lane2.npy')
 
