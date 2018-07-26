@@ -18,7 +18,7 @@ def main(map_file):
     fig = plt.figure(figsize=(12, 10), facecolor='w')
     plt.plot(x, y, ':o', markersize=2)
     global matrix
-    matrix = np.load('matrixDynamic100cm_lane1.npy')
+    matrix = np.load('matrix100cm_lane1.npy')
 
     plt.gca().set_aspect(1, 'datalim')  # keep circles as circles
     plt.tight_layout()
