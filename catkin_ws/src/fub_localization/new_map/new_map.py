@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 
 fig = plt.figure()
 resolution =0.01
+counter_res=1
 Width=3.85
 Length=5.67
 R= [1.5,1.1675,0.835]
@@ -71,33 +72,33 @@ def save(csv_name,loop):
 def save_middle(csv_name,loop):
     global resolution, Width, Length, R
     dis_edge=(Width/2.0-R[0])
-    Broken_line_length=[0.35,0.45]
+    Broken_line_length=[36,45]
 
     x = []
     y=[]
     counter =0
     empty_space=False
-    for i in frange(Length-R[0],R[0],resolution):
-        counter=counter+resolution
+    for i in frange(4.12,R[0],resolution):
         if (counter < Broken_line_length[0] and empty_space==False):
             yp=dis_edge+(R[0]-R[loop])
             xp=i
             x.append(xp)
             y.append(yp)
-            print(xp, yp)
         else:
             if (empty_space==False):
+                print(xp, yp)
                 empty_space=True
                 counter=0
             else:
-                if (counter>Broken_line_length[1]):
+                if (counter+1>=Broken_line_length[1]):
                     empty_space=False
                     counter=0
+        counter=counter+counter_res
     xo=R[0]+more_inside
     yo=R[0]+dis_edge
+    counter=counter-counter_res
     for i in frange(3*np.pi/2.0,np.pi/2.0,resolution/R[loop]):
-        counter=counter+resolution
-        if (counter < Broken_line_length[0] and empty_space==False):
+        if (counter <= Broken_line_length[0] and empty_space==False):
             xp = xo + R[loop] * np.cos(i)
             yp = yo + R[loop] * np.sin(i)
             y.append(yp)
@@ -106,46 +107,47 @@ def save_middle(csv_name,loop):
             if (empty_space==False):
                 empty_space=True
                 counter=0
+                print(xp, yp)
             else:
-                if (counter>Broken_line_length[1]):
+                if (counter+1>=Broken_line_length[1]):
                     empty_space=False
                     counter=0
-
-
-
-    for i in frange(R[0],Length-R[0],resolution):          
-        counter=counter+resolution
+        counter=counter+counter_res
+    for i in frange(R[0],Length-R[0]+resolution,resolution):
+        counter=counter+counter_res
         if (counter < Broken_line_length[0] and empty_space==False):
             xp=i
             yp=dis_edge+R[0]+R[loop]
             x.append(i)
             y.append(yp)
-            print(xp, yp)
+
         else:
             if (empty_space==False):
                 empty_space=True
                 counter=0
+                print(xp, yp)
             else:
-                if (counter>Broken_line_length[1]):
+                if (counter+1>=Broken_line_length[1]):
                     empty_space=False
                     counter=0
-
     xo=Length-R[0]-more_inside
     yo=R[0]+dis_edge
-    for i in frange(np.pi/2.0,-np.pi/2.0,resolution/R[loop]):
-        counter=counter+resolution
-        if (counter < Broken_line_length[0] and empty_space==False):
+    counter=counter-counter_res
+    for i in frange(np.pi/2.0,-np.pi/2.0-resolution/R[loop],resolution/R[loop]):
+        counter=counter+counter_res
+        if (counter <= Broken_line_length[0] and empty_space==False):
             xp = xo + R[loop] * np.cos(i)
             yp = yo + R[loop] * np.sin(i)
             y.append(yp)
             x.append(xp)
-            print(xp, yp)
+
         else:
             if (empty_space==False):
+                print(xp, yp)
                 empty_space=True
                 counter=0
             else:
-                if (counter>Broken_line_length[1]):
+                if (counter+1>=Broken_line_length[1]):
                     empty_space=False
                     counter=0
     plt.hold(True)
@@ -159,9 +161,9 @@ def save_middle(csv_name,loop):
 
 
 def main():
-    save("new_map_outer_loop.txt",0)
+    #save("new_map_outer_loop.txt",0)
     save_middle("new_map_middle_loop.txt",1)
-    save("new_map_inner_loop.txt",2)
+    #save("new_map_inner_loop.txt",2)
     plt.show()
 
 
