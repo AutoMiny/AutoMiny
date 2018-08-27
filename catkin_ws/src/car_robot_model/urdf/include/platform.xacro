@@ -7,11 +7,14 @@
   <xacro:property name="wheel_width" value="0.001" />
 
   <link name="base_link">
+  </link>
+
+  <link name="body">
     <inertial>
       <mass value="6" />
       <origin xyz="0.15971917 0.00000000 0.00197764" />
       <inertia ixx="0.0067970" ixy="0.0" ixz="-0.0008808"
-               iyy="0.0784672" iyz="0.0" 
+               iyy="0.0784672" iyz="0.0"
                izz="0.0838770" />
     </inertial>
     <visual>
@@ -19,7 +22,7 @@
       <geometry>
         <mesh filename="package://car_robot_model/meshes/chassis.stl"/>
       </geometry>
-      <material name="Grey" />
+      <material name="Black" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -29,8 +32,14 @@
     </collision>
   </link>
 
+  <joint name="base_link_to_body" type="fixed">
+    <origin xyz="0.0 0 0.005" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="body" />
+  </joint>
+
   <joint name="base_link_rear_left_wheel_joint" type="revolute">
-    <origin xyz="0.0 -0.0825 0" rpy="${PI/2.0} 0 0" />
+    <origin xyz="0.0 -0.0825 0.03" rpy="${PI/2.0} 0 0" />
     <axis xyz="0 0 1" />
     <anchor xyz="0 0 0" />
     <parent link="base_link" />
@@ -41,10 +50,10 @@
   <transmission name="tran_rear_left">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="base_link_rear_left_wheel_joint">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="rear_left_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -73,7 +82,7 @@
   </link>
 
   <joint name="base_link_rear_right_wheel_joint" type="revolute">
-    <origin xyz="0.0 0.0825 0" rpy="-${PI/2.0} 0 0" />
+    <origin xyz="0.0 0.0825 0.03" rpy="-${PI/2.0} 0 0" />
     <axis xyz="0 0 1" />
     <anchor xyz="0 0 0" />
     <parent link="base_link" />
@@ -84,10 +93,10 @@
   <transmission name="tran_rear_right">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="base_link_rear_right_wheel_joint">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="rear_right_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -116,7 +125,7 @@
   </link>
 
   <joint name="base_link_front_left_axel_joint" type="revolute">
-    <origin xyz="0.260 -0.0825 0" rpy="${PI/2.0} 0 0" />
+    <origin xyz="0.260 -0.0825 0.03" rpy="${PI/2.0} 0 0" />
     <axis xyz="0 1 0" />
     <anchor xyz="0 0 0" />
     <parent link="base_link" />
@@ -128,10 +137,10 @@
   <transmission name="tran_front_left_axel">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="base_link_front_left_axel_joint">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="front_left_axel_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -158,10 +167,10 @@
   <transmission name="tran_front_left_wheel">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="front_left_axel_front_left_wheel_joint">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="front_left_wheel_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -190,7 +199,7 @@
   </link>
 
   <joint name="base_link_front_right_axel_joint" type="revolute">
-    <origin xyz="0.260 0.0825 0" rpy="-${PI/2.0} 0 0" />
+    <origin xyz="0.260 0.0825 0.03" rpy="-${PI/2.0} 0 0" />
     <axis xyz="0 1 0" />
     <anchor xyz="0 0 0" />
     <parent link="base_link" />
@@ -202,10 +211,10 @@
   <transmission name="tran_front_right_axel">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="base_link_front_right_axel_joint">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="front_right_axel_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -232,12 +241,12 @@
   <transmission name="tran_front_right_wheel">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="front_right_axel_front_right_wheel_joint">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="front_right_wheel_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
-    </actuator> 
+    </actuator>
   </transmission>
 
   <link name="front_right_wheel_link">
