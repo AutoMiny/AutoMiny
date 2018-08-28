@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<robot name="model_car" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="model_car">
 
-  <!-- Included URDF Files -->
-  <xacro:include filename="$(find car_robot_model)/urdf/include/materials.xacro" />
-  
-  <xacro:include filename="$(find car_robot_model)/urdf/include/platform.xacro" />
+    <!-- Included URDF Files -->
+    <xacro:include filename="$(find car_robot_model)/urdf/include/materials.xacro"/>
 
-  <xacro:include filename="$(find car_robot_model)/urdf/include/sensors.xacro" />
+    <xacro:include filename="$(find car_robot_model)/urdf/include/platform.xacro"/>
+
+    <xacro:include filename="$(find car_robot_model)/urdf/include/sensors.xacro"/>
 
 </robot>
