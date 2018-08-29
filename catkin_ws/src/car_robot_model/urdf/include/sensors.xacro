@@ -4,7 +4,7 @@
 
     <!-- Included URDF Files -->
     <xacro:include filename="$(find car_robot_model)/urdf/include/rplidar_a2.xacro"/>
-    <xacro:include filename="$(find realsense2_camera)/urdf/_d435.urdf.xacro"/>
+    <xacro:include filename="$(find car_robot_model)/urdf/include/_d435.urdf.xacro"/>
 
     <xacro:property name="PI" value="3.1415926535897931"/>
 
