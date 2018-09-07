@@ -14,7 +14,9 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     steeringAnglePublisher = nh.advertise<std_msgs::UInt16>("/steering_angle", 2);
     voltagePublisher = nh.advertise<std_msgs::Float32>("/voltage", 2);
     ticksPublisher = nh.advertise<std_msgs::UInt8>("/ticks", 2);
-    imuPublisher = nh.advertise<sensor_msgs::Imu>("/imu", 2);
+    yawPublisher = nh.advertise<std_msgs::Float32>("/yaw", 2);
+    pitchPublisher = nh.advertise<std_msgs::Float32>("/pitch", 2);
+    rollPublisher = nh.advertise<std_msgs::Float32>("/roll", 2);
 }
 
 size_t ArduinoCommunication::cobsEncode(const uint8_t *input, size_t length, uint8_t *output) {
@@ -183,32 +185,28 @@ void ArduinoCommunication::onVoltage(uint8_t *message) {
     voltagePublisher.publish(msg);
 }
 void ArduinoCommunication::onIMU(uint8_t *message) {
-    sensor_msgs::Imu msg;
-
-    float w, x, y, z;
+    float yaw, pitch, roll;
+    std_msgs::Float32 yawMsg, pitchMsg, rollMsg;
 
     std::copy(reinterpret_cast<const char *>(&message[0]),
               reinterpret_cast<const char *>(&message[4]),
-              reinterpret_cast<char *>(&w));
+              reinterpret_cast<char *>(&yaw));
 
     std::copy(reinterpret_cast<const char *>(&message[4]),
               reinterpret_cast<const char *>(&message[8]),
-              reinterpret_cast<char *>(&x));
+              reinterpret_cast<char *>(&pitch));
 
     std::copy(reinterpret_cast<const char *>(&message[8]),
               reinterpret_cast<const char *>(&message[12]),
-              reinterpret_cast<char *>(&y));
+              reinterpret_cast<char *>(&roll));
 
-    std::copy(reinterpret_cast<const char *>(&message[12]),
-              reinterpret_cast<const char *>(&message[16]),
-              reinterpret_cast<char *>(&z));
+    yawMsg.data = yaw;
+    pitchMsg.data = pitch;
+    rollMsg.data = roll;
 
-    msg.orientation.w = w;
-    msg.orientation.x = x;
-    msg.orientation.y = y;
-    msg.orientation.z = z;
-    imuPublisher.publish(msg);
-
+    yawPublisher.publish(yawMsg);
+    pitchPublisher.publish(pitchMsg);
+    rollPublisher.publish(rollMsg);
 }
 void ArduinoCommunication::onSpeed(uint8_t *message) {
     geometry_msgs::Twist twist;

@@ -46,7 +46,9 @@ class ArduinoCommunication {
     ros::Publisher ticksPublisher;
     ros::Publisher steeringAnglePublisher;
     ros::Publisher voltagePublisher;
-    ros::Publisher imuPublisher;
+    ros::Publisher yawPublisher;
+    ros::Publisher pitchPublisher;
+    ros::Publisher rollPublisher;
     ros::Subscriber speedSubscriber;
     ros::Subscriber steeringSubscriber;
     ros::Subscriber ledSubscriber;
