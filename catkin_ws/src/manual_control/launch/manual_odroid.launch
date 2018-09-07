@@ -1,6 +1,6 @@
 <launch>
     <include file="$(find manual_control)/launch/d435.launch"/>
-    <include file="$(find manual_control)/launch/rosserial.launch"/>
+    <include file="$(find arduino_communication)/launch/ArduinoCommunication.launch"/>
     <include file="$(find odometry)/launch/odometry.launch"/>
     <include file="$(find auto_stop)/launch/auto_stop.launch"/>
     <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
