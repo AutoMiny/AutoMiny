@@ -211,9 +211,10 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
 void ArduinoCommunication::onSpeed(uint8_t *message) {
     geometry_msgs::Twist twist;
     float result;
-    std::copy(reinterpret_cast<const char *>(&message[1]),
-              reinterpret_cast<const char *>(&message[5]),
+    std::copy(reinterpret_cast<const char *>(&message[0]),
+              reinterpret_cast<const char *>(&message[4]),
               reinterpret_cast<char *>(&result));
+
     twist.linear.x = result;
     twistPublisher.publish(twist);
 
