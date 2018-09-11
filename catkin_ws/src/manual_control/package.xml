@@ -16,7 +16,7 @@
   <license>ZARGOL</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-
+  <depends>rplidar</depends>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
