@@ -37,7 +37,6 @@
   <!--   <run_depend>message_runtime</run_depend> -->
   <run_depend>robot_state_publisher</run_depend>
   <run_depend>joint_state_publisher</run_depend>
-  <run_depend>odometry</run_depend> <!-- from https://github.com/AutoModelCar/model_car/tree/version-3 -->
 
   <!-- Use test_depend for packages you need only for testing: -->
   <!--   <test_depend>gtest</test_depend> -->
