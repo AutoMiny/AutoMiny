@@ -14,7 +14,6 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
     CATKIN_DEPENDS std_msgs geometry_msgs
-    DEPENDS Boost
 )
 
 include_directories(
