@@ -1,0 +1,10 @@
+<library path="lib/libfub_camera_calibration_nodelet">
+        <class name="fub_camera_static_calibration/Nodelet"
+                   type="FubCameraStaticCalibration"
+		   base_class_type="nodelet::Nodelet"
+	>
+		<description>
+			A simple static calibration
+		</description>
+	</class>
+</library>

@@ -34,7 +34,7 @@ double lf=0.02;
 bool init=false;
 
 
-std::vector <IO_pair> steeringPairs;
+std::vector <SteeringCalibrationData> steeringPairs;
 
 ros::Time current_time_twist, last_time_twist;
 

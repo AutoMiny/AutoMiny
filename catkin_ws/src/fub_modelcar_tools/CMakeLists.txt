@@ -1,16 +1,18 @@
 cmake_minimum_required(VERSION 2.8.3)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(fub_modelcar_tools)
 
+## Compile as C++11, supported in ROS Kinetic and newer
+add_compile_options(-std=c++11)
 ######################################
 ## Find catkin macros and libraries ##
 ######################################
 
-find_package(catkin REQUIRED COMPONENTS roscpp
+find_package(catkin REQUIRED COMPONENTS
 )
 find_package(Boost REQUIRED COMPONENTS
     serialization
+)
+find_package(OpenCV REQUIRED COMPONENTS
 )
 ###################################
 ## catkin specific configuration ##
@@ -20,7 +22,7 @@ catkin_package(
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME}
 #    CATKIN_DEPENDS
-    DEPENDS Boost
+    DEPENDS Boost OpenCV
 )
 
 ###########
@@ -30,10 +32,11 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 #It is neccessary to be able to be linked from other packages
-include_directories(SYSTEM
+include_directories(
     include
     ${catkin_INCLUDE_DIRS}
     ${Boost_INCLUDE_DIRS}
+    ${Opencv_INCLUDE_DIRS}
 )
 
 
@@ -60,9 +63,12 @@ add_executable(${PROJECT_NAME}_test
 ## Specify libraries to link a library or executable target against
 target_link_libraries(${PROJECT_NAME}
         ${catkin_LIBRARIES}
+        ${OpenCV_LIBRARIES}
 )
 target_link_libraries(${PROJECT_NAME}_test
-     ${PROJECT_NAME} ${Boost_LIBRARIES}
+	${catkin_LIBRARIES}
+    ${Boost_LIBRARIES}
+    ${OpenCV_LIBRARIES}
 )
 
 
