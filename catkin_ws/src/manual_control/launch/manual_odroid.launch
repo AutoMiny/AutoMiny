@@ -3,7 +3,7 @@
     <include file="$(find arduino_communication)/launch/ArduinoCommunication.launch"/>
     <include file="$(find odometry)/launch/odometry.launch"/>
     <include file="$(find auto_stop)/launch/auto_stop.launch"/>
-    <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+    <include file="$(find manual_control)/launch/rplidar.launch"/>
     <include file="$(find map_publisher)/launch/robotics_lab.launch"/>
     <include file="$(find car_robot_model)/launch/car_robot_model.launch"/>	
 </launch>
