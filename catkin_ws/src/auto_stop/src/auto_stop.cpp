@@ -40,15 +40,15 @@ public:
 	    if (abs(direction)>50 && (break_distance_based_on_speed==true))
 	    	break_distance_=(abs(direction)/50)*break_distance;
 	    //ROS_INFO("speed %f",break_distance_);
-		if(speedCommand.data > 0){	//backw.
-			for(int i = 0; i < (angle_back/2)+1; i++){
+		if(speedCommand.data > 0){	//forward.
+			for(int i = 0; i < (angle_front/2)+1; i++){
 				if (scan->ranges[i] <= break_distance_){
 					pubSpeed_.publish(emergencyStop);
 					ROS_INFO("Emergency Stop");
 					return;
 			    }
 			}
-			for(int k = (360-(angle_back/2)); k < count; k++){
+			for(int k = (360-(angle_front/2)); k < count; k++){
 				if (scan->ranges[k] <= break_distance_){
 					pubSpeed_.publish(emergencyStop);
 					ROS_INFO("Emergency Stop");
@@ -57,9 +57,10 @@ public:
 			}
 		}
 
-		if(speedCommand.data < 0){ //forw.
-			for(int j = (180-(angle_front/2)); j < (180+(angle_front/2))+1; j++){
-				if (scan->ranges[j] <= break_distance_){
+		if(speedCommand.data < 0){ //backward.
+			for(int j = (180-(angle_back/2)); j < (180+(angle_back/2))+1; j++){
+			    // we might see the camera in the laser scan
+				if (scan->ranges[j] <= break_distance_ && scan->ranges[j] > 0.2){
 					pubSpeed_.publish(emergencyStop);
 					ROS_INFO("Emergency Stop");
 					return;
