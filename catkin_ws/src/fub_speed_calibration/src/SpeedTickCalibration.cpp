@@ -13,11 +13,11 @@ SpeedTickCalibration::SpeedTickCalibration(ros::NodeHandle& nh) {
 
     calibrationTime = nh.param<double>("calibration_time", 10.0);
     brakeTime = nh.param<double>("break_time", 5.0);
-    speedMsg.data = nh.param("speed", 200);
+    speedMsg.data = nh.param("speed", 300);
 }
 
-void SpeedTickCalibration::onTick(std_msgs::UInt16Ptr const &tick) {
-    ticks += tick->data;
+void SpeedTickCalibration::onTick(std_msgs::UInt8 const &tick) {
+    ticks += tick.data;
 }
 
 void SpeedTickCalibration::onBrake(ros::TimerEvent const &event) {

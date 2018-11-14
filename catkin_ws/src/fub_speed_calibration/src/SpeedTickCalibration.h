@@ -3,7 +3,7 @@
 #include <ros/ros.h>
 
 #include <std_msgs/Int16.h>
-#include <std_msgs/UInt16.h>
+#include <std_msgs/UInt8.h>
 #include <geometry_msgs/Twist.h>
 
 namespace fub_speed_calibration {
@@ -13,7 +13,7 @@ class SpeedTickCalibration {
     explicit SpeedTickCalibration(ros::NodeHandle& nh);
 
  private:
-    void onTick(std_msgs::UInt16Ptr const &tick);
+    void onTick(std_msgs::UInt8 const &tick);
     void onStartMeasurement(ros::TimerEvent const &event);
     void onStopMeasurement(ros::TimerEvent const &event);
     void onBrake(ros::TimerEvent const &event);
