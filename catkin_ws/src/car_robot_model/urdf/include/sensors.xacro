@@ -63,7 +63,7 @@
     <joint name="joint_sensor_board_to_camera_board" type="fixed">
         <parent link="sensor_board"/>
         <child link="camera_board"/>
-        <origin xyz="0.109 0 0.105" rpy="0 0 0"/>
+        <origin xyz="-0.07 0 0.15" rpy="0 0 0"/>
     </joint>
 
     <!--*************************************************-->
@@ -203,7 +203,7 @@
             </geometry>
             <material name="White"/>
         </visual>
-
+ 
         <visual>
             <origin xyz="-0.0225 0.0225 0.005" rpy="0 0 0"/>
             <geometry>
@@ -229,7 +229,7 @@
     <xacro:property name="front_camera_name" value="camera"/>
 
     <sensor_d435 parent="camera_board">
-        <origin xyz="0.087 0 0" rpy="0 0 0"/>
+        <origin xyz="0.087 0 0.04" rpy="0 0.15 0"/>
     </sensor_d435>
 
 </robot>
