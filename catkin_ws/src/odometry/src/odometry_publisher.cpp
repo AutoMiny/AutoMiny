@@ -28,9 +28,9 @@ double initial_head=0.0;
 double v = 0.0;
 double vth = 0.0;
 //Distance of IMU to the rear axis
-double lr=0.24;
+double lr=0.05;
 //Distance of IMU to the front axis
-double lf=0.02;
+double lf=0.22;
 bool init=false;
 
 
