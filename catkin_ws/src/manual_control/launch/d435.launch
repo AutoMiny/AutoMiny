@@ -1,3 +1,14 @@
 <launch>
-    <include file="$(find realsense2_camera)/launch/rs_rgbd.launch"></include>
+    <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
+        <arg name="align_depth" value="true" />
+        <arg name="depth_registered_processing" value="false"/>
+        <arg name="enable_color" value="true"/>
+        <arg name="enable_infra1" value="true"/>
+        <arg name="enable_infra2" value="true"/>
+        <arg name="depth_fps" value="15"/>
+        <arg name="infra1_fps" value="15"/>
+        <arg name="infra2_fps" value="15"/>
+        <arg name="color_fps" value="15"/>
+    </include>
 </launch>
+
