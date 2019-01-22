@@ -242,13 +242,13 @@ void ArduinoCommunication::onTicks(uint8_t *message) {
     ticksPublisher.publish(msg);
 }
 
-void ArduinoCommunication::onSteeringCommand(std_msgs::UInt8 const &steering) {
-    uint8_t size = sizeof(MessageType) + sizeof(uint8_t);
+void ArduinoCommunication::onSteeringCommand(std_msgs::UInt16 const &steering) {
+    uint8_t size = sizeof(MessageType) + sizeof(uint16_t);
     uint8_t message[size];
     uint8_t output[size * 2 + 1];
 
     message[0] = (uint8_t) MessageType::STEERING_CMD;
-    message[1] = steering.data;
+    memcpy(&message[1], &steering.data, sizeof(uint16_t));
     auto cobs = cobsEncode(message, size, output);
 
     onSend(output, cobs);
