@@ -23,7 +23,7 @@ class ArduinoCommunication {
     void spin();
  private:
     void onSpeedCommand(std_msgs::Int16 const &speed);
-    void onSteeringCommand(std_msgs::UInt16 const &steering);
+    void onSteeringCommand(std_msgs::Int16 const &steering);
     void onLedCommand(std_msgs::String const &led);
 
     void onReceive(uint8_t *message, size_t length);
