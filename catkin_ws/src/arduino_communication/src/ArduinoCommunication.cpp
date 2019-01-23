@@ -6,17 +6,17 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     device = nh.param<std::string>("device", "/dev/ttyUSB1");
     baudrate = nh.param("baud", 115200);
 
-    speedSubscriber = nh.subscribe("/speed", 2, &ArduinoCommunication::onSpeedCommand, this);
-    steeringSubscriber = nh.subscribe("/steering", 2, &ArduinoCommunication::onSteeringCommand, this);
-    ledSubscriber = nh.subscribe("/led", 2, &ArduinoCommunication::onLedCommand, this);
+    speedSubscriber = nh.subscribe("speed", 2, &ArduinoCommunication::onSpeedCommand, this);
+    steeringSubscriber = nh.subscribe("steering", 2, &ArduinoCommunication::onSteeringCommand, this);
+    ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this);
 
-    twistPublisher = nh.advertise<geometry_msgs::Twist>("/twist", 2);
-    steeringAnglePublisher = nh.advertise<std_msgs::UInt16>("/steering_angle", 2);
-    voltagePublisher = nh.advertise<std_msgs::Float32>("/voltage", 2);
-    ticksPublisher = nh.advertise<std_msgs::UInt8>("/ticks", 2);
-    yawPublisher = nh.advertise<std_msgs::Float32>("/yaw", 2);
-    pitchPublisher = nh.advertise<std_msgs::Float32>("/pitch", 2);
-    rollPublisher = nh.advertise<std_msgs::Float32>("/roll", 2);
+    twistPublisher = nh.advertise<geometry_msgs::Twist>("twist", 2);
+    steeringAnglePublisher = nh.advertise<std_msgs::UInt16>("steering_angle", 2);
+    voltagePublisher = nh.advertise<std_msgs::Float32>("voltage", 2);
+    ticksPublisher = nh.advertise<std_msgs::UInt8>("ticks", 2);
+    yawPublisher = nh.advertise<std_msgs::Float32>("yaw", 2);
+    pitchPublisher = nh.advertise<std_msgs::Float32>("pitch", 2);
+    rollPublisher = nh.advertise<std_msgs::Float32>("roll", 2);
 }
 
 size_t ArduinoCommunication::cobsEncode(const uint8_t *input, size_t length, uint8_t *output) {
