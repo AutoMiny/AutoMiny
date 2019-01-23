@@ -18,6 +18,7 @@ double initial_yaw = 0.0;
 double th = 0.0;
 bool bicycle_model=false;
 bool servo_with_feedback=true;
+bool publish_tf = false;
 
 double steer_angle=0.0;
 double data_=0;
@@ -190,13 +191,14 @@ int main(int argc, char** argv){
   n.param("initial_yaw",initial_yaw,0.0);
   n.param("bicycle_model",bicycle_model,false);
   n.param("servo_with_feedback",servo_with_feedback,false);
+  n.param("publish_tf",publish_tf,false);
   x=initial_x;
   y=initial_y;
   th=initial_yaw;
 
   ROS_INFO_STREAM("initial_x:" << initial_x << " m, initial_y: " << initial_y << " m, initial_yaw: " << initial_yaw << " radians");
 
-  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("/odom", 1);
+  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 1);
   ros::Subscriber twist_sub = n.subscribe( model_car_twist, 1, twistCallback);
   ros::Subscriber theta_sub = n.subscribe( model_car_yaw, 1, headingCallback);//degree
   ros::Subscriber steering_sub;
@@ -256,17 +258,19 @@ int main(int argc, char** argv){
     geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
 
     //first, we'll publish the transform over tf
-    geometry_msgs::TransformStamped odom_trans;
-    odom_trans.header.stamp = current_time;
-    odom_trans.header.frame_id = "odom";
-    odom_trans.child_frame_id = "base_link";
-    odom_trans.transform.translation.x = x;
-    odom_trans.transform.translation.y = y;
-    odom_trans.transform.translation.z = 0.0;
-    odom_trans.transform.rotation = odom_quat;
+    if(publish_tf) {
+        geometry_msgs::TransformStamped odom_trans;
+        odom_trans.header.stamp = current_time;
+        odom_trans.header.frame_id = "odom";
+        odom_trans.child_frame_id = "base_link";
+        odom_trans.transform.translation.x = x;
+        odom_trans.transform.translation.y = y;
+        odom_trans.transform.translation.z = 0.0;
+        odom_trans.transform.rotation = odom_quat;
 
-    //send the transform
-    odom_broadcaster.sendTransform(odom_trans);
+        //send the transform
+        odom_broadcaster.sendTransform(odom_trans);
+    }
 
     //next, we'll publish the odometry message over ROS
     nav_msgs::Odometry odom;
