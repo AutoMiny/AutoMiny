@@ -12,8 +12,8 @@ import rospkg
 class VectorfieldController:
     def __init__(self):
         rospy.init_node('VectorfieldController')
-        self.map_size_x=630 #cm
-        self.map_size_y=400 #cm
+        self.map_size_x=600 #cm
+        self.map_size_y=430 #cm
         self.resolution = 10 # cm
         self.lane=2
         self.speed_value=0.3
