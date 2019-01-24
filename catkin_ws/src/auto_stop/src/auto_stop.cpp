@@ -21,7 +21,7 @@ public:
 		pubSpeed_ = nh_.advertise<std_msgs::Int16>("speed", 1);
 		subScan_ = nh_.subscribe("scan", 1, &auto_stop::scanCallback,this);
 		subTwist_ = nh_.subscribe("twist",1,&auto_stop::speedCallback,this);
-		subSpeedCommand_= nh_.subscribe("normalized_wanted_speed", 1 ,&auto_stop::speedCommandCallback,this);
+		subSpeedCommand_= nh_.subscribe("wanted_speed", 1 ,&auto_stop::speedCommandCallback,this);
 	}
 	~auto_stop(){}
 
