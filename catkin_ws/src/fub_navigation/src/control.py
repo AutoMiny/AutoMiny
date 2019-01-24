@@ -69,7 +69,7 @@ class VectorfieldController:
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
 
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
-        Kp=1.0
+        Kp=-1.0
         steering=Kp*np.arctan(f_y/(f_x))
         yaw = np.arctan(f_y/(f_x))
         self.pub_yaw.publish(Float32(yaw))
@@ -91,8 +91,6 @@ class VectorfieldController:
         if (f_x > 0):
             speed = max(self.speed_value, speed * ((np.pi/3)/(abs(steering)+1)))
 
-
-        steering = steering * (180.0/np.pi)
         # print(steering)
 
         self.pub.publish(Float64(steering))
