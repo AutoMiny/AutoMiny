@@ -17,24 +17,18 @@ def frange(x, y, jump):
             x -=jump
 
 def save(csv_name,loop):
-    more_inside=0.05
-    Width=3.85
-    Length=5.67-more_inside
-    R1= 1.5-more_inside
-    R2=0.835
     x = []
     y=[]
-    dis_edge=(Width/2.0-R1)
-    for i in frange(R1,Length-R1,0.1):
-        yp=dis_edge+loop*(R1-R2)/4.0
+    for i in frange(1.95, 4.03, 0.01):
+        yp=0.47
         xp=i
         x.append(xp)
         y.append(yp)
         print(xp, yp)
 
-    xo=Length-R1
-    yo=R1+dis_edge
-    R=R1-loop*((R1-R2)/4.0)
+    xo=4.03
+    yo=2.14
+    R=1.67
     for i in frange(-np.pi/2.0,np.pi/2.0,0.05/R):
         xp = xo + R * np.cos(i)
         yp = yo + R * np.sin(i)
@@ -42,20 +36,22 @@ def save(csv_name,loop):
         x.append(xp)
         print(xp, yp)
 
-    for i in frange(Length-R1,R1,0.1):          
+    for i in frange(4.03, 1.95, 0.01):
+        yp=3.82
         xp=i
-        yp=dis_edge+R1+(R1-loop*(R1-R2)/4.0)
-        x.append(i)
+        x.append(xp)
         y.append(yp)
         print(xp, yp)
 
-    xo=R1+more_inside
-    yo=R1+dis_edge
+    xo=1.95
+    yo=2.14
+    R=1.67
     for i in frange(np.pi/2.0,3*np.pi/2.0,0.05/R):
         xp = xo + R * np.cos(i)
         yp = yo + R * np.sin(i)
         y.append(yp)
         x.append(xp)
+        print(xp, yp)
 
 
     plt.hold(True)

@@ -5,18 +5,18 @@ from nav_msgs.msg import Odometry
 from geometry_msgs.msg import PoseWithCovarianceStamped, PointStamped
 
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
-from std_msgs.msg import Int16, UInt8, Float32
+from std_msgs.msg import Int16, UInt8, Float32, Float64
 import rospkg
 
 
 class VectorfieldController:
     def __init__(self):
         rospy.init_node('VectorfieldController')
-        self.map_size_x=600 #cm
+        self.map_size_x=630 #cm
         self.map_size_y=400 #cm
         self.resolution = 10 # cm
-        self.lane=1
-        self.speed_value= 100
+        self.lane=2
+        self.speed_value=0.3
         print("speed", self.speed_value)
         rospack = rospkg.RosPack()
         self.file_path=rospack.get_path('fub_navigation')+'/src/'
@@ -25,16 +25,16 @@ class VectorfieldController:
         else:
             self.matrix = np.load(self.file_path+'matrix100cm_lane2.npy')
 
-        self.pub_speed = rospy.Publisher("/manual_control/speed", Int16, queue_size=100, latch=True)
+        self.pub_speed = rospy.Publisher("/control/command/normalized_wanted_speed", Float64, queue_size=100, latch=True)
         rospy.on_shutdown(self.shutdown)
 
         self.shutdown_=False
-        self.pub = rospy.Publisher("/steering", UInt8, queue_size=1)
+        self.pub = rospy.Publisher("/control/command/normalized_wanted_steering", Float64, queue_size=1)
         self.pub_yaw = rospy.Publisher("/desired_yaw", Float32, queue_size=100, latch=True)
         #self.sub_yaw = rospy.Subscriber("/model_car/yaw", Float32, self.callback, queue_size=1)
         #self.sub_odom = rospy.Subscriber("/seat_car/amcl_pose", PoseWithCovarianceStamped, self.callback, queue_size=1)
         self.sub_points = rospy.Subscriber("/clicked_point", PointStamped, self.lane_callback, queue_size=1)
-        self.sub_odom = rospy.Subscriber("/odom", Odometry, self.callback, queue_size=1)
+        self.sub_odom = rospy.Subscriber("/localization/corrected_odom", Odometry, self.callback, queue_size=1)
 
 
     def lane_callback(self, data):
@@ -69,7 +69,7 @@ class VectorfieldController:
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
 
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
-        Kp=-5.0
+        Kp=1.0
         steering=Kp*np.arctan(f_y/(f_x))
         yaw = np.arctan(f_y/(f_x))
         self.pub_yaw.publish(Float32(yaw))
@@ -92,17 +92,17 @@ class VectorfieldController:
             speed = max(self.speed_value, speed * ((np.pi/3)/(abs(steering)+1)))
 
 
-        steering = 90 + steering * (180/np.pi)
+        steering = steering * (180.0/np.pi)
         # print(steering)
 
-        self.pub.publish(UInt8(steering))
+        self.pub.publish(Float64(steering))
         if not self.shutdown_:
-            self.pub_speed.publish(Int16(speed))
+            self.pub_speed.publish(Float64(speed))
 
     def shutdown(self):
         print("shutdown!")
         self.shutdown_=True
-        self.pub_speed.publish(Int16(0))
+        self.pub_speed.publish(Float64(0))
         rospy.sleep(1)
 
 def main():
