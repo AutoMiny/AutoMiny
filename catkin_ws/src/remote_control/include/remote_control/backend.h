@@ -36,26 +36,26 @@ namespace remote_control
 			m_image_callbacks.push_back(image_cb);
 		}
 
-		void set_speed(std::int16_t speed)
+		void set_speed(double speed)
 		{
 			if (m_is_emergency) return;
 			m_set_speed = speed;
 			m_controller.set_speed(speed);
 		}
 
-		void set_steering(std::int16_t steering)
+		void set_steering(double steering)
 		{
 			if (m_is_emergency) return;
 			m_set_steering = steering;
 			m_controller.set_steering(steering);
 		}
 
-		std::int16_t get_speed() const
+		double get_speed() const
 		{
 			return m_set_speed;
 		}
 
-		std::int16_t get_steering() const
+		double get_steering() const
 		{
 			return m_set_steering;
 		}
@@ -82,7 +82,7 @@ namespace remote_control
 		Controller m_controller;
 		std::vector<emergency_stop_callback_t> m_emergency_stop_callbacks;
 		std::vector<image_callback_t> m_image_callbacks;
-		std::int16_t m_set_speed, m_set_steering; 
+		double m_set_speed, m_set_steering;
 		bool m_is_emergency;
 	};
 

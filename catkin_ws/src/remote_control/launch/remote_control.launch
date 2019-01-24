@@ -1,4 +1,6 @@
 <launch>
+	<remap from="/control/normalized_wanted_speed" to="/control/command/normalized_wanted_speed"/>
+	<remap from="/control/normalized_wanted_steering" to="/control/command/normalized_wanted_steering"/>
 	<node pkg="remote_control" type="remote_control_node" name="remote_control" output="screen">
 	</node>
 </launch>

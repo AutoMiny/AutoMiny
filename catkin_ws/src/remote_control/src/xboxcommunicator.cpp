@@ -77,8 +77,8 @@ namespace remote_control
 				float sign_y = (y>=0)? 1.0 : -1.0;
 
 					
-				m_backend.set_speed(-350 * std::pow(y, 2) * sign_y);
-				m_backend.set_steering(180 * (1 - (std::pow(x,3) + 1) / 2));
+				m_backend.set_speed(-0.35 * std::pow(y, 2) * sign_y);
+				m_backend.set_steering(std::pow(x,3));
 			}
 
 			m_buffer.consume(bytes_transferred);

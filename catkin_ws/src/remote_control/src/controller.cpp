@@ -5,22 +5,22 @@ namespace remote_control
 {
 
 	Controller::Controller()
-		: m_pub_speed(m_node_handle.advertise<std_msgs::Int16>(m_node_handle.resolveName("manual_control/speed"), 1))
-		, m_pub_steering(m_node_handle.advertise<std_msgs::UInt8>(m_node_handle.resolveName("/steering"), 1))
+		: m_pub_speed(m_node_handle.advertise<std_msgs::Float64>("control/normalized_wanted_speed", 1))
+		, m_pub_steering(m_node_handle.advertise<std_msgs::Float64>("control/normalized_wanted_steering", 1))
 	{
 
 	}
 
-	void Controller::set_speed(std::int16_t speed)
+	void Controller::set_speed(double speed)
 	{
-		std_msgs::Int16 msg;
+		std_msgs::Float64 msg;
 		msg.data = speed;
 		m_pub_speed.publish(msg);
 	}
 
-	void Controller::set_steering(std::int16_t steering)
+	void Controller::set_steering(double steering)
 	{
-		std_msgs::UInt8 msg;
+		std_msgs::Float64 msg;
 		msg.data = steering;
 		m_pub_steering.publish(msg);
 	}

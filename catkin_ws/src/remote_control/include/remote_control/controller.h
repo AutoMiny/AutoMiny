@@ -1,8 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include <std_msgs/Int16.h>
-#include <std_msgs/UInt8.h>
+#include <std_msgs/Float64.h>
 #include <ros/ros.h>
 
 namespace remote_control
@@ -19,15 +18,15 @@ namespace remote_control
 		speed == 0: halt
 		speed > 0: backward
 		*/
-		void set_speed(std::int16_t speed);
+		void set_speed(double speed);
 
 		/*
 		Set and emits steering message.
-		steering == 0: right
-		steering == 90: straight
-		steering == 180: left
+		steering == 1: right
+		steering == 0: straight
+		steering == -1: left
 		*/
-		void set_steering(std::int16_t steering);
+		void set_steering(double steering);
 
 	protected:
 
