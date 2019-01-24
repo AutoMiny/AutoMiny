@@ -181,10 +181,10 @@ int main(int argc, char** argv){
   
   std::string file_name,model_car_twist,model_car_yaw,steering_command,steering_feedback;
   n.param<std::string>("file_name",file_name,"/cfg/SteerAngleActuator.xml");
-  n.param<std::string>("model_car_twist",model_car_twist,"/model_car/twist");
-  n.param<std::string>("model_car_yaw",model_car_yaw,"/model_car/yaw");
-  n.param<std::string>("steering_command",steering_command,"/manual_control/steering");
-  n.param<std::string>("steering_feedback",steering_feedback,"/steering_angle");
+  n.param<std::string>("model_car_twist",model_car_twist,"twist");
+  n.param<std::string>("model_car_yaw",model_car_yaw,"yaw");
+  n.param<std::string>("steering_command",steering_command,"manual_control/steering");
+  n.param<std::string>("steering_feedback",steering_feedback,"steering_angle");
 
   n.param("initial_x",initial_x,2.5);
   n.param("initial_y",initial_y,0.5);
