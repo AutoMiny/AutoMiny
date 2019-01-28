@@ -1,7 +1,7 @@
 <launch>
  	<node pkg="odometry" type="odometry_publisher" name="odometry" output="screen">
  		<param name="file_name" value="$(find odometry)/cfg/SteerAngleActuator.xml" />
-		<param name="model_car_yaw" value="yaw" />
+		<param name="model_car_yaw" value="imu" />
 		<param name="model_car_twist" value="twist" />
 		<param name="steering_command" value="steering" />
 		<param name="initial_x" value="0.0" />   <!--meters-->

@@ -1,7 +1,8 @@
 #pragma once
 
 #include <cstdint>
-#include <std_msgs/Float64.h>
+#include <autominy_msgs/NormalizedSpeedCommand.h>
+#include <autominy_msgs/NormalizedSteeringCommand.h>
 #include <ros/ros.h>
 
 namespace remote_control

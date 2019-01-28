@@ -11,7 +11,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>roscpp</depend>
-  <depend>std_msgs</depend>
+  <depend>autominy_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>serial</depend>
 

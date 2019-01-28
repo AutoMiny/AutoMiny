@@ -1,0 +1,18 @@
+<launch>
+	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
+	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+
+	<!-- Arduino communication -->
+	<remap from="/sensors/hardware_calibration/control/normalized_wanted_speed" to="/control/command/normalized_wanted_speed" />
+	<remap from="/sensors/hardware_calibration/control/normalized_wanted_steering" to="/control/command/normalized_wanted_steering" />
+	<remap from="/sensors/hardware_calibration/carstate/calibrated_speed" to="/carstate/speed" />
+	<remap from="/sensors/hardware_calibration/carstate/steering_angle" to="/carstate/steering" />
+	<remap from="/sensors/hardware_calibration/arduino/speed" to="/sensors/auto_stop/wanted_speed" />
+	<remap from="/sensors/hardware_calibration/arduino/steering_angle" to="/sensors/arduino/steering_angle" />
+	<remap from="/sensors/hardware_calibration/arduino/steering" to="/sensors/arduino/steering" />
+	<remap from="/sensors/hardware_calibration/arduino/ticks" to="/sensors/arduino/ticks" />
+	<include file="$(find hardware_calibration)/launch/HardwareCalibration.launch">
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	</include>
+</launch>

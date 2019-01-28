@@ -7,13 +7,13 @@ project(arduino_communication)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
         roscpp
-        std_msgs
+        autominy_msgs
         geometry_msgs
         serial
 )
 
 catkin_package(
-    CATKIN_DEPENDS std_msgs geometry_msgs
+    CATKIN_DEPENDS autominy_msgs geometry_msgs
 )
 
 include_directories(

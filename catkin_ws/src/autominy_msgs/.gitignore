@@ -1,0 +1,10 @@
+# backup files
+*~
+*.autosave
+*.old
+*.bak
+*.backup
+*.orig
+
+# generated files
+*.pyc

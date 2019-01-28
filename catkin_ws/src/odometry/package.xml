@@ -10,6 +10,7 @@
   <author>Zahra Boroujeni</author>
   <buildtool_depend>catkin</buildtool_depend>
   <depend>nav_msgs</depend>
+  <depend>autominy_msgs</depend>
   <depend>std_msgs</depend>
   <depend>roscpp</depend>
   <depend>tf</depend>

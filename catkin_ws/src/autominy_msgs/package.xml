@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>autominy_msgs</name>
+    <version>0.0.1</version>
+    <description>Brief description what this package is doing</description>
+
+    <maintainer email="s.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</maintainer>
+
+    <license>proprietary</license>
+
+    <url type="website">https://www.autonomos-labs.de/</url>
+
+    <author email="s.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</author>
+    <depend>message_runtime</depend>
+    <depend>std_msgs</depend>
+    <buildtool_depend>catkin</buildtool_depend>
+</package>

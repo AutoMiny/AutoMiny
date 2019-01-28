@@ -2,12 +2,16 @@
 
 #include <ros/ros.h>
 
-#include <std_msgs/Int16.h>
-#include <std_msgs/UInt8.h>
-#include <std_msgs/UInt16.h>
-#include <std_msgs/Float32.h>
 #include <sensor_msgs/Imu.h>
 #include <std_msgs/String.h>
+#include <std_msgs/Float32.h>
+#include <autominy_msgs/Speed.h>
+#include <autominy_msgs/SpeedCommand.h>
+#include <autominy_msgs/SteeringAngle.h>
+#include <autominy_msgs/SteeringCommand.h>
+#include <autominy_msgs/SteeringFeedback.h>
+#include <autominy_msgs/Tick.h>
+#include <autominy_msgs/Voltage.h>
 #include <geometry_msgs/Twist.h>
 
 #include <serial/serial.h>
@@ -22,8 +26,8 @@ class ArduinoCommunication {
 
     void spin();
  private:
-    void onSpeedCommand(std_msgs::Int16 const &speed);
-    void onSteeringCommand(std_msgs::Int16 const &steering);
+    void onSpeedCommand(autominy_msgs::SpeedCommandConstPtr const &speed);
+    void onSteeringCommand(autominy_msgs::SteeringCommandConstPtr const &steering);
     void onLedCommand(std_msgs::String const &led);
 
     void onReceive(uint8_t *message, size_t length);
@@ -46,7 +50,7 @@ class ArduinoCommunication {
     ros::Publisher ticksPublisher;
     ros::Publisher steeringAnglePublisher;
     ros::Publisher voltagePublisher;
-    ros::Publisher yawPublisher;
+    ros::Publisher imuPublisher;
     ros::Publisher pitchPublisher;
     ros::Publisher rollPublisher;
     ros::Subscriber speedSubscriber;

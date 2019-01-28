@@ -4,6 +4,9 @@
 #include <std_msgs/Float32.h>
 #include <std_msgs/UInt8.h>
 #include <std_msgs/UInt16.h>
+#include <autominy_msgs/SteeringFeedback.h>
+#include <autominy_msgs/SteeringCommand.h>
+#include <sensor_msgs/Imu.h>
 
 #include "fub_modelcar_tools/fub_modelcar_tools.h"
 #include <vector>
@@ -44,12 +47,12 @@ void twistCallback(const geometry_msgs::Twist& msg)
   float v_=round(msg.linear.x / (5.68))*31;//rad/s and gear ratio: 5.5  and the wheel Radius 31 milimeter
   v = roundf(v_ * 100) / 100;  /* Result: xx.xx */
 }
-void headingCallback(const std_msgs::Float32& msg)
+void headingCallback(const sensor_msgs::Imu& msg)
 {
   if (init==false)
   {
     init=true;
-    head=msg.data; //rad
+    head=tf::getYaw(msg.orientation); //rad
     initial_head=head;
     vth=0.0;
     current_time_twist = ros::Time::now();
@@ -58,7 +61,7 @@ void headingCallback(const std_msgs::Float32& msg)
   }
   else
   {
-    head=msg.data; //rad
+    head=tf::getYaw(msg.orientation); //rad
     double delta_head=head-initial_head+initial_yaw;
     if (delta_head>3.14)
       delta_head=delta_head-6.28;
@@ -69,11 +72,11 @@ void headingCallback(const std_msgs::Float32& msg)
   }
   
 }
-void steeringFeedbackCallback(const std_msgs::UInt16& msg)
+void steeringFeedbackCallback(const autominy_msgs::SteeringFeedback& msg)
 {
-    if (data_ !=msg.data)
+    if (data_ !=msg.value)
     {
-      data_=msg.data;
+      data_=msg.value;
       int i=-1;
       if (steeringPairs.at(0).feedback<steeringPairs.at(1).feedback)
       {
@@ -121,11 +124,11 @@ void steeringFeedbackCallback(const std_msgs::UInt16& msg)
     }
 }
 
-void steeringCommandCallback(const std_msgs::UInt8& msg)
+void steeringCommandCallback(const autominy_msgs::SteeringCommand& msg)
 {
-    if (data_ !=msg.data)
+    if (data_ !=msg.value)
     {
-      data_=msg.data;
+      data_=msg.value;
       int i=-1;
       for (int j=0;j<steeringPairs.size();j++)
       {
@@ -182,7 +185,7 @@ int main(int argc, char** argv){
   std::string file_name,model_car_twist,model_car_yaw,steering_command,steering_feedback;
   n.param<std::string>("file_name",file_name,"/cfg/SteerAngleActuator.xml");
   n.param<std::string>("model_car_twist",model_car_twist,"twist");
-  n.param<std::string>("model_car_yaw",model_car_yaw,"yaw");
+  n.param<std::string>("model_car_yaw",model_car_yaw,"imu");
   n.param<std::string>("steering_command",steering_command,"manual_control/steering");
   n.param<std::string>("steering_feedback",steering_feedback,"steering_angle");
 

@@ -11,12 +11,10 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this);
 
     twistPublisher = nh.advertise<geometry_msgs::Twist>("twist", 2);
-    steeringAnglePublisher = nh.advertise<std_msgs::UInt16>("steering_angle", 2);
-    voltagePublisher = nh.advertise<std_msgs::Float32>("voltage", 2);
-    ticksPublisher = nh.advertise<std_msgs::UInt8>("ticks", 2);
-    yawPublisher = nh.advertise<std_msgs::Float32>("yaw", 2);
-    pitchPublisher = nh.advertise<std_msgs::Float32>("pitch", 2);
-    rollPublisher = nh.advertise<std_msgs::Float32>("roll", 2);
+    steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 2);
+    voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 2);
+    ticksPublisher = nh.advertise<autominy_msgs::Tick>("ticks", 2);
+    imuPublisher = nh.advertise<sensor_msgs::Imu>("imu", 2);
 }
 
 size_t ArduinoCommunication::cobsEncode(const uint8_t *input, size_t length, uint8_t *output) {
@@ -169,8 +167,8 @@ void ArduinoCommunication::onSteeringAngle(uint8_t *message) {
               reinterpret_cast<const char *>(&message[2]),
               reinterpret_cast<char *>(&angle));
 
-    std_msgs::UInt16 msg;
-    msg.data = angle;
+    autominy_msgs::SteeringFeedback msg;
+    msg.value = angle;
     steeringAnglePublisher.publish(msg);
 
 }
@@ -180,33 +178,58 @@ void ArduinoCommunication::onVoltage(uint8_t *message) {
               reinterpret_cast<const char *>(&message[4]),
               reinterpret_cast<char *>(&voltage));
 
-    std_msgs::Float32 msg;
-    msg.data = voltage;
+    autominy_msgs::Voltage msg;
+    msg.value = voltage;
     voltagePublisher.publish(msg);
 }
 void ArduinoCommunication::onIMU(uint8_t *message) {
-    float yaw, pitch, roll;
-    std_msgs::Float32 yawMsg, pitchMsg, rollMsg;
+    sensor_msgs::Imu imuMsg;
 
-    std::copy(reinterpret_cast<const char *>(&message[0]),
-              reinterpret_cast<const char *>(&message[4]),
-              reinterpret_cast<char *>(&yaw));
+    int16_t w = (((0xff &(char)message[0]) << 8) | 0xff &(char)message[1]);
+    int16_t x = (((0xff &(char)message[2]) << 8) | 0xff &(char)message[3]);
+    int16_t y = (((0xff &(char)message[4]) << 8) | 0xff &(char)message[5]);
+    int16_t z = (((0xff &(char)message[6]) << 8) | 0xff &(char)message[7]);
 
-    std::copy(reinterpret_cast<const char *>(&message[4]),
-              reinterpret_cast<const char *>(&message[8]),
-              reinterpret_cast<char *>(&pitch));
+    double wf = w/16384.0;
+    double xf = x/16384.0;
+    double yf = y/16384.0;
+    double zf = z/16384.0;
 
-    std::copy(reinterpret_cast<const char *>(&message[8]),
-              reinterpret_cast<const char *>(&message[12]),
-              reinterpret_cast<char *>(&roll));
 
-    yawMsg.data = yaw;
-    pitchMsg.data = pitch;
-    rollMsg.data = roll;
+    int16_t gx = (((0xff &(char)message[8]) << 8) | 0xff &(char)message[9]);
+    int16_t gy = (((0xff &(char)message[10]) << 8) | 0xff &(char)message[11]);
+    int16_t gz = (((0xff &(char)message[12]) << 8) | 0xff &(char)message[13]);
 
-    yawPublisher.publish(yawMsg);
-    pitchPublisher.publish(pitchMsg);
-    rollPublisher.publish(rollMsg);
+    double gxf = gx * (4000.0/65536.0) * (M_PI/180.0) * 25.0;
+    double gyf = gy * (4000.0/65536.0) * (M_PI/180.0) * 25.0;
+    double gzf = gz * (4000.0/65536.0) * (M_PI/180.0) * 25.0;
+
+    int16_t ax = (((0xff &(char)message[14]) << 8) | 0xff &(char)message[15]);
+    int16_t ay = (((0xff &(char)message[16]) << 8) | 0xff &(char)message[17]);
+    int16_t az = (((0xff &(char)message[18]) << 8) | 0xff &(char)message[19]);
+    // calculate accelerations in m/s²
+    double axf = ax * (8.0 / 65536.0) * 9.81;
+    double ayf = ay * (8.0 / 65536.0) * 9.81;
+    double azf = az * (8.0 / 65536.0) * 9.81;
+
+    int16_t temperature = (((0xff &(char)message[20]) << 8) | 0xff &(char)message[21]);
+    double temperature_in_C = (temperature / 340.0 ) + 36.53;
+    ROS_DEBUG_STREAM("Temperature [in C] " << temperature_in_C);
+
+    imuMsg.orientation.x = xf;
+    imuMsg.orientation.y = yf;
+    imuMsg.orientation.z = zf;
+    imuMsg.orientation.w = wf;
+
+    imuMsg.angular_velocity.x = gxf;
+    imuMsg.angular_velocity.y = gyf;
+    imuMsg.angular_velocity.z = gzf;
+
+    imuMsg.linear_acceleration.x = axf;
+    imuMsg.linear_acceleration.y = ayf;
+    imuMsg.linear_acceleration.z = azf;
+
+    imuPublisher.publish(imuMsg);
 }
 void ArduinoCommunication::onSpeed(uint8_t *message) {
     geometry_msgs::Twist twist;
@@ -232,23 +255,23 @@ void ArduinoCommunication::onDebug(uint8_t *message) {
     ROS_DEBUG("%s", message);
 }
 void ArduinoCommunication::onTicks(uint8_t *message) {
-    std_msgs::UInt8 msg;
+    autominy_msgs::Tick msg;
     uint8_t ticks;
     std::copy(reinterpret_cast<const char *>(&message[0]),
               reinterpret_cast<const char *>(&message[1]),
               reinterpret_cast<char *>(&ticks));
 
-    msg.data = ticks;
+    msg.value = ticks;
     ticksPublisher.publish(msg);
 }
 
-void ArduinoCommunication::onSteeringCommand(std_msgs::Int16 const &steering) {
+void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringCommandConstPtr const &steering) {
     uint8_t size = sizeof(MessageType) + sizeof(int16_t);
     uint8_t message[size];
     uint8_t output[size * 2 + 1];
 
     message[0] = (uint8_t) MessageType::STEERING_CMD;
-    memcpy(&message[1], &steering.data, sizeof(int16_t));
+    memcpy(&message[1], &steering->value, sizeof(int16_t));
     auto cobs = cobsEncode(message, size, output);
 
     onSend(output, cobs);
@@ -277,13 +300,13 @@ void ArduinoCommunication::onLedCommand(std_msgs::String const &led) {
 
 }
 
-void ArduinoCommunication::onSpeedCommand(std_msgs::Int16 const &speed) {
+void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedCommandConstPtr const &speed) {
     uint8_t size = sizeof(MessageType) + sizeof(int16_t);
     uint8_t message[size];
     uint8_t output[size * 2 + 1];
 
     message[0] = (uint8_t) MessageType::SPEED_CMD;
-    memcpy(&message[1], &speed.data, sizeof(int16_t));
+    memcpy(&message[1], &speed->value, sizeof(int16_t));
     auto cobs = cobsEncode(message, size, output);
 
     auto wrote = onSend(output, cobs);

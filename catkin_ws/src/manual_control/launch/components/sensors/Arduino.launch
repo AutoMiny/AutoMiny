@@ -1,0 +1,8 @@
+<launch>
+	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
+	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+
+	<!-- Arduino communication -->
+	<include file="$(find arduino_communication)/launch/ArduinoCommunication.launch">
+	</include>
+</launch>

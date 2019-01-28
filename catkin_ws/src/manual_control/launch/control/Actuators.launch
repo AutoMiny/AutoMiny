@@ -1,0 +1,5 @@
+<launch>
+	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
+	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
+	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+</launch>

@@ -1,0 +1,18 @@
+<!--
+    relative workspace path to .so file (without file suffix),
+    e.g. this path refers to catkin_ws/devel/lib/libfub_dummy_nodelet.so
+-->
+<library path="lib/libroad_marking_localization_nodelet">
+    <!--
+        name: value of variable nodeletName in DummyNode.cpp
+        type/base_class_type: first/second param of macro PLUGINLIB_EXPORT_CLASS in RoadMarkingLocalizationNodelet.cpp
+    -->
+    <class name="road_marking_localization/Nodelet"
+           type="road_marking_localization::RoadMarkingLocalizationNodelet"
+           base_class_type="nodelet::Nodelet"
+    >
+        <description>
+            Short description what this nodelet is doing
+        </description>
+    </class>
+</library>

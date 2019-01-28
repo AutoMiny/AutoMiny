@@ -6,8 +6,8 @@ do
     |___/   ||
      car    wall
 	"
-read -p "Press any key to continue... " -n1 -s
-echo
+echo "Press any key to continue... "
+read t
 echo "Desired command angle= " $i
 python angle_calibrator_online.py $i
 
@@ -16,5 +16,4 @@ sed -i '1i<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n<!DOCTYPE bo
 
 CAR_IP=`echo $ROS_MASTER_URI | awk '{split($0,a,":"); print a[2]}' | awk '{split($0,a,"//"); print a[2]}'`
 echo "CAR_IP is" $CAR_IP
-scp SteerAngleActuator.xml root@$CAR_IP:/opt/ros/modelcar/catkin_ws/src/odometry/cfg/
-scp SteerAngleActuator.xml root@$CAR_IP:/opt/ros/modelcar/catkin_ws/install/share/odometry/cfg
+scp SteerAngleActuator.xml root@$CAR_IP:/opt/model_car/catkin_ws/src/odometry/cfg/

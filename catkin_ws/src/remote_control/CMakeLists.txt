@@ -8,7 +8,7 @@ project(remote_control)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  std_msgs
+  autominy_msgs
   sensor_msgs
   geometry_msgs
 )

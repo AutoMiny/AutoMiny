@@ -1,0 +1,66 @@
+<!-- Launch file to start the core components that should (almost) always run -->
+<launch>
+	<arg name="live"            default="false" doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
+	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
+	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+
+
+	<!-- Core Nodelet Manager -->
+	<node
+		pkg="nodelet"
+		type="nodelet"
+		name="$(arg nodelet_manager)"
+		args="manager"
+	>
+		<!-- number of worker threads - if value is too low, performance will suffer! -->
+		<param name="num_worker_threads" value="64" />
+	</node>
+
+
+	<!-- car model -->
+	<include file="$(find autominy)/launch/components/VehicleModel.launch" />
+
+
+	<!-- the sensors -->
+	<include file="$(find autominy)/launch/components/Sensors.launch" ns="sensors">
+		<arg name="live"            value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+	</include>
+
+	<!-- the sensors -->
+	<include file="$(find autominy)/launch/components/AutoStop.launch" ns="sensors">
+		<arg name="live"            value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+	</include>
+
+	<!-- localization -->
+	<group ns="localization">
+		<!-- start localization -->
+		<include file="$(find autominy)/launch/localization/Localization.launch">
+			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		</include>
+	</group>
+
+
+	<!-- sensor postprocessing -->
+	<group ns="postprocessing">
+	</group>
+
+	<!-- control -->
+	<group ns="control">
+		<!-- actuation -->
+		<include file="$(find autominy)/launch/control/Actuators.launch">
+			<arg name="live"            value="$(arg live)" />
+			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		</include>
+	</group>
+
+	<!-- carstate -->
+	<group ns="carstate">
+
+	</group>
+</launch>

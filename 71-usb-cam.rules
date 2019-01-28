@@ -1,3 +1,0 @@
-# USB_CAM Fish-eye
-KERNEL=="video[0-9]*", ATTR{name}=="USB 2.0 Camera", SYMLINK+="usb_cam"
-

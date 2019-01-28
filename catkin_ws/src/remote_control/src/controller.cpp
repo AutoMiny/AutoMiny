@@ -5,23 +5,23 @@ namespace remote_control
 {
 
 	Controller::Controller()
-		: m_pub_speed(m_node_handle.advertise<std_msgs::Float64>("control/normalized_wanted_speed", 1))
-		, m_pub_steering(m_node_handle.advertise<std_msgs::Float64>("control/normalized_wanted_steering", 1))
+		: m_pub_speed(m_node_handle.advertise<autominy_msgs::NormalizedSpeedCommand>("control/normalized_wanted_speed", 1))
+		, m_pub_steering(m_node_handle.advertise<autominy_msgs::NormalizedSteeringCommand>("control/normalized_wanted_steering", 1))
 	{
 
 	}
 
 	void Controller::set_speed(double speed)
 	{
-		std_msgs::Float64 msg;
-		msg.data = speed;
+        autominy_msgs::NormalizedSpeedCommand msg;
+		msg.value = static_cast<float>(speed);
 		m_pub_speed.publish(msg);
 	}
 
 	void Controller::set_steering(double steering)
 	{
-		std_msgs::Float64 msg;
-		msg.data = steering;
+        autominy_msgs::NormalizedSteeringCommand msg;
+		msg.value = static_cast<float>(steering);
 		m_pub_steering.publish(msg);
 	}
 

@@ -3,6 +3,7 @@ import numpy as np
 import rospy
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import PoseWithCovarianceStamped, PointStamped
+from autominy_msgs.msg import NormalizedSteeringCommand, NormalizedSpeedCommand
 
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 from std_msgs.msg import Int16, UInt8, Float32, Float64
@@ -25,11 +26,11 @@ class VectorfieldController:
         else:
             self.matrix = np.load(self.file_path+'matrix100cm_lane2.npy')
 
-        self.pub_speed = rospy.Publisher("/control/command/normalized_wanted_speed", Float64, queue_size=100, latch=True)
+        self.pub_speed = rospy.Publisher("/control/command/normalized_wanted_speed", NormalizedSpeedCommand, queue_size=100, latch=True)
         rospy.on_shutdown(self.shutdown)
 
         self.shutdown_=False
-        self.pub = rospy.Publisher("/control/command/normalized_wanted_steering", Float64, queue_size=1)
+        self.pub = rospy.Publisher("/control/command/normalized_wanted_steering", NormalizedSteeringCommand, queue_size=1)
         self.pub_yaw = rospy.Publisher("/desired_yaw", Float32, queue_size=100, latch=True)
         #self.sub_yaw = rospy.Subscriber("/model_car/yaw", Float32, self.callback, queue_size=1)
         #self.sub_odom = rospy.Subscriber("/seat_car/amcl_pose", PoseWithCovarianceStamped, self.callback, queue_size=1)
@@ -93,14 +94,14 @@ class VectorfieldController:
 
         # print(steering)
 
-        self.pub.publish(Float64(steering))
+        self.pub.publish(NormalizedSteeringCommand(steering))
         if not self.shutdown_:
-            self.pub_speed.publish(Float64(speed))
+            self.pub_speed.publish(NormalizedSpeedCommand(speed))
 
     def shutdown(self):
         print("shutdown!")
         self.shutdown_=True
-        self.pub_speed.publish(Float64(0))
+        self.pub_speed.publish(NormalizedSpeedCommand(0))
         rospy.sleep(1)
 
 def main():
