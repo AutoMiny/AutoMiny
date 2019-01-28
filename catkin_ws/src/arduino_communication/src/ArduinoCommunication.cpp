@@ -217,8 +217,8 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
     ROS_DEBUG_STREAM("Temperature [in C] " << temperature_in_C);
 
     // map from NED to ENU
-    imuMsg.orientation.x = xf;
-    imuMsg.orientation.y = yf;
+    imuMsg.orientation.x = yf;
+    imuMsg.orientation.y = -xf;
     imuMsg.orientation.z = zf;
     imuMsg.orientation.w = wf;
 
