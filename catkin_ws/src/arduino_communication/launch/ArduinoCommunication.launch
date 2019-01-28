@@ -1,6 +1,6 @@
 <launch>
 	<node pkg="arduino_communication" type="arduino_communication_node" name="arduino" output="screen">
-		<param name="baud" value="230400" />
+		<param name="baud" value="115200" />
 		<param name="device" value="/dev/ttyArduino" />
 	</node>
 </launch>

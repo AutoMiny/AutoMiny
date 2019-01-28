@@ -10,7 +10,6 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     steeringSubscriber = nh.subscribe("steering", 2, &ArduinoCommunication::onSteeringCommand, this);
     ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this);
 
-    twistPublisher = nh.advertise<geometry_msgs::Twist>("twist", 2);
     steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 2);
     voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 2);
     ticksPublisher = nh.advertise<autominy_msgs::Tick>("ticks", 2);
@@ -64,6 +63,7 @@ size_t ArduinoCommunication::cobsDecode(const uint8_t *input, size_t length, uin
         for (i = 1; i < code; i++) {
             output[write_idx++] = input[read_idx++];
         }
+
         if (code != 0xFF && read_idx != length) {
             output[write_idx++] = '\0';
         }
@@ -232,29 +232,23 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
 
     imuPublisher.publish(imuMsg);
 }
-void ArduinoCommunication::onSpeed(uint8_t *message) {
-    geometry_msgs::Twist twist;
-    float result;
-    std::copy(reinterpret_cast<const char *>(&message[0]),
-              reinterpret_cast<const char *>(&message[4]),
-              reinterpret_cast<char *>(&result));
 
-    twist.linear.x = result;
-    twistPublisher.publish(twist);
-
-}
 void ArduinoCommunication::onWarn(uint8_t *message) {
     ROS_WARN("%s", message);
 }
+
 void ArduinoCommunication::onError(uint8_t *message) {
     ROS_ERROR("%s", message);
 }
+
 void ArduinoCommunication::onInfo(uint8_t *message) {
     ROS_INFO("%s", message);
 }
+
 void ArduinoCommunication::onDebug(uint8_t *message) {
     ROS_DEBUG("%s", message);
 }
+
 void ArduinoCommunication::onTicks(uint8_t *message) {
     autominy_msgs::Tick msg;
     uint8_t ticks;
