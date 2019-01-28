@@ -97,7 +97,7 @@
     <joint name="joint_sensor_board_to_imu" type="fixed">
         <parent link="sensor_board"/>
         <child link="imu"/>
-        <origin xyz="0.035 -0.035 0.0025" rpy="0 0 ${PI/2}"/>
+        <origin xyz="0.035 -0.035 0.0025" rpy="0 0 0"/>
     </joint>
 
     <!-- Odroid -->
