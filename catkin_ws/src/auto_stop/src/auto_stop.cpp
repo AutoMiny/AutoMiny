@@ -1,6 +1,6 @@
 #include <ros/ros.h>
 #include <sensor_msgs/LaserScan.h>
-#include <std_msgs/Int16.h>
+#include <autominy_msgs/SpeedCommand.h>
 #include <geometry_msgs/Twist.h>
 
 class auto_stop
@@ -16,19 +16,19 @@ public:
 		nh_.param<float>("forward_minimum_distance", forward_minimum_distance, 0.07);
 
 		ROS_INFO_STREAM("break_distance "<< break_distance << " m, angle_front " << angle_front <<" degrees, angle_back " << angle_back <<" degrees");
-		speedCommand.data=0;
-		emergencyStop.data=0;
-		pubSpeed_ = nh_.advertise<std_msgs::Int16>("speed", 1);
+		speedCommand.value = 0;
+		emergencyStop.value = 0;
+		pubSpeed_ = nh_.advertise<autominy_msgs::SpeedCommand>("speed", 1);
 		subScan_ = nh_.subscribe("scan", 1, &auto_stop::scanCallback,this);
 		subTwist_ = nh_.subscribe("twist",1,&auto_stop::speedCallback,this);
 		subSpeedCommand_= nh_.subscribe("wanted_speed", 1 ,&auto_stop::speedCommandCallback,this);
 	}
 	~auto_stop(){}
 
-	void speedCommandCallback(const std_msgs::Int16& input)
+	void speedCommandCallback(const autominy_msgs::SpeedCommand& input)
 	{
-		ROS_INFO_STREAM("speed command " << input.data);
-		speedCommand=input;
+		ROS_INFO_STREAM("speed command " << input.value);
+		speedCommand.value = input.value;
 	}
     void speedCallback(const geometry_msgs::Twist& twist)
 	{
@@ -42,7 +42,7 @@ public:
 	    if (abs(direction)>50 && (break_distance_based_on_speed==true))
 	    	break_distance_=(abs(direction)/50)*break_distance;
 	    //ROS_INFO("speed %f",break_distance_);
-		if(speedCommand.data > 0){	//forward.
+		if(speedCommand.value > 0){	//forward.
 			for(int i = 0; i < (angle_front/2)+1; i++){
 				if (scan->ranges[i] <= break_distance_ + forward_minimum_distance && scan->ranges[i] > forward_minimum_distance){
 					pubSpeed_.publish(emergencyStop);
@@ -59,7 +59,7 @@ public:
 			}
 		}
 
-		if(speedCommand.data < 0){ //backward.
+		if(speedCommand.value < 0){ //backward.
 			for(int j = (180-(angle_back/2)); j < (180+(angle_back/2))+1; j++){
 			    // we might see the camera in the laser scan
 				if (scan->ranges[j] <= (break_distance_ + reverse_minimum_distance) && scan->ranges[j] > reverse_minimum_distance){
@@ -71,8 +71,6 @@ public:
 		}
 		//There is not any obstacle
 		pubSpeed_.publish(speedCommand);
-		return;
-
 	}
 
 	private:
@@ -83,8 +81,8 @@ public:
 		bool break_distance_based_on_speed;
 		float reverse_minimum_distance;
 		float forward_minimum_distance;
-		std_msgs::Int16 speedCommand;
-		std_msgs::Int16 emergencyStop;
+		autominy_msgs::SpeedCommand speedCommand;
+        autominy_msgs::SpeedCommand emergencyStop;
 	  	ros::Publisher  pubSpeed_;
 	  	ros::Subscriber subScan_;
 	  	ros::Subscriber subTwist_;

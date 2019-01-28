@@ -10,11 +10,12 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   sensor_msgs
   geometry_msgs
+  autominy_msgs
 )
 
 catkin_package(
 #	LIBRARIES ${PROJECT_NAME}
-    CATKIN_DEPENDS std_msgs sensor_msgs geometry_msgs
+    CATKIN_DEPENDS std_msgs sensor_msgs geometry_msgs autominy_msgs
 )
 
 include_directories(
