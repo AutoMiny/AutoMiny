@@ -14,6 +14,7 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 2);
     ticksPublisher = nh.advertise<autominy_msgs::Tick>("ticks", 2);
     imuPublisher = nh.advertise<sensor_msgs::Imu>("imu", 2);
+    imuTemperaturePublisher = nh.advertise<sensor_msgs::Temperature>("imu/temperature", 2);
 }
 
 size_t ArduinoCommunication::cobsEncode(const uint8_t *input, size_t length, uint8_t *output) {
@@ -217,8 +218,11 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
     double azf = az * (8.0 / 65536.0) * 9.81;
 
     int16_t temperature = (((0xff &(char)message[20]) << 8) | 0xff &(char)message[21]);
-    double temperature_in_C = (temperature / 340.0 ) + 36.53;
-    ROS_DEBUG_STREAM("Temperature [in C] " << temperature_in_C);
+    sensor_msgs::Temperature temperatureMsg;
+    temperatureMsg.header.stamp = ros::Time::now();
+    temperatureMsg.header.frame_id = "imu";
+    temperatureMsg.temperature = (temperature / 340.0 ) + 36.53;
+    imuTemperaturePublisher.publish(temperatureMsg);
 
     // map from NED to ENU
     imuMsg.orientation.x = yf;

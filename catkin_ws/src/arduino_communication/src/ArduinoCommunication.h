@@ -3,6 +3,7 @@
 #include <ros/ros.h>
 
 #include <sensor_msgs/Imu.h>
+#include <sensor_msgs/Temperature.h>
 #include <std_msgs/String.h>
 #include <std_msgs/Float32.h>
 #include <autominy_msgs/Speed.h>
@@ -49,8 +50,7 @@ class ArduinoCommunication {
     ros::Publisher steeringAnglePublisher;
     ros::Publisher voltagePublisher;
     ros::Publisher imuPublisher;
-    ros::Publisher pitchPublisher;
-    ros::Publisher rollPublisher;
+    ros::Publisher imuTemperaturePublisher;
     ros::Subscriber speedSubscriber;
     ros::Subscriber steeringSubscriber;
     ros::Subscriber ledSubscriber;
