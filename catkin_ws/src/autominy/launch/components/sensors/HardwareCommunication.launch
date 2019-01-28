@@ -14,7 +14,7 @@
 	</include>
 
 	<remap from="/sensors/odometry/steering_angle" to="/sensors/arduino/steering_angle"/>
-	<remap from="/sensors/odometry/twist" to="/sensors/arduino/twist"/>
+	<remap from="/sensors/odometry/speed" to="/carstate/speed"/>
 	<remap from="/sensors/odometry/imu" to="/sensors/arduino/imu"/>
 	<include file="$(find odometry)/launch/odometry.launch">
 	</include>

@@ -4,6 +4,7 @@
 #include <std_msgs/Float32.h>
 #include <std_msgs/UInt8.h>
 #include <std_msgs/UInt16.h>
+#include <autominy_msgs/Speed.h>
 #include <autominy_msgs/SteeringFeedback.h>
 #include <autominy_msgs/SteeringCommand.h>
 #include <sensor_msgs/Imu.h>
@@ -42,10 +43,9 @@ std::vector <SteeringCalibrationData> steeringPairs;
 
 ros::Time current_time_twist, last_time_twist;
 
-void twistCallback(const geometry_msgs::Twist& msg)
+void twistCallback(const autominy_msgs::Speed& msg)
 {
-  float v_=round(msg.linear.x / (5.68))*31;//rad/s and gear ratio: 5.5  and the wheel Radius 31 milimeter
-  v = roundf(v_ * 100) / 100;  /* Result: xx.xx */
+  v = msg.value;
 }
 void headingCallback(const sensor_msgs::Imu& msg)
 {
@@ -184,7 +184,7 @@ int main(int argc, char** argv){
   
   std::string file_name,model_car_twist,model_car_yaw,steering_command,steering_feedback;
   n.param<std::string>("file_name",file_name,"/cfg/SteerAngleActuator.xml");
-  n.param<std::string>("model_car_twist",model_car_twist,"twist");
+  n.param<std::string>("model_car_twist",model_car_twist,"speed");
   n.param<std::string>("model_car_yaw",model_car_yaw,"imu");
   n.param<std::string>("steering_command",steering_command,"manual_control/steering");
   n.param<std::string>("steering_feedback",steering_feedback,"steering_angle");
@@ -238,15 +238,15 @@ int main(int argc, char** argv){
 
     if (bicycle_model==true)
     {
-      delta_x = (v * cos(th+beta)) * dt * 0.001; //v unit = mm/s -> output : m
-      delta_y = (v * sin(th+beta)) * dt * 0.001;
+      delta_x = (v * cos(th+beta)) * dt; //v unit = mm/s -> output : m
+      delta_y = (v * sin(th+beta)) * dt;
       x+=delta_x;
       y+=delta_y;
     }
     else
     {
-      delta_x = (v * cos(th)) * dt * 0.001; //v unit = mm/s -> output : m
-      delta_y = (v * sin(th)) * dt * 0.001;
+      delta_x = (v * cos(th)) * dt; //v unit = mm/s -> output : m
+      delta_y = (v * sin(th)) * dt;
       x+=delta_x;
       y+=delta_y;
     }
@@ -288,9 +288,9 @@ int main(int argc, char** argv){
 
     //set the velocity
     odom.child_frame_id = "base_link";
-    odom.twist.twist.linear.x = v * 0.001; //v is mm/s -> output : m/s
+    odom.twist.twist.linear.x = v; //v is mm/s -> output : m/s
     odom.twist.twist.linear.y = 0;
-    odom.twist.twist.angular.z=vth;
+    odom.twist.twist.angular.z= vth;
 
     //publish the message
     odom_pub.publish(odom);
