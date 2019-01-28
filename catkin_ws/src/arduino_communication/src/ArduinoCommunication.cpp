@@ -216,12 +216,12 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
     double temperature_in_C = (temperature / 340.0 ) + 36.53;
     ROS_DEBUG_STREAM("Temperature [in C] " << temperature_in_C);
 
-    imuMsg.orientation.x = xf;
-    imuMsg.orientation.y = yf;
-    imuMsg.orientation.z = zf;
+    // map from NED to ENU
+    imuMsg.orientation.x = -xf;
+    imuMsg.orientation.y = -yf;
+    imuMsg.orientation.z = -zf;
     imuMsg.orientation.w = wf;
 
-    // map from NED to ENU
     imuMsg.angular_velocity.x = gyf;
     imuMsg.angular_velocity.y = -gxf;
     imuMsg.angular_velocity.z = -gzf;
