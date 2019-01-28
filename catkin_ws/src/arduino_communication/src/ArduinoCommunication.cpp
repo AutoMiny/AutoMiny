@@ -94,8 +94,6 @@ void ArduinoCommunication::onReceive(uint8_t *message, size_t length) {
                 break;
             case MessageType::TICKS:onTicks(&message[1]);
                 break;
-            case MessageType::SPEED:onSpeed(&message[1]);
-                break;
             case MessageType::IMU:onIMU(&message[1]);
                 break;
             case MessageType::VOLTAGE:onVoltage(&message[1]);

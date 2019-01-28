@@ -36,7 +36,6 @@ class ArduinoCommunication {
     void onVoltage(uint8_t *message);
     void onSteeringAngle(uint8_t *message);
     void onIMU(uint8_t *message);
-    void onSpeed(uint8_t *message);
     void onError(uint8_t *message);
     void onWarn(uint8_t *message);
     void onInfo(uint8_t *message);
@@ -46,7 +45,6 @@ class ArduinoCommunication {
     size_t cobsDecode(const uint8_t *input, size_t length, uint8_t *output);
     size_t cobsEncode(const uint8_t *input, size_t length, uint8_t *output);
 
-    ros::Publisher twistPublisher;
     ros::Publisher ticksPublisher;
     ros::Publisher steeringAnglePublisher;
     ros::Publisher voltagePublisher;
