@@ -68,7 +68,7 @@ void headingCallback(const sensor_msgs::Imu& msg)
     else if (delta_head<-3.14)
       delta_head=delta_head+6.28;
     //the yaw should increase clock wise -pi< yaw < pi
-    th = -roundf(delta_head * 100) / 100;
+    th = roundf(delta_head * 100) / 100;
   }
   
 }
