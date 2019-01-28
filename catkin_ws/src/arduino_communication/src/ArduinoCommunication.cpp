@@ -167,6 +167,8 @@ void ArduinoCommunication::onSteeringAngle(uint8_t *message) {
 
     autominy_msgs::SteeringFeedback msg;
     msg.value = angle;
+    msg.header.stamp = ros::Time::now();
+    msg.header.frame_id = "base_link";
     steeringAnglePublisher.publish(msg);
 
 }
@@ -178,11 +180,15 @@ void ArduinoCommunication::onVoltage(uint8_t *message) {
 
     autominy_msgs::Voltage msg;
     msg.value = voltage;
+    msg.header.stamp = ros::Time::now();
+    msg.header.frame_id = "base_link";
     voltagePublisher.publish(msg);
 }
 void ArduinoCommunication::onIMU(uint8_t *message) {
     sensor_msgs::Imu imuMsg;
     imuMsg.header.frame_id = "imu";
+    imuMsg.header.stamp = ros::Time::now();
+
 
     int16_t w = (((0xff &(char)message[0]) << 8) | 0xff &(char)message[1]);
     int16_t x = (((0xff &(char)message[2]) << 8) | 0xff &(char)message[3]);
@@ -255,6 +261,8 @@ void ArduinoCommunication::onTicks(uint8_t *message) {
               reinterpret_cast<char *>(&ticks));
 
     msg.value = ticks;
+    msg.header.stamp = ros::Time::now();
+    msg.header.frame_id = "base_link";
     ticksPublisher.publish(msg);
 }
 

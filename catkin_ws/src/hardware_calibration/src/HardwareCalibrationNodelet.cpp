@@ -31,6 +31,8 @@ namespace hardware_calibration {
 
             auto ticks = std::accumulate(ticksBuffer.begin(), ticksBuffer.end(), 0);
             autominy_msgs::Speed speedMsg;
+            speedMsg.header.stamp = ros::Time::now();
+            speedMsg.header.frame_id = "base_link";
             speedMsg.value = (static_cast<double>(ticks) * config.ticks_to_m) / static_cast<double>(ticksBuffer.size()) * static_cast<double>(direction);
             calibratedSpeedPublisher.publish(speedMsg);
         }
@@ -49,6 +51,8 @@ namespace hardware_calibration {
             auto radianSteering = mapRange(-1.0, 1.0, config.minimum_steering_radians, config.maximum_steering_radians, normalizedSteering);
 
             autominy_msgs::SteeringAngle steeringAngleMsg;
+            steeringAngleMsg.header.stamp = ros::Time::now();
+            steeringAngleMsg.header.frame_id = "base_link";
             steeringAngleMsg.value = radianSteering;
             steeringAnglePublisher.publish(steeringAngleMsg);
         }
@@ -70,6 +74,8 @@ namespace hardware_calibration {
             auto pwm = mapRange(-1.0, 1.0, config.minimum_speed_pwm, config.maximum_speed_pwm, wantedSpeed);
 
             autominy_msgs::SpeedCommand speedMsg;
+            speedMsg.header.stamp = ros::Time::now();
+            speedMsg.header.frame_id = "base_link";
             speedMsg.value = static_cast<int16_t>(pwm);
             speedPublisher.publish(speedMsg);
         }
@@ -85,6 +91,8 @@ namespace hardware_calibration {
             auto pwm = mapRange(1.0, -1.0, config.minimum_steering_pwm, config.maximum_steering_pwm, wantedSteering);
 
             autominy_msgs::SteeringCommand steeringMsg;
+            steeringMsg.header.stamp = ros::Time::now();
+            steeringMsg.header.frame_id = "base_link";
             steeringMsg.value = static_cast<int16_t>(pwm);
             steeringPublisher.publish(steeringMsg);
         }
