@@ -94,14 +94,20 @@ class VectorfieldController:
 
         # print(steering)
 
-        self.pub.publish(NormalizedSteeringCommand(steering))
+        steerMsg = NormalizedSteeringCommand()
+        steerMsg.value = steering
+        self.pub.publish(steerMsg)
         if not self.shutdown_:
-            self.pub_speed.publish(NormalizedSpeedCommand(speed))
+            msg = NormalizedSpeedCommand()
+            msg.value = speed
+            self.pub_speed.publish(msg)
 
     def shutdown(self):
         print("shutdown!")
         self.shutdown_=True
-        self.pub_speed.publish(NormalizedSpeedCommand(0))
+        msg = NormalizedSpeedCommand()
+        msg.value = 0
+        self.pub_speed.publish(msg)
         rospy.sleep(1)
 
 def main():
