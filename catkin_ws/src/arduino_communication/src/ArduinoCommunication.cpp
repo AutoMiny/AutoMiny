@@ -184,6 +184,7 @@ void ArduinoCommunication::onVoltage(uint8_t *message) {
 }
 void ArduinoCommunication::onIMU(uint8_t *message) {
     sensor_msgs::Imu imuMsg;
+    imuMsg.header.frame_id = "imu";
 
     int16_t w = (((0xff &(char)message[0]) << 8) | 0xff &(char)message[1]);
     int16_t x = (((0xff &(char)message[2]) << 8) | 0xff &(char)message[3]);
@@ -194,7 +195,6 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
     double xf = x/16384.0;
     double yf = y/16384.0;
     double zf = z/16384.0;
-
 
     int16_t gx = (((0xff &(char)message[8]) << 8) | 0xff &(char)message[9]);
     int16_t gy = (((0xff &(char)message[10]) << 8) | 0xff &(char)message[11]);
@@ -221,13 +221,14 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
     imuMsg.orientation.z = zf;
     imuMsg.orientation.w = wf;
 
-    imuMsg.angular_velocity.x = gxf;
-    imuMsg.angular_velocity.y = gyf;
-    imuMsg.angular_velocity.z = gzf;
+    // map from NED to ENU
+    imuMsg.angular_velocity.x = gyf;
+    imuMsg.angular_velocity.y = -gxf;
+    imuMsg.angular_velocity.z = -gzf;
 
-    imuMsg.linear_acceleration.x = axf;
-    imuMsg.linear_acceleration.y = ayf;
-    imuMsg.linear_acceleration.z = azf;
+    imuMsg.linear_acceleration.x = ayf;
+    imuMsg.linear_acceleration.y = -axf;
+    imuMsg.linear_acceleration.z = -azf;
 
     imuPublisher.publish(imuMsg);
 }
