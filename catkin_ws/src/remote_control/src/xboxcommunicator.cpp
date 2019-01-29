@@ -78,7 +78,7 @@ namespace remote_control
 
 					
 				m_backend.set_speed(-0.35 * std::pow(y, 2) * sign_y);
-				m_backend.set_steering(std::pow(x,3));
+				m_backend.set_steering(-std::pow(x,3));
 			}
 
 			m_buffer.consume(bytes_transferred);
