@@ -28,13 +28,6 @@
 		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
 	</include>
 
-	<!-- the sensors -->
-	<include file="$(find autominy)/launch/components/AutoStop.launch" ns="sensors">
-		<arg name="live"            value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
-	</include>
-
 	<!-- localization -->
 	<include file="$(find autominy)/launch/localization/Localization.launch" ns="localization">
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
