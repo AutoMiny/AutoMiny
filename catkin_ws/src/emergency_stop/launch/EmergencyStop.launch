@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <launch>
-    <arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
-    <arg name="nodelet_manager" default="$(optenv EMERGENCY_STOP_NODELET_MANAGER emergency_stop_nodelet_manager)" />
+    <arg name="use_nodelets" default="$(optenv USE_NODELETS false)"/>
+    <arg name="nodelet_manager" default="$(optenv EMERGENCY_STOP_NODELET_MANAGER emergency_stop_nodelet_manager)"/>
 
     <![CDATA[
     <!--

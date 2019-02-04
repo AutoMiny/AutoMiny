@@ -10,8 +10,8 @@ namespace emergency_stop {
  ** then only this forward declaration is needed (saves compile time).
  **
  */
-class EmergencyStop;
+    class EmergencyStop;
 
-using EmergencyStopPtr = std::shared_ptr<EmergencyStop>;
-using EmergencyStopConstPtr = std::shared_ptr<const EmergencyStop>;
+    using EmergencyStopPtr = std::shared_ptr<EmergencyStop>;
+    using EmergencyStopConstPtr = std::shared_ptr<const EmergencyStop>;
 }

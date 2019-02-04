@@ -22,6 +22,6 @@
 
     <!-- export of nodelet definition XML -->
     <export>
-        <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+        <nodelet plugin="${prefix}/nodelet_plugins.xml"/>
     </export>
 </package>

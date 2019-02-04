@@ -10,12 +10,12 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 ######################################
 
 find_package(catkin REQUIRED COMPONENTS
-    dynamic_reconfigure
-    nodelet
-    roscpp
-    sensor_msgs
-    autominy_msgs
-)
+        dynamic_reconfigure
+        nodelet
+        roscpp
+        sensor_msgs
+        autominy_msgs
+        )
 
 #######################################
 ## dynamic_reconfigure configuration ##
@@ -44,13 +44,13 @@ generate_dynamic_reconfigure_options(
 ###################################
 
 catkin_package(
-    INCLUDE_DIRS include
-    LIBRARIES ${PROJECT_NAME}_lib
-    CATKIN_DEPENDS
-#    ${PROJECT_NAME}_msgs
+        INCLUDE_DIRS include
+        LIBRARIES ${PROJECT_NAME}_lib
+        CATKIN_DEPENDS
+        #    ${PROJECT_NAME}_msgs
         dynamic_reconfigure
         nodelet
-#    DEPENDS ... (e.g. eigen opencv)
+        #    DEPENDS ... (e.g. eigen opencv)
 )
 
 ###########
@@ -61,9 +61,9 @@ catkin_package(
 ## Your package locations should be listed before other locations
 
 include_directories(SYSTEM
-    ${catkin_INCLUDE_DIRS}
-    include
-)
+        ${catkin_INCLUDE_DIRS}
+        include
+        )
 
 
 #####################################################
@@ -73,48 +73,48 @@ include_directories(SYSTEM
 ## Declare a cpp library
 add_library(${PROJECT_NAME}_lib
         src/EmergencyStop.cpp
-)
+        )
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 add_dependencies(${PROJECT_NAME}_lib
-#    ${PROJECT_NAME}_generate_messages_cpp
-    ${PROJECT_NAME}_gencfg
-)
+        #    ${PROJECT_NAME}_generate_messages_cpp
+        ${PROJECT_NAME}_gencfg
+        )
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(${PROJECT_NAME}_lib
-    ${catkin_LIBRARIES}
-)
+        ${catkin_LIBRARIES}
+        )
 
 ## determines target name as lib[name].so, here: libemergency_stop_nodelet.so
 ## the library path in nodelet_plugins.xml refers to this file
 add_library(${PROJECT_NAME}_nodelet
         src/EmergencyStopNodelet.cpp
-)
+        )
 
 add_dependencies(${PROJECT_NAME}_nodelet
-    ${PROJECT_NAME}_gencfg
-)
+        ${PROJECT_NAME}_gencfg
+        )
 
 target_link_libraries(${PROJECT_NAME}_nodelet
-    ${catkin_LIBRARIES}
-    ${PROJECT_NAME}_lib
-)
+        ${catkin_LIBRARIES}
+        ${PROJECT_NAME}_lib
+        )
 
 ## Declare a cpp executable
 add_executable(${PROJECT_NAME}_node
-    src/EmergencyStopNode.cpp
-)
+        src/EmergencyStopNode.cpp
+        )
 
 add_dependencies(${PROJECT_NAME}_node
-    ${PROJECT_NAME}_nodelet
-)
+        ${PROJECT_NAME}_nodelet
+        )
 
 target_link_libraries(${PROJECT_NAME}_node
-    ${PROJECT_NAME}_nodelet
-    ${catkin_LIBRARIES}
-)
+        ${PROJECT_NAME}_nodelet
+        ${catkin_LIBRARIES}
+        )
 
 #############
 ## Install ##
@@ -132,30 +132,30 @@ target_link_libraries(${PROJECT_NAME}_node
 
 ## Mark executables and/or libraries for installation
 install(
-    TARGETS
+        TARGETS
         ${PROJECT_NAME}_lib
         ${PROJECT_NAME}_node
         ${PROJECT_NAME}_nodelet
-    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ## Mark cpp header files for installation
 install(DIRECTORY include/${PROJECT_NAME}/
-    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-    FILES_MATCHING PATTERN "*.h"
-)
+        DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+        FILES_MATCHING PATTERN "*.h"
+        )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(
-    DIRECTORY launch
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+        DIRECTORY launch
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
 install(
-    FILES nodelet_plugins.xml
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+        FILES nodelet_plugins.xml
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
 #############

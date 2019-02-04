@@ -3,10 +3,10 @@
     e.g. this path refers to catkin_ws/devel/lib/libemergency_stop_nodelet.so
 -->
 <library path="lib/libemergency_stop_nodelet">
-<!--
-    name: value of variable nodeletName in EmergencyStopNode.cpp
-    type/base_class_type: first/second param of macro PLUGINLIB_EXPORT_CLASS in EmergencyStopNodelet.cpp
--->
+    <!--
+        name: value of variable nodeletName in EmergencyStopNode.cpp
+        type/base_class_type: first/second param of macro PLUGINLIB_EXPORT_CLASS in EmergencyStopNodelet.cpp
+    -->
     <class name="emergency_stop/Nodelet"
            type="emergency_stop::EmergencyStopNodelet"
            base_class_type="nodelet::Nodelet"
