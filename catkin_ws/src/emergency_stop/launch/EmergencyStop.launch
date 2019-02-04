@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
+    <arg name="nodelet_manager" default="$(optenv EMERGENCY_STOP_NODELET_MANAGER emergency_stop_nodelet_manager)" />
+
+    <![CDATA[
+    <!--
+          FOR DEBUGGING: add to node tag: launch-prefix="gnome-terminal -x gdb --args"
+          additionally add <param name="/bond_disable_heartbeat_timeout" value="true" /> to debug nodelets
+    -->
+    ]]>
+
+    <!-- start standalone node -->
+    <node unless="$(arg use_nodelets)"
+          pkg="emergency_stop"
+          name="emergency_stop"
+          type="emergency_stop_node"
+    >
+    </node>
+
+    <!-- start nodelet (nodelet manager needed, see below) -->
+    <node if="$(arg use_nodelets)"
+          pkg="nodelet"
+          type="nodelet"
+          name="emergency_stop"
+          args="load emergency_stop/Nodelet $(arg nodelet_manager)"
+    >
+    </node>
+</launch>

@@ -4,9 +4,10 @@
 	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
 
 	<remap from="/sensors/auto_stop/speed" to="/sensors/arduino/speed" />
-	<remap from="/sensors/auto_stop/twist" to="/sensors/arduino/twist" />
+	<remap from="/sensors/auto_stop/carstate/speed" to="/carstate/speed" />
 	<remap from="/sensors/auto_stop/scan" to="/sensors/rplidar/scan" />
-	<!-- Arduino communication -->
-	<include file="$(find auto_stop)/launch/auto_stop.launch">
+
+	<include file="$(find emergency_stop)/launch/EmergencyStop.launch">
+
 	</include>
 </launch>
