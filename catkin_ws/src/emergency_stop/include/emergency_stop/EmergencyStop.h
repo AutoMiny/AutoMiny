@@ -32,7 +32,7 @@ class EmergencyStop {
     void setCurrentSpeed(const autominy_msgs::SpeedConstPtr &speed);
     void setWantedSpeed(const autominy_msgs::SpeedCommandConstPtr &speed);
 
-    bool isEmergencyStop();
+    autominy_msgs::SpeedCommand getSafeSpeed();
    private:
     /// dynamic config attribute
     emergency_stop::EmergencyStopConfig config;

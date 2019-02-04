@@ -53,12 +53,7 @@ class EmergencyStopNodelet : public nodelet::Nodelet {
      */
     void onScan(sensor_msgs::LaserScanConstPtr const & msg) {
         emergencyStop->checkEmergencyStop(msg);
-
-        if (emergencyStop->isEmergencyStop()) {
-            autominy_msgs::SpeedCommand emergencyStopMsg;
-            emergencyStopMsg.value = 0;
-            speedPublisher.publish(emergencyStopMsg);
-        }
+        speedPublisher.publish(emergencyStop->getSafeSpeed());
     }
 
     void onCurrentSpeed(autominy_msgs::SpeedConstPtr const & msg) {
@@ -67,13 +62,6 @@ class EmergencyStopNodelet : public nodelet::Nodelet {
 
     void onWantedSpeed(autominy_msgs::SpeedCommandConstPtr const & msg) {
         emergencyStop->setWantedSpeed(msg);
-        if (emergencyStop->isEmergencyStop()) {
-            autominy_msgs::SpeedCommand emergencyStopMsg;
-            emergencyStopMsg.value = 0;
-            speedPublisher.publish(emergencyStopMsg);
-        } else {
-            speedPublisher.publish(msg);
-        }
     }
 
     /** Callback for dynamic_reconfigure.

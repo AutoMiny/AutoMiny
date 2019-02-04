@@ -49,7 +49,15 @@ namespace emergency_stop {
         wantedSpeed = speed->value;
     }
 
-    bool EmergencyStop::isEmergencyStop() {
-        return emergencyStop;
+    autominy_msgs::SpeedCommand EmergencyStop::getSafeSpeed() {
+        autominy_msgs::SpeedCommand msg;
+
+        if (emergencyStop) {
+            msg.value = 0;
+        } else {
+            msg.value = wantedSpeed;
+        }
+
+        return msg;
     }
 }
