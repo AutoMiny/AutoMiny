@@ -35,10 +35,10 @@ class EmergencyStopNodelet : public nodelet::Nodelet {
 
         emergencyStop = std::make_shared<EmergencyStop>();
 
-        speedPublisher = nh.advertise<autominy_msgs::SpeedCommand>("speed", 1);
-        scanSubscriber = nh.subscribe("scan", 1, &EmergencyStopNodelet::onScan, this);
-        wantedSpeedSubscriber = nh.subscribe("wanted_speed", 1, &EmergencyStopNodelet::onWantedSpeed, this);
-        currentSpeedSubscriber = nh.subscribe("carstate/speed", 1, &EmergencyStopNodelet::onCurrentSpeed, this);
+        speedPublisher = pnh.advertise<autominy_msgs::SpeedCommand>("speed", 1);
+        scanSubscriber = pnh.subscribe("scan", 1, &EmergencyStopNodelet::onScan, this);
+        wantedSpeedSubscriber = pnh.subscribe("wanted_speed", 1, &EmergencyStopNodelet::onWantedSpeed, this);
+        currentSpeedSubscriber = pnh.subscribe("carstate/speed", 1, &EmergencyStopNodelet::onCurrentSpeed, this);
 
         config_server_ = boost::make_shared<dynamic_reconfigure::Server<emergency_stop::EmergencyStopConfig> >(pnh);
         dynamic_reconfigure::Server<emergency_stop::EmergencyStopConfig>::CallbackType f;
