@@ -14,7 +14,7 @@ namespace emergency_stop {
             breakDistance = (std::abs(currentSpeed) / 50) * config.break_distance;
         }
 
-        if(currentSpeed > 0){	//forward.
+        if(wantedSpeed >= 0){	//forward.
             for(int i = 0; i < config.angle_front / 2 + 1; i++){
                 if (scan->ranges[i] <= breakDistance + config.forward_minimum_distance && scan->ranges[i] > config.forward_minimum_distance){
                     emergencyStop = true;
@@ -29,7 +29,7 @@ namespace emergency_stop {
             }
         }
 
-        if(currentSpeed < 0){ //backward.
+        if(wantedSpeed < 0){ //backward.
             for(int j = (180-(config.angle_back / 2)); j < (180 + config.angle_back / 2) + 1; j++){
                 // we might see the camera in the laser scan
                 if (scan->ranges[j] <= (breakDistance + config.reverse_minimum_distance) && scan->ranges[j] > config.reverse_minimum_distance){
@@ -43,6 +43,10 @@ namespace emergency_stop {
 
     void EmergencyStop::setCurrentSpeed(const autominy_msgs::SpeedConstPtr &speed) {
         currentSpeed = speed->value;
+    }
+
+    void EmergencyStop::setWantedSpeed(const autominy_msgs::SpeedCommandConstPtr &speed) {
+        wantedSpeed = speed->value;
     }
 
     bool EmergencyStop::isEmergencyStop() {

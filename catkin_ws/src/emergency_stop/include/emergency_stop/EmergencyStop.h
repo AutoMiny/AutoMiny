@@ -3,6 +3,7 @@
 #include <emergency_stop/EmergencyStopConfig.h>
 #include <sensor_msgs/LaserScan.h>
 #include <autominy_msgs/Speed.h>
+#include <autominy_msgs/SpeedCommand.h>
 
 namespace emergency_stop {
 
@@ -29,12 +30,14 @@ class EmergencyStop {
     void checkEmergencyStop(const sensor_msgs::LaserScanConstPtr &scan);
 
     void setCurrentSpeed(const autominy_msgs::SpeedConstPtr &speed);
+    void setWantedSpeed(const autominy_msgs::SpeedCommandConstPtr &speed);
 
     bool isEmergencyStop();
    private:
     /// dynamic config attribute
     emergency_stop::EmergencyStopConfig config;
     double currentSpeed = 0.0;
+    int16_t wantedSpeed = 0;
     bool emergencyStop = true;
 };
 }

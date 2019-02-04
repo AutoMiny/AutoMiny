@@ -60,6 +60,7 @@ class EmergencyStopNodelet : public nodelet::Nodelet {
     }
 
     void onWantedSpeed(autominy_msgs::SpeedCommandConstPtr const & msg) {
+        emergencyStop->setWantedSpeed(msg);
         if (emergencyStop->isEmergencyStop()) {
             autominy_msgs::SpeedCommand emergencyStopMsg;
             emergencyStopMsg.value = 0;
