@@ -44,6 +44,14 @@
 		</include>
 	</group>
 
+	<!-- localization -->
+	<group ns="autonomy">
+		<!-- start autonomy -->
+		<include file="$(find autominy)/launch/autonomy/EmergencyStop.launch">
+			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		</include>
+	</group>
 
 	<!-- sensor postprocessing -->
 	<group ns="postprocessing">

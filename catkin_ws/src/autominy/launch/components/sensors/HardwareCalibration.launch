@@ -7,7 +7,7 @@
 	<remap from="/sensors/hardware_calibration/control/normalized_wanted_steering" to="/control/command/normalized_wanted_steering" />
 	<remap from="/sensors/hardware_calibration/carstate/calibrated_speed" to="/carstate/speed" />
 	<remap from="/sensors/hardware_calibration/carstate/steering_angle" to="/carstate/steering" />
-	<remap from="/sensors/hardware_calibration/arduino/speed" to="/sensors/auto_stop/wanted_speed" />
+	<remap from="/sensors/hardware_calibration/arduino/speed" to="/autonomy/emergency_stop/wanted_speed" />
 	<remap from="/sensors/hardware_calibration/arduino/steering_angle" to="/sensors/arduino/steering_angle" />
 	<remap from="/sensors/hardware_calibration/arduino/steering" to="/sensors/arduino/steering" />
 	<remap from="/sensors/hardware_calibration/arduino/ticks" to="/sensors/arduino/ticks" />
