@@ -79,7 +79,7 @@ namespace obstacle_detection {
 
         passthroughFilter.setInputCloud(downsampled);
         passthroughFilter.setFilterFieldName ("z");
-        passthroughFilter.setFilterLimits (0.02, 0.5);
+        passthroughFilter.setFilterLimits (config.min_z, config.max_z);
         passthroughFilter.filter(*croppedPointCloud);
         std::cerr << "PointCloud after pass has: " << croppedPointCloud->size ()  << " data points." << std::endl;
 
@@ -87,9 +87,9 @@ namespace obstacle_detection {
         tree->setInputCloud(croppedPointCloud);
         std::vector<pcl::PointIndices> clusterIndices;
         euclideanClusterExtraction.setInputCloud(croppedPointCloud);
-        euclideanClusterExtraction.setClusterTolerance(0.02); // 2cm
-        euclideanClusterExtraction.setMinClusterSize(500);
-        euclideanClusterExtraction.setMaxClusterSize(50000);
+        euclideanClusterExtraction.setClusterTolerance(config.cluster_tolerance); // 2cm
+        euclideanClusterExtraction.setMinClusterSize(config.min_cluster_size);
+        euclideanClusterExtraction.setMaxClusterSize(config.max_cluster_size);
         euclideanClusterExtraction.setSearchMethod(tree);
         euclideanClusterExtraction.extract(clusterIndices);
 

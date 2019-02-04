@@ -124,10 +124,15 @@ add_executable(${PROJECT_NAME}_node
         src/ObstacleDetectionNode.cpp
         )
 
+add_dependencies(${PROJECT_NAME}_node
+        ${PROJECT_NAME}_nodelet
+        )
+
 target_link_libraries(${PROJECT_NAME}_node
         ${PROJECT_NAME}_nodelet
         ${catkin_LIBRARIES}
         )
+
 
 #############
 ## Install ##
