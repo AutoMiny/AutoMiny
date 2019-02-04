@@ -36,22 +36,17 @@
 	</include>
 
 	<!-- localization -->
-	<group ns="localization">
-		<!-- start localization -->
-		<include file="$(find autominy)/launch/localization/Localization.launch">
-			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
-		</include>
-	</group>
+	<include file="$(find autominy)/launch/localization/Localization.launch" ns="localization">
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+	</include>
 
-	<!-- localization -->
-	<group ns="autonomy">
-		<!-- start autonomy -->
-		<include file="$(find autominy)/launch/autonomy/EmergencyStop.launch">
-			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
-		</include>
-	</group>
+	<!-- start autonomy -->
+	<include file="$(find autominy)/launch/autonomy/Autonomy.launch" ns="autonomy">
+		<arg name="live"    		value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+	</include>
 
 	<!-- sensor postprocessing -->
 	<group ns="postprocessing">
