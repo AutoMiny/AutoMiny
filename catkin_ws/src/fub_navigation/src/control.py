@@ -70,7 +70,7 @@ class VectorfieldController:
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
 
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
-        Kp=-1.0
+        Kp=1.0
         steering=Kp*np.arctan(f_y/(f_x))
         yaw = np.arctan(f_y/(f_x))
         self.pub_yaw.publish(Float32(yaw))
