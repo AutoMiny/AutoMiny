@@ -1,9 +1,0 @@
-<launch>
-  <node pkg="fub_camera_calibration" type="main_static" name="main_static" output="screen">
-    <param name="image" value="/camera/color" />
-    <param name="bi_gray_max" value="255" />
-    <param name="bi_gray_min" value="۵0" />
-    <param name="y_seg" value="50" />
-    <param name="x_seg" value="150" />
-  </node>
-</launch>

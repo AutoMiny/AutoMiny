@@ -1,9 +1,0 @@
-# fub_camera_calibration Package:
-
-# Print the camera.calib.pdf and put it in front of the car!
-
-# Run :
-	roslaunch fub_camera_calibration static_calibration.launch
-
-# To test the extrinsic paramater run "test_node"
-	rosrun fub_camera_calibration test_node
