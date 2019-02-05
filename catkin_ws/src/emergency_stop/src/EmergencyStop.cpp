@@ -10,8 +10,8 @@ namespace emergency_stop {
     void EmergencyStop::checkEmergencyStop(const sensor_msgs::LaserScanConstPtr &scan) {
         int count = static_cast<int>(scan->scan_time / scan->time_increment);
         double breakDistance = config.break_distance;
-        if (std::abs(currentSpeed) > 50 && config.break_distance_based_on_speed) {
-            breakDistance = (std::abs(currentSpeed) / 50) * config.break_distance;
+        if (config.break_distance_based_on_speed) {
+            breakDistance = std::pow(currentSpeed, 2) / 2.0 * config.negative_acceleration;
         }
 
         if (wantedSpeed >= 0) {    //forward.
