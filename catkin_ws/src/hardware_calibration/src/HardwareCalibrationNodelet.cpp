@@ -62,7 +62,7 @@ namespace hardware_calibration {
 
             if (wantedSpeed < 0.0) {
                 direction = Direction::BACKWARD;
-            } else {
+            } else if (wantedSpeed > 0.0) {
                 direction = Direction::FORWARD;
             }
 
