@@ -288,7 +288,7 @@ void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringCommandConst
 }
 
 void ArduinoCommunication::onLedCommand(std_msgs::String const &led) {
-    uint8_t size = sizeof(MessageType) + led.data.length() + 2;
+    uint8_t size = sizeof(MessageType) + led.data.length() + 1;
     uint8_t message[size];
     uint8_t output[size * 2 + 1];
 
