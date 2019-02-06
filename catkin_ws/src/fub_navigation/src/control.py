@@ -54,8 +54,8 @@ class VectorfieldController:
         orientation_list = [orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
         (roll, pitch, yaw) = euler_from_quaternion (orientation_list)
 
-        x_index_floor = math.floor(x * self.resolution)
-        y_index_floor = math.floor(y * self.resolution)
+        x_index_floor = int(math.floor(x * self.resolution))
+        y_index_floor = int(math.floor(y * self.resolution))
 
 	x_index_ceil = x_index_floor + 1
         y_index_ceil = y_index_floor + 1
@@ -81,7 +81,7 @@ class VectorfieldController:
         if (y_index_ceil < 0):
             y_index_ceil = 0
         if (y_index_ceil > ((self.map_size_y / self.resolution) - 1)):
-            y_index_ceil = (self.map_size_y / self.resolution) -1
+            y_index_ceil = (self.map_size_y / self.resolution) - 1
 
         x3_floor, y3_floor = self.matrix[x_index_floor, y_index_floor, :]
         y3_ceil, y3_ceil = self.matrix[x_index_ceil, y_index_ceil, :]
