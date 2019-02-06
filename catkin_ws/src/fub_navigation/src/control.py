@@ -1,6 +1,7 @@
 #!/usr/bin/env python2
 import numpy as np
 import rospy
+import math
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import PoseWithCovarianceStamped, PointStamped
 from autominy_msgs.msg import NormalizedSteeringCommand, NormalizedSpeedCommand
@@ -53,8 +54,8 @@ class VectorfieldController:
         orientation_list = [orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
         (roll, pitch, yaw) = euler_from_quaternion (orientation_list)
 
-        x_index_floor = np.floor(x * self.resolution)
-        y_index_floor = np.floor(y * self.resolution)
+        x_index_floor = math.floor(x * self.resolution)
+        y_index_floor = math.floor(y * self.resolution)
 
 	x_index_ceil = x_index_floor + 1
         y_index_ceil = y_index_floor + 1
@@ -81,7 +82,7 @@ class VectorfieldController:
         if (y_index_ceil > ((self.map_size_y / self.resolution) - 1)):
             y_index_ceil = (self.map_size_y / self.resolution) -1
 
-        x3, y3 = self.matrix[x_index_floor, x_index_floor,:] * (1.0 - ceil_ratio) + self.matrix[x_index_floor, x_index_floor,:] * ceil_ratio
+        x3, y3 = self.matrix[x_index_floor, x_index_floor,:] * (1.0 - ceil_ratio) + self.matrix[x_index_ceil, y_index_ceil,:] * ceil_ratio
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
 
