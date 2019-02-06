@@ -9,7 +9,7 @@ from scipy.spatial import KDTree
 map_size_x=600 #cm
 map_size_y=430 #cm
 resolution = 10 # cm
-lookahead_offset = 20 #*resolution cm = for example 5 *10= 50 cm //Dynamic: np.int(2 + (8/(8*dist+1)))
+lookahead_offset = 10 #*resolution cm = for example 5 *10= 50 cm //Dynamic: np.int(2 + (8/(8*dist+1)))
 matrix = np.zeros( (map_size_x/resolution,map_size_y/resolution,2),dtype='f' )
 
 def main(map_file):
@@ -26,7 +26,7 @@ def main(map_file):
     def show_nearest(target):
         dist, index = tree.query(target)
         global lookahead_offset
-        lookahead_offset = 20#np.int(2 + (8/(8*dist+1)))
+        lookahead_offset = 10#np.int(2 + (8/(8*dist+1)))
         lookahead_target = xy[(index + lookahead_offset) % len(xy)]
 
         x1, y1 = target
