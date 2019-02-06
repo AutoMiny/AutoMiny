@@ -85,7 +85,7 @@ class VectorfieldController:
 
         x3_floor, y3_floor = self.matrix[x_index_floor, y_index_floor, :]
         y3_ceil, y3_ceil = self.matrix[x_index_ceil, y_index_ceil, :]
-        x3, y3 = x3_floor * (1.0 - ceil_ratio_x) + x3 * ceil_ratio_x, y3_floor * (1.0 - ceil_ratio_y) + y3 * ceil_ratio_y
+        x3, y3 = x3_floor * (1.0 - ceil_ratio_x) + x3_floor * ceil_ratio_x, y3_floor * (1.0 - ceil_ratio_y) + y3_ceil * ceil_ratio_y
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
 
