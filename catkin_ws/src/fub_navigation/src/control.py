@@ -99,7 +99,7 @@ class VectorfieldController:
 
         steering = Kp * angle + Kd * (angle - self.last_angle)
         self.last_angle = angle
-        yaw = np.arctan(f_y, f_x)
+        yaw = np.arctan2(f_y, f_x)
         self.pub_yaw.publish(Float32(yaw))
 
         if f_x>0:
