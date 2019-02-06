@@ -91,8 +91,8 @@ class VectorfieldController:
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
 
-        Kp = 1.0
-	Kd = 0.2
+        Kp = 2.0
+	    Kd = 0.8
         angle = np.arctan2(f_y, f_x)
         if self.last_angle < 0:
             last_angle = angle
