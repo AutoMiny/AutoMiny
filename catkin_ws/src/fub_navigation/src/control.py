@@ -19,6 +19,7 @@ class VectorfieldController:
         self.resolution = 10 # cm
         self.lane=2
         self.speed_value=0.3
+        self.last_angle = -1.0
         print("speed", self.speed_value)
         rospack = rospkg.RosPack()
         self.file_path=rospack.get_path('fub_navigation')+'/src/'
@@ -90,8 +91,14 @@ class VectorfieldController:
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
 
-        Kp=1.0
-        steering=Kp*np.arctan(f_y/(f_x))
+        Kp = 1.0
+	Kd = 0.2
+        angle = np.arctan2(f_y, f_x)
+        if self.last_angle < 0:
+            last_angle = angle
+
+        steering=Kp * angle + Kd * (angle - last_angle)
+        self.last_angle = angle
         yaw = np.arctan(f_y/(f_x))
         self.pub_yaw.publish(Float32(yaw))
 
