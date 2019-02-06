@@ -75,6 +75,7 @@ and so on.
 
 // I2Cdev and MPU6050 must be installed as libraries, or else the .cpp/.h files
 // for both classes must be in the include path of your project
+#include <Arduino.h>
 #include "I2Cdev.h"
 #include "MPU6050.h"
 
@@ -102,7 +103,7 @@ MPU6050 accelgyro;
 #define BATTERY_PIN A6
 #define ENABLE_PIN 7
 const float referenceVolts = 4.7;
-const float R1 = 3700.0;
+const float R1 = 3300.0;
 const float R2 = 1490.0;
 
 const char LBRACKET = '[';
@@ -134,9 +135,6 @@ uint16_t ledOffset = 0;
 int16_t ledIncreaseVal = 1;
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
-
-
-
 
 void displayVoltageGoodLed() {
     pixels.setPixelColor(0, 0, 255, 0);
@@ -316,6 +314,13 @@ void WriteEEPROM() {
     WriteEEPROMInt(addr, LowOffset[5]);
 }
 
+void SetAveraging(int NewN)
+{ N = NewN;
+    Serial.print("averaging ");
+    Serial.print(N);
+    Serial.println(" readings each time");
+} // SetAveraging
+
 void PullBracketsIn()
 { boolean AllBracketsNarrow;
     boolean StillWorking;
@@ -404,13 +409,6 @@ void PullBracketsOut()
         }
     } // keep going
 } // PullBracketsOut
-
-void SetAveraging(int NewN)
-{ N = NewN;
-    Serial.print("averaging ");
-    Serial.print(N);
-    Serial.println(" readings each time");
-} // SetAveraging
 
 void TurnOnCar() {
     /***Voltmeter**/
