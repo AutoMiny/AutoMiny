@@ -23,7 +23,7 @@ class VectorfieldController:
         print("speed", self.speed_value)
         rospack = rospkg.RosPack()
         self.file_path=rospack.get_path('fub_navigation')+'/src/'
-        if (self.lane==1):
+        if self.lane==1:
             self.matrix = np.load(self.file_path+'matrix100cm_lane1.npy')
         else:
             self.matrix = np.load(self.file_path+'matrix100cm_lane2.npy')
@@ -41,12 +41,12 @@ class VectorfieldController:
 
 
     def lane_callback(self, data):
-    	if (self.lane==1):
-    		self.lane=2
-    		self.matrix = np.load(self.file_path+'matrix100cm_lane2.npy')
-    	else:
-    		self.lane=1
-    		self.matrix = np.load(self.file_path+'matrix100cm_lane1.npy')
+        if self.lane==1:
+            self.lane=2
+            self.matrix = np.load(self.file_path+'matrix100cm_lane2.npy')
+        else:
+            self.lane=1
+            self.matrix = np.load(self.file_path+'matrix100cm_lane1.npy')
 
     def callback(self, data):
         x = data.pose.pose.position.x
@@ -58,65 +58,65 @@ class VectorfieldController:
         x_index_floor = int(math.floor(x * self.resolution))
         y_index_floor = int(math.floor(y * self.resolution))
 
-	x_index_ceil = x_index_floor + 1
+        x_index_ceil = x_index_floor + 1
         y_index_ceil = y_index_floor + 1
 
         ceil_ratio_x = x * self.resolution - x_index_floor
         ceil_ratio_y = y * self.resolution - y_index_floor        
 
-        if (x_index_floor < 0):
+        if x_index_floor < 0:
             x_index_floor = 0
-        if (x_index_floor > ((self.map_size_x / self.resolution) - 1)):
-            x_index_floor = (self.map_size_x / self.resolution) - 1
+        if x_index_floor > self.map_size_x / self.resolution - 1:
+            x_index_floor = self.map_size_x / self.resolution - 1
 
-        if (y_index_floor < 0):
+        if y_index_floor < 0:
             y_index_floor = 0
-        if (y_index_floor > ((self.map_size_y / self.resolution) - 1)):
-            y_index_floor = (self.map_size_y / self.resolution) -1
+        if y_index_floor > self.map_size_y / self.resolution - 1:
+            y_index_floor = self.map_size_y / self.resolution - 1
 
-        if (x_index_ceil < 0):
+        if x_index_ceil < 0:
             x_index_ceil = 0
-        if (x_index_ceil > ((self.map_size_x / self.resolution) - 1)):
-            x_index_ceil = (self.map_size_x / self.resolution) - 1
+        if x_index_ceil > self.map_size_x / self.resolution - 1:
+            x_index_ceil = self.map_size_x / self.resolution - 1
 
-        if (y_index_ceil < 0):
+        if y_index_ceil < 0:
             y_index_ceil = 0
-        if (y_index_ceil > ((self.map_size_y / self.resolution) - 1)):
-            y_index_ceil = (self.map_size_y / self.resolution) - 1
+        if y_index_ceil > self.map_size_y / self.resolution - 1:
+            y_index_ceil = self.map_size_y / self.resolution - 1
 
         x3_floor, y3_floor = self.matrix[x_index_floor, y_index_floor, :]
-        y3_ceil, y3_ceil = self.matrix[x_index_ceil, y_index_ceil, :]
-        x3 = x3_floor * (1.0 - ceil_ratio_x) + x3_floor * ceil_ratio_x
+        x3_ceil, y3_ceil = self.matrix[x_index_ceil, y_index_ceil, :]
+        x3 = x3_floor * (1.0 - ceil_ratio_x) + x3_ceil * ceil_ratio_x
         y3 = y3_floor * (1.0 - ceil_ratio_y) + y3_ceil * ceil_ratio_y
-        f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
-        f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
+        f_x = np.cos(yaw) * x3 + np.sin(yaw) * y3
+        f_y = -np.sin(yaw) * x3 + np.cos(yaw) * y3
 
         Kp = 2.0
-	    Kd = 0.8
+        Kd = 0.8
         angle = np.arctan2(f_y, f_x)
         if self.last_angle < 0:
-            last_angle = angle
+            self.last_angle = angle
 
-        steering=Kp * angle + Kd * (angle - self.last_angle)
+        steering = Kp * angle + Kd * (angle - self.last_angle)
         self.last_angle = angle
-        yaw = np.arctan(f_y/(f_x))
+        yaw = np.arctan(f_y, f_x)
         self.pub_yaw.publish(Float32(yaw))
 
-        if (f_x>0):
+        if f_x>0:
             speed = -self.speed_value
         else:
             speed = self.speed_value
-            if (f_y>0):
-            	steering = -np.pi/2
-            if (f_y<0):
-            	steering = np.pi/2
+            if f_y > 0:
+                steering = -np.pi/2
+            if f_y < 0:
+                steering = np.pi/2
 
-        if (steering>(np.pi)/2):
-            steering = (np.pi)/2
+        if steering> np.pi /2:
+            steering = np.pi / 2
 
-        if (steering<-(np.pi)/2):
-            steering = -(np.pi)/2
-        if (f_x > 0):
+        if steering<- np.pi/2:
+            steering = -np.pi / 2
+        if f_x > 0:
             speed = max(self.speed_value, speed * ((np.pi/3)/(abs(steering)+1)))
 
         # print(steering)
