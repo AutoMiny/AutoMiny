@@ -60,8 +60,9 @@ class VectorfieldController:
 	x_index_ceil = x_index_floor + 1
         y_index_ceil = y_index_floor + 1
 
-        ceil_ratio = x * self.resolution - x_index_floor
-        
+        ceil_ratio_x = x * self.resolution - x_index_floor
+        ceil_ratio_y = y * self.resolution - y_index_floor        
+
         if (x_index_floor < 0):
             x_index_floor = 0
         if (x_index_floor > ((self.map_size_x / self.resolution) - 1)):
@@ -82,7 +83,9 @@ class VectorfieldController:
         if (y_index_ceil > ((self.map_size_y / self.resolution) - 1)):
             y_index_ceil = (self.map_size_y / self.resolution) -1
 
-        x3, y3 = self.matrix[x_index_floor, x_index_floor,:] * (1.0 - ceil_ratio) + self.matrix[x_index_ceil, y_index_ceil,:] * ceil_ratio
+        x3_floor, y3_floor = self.matrix[x_index_floor, y_index_floor, :]
+        y3_ceil, y3_ceil = self.matrix[x_index_ceil, y_index_ceil, :]
+        x3, y3 = x3_floor * (1.0 - ceil_ratio_x) + x3 * ceil_ratio_x, y3_floor * (1.0 - ceil_ratio_y) + y3 * ceil_ratio_y
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
 
