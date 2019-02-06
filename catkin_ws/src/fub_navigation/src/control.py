@@ -53,23 +53,38 @@ class VectorfieldController:
         orientation_list = [orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
         (roll, pitch, yaw) = euler_from_quaternion (orientation_list)
 
-        x_index=np.int(x*self.resolution)
-        y_index=np.int(y*self.resolution)
+        x_index_floor = np.floor(x * self.resolution)
+        y_index_floor = np.floor(y * self.resolution)
+
+	x_index_ceil = x_index_floor + 1
+        y_index_ceil = y_index_floor + 1
+
+        ceil_ratio = x * self.resolution - x_index_floor
         
-        if (x_index<0):
-            x_index = 0
-        if (x_index>((self.map_size_x/self.resolution)-1)):
-            x_index=(self.map_size_x/self.resolution)-1
+        if (x_index_floor < 0):
+            x_index_floor = 0
+        if (x_index_floor > ((self.map_size_x / self.resolution) - 1)):
+            x_index_floor = (self.map_size_x / self.resolution) - 1
 
-        if (y_index<0):
-            y_index = 0
-        if (y_index>((self.map_size_y/self.resolution)-1)):
-            y_index=(self.map_size_y/self.resolution)-1
+        if (y_index_floor < 0):
+            y_index_floor = 0
+        if (y_index_floor > ((self.map_size_y / self.resolution) - 1)):
+            y_index_floor = (self.map_size_y / self.resolution) -1
 
-        x3, y3 = self.matrix[x_index,y_index,:]
+        if (x_index_ceil < 0):
+            x_index_ceil = 0
+        if (x_index_ceil > ((self.map_size_x / self.resolution) - 1)):
+            x_index_ceil = (self.map_size_x / self.resolution) - 1
+
+        if (y_index_ceil < 0):
+            y_index_ceil = 0
+        if (y_index_ceil > ((self.map_size_y / self.resolution) - 1)):
+            y_index_ceil = (self.map_size_y / self.resolution) -1
+
+        x3, y3 = self.matrix[x_index_floor, x_index_floor,:] * (1.0 - ceil_ratio) + self.matrix[x_index_floor, x_index_floor,:] * ceil_ratio
         f_x=np.cos(yaw)*x3 + np.sin(yaw)*y3
-
         f_y=-np.sin(yaw)*x3 + np.cos(yaw)*y3
+
         Kp=1.0
         steering=Kp*np.arctan(f_y/(f_x))
         yaw = np.arctan(f_y/(f_x))
