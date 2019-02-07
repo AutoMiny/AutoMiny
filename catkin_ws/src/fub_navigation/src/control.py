@@ -18,15 +18,21 @@ class VectorfieldController:
         self.map_size_y=430 #cm
         self.resolution = 10 # cm
         self.lane=2
-        self.speed_value=0.3
+        self.speed_value=0.45
         self.last_angle = -1.0
+        self.Kp = 2.0
+        self.Kd = 0.8
+        self.Ki = 0.0
+        self.last_time = rospy.Time.now()
+        self.integral_error = 0.0
+
         print("speed", self.speed_value)
         rospack = rospkg.RosPack()
         self.file_path=rospack.get_path('fub_navigation')+'/src/'
         if self.lane==1:
-            self.matrix = np.load(self.file_path+'matrix100cm_lane1.npy')
+            self.matrix = np.load(self.file_path+'matrix25cm_lane1.npy')
         else:
-            self.matrix = np.load(self.file_path+'matrix100cm_lane2.npy')
+            self.matrix = np.load(self.file_path+'matrix25cm_lane2.npy')
 
         self.pub_speed = rospy.Publisher("/control/command/normalized_wanted_speed", NormalizedSpeedCommand, queue_size=100, latch=True)
         rospy.on_shutdown(self.shutdown)
@@ -49,6 +55,8 @@ class VectorfieldController:
             self.matrix = np.load(self.file_path+'matrix100cm_lane1.npy')
 
     def callback(self, data):
+        dt = (data.header.stamp - self.last_time).to_sec()
+        self.last_time = data.header.stamp
         x = data.pose.pose.position.x
         y = data.pose.pose.position.y
         orientation_q = data.pose.pose.orientation
@@ -91,13 +99,12 @@ class VectorfieldController:
         f_x = np.cos(yaw) * x3 + np.sin(yaw) * y3
         f_y = -np.sin(yaw) * x3 + np.cos(yaw) * y3
 
-        Kp = 2.0
-        Kd = 0.8
         angle = np.arctan2(f_y, f_x)
         if self.last_angle < 0:
             self.last_angle = angle
 
-        steering = Kp * angle + Kd * (angle - self.last_angle)
+        self.integral_error = self.integral_error + angle * dt
+        steering = self.Kp * angle + self.Kd * ((angle - self.last_angle) / dt) + self.Ki * self.integral_error
         self.last_angle = angle
         yaw = np.arctan2(f_y, f_x)
         self.pub_yaw.publish(Float32(yaw))
