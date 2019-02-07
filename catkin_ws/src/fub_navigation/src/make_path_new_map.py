@@ -29,7 +29,7 @@ def save(csv_name,loop):
     xo=4.03
     yo=2.14
     R=1.67
-    for i in frange(-np.pi/2.0,np.pi/2.0,0.05/R):
+    for i in frange(-np.pi/2.0,np.pi/2.0,1.0/(R*100.0)):
         xp = xo + R * np.cos(i)
         yp = yo + R * np.sin(i)
         y.append(yp)
@@ -37,7 +37,7 @@ def save(csv_name,loop):
         print(xp, yp)
 
     for i in frange(4.03, 1.95, 0.01):
-        yp=3.82
+        yp=3.81
         xp=i
         x.append(xp)
         y.append(yp)
@@ -46,7 +46,7 @@ def save(csv_name,loop):
     xo=1.95
     yo=2.14
     R=1.67
-    for i in frange(np.pi/2.0,3*np.pi/2.0,0.05/R):
+    for i in frange(np.pi/2.0,3*np.pi/2.0,1.0/(R*100.0)):
         xp = xo + R * np.cos(i)
         yp = yo + R * np.sin(i)
         y.append(yp)
