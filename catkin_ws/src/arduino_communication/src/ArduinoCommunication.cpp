@@ -287,13 +287,13 @@ void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringCommandConst
     }
 }
 
-void ArduinoCommunication::onLedCommand(std_msgs::String const &led) {
-    uint8_t size = sizeof(MessageType) + led.data.length() + 1;
+void ArduinoCommunication::onLedCommand(std_msgs::StringConstPtr const &led) {
+    uint8_t size = sizeof(MessageType) + led->data.length() + 1;
     uint8_t message[size];
     uint8_t output[size * 2 + 1];
 
     message[0] = (uint8_t) MessageType::LED_CMD;
-    memcpy(&message[1], led.data.c_str(), led.data.length() + 1);
+    memcpy(&message[1], led->data.c_str(), led->data.length() + 1);
     auto cobs = cobsEncode(message, size, output);
 
     onSend(output, cobs);

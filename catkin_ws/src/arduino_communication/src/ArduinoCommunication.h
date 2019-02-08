@@ -29,7 +29,7 @@ class ArduinoCommunication {
  private:
     void onSpeedCommand(autominy_msgs::SpeedCommandConstPtr const &speed);
     void onSteeringCommand(autominy_msgs::SteeringCommandConstPtr const &steering);
-    void onLedCommand(std_msgs::String const &led);
+    void onLedCommand(std_msgs::StringConstPtr const &led);
 
     void onReceive(uint8_t *message, size_t length);
     size_t onSend(uint8_t *message, size_t length);
