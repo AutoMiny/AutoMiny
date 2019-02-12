@@ -7,37 +7,32 @@
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
 #include "Wire.h"
 #endif
-
 #include <EEPROM.h>
 #include <Adafruit_NeoPixel.h>
 #include <Servo.h>
 #include <PacketSerial.h>
 
-#define LED_PIN 6
 #define NUMPIXELS 21
 
+#define LED_PIN 6
 #define DIR_PIN 4
 #define SERVO_PIN 10
 #define MOTOR_SPEED_PIN 11
-
 #define ENCODER_PIN 3
 #define INTERRUPT_PIN 2  // use pin 2 on Arduino Uno & most boards
 #define SERVO_FEEDBACK_MOTOR_PIN 0
-
-//Voltmeter
 #define NEWLED_PIN 13
 #define BATTERY_PIN A6
 #define ENABLE_PIN 7
+
+#define REFERENCE_VOLTAGE 5.1 //Default reference on Teensy is 3.3V
+#define R1 3300.0
+#define R2 1490.0
+#define VOLTAGE_BUFFER_SIZE 256
+
 int ledState = HIGH;                // ledState used to set the LED
 unsigned long previousMillis = 0;   // will store last time LED was updated
-const float referenceVolts = 4.7; //Default reference on Teensy is 3.3V
-const float R1 = 3300.0;
-const float R2 = 1490.0;
 bool powered = false;
-
-void onLedCommand(const char* cmd_msg);
-void onSteeringCommand(const int16_t cmd_msg);
-void onSpeedCommand(const int16_t cmd_msg);
 
 MPU6050 mpu;
 
@@ -51,7 +46,6 @@ volatile uint8_t ticks = 0;
 
 int8_t direction_motor = 1;
 
-#define VOLTAGE_BUFFER_SIZE 256
 int voltageBuffer[VOLTAGE_BUFFER_SIZE] = {0};
 int voltageIndex = 0;
 int16_t currentSpeed = 0;
@@ -64,12 +58,9 @@ uint8_t packetSize;    // expected DMP packet size (default is 42 bytes)
 uint16_t fifoCount;     // count of all bytes currently in FIFO
 uint8_t fifoBuffer[64]; // FIFO storage buffer
 
-PacketSerial packetSerial;
-
-// ================================================================
-// ===               INTERRUPT DETECTION ROUTINE                ===
-// ================================================================
 volatile bool mpuInterrupt = false;     // indicates whether MPU interrupt pin has gone high
+
+PacketSerial packetSerial;
 
 enum class MessageType :uint8_t {
     DEBUG,
@@ -102,25 +93,13 @@ enum class Direction {
 VoltageStatus currentVoltageStatus = VoltageStatus::DISABLED;
 Direction currentDirection = Direction::NONE;
 
+void onLedCommand(const char* cmd_msg);
+void onSteeringCommand(const int16_t cmd_msg);
+void onSpeedCommand(const int16_t cmd_msg);
+
 void dmpDataReady() {
     mpuInterrupt = true;
 }
-
-/*void StartTimer2(void) {
-    pinMode(MOTOR_SPEED_PIN, OUTPUT); //976.5625Hz
-    TCNT2 = 0;
-    TIFR2 = 0x00;
-    TIMSK2 = TIMSK2 | 0x01;
-    TCCR2A = _BV(COM2A1) | _BV(COM2B1) | _BV(WGM21) | _BV(WGM20);
-    TCCR2B = _BV(CS22);
-    TCCR2B = (TCCR2B & 0b11111000) | 0x02;//62500HZ= 16MHz/1024/2=7812
-    sei();
-}
-
-ISR(TIMER2_OVF_vect) {
-    TIFR2 = 0x00;
-    T1Ovs2++;//INCREMENTING OVERFLOW COUNTER
-}*/
 
 void encoder() {
     cli();
@@ -161,13 +140,17 @@ void displayReverseLed() {
 
     pixels.setPixelColor(2, 255, 255, 255);
     pixels.setPixelColor(3, 255, 255, 255);
+    pixels.setPixelColor(4, 255, 255, 255);
+    pixels.setPixelColor(6, 255, 255, 255);
     pixels.setPixelColor(7, 255, 255, 255);
     pixels.setPixelColor(8, 255, 255, 255);
 
+    pixels.setPixelColor(12, 0, 0, 0);
     pixels.setPixelColor(13, 0, 0, 0);
     pixels.setPixelColor(14, 0, 0, 0);
     pixels.setPixelColor(17, 0, 0, 0);
     pixels.setPixelColor(18, 0, 0, 0);
+    pixels.setPixelColor(19, 0, 0, 0);
 
     pixels.show();
 
@@ -183,17 +166,17 @@ void displayForwardLed() {
 
     pixels.setPixelColor(2, 0, 0, 0);
     pixels.setPixelColor(3, 0, 0, 0);
+    pixels.setPixelColor(4, 0, 0, 0);
+    pixels.setPixelColor(6, 0, 0, 0);
     pixels.setPixelColor(7, 0, 0, 0);
     pixels.setPixelColor(8, 0, 0, 0);
 
-    pixels.setPixelColor(11, 255, 255, 255);
     pixels.setPixelColor(12, 255, 255, 255);
     pixels.setPixelColor(13, 255, 255, 255);
     pixels.setPixelColor(14, 255, 255, 255);
     pixels.setPixelColor(17, 255, 255, 255);
     pixels.setPixelColor(18, 255, 255, 255);
     pixels.setPixelColor(19, 255, 255, 255);
-    pixels.setPixelColor(18, 255, 255, 255);
     pixels.show();
 
     currentDirection = Direction::FORWARD;
@@ -208,13 +191,17 @@ void disableDirectionLed() {
 
     pixels.setPixelColor(2, 0, 0, 0);
     pixels.setPixelColor(3, 0, 0, 0);
+    pixels.setPixelColor(4, 0, 0, 0);
+    pixels.setPixelColor(6, 0, 0, 0);
     pixels.setPixelColor(7, 0, 0, 0);
     pixels.setPixelColor(8, 0, 0, 0);
 
+    pixels.setPixelColor(12, 0, 0, 0);
     pixels.setPixelColor(13, 0, 0, 0);
     pixels.setPixelColor(14, 0, 0, 0);
     pixels.setPixelColor(17, 0, 0, 0);
     pixels.setPixelColor(18, 0, 0, 0);
+    pixels.setPixelColor(19, 0, 0, 0);
 
     pixels.show();
 
@@ -259,30 +246,25 @@ void onSpeedCommand(const int16_t cmd_msg) {
 void onLedCommand(const char* cmd_msg) {
     pixels.setBrightness(16);
     if (strcmp_P(cmd_msg, PSTR("left")) == 0) {
-        for (uint8_t i = 18; i < 20; i++)
-            pixels.setPixelColor(i, pixels.Color(255, 80, 0)); //yellow
-        for (uint8_t i = 0; i < 2; i++)
-            pixels.setPixelColor(i, pixels.Color(255, 80, 0)); //yellow
+        pixels.setPixelColor(0, pixels.Color(255, 80, 0)); //yellow
+        pixels.setPixelColor(1, pixels.Color(255, 80, 0)); //yellow
+        pixels.setPixelColor(20, pixels.Color(255, 80, 0)); //yellow
     } else if (strcmp_P(cmd_msg, PSTR("right")) == 0) {
-        for (uint8_t i = 11; i < 13; i++)
-            pixels.setPixelColor(i, pixels.Color(255, 80, 0)); //yellow
-        for (uint8_t i = 9; i < 11; i++)
-            pixels.setPixelColor(i, pixels.Color(255, 80, 0)); //yellow
+        pixels.setPixelColor(9, pixels.Color(255, 80, 0)); //yellow
+        pixels.setPixelColor(10, pixels.Color(255, 80, 0)); //yellow
+        pixels.setPixelColor(11, pixels.Color(255, 80, 0)); //yellow
     } else if (strcmp_P(cmd_msg, PSTR("brake")) == 0) {
-        for (uint8_t i = 0; i < 3; i++)
-            pixels.setPixelColor(i, pixels.Color(255, 0, 0)); //red
-
-        for (uint8_t i = 8; i < 10; i++)
-            pixels.setPixelColor(i, pixels.Color(255, 0, 0)); //red
-    } else if (strcmp_P(cmd_msg, PSTR("reverse")) == 0) {
-        for (uint8_t i = 0; i < 3; i++)
-            pixels.setPixelColor(i, pixels.Color(255, 0, 0)); //red
-
-        for (uint8_t i = 8; i < 10; i++)
-            pixels.setPixelColor(i, pixels.Color(255, 0, 0)); //red
+        pixels.setPixelColor(0, pixels.Color(255, 0, 0)); //red
+        pixels.setPixelColor(1, pixels.Color(255, 0, 0)); //red
+        pixels.setPixelColor(9, pixels.Color(255, 0, 0)); //red
+        pixels.setPixelColor(10, pixels.Color(255, 0, 0)); //red
     } else if (strcmp_P(cmd_msg, PSTR("disable")) == 0) {
-        for (uint8_t i = 0; i < 21; i++)
-            pixels.setPixelColor(i, pixels.Color(0, 0, 0)); //disable
+        pixels.setPixelColor(0, pixels.Color(0, 0, 0));
+        pixels.setPixelColor(1, pixels.Color(0, 0, 0));
+        pixels.setPixelColor(9, pixels.Color(0, 0, 0));
+        pixels.setPixelColor(10, pixels.Color(0, 0, 0));
+        pixels.setPixelColor(11, pixels.Color(0, 0, 0));
+        pixels.setPixelColor(20, pixels.Color(0, 0, 0));
     }
     pixels.show(); // This sends the updated pixel color to the hardware.
 }
@@ -378,7 +360,7 @@ void onPacketReceived(const uint8_t* message, size_t size)
             break;
         case MessageType::LED_CMD:
             char cmd[size];
-            memcpy(cmd, &message[1], size);
+            memcpy(&cmd, &message[1], size);
             onLedCommand(cmd);
 
             break;
@@ -591,7 +573,7 @@ void setup() {
     }
 
     pinMode(MOTOR_SPEED_PIN, OUTPUT);
-    pinMode(BATTERY_PIN, INPUT_PULLUP);
+    pinMode(BATTERY_PIN, INPUT);
     pinMode(DIR_PIN, OUTPUT);
     pinMode(ENCODER_PIN, INPUT_PULLUP);
     pinMode(SERVO_FEEDBACK_MOTOR_PIN, INPUT);
@@ -610,7 +592,7 @@ float meanVoltage() {
     }
 
     float avg = sum / (float)VOLTAGE_BUFFER_SIZE;
-    float vout = (avg * referenceVolts) / 1024.0;
+    float vout = (avg * REFERENCE_VOLTAGE) / 1024.0;
     return vout / (float)(R2/(R1+R2));
 }
 
@@ -656,7 +638,7 @@ void loop() {
         } else if (mpuIntStatus & 0x02) {
             // wait for correct available data length, should be a VERY short wait
             uint16_t fifoCount = mpu.getFIFOCount();
-            if (fifoCount >= packetSize) {
+            while (fifoCount >= packetSize) {
 
                 // read a packet from FIFO
                 mpu.getFIFOBytes(fifoBuffer, packetSize);
@@ -670,10 +652,14 @@ void loop() {
                 sendIMU(fifoBuffer, temperature);
                 sendTicks(ticks);
                 ticks = 0;
-                sendSteeringAngle(analogRead(SERVO_FEEDBACK_MOTOR_PIN));
+                int steeringAngle = analogRead(SERVO_FEEDBACK_MOTOR_PIN);
+                steeringAngle = analogRead(SERVO_FEEDBACK_MOTOR_PIN);
+                sendSteeringAngle((uint16_t)steeringAngle);
 
                 /***Voltmeter**/
-                voltageBuffer[voltageIndex++] = 1023;//;analogRead(BATTERY_PIN);
+                int vol = analogRead(BATTERY_PIN);
+                vol = analogRead(BATTERY_PIN);
+                voltageBuffer[voltageIndex++] = vol;
                 if (voltageIndex >= VOLTAGE_BUFFER_SIZE) {
                     voltageIndex = 0;
                 }
