@@ -10,12 +10,13 @@ from scipy import stats
 import rospy
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Int16, UInt8, UInt16
+from autominy_msgs.msg import NormalizedSpeedCommand, SteeringCommand, SteeringFeedback
 
 from time import localtime, strftime
 
-speed_value =150 #speed value
-speed = +speed_value # initial direction is backward
-steering_angle = 0 
+speed_value = 0.15 #speed value
+speed = speed_value # initial direction is backward
+steering_angle = 950
 
 max_y = 2.0 # initial y limitation is 2 meter
 
@@ -36,9 +37,8 @@ wall_angle = 0
 target_angle = wall_angle #mask the lidar points
 add_pi = np.pi
 last_theta = 0
-pub_stop_start = rospy.Publisher("/manual_control/stop_start", Int16, queue_size=100, latch=True)
-pub_speed = rospy.Publisher("/manual_control/speed", Int16, queue_size=100, latch=True)
-pub_steering = rospy.Publisher("/steering", UInt8, queue_size=100, latch=True)
+pub_speed = rospy.Publisher("/control/command/normalized_wanted_speed", NormalizedSpeedCommand, queue_size=100)
+pub_steering = rospy.Publisher("/sensors/arduino/steering", SteeringCommand, queue_size=100, latch=True)
 steering_angle_feedback=0
 
 invert_sign_gamma = False
@@ -81,7 +81,7 @@ def save_xml(command,raduis,steering,feedback):
 
 def steering_feedback_callback(steering_angle):
 	global steering_angle_feedback
-	steering_angle_feedback=int(steering_angle.data)
+	steering_angle_feedback = int(steering_angle.value)
 def get_distance(points, slope, intercept):
 	""" return the distance for each point to the parametrised line """
 	pos = np.array((0, intercept))  # origin
@@ -145,7 +145,7 @@ initial_line = None
 LineParams = namedtuple('LineParams', ['slope', 'intercept', 'wall_dist', 'wall_angle', 'stamp'])
 
 def stop_driving():
-	pub_speed.publish(0)
+	pub_speed.publish(NormalizedSpeedCommand())
 	rospy.sleep(1)
 	rospy.signal_shutdown('stop')
 	print('stop driving')
@@ -205,10 +205,14 @@ def scan_callback(scan_msg):
 
 		print 'starting to drive: wall_dist: %.3f, wall_angle: %.1f ' % (wall_dist, np.rad2deg(wall_angle))
 		if not manual_mode:
-			pub_steering.publish(UInt8(steering_angle))
+			steer_msg = SteeringCommand()
+			steer_msg.value = steering_angle
+			pub_steering.publish(steer_msg)
 			rospy.sleep(.2)
+			speed_msg = NormalizedSpeedCommand()
 			speed=-speed_value
-			pub_speed.publish(speed)
+			speed_msg.value = speed
+			pub_speed.publish(speed_msg)
 	else:
 		theta = angle_diff(initial_line.wall_angle, wall_angle)
 		dist_diff = initial_line.wall_dist - wall_dist
@@ -250,12 +254,15 @@ def scan_callback(scan_msg):
 
 			# np.savez_compressed('angle-%03d-%s.txt' % (steering_angle, strftime('%H-%M-%S', localtime())), turn_radii)
 			#
-			speed=speed_value
-			pub_speed.publish(speed)
+			speed = speed_value
+			speed_msg = NormalizedSpeedCommand()
+			speed_msg.value = speed
+			pub_speed.publish(speed_msg)
 
-			if (125>steering_angle and steering_angle>61):
-				if (wall_dist<1.2):
-					if (len(turn_radii)>0):
+			print (steering_angle)
+			if (900 > steering_angle and steering_angle > 2350):
+				if wall_dist<1.2:
+					if len(turn_radii)>0:
 						average_r=0
 						for r in turn_radii:
 							average_r+=r[1]
@@ -337,8 +344,8 @@ def main(args):
 	if len(args) > 1:
 		try:
 			steering_angle = int(args[1])
-			rospy.Subscriber("/scan", LaserScan, scan_callback, queue_size=1)
-			rospy.Subscriber("/steering_angle", UInt16, steering_feedback_callback, queue_size=1)  # small queue for only reading recent data
+			rospy.Subscriber("/sensors/rplidar/scan", LaserScan, scan_callback, queue_size=1)
+			rospy.Subscriber("/sensors/arduino/steering_angle", SteeringFeedback, steering_feedback_callback, queue_size=1)  # small queue for only reading recent data
 
 		except rospy.ROSInterruptException:
 			pass
