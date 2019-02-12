@@ -27,6 +27,7 @@ include_directories(
 
 add_executable(arduino_communication_node src/ArduinoCommunication.cpp src/ArduinoCommunicationNode.cpp src/MessageType.h)
 target_link_libraries(arduino_communication_node ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+add_dependencies(arduino_communication_node ${catkin_EXPORTED_TARGETS})
 
 
 install(TARGETS arduino_communication_node

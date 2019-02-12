@@ -50,6 +50,7 @@ catkin_package(
         CATKIN_DEPENDS
         dynamic_reconfigure
         nodelet
+        autominy_msgs
 )
 ## Build ##
 ###########
@@ -75,6 +76,7 @@ add_library(${PROJECT_NAME}_nodelet
 
 add_dependencies(${PROJECT_NAME}_nodelet
         ${PROJECT_NAME}_gencfg
+        ${catkin_EXPORTED_TARGETS}
         )
 
 target_link_libraries(${PROJECT_NAME}_nodelet
@@ -85,6 +87,10 @@ target_link_libraries(${PROJECT_NAME}_nodelet
 add_executable(${PROJECT_NAME}_node
         src/HardwareCalibrationNode.cpp
         )
+
+add_dependencies(${PROJECT_NAME}_node
+        ${PROJECT_NAME}_nodelet
+)
 
 target_link_libraries(${PROJECT_NAME}_node
         ${PROJECT_NAME}_nodelet

@@ -20,6 +20,7 @@ include_directories(${catkin_INCLUDE_DIRS})
 
 # Build the executable
 add_executable(odometry_publisher src/odometry_publisher.cpp)
+add_dependencies(odometry_publisher ${catkin_EXPORTED_TARGETS})
 
 # Link against the catkin libraries
 target_link_libraries(odometry_publisher ${catkin_LIBRARIES})
