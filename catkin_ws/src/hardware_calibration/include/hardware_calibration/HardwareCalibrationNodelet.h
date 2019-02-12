@@ -27,7 +27,7 @@ namespace hardware_calibration {
 
     public:
         void onInit() override;
-        void onTicks(autominy_msgs::Tick msg);
+        void onTicks(const autominy_msgs::TickConstPtr& msg);
         void onSteeringFeedback(const autominy_msgs::SteeringFeedbackConstPtr& msg);
         void onWantedSpeed(const autominy_msgs::NormalizedSpeedCommandConstPtr& msg);
         void onWantedSteering(const autominy_msgs::NormalizedSteeringCommandConstPtr& msg);

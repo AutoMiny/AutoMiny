@@ -1,4 +1,5 @@
 #include <hardware_calibration/HardwareCalibrationNodelet.h>
+#include <Eigen/
 
 namespace hardware_calibration {
         /** Nodelet initialization. Called by nodelet manager on initialization,
@@ -26,8 +27,8 @@ namespace hardware_calibration {
             ticksSubscriber = pnh.subscribe("arduino/ticks", 1, &HardwareCalibrationNodelet::onTicks, this);
         }
 
-        void HardwareCalibrationNodelet::onTicks(const autominy_msgs::Tick msg) {
-            ticksBuffer.push_back(msg.value);
+        void HardwareCalibrationNodelet::onTicks(const autominy_msgs::TickConstPtr& msg) {
+            ticksBuffer.push_back(msg->value);
 
             auto ticks = std::accumulate(ticksBuffer.begin(), ticksBuffer.end(), 0);
             autominy_msgs::Speed speedMsg;
@@ -47,8 +48,7 @@ namespace hardware_calibration {
                 boost::algorithm::clamp(average, config.minimum_steering_feedback, config.maximum_steering_feedback);
             }
 
-            auto normalizedSteering = mapRange(config.minimum_steering_feedback, config.maximum_steering_feedback, -1.0, 1.0, steeringFeedback);
-            auto radianSteering = mapRange(-1.0, 1.0, config.minimum_steering_radians, config.maximum_steering_radians, normalizedSteering);
+            auto radianSteering = mapRange(config.minimum_steering_feedback, config.maximum_steering_feedback, config.minimum_steering_radians, config.maximum_steering_radians, steeringFeedback);
 
             autominy_msgs::SteeringAngle steeringAngleMsg;
             steeringAngleMsg.header.stamp = ros::Time::now();
@@ -88,7 +88,8 @@ namespace hardware_calibration {
                 boost::algorithm::clamp(wantedSteering, -1.0, 1.0);
             }
 
-            auto pwm = mapRange(1.0, -1.0, config.minimum_steering_pwm, config.maximum_steering_pwm, wantedSteering);
+            auto pwm = mapRange(1.0, -1.0, config.minimum_steering_feedback, config.maximum_steering_feedback, wantedSteering);
+            pwm = mapRange(config.minimum_steering_feedback, config.maximum_steering_feedback, config.minimum_steering_pwm, config.maximum_steering_pwm, pwm);
 
             autominy_msgs::SteeringCommand steeringMsg;
             steeringMsg.header.stamp = ros::Time::now();
