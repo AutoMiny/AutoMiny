@@ -13,7 +13,7 @@
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
-	<remap from="/sensors/odometry/steering_angle" to="/sensors/arduino/steering_angle"/>
+	<remap from="/sensors/odometry/carstate/steering" to="/carstate/steering"/>
 	<remap from="/sensors/odometry/speed" to="/carstate/speed"/>
 	<remap from="/sensors/odometry/imu" to="/sensors/arduino/imu"/>
 	<include file="$(find odometry)/launch/odometry.launch">
