@@ -1,5 +1,4 @@
 #include <hardware_calibration/HardwareCalibrationNodelet.h>
-#include <Eigen/
 
 namespace hardware_calibration {
         /** Nodelet initialization. Called by nodelet manager on initialization,
@@ -88,8 +87,14 @@ namespace hardware_calibration {
                 boost::algorithm::clamp(wantedSteering, -1.0, 1.0);
             }
 
-            auto pwm = mapRange(1.0, -1.0, config.minimum_steering_feedback, config.maximum_steering_feedback, wantedSteering);
-            pwm = mapRange(config.minimum_steering_feedback, config.maximum_steering_feedback, config.minimum_steering_pwm, config.maximum_steering_pwm, pwm);
+            // left and right have different limits
+            auto pwm = 0.0;
+            if (wantedSteering < 0) {
+                pwm = mapRange(-1.0, 0, config.maximum_steering_radians, 0, wantedSteering);
+            } else {
+                pwm = mapRange(1.0, 0, config.minimum_steering_radians, 0, wantedSteering);
+            }
+            pwm = mapRange(config.minimum_steering_radians, config.maximum_steering_radians, config.minimum_steering_pwm, config.maximum_steering_pwm, pwm);
 
             autominy_msgs::SteeringCommand steeringMsg;
             steeringMsg.header.stamp = ros::Time::now();
