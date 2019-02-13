@@ -1,4 +1,4 @@
-for i in 950 1225 1500 1775 2050
+for i in 950 2150
 do
 	echo "Put the car infront of a wall in around 1 meter distance
      ___

@@ -208,7 +208,7 @@ def scan_callback(scan_msg):
 			steer_msg = SteeringCommand()
 			steer_msg.value = steering_angle
 			pub_steering.publish(steer_msg)
-			rospy.sleep(.2)
+			rospy.sleep(2.0)
 			speed_msg = NormalizedSpeedCommand()
 			speed=-speed_value
 			speed_msg.value = speed
