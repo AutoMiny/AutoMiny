@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 
-find_package(catkin REQUIRED COMPONENTS nav_msgs std_msgs roscpp tf fub_modelcar_tools autominy_msgs)
+find_package(catkin REQUIRED COMPONENTS nav_msgs std_msgs roscpp tf autominy_msgs)
 
 catkin_package(
     CATKIN_DEPENDS

@@ -14,6 +14,4 @@
   <depend>std_msgs</depend>
   <depend>roscpp</depend>
   <depend>tf</depend>
-  <depend>fub_modelcar_tools</depend>
-
 </package>
