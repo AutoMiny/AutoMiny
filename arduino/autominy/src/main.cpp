@@ -666,10 +666,14 @@ void loop() {
 
                 float voltage = meanVoltage();
 
-                if (millis() > 3000 && voltage > 12.8){
+                if (millis() > 2600 && voltage > 12.8){
                     turnOnCar();
-                }
-                else {
+                } else if (voltage <= 12.8 && powered) {
+                    // This means the car was already on and the voltage dropped below 12.8
+                    // Empty the voltage measurements so that the car does not turn on immediately again because the voltage went up again
+                    memset(voltageBuffer, 0, sizeof(voltageBuffer));
+                    turnOffCar();
+                } else {
                     turnOffCar();
                 }
 
