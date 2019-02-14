@@ -40,7 +40,6 @@ set(Sources
 )
 
 add_executable(${PROJECT_NAME}_node ${Sources})
-add_dependencies(remote_control_node ${PROJECT_NAME})
 target_link_libraries(remote_control_node ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
 
