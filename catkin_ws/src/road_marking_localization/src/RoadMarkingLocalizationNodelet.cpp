@@ -51,10 +51,10 @@ namespace road_marking_localization {
             f = boost::bind(&RoadMarkingLocalizationNodelet::callbackReconfigure, this, _1, _2);
             configServer->setCallback(f);
 
-            infraImageSubscriber.subscribe(it, "camera/infra1/image_rect_raw", 2);
-            depthImageSubscriber.subscribe(it, "camera/depth/image_rect_raw", 2);
-            infraCameraInfoSubscriber.subscribe(pnh, "camera/infra1/camera_info", 2);
-            depthCameraInfoSubscriber.subscribe(pnh, "camera/depth/camera_info", 2);
+            infraImageSubscriber.subscribe(it, "camera/infra1/image_rect_raw", 2, image_transport::TransportHints("raw", ros::TransportHints().tcpNoDelay()));
+            depthImageSubscriber.subscribe(it, "camera/depth/image_rect_raw", 2, image_transport::TransportHints("raw", ros::TransportHints().tcpNoDelay()));
+            infraCameraInfoSubscriber.subscribe(pnh, "camera/infra1/camera_info", 2, ros::TransportHints().tcpNoDelay());
+            depthCameraInfoSubscriber.subscribe(pnh, "camera/depth/camera_info", 2, ros::TransportHints().tcpNoDelay());
 
             sync = std::make_shared<SynchronizerDepthImage>(SyncPolicyDepthImage(2));
             sync->connectInput(infraImageSubscriber, infraCameraInfoSubscriber, depthImageSubscriber,

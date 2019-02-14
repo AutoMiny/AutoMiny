@@ -80,10 +80,10 @@ int main(int argc, char **argv) {
                                  << " radians");
 
     ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 1);
-    ros::Subscriber twist_sub = n.subscribe(model_car_twist, 1, twistCallback);
-    ros::Subscriber theta_sub = n.subscribe(model_car_yaw, 1, headingCallback);//degree
+    ros::Subscriber twist_sub = n.subscribe(model_car_twist, 1, twistCallback, ros::TransportHints().tcpNoDelay());
+    ros::Subscriber theta_sub = n.subscribe(model_car_yaw, 1, headingCallback, ros::TransportHints().tcpNoDelay());//degree
     ros::Subscriber steering_sub;
-    steering_sub = n.subscribe(steering_feedback, 1, steeringFeedbackCallback);//steering feedback
+    steering_sub = n.subscribe(steering_feedback, 1, steeringFeedbackCallback, ros::TransportHints().tcpNoDelay());//steering feedback
 
     tf::TransformBroadcaster odom_broadcaster;
     ros::Time current_time, last_time;

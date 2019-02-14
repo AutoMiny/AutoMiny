@@ -20,10 +20,10 @@ namespace hardware_calibration {
             calibratedSpeedPublisher = pnh.advertise<autominy_msgs::Speed>("carstate/calibrated_speed", 2);
             steeringAnglePublisher = pnh.advertise<autominy_msgs::SteeringAngle>("carstate/steering_angle", 2);
             steeringFeedbackSubscriber = pnh.subscribe("arduino/steering_angle", 1,
-                                                      &HardwareCalibrationNodelet::onSteeringFeedback, this);
-            wantedSpeedSubscriber = pnh.subscribe("control/normalized_wanted_speed", 1, &HardwareCalibrationNodelet::onWantedSpeed, this);
-            wantedSteeringSubscriber = pnh.subscribe("control/normalized_wanted_steering", 1, &HardwareCalibrationNodelet::onWantedSteering, this);
-            ticksSubscriber = pnh.subscribe("arduino/ticks", 1, &HardwareCalibrationNodelet::onTicks, this);
+                                                      &HardwareCalibrationNodelet::onSteeringFeedback, this, ros::TransportHints().tcpNoDelay());
+            wantedSpeedSubscriber = pnh.subscribe("control/normalized_wanted_speed", 1, &HardwareCalibrationNodelet::onWantedSpeed, this, ros::TransportHints().tcpNoDelay());
+            wantedSteeringSubscriber = pnh.subscribe("control/normalized_wanted_steering", 1, &HardwareCalibrationNodelet::onWantedSteering, this, ros::TransportHints().tcpNoDelay());
+            ticksSubscriber = pnh.subscribe("arduino/ticks", 1, &HardwareCalibrationNodelet::onTicks, this, ros::TransportHints().tcpNoDelay());
         }
 
         void HardwareCalibrationNodelet::onTicks(const autominy_msgs::TickConstPtr& msg) {

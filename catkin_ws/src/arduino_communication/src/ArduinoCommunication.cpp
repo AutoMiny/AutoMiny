@@ -6,9 +6,9 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     device = nh.param<std::string>("device", "/dev/ttyUSB1");
     baudrate = nh.param("baud", 115200);
 
-    speedSubscriber = nh.subscribe("speed", 2, &ArduinoCommunication::onSpeedCommand, this);
-    steeringSubscriber = nh.subscribe("steering", 2, &ArduinoCommunication::onSteeringCommand, this);
-    ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this);
+    speedSubscriber = nh.subscribe("speed", 2, &ArduinoCommunication::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
+    steeringSubscriber = nh.subscribe("steering", 2, &ArduinoCommunication::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
+    ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this, ros::TransportHints().tcpNoDelay());
 
     steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 2);
     voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 2);
