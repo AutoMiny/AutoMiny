@@ -8,21 +8,28 @@ namespace emergency_stop {
     void EmergencyStop::setConfig(emergency_stop::EmergencyStopConfig &config) { this->config = config; }
 
     void EmergencyStop::checkEmergencyStop(const sensor_msgs::LaserScanConstPtr &scan) {
-        int count = static_cast<int>(scan->scan_time / scan->time_increment);
         double breakDistance = config.break_distance;
         if (config.break_distance_based_on_speed) {
             breakDistance = std::pow(currentSpeed, 2) / 2.0 * config.negative_acceleration;
         }
 
+        auto angleIncrement = scan->angle_increment;
         if (wantedSpeed >= 0) {    //forward.
-            for (int i = 0; i < config.angle_front / 2 + 1; i++) {
+            auto frontAngle = config.angle_front * (M_PI / 180.0) / 2;
+            auto start = 0;
+            auto end = static_cast<int>(frontAngle / angleIncrement);
+
+            for (int i = 0; i < scan->ranges.size() && i < end; i++) {
                 if (scan->ranges[i] <= breakDistance + config.forward_minimum_distance &&
                     scan->ranges[i] > config.forward_minimum_distance) {
                     emergencyStop = true;
                     return;
                 }
             }
-            for (int k = 360 - config.angle_front / 2; k < count; k++) {
+
+            start = scan->ranges.size() - 1 - static_cast<int>(frontAngle / angleIncrement);
+            end = scan->ranges.size();
+            for (int k = start; k < end; k++) {
                 if (scan->ranges[k] <= breakDistance + config.forward_minimum_distance &&
                     scan->ranges[k] > config.forward_minimum_distance) {
                     emergencyStop = true;
@@ -32,7 +39,10 @@ namespace emergency_stop {
         }
 
         if (wantedSpeed < 0) { //backward.
-            for (int j = (180 - (config.angle_back / 2)); j < (180 + config.angle_back / 2) + 1; j++) {
+            auto backAngle = config.angle_back * (M_PI / 180.0) / 2;
+            int start = 180 - static_cast<int>(backAngle / angleIncrement);
+            int end = 180 + static_cast<int>(backAngle / angleIncrement);
+            for (int j = start; j < end && j < scan->ranges.size(); j++) {
                 // we might see the camera in the laser scan
                 if (scan->ranges[j] <= (breakDistance + config.reverse_minimum_distance) &&
                     scan->ranges[j] > config.reverse_minimum_distance) {
