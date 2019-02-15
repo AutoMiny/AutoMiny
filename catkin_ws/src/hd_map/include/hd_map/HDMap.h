@@ -17,6 +17,11 @@ namespace hd_map {
         const std::vector<LaneGroupPtr> getLaneGroups();
 
         /**
+         * Loads an hd map
+         */
+        void loadMap();
+
+        /**
          * Gets the closest lane given a position.
          * @param point The point to look for
          * @param closestPoint The closest point on the returned closest lane

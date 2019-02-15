@@ -25,11 +25,14 @@ int main(int argc, char** argv) {
 
 hd_map::Visualization::Visualization(ros::NodeHandle &nh)
 {
+    map.loadMap();
     clickedPointSubscriber = nh.subscribe("/clicked_point", 1, &Visualization::onClickedPoint, this);
 
     roadsPublisher = nh.advertise<visualization_msgs::MarkerArray>("roads", 1, true);
     lanesPublisher = nh.advertise<visualization_msgs::MarkerArray>("lanes", 1, true);
     routePublisher = nh.advertise<visualization_msgs::MarkerArray>("route", 1);
+
+    visualize();
 }
 
 void hd_map::Visualization::visualize() {
@@ -75,13 +78,13 @@ void hd_map::Visualization::visualize() {
                 startLaneMappingMarker.type = visualization_msgs::Marker::TEXT_VIEW_FACING;
 
                 // LINE_STRIP/LINE_LIST markers use only the x component of scale, for the line width
-                startLaneMappingMarker.scale.z = 1;
+                startLaneMappingMarker.scale.z = 0.01;
 
                 startLaneMappingMarker.color.r = 1.0;
                 startLaneMappingMarker.color.b = 0.0;
                 startLaneMappingMarker.color.g = 1.0;
                 startLaneMappingMarker.color.a = 1.0;
-                startLaneMappingMarker.text = std::to_string(std::get<0>(laneGroup->getLaneMapping().at(laneIndex)));
+                //startLaneMappingMarker.text = std::to_string(std::get<0>(laneGroup->getLaneMapping().at(laneIndex)));
 
 
                 auto point = lane->getReferenceTrack()->getPoints().front();
@@ -107,13 +110,13 @@ void hd_map::Visualization::visualize() {
                 endLaneMappingMarker.type = visualization_msgs::Marker::TEXT_VIEW_FACING;
 
                 // LINE_STRIP/LINE_LIST markers use only the x component of scale, for the line width
-                endLaneMappingMarker.scale.z = 1.0;
+                endLaneMappingMarker.scale.z = 0.01;
 
                 endLaneMappingMarker.color.r = 1.0;
                 endLaneMappingMarker.color.b = 0.0;
                 endLaneMappingMarker.color.g = 0.0;
                 endLaneMappingMarker.color.a = 1.0;
-                endLaneMappingMarker.text = std::to_string(std::get<1>(laneGroup->getLaneMapping().at(laneIndex++)));
+                //endLaneMappingMarker.text = std::to_string(std::get<1>(laneGroup->getLaneMapping().at(laneIndex++)));
 
 
                 auto point = lane->getReferenceTrack()->getPoints().back();
@@ -138,7 +141,7 @@ void hd_map::Visualization::visualize() {
             laneMarker.type = visualization_msgs::Marker::LINE_STRIP;
 
             // LINE_STRIP/LINE_LIST markers use only the x component of scale, for the line width
-            laneMarker.scale.x = 0.2;
+            laneMarker.scale.x = 0.01;
 
             laneMarker.color.r = 1.0;
             laneMarker.color.b = 0.0;
@@ -173,7 +176,7 @@ void hd_map::Visualization::visualize() {
             leftBoundaryMarker.type = visualization_msgs::Marker::LINE_STRIP;
 
             // LINE_STRIP/LINE_LIST markers use only the x component of scale, for the line width
-            leftBoundaryMarker.scale.x = 0.2;
+            leftBoundaryMarker.scale.x = 0.01;
             // Line strip is blue
             leftBoundaryMarker.color.r = 1.0;
             leftBoundaryMarker.color.b = 0.0;
@@ -210,7 +213,7 @@ void hd_map::Visualization::visualize() {
             rightBoundaryMarker.type = visualization_msgs::Marker::LINE_STRIP;
 
             // LINE_STRIP/LINE_LIST markers use only the x component of scale, for the line width
-            rightBoundaryMarker.scale.x = 0.2;
+            rightBoundaryMarker.scale.x = 0.01;
             // Line strip is blue
             rightBoundaryMarker.color.r = 1.0;
             rightBoundaryMarker.color.b = 0.0;
@@ -248,7 +251,7 @@ void hd_map::Visualization::visualize() {
             startLaneConnectorMarker.type = visualization_msgs::Marker::LINE_STRIP;
 
             // LINE_STRIP/LINE_LIST markers use only the x component of scale, for the line width
-            startLaneConnectorMarker.scale.x = 0.2;
+            startLaneConnectorMarker.scale.x = 0.01;
             // Line strip is blue
             startLaneConnectorMarker.color.r = 1.0;
             startLaneConnectorMarker.color.b = 0.0;
@@ -377,7 +380,7 @@ void hd_map::Visualization::onClickedPoint(const geometry_msgs::PointStampedCons
         laneMarker.type = visualization_msgs::Marker::LINE_STRIP;
 
         // LINE_STRIP/LINE_LIST markers use only the x component of scale, for the line width
-        laneMarker.scale.x = 1.0;
+        laneMarker.scale.x = 0.02;
 
         laneMarker.color.r = 1.0;
         laneMarker.color.b = 0.0;

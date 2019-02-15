@@ -24,8 +24,9 @@ namespace hd_map {
 
     class HDMap::impl {
     public:
-        impl() {};
+        impl() = default;
 
+        void loadMap();
         const std::vector<RoadPtr> getRoads();
         const std::vector<LaneGroupPtr> getLaneGroups();
         const LanePtr closestLane(const tf2::Vector3& point, tf2::Vector3& closestPoint);
@@ -40,9 +41,9 @@ namespace hd_map {
         typedef boost::property<boost::edge_weight_t, double> EdgeWeightProperty;
         typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS, LanePtr, EdgeWeightProperty> Graph;
         /// internal boost graph representation of the map
-        Graph graph_;
+        Graph mapGraph;
         /// map from lane id to graph vertex
-        std::unordered_map<LanePtr, boost::graph_traits<Graph>::vertex_descriptor> vertices_by_id_;
+        std::unordered_map<LanePtr, boost::graph_traits<Graph>::vertex_descriptor> verticesById;
 
         void buildGraph();
 
@@ -97,7 +98,263 @@ namespace hd_map {
         return pimpl->getLaneGroup(id);
     }
 
+    void HDMap::loadMap() {
+        pimpl->loadMap();
+    }
+
 //endregion
+
+    void HDMap::impl::loadMap() {
+
+        {
+            // Lanegroup 1
+            auto laneGroup = std::make_shared<LaneGroup>(0);
+            {
+                std::vector <tf2::Vector3> referencePoints, leftPoints, rightPoints;
+
+                referencePoints.emplace_back(1.95, 0.465, 0.0);
+                referencePoints.emplace_back(4.04, 0.465, 0.0);
+                leftPoints.emplace_back(1.95, 0.62, 0.0);
+                leftPoints.emplace_back(4.04, 0.62, 0.0);
+                rightPoints.emplace_back(1.95, 0.31, 0.0);
+                rightPoints.emplace_back(4.04, 0.31, 0.0);
+
+                auto reference = std::make_shared<Polyline3D>(referencePoints);
+                auto left = std::make_shared<Polyline3D>(leftPoints);
+                auto right = std::make_shared<Polyline3D>(rightPoints);
+                auto lane = std::make_shared<Lane>(0, laneGroup, reference, left, right);
+                laneGroup->addLane(lane);
+                lane->setLaneType(LaneType::REGULAR);
+                lane->setRelativeDirection(RelativeDirection::FORWARD);
+            }
+            {
+                std::vector <tf2::Vector3> referencePoints, leftPoints, rightPoints;
+
+                referencePoints.emplace_back(1.95, 0.785, 0.0);
+                referencePoints.emplace_back(4.04, 0.785, 0.0);
+                leftPoints.emplace_back(1.95, 0.94, 0.0);
+                leftPoints.emplace_back(4.04, 0.94, 0.0);
+                rightPoints.emplace_back(1.95, 0.63, 0.0);
+                rightPoints.emplace_back(4.04, 0.63, 0.0);
+
+                auto reference = std::make_shared<Polyline3D>(referencePoints);
+                auto left = std::make_shared<Polyline3D>(leftPoints);
+                auto right = std::make_shared<Polyline3D>(rightPoints);
+                auto lane = std::make_shared<Lane>(1, laneGroup, reference, left, right);
+                laneGroup->addLane(lane);
+                lane->setLaneType(LaneType::REGULAR);
+                lane->setRelativeDirection(RelativeDirection::FORWARD);
+            }
+
+            laneGroupsById.emplace(laneGroup->getId(), laneGroup);
+        }
+
+        {
+            // Lanegroup 1
+            auto laneGroup = std::make_shared<LaneGroup>(1);
+            {
+                std::vector<tf2::Vector3> referencePoints, leftPoints, rightPoints;
+
+                auto xo = 4.04;
+                auto yo = 2.15;
+                auto refR = 1.685;
+                auto leftR = 1.84;
+                auto rightR = 1.53;
+                for (double i = -M_PI / 2.0; i <= (M_PI / 2.0) + 0.009; i += 1 / (refR * 100)) {
+                    auto xp = xo + refR * std::cos(i);
+                    auto yp = yo + refR * std::sin(i);
+                    referencePoints.emplace_back(xp, yp, 0);
+
+                    xp = xo + leftR * std::cos(i);
+                    yp = yo + leftR * std::sin(i);
+                    leftPoints.emplace_back(xp, yp, 0);
+
+                    xp = xo + rightR * std::cos(i);
+                    yp = yo + rightR * std::sin(i);
+                    rightPoints.emplace_back(xp, yp, 0);
+                }
+
+                auto reference = std::make_shared<Polyline3D>(referencePoints);
+                auto left = std::make_shared<Polyline3D>(leftPoints);
+                auto right = std::make_shared<Polyline3D>(rightPoints);
+                auto lane = std::make_shared<Lane>(0, laneGroup, reference, left, right);
+
+                laneGroup->addLane(lane);
+                lane->setLaneType(LaneType::REGULAR);
+                lane->setRelativeDirection(RelativeDirection::FORWARD);
+            }
+            {
+                std::vector<tf2::Vector3> referencePoints, leftPoints, rightPoints;
+
+                auto xo = 4.04;
+                auto yo = 2.15;
+                auto refR = 1.365;
+                auto leftR = 1.21;
+                auto rightR = 1.52;
+                for (double i = -M_PI / 2.0; i <= (M_PI / 2.0) + 0.009; i += 1 / (refR * 100)) {
+                    auto xp = xo + refR * std::cos(i);
+                    auto yp = yo + refR * std::sin(i);
+                    referencePoints.emplace_back(xp, yp, 0);
+
+                    xp = xo + leftR * std::cos(i);
+                    yp = yo + leftR * std::sin(i);
+                    leftPoints.emplace_back(xp, yp, 0);
+
+                    xp = xo + rightR * std::cos(i);
+                    yp = yo + rightR * std::sin(i);
+                    rightPoints.emplace_back(xp, yp, 0);
+                }
+
+                auto reference = std::make_shared<Polyline3D>(referencePoints);
+                auto left = std::make_shared<Polyline3D>(leftPoints);
+                auto right = std::make_shared<Polyline3D>(rightPoints);
+                auto lane = std::make_shared<Lane>(1, laneGroup, reference, left, right);
+
+                laneGroup->addLane(lane);
+                lane->setLaneType(LaneType::REGULAR);
+                lane->setRelativeDirection(RelativeDirection::FORWARD);
+            }
+            laneGroupsById.emplace(laneGroup->getId(), laneGroup);
+        }
+
+        {
+            // Lanegroup 2
+            auto laneGroup = std::make_shared<LaneGroup>(2);
+            {
+                std::vector<tf2::Vector3> referencePoints, leftPoints, rightPoints;
+                referencePoints.emplace_back(4.04, 3.835, 0.0);
+                referencePoints.emplace_back(1.95, 3.835, 0.0);
+                leftPoints.emplace_back(4.04, 3.99, 0.0);
+                leftPoints.emplace_back(1.95, 3.99, 0.0);
+                rightPoints.emplace_back(4.04, 3.68, 0.0);
+                rightPoints.emplace_back(1.95, 3.68, 0.0);
+
+                auto reference = std::make_shared<Polyline3D>(referencePoints);
+                auto left = std::make_shared<Polyline3D>(leftPoints);
+                auto right = std::make_shared<Polyline3D>(rightPoints);
+                auto lane = std::make_shared<Lane>(0, laneGroup, reference, left, right);
+
+                laneGroup->addLane(lane);
+                lane->setLaneType(LaneType::REGULAR);
+                lane->setRelativeDirection(RelativeDirection::FORWARD);
+            }
+            {
+                std::vector<tf2::Vector3> referencePoints, leftPoints, rightPoints;
+                referencePoints.emplace_back(4.04, 3.515, 0.0);
+                referencePoints.emplace_back(1.95, 3.515, 0.0);
+                leftPoints.emplace_back(4.04, 3.36, 0.0);
+                leftPoints.emplace_back(1.95, 3.36, 0.0);
+                rightPoints.emplace_back(4.04, 3.67, 0.0);
+                rightPoints.emplace_back(1.95, 3.67, 0.0);
+
+                auto reference = std::make_shared<Polyline3D>(referencePoints);
+                auto left = std::make_shared<Polyline3D>(leftPoints);
+                auto right = std::make_shared<Polyline3D>(rightPoints);
+                auto lane = std::make_shared<Lane>(1, laneGroup, reference, left, right);
+
+                laneGroup->addLane(lane);
+                lane->setLaneType(LaneType::REGULAR);
+                lane->setRelativeDirection(RelativeDirection::FORWARD);
+            }
+            laneGroupsById.emplace(laneGroup->getId(), laneGroup);
+        }
+
+        {
+            // Lanegroup 4
+            auto laneGroup = std::make_shared<LaneGroup>(3);
+            {
+                std::vector<tf2::Vector3> referencePoints, leftPoints, rightPoints;
+
+                auto xo = 1.95;
+                auto yo = 2.15;
+                auto refR = 1.685;
+                auto leftR = 1.84;
+                auto rightR = 1.53;
+                for (double i = M_PI / 2.0; i <= 3 * (M_PI / 2.0) + 0.009; i += 1 / (refR * 100)) {
+                    auto xp = xo + refR * std::cos(i);
+                    auto yp = yo + refR * std::sin(i);
+                    referencePoints.emplace_back(xp, yp, 0);
+
+                    xp = xo + leftR * std::cos(i);
+                    yp = yo + leftR * std::sin(i);
+                    leftPoints.emplace_back(xp, yp, 0);
+
+                    xp = xo + rightR * std::cos(i);
+                    yp = yo + rightR * std::sin(i);
+                    rightPoints.emplace_back(xp, yp, 0);
+                }
+
+                auto reference = std::make_shared<Polyline3D>(referencePoints);
+                auto left = std::make_shared<Polyline3D>(leftPoints);
+                auto right = std::make_shared<Polyline3D>(rightPoints);
+                auto lane = std::make_shared<Lane>(0, laneGroup, reference, left, right);
+
+                laneGroup->addLane(lane);
+                lane->setLaneType(LaneType::REGULAR);
+                lane->setRelativeDirection(RelativeDirection::FORWARD);
+            }
+            {
+                std::vector<tf2::Vector3> referencePoints, leftPoints, rightPoints;
+
+                auto xo = 1.95;
+                auto yo = 2.15;
+                auto refR = 1.365;
+                auto leftR = 1.21;
+                auto rightR = 1.52;
+                for (double i = M_PI / 2.0; i <= 3 * (M_PI / 2.0) + 0.009; i += 1 / (refR * 100)) {
+                    auto xp = xo + refR * std::cos(i);
+                    auto yp = yo + refR * std::sin(i);
+                    referencePoints.emplace_back(xp, yp, 0);
+
+                    xp = xo + leftR * std::cos(i);
+                    yp = yo + leftR * std::sin(i);
+                    leftPoints.emplace_back(xp, yp, 0);
+
+                    xp = xo + rightR * std::cos(i);
+                    yp = yo + rightR * std::sin(i);
+                    rightPoints.emplace_back(xp, yp, 0);
+                }
+
+                auto reference = std::make_shared<Polyline3D>(referencePoints);
+                auto left = std::make_shared<Polyline3D>(leftPoints);
+                auto right = std::make_shared<Polyline3D>(rightPoints);
+                auto lane = std::make_shared<Lane>(1, laneGroup, reference, left, right);
+
+                laneGroup->addLane(lane);
+                lane->setLaneType(LaneType::REGULAR);
+                lane->setRelativeDirection(RelativeDirection::FORWARD);
+            }
+            laneGroupsById.emplace(laneGroup->getId(), laneGroup);
+        }
+
+        std::vector<LaneGroupPtr> g0, g1, g2, g3;
+        g0.emplace_back(laneGroupsById[0]);
+        g1.emplace_back(laneGroupsById[1]);
+        g2.emplace_back(laneGroupsById[2]);
+        g3.emplace_back(laneGroupsById[3]);
+
+        laneGroupsById[0]->setOutgoingLaneGroups(g1);
+        laneGroupsById[1]->setOutgoingLaneGroups(g2);
+        laneGroupsById[2]->setOutgoingLaneGroups(g3);
+        laneGroupsById[3]->setOutgoingLaneGroups(g0);
+
+        laneGroupsById[0]->setIncomingLaneGroups(g3);
+        laneGroupsById[1]->setIncomingLaneGroups(g0);
+        laneGroupsById[2]->setIncomingLaneGroups(g1);
+        laneGroupsById[3]->setIncomingLaneGroups(g2);
+
+        laneGroupsById[0]->getLane(0)->addOutgoingLane(laneGroupsById[1]->getLane(0));
+        laneGroupsById[1]->getLane(0)->addOutgoingLane(laneGroupsById[2]->getLane(0));
+        laneGroupsById[2]->getLane(0)->addOutgoingLane(laneGroupsById[3]->getLane(0));
+        laneGroupsById[3]->getLane(0)->addOutgoingLane(laneGroupsById[0]->getLane(0));
+
+        laneGroupsById[0]->getLane(1)->addOutgoingLane(laneGroupsById[1]->getLane(1));
+        laneGroupsById[1]->getLane(1)->addOutgoingLane(laneGroupsById[2]->getLane(1));
+        laneGroupsById[2]->getLane(1)->addOutgoingLane(laneGroupsById[3]->getLane(1));
+        laneGroupsById[3]->getLane(1)->addOutgoingLane(laneGroupsById[0]->getLane(1));
+
+        buildGraph();
+    }
 
     const std::vector<RoadPtr> HDMap::impl::getRoads() {
         std::vector<RoadPtr> roads;
@@ -127,7 +384,7 @@ namespace hd_map {
     }
 
     const LanePtr HDMap::impl::closestLane(const tf2::Vector3& point, tf2::Vector3& closestPoint) {
-        double currentDistance = DBL_MAX;
+        auto currentDistance = DBL_MAX;
         LanePtr closestLane = nullptr;
 
         for (const auto &laneGroup : getLaneGroups()) {
@@ -148,7 +405,7 @@ namespace hd_map {
     }
 
     const LanePtr HDMap::impl::closestLane(const tf2::Vector3& point, const LaneType& type) {
-        double currentDistance = DBL_MAX;
+        auto currentDistance = DBL_MAX;
         LanePtr closestLane = nullptr;
 
         for (const auto &laneGroup : getLaneGroups()) {
@@ -212,23 +469,23 @@ namespace hd_map {
     void HDMap::impl::buildGraph() {
         for (const auto& laneGroup : getLaneGroups()) {
             for (const auto& lane : laneGroup->getLanes()) {
-                if (vertices_by_id_.find(lane) == vertices_by_id_.end()) {
-                    boost::graph_traits<Graph>::vertex_descriptor v = boost::add_vertex(lane, graph_);
-                    vertices_by_id_[lane] = v;
+                if (verticesById.find(lane) == verticesById.end()) {
+                    boost::graph_traits<Graph>::vertex_descriptor v = boost::add_vertex(lane, mapGraph);
+                    verticesById[lane] = v;
                 }
 
                 // add connections to next road section lanes
                 for (const auto& followingLane : lane->getOutgoingLanes()) {
                     // add not already inserted vertices
-                    if (vertices_by_id_.find(followingLane) == vertices_by_id_.end()) {
-                        boost::graph_traits<Graph>::vertex_descriptor v_out = boost::add_vertex(followingLane, graph_);
-                        vertices_by_id_[followingLane] = v_out;
+                    if (verticesById.find(followingLane) == verticesById.end()) {
+                        boost::graph_traits<Graph>::vertex_descriptor v_out = boost::add_vertex(followingLane, mapGraph);
+                        verticesById[followingLane] = v_out;
                     }
 
                     // add connecting edge
                     EdgeWeightProperty weightProperty = followingLane->getReferenceTrack()->length();
-                    boost::add_edge(vertices_by_id_[lane], vertices_by_id_[followingLane], weightProperty,
-                                    graph_);
+                    boost::add_edge(verticesById[lane], verticesById[followingLane], weightProperty,
+                                    mapGraph);
                 }
 
             }
@@ -243,27 +500,27 @@ namespace hd_map {
     }
 
     const std::vector<LanePtr> HDMap::impl::findRoute(const LanePtr& startLane, const LanePtr& endLane) {
-        boost::graph_traits<Graph>::vertex_descriptor startVertex = vertices_by_id_[startLane];
-        boost::graph_traits<Graph>::vertex_descriptor goalVertex = vertices_by_id_[endLane];
+        boost::graph_traits<Graph>::vertex_descriptor startVertex = verticesById[startLane];
+        boost::graph_traits<Graph>::vertex_descriptor goalVertex = verticesById[endLane];
 
         // backtracking from goal vertex to start
         std::vector<LanePtr> path;
 
         if (startLane == endLane) {
-            path.push_back(graph_[startVertex]);
+            path.push_back(mapGraph[startVertex]);
             return path;
         }
 
-        std::vector<boost::graph_traits<Graph>::vertex_descriptor> predecessors(boost::num_vertices(graph_));
-        std::vector<double> distances(boost::num_vertices(graph_));
+        std::vector<boost::graph_traits<Graph>::vertex_descriptor> predecessors(boost::num_vertices(mapGraph));
+        std::vector<double> distances(boost::num_vertices(mapGraph));
 
-        boost::dijkstra_shortest_paths(graph_, startVertex,
+        boost::dijkstra_shortest_paths(mapGraph, startVertex,
                                        boost::predecessor_map(&predecessors[0]).distance_map(&distances[0]));
 
         // first entry of predecessors links to itself
         while (goalVertex != predecessors[goalVertex]) {
-            if (graph_[goalVertex] != graph_[predecessors[goalVertex]]) {
-                path.push_back(graph_[goalVertex]);
+            if (mapGraph[goalVertex] != mapGraph[predecessors[goalVertex]]) {
+                path.push_back(mapGraph[goalVertex]);
             }
             goalVertex = predecessors[goalVertex];
         }
