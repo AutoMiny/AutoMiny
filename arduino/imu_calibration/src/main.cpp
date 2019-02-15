@@ -102,7 +102,7 @@ MPU6050 accelgyro;
 
 #define BATTERY_PIN A6
 #define ENABLE_PIN 7
-const float referenceVolts = 4.7;
+const float referenceVolts = 5.2;
 const float R1 = 3300.0;
 const float R2 = 1490.0;
 
