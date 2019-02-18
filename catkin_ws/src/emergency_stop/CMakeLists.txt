@@ -50,6 +50,7 @@ catkin_package(
         #    ${PROJECT_NAME}_msgs
         dynamic_reconfigure
         nodelet
+        autominy_msgs
         #    DEPENDS ... (e.g. eigen opencv)
 )
 
