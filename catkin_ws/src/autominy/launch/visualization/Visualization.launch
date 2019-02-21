@@ -3,11 +3,7 @@
     <arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
     <arg name="live"        doc="Whether to connect to hardware (true) or just run the parsing nodes (false)" />
 
-    <node pkg="topic_tools" type="transform" name="visualization_speed" args="/carstate/speed /visualization/speed std_msgs/Float32 m.value" />
-    <node pkg="topic_tools" type="transform" name="visualization_steering" args="/carstate/steering /visualization/steering std_msgs/Float32 m.value" />
+    <include file="$(find autominy/launch/visualization/JSK.launch" />
 
-    <node pkg="topic_tools" type="transform" name="visualization_wanted_speed" args="/control/command/normalized_wanted_speed /visualization/visualization_wanted_speed std_msgs/Float32 m.value" />
-    <node pkg="topic_tools" type="transform" name="visualization_wanted_steering" args="/control/command/normalized_wanted_steering /visualization/visualization_wanted_steering std_msgs/Float32 m.value" />
-
-    <node pkg="topic_tools" type="transform" name="visualization_voltage" args="/sensors/arduino/voltage /visualization/voltage std_msgs/Float32 m.value" />
+    <include file="$(find autominy/launch/visualization/Map.launch" />
 </launch>
