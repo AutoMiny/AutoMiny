@@ -13,5 +13,6 @@
     <author email="s.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</author>
     <depend>message_runtime</depend>
     <depend>std_msgs</depend>
+    <depend>geometry_msgs</depend>
     <buildtool_depend>catkin</buildtool_depend>
 </package>
