@@ -3,7 +3,7 @@
     <arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
     <arg name="live"        doc="Whether to connect to hardware (true) or just run the parsing nodes (false)" />
 
-    <include file="$(find autominy/launch/visualization/JSK.launch" />
+    <include file="$(find autominy)/launch/visualization/JSK.launch" />
 
-    <include file="$(find autominy/launch/visualization/Map.launch" />
+    <include file="$(find autominy)/launch/visualization/Map.launch" />
 </launch>
