@@ -1,0 +1,19 @@
+<package format="2">
+    <name>trajectory_msgs_rviz_plugin</name>
+    <version>0.0.1</version>
+    <description>RViz plugin for visualizing trajectory messages</description>
+    <maintainer email="s.sundermann@fu-berlin.de">Stephan Sundermann</maintainer>
+    <license>proprietary</license>
+
+    <url>http://www.autonomos-labs.de</url>
+    <author>Stephan Sundermann</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <depend>autominy_msgs</depend>
+    <depend>rviz</depend>
+
+    <export>
+        <rviz plugin="${prefix}/plugin_description.xml"/>
+    </export>
+</package>
