@@ -11,7 +11,7 @@ namespace hd_map {
         std::vector<tf2::Vector3> getPoints();
         tf2::Vector3 interpolate(double param);
         double length();
-        double findClosestParameter(tf2::Vector3 p, double accuracy);
+        double findClosestParameter(const tf2::Vector3& p);
         tf2::Vector3 gradient(double param);
         void reverse();
     private:

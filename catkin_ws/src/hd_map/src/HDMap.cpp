@@ -160,7 +160,7 @@ namespace hd_map {
                 auto refR = 1.685;
                 auto leftR = 1.84;
                 auto rightR = 1.53;
-                for (double i = -M_PI / 2.0; i <= (M_PI / 2.0) + 0.009; i += 1 / (refR * 100)) {
+                for (double i = -M_PI / 2.0; i <= (M_PI / 2.0) + 0.009; i += 1 / (refR * 50)) {
                     auto xp = xo + refR * std::cos(i);
                     auto yp = yo + refR * std::sin(i);
                     referencePoints.emplace_back(xp, yp, 0);
@@ -191,7 +191,7 @@ namespace hd_map {
                 auto refR = 1.365;
                 auto leftR = 1.21;
                 auto rightR = 1.52;
-                for (double i = -M_PI / 2.0; i <= (M_PI / 2.0) + 0.009; i += 1 / (refR * 100)) {
+                for (double i = -M_PI / 2.0; i <= (M_PI / 2.0) + 0.009; i += 1 / (refR * 50)) {
                     auto xp = xo + refR * std::cos(i);
                     auto yp = yo + refR * std::sin(i);
                     referencePoints.emplace_back(xp, yp, 0);
@@ -270,7 +270,7 @@ namespace hd_map {
                 auto refR = 1.685;
                 auto leftR = 1.84;
                 auto rightR = 1.53;
-                for (double i = M_PI / 2.0; i <= 3 * (M_PI / 2.0) + 0.009; i += 1 / (refR * 100)) {
+                for (double i = M_PI / 2.0; i <= 3 * (M_PI / 2.0) + 0.009; i += 1 / (refR * 50)) {
                     auto xp = xo + refR * std::cos(i);
                     auto yp = yo + refR * std::sin(i);
                     referencePoints.emplace_back(xp, yp, 0);
@@ -301,7 +301,7 @@ namespace hd_map {
                 auto refR = 1.365;
                 auto leftR = 1.21;
                 auto rightR = 1.52;
-                for (double i = M_PI / 2.0; i <= 3 * (M_PI / 2.0) + 0.009; i += 1 / (refR * 100)) {
+                for (double i = M_PI / 2.0; i <= 3 * (M_PI / 2.0) + 0.009; i += 1 / (refR * 50)) {
                     auto xp = xo + refR * std::cos(i);
                     auto yp = yo + refR * std::sin(i);
                     referencePoints.emplace_back(xp, yp, 0);
@@ -389,7 +389,7 @@ namespace hd_map {
 
         for (const auto &laneGroup : getLaneGroups()) {
             for (const auto &lane : laneGroup->getLanes()) {
-                auto param = lane->getReferenceTrack()->findClosestParameter(point, 0.1);
+                auto param = lane->getReferenceTrack()->findClosestParameter(point);
                 auto p2 = lane->getReferenceTrack()->interpolate(param);
 
                 auto distance = point.distance(p2);
@@ -410,7 +410,7 @@ namespace hd_map {
 
         for (const auto &laneGroup : getLaneGroups()) {
             for (const auto &lane : laneGroup->getLanes()) {
-                auto param = lane->getReferenceTrack()->findClosestParameter(point, 0.1);
+                auto param = lane->getReferenceTrack()->findClosestParameter(point);
                 auto p2 = lane->getReferenceTrack()->interpolate(param);
                 auto distance = point.distance(p2);
                 auto laneType= lane->getLaneType();
@@ -429,7 +429,7 @@ namespace hd_map {
 
         for (const auto &laneGroup : getLaneGroups()) {
             for (const auto &lane : laneGroup->getLanes()) {
-                auto param = lane->getReferenceTrack()->findClosestParameter(point, 0.1);
+                auto param = lane->getReferenceTrack()->findClosestParameter(point);
                 auto p2 = lane->getReferenceTrack()->interpolate(param);
                 auto distance = point.distance(p2);
 

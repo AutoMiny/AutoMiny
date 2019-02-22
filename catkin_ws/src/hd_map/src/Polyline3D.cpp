@@ -59,11 +59,11 @@ namespace hd_map {
         return p;
     }
 
-    double Polyline3D::findClosestParameter(tf2::Vector3 p, double accuracy) {
-        double closestParam = DBL_MAX;
-        double currentDistance = DBL_MAX;
+    double Polyline3D::findClosestParameter(const tf2::Vector3& p) {
+        auto closestParam = DBL_MAX;
+        auto currentDistance = DBL_MAX;
 
-        double length = 0;
+        auto length = 0.0;
         for (int i = 0; i < this->points.size() - 1; i++) {
             auto p1 = points.at(i);
             auto p2 = points.at(i + 1);
@@ -115,7 +115,7 @@ namespace hd_map {
             length += current;
         }
 
-        return tf2::Vector3();
+        return {};
     }
 
     void Polyline3D::reverse() {
