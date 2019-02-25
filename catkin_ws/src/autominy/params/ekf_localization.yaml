@@ -1,19 +1,19 @@
 ekf_se_map:
   frequency: 100
   sensor_timeout: 0.1
-  two_d_mode: false
+  two_d_mode: true
   transform_time_offset: 0.0
   print_diagnostics: true
   debug: false
 
   map_frame: map
-  odom_frame: map
+  odom_frame: odom
   base_link_frame: base_link
   world_frame: map
 
   odom0: odometry/wheel
   odom0_config: [false, false, false,
-                 false, false, false,
+                 false, false,  false,
                  true,  true,  false,
                  false, false, true,
                  false, false, false]
