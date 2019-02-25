@@ -164,14 +164,14 @@ namespace road_marking_localization {
             correctedPosition.pose.pose.position.x = pos[0];
             correctedPosition.pose.pose.position.y = pos[1];
             correctedPosition.pose.pose.position.z = pos[2];
-            correctedPosition.pose.covariance = {  0.02, 0, 0, 0, 0, 0,
-                                                    0, 0.02, 0, 0, 0, 0,
-                                                    0, 0, 0.02, 0, 0, 0,
-                                                    0, 0, 0, 0.02, 0, 0,
-                                                    0, 0, 0, 0, 0.02, 0,
-                                                    0, 0, 0, 0, 0, 0.02
+            correctedPosition.pose.covariance = { 0.01, 0, 0, 0, 0, 0,
+                                                  0, 0.01, 0, 0, 0, 0,
+                                                  0, 0, 0.01, 0, 0, 0,
+                                                  0, 0, 0, 0.01, 0, 0,
+                                                  0, 0, 0, 0, 0.01, 0,
+                                                  0, 0, 0, 0, 0, 0.01
             };
-            auto orientation = tf::createQuaternionFromYaw(tf::getYaw(correctedPosition.pose.pose.orientation) + yaw);
+            auto orientation = tf::createQuaternionFromYaw(tf::getYaw(t.getRotation()) + yaw);
             tf::quaternionTFToMsg(orientation, correctedPosition.pose.pose.orientation);
         } else {
             return false;
@@ -239,6 +239,14 @@ namespace road_marking_localization {
         correctedPosition.pose.pose.orientation.y = tfPose.getRotation().y();
         correctedPosition.pose.pose.orientation.z = tfPose.getRotation().z();
         correctedPosition.pose.pose.orientation.w = tfPose.getRotation().w();
+
+        correctedPosition.pose.covariance = {  0, 0, 0, 0, 0, 0,
+                                               0, 0, 0, 0, 0, 0,
+                                               0, 0, 0, 0, 0, 0,
+                                               0, 0, 0, 0, 0, 0,
+                                               0, 0, 0, 0, 0, 0,
+                                               0, 0, 0, 0, 0, 0
+        };
     }
 
     sensor_msgs::ImageConstPtr RoadMarkingLocalization::getThresholdedImage() {
