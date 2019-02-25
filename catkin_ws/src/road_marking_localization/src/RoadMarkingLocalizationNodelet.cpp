@@ -12,6 +12,7 @@
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/sync_policies/approximate_time.h>
+#include <robot_localization/SetPose.h>
 
 namespace road_marking_localization {
 
@@ -42,6 +43,7 @@ namespace road_marking_localization {
             randomSampledPclPublisher = pnh.advertise<sensor_msgs::PointCloud2>("random_sampled_pcl", 1);
             alignedPclPublisher = pnh.advertise<sensor_msgs::PointCloud2>("aligned_pcl", 1);
             mapCloudPublisher = pnh.advertise<sensor_msgs::PointCloud2>("map_pcl", 1, true);
+            robotLocalizationSetPose = pnh.serviceClient<robot_localization::SetPose>("/localization/set_pose");
 
             mapSubscriber = pnh.subscribe("map", 1, &RoadMarkingLocalizationNodelet::onMap, this);
             positionEstimateSubscriber = pnh.subscribe("initialpose", 1, &RoadMarkingLocalizationNodelet::onEstimatedPosition, this);
@@ -59,6 +61,7 @@ namespace road_marking_localization {
             sync->connectInput(infraImageSubscriber, infraCameraInfoSubscriber, depthImageSubscriber,
                                depthCameraInfoSubscriber);
             sync->registerCallback(boost::bind(&RoadMarkingLocalizationNodelet::onImage, this, _1, _2, _3, _4));
+
         }
 
     private:
@@ -96,6 +99,11 @@ namespace road_marking_localization {
 
         void onEstimatedPosition(const geometry_msgs::PoseWithCovarianceStamped& msg) {
             localization->setPosition(msg);
+            robot_localization::SetPose srv;
+            srv.request.pose = msg;
+            if(!robotLocalizationSetPose.call(srv)) {
+                ROS_ERROR("Could not call robot localization service!");
+            }
             odometryPublisher.publish(localization->getCorrectedPosition());
         }
 
@@ -121,6 +129,7 @@ namespace road_marking_localization {
         ros::Publisher alignedPclPublisher;
         ros::Publisher mapCloudPublisher;
         ros::Publisher odometryPublisher;
+        ros::ServiceClient robotLocalizationSetPose;
         tf::TransformBroadcaster odometryBroadcaster;
 
         /// pointer to dynamic reconfigure service

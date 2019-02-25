@@ -249,6 +249,7 @@ namespace road_marking_localization {
                                                0, 0, 0, 0, 0, 0,
                                                0, 0, 0, 0, 0, 0
         };
+        tfListener.clear();
     }
 
     sensor_msgs::ImageConstPtr RoadMarkingLocalization::getThresholdedImage() {
