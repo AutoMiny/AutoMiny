@@ -108,8 +108,10 @@ namespace road_marking_localization {
         auto roadMarkerCloud = getPointcloud(depthImage, depthCameraInfo, cvImage);
 
         tf::StampedTransform t;
+        tf::StampedTransform baseLinkTransform;
         try {
             tfListener.lookupTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp, t);
+            tfListener.lookupTransform("map", "base_link", depthImage->header.stamp, baseLinkTransform);
         } catch (tf::TransformException& e) {
             ROS_ERROR("%s", e.what());
             return false;
@@ -120,8 +122,8 @@ namespace road_marking_localization {
 
         if (mapPointCloud) {
             boxFilter.setInputCloud(transformedCloud);
-            auto x = t.getOrigin().x();
-            auto y = t.getOrigin().y();
+            auto x = baseLinkTransform.getOrigin().x();
+            auto y = baseLinkTransform.getOrigin().y();
             boxFilter.setMin(Eigen::Vector4f(static_cast<const float&>(x - config.x_box),
                                              static_cast<const float&>(y - config.y_box),
                                              static_cast<const float&>(config.minimum_z), 1.0));
@@ -154,9 +156,9 @@ namespace road_marking_localization {
             }
 
             auto currentPos = Eigen::Vector4f(
-                    static_cast<const float&>(t.getOrigin().x()),
-                    static_cast<const float&>(t.getOrigin().y()),
-                    static_cast<const float&>(t.getOrigin().z()), 1);
+                    static_cast<const float&>(baseLinkTransform.getOrigin().x()),
+                    static_cast<const float&>(baseLinkTransform.getOrigin().y()),
+                    static_cast<const float&>(baseLinkTransform.getOrigin().z()), 1);
             auto pos = transformationMatrix * currentPos;
             correctedPosition.header.stamp = depthImage->header.stamp;
             correctedPosition.header.frame_id = "map";
@@ -171,7 +173,7 @@ namespace road_marking_localization {
                                                   0, 0, 0, 0, 0.01, 0,
                                                   0, 0, 0, 0, 0, 0.01
             };
-            auto orientation = tf::createQuaternionFromYaw(tf::getYaw(t.getRotation()) + yaw);
+            auto orientation = tf::createQuaternionFromYaw(tf::getYaw(baseLinkTransform.getRotation()) + yaw);
             tf::quaternionTFToMsg(orientation, correctedPosition.pose.pose.orientation);
         } else {
             return false;
