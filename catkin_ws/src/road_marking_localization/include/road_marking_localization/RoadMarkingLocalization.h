@@ -49,7 +49,7 @@ namespace road_marking_localization {
         /**
          * @return Updated corrected position
          */
-        nav_msgs::Odometry getCorrectedPosition();
+        const nav_msgs::Odometry& getCorrectedPosition();
 
         /**
          * Processes the camera image and depth image to localize using road markings. The process is divided into
@@ -131,7 +131,7 @@ namespace road_marking_localization {
 
         image_geometry::PinholeCameraModel model;
         pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> iterativeClosestPoint;
-        nav_msgs::OdometryPtr correctedPosition;
+        nav_msgs::Odometry correctedPosition;
         pcl::CropBox<pcl::PointXYZ> boxFilter;
         pcl::RandomSample<pcl::PointXYZ> randomSampleFilter;
         tf::TransformListener tfListener;

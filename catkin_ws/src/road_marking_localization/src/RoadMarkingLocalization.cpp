@@ -120,8 +120,8 @@ namespace road_marking_localization {
 
         if (mapPointCloud) {
             boxFilter.setInputCloud(transformedCloud);
-            auto x = correctedPosition->pose.pose.position.x;
-            auto y = correctedPosition->pose.pose.position.y;
+            auto x = t.getOrigin().x();
+            auto y = t.getOrigin().y();
             boxFilter.setMin(Eigen::Vector4f(static_cast<const float&>(x - config.x_box),
                                              static_cast<const float&>(y - config.y_box),
                                              static_cast<const float&>(config.minimum_z), 1.0));
@@ -154,22 +154,22 @@ namespace road_marking_localization {
             }
 
             auto currentPos = Eigen::Vector4f(
-                    static_cast<const float&>(correctedPosition->pose.pose.position.x),
-                    static_cast<const float&>(correctedPosition->pose.pose.position.y),
-                    static_cast<const float&>(correctedPosition->pose.pose.position.z), 1);
+                    static_cast<const float&>(t.getOrigin().x()),
+                    static_cast<const float&>(t.getOrigin().y()),
+                    static_cast<const float&>(t.getOrigin().z()), 1);
             auto pos = transformationMatrix * currentPos;
-            correctedPosition->pose.pose.position.x = pos[0];
-            correctedPosition->pose.pose.position.y = pos[1];
-            correctedPosition->pose.pose.position.z = pos[2];
-            correctedPosition->pose.covariance = {  0.02, 0, 0, 0, 0, 0,
+            correctedPosition.pose.pose.position.x = pos[0];
+            correctedPosition.pose.pose.position.y = pos[1];
+            correctedPosition.pose.pose.position.z = pos[2];
+            correctedPosition.pose.covariance = {  0.02, 0, 0, 0, 0, 0,
                                                     0, 0.02, 0, 0, 0, 0,
                                                     0, 0, 0.02, 0, 0, 0,
                                                     0, 0, 0, 0.02, 0, 0,
                                                     0, 0, 0, 0, 0.02, 0,
                                                     0, 0, 0, 0, 0, 0.02
             };
-            auto orientation = tf::createQuaternionFromYaw(tf::getYaw(correctedPosition->pose.pose.orientation) + yaw);
-            tf::quaternionTFToMsg(orientation, correctedPosition->pose.pose.orientation);
+            auto orientation = tf::createQuaternionFromYaw(tf::getYaw(correctedPosition.pose.pose.orientation) + yaw);
+            tf::quaternionTFToMsg(orientation, correctedPosition.pose.pose.orientation);
         } else {
             return false;
         }
@@ -208,8 +208,8 @@ namespace road_marking_localization {
         iterativeClosestPoint.setInputTarget(mapPointCloud);
     }
 
-    nav_msgs::Odometry RoadMarkingLocalization::getCorrectedPosition() {
-        return *correctedPosition;
+    const nav_msgs::Odometry& RoadMarkingLocalization::getCorrectedPosition() {
+        return correctedPosition;
     }
 
     void RoadMarkingLocalization::setPosition(const geometry_msgs::PoseWithCovarianceStamped& pose) {
@@ -218,20 +218,20 @@ namespace road_marking_localization {
 
         tf::StampedTransform t;
         try {
-            tfListener.lookupTransform(correctedPosition->header.frame_id, pose.header.frame_id, ros::Time(0), t);
+            tfListener.lookupTransform(correctedPosition.header.frame_id, pose.header.frame_id, ros::Time(0), t);
         } catch (tf::TransformException& e) {
             ROS_ERROR("%s", e.what());
         }
         tfPose = t * tfPose;
 
-        correctedPosition->pose.pose.position.x = tfPose.getOrigin().x();
-        correctedPosition->pose.pose.position.y = tfPose.getOrigin().y();
-        correctedPosition->pose.pose.position.z = tfPose.getOrigin().z();
+        correctedPosition.pose.pose.position.x = tfPose.getOrigin().x();
+        correctedPosition.pose.pose.position.y = tfPose.getOrigin().y();
+        correctedPosition.pose.pose.position.z = tfPose.getOrigin().z();
 
-        correctedPosition->pose.pose.orientation.x = tfPose.getRotation().x();
-        correctedPosition->pose.pose.orientation.y = tfPose.getRotation().y();
-        correctedPosition->pose.pose.orientation.z = tfPose.getRotation().z();
-        correctedPosition->pose.pose.orientation.w = tfPose.getRotation().w();
+        correctedPosition.pose.pose.orientation.x = tfPose.getRotation().x();
+        correctedPosition.pose.pose.orientation.y = tfPose.getRotation().y();
+        correctedPosition.pose.pose.orientation.z = tfPose.getRotation().z();
+        correctedPosition.pose.pose.orientation.w = tfPose.getRotation().w();
     }
 
     sensor_msgs::ImageConstPtr RoadMarkingLocalization::getThresholdedImage() {
