@@ -47,12 +47,9 @@ namespace road_marking_localization {
         void setMap(const nav_msgs::OccupancyGridConstPtr& msg);
 
         /**
-         * Updates the correction using relative (high frequency) odometry. The correction is applied relative by
-         * calculating the difference between the passed odometry and the last odometry.
-         * @param msg Odometry data
-         * @return Updated corrected position using the passed relative odometry data
+         * @return Updated corrected position
          */
-        nav_msgs::Odometry updateCorrection(nav_msgs::Odometry& msg);
+        nav_msgs::Odometry getCorrectedPosition();
 
         /**
          * Processes the camera image and depth image to localize using road markings. The process is divided into
@@ -135,7 +132,6 @@ namespace road_marking_localization {
         image_geometry::PinholeCameraModel model;
         pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> iterativeClosestPoint;
         nav_msgs::OdometryPtr correctedPosition;
-        nav_msgs::Odometry lastPosition;
         pcl::CropBox<pcl::PointXYZ> boxFilter;
         pcl::RandomSample<pcl::PointXYZ> randomSampleFilter;
         tf::TransformListener tfListener;

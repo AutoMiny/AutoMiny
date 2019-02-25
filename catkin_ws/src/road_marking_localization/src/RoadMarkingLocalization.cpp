@@ -91,10 +91,6 @@ namespace road_marking_localization {
             const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& cameraInfo,
             const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo) {
 
-        if (!correctedPosition) {
-            return false;
-        }
-
         try {
             cv = cv_bridge::toCvCopy(image);
         }
@@ -113,7 +109,7 @@ namespace road_marking_localization {
 
         tf::StampedTransform t;
         try {
-            tfListener.lookupTransform("map", roadMarkerCloud->header.frame_id, ros::Time(0), t);
+            tfListener.lookupTransform("map", roadMarkerCloud->header.frame_id, ros::Time(roadMarkerCloud->header.stamp), t);
         } catch (tf::TransformException& e) {
             ROS_ERROR("%s", e.what());
             return false;
@@ -165,6 +161,13 @@ namespace road_marking_localization {
             correctedPosition->pose.pose.position.x = pos[0];
             correctedPosition->pose.pose.position.y = pos[1];
             correctedPosition->pose.pose.position.z = pos[2];
+            correctedPosition->pose.covariance = {  0.02, 0, 0, 0, 0, 0,
+                                                    0, 0.02, 0, 0, 0, 0,
+                                                    0, 0, 0.02, 0, 0, 0,
+                                                    0, 0, 0, 0.02, 0, 0,
+                                                    0, 0, 0, 0, 0.02, 0,
+                                                    0, 0, 0, 0, 0, 0.02
+            };
             auto orientation = tf::createQuaternionFromYaw(tf::getYaw(correctedPosition->pose.pose.orientation) + yaw);
             tf::quaternionTFToMsg(orientation, correctedPosition->pose.pose.orientation);
         } else {
@@ -205,43 +208,7 @@ namespace road_marking_localization {
         iterativeClosestPoint.setInputTarget(mapPointCloud);
     }
 
-    nav_msgs::Odometry RoadMarkingLocalization::updateCorrection(nav_msgs::Odometry& msg) {
-        if (correctedPosition) {
-            tf::Quaternion currentOrientation, lastOrientation, correctedOrientation;
-            tf::quaternionMsgToTF(msg.pose.pose.orientation, currentOrientation);
-            tf::quaternionMsgToTF(lastPosition.pose.pose.orientation, lastOrientation);
-            tf::quaternionMsgToTF(correctedPosition->pose.pose.orientation, correctedOrientation);
-            correctedOrientation = correctedOrientation * (currentOrientation * lastOrientation.inverse());
-            tf::Vector3 last (lastPosition.pose.pose.position.x, lastPosition.pose.pose.position.y, lastPosition.pose.pose.position.z);
-            tf::Vector3 current (msg.pose.pose.position.x, msg.pose.pose.position.y, msg.pose.pose.position.z);
-            auto diff = current - last;
-            auto rot = correctedOrientation * lastOrientation.inverse();
-            tf::Transform t(rot);
-            diff = t * diff;
-
-            tf::quaternionTFToMsg(correctedOrientation, correctedPosition->pose.pose.orientation);
-            correctedPosition->pose.pose.position.x += diff.x();
-            correctedPosition->pose.pose.position.y += diff.y();
-            correctedPosition->pose.pose.position.z += diff.z();
-
-            correctedPosition->twist = msg.twist;
-            correctedPosition->child_frame_id = msg.child_frame_id;
-            correctedPosition->header.frame_id = msg.header.frame_id;
-            correctedPosition->header.seq = msg.header.seq;
-            correctedPosition->header.stamp = msg.header.stamp;
-        } else {
-            correctedPosition = boost::make_shared<nav_msgs::Odometry>();
-            correctedPosition->pose = msg.pose;
-
-            correctedPosition->twist = msg.twist;
-            correctedPosition->child_frame_id = msg.child_frame_id;
-            correctedPosition->header.frame_id = msg.header.frame_id;
-            correctedPosition->header.seq = msg.header.seq;
-            correctedPosition->header.stamp = msg.header.stamp;
-
-        }
-        lastPosition = msg;
-
+    nav_msgs::Odometry RoadMarkingLocalization::getCorrectedPosition() {
         return *correctedPosition;
     }
 

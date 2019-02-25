@@ -147,11 +147,29 @@ int main(int argc, char **argv) {
         odom.pose.pose.position.z = 0.0;
         odom.pose.pose.orientation = odom_quat;
 
+        // covariance
+        odom.pose.covariance = { 0.1, 0, 0, 0, 0, 0,
+                                 0, 0.1, 0, 0, 0, 0,
+                                 0, 0, 0.1, 0, 0, 0,
+                                 0, 0, 0, 0.1, 0, 0,
+                                 0, 0, 0, 0, 0.1, 0,
+                                 0, 0, 0, 0, 0, 0.1
+        };
+
+
         //set the velocity
         odom.child_frame_id = "base_link";
         odom.twist.twist.linear.x = v; //v is mm/s -> output : m/s
         odom.twist.twist.linear.y = 0;
         odom.twist.twist.angular.z = vth;
+
+        odom.twist.covariance = {0.1, 0, 0, 0, 0, 0,
+                                 0, 0.1, 0, 0, 0, 0,
+                                 0, 0, 0.1, 0, 0, 0,
+                                 0, 0, 0, 0.1, 0, 0,
+                                 0, 0, 0, 0, 0.1, 0,
+                                 0, 0, 0, 0, 0, 0.1
+        };
 
         //publish the message
         odom_pub.publish(odom);

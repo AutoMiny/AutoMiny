@@ -44,7 +44,6 @@ namespace road_marking_localization {
             mapCloudPublisher = pnh.advertise<sensor_msgs::PointCloud2>("map_pcl", 1, true);
 
             mapSubscriber = pnh.subscribe("map", 1, &RoadMarkingLocalizationNodelet::onMap, this);
-            odometrySubscriber = pnh.subscribe("odom", 1000, &RoadMarkingLocalizationNodelet::onOdometry, this);
             positionEstimateSubscriber = pnh.subscribe("initialpose", 1, &RoadMarkingLocalizationNodelet::onEstimatedPosition, this);
             configServer = boost::make_shared<dynamic_reconfigure::Server<RoadMarkingLocalizationConfig> >(pnh);
             dynamic_reconfigure::Server<RoadMarkingLocalizationConfig>::CallbackType f;
@@ -77,12 +76,16 @@ namespace road_marking_localization {
                 const sensor_msgs::ImageConstPtr& depth_image,
                 const sensor_msgs::CameraInfoConstPtr& depth_camera_info) {
 
-            if (localization->processImage(msg, info_msg, depth_image, depth_camera_info) && config.debug) {
-                rawPclPublisher.publish(localization->getRawPointCloud());
-                croppedPclPublisher.publish(localization->getCroppedPointCloud());
-                randomSampledPclPublisher.publish(localization->getRandomSampledPointCloud());
-                alignedPclPublisher.publish(localization->getAlignedPointCloud());
-                thresholdedImagePublisher.publish(localization->getThresholdedImage());
+            if (localization->processImage(msg, info_msg, depth_image, depth_camera_info)) {
+                odometryPublisher.publish(localization->getCorrectedPosition());
+
+                if(config.debug) {
+                    rawPclPublisher.publish(localization->getRawPointCloud());
+                    croppedPclPublisher.publish(localization->getCroppedPointCloud());
+                    randomSampledPclPublisher.publish(localization->getRandomSampledPointCloud());
+                    alignedPclPublisher.publish(localization->getAlignedPointCloud());
+                    thresholdedImagePublisher.publish(localization->getThresholdedImage());
+                }
             }
         }
 
@@ -91,26 +94,9 @@ namespace road_marking_localization {
             mapCloudPublisher.publish(localization->getMapPointCloud());
         }
 
-        void onOdometry(nav_msgs::Odometry msg) {
-            auto correctedPosition = localization->updateCorrection(msg);
-
-            geometry_msgs::TransformStamped odomTrans;
-            odomTrans.header = msg.header;
-            odomTrans.child_frame_id = msg.child_frame_id;
-
-            odomTrans.transform.translation.x = correctedPosition.pose.pose.position.x;
-            odomTrans.transform.translation.y = correctedPosition.pose.pose.position.y;
-            odomTrans.transform.translation.z = correctedPosition.pose.pose.position.z;
-            odomTrans.transform.rotation = correctedPosition.pose.pose.orientation;
-
-            //send the transform
-            odometryBroadcaster.sendTransform(odomTrans);
-
-            odometryPublisher.publish(correctedPosition);
-        }
-
         void onEstimatedPosition(const geometry_msgs::PoseWithCovarianceStamped& msg) {
             localization->setPosition(msg);
+            odometryPublisher.publish(localization->getCorrectedPosition());
         }
 
         /// subscriber
@@ -125,7 +111,6 @@ namespace road_marking_localization {
 
         /// subscriber
         ros::Subscriber mapSubscriber;
-        ros::Subscriber odometrySubscriber;
         ros::Subscriber positionEstimateSubscriber;
 
         /// publisher

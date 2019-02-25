@@ -238,6 +238,23 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
     imuMsg.linear_acceleration.y = -axf;
     imuMsg.linear_acceleration.z = -azf;
 
+    auto linearAccelerationStdDev = (400 / 1000000.0) * 9.807;
+    auto angularVelocityStdDev = 0.05 * (M_PI / 180.0);
+    auto pitchRollStdDev =  1.0 * (M_PI / 180.0);
+    auto yawStdDev =  5.0 * (M_PI / 180.0);
+
+    imuMsg.linear_acceleration_covariance[0] = linearAccelerationStdDev * linearAccelerationStdDev;
+    imuMsg.linear_acceleration_covariance[4] = linearAccelerationStdDev * linearAccelerationStdDev;
+    imuMsg.linear_acceleration_covariance[8] = linearAccelerationStdDev * linearAccelerationStdDev;
+
+    imuMsg.angular_velocity_covariance[0] = angularVelocityStdDev * angularVelocityStdDev;
+    imuMsg.angular_velocity_covariance[4] = angularVelocityStdDev * angularVelocityStdDev;
+    imuMsg.angular_velocity_covariance[8] = angularVelocityStdDev * angularVelocityStdDev;
+
+    imuMsg.orientation_covariance[0] = pitchRollStdDev * pitchRollStdDev;
+    imuMsg.orientation_covariance[4] = pitchRollStdDev * pitchRollStdDev;
+    imuMsg.orientation_covariance[8] = yawStdDev * yawStdDev;
+
     imuPublisher.publish(imuMsg);
 }
 

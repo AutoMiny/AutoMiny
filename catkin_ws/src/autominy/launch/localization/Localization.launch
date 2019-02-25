@@ -1,23 +1,9 @@
-<!-- Launch file to start robot_localization. -->
-
-
-<!--
-	This launch file runs two instances of ekf_localization_node:
-	   (1) An EKF instance that fuses odometry and IMU data and outputs an odom-frame state estimate, which is continuous
-	   (2) A second EKF instance that fuses the same data, but also fuses the transformed GPS data from fub_applanix
-
-	The first EKF instance produces the odom->base_link transform. The second EKF produces the map->odom transform,
-	but requires the odom->base_link transform from the first instance in order to do so. See the
-	params/dual_ekf_localization.yaml file for parameter specification.
--->
-
 <launch>
 	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
 	<arg name="nodelet_manager" default="$(optenv LOCALIZATION_NODELET_MANAGER core_nodelet_manager)" />
 
-	<include file="$(find map_publisher)/launch/robotics_lab.launch">
-	</include>
+	<include file="$(find map_publisher)/launch/robotics_lab.launch" />
 
 	<remap from="/localization/road_marking_localization/camera/infra1/image_rect_raw" to="/sensors/camera/infra1/image_rect_raw" />
 	<remap from="/localization/road_marking_localization/camera/depth/image_rect_raw" to="/sensors/camera/depth/image_rect_raw"/>
@@ -26,10 +12,41 @@
 	<remap from="/localization/road_marking_localization/initialpose" to="/initialpose"/>
 	<remap from="/localization/road_marking_localization/corrected_odom" to="/localization/corrected_odom"/>
 	<remap from="/localization/road_marking_localization/map" to="/localization/map"/>
-	<remap from="/localization/road_marking_localization/odom" to="/sensors/odometry/odom"/>
+
 	<include file="$(find road_marking_localization)/launch/RoadMarkingLocalization.launch">
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
+
+	<rosparam command="load" file="$(find autominy)/params/ekf_localization.yaml" />
+	<remap from="odometry/wheel"     to="/localization/odom" />
+	<remap from="odometry/gps"       to="/localization/corrected_odom" />
+	<remap from="imu/data"           to="/sensors/arduino/imu" />
+
+	<group unless="$(arg use_nodelets)">
+		<node
+				pkg="robot_localization"
+				name="ekf_se_odom"
+				type="ekf_localization_node"
+				clear_params="true"
+				output="screen"
+		>
+			<remap from="odometry/filtered"  to="odometry/filtered_map"/>
+		</node>
+	</group>
+
+	<!-- ========================== use nodelets ========================== -->
+	<group if ="$(arg use_nodelets)">
+		<node
+				pkg="nodelet"
+				type="nodelet"
+				name="ekf_se_odom"
+				clear_params="true"
+				output="screen"
+				args="load RobotLocalization/EkfNodelet $(arg nodelet_manager)"
+		>
+			<remap from="odometry/filtered"  to="odometry/filtered_map"/>
+		</node>
+	</group>
 
 </launch>
