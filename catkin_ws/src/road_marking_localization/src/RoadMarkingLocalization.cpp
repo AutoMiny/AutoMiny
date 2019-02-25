@@ -109,7 +109,7 @@ namespace road_marking_localization {
 
         tf::StampedTransform t;
         try {
-            tfListener.lookupTransform("map", roadMarkerCloud->header.frame_id, ros::Time(roadMarkerCloud->header.stamp), t);
+            tfListener.lookupTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp, t);
         } catch (tf::TransformException& e) {
             ROS_ERROR("%s", e.what());
             return false;
