@@ -158,6 +158,9 @@ namespace road_marking_localization {
                     static_cast<const float&>(t.getOrigin().y()),
                     static_cast<const float&>(t.getOrigin().z()), 1);
             auto pos = transformationMatrix * currentPos;
+            correctedPosition.header.stamp = depthImage->header.stamp;
+            correctedPosition.header.frame_id = "map";
+            correctedPosition.child_frame_id = "base_link";
             correctedPosition.pose.pose.position.x = pos[0];
             correctedPosition.pose.pose.position.y = pos[1];
             correctedPosition.pose.pose.position.z = pos[2];
@@ -218,11 +221,15 @@ namespace road_marking_localization {
 
         tf::StampedTransform t;
         try {
-            tfListener.lookupTransform(correctedPosition.header.frame_id, pose.header.frame_id, ros::Time(0), t);
+            tfListener.lookupTransform("map", pose.header.frame_id, ros::Time(0), t);
         } catch (tf::TransformException& e) {
             ROS_ERROR("%s", e.what());
         }
         tfPose = t * tfPose;
+
+        correctedPosition.header.stamp = pose.header.stamp;
+        correctedPosition.header.frame_id = "map";
+        correctedPosition.child_frame_id = "base_link";
 
         correctedPosition.pose.pose.position.x = tfPose.getOrigin().x();
         correctedPosition.pose.pose.position.y = tfPose.getOrigin().y();
