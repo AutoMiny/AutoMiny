@@ -89,7 +89,7 @@ include_directories(SYSTEM
 ## Declare a cpp library
 add_library(${PROJECT_NAME}_lib
         src/RoadMarkingLocalization.cpp
-        src/crop_box.cpp include/road_marking_localization/crop_box.h include/road_marking_localization/crop_box.hpp src/random_sample.cpp include/road_marking_localization/random_sample.hpp include/road_marking_localization/random_sample.h)
+        src/crop_box.cpp src/random_sample.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes

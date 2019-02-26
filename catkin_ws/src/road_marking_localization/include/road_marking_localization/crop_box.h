@@ -53,7 +53,7 @@ namespace pcl
       * \ingroup filters
       */
     template<typename PointT>
-    class CropBox : public FilterIndices<PointT>
+    class CropBoxEigenFixed : public FilterIndices<PointT>
     {
         using Filter<PointT>::getClassName;
 
@@ -63,13 +63,13 @@ namespace pcl
 
     public:
 
-        typedef boost::shared_ptr< CropBox<PointT> > Ptr;
-        typedef boost::shared_ptr< const CropBox<PointT> > ConstPtr;
+        typedef boost::shared_ptr< CropBoxEigenFixed<PointT> > Ptr;
+        typedef boost::shared_ptr< const CropBoxEigenFixed<PointT> > ConstPtr;
 
         /** \brief Constructor.
           * \param[in] extract_removed_indices Set to true if you want to be able to extract the indices of points being removed (default = false).
           */
-        CropBox (bool extract_removed_indices = false) :
+        CropBoxEigenFixed (bool extract_removed_indices = false) :
                 FilterIndices<PointT>::FilterIndices (extract_removed_indices),
                 min_pt_ (Eigen::Vector4f (-1, -1, -1, 1)),
                 max_pt_ (Eigen::Vector4f (1, 1, 1, 1)),
@@ -77,7 +77,7 @@ namespace pcl
                 translation_ (Eigen::Vector3f::Zero ()),
                 transform_ (Eigen::Affine3f::Identity ())
         {
-            filter_name_ = "CropBox";
+            filter_name_ = "CropBoxEigenFixed";
         }
 
         /** \brief Set the minimum point of the box
@@ -208,7 +208,7 @@ namespace pcl
       * \ingroup filters
       */
     template<>
-    class PCL_EXPORTS CropBox<pcl::PCLPointCloud2> : public FilterIndices<pcl::PCLPointCloud2>
+    class PCL_EXPORTS CropBoxEigenFixed<pcl::PCLPointCloud2> : public FilterIndices<pcl::PCLPointCloud2>
     {
         using Filter<pcl::PCLPointCloud2>::filter_name_;
         using Filter<pcl::PCLPointCloud2>::getClassName;
@@ -221,7 +221,7 @@ namespace pcl
         /** \brief Constructor.
           * \param[in] extract_removed_indices Set to true if you want to be able to extract the indices of points being removed (default = false).
           */
-        CropBox (bool extract_removed_indices = false) :
+        CropBoxEigenFixed (bool extract_removed_indices = false) :
                 FilterIndices<pcl::PCLPointCloud2>::FilterIndices (extract_removed_indices),
                 min_pt_(Eigen::Vector4f (-1, -1, -1, 1)),
                 max_pt_(Eigen::Vector4f (1, 1, 1, 1)),
@@ -229,7 +229,7 @@ namespace pcl
                 rotation_ (Eigen::Vector3f::Zero ()),
                 transform_(Eigen::Affine3f::Identity ())
         {
-            filter_name_ = "CropBox";
+            filter_name_ = "CropBoxEigenFixed";
         }
 
         /** \brief Set the minimum point of the box

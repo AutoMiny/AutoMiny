@@ -42,7 +42,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 void
-pcl::RandomSample<pcl::PCLPointCloud2>::applyFilter (PCLPointCloud2 &output)
+pcl::RandomSampleEigenFixed<pcl::PCLPointCloud2>::applyFilter (PCLPointCloud2 &output)
 {
   unsigned N = input_->width * input_->height;
   // If sample size is 0 or if the sample size is greater then input cloud size
@@ -98,7 +98,7 @@ pcl::RandomSample<pcl::PCLPointCloud2>::applyFilter (PCLPointCloud2 &output)
 
 ///////////////////////////////////////////////////////////////////////////////
 void
-pcl::RandomSample<pcl::PCLPointCloud2>::applyFilter (std::vector<int> &indices)
+pcl::RandomSampleEigenFixed<pcl::PCLPointCloud2>::applyFilter (std::vector<int> &indices)
 {
   unsigned N = input_->width * input_->height;
   // If sample size is 0 or if the sample size is greater then input cloud size
@@ -145,8 +145,7 @@ pcl::RandomSample<pcl::PCLPointCloud2>::applyFilter (std::vector<int> &indices)
 #ifndef PCL_NO_PRECOMPILE
 #include <pcl/impl/instantiate.hpp>
 #include <pcl/point_types.h>
-
-PCL_INSTANTIATE(RandomSample, PCL_POINT_TYPES)
+PCL_INSTANTIATE(RandomSampleEigenFixed, (pcl::PointXYZ))
 
 #endif    // PCL_NO_PRECOMPILE
 

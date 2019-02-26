@@ -7,6 +7,7 @@
 namespace stereo_camera_pose_estimation {
     StereoCameraPoseEstimation::StereoCameraPoseEstimation() {
         coefficients = pcl::ModelCoefficients::Ptr(new pcl::ModelCoefficients);
+        rawPointCloud = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
         planePointCloud = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
         transformedPointCloud = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
         dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_5X5_50);
@@ -18,7 +19,7 @@ namespace stereo_camera_pose_estimation {
         this->config = config;
     }
 
-    pcl::PointCloud<pcl::PointXYZ>::Ptr StereoCameraPoseEstimation::getPointcloud(
+    void StereoCameraPoseEstimation::getPointcloud(
             const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
             double maximumDepth) {
         depthCameraModel.fromCameraInfo(depthCameraInfo);
@@ -35,7 +36,7 @@ namespace stereo_camera_pose_estimation {
         auto depth_row = reinterpret_cast<const uint16_t*>(&depthImage->data[0]);
         int row_step = depthImage->step / sizeof(uint16_t);
 
-        auto pointcloud = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>);
+        rawPointCloud->clear();
         for (int v = 0; v < (int) depthImage->height; ++v, depth_row += row_step) {
             for (int u = 0; u < (int) depthImage->width; ++u) {
                 uint16_t depth = depth_row[u];
@@ -49,19 +50,17 @@ namespace stereo_camera_pose_estimation {
                 p.x = (u - center_x) * depth * constant_x;
                 p.y = (v - center_y) * depth * constant_y;
                 p.z = depth * 0.001f;
-                pointcloud->push_back(p);
+                rawPointCloud->push_back(p);
             }
         }
 
 
-        pointcloud->height = 1;
-        pointcloud->width = static_cast<uint32_t>(pointcloud->points.size());
-        pointcloud->is_dense = true;
-        pointcloud->header.stamp = depthImage->header.stamp.toNSec() / 1000ull;
-        pointcloud->header.seq = depthImage->header.seq;
-        pointcloud->header.frame_id = depthImage->header.frame_id;
-
-        return pointcloud;
+        rawPointCloud->height = 1;
+        rawPointCloud->width = static_cast<uint32_t>(rawPointCloud->points.size());
+        rawPointCloud->is_dense = true;
+        rawPointCloud->header.stamp = depthImage->header.stamp.toNSec() / 1000ull;
+        rawPointCloud->header.seq = depthImage->header.seq;
+        rawPointCloud->header.frame_id = depthImage->header.frame_id;
     }
 
     bool StereoCameraPoseEstimation::processImage(
@@ -73,8 +72,8 @@ namespace stereo_camera_pose_estimation {
             return false;
         }
 
-        auto pcl = getPointcloud(depthImage, depthCameraInfo, config.maximum_depth);
-        pcl_ros::transformPointCloud("camera_link", *pcl, *transformedPointCloud, tfListener);
+        getPointcloud(depthImage, depthCameraInfo, config.maximum_depth);
+        pcl_ros::transformPointCloud("camera_link", *rawPointCloud, *transformedPointCloud, tfListener);
 
         pcl::PointIndices::Ptr inliers (new pcl::PointIndices);
         // Create the segmentation object

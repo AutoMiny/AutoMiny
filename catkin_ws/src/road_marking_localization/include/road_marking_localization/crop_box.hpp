@@ -38,15 +38,15 @@
  *
  */
 
-#ifndef PCL_FILTERS_IMPL_CROP_BOX_H_
-#define PCL_FILTERS_IMPL_CROP_BOX_H_
+#ifndef PCL_FILTERS_IMPL_CROP_BOX_EIGEN_FIXED_H_
+#define PCL_FILTERS_IMPL_CROP_BOX_EIGEN_FIXED_H_
 
 #include <road_marking_localization/crop_box.h>
 #include <pcl/common/io.h>
 
 ///////////////////////////////////////////////////////////////////////////////
 template<typename PointT> void
-pcl::CropBox<PointT>::applyFilter (PointCloud &output)
+pcl::CropBoxEigenFixed<PointT>::applyFilter (PointCloud &output)
 {
   std::vector<int> indices;
   if (keep_organized_)
@@ -72,7 +72,7 @@ pcl::CropBox<PointT>::applyFilter (PointCloud &output)
 
 ///////////////////////////////////////////////////////////////////////////////
 template<typename PointT> void
-pcl::CropBox<PointT>::applyFilter (std::vector<int> &indices)
+pcl::CropBoxEigenFixed<PointT>::applyFilter (std::vector<int> &indices)
 {
   indices.resize (input_->points.size ());
   removed_indices_->resize (input_->points.size ());
@@ -141,6 +141,6 @@ pcl::CropBox<PointT>::applyFilter (std::vector<int> &indices)
   removed_indices_->resize (removed_indices_count);
 }
 
-#define PCL_INSTANTIATE_CropBox(T) template class PCL_EXPORTS pcl::CropBox<T>;
+#define PCL_INSTANTIATE_CropBoxEigenFixed(T) template class PCL_EXPORTS pcl::CropBoxEigenFixed<T>;
 
-#endif    // PCL_FILTERS_IMPL_CROP_BOX_H_
+#endif    // PCL_FILTERS_IMPL_CROP_BOX_EIGEN_FIXED_H_

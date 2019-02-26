@@ -52,7 +52,7 @@ namespace pcl
       * \ingroup filters
       */
     template<typename PointT>
-    class RandomSample : public FilterIndices<PointT>
+    class RandomSampleEigenFixed : public FilterIndices<PointT>
     {
         using FilterIndices<PointT>::filter_name_;
         using FilterIndices<PointT>::getClassName;
@@ -70,16 +70,16 @@ namespace pcl
 
     public:
 
-        typedef boost::shared_ptr< RandomSample<PointT> > Ptr;
-        typedef boost::shared_ptr< const RandomSample<PointT> > ConstPtr;
+        typedef boost::shared_ptr< RandomSampleEigenFixed<PointT> > Ptr;
+        typedef boost::shared_ptr< const RandomSampleEigenFixed<PointT> > ConstPtr;
 
         /** \brief Empty constructor. */
-        RandomSample (bool extract_removed_indices = false) :
+        RandomSampleEigenFixed (bool extract_removed_indices = false) :
                 FilterIndices<PointT> (extract_removed_indices),
                 sample_ (UINT_MAX),
                 seed_ (static_cast<unsigned int> (time (NULL)))
         {
-            filter_name_ = "RandomSample";
+            filter_name_ = "RandomSampleEigenFixed";
         }
 
         /** \brief Set number of indices to be sampled.
@@ -153,7 +153,7 @@ namespace pcl
       * \ingroup filters
       */
     template<>
-    class PCL_EXPORTS RandomSample<pcl::PCLPointCloud2> : public FilterIndices<pcl::PCLPointCloud2>
+    class PCL_EXPORTS RandomSampleEigenFixed<pcl::PCLPointCloud2> : public FilterIndices<pcl::PCLPointCloud2>
     {
         using FilterIndices<pcl::PCLPointCloud2>::filter_name_;
         using FilterIndices<pcl::PCLPointCloud2>::getClassName;
@@ -164,13 +164,13 @@ namespace pcl
 
     public:
 
-        typedef boost::shared_ptr<RandomSample<pcl::PCLPointCloud2> > Ptr;
-        typedef boost::shared_ptr<const RandomSample<pcl::PCLPointCloud2> > ConstPtr;
+        typedef boost::shared_ptr<RandomSampleEigenFixed<pcl::PCLPointCloud2> > Ptr;
+        typedef boost::shared_ptr<const RandomSampleEigenFixed<pcl::PCLPointCloud2> > ConstPtr;
 
         /** \brief Empty constructor. */
-        RandomSample () : sample_ (UINT_MAX), seed_ (static_cast<unsigned int> (time (NULL)))
+        RandomSampleEigenFixed () : sample_ (UINT_MAX), seed_ (static_cast<unsigned int> (time (NULL)))
         {
-            filter_name_ = "RandomSample";
+            filter_name_ = "RandomSampleEigenFixed";
         }
 
         /** \brief Set number of indices to be sampled.

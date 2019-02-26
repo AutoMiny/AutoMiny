@@ -122,7 +122,7 @@ namespace road_marking_localization {
          * @param mask A mask to use (pixels == 0 are skipped)
          * @return Pointcloud from depth image.
          */
-        pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloud(
+        void getPointcloud(
                 const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
                 const cv::Mat& mask);
 
@@ -132,14 +132,15 @@ namespace road_marking_localization {
         image_geometry::PinholeCameraModel model;
         pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> iterativeClosestPoint;
         nav_msgs::Odometry correctedPosition;
-        pcl::CropBox<pcl::PointXYZ> boxFilter;
-        pcl::RandomSample<pcl::PointXYZ> randomSampleFilter;
+        pcl::CropBoxEigenFixed<pcl::PointXYZ> boxFilter;
+        pcl::RandomSampleEigenFixed<pcl::PointXYZ> randomSampleFilter;
         tf::TransformListener tfListener;
         pcl::PointCloud<pcl::PointXYZ>::Ptr mapPointCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr randomSampledCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr croppedCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr alignedPointCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr transformedCloud;
+        pcl::PointCloud<pcl::PointXYZ>::Ptr roadMarkerCloud;
         cv_bridge::CvImagePtr cv;
 
     public:

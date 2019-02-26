@@ -73,7 +73,7 @@ namespace stereo_camera_pose_estimation {
          * @param maximumDepth Maximum depth (if depth > maximum depth point is omitted)
          * @return Pointcloud from depth image.
          */
-        pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloud(
+        void getPointcloud(
                 const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
                 double maximumDepth);
 
@@ -87,6 +87,7 @@ namespace stereo_camera_pose_estimation {
         tf::TransformListener tfListener;
         tf::TransformBroadcaster tfBroadcaster;
         pcl::PointCloud<pcl::PointXYZ>::Ptr planePointCloud;
+        pcl::PointCloud<pcl::PointXYZ>::Ptr rawPointCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr transformedPointCloud;
         pcl::ModelCoefficients::Ptr coefficients;
         pcl::ExtractIndices<pcl::PointXYZ> extractIndicesFilter;

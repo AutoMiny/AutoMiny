@@ -41,7 +41,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 void
-pcl::CropBox<pcl::PCLPointCloud2>::applyFilter (PCLPointCloud2 &output)
+pcl::CropBoxEigenFixed<pcl::PCLPointCloud2>::applyFilter (PCLPointCloud2 &output)
 {
     // Resize output cloud to sample size
     output.data.resize (input_->data.size ());
@@ -139,7 +139,7 @@ pcl::CropBox<pcl::PCLPointCloud2>::applyFilter (PCLPointCloud2 &output)
 
 ///////////////////////////////////////////////////////////////////////////////
 void
-pcl::CropBox<pcl::PCLPointCloud2>::applyFilter (std::vector<int> &indices)
+pcl::CropBoxEigenFixed<pcl::PCLPointCloud2>::applyFilter (std::vector<int> &indices)
 {
     indices.resize (input_->width * input_->height);
     removed_indices_->resize (input_->width * input_->height);
@@ -221,7 +221,7 @@ pcl::CropBox<pcl::PCLPointCloud2>::applyFilter (std::vector<int> &indices)
 #include <pcl/impl/instantiate.hpp>
 #include <pcl/point_types.h>
 
-PCL_INSTANTIATE(CropBox, PCL_XYZ_POINT_TYPES)
+PCL_INSTANTIATE(CropBoxEigenFixed, (pcl::PointXYZ))
 
 #endif    // PCL_NO_PRECOMPILE
 
