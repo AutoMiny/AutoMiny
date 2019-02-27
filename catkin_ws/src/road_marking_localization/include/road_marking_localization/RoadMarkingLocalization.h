@@ -132,8 +132,8 @@ namespace road_marking_localization {
         image_geometry::PinholeCameraModel model;
         pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> iterativeClosestPoint;
         nav_msgs::Odometry correctedPosition;
-        pcl::CropBoxEigenFixed<pcl::PointXYZ> boxFilter;
-        pcl::RandomSampleEigenFixed<pcl::PointXYZ> randomSampleFilter;
+        pcl::CropBox<pcl::PointXYZ> boxFilter;
+        pcl::RandomSample<pcl::PointXYZ> randomSampleFilter;
         tf::TransformListener tfListener;
         pcl::PointCloud<pcl::PointXYZ>::Ptr mapPointCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr randomSampledCloud;

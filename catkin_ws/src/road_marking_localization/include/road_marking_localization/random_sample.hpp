@@ -35,8 +35,8 @@
  *
  */
 
-#ifndef PCL_FILTERS_IMPL_RANDOM_SAMPLE_EIGEN_FIXED_H_
-#define PCL_FILTERS_IMPL_RANDOM_SAMPLE_EIGEN_FIXED_H_
+#ifndef PCL_FILTERS_IMPL_RANDOM_SAMPLE_H_
+#define PCL_FILTERS_IMPL_RANDOM_SAMPLE_H_
 
 #include <road_marking_localization/random_sample.h>
 #include <pcl/common/io.h>
@@ -45,7 +45,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 template<typename PointT> void
-pcl::RandomSampleEigenFixed<PointT>::applyFilter (PointCloud &output)
+pcl::RandomSample<PointT>::applyFilter (PointCloud &output)
 {
     std::vector<int> indices;
     if (keep_organized_)
@@ -90,7 +90,7 @@ pcl::RandomSampleEigenFixed<PointT>::applyFilter (PointCloud &output)
 ///////////////////////////////////////////////////////////////////////////////
 template<typename PointT>
 void
-pcl::RandomSampleEigenFixed<PointT>::applyFilter (std::vector<int> &indices)
+pcl::RandomSample<PointT>::applyFilter (std::vector<int> &indices)
 {
     size_t N = indices_->size ();
     size_t sample_size = negative_ ? N - sample_ : sample_;
@@ -153,6 +153,6 @@ pcl::RandomSampleEigenFixed<PointT>::applyFilter (std::vector<int> &indices)
     }
 }
 
-#define PCL_INSTANTIATE_RandomSampleEigenFixed(T) template class PCL_EXPORTS pcl::RandomSampleEigenFixed<T>;
+#define PCL_INSTANTIATE_RandomSample(T) template class PCL_EXPORTS pcl::RandomSample<T>;
 
-#endif    // PCL_FILTERS_IMPL_RANDOM_SAMPLE_EIGEN_FIXED_H_
+#endif    // PCL_FILTERS_IMPL_RANDOM_SAMPLE_H_
