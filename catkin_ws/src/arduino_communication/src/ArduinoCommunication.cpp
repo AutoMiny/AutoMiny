@@ -232,11 +232,11 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
 
     imuMsg.angular_velocity.x = gyf;
     imuMsg.angular_velocity.y = -gxf;
-    imuMsg.angular_velocity.z = -gzf;
+    imuMsg.angular_velocity.z = gzf;
 
     imuMsg.linear_acceleration.x = ayf;
     imuMsg.linear_acceleration.y = -axf;
-    imuMsg.linear_acceleration.z = -azf;
+    imuMsg.linear_acceleration.z = azf;
 
     auto linearAccelerationStdDev = (400 / 1000000.0) * 9.807;
     auto angularVelocityStdDev = 0.05 * (M_PI / 180.0);
