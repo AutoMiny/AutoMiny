@@ -132,6 +132,11 @@ namespace road_marking_localization {
                                              static_cast<const float&>(config.maximum_z), 1.0));
             boxFilter.filter(*croppedCloud);
 
+            if (croppedCloud->size() < config.minimum_points) {
+                ROS_ERROR("Not enough points for correction");
+                return false;
+            }
+
             if (croppedCloud->size() > config.icp_sample_size) {
                 randomSampleFilter.setInputCloud(croppedCloud);
                 randomSampleFilter.filter(*randomSampledCloud);
