@@ -122,7 +122,7 @@ namespace road_marking_localization {
          * @param mask A mask to use (pixels == 0 are skipped)
          * @return Pointcloud from depth image.
          */
-        void getPointcloud(
+        pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloud(
                 const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
                 const cv::Mat& mask);
 
@@ -140,7 +140,6 @@ namespace road_marking_localization {
         pcl::PointCloud<pcl::PointXYZ>::Ptr croppedCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr alignedPointCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr transformedCloud;
-        pcl::PointCloud<pcl::PointXYZ>::Ptr roadMarkerCloud;
         cv_bridge::CvImagePtr cv;
 
     public:

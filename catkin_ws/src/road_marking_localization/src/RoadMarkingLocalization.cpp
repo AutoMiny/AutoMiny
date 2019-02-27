@@ -10,7 +10,6 @@ namespace road_marking_localization {
         randomSampledCloud = boost::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
         alignedPointCloud = boost::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
         transformedCloud = boost::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
-        roadMarkerCloud = boost::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
 
         boost::shared_ptr<pcl::registration::WarpPointRigid3D<pcl::PointXYZ, pcl::PointXYZ> > warp_fcn
                 (new pcl::registration::WarpPointRigid3D<pcl::PointXYZ, pcl::PointXYZ>);
@@ -45,7 +44,7 @@ namespace road_marking_localization {
         randomSampleFilter.setSample(static_cast<unsigned int>(config.icp_sample_size));
     }
 
-    void RoadMarkingLocalization::getPointcloud(
+    pcl::PointCloud<pcl::PointXYZ>::Ptr RoadMarkingLocalization::getPointcloud(
             const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
             const cv::Mat& mask) {
         model.fromCameraInfo(depthCameraInfo);
@@ -61,8 +60,8 @@ namespace road_marking_localization {
         auto depth_row = reinterpret_cast<const uint16_t*>(&depthImage->data[0]);
         int row_step = depthImage->step / sizeof(uint16_t);
 
-        roadMarkerCloud->clear();
-        roadMarkerCloud->reserve(100000);
+        auto pointcloud = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>);
+        pointcloud->reserve(100000);
         for (int v = 0; v < (int) depthImage->height; ++v, depth_row += row_step) {
             for (int u = 0; u < (int) depthImage->width; ++u) {
                 uint16_t depth = depth_row[u];
@@ -72,18 +71,20 @@ namespace road_marking_localization {
                     continue;
                 }
 
-                roadMarkerCloud->push_back(pcl::PointXYZ(
+                pointcloud->push_back(pcl::PointXYZ(
                         (u - center_x) * depth * constant_x, (v - center_y) * depth * constant_y, depth * 0.001f));
             }
         }
 
 
-        roadMarkerCloud->height = 1;
-        roadMarkerCloud->width = static_cast<uint32_t>(roadMarkerCloud->points.size());
-        roadMarkerCloud->is_dense = true;
-        roadMarkerCloud->header.stamp = depthImage->header.stamp.toNSec() / 1000ull;
-        roadMarkerCloud->header.seq = depthImage->header.seq;
-        roadMarkerCloud->header.frame_id = depthImage->header.frame_id;
+        pointcloud->height = 1;
+        pointcloud->width = static_cast<uint32_t>(pointcloud->points.size());
+        pointcloud->is_dense = true;
+        pointcloud->header.stamp = depthImage->header.stamp.toNSec() / 1000ull;
+        pointcloud->header.seq = depthImage->header.seq;
+        pointcloud->header.frame_id = depthImage->header.frame_id;
+
+        return pointcloud;
     }
 
     bool RoadMarkingLocalization::processImage(
@@ -104,7 +105,7 @@ namespace road_marking_localization {
         cv::blur(cvImage, cvImage, cv::Size(config.blur_kernel_size, config.blur_kernel_size));
         cv::threshold(cvImage, cvImage, config.threshold, 255, CV_THRESH_BINARY);
 
-        getPointcloud(depthImage, depthCameraInfo, cvImage);
+        auto roadMarkerCloud = getPointcloud(depthImage, depthCameraInfo, cvImage);
 
         tf::StampedTransform t;
         tf::StampedTransform baseLinkTransform;
