@@ -125,7 +125,7 @@ namespace stereo_camera_pose_estimation {
                                                  imageCameraModel.distortionCoeffs(), rvecs, tvecs);
 
             tf::StampedTransform t;
-            tfListener.lookupTransform("camera_joint", image->header.frame_id, ros::Time(0), t);
+            tfListener.lookupTransform("camera_bottom_screw_frame", image->header.frame_id, ros::Time(0), t);
             for (int i = 0; i < ids.size(); i++) {
                 if (ids[i] != config.aruco_id) {
                     continue;
@@ -174,7 +174,7 @@ namespace stereo_camera_pose_estimation {
         auto rot = tf::createQuaternionFromRPY(roll + config.roll_offset, -pitch + config.pitch_offset, yaw + config.yaw_offset);
         auto trans = tf::Vector3(0.0 + config.x_offset, 0.0 + config.y_offset, height + config.height_offset);
         tf::Transform t(rot, trans);
-        tf::StampedTransform transform(t, ros::Time::now(), "base_link", "camera_joint");
+        tf::StampedTransform transform(t, ros::Time::now(), "base_link", "camera_bottom_screw_frame");
         tfBroadcaster.sendTransform(transform);
 
         lastPoseEstimationTime = ros::Time::now();
