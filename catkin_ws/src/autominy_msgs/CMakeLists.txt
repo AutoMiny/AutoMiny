@@ -17,6 +17,7 @@ add_message_files(
         FILES
         NormalizedSpeedCommand.msg
         NormalizedSteeringCommand.msg
+        Plot.msg
         SteeringAngle.msg
         Speed.msg
         SpeedCommand.msg
