@@ -61,7 +61,8 @@ add_library(${PROJECT_NAME}
         src/camera_info_display.cpp
         src/tf_trajectory_display.cpp
         src/overlay_image_display.cpp
-        src/overlay_camera_display.cpp)
+        src/overlay_camera_display.cpp
+        src/twist_stamped_display.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes

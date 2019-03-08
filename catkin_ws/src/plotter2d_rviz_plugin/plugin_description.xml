@@ -34,8 +34,16 @@
            type="jsk_rviz_plugins::OverlayCameraDisplay"
            base_class_type="rviz::Display">
         <description>
-            Overlay image display
+            Overlay camera display
         </description>
         <message_type>sensor_msgs/Image</message_type>
+    </class>
+    <class name="jsk_rviz_plugin/TwistStampedDisplay"
+           type="jsk_rviz_plugins::TwistStampedDisplay"
+           base_class_type="rviz::Display">
+        <description>
+            Twist stamped display
+        </description>
+        <message_type>geometry_msgs/TwistStamped</message_type>
     </class>
 </library>
