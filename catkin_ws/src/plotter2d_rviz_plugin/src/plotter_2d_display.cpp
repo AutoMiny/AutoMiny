@@ -179,14 +179,10 @@ namespace jsk_rviz_plugins
 
     void Plotter2DDisplay::initializeBuffer()
     {
-        buffer_.resize(buffer_length_);
+        buffer_.set_capacity(buffer_length_);
         if (min_value_ == 0.0 && max_value_ == 0.0) {
             min_value_ = -1.0;
             max_value_ = 1.0;
-        }
-        for (size_t i = 0; i < buffer_length_; i++) {
-            buffer_[i].value = NAN;
-            buffer_[i].header.stamp = ros::Time::now() - ros::Duration(time_frame_length_);
         }
     }
 
@@ -267,11 +263,7 @@ namespace jsk_rviz_plugins
 
             auto plot_end_time = ros::Time::now().toSec();
             auto plot_start_time = plot_end_time - time_frame_length_;
-            for (size_t i = 1; i < buffer_length_; i++) {
-                if (std::isnan(buffer_[i - 1].value) || std::isnan(buffer_[i].value)) {
-                    continue;
-                }
-
+            for (size_t i = 1; i < buffer_.size(); i++) {
                 double v_prev = (margined_max_value - buffer_[i - 1].value) / (margined_max_value - margined_min_value);
                 double v = (margined_max_value - buffer_[i].value) / (margined_max_value - margined_min_value);
                 double u_prev = ((buffer_[i - 1].header.stamp.toSec() - plot_start_time) / (plot_end_time - plot_start_time));
@@ -337,24 +329,19 @@ namespace jsk_rviz_plugins
             return;
         }
         // add the message to the buffer
+        buffer_.push_back(*msg);
         double min_value = buffer_[0].value;
         double max_value = buffer_[0].value;
-        for (size_t i = 0; i < buffer_length_ - 1; i++) {
-            buffer_[i] = buffer_[i + 1];
-            if (std::isnan(min_value) || min_value > buffer_[i].value) {
-                min_value = buffer_[i].value;
+
+        for (const auto& i : buffer_) {
+            if (min_value > i.value) {
+                min_value = i.value;
             }
-            if (std::isnan(max_value) || max_value < buffer_[i].value) {
-                max_value = buffer_[i].value;
+            if (max_value < i.value) {
+                max_value = i.value;
             }
         }
-        buffer_[buffer_length_ - 1] = *msg;
-        if (std::isnan(min_value) || min_value > msg->value) {
-            min_value = msg->value;
-        }
-        if (std::isnan(max_value) || max_value < msg->value) {
-            max_value = msg->value;
-        }
+
         if (auto_scale_) {
             min_value_ = min_value;
             max_value_ = max_value;

@@ -38,6 +38,8 @@
 
 #include "autominy_msgs/Plot.h"
 #ifndef Q_MOC_RUN
+
+#include <boost/circular_buffer.hpp>
 #include <rviz/display.h>
 #include "overlay_utils.h"
 #include <OGRE/OgreColourValue.h>
@@ -126,7 +128,7 @@ namespace jsk_rviz_plugins
 
         int buffer_length_{};
         float time_frame_length_;
-        std::vector<autominy_msgs::Plot> buffer_;
+        boost::circular_buffer<autominy_msgs::Plot> buffer_;
         uint16_t texture_width_{};
         uint16_t texture_height_{};
         int left_{};
