@@ -11,19 +11,21 @@ def main():
     rospy.init_node('talker', anonymous=True)
     rate = rospy.Rate(10) # 10hz
     while not rospy.is_shutdown():
+        time = rospy.Time.now()
+
         steeringCmd = Plot()
         steeringCmd.header = Header()
-        steeringCmd.header.stamp = rospy.Time.now()
-        steeringCmd.value = np.sin(rospy.get_time())
+        steeringCmd.header.stamp = time
+        steeringCmd.value = np.sin(time.to_sec())
         pubWantedSteering.publish(steeringCmd)
 
         steering = Plot()
         steering.header = Header()
-        steering.header.stamp = rospy.Time.now()
-        steering.value = np.cos(rospy.get_time())
+        steering.header.stamp = time
+        steering.value = np.cos(time.to_sec())
         pubSteering.publish(steering)
 
-    rate.sleep()
+        rate.sleep()
 
 if __name__ == '__main__':
     try:
