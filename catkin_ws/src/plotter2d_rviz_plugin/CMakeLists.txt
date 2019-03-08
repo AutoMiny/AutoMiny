@@ -6,6 +6,8 @@ project(plotter2d_rviz_plugin)
 find_package(catkin REQUIRED COMPONENTS
         autominy_msgs
         rviz
+        image_geometry
+        cv_bridge
         )
 
 ###################################
@@ -17,6 +19,8 @@ catkin_package(
         CATKIN_DEPENDS
         autominy_msgs
         rviz
+        image_geometry
+        cv_bridge
 )
 
 
@@ -52,7 +56,12 @@ add_definitions(-DQT_NO_KEYWORDS)
 
 
 add_library(${PROJECT_NAME}
-        src/plotter_2d_display.cpp src/overlay_utils.cpp src/overlay_utils.h)
+        src/plotter_2d_display.cpp
+        src/overlay_utils.cpp
+        src/camera_info_display.cpp
+        src/tf_trajectory_display.cpp
+        src/overlay_image_display.cpp
+        src/overlay_camera_display.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes

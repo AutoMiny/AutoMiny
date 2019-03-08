@@ -12,6 +12,8 @@
 
     <depend>autominy_msgs</depend>
     <depend>rviz</depend>
+    <depend>image_geometry</depend>
+    <depend>cv_bridge</depend>
 
     <export>
         <rviz plugin="${prefix}/plugin_description.xml"/>
