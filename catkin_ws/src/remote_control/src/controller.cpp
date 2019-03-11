@@ -15,6 +15,7 @@ namespace remote_control
 	{
         autominy_msgs::NormalizedSpeedCommand msg;
 		msg.value = static_cast<float>(speed);
+		msg.header.stamp = ros::Time::now();
 		m_pub_speed.publish(msg);
 	}
 
@@ -22,7 +23,8 @@ namespace remote_control
 	{
         autominy_msgs::NormalizedSteeringCommand msg;
 		msg.value = static_cast<float>(steering);
-		m_pub_steering.publish(msg);
+        msg.header.stamp = ros::Time::now();
+        m_pub_steering.publish(msg);
 	}
 
 } // Namespace remote_control
