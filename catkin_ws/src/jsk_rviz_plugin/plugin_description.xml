@@ -1,9 +1,17 @@
-<library path="lib/libplotter2d_rviz_plugin">
+<library path="lib/libjsk_rviz_plugin">
     <class name="jsk_rviz_plugin/Plotter2D"
            type="jsk_rviz_plugins::Plotter2DDisplay"
            base_class_type="rviz::Display">
         <description>
             2D plotter on rviz
+        </description>
+        <message_type>autominy_msgs/Plot</message_type>
+    </class>
+    <class name="jsk_rviz_plugin/PieChart"
+           type="jsk_rviz_plugins::PieChartDisplay"
+           base_class_type="rviz::Display">
+        <description>
+            Pie chart
         </description>
         <message_type>autominy_msgs/Plot</message_type>
     </class>
