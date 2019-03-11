@@ -285,6 +285,10 @@ namespace jsk_rviz_plugins
                 uint16_t y_prev = (int)(v_prev * h);
                 uint16_t y = (int)(v * h);
                 painter.drawLine(x_prev, y_prev, x, y);
+                
+                if (i == buffer_.size() - 1) {
+                    painter.drawLine(x, y, w, y);
+                }
             }
 
             // draw border
