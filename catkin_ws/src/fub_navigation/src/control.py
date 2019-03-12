@@ -17,7 +17,7 @@ class VectorfieldController:
         self.resolution = 1  # cm
         self.lane = 2
         self.speed_value = 0.3
-        self.last_angle = -1.0
+        self.last_angle = 0.0
         self.Kp = 2.0
         self.Kd = 0.1
         self.Ki = 0.0
@@ -92,8 +92,6 @@ class VectorfieldController:
         f_y = -np.sin(yaw) * x3 + np.cos(yaw) * y3
 
         angle = np.arctan2(f_y, f_x)
-        if self.last_angle < 0:
-            self.last_angle = angle
 
         self.integral_error = self.integral_error + angle * dt
         steering = self.Kp * angle + self.Kd * ((angle - self.last_angle) / dt) + self.Ki * self.integral_error
