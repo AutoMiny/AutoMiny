@@ -49,10 +49,10 @@ def main(map_file):
         for y in range(0, map_size_y / resolution):
             show_nearest(((resolution / 100.0) * x, (resolution / 100.0) * y))
 
-    np.save('matrix' + str(lookahead_offset) + 'cm_lane2.npy', matrix)
+    np.save('matrix' + str(lookahead_offset) + 'cm_lane1.npy', matrix)
     print('matrix is saved.')
     # plt.show()
 
 
 if __name__ == '__main__':
-    main('new_map_loop2.txt')
+    main('new_map_loop1.txt')

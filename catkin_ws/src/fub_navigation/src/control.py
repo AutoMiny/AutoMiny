@@ -17,10 +17,10 @@ class VectorfieldController:
         self.map_size_y = 430  # cm
         self.resolution = 1  # cm
         self.lane = 2
-        self.speed_value = 0.45
+        self.speed_value = 0.3
         self.last_angle = -1.0
         self.Kp = 2.0
-        self.Kd = 0.8
+        self.Kd = 0.4
         self.Ki = 0.0
         self.last_time = rospy.Time.now()
         self.integral_error = 0.0
@@ -41,7 +41,7 @@ class VectorfieldController:
         self.pub = rospy.Publisher("/control/command/normalized_wanted_steering", NormalizedSteeringCommand,
                                    queue_size=1)
         self.pub_yaw = rospy.Publisher("/desired_yaw", Float32, queue_size=100, latch=True)
-        self.sub_odom = rospy.Subscriber("/localization/corrected_odom", Odometry, self.callback, queue_size=1)
+        self.sub_odom = rospy.Subscriber("/localization/odometry/filtered_map", Odometry, self.callback, queue_size=1)
 
     def callback(self, data):
         dt = (data.header.stamp - self.last_time).to_sec()
