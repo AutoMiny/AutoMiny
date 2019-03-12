@@ -4,7 +4,6 @@ import numpy as np
 import rospkg
 import rospy
 from autominy_msgs.msg import NormalizedSteeringCommand, NormalizedSpeedCommand
-from geometry_msgs.msg import PointStamped
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Float32
 from tf.transformations import euler_from_quaternion
@@ -20,7 +19,7 @@ class VectorfieldController:
         self.speed_value = 0.3
         self.last_angle = -1.0
         self.Kp = 2.0
-        self.Kd = 0.4
+        self.Kd = 0.1
         self.Ki = 0.0
         self.last_time = rospy.Time.now()
         self.integral_error = 0.0
@@ -34,17 +33,21 @@ class VectorfieldController:
             self.matrix = np.load(self.file_path + 'matrix25cm_lane2.npy')
 
         self.pub_speed = rospy.Publisher("/control/command/normalized_wanted_speed", NormalizedSpeedCommand,
-                                         queue_size=100, latch=True)
+                                         queue_size=1, tcp_nodelay=True)
         rospy.on_shutdown(self.shutdown)
 
         self.shutdown_ = False
         self.pub = rospy.Publisher("/control/command/normalized_wanted_steering", NormalizedSteeringCommand,
-                                   queue_size=1)
-        self.pub_yaw = rospy.Publisher("/desired_yaw", Float32, queue_size=100, latch=True)
+                                   queue_size=1, tcp_nodelay=True)
+        self.pub_yaw = rospy.Publisher("/desired_yaw", Float32, queue_size=100)
         self.sub_odom = rospy.Subscriber("/localization/odometry/filtered_map", Odometry, self.callback, queue_size=1)
 
     def callback(self, data):
         dt = (data.header.stamp - self.last_time).to_sec()
+        # 25hz
+        if dt < 0.04:
+            return
+
         self.last_time = data.header.stamp
         x = data.pose.pose.position.x
         y = data.pose.pose.position.y
@@ -102,16 +105,12 @@ class VectorfieldController:
             speed = -self.speed_value
         else:
             speed = self.speed_value
-            if f_y > 0:
-                steering = -np.pi / 2
-            if f_y < 0:
-                steering = np.pi / 2
 
-        if steering > np.pi / 2:
-            steering = np.pi / 2
+        if steering > 1:
+            steering = 1
 
-        if steering < - np.pi / 2:
-            steering = -np.pi / 2
+        if steering < -1:
+            steering = -1
         if f_x > 0:
             speed = max(self.speed_value, speed * ((np.pi / 3) / (abs(steering) + 1)))
 
@@ -119,10 +118,12 @@ class VectorfieldController:
 
         steerMsg = NormalizedSteeringCommand()
         steerMsg.value = steering
+        steerMsg.header.stamp = rospy.Time.now()
         self.pub.publish(steerMsg)
         if not self.shutdown_:
             msg = NormalizedSpeedCommand()
             msg.value = speed
+            msg.header.stamp = rospy.Time.now()
             self.pub_speed.publish(msg)
 
     def shutdown(self):
