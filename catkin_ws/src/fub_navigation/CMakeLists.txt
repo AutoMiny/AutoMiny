@@ -10,7 +10,7 @@ project(fub_navigation)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-  std_msgs
+  autominy_msgs
   message_generation)
 
 ## System dependencies are found with CMake's conventions
@@ -179,10 +179,8 @@ include_directories(
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
  install(FILES
-   src/matrix100cm_lane2.npy
-   src/matrix50cm_lane1.npy
-   src/matrix100cm_lane1.npy
-   src/matrix50cm_lane2.npy
+   src/matrix25cm_lane2.npy
+   src/matrix25cm_lane1.npy
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/src/
  )
 
