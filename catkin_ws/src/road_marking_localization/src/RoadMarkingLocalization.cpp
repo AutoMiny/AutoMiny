@@ -202,8 +202,8 @@ namespace road_marking_localization {
                     auto p = tf::Vector3(y * msg->info.resolution, x * msg->info.resolution, 0);
                     p = t * p;
 
-                    tmpMap->push_back(pcl::PointXYZ(static_cast<float>(p.x()),
-                            static_cast<float>(p.y()), static_cast<float>(p.z())));
+                    tmpMap->push_back(pcl::PointXYZ(static_cast<float>(p.x() + msg->info.resolution / 2.0),
+                            static_cast<float>(p.y() + msg->info.resolution / 2.0), static_cast<float>(p.z())));
                 }
             }
         }
