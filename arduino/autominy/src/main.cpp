@@ -24,11 +24,17 @@
 #define NEWLED_PIN 13
 #define BATTERY_PIN A6
 #define ENABLE_PIN 7
+#define HEARTBEAT_TIMEOUT 30
 
 #define REFERENCE_VOLTAGE 5.1 //Default reference on Teensy is 3.3V
 #define R1 3300.0
 #define R2 1490.0
 #define VOLTAGE_BUFFER_SIZE 256
+
+#define VOLTAGE_GOOD 14.8
+#define VOLTAGE_BAD 13.0
+#define VOLTAGE_SHUTDOWN 12.8
+
 
 int ledState = HIGH;                // ledState used to set the LED
 unsigned long previousMillis = 0;   // will store last time LED was updated
@@ -39,7 +45,7 @@ MPU6050 mpu;
 // When we setup the NeoPixel library, we tell it how many pixels, and which pin to use to send signals.
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
 Servo myservo; // create servo object to control a servo
-int servo_pw = 1500;    // variable to set the angle of servo motor
+int servo_pw = 1550;    // variable to set the angle of servo motor
 int last_pw = 0;
 bool servo_initialized = false;
 volatile uint8_t ticks = 0;
@@ -59,6 +65,7 @@ uint16_t fifoCount;     // count of all bytes currently in FIFO
 uint8_t fifoBuffer[64]; // FIFO storage buffer
 
 volatile bool mpuInterrupt = false;     // indicates whether MPU interrupt pin has gone high
+unsigned long lastHeartbeat = 0;
 
 PacketSerial packetSerial;
 
@@ -74,7 +81,8 @@ enum class MessageType :uint8_t {
     TICKS,
     SPEED,
     IMU,
-    VOLTAGE
+    VOLTAGE,
+    HEARTBEAT
 };
 
 enum class VoltageStatus {
@@ -337,7 +345,6 @@ void onPacketReceived(const uint8_t* message, size_t size)
     auto type = static_cast<MessageType>(message[0]);
 
     switch(type) {
-
         case MessageType::DEBUG:break;
         case MessageType::INFO:break;
         case MessageType::WARN:break;
@@ -362,9 +369,10 @@ void onPacketReceived(const uint8_t* message, size_t size)
             char cmd[size];
             memcpy(&cmd, &message[1], size);
             onLedCommand(cmd);
-
             break;
     }
+
+    lastHeartbeat = millis();
 }
 
 void log(MessageType type, const __FlashStringHelper *str) {
@@ -666,9 +674,9 @@ void loop() {
 
                 float voltage = meanVoltage();
 
-                if (millis() > 2600 && voltage > 12.8){
+                if (millis() > 2600 && voltage > VOLTAGE_SHUTDOWN){
                     turnOnCar();
-                } else if (voltage <= 12.8 && powered) {
+                } else if (voltage <= VOLTAGE_SHUTDOWN && powered) {
                     // This means the car was already on and the voltage dropped below 12.8
                     // Empty the voltage measurements so that the car does not turn on immediately again because the voltage went up again
                     memset(voltageBuffer, 0, sizeof(voltageBuffer));
@@ -677,11 +685,11 @@ void loop() {
                     turnOffCar();
                 }
 
-                if (voltage > 14.4) {
+                if (voltage > VOLTAGE_GOOD) {
                     displayVoltageGoodLed();
-                } else if (voltage <= 14.4 && voltage >= 13.0) {
+                } else if (voltage <= VOLTAGE_GOOD && voltage >= VOLTAGE_BAD) {
                     displayVoltageWarningLed();
-                } else if (voltage < 13.0) {
+                } else if (voltage < VOLTAGE_BAD) {
                     displayVoltageBadLed();
                 }
 
@@ -689,6 +697,13 @@ void loop() {
             }
         }
     }
+
+    unsigned long currentTime = millis();
+    if (currentTime - lastHeartbeat > HEARTBEAT_TIMEOUT) {
+        onSpeedCommand(0);
+    }
+
     packetSerial.update();
 }
+
 
