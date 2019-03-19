@@ -1,3 +1,5 @@
+#include <memory>
+
 #include "ArduinoCommunication.h"
 
 namespace arduino_communication {
@@ -105,10 +107,14 @@ void ArduinoCommunication::onReceive(uint8_t *message, size_t length) {
 }
 
 size_t ArduinoCommunication::onSend(uint8_t *message, size_t length) {
-    if (serial && serial->isOpen()) {
-        return serial->write(message, length);
-    } else {
-        ROS_ERROR_THROTTLE(1, "Could not send to the Arduino!");
+    try {
+        if (serial && serial->isOpen()) {
+            return serial->write(message, length);
+        } else {
+            ROS_ERROR_THROTTLE(1, "Could not send to the Arduino!");
+        }
+    } catch(const std::exception& exception) {
+        ROS_ERROR_THROTTLE(1, "Could not send to the Arduino! %s", exception.what());
     }
 
     return 0;
@@ -126,7 +132,7 @@ void ArduinoCommunication::spin() {
         try {
 
             if (!connected) {
-                serial = std::unique_ptr<serial::Serial>(new serial::Serial(device, baudrate));
+                serial = std::make_unique<serial::Serial>(device, baudrate);
                 connected = serial->isOpen();
             }
 
@@ -151,9 +157,9 @@ void ArduinoCommunication::spin() {
 
                 }
             }
-        } catch (serial::IOException &exception) {
+        } catch (const std::exception& exception) {
             connected = false;
-            ROS_ERROR_THROTTLE(1, "Could not connect to arduino");
+            ROS_ERROR_THROTTLE(1, "Could not connect to arduino %s", exception.what());
         }
 
         ros::spinOnce();
