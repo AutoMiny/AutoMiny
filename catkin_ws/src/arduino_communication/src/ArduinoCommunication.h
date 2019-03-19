@@ -30,6 +30,7 @@ class ArduinoCommunication {
     void onSpeedCommand(autominy_msgs::SpeedCommandConstPtr const &speed);
     void onSteeringCommand(autominy_msgs::SteeringCommandConstPtr const &steering);
     void onLedCommand(std_msgs::StringConstPtr const &led);
+    void onHeartbeat(ros::TimerEvent const &event);
 
     void onReceive(uint8_t *message, size_t length);
     size_t onSend(uint8_t *message, size_t length);
@@ -54,6 +55,7 @@ class ArduinoCommunication {
     ros::Subscriber speedSubscriber;
     ros::Subscriber steeringSubscriber;
     ros::Subscriber ledSubscriber;
+    ros::Timer heartbeatTimer;
 
     std::string device;
     uint32_t baudrate;

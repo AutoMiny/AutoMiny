@@ -14,5 +14,6 @@ enum class MessageType : uint8_t {
     TICKS,
     SPEED,
     IMU,
-    VOLTAGE
+    VOLTAGE,
+    HEARTBEAT
 };

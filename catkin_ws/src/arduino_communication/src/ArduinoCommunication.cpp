@@ -6,15 +6,16 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     device = nh.param<std::string>("device", "/dev/ttyUSB1");
     baudrate = nh.param("baud", 115200);
 
-    speedSubscriber = nh.subscribe("speed", 2, &ArduinoCommunication::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
-    steeringSubscriber = nh.subscribe("steering", 2, &ArduinoCommunication::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
-    ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this, ros::TransportHints().tcpNoDelay());
-
     steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 2);
     voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 2);
     ticksPublisher = nh.advertise<autominy_msgs::Tick>("ticks", 2);
     imuPublisher = nh.advertise<sensor_msgs::Imu>("imu", 2);
     imuTemperaturePublisher = nh.advertise<sensor_msgs::Temperature>("imu/temperature", 2);
+
+    heartbeatTimer = nh.createTimer(ros::Duration(0.01), &ArduinoCommunication::onHeartbeat, this);
+    speedSubscriber = nh.subscribe("speed", 2, &ArduinoCommunication::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
+    steeringSubscriber = nh.subscribe("steering", 2, &ArduinoCommunication::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
+    ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this, ros::TransportHints().tcpNoDelay());
 }
 
 size_t ArduinoCommunication::cobsEncode(const uint8_t *input, size_t length, uint8_t *output) {
@@ -320,6 +321,22 @@ void ArduinoCommunication::onLedCommand(std_msgs::StringConstPtr const &led) {
         ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
     }
 
+}
+
+void ArduinoCommunication::onHeartbeat(ros::TimerEvent const &event) {
+    uint8_t size = sizeof(MessageType) + 1;
+    uint8_t message[size];
+    uint8_t output[size * 2 + 1];
+
+    message[0] = (uint8_t) MessageType::HEARTBEAT;
+    auto cobs = cobsEncode(message, size, output);
+
+    onSend(output, cobs);
+
+    auto wrote = onSend(output, cobs);
+    if (wrote != cobs) {
+        ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
+    }
 }
 
 void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedCommandConstPtr const &speed) {
