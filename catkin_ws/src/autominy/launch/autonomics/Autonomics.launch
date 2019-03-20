@@ -16,7 +16,7 @@
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
 	<arg name="nodelet_manager" default="$(optenv AUTONOMICS_NODELET_MANAGER core_nodelet_manager)" />
 
-	<include file="$(find autominy)/launch/autonomy/EmergencyStop.launch">
+	<include file="$(find autominy)/launch/autonomics/EmergencyStop.launch">
 		<arg name="live"    		value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
