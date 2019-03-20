@@ -15,6 +15,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <depend>rplidar_ros</depend>
   <depend>robot_localization</depend>
+  <depend>multimaster_fkie</depend>
 
   <export>
   </export>

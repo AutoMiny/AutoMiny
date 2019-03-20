@@ -1,16 +1,3 @@
-<!-- Launch file to start robot_localization. -->
-
-
-<!--
-	This launch file runs two instances of ekf_localization_node:
-	   (1) An EKF instance that fuses odometry and IMU data and outputs an odom-frame state estimate, which is continuous
-	   (2) A second EKF instance that fuses the same data, but also fuses the transformed GPS data from fub_applanix
-
-	The first EKF instance produces the odom->base_link transform. The second EKF produces the map->odom transform,
-	but requires the odom->base_link transform from the first instance in order to do so. See the
-	params/dual_ekf_localization.yaml file for parameter specification.
--->
-
 <launch>
 	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />

@@ -66,4 +66,11 @@
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
 	</include>
+
+	<!-- communication -->
+	<include file="$(find autominy)/launch/communication/Communication.launch" ns="communication">
+		<arg name="live"    		value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+	</include>
 </launch>
