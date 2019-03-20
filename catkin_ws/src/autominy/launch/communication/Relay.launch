@@ -4,5 +4,5 @@
     <arg name="nodelet_manager" default="$(optenv AUTONOMICS_NODELET_MANAGER core_nodelet_manager)" />
     <arg name="car_id"         default="$(optenv ROS_CAR_ID 129)" />
 
-    <node pkg="topic_tools" type="relay" name="$relay_odom_$(arg car_id)" args="/localization/odometry/filtered_map /communication/$(arg car_id)/odometry" />
+    <node pkg="topic_tools" type="relay" name="relay_odom_$(arg car_id)" args="/localization/odometry/filtered_map /communication/$(arg car_id)/odometry" />
 </launch>
