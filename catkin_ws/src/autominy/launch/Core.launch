@@ -34,8 +34,8 @@
 		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
 	</include>
 
-	<!-- start autonomy -->
-	<include file="$(find autominy)/launch/autonomy/Autonomy.launch" ns="autonomy">
+	<!-- start autonomics -->
+	<include file="$(find autominy)/launch/autonomics/Autonomics.launch" ns="autonomics">
 		<arg name="live"    		value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
