@@ -110,7 +110,7 @@ namespace road_marking_localization {
         tf::StampedTransform t;
         tf::StampedTransform baseLinkTransform;
         try {
-            tfListener.waitForTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp, ros::Duration(0.01));
+            tfListener.waitForTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp, ros::Duration(0.03));
             tfListener.lookupTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp, t);
             tfListener.lookupTransform("map", "base_link", depthImage->header.stamp, baseLinkTransform);
         } catch (tf::TransformException& e) {
