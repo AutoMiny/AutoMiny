@@ -1,12 +1,12 @@
 <launch>
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
 	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+	<arg name="baudrate" default="$(optenv ROS_RPLIDAR_BAUDRATE 115200)" />
 
 	<remap from="/sensors/scan" to="/sensors/rplidar/scan"/>
 	<node name="rplidar"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
 		<param name="serial_port"         type="string" value="/dev/ttyLidar"/>
-		<param name="serial_baudrate"     type="int"    value="115200"/><!--A1/A2 -->
-		<!--param name="serial_baudrate"     type="int"    value="256000"--><!--A3 -->
+		<param name="serial_baudrate"     type="int"    value="$(arg baudrate)"/>
 		<param name="frame_id"            type="string" value="laser"/>
 		<param name="inverted"            type="bool"   value="false"/>
 		<param name="angle_compensate"    type="bool"   value="true"/>
