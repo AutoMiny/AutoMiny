@@ -18,8 +18,8 @@ class VectorfieldController:
         self.lane = 2
         self.speed_value = 0.3
         self.last_angle = 0.0
-        self.Kp = 2.0
-        self.Kd = 0.1
+        self.Kp = 3.0
+        self.Kd = 0.2
         self.Ki = 0.0
         self.last_time = rospy.Time.now()
         self.integral_error = 0.0
@@ -28,9 +28,9 @@ class VectorfieldController:
         rospack = rospkg.RosPack()
         self.file_path = rospack.get_path('fub_navigation') + '/src/'
         if self.lane == 1:
-            self.matrix = np.load(self.file_path + 'matrix25cm_lane1.npy')
+            self.matrix = np.load(self.file_path + 'matrix50cm_lane1.npy')
         else:
-            self.matrix = np.load(self.file_path + 'matrix25cm_lane2.npy')
+            self.matrix = np.load(self.file_path + 'matrix50cm_lane2.npy')
 
         self.pub_speed = rospy.Publisher("/control/command/normalized_wanted_speed", NormalizedSpeedCommand,
                                          queue_size=1, tcp_nodelay=True)

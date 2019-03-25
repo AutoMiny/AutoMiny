@@ -7,7 +7,7 @@ import path_parser
 map_size_x = 600  # cm
 map_size_y = 430  # cm
 resolution = 1  # cm
-lookahead_offset = 25  # *resolution cm = for example 5 *10= 50 cm //Dynamic: np.int(2 + (8/(8*dist+1)))
+lookahead_offset = 50  # *resolution cm = for example 5 *10= 50 cm //Dynamic: np.int(2 + (8/(8*dist+1)))
 matrix = np.zeros((map_size_x / resolution, map_size_y / resolution, 2), dtype='f')
 
 
