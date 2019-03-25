@@ -20,21 +20,21 @@
 	<include file="$(find autominy)/launch/components/sensors/HardwareCommunication.launch">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- Odometry -->
 	<include file="$(find autominy)/launch/components/sensors/Odometry.launch">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- Road marking localization -->
 	<include file="$(find autominy)/launch/components/sensors/RoadMarkingLocalization.launch">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 </launch>

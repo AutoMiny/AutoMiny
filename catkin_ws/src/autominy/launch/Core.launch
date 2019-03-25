@@ -25,20 +25,20 @@
 	<include file="$(find autominy)/launch/components/Sensors.launch" ns="sensors">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- localization -->
 	<include file="$(find autominy)/launch/localization/Localization.launch" ns="localization">
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- start autonomics -->
 	<include file="$(find autominy)/launch/autonomics/Autonomics.launch" ns="autonomics">
 		<arg name="live"    		value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- sensor postprocessing -->
@@ -51,7 +51,7 @@
 		<include file="$(find autominy)/launch/control/Actuators.launch">
 			<arg name="live"            value="$(arg live)" />
 			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+			<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 		</include>
 	</group>
 
@@ -64,13 +64,13 @@
 	<include file="$(find autominy)/launch/visualization/Visualization.launch" ns="visualization">
 		<arg name="live"    		value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- communication -->
 	<include file="$(find autominy)/launch/communication/Communication.launch" ns="communication">
 		<arg name="live"    		value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 </launch>
