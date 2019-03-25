@@ -15,7 +15,7 @@ namespace emergency_stop {
 
         auto angleIncrement = scan->angle_increment;
         if (wantedSpeed >= 0) {    //forward.
-            auto frontAngle = config.angle_front * (M_PI / 180.0) / 2;
+            auto frontAngle = config.angle_front / 2.0;
             auto start = 0;
             auto end = static_cast<int>(frontAngle / angleIncrement);
 
@@ -39,9 +39,9 @@ namespace emergency_stop {
         }
 
         if (wantedSpeed < 0) { //backward.
-            auto backAngle = config.angle_back * (M_PI / 180.0) / 2;
-            int start = 180 - static_cast<int>(backAngle / angleIncrement);
-            int end = 180 + static_cast<int>(backAngle / angleIncrement);
+            auto backAngle = config.angle_back / 2.0;
+            int start = scan->ranges.size() / 2 - static_cast<int>(backAngle / angleIncrement);
+            int end = scan->ranges.size() / 2 + static_cast<int>(backAngle / angleIncrement);
             for (int j = start; j < end && j < scan->ranges.size(); j++) {
                 // we might see the camera in the laser scan
                 if (scan->ranges[j] <= (breakDistance + config.reverse_minimum_distance) &&
