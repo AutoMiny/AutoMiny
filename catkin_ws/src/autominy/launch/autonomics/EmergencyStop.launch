@@ -8,6 +8,7 @@
 	<remap from="/autonomics/emergency_stop/scan" to="/sensors/rplidar/scan" />
 
 	<include file="$(find emergency_stop)/launch/EmergencyStop.launch">
-
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 </launch>
