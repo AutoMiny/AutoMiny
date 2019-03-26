@@ -81,7 +81,7 @@ enum class MessageType :uint8_t {
     TICKS,
     SPEED,
     IMU,
-    VOLTAGE,
+    VOLTAGE ,
     HEARTBEAT
 };
 
@@ -354,6 +354,7 @@ void onPacketReceived(const uint8_t* message, size_t size)
         case MessageType::SPEED:break;
         case MessageType::IMU:break;
         case MessageType::VOLTAGE:break;
+        case MessageType::HEARTBEAT:break;
 
         case MessageType::SPEED_CMD:
             int16_t speed;
@@ -430,29 +431,29 @@ void sendIMU(uint8_t* fifoBuffer, int16_t temperature) {
     uint8_t lowTemp, highTemp;
     lowTemp = temperature >> 8;
     highTemp = temperature & 0xFF;
-    memcpy(&buf[1], &fifoBuffer[0], sizeof(uint8_t));
-    memcpy(&buf[2], &fifoBuffer[1], sizeof(uint8_t));
-    memcpy(&buf[3], &fifoBuffer[4], sizeof(uint8_t));
-    memcpy(&buf[4], &fifoBuffer[5], sizeof(uint8_t));
-    memcpy(&buf[5], &fifoBuffer[8], sizeof(uint8_t));
-    memcpy(&buf[6], &fifoBuffer[9], sizeof(uint8_t));
-    memcpy(&buf[7], &fifoBuffer[12], sizeof(uint8_t));
-    memcpy(&buf[8], &fifoBuffer[13], sizeof(uint8_t));
-    memcpy(&buf[9], &fifoBuffer[16], sizeof(uint8_t));
-    memcpy(&buf[10], &fifoBuffer[17], sizeof(uint8_t));
-    memcpy(&buf[11], &fifoBuffer[20], sizeof(uint8_t));
-    memcpy(&buf[12], &fifoBuffer[21], sizeof(uint8_t));
-    memcpy(&buf[13], &fifoBuffer[24], sizeof(uint8_t));
-    memcpy(&buf[14], &fifoBuffer[25], sizeof(uint8_t));
-    memcpy(&buf[15], &fifoBuffer[28], sizeof(uint8_t));
-    memcpy(&buf[16], &fifoBuffer[29], sizeof(uint8_t));
-    memcpy(&buf[17], &fifoBuffer[32], sizeof(uint8_t));
-    memcpy(&buf[18], &fifoBuffer[33], sizeof(uint8_t));
-    memcpy(&buf[19], &fifoBuffer[36], sizeof(uint8_t));
-    memcpy(&buf[20], &fifoBuffer[37], sizeof(uint8_t));
-    memcpy(&buf[21], &lowTemp, sizeof(uint8_t));
-    memcpy(&buf[22], &highTemp, sizeof(uint8_t));
 
+    buf[1] = fifoBuffer[0];
+    buf[2] = fifoBuffer[1];
+    buf[3] = fifoBuffer[4];
+    buf[4] = fifoBuffer[5];
+    buf[5] = fifoBuffer[8];
+    buf[6] = fifoBuffer[9];
+    buf[7] = fifoBuffer[12];
+    buf[8] = fifoBuffer[13];
+    buf[9] = fifoBuffer[16];
+    buf[10] = fifoBuffer[17];
+    buf[11] = fifoBuffer[20];
+    buf[12] = fifoBuffer[21];
+    buf[13] = fifoBuffer[24];
+    buf[14] = fifoBuffer[25];
+    buf[15] = fifoBuffer[28];
+    buf[16] = fifoBuffer[29];
+    buf[17] = fifoBuffer[32];
+    buf[18] = fifoBuffer[33];
+    buf[19] = fifoBuffer[36];
+    buf[20] = fifoBuffer[37];
+    buf[21] = lowTemp;
+    buf[22] = highTemp;
     packetSerial.send(buf, size);
 }
 
@@ -639,63 +640,65 @@ void loop() {
         fifoCount = mpu.getFIFOCount();
 
         // check for overflow (this should never happen unless our code is too inefficient)
-        if ((mpuIntStatus & 0x10) || fifoCount == 1024) {
+        if ((mpuIntStatus & 0x10) || fifoCount >= 1024) {
             // reset so we can continue cleanly
             mpu.resetFIFO();
+            logerror("FIFO Overflow");
             // otherwise, check for DMP data ready interrupt (this should happen frequently)
         } else if (mpuIntStatus & 0x02) {
             // wait for correct available data length, should be a VERY short wait
-            uint16_t fifoCount = mpu.getFIFOCount();
-            while (fifoCount >= packetSize) {
-
-                // read a packet from FIFO
-                mpu.getFIFOBytes(fifoBuffer, packetSize);
-
-                // track FIFO count here in case there is > 1 packet available
-                // (this lets us immediately read more without waiting for an interrupt)
-                fifoCount -= packetSize;
-
-                uint16_t temperature = mpu.getTemperature();
-
-                sendIMU(fifoBuffer, temperature);
-                sendTicks(ticks);
-                ticks = 0;
-                int steeringAngle = analogRead(SERVO_FEEDBACK_MOTOR_PIN);
-                steeringAngle = analogRead(SERVO_FEEDBACK_MOTOR_PIN);
-                sendSteeringAngle((uint16_t)steeringAngle);
-
-                /***Voltmeter**/
-                int vol = analogRead(BATTERY_PIN);
-                vol = analogRead(BATTERY_PIN);
-                voltageBuffer[voltageIndex++] = vol;
-                if (voltageIndex >= VOLTAGE_BUFFER_SIZE) {
-                    voltageIndex = 0;
-                }
-
-                float voltage = meanVoltage();
-
-                if (millis() > 2600 && voltage > VOLTAGE_SHUTDOWN){
-                    turnOnCar();
-                } else if (voltage <= VOLTAGE_SHUTDOWN && powered) {
-                    // This means the car was already on and the voltage dropped below 12.8
-                    // Empty the voltage measurements so that the car does not turn on immediately again because the voltage went up again
-                    memset(voltageBuffer, 0, sizeof(voltageBuffer));
-                    turnOffCar();
-                } else {
-                    turnOffCar();
-                }
-
-                if (voltage > VOLTAGE_GOOD) {
-                    displayVoltageGoodLed();
-                } else if (voltage <= VOLTAGE_GOOD && voltage >= VOLTAGE_BAD) {
-                    displayVoltageWarningLed();
-                } else if (voltage < VOLTAGE_BAD) {
-                    displayVoltageBadLed();
-                }
-
-                sendVoltage(voltage);
+            while (fifoCount < packetSize) {
+                fifoCount = mpu.getFIFOCount();
             }
+
+            // read a packet from FIFO
+            mpu.getFIFOBytes(fifoBuffer, packetSize);
+
+            // track FIFO count here in case there is > 1 packet available
+            // (this lets us immediately read more without waiting for an interrupt)
+            fifoCount -= packetSize;
+
+            uint16_t temperature = mpu.getTemperature();
+
+            sendIMU(fifoBuffer, temperature);
+            sendTicks(ticks);
+            ticks = 0;
+            int steeringAngle = analogRead(SERVO_FEEDBACK_MOTOR_PIN);
+            steeringAngle = analogRead(SERVO_FEEDBACK_MOTOR_PIN);
+            sendSteeringAngle((uint16_t)steeringAngle);
+
+            /***Voltmeter**/
+            int vol = analogRead(BATTERY_PIN);
+            vol = analogRead(BATTERY_PIN);
+            voltageBuffer[voltageIndex++] = vol;
+            if (voltageIndex >= VOLTAGE_BUFFER_SIZE) {
+                voltageIndex = 0;
+            }
+
+            float voltage = meanVoltage();
+
+            if (millis() > 2600 && voltage > VOLTAGE_SHUTDOWN){
+                turnOnCar();
+            } else if (voltage <= VOLTAGE_SHUTDOWN && powered) {
+                // This means the car was already on and the voltage dropped below 12.8
+                // Empty the voltage measurements so that the car does not turn on immediately again because the voltage went up again
+                memset(voltageBuffer, 0, sizeof(voltageBuffer));
+                turnOffCar();
+            } else {
+                turnOffCar();
+            }
+
+            if (voltage > VOLTAGE_GOOD) {
+                displayVoltageGoodLed();
+            } else if (voltage <= VOLTAGE_GOOD && voltage >= VOLTAGE_BAD) {
+                displayVoltageWarningLed();
+            } else if (voltage < VOLTAGE_BAD) {
+                displayVoltageBadLed();
+            }
+
+            sendVoltage(voltage);
         }
+        
     }
 
     unsigned long currentTime = millis();
