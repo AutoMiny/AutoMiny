@@ -198,33 +198,33 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
     imuMsg.header.stamp = ros::Time::now();
 
 
-    int16_t w = (((0xff &(char)message[0]) << 8) | 0xff &(char)message[1]);
-    int16_t x = (((0xff &(char)message[2]) << 8) | 0xff &(char)message[3]);
-    int16_t y = (((0xff &(char)message[4]) << 8) | 0xff &(char)message[5]);
-    int16_t z = (((0xff &(char)message[6]) << 8) | 0xff &(char)message[7]);
+    int16_t w = (message[0] << 8) | message[1];
+    int16_t x = (message[2] << 8) | message[3];
+    int16_t y = (message[4] << 8) | message[5];
+    int16_t z = (message[6] << 8) | message[7];
 
     double wf = w/16384.0;
     double xf = x/16384.0;
     double yf = y/16384.0;
     double zf = z/16384.0;
 
-    int16_t gx = (((0xff &(char)message[8]) << 8) | 0xff &(char)message[9]);
-    int16_t gy = (((0xff &(char)message[10]) << 8) | 0xff &(char)message[11]);
-    int16_t gz = (((0xff &(char)message[12]) << 8) | 0xff &(char)message[13]);
+    int16_t gx = (message[8] << 8) | message[9];
+    int16_t gy = (message[10] << 8) | message[11];
+    int16_t gz = (message[12] << 8) | message[13];
 
     double gxf = gx * (4000.0/65536.0) * (M_PI/180.0) * 25.0;
     double gyf = gy * (4000.0/65536.0) * (M_PI/180.0) * 25.0;
     double gzf = gz * (4000.0/65536.0) * (M_PI/180.0) * 25.0;
 
-    int16_t ax = (((0xff &(char)message[14]) << 8) | 0xff &(char)message[15]);
-    int16_t ay = (((0xff &(char)message[16]) << 8) | 0xff &(char)message[17]);
-    int16_t az = (((0xff &(char)message[18]) << 8) | 0xff &(char)message[19]);
+    int16_t ax = (message[14] << 8) | message[15];
+    int16_t ay = (message[16] << 8) | message[17];
+    int16_t az = (message[18] << 8) | message[19];
     // calculate accelerations in m/s²
     double axf = ax * (8.0 / 65536.0) * 9.81;
     double ayf = ay * (8.0 / 65536.0) * 9.81;
     double azf = az * (8.0 / 65536.0) * 9.81;
 
-    int16_t temperature = (((0xff &(char)message[20]) << 8) | 0xff &(char)message[21]);
+    int16_t temperature = (message[20] << 8) | message[21];
     sensor_msgs::Temperature temperatureMsg;
     temperatureMsg.header.stamp = ros::Time::now();
     temperatureMsg.header.frame_id = "imu";
