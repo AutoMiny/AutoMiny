@@ -131,7 +131,12 @@ namespace stereo_camera_pose_estimation {
                                                  imageCameraModel.distortionCoeffs(), rvecs, tvecs);
 
             tf::StampedTransform t;
-            tfListener.lookupTransform("camera_bottom_screw_frame", image->header.frame_id, ros::Time(0), t);
+            try {
+                tfListener.lookupTransform("camera_bottom_screw_frame", image->header.frame_id, ros::Time(0), t);
+            } catch (const tf::TransformException& e) {
+                ROS_ERROR("%s", e.what());
+                return false;
+            }
             for (int i = 0; i < ids.size(); i++) {
                 if (ids[i] != config.aruco_id) {
                     continue;
