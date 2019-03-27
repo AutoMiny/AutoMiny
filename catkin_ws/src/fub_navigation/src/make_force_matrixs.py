@@ -38,14 +38,15 @@ def main(map_file):
         # plt.scatter(*lookahead_target, color='m')
         # plt.show(block=False)
         global matrix
-        x_index = np.int(x1 * (100.0 / resolution))
-        y_index = np.int(y1 * (100.0 / resolution))
+        x_index = np.int(round(x1 * (100.0 / resolution)))
+        y_index = np.int(round(y1 * (100.0 / resolution)))
 
         matrix[x_index, y_index, 0] = x3 - x1
         matrix[x_index, y_index, 1] = y3 - y1
 
     print('please wait ...')
     for x in range(0, map_size_x / resolution):
+        print x
         for y in range(0, map_size_y / resolution):
             show_nearest(((resolution / 100.0) * x, (resolution / 100.0) * y))
 
