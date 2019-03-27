@@ -8,7 +8,7 @@ namespace hardware_calibration {
             ros::NodeHandle nh = getNodeHandle();
             ros::NodeHandle pnh = getPrivateNodeHandle();
             steeringFeedbackBuffer = boost::circular_buffer<int16_t>(10);
-            ticksBuffer = boost::circular_buffer<uint8_t>(10);
+            ticksBuffer = boost::circular_buffer<autominy_msgs::TickConstPtr>(10);
 
             configServer = boost::make_shared<dynamic_reconfigure::Server<HardwareCalibrationConfig> >(pnh);
             dynamic_reconfigure::Server<HardwareCalibrationConfig>::CallbackType f;
@@ -27,14 +27,25 @@ namespace hardware_calibration {
         }
 
         void HardwareCalibrationNodelet::onTicks(const autominy_msgs::TickConstPtr& msg) {
-            ticksBuffer.push_back(msg->value);
+            ticksBuffer.push_back(msg);
 
-            auto ticks = std::accumulate(ticksBuffer.begin(), ticksBuffer.end(), 0);
-            autominy_msgs::Speed speedMsg;
-            speedMsg.header.stamp = ros::Time::now();
-            speedMsg.header.frame_id = "base_link";
-            speedMsg.value = (static_cast<double>(ticks) * config.ticks_to_m) / static_cast<double>(ticksBuffer.size()) * static_cast<double>(direction);
-            calibratedSpeedPublisher.publish(speedMsg);
+            if (ticksBuffer.size() > 1) {
+                auto ticks = 0;
+                for (const auto& tick : ticksBuffer) {
+                    ticks += tick->value;
+                }
+                autominy_msgs::Speed speedMsg;
+                speedMsg.header.stamp = ros::Time::now();
+                speedMsg.header.frame_id = "base_link";
+                auto duration = (ticksBuffer.front()->header.stamp - ticksBuffer.back()->header.stamp).toSec();
+                if (duration == 0.0) {
+                    return;
+                }
+                speedMsg.value =
+                        ((static_cast<double>(ticks) * config.ticks_to_m) / duration) *
+                        static_cast<double>(direction);
+                calibratedSpeedPublisher.publish(speedMsg);
+            }
         }
 
         void HardwareCalibrationNodelet::onSteeringFeedback(const autominy_msgs::SteeringFeedbackConstPtr& msg) {

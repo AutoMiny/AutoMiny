@@ -52,7 +52,7 @@ namespace hardware_calibration {
         HardwareCalibrationConfig config;
 
         boost::circular_buffer<int16_t> steeringFeedbackBuffer;
-        boost::circular_buffer<uint8_t> ticksBuffer;
+        boost::circular_buffer<autominy_msgs::TickConstPtr> ticksBuffer;
         Direction direction = Direction::FORWARD;
     };
 }
