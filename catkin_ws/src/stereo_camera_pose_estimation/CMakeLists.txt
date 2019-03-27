@@ -7,10 +7,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O3")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O3")
 
-add_definitions(-DEIGEN_DONT_ALIGN)
-add_definitions(-DEIGEN_DONT_VECTORIZE)
-add_definitions(-DEIGEN_MAX_ALIGN_BYTES=0)
-add_definitions(-DEIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT)
+include(TargetArch.cmake)
+determine_target_architecture(TARGET_ARCH)
+if ("${TARGET_ARCH}" STREQUAL "arm")
+    message("Disabling Eigen vectorization due to bugs with pcl on ARM")
+    add_definitions(-DEIGEN_DONT_ALIGN)
+    add_definitions(-DEIGEN_DONT_VECTORIZE)
+    add_definitions(-DEIGEN_MAX_ALIGN_BYTES=0)
+    add_definitions(-DEIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT)
+endif()
 
 ######################################
 ## Find catkin macros and libraries ##
