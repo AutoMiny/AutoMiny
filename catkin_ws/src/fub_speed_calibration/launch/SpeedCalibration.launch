@@ -1,5 +1,0 @@
-<launch>
-	<node pkg="fub_speed_calibration" type="speed_calibration_node" name="speed_calibration" output="screen">
-		<param name="file_name" value="$(find fub_speed_calibration)/cfg/SpeedCalibration.xml" />
-	</node>
-</launch>

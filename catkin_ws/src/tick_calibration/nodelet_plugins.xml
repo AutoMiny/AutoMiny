@@ -1,0 +1,18 @@
+<!--
+    relative workspace path to .so file (without file suffix),
+    e.g. this path refers to catkin_ws/devel/lib/libtick_calibration_nodelet.so
+-->
+<library path="lib/libtick_calibration_nodelet">
+    <!--
+        name: value of variable nodeletName in TickCalibrationNode.cpp
+        type/base_class_type: first/second param of macro PLUGINLIB_EXPORT_CLASS in TickCalibrationNodelet.cpp
+    -->
+    <class name="tick_calibration/Nodelet"
+           type="tick_calibration::TickCalibrationNodelet"
+           base_class_type="nodelet::Nodelet"
+    >
+        <description>
+            Short description what this nodelet is doing
+        </description>
+    </class>
+</library>
