@@ -37,7 +37,7 @@ namespace hardware_calibration {
                 autominy_msgs::Speed speedMsg;
                 speedMsg.header.stamp = ros::Time::now();
                 speedMsg.header.frame_id = "base_link";
-                auto duration = (ticksBuffer.front()->header.stamp - ticksBuffer.back()->header.stamp).toSec();
+                auto duration = (ticksBuffer.back()->header.stamp - ticksBuffer.front()->header.stamp).toSec();
                 if (duration == 0.0) {
                     return;
                 }
