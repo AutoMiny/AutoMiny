@@ -24,7 +24,7 @@
 #define NEWLED_PIN 13
 #define BATTERY_PIN A6
 #define ENABLE_PIN 7
-#define HEARTBEAT_TIMEOUT 30
+#define HEARTBEAT_TIMEOUT 100
 
 #define REFERENCE_VOLTAGE 5.1 //Default reference on Teensy is 3.3V
 #define R1 3300.0
@@ -52,7 +52,7 @@ volatile uint8_t ticks = 0;
 
 int8_t direction_motor = 1;
 
-int voltageBuffer[VOLTAGE_BUFFER_SIZE] = {0};
+uint16_t voltageBuffer[VOLTAGE_BUFFER_SIZE] = {0};
 int voltageIndex = 0;
 int16_t currentSpeed = 0;
 
@@ -81,7 +81,7 @@ enum class MessageType :uint8_t {
     TICKS,
     SPEED,
     IMU,
-    VOLTAGE ,
+    VOLTAGE,
     HEARTBEAT
 };
 
@@ -110,9 +110,7 @@ void dmpDataReady() {
 }
 
 void encoder() {
-    cli();
     ticks++;
-    sei();
 }
 
 
@@ -377,7 +375,7 @@ void onPacketReceived(const uint8_t* message, size_t size)
 }
 
 void log(MessageType type, const __FlashStringHelper *str) {
-    uint8_t size = sizeof(type) + strlen_P((PGM_P)str) + 1;
+    uint8_t size = 1 + strlen_P((PGM_P)str) + 1;
     uint8_t buf[size];
     buf[0] = (uint8_t)type;
     strcpy_P(&buf[1], (PGM_P)str);
@@ -385,7 +383,7 @@ void log(MessageType type, const __FlashStringHelper *str) {
 }
 
 void log(MessageType type, char *str) {
-    uint8_t size = sizeof(type) + strlen(str) + 1;
+    uint8_t size = 1 + strlen(str) + 1;
     uint8_t buf[size];
     buf[0] = (uint8_t)type;
     strcpy(&buf[1], str);
@@ -425,7 +423,7 @@ void logwarn(char *str) {
 }
 
 void sendIMU(uint8_t* fifoBuffer, int16_t temperature) {
-    uint8_t size = sizeof(MessageType) + 22;
+    uint8_t size = 1 + 22;
     uint8_t buf[size];
     buf[0] = (uint8_t)MessageType::IMU;
     uint8_t lowTemp, highTemp;
@@ -458,7 +456,7 @@ void sendIMU(uint8_t* fifoBuffer, int16_t temperature) {
 }
 
 void sendVoltage(float voltage) {
-    uint8_t size = sizeof(MessageType) + sizeof(voltage);
+    uint8_t size = 1 + sizeof(voltage);
     uint8_t buf[size];
     buf[0] = (uint8_t)MessageType::VOLTAGE;
     memcpy(&buf[1], &voltage, sizeof(voltage));
@@ -466,7 +464,7 @@ void sendVoltage(float voltage) {
 }
 
 void sendSpeed(float speed) {
-    uint8_t size = sizeof(MessageType) + sizeof(speed);
+    uint8_t size = 1 + sizeof(speed);
     uint8_t buf[size];
     buf[0] = (uint8_t)MessageType::SPEED;
     memcpy(&buf[1], &speed, sizeof(speed));
@@ -474,7 +472,7 @@ void sendSpeed(float speed) {
 }
 
 void sendTicks(uint8_t ticks) {
-    uint8_t size = sizeof(MessageType) + sizeof(ticks);
+    uint8_t size = 1 + sizeof(ticks);
     uint8_t buf[size];
     buf[0] = (uint8_t)MessageType::TICKS;
     memcpy(&buf[1], &ticks, sizeof(ticks));
@@ -482,7 +480,7 @@ void sendTicks(uint8_t ticks) {
 }
 
 void sendSteeringAngle(uint16_t steeringAngle) {
-    uint8_t size = sizeof(MessageType) + sizeof(steeringAngle);
+    uint8_t size = 1 + sizeof(steeringAngle);
     uint8_t buf[size];
     buf[0] = (uint8_t)MessageType::STEERING_ANGLE;
     memcpy(&buf[1], &steeringAngle, sizeof(steeringAngle));
@@ -596,13 +594,13 @@ void setup() {
 
 float meanVoltage() {
     uint32_t sum = 0;
-    for (int i = 0; i < VOLTAGE_BUFFER_SIZE; i++) {
+    for (uint8_t i = 0; i < VOLTAGE_BUFFER_SIZE; i++) {
         sum += voltageBuffer[i];
     }
 
-    float avg = sum / (float)VOLTAGE_BUFFER_SIZE;
+    float avg = sum / VOLTAGE_BUFFER_SIZE;
     float vout = (avg * REFERENCE_VOLTAGE) / 1024.0;
-    return vout / (float)(R2/(R1+R2));
+    return vout / (R2/(R1+R2));
 }
 
 void turnOnCar() {
@@ -630,6 +628,13 @@ void loop() {
 
     // wait for MPU interrupt or extra packet(s) available
     //while (!mpuInterrupt && fifoCount < packetSize) {}
+    unsigned long ms = millis();
+
+    if (ms - lastHeartbeat > HEARTBEAT_TIMEOUT) {
+        onSpeedCommand(0);
+    }
+
+    packetSerial.update();
 
     if (mpuInterrupt || fifoCount >= packetSize) {
         // reset interrupt flag and get INT_STATUS byte
@@ -640,19 +645,25 @@ void loop() {
         fifoCount = mpu.getFIFOCount();
 
         // check for overflow (this should never happen unless our code is too inefficient)
-        if ((mpuIntStatus & 0x10) || fifoCount >= 1024) {
+        if (fifoCount >= 1024) {
             // reset so we can continue cleanly
             mpu.resetFIFO();
             logerror("FIFO Overflow");
             // otherwise, check for DMP data ready interrupt (this should happen frequently)
+        } else if (mpuIntStatus & 0x10) {
+            // reset so we can continue cleanly
+            mpu.resetFIFO();
+            logerror("IMU bad status");
+            // otherwise, check for DMP data ready interrupt (this should happen frequently)
         } else if (mpuIntStatus & 0x02) {
             // wait for correct available data length, should be a VERY short wait
-            while (fifoCount < packetSize) {
+            if (fifoCount < packetSize) {
                 fifoCount = mpu.getFIFOCount();
             }
 
             // read a packet from FIFO
             mpu.getFIFOBytes(fifoBuffer, packetSize);
+            //mpu.resetFIFO();
 
             // track FIFO count here in case there is > 1 packet available
             // (this lets us immediately read more without waiting for an interrupt)
@@ -677,7 +688,7 @@ void loop() {
 
             float voltage = meanVoltage();
 
-            if (millis() > 2600 && voltage > VOLTAGE_SHUTDOWN){
+            if (ms > 2600 && voltage > VOLTAGE_SHUTDOWN){
                 turnOnCar();
             } else if (voltage <= VOLTAGE_SHUTDOWN && powered) {
                 // This means the car was already on and the voltage dropped below 12.8
@@ -700,13 +711,6 @@ void loop() {
         }
         
     }
-
-    unsigned long currentTime = millis();
-    if (currentTime - lastHeartbeat > HEARTBEAT_TIMEOUT) {
-        onSpeedCommand(0);
-    }
-
-    packetSerial.update();
 }
 
 
