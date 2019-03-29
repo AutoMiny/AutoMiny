@@ -4,7 +4,7 @@
   <arg name="model" default="car"/>
 
   <param name="robot_description"
-         command="$(find xacro)/xacro --inorder '$(find car_robot_model)/urdf/$(arg model).xacro'" />
+         command="$(find xacro)/xacro '$(find car_robot_model)/urdf/$(arg model).xacro'" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="tf_broadcaster_$(arg name)">
     <param name="publish_frequency" type="double" value="50.0"/>
