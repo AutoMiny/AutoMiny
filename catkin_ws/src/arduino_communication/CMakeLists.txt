@@ -13,10 +13,11 @@ find_package(catkin REQUIRED COMPONENTS
         autominy_msgs
         geometry_msgs
         serial
+        std_srvs
 )
 
 catkin_package(
-    CATKIN_DEPENDS autominy_msgs geometry_msgs
+    CATKIN_DEPENDS autominy_msgs geometry_msgs std_srvs
 )
 
 include_directories(

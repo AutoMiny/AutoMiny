@@ -12,8 +12,8 @@ enum class MessageType : uint8_t {
     LED_CMD,
     STEERING_ANGLE,
     TICKS,
-    SPEED,
     IMU,
     VOLTAGE,
-    HEARTBEAT
+    HEARTBEAT,
+    IMU_CALIBRATION
 };

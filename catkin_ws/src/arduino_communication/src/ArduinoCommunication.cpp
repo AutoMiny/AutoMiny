@@ -18,6 +18,7 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     speedSubscriber = nh.subscribe("speed", 2, &ArduinoCommunication::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
     steeringSubscriber = nh.subscribe("steering", 2, &ArduinoCommunication::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
     ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this, ros::TransportHints().tcpNoDelay());
+    imuCalibrationService = nh.advertiseService("calibrate_imu", &ArduinoCommunication::calibrateIMU, this);
 }
 
 size_t ArduinoCommunication::cobsEncode(const uint8_t *input, size_t length, uint8_t *output) {
@@ -352,6 +353,20 @@ void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedCommandConstPtr co
 
     message[0] = (uint8_t) MessageType::SPEED_CMD;
     memcpy(&message[1], &speed->value, sizeof(int16_t));
+    auto cobs = cobsEncode(message, size, output);
+
+    auto wrote = onSend(output, cobs);
+    if (wrote != cobs) {
+        ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
+    }
+}
+
+bool ArduinoCommunication::calibrateIMU(std_srvs::EmptyRequest& req, std_srvs::EmptyResponse& resp) {
+    uint8_t size = sizeof(MessageType);
+    uint8_t message[size];
+    uint8_t output[size * 2 + 1];
+
+    message[0] = (uint8_t) MessageType::IMU_CALIBRATION;
     auto cobs = cobsEncode(message, size, output);
 
     auto wrote = onSend(output, cobs);

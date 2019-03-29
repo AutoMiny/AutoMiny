@@ -13,6 +13,7 @@
   <depend>roscpp</depend>
   <depend>autominy_msgs</depend>
   <depend>geometry_msgs</depend>
+  <depend>std_srvs</depend>
   <depend>serial</depend>
 
 </package>

@@ -16,6 +16,8 @@
 #include <geometry_msgs/Twist.h>
 
 #include <serial/serial.h>
+#include <std_srvs/EmptyRequest.h>
+#include <std_srvs/EmptyResponse.h>
 
 #include "MessageType.h"
 
@@ -43,6 +45,7 @@ class ArduinoCommunication {
     void onInfo(uint8_t *message);
     void onDebug(uint8_t *message);
     void onTicks(uint8_t *message);
+    bool calibrateIMU(std_srvs::EmptyRequest& req, std_srvs::EmptyResponse& resp);
 
     size_t cobsDecode(const uint8_t *input, size_t length, uint8_t *output);
     size_t cobsEncode(const uint8_t *input, size_t length, uint8_t *output);
@@ -56,6 +59,7 @@ class ArduinoCommunication {
     ros::Subscriber steeringSubscriber;
     ros::Subscriber ledSubscriber;
     ros::Timer heartbeatTimer;
+    ros::ServiceServer imuCalibrationService;
 
     std::string device;
     uint32_t baudrate;
