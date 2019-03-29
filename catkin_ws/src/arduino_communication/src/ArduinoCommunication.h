@@ -16,8 +16,7 @@
 #include <geometry_msgs/Twist.h>
 
 #include <serial/serial.h>
-#include <std_srvs/EmptyRequest.h>
-#include <std_srvs/EmptyResponse.h>
+#include <std_srvs/Empty.h>
 
 #include "MessageType.h"
 

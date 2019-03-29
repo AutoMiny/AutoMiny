@@ -373,6 +373,8 @@ bool ArduinoCommunication::calibrateIMU(std_srvs::EmptyRequest& req, std_srvs::E
     if (wrote != cobs) {
         ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
     }
+
+    return true;
 }
 
 }
