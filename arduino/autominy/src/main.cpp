@@ -29,12 +29,34 @@
 #define REFERENCE_VOLTAGE 5.1 //Default reference on Teensy is 3.3V
 #define R1 3300.0
 #define R2 1490.0
-#define VOLTAGE_BUFFER_SIZE 256
+#define VOLTAGE_BUFFER_SIZE 128
 
 #define VOLTAGE_GOOD 14.8
 #define VOLTAGE_BAD 13.0
 #define VOLTAGE_SHUTDOWN 12.8
 
+// IMU Calibration
+#define iAx 0
+#define iAy 1
+#define iAz 2
+#define iGx 3
+#define iGy 4
+#define iGz 5
+
+#define usDelay 3150   // empirical, to hold sampling to 200 Hz
+#define NFast 1000   // the bigger, the better (but slower)
+#define NSlow 10000    // ..
+#define LinesBetweenHeaders 5
+int16_t LowValue[6];
+int16_t HighValue[6];
+int16_t Smoothed[6];
+int16_t LowOffset[6];
+int16_t HighOffset[6];
+int16_t Target[6];
+int16_t LinesOut;
+int16_t N;
+uint16_t ledOffset = 0;
+int16_t ledIncreaseVal = 1;
 
 int ledState = HIGH;                // ledState used to set the LED
 unsigned long previousMillis = 0;   // will store last time LED was updated
@@ -55,6 +77,7 @@ int8_t direction_motor = 1;
 uint16_t voltageBuffer[VOLTAGE_BUFFER_SIZE] = {0};
 int voltageIndex = 0;
 int16_t currentSpeed = 0;
+uint8_t voltageCycle = 0;
 
 // MPU control/status vars
 bool dmpReady = false;  // set true if DMP init was successful
@@ -79,10 +102,10 @@ enum class MessageType :uint8_t {
     LED_CMD,
     STEERING_ANGLE,
     TICKS,
-    SPEED,
     IMU,
     VOLTAGE,
-    HEARTBEAT
+    HEARTBEAT,
+    IMU_CALIBRATION
 };
 
 enum class VoltageStatus {
@@ -214,6 +237,34 @@ void disableDirectionLed() {
     currentDirection = Direction::NONE;
 }
 
+void displayIMUCalibrationWorkingLed(uint16_t offset) {
+    pixels.clear();
+    pixels.setBrightness(16);
+    pixels.setPixelColor(0 + offset, 255, 255, 0);
+    pixels.setPixelColor(10 - offset, 255, 255, 0);
+    pixels.setPixelColor(11 + offset, 255, 255, 0);
+    pixels.setPixelColor(20 - offset, 255, 255, 0);
+    pixels.show();
+}
+
+void displayIMUCalibrationInitializeLed() {
+    pixels.clear();
+    pixels.setBrightness(16);
+    for (uint8_t i = 0; i < NUMPIXELS; i++) {
+        pixels.setPixelColor(i, 255, 0, 0);
+    }
+    pixels.show();
+}
+
+void displayIMUCalibrationSuccessLed() {
+    pixels.clear();
+    pixels.setBrightness(16);
+    for (uint8_t i = 0; i < NUMPIXELS; i++) {
+        pixels.setPixelColor(i, 255, 255, 0);
+    }
+    pixels.show();
+}
+
 void onSpeedCommand(const int16_t cmd_msg) {
     int16_t motor_val = cmd_msg / 4;
 
@@ -249,6 +300,169 @@ void onSpeedCommand(const int16_t cmd_msg) {
     analogWrite(MOTOR_SPEED_PIN, servo_val);
 }
 
+void GetSmoothed() {
+    int16_t RawValue[6];
+    int i;
+    long Sums[6];
+    for (i = iAx; i <= iGz; i++) {
+         Sums[i] = 0;
+    }
+
+    for (i = 1; i <= N; i++) {
+        mpu.getMotion6(&RawValue[iAx], &RawValue[iAy], &RawValue[iAz], &RawValue[iGx], &RawValue[iGy], &RawValue[iGz]);
+        delayMicroseconds(usDelay);
+        for (int j = iAx; j <= iGz; j++)
+            Sums[j] = Sums[j] + RawValue[j];
+    }
+
+    for (i = iAx; i <= iGz; i++) { 
+        Smoothed[i] = (Sums[i] + N/2) / N ; 
+    }
+}
+
+void SetOffsets(int16_t* TheOffsets) {
+    mpu.setXAccelOffset(TheOffsets [iAx]);
+    mpu.setYAccelOffset(TheOffsets [iAy]);
+    mpu.setZAccelOffset(TheOffsets [iAz]);
+    mpu.setXGyroOffset (TheOffsets [iGx]);
+    mpu.setYGyroOffset (TheOffsets [iGy]);
+    mpu.setZGyroOffset (TheOffsets [iGz]);
+}
+
+void ShowProgress() {
+    if (LinesOut >= LinesBetweenHeaders)
+        LinesOut++;
+
+    displayIMUCalibrationWorkingLed(ledOffset);
+
+    if (ledOffset >= 5) {
+        ledIncreaseVal = -1;
+    }
+
+    if (ledOffset <= 0) {
+        ledIncreaseVal = 1;
+    }
+
+    ledOffset += ledIncreaseVal;
+}
+
+void WriteEEPROMInt(int addr, int val) {
+    byte low, high;
+    low=val&0xFF;
+    high=(val>>8)&0xFF;
+    EEPROM.write(addr, low);
+    EEPROM.write(addr+1, high);
+    return;
+}
+
+void WriteEEPROM() {
+    int addr = 0;
+    // XAccel
+    WriteEEPROMInt(addr, LowOffset[0]);
+    addr += 2;
+    // YAccel
+    WriteEEPROMInt(addr, LowOffset[1]);
+    addr += 2;
+    // ZAccel
+    WriteEEPROMInt(addr, LowOffset[2]);
+    addr += 2;
+    // XGyro
+    WriteEEPROMInt(addr, LowOffset[3]);
+    addr += 2;
+    // YGyro
+    WriteEEPROMInt(addr, LowOffset[4]);
+    addr += 2;
+    // ZGyro
+    WriteEEPROMInt(addr, LowOffset[5]);
+}
+
+void SetAveraging(int16_t NewN) { 
+    N = NewN;
+}
+
+void PullBracketsIn() {
+    bool AllBracketsNarrow;
+    bool StillWorking;
+    int16_t NewOffset[6];
+
+    AllBracketsNarrow = false;
+    StillWorking = true;
+    while (StillWorking) {
+        StillWorking = false;
+        if (AllBracketsNarrow && (N == NFast)) {
+            SetAveraging(NSlow);
+        } else {
+            AllBracketsNarrow = true;
+        }
+        
+        for (int i = iAx; i <= iGz; i++) {
+             if (HighOffset[i] <= (LowOffset[i]+1)) {
+                NewOffset[i] = LowOffset[i];
+            }
+            else {
+                StillWorking = true;
+                NewOffset[i] = (LowOffset[i] + HighOffset[i]) / 2;
+                if (HighOffset[i] > (LowOffset[i] + 10)) {
+                    AllBracketsNarrow = false;
+                }
+            }
+        }
+        SetOffsets(NewOffset);
+        GetSmoothed();
+        for (int i = iAx; i <= iGz; i++) {
+            if (Smoothed[i] > Target[i]) {
+                HighOffset[i] = NewOffset[i];
+                HighValue[i] = Smoothed[i];
+            }
+            else {
+                LowOffset[i] = NewOffset[i];
+                LowValue[i] = Smoothed[i];
+            }
+        }
+        ShowProgress();
+    }
+}
+
+void PullBracketsOut()
+{ boolean Done = false;
+    int NextLowOffset[6];
+    int NextHighOffset[6];
+
+    while (!Done) { 
+        Done = true;
+        SetOffsets(LowOffset);
+        GetSmoothed();
+        for (int i = iAx; i <= iGz; i++) {
+            LowValue[i] = Smoothed[i];
+            if (LowValue[i] >= Target[i]) {
+                Done = false;
+                NextLowOffset[i] = LowOffset[i] - 1000;
+            }
+            else { 
+                NextLowOffset[i] = LowOffset[i];
+             }
+        }
+
+        SetOffsets(HighOffset);
+        GetSmoothed();
+        for (int i = iAx; i <= iGz; i++) {
+            HighValue[i] = Smoothed[i];
+            if (HighValue[i] <= Target[i]) {
+                Done = false;
+                NextHighOffset[i] = HighOffset[i] + 1000;
+            }
+            else { 
+                NextHighOffset[i] = HighOffset[i];
+            }
+        }
+        ShowProgress();
+        for (int i = iAx; i <= iGz; i++) {
+            LowOffset[i] = NextLowOffset[i];   // had to wait until ShowProgress done
+            HighOffset[i] = NextHighOffset[i]; // ..
+        }
+    }
+}
+
 void onLedCommand(const char* cmd_msg) {
     pixels.setBrightness(16);
     if (strcmp_P(cmd_msg, PSTR("left")) == 0) {
@@ -274,7 +488,6 @@ void onLedCommand(const char* cmd_msg) {
     }
     pixels.show(); // This sends the updated pixel color to the hardware.
 }
-
 
 void displayVoltageGoodLed() {
     if (currentVoltageStatus == VoltageStatus::GOOD) {
@@ -322,9 +535,7 @@ void disableLed() {
         return;
     }
 
-    pixels.setPixelColor(5, 0, 0, 0);
-    pixels.setPixelColor(15, 0, 0, 0);
-    pixels.setPixelColor(16, 0, 0, 0);
+    pixels.clear();
     pixels.show();
 
     currentVoltageStatus = VoltageStatus::DISABLED;
@@ -349,7 +560,6 @@ void onPacketReceived(const uint8_t* message, size_t size)
         case MessageType::ERROR:break;
         case MessageType::STEERING_ANGLE:break;
         case MessageType::TICKS:break;
-        case MessageType::SPEED:break;
         case MessageType::IMU:break;
         case MessageType::VOLTAGE:break;
         case MessageType::HEARTBEAT:break;
@@ -364,6 +574,25 @@ void onPacketReceived(const uint8_t* message, size_t size)
             memcpy(&steering, &message[1], sizeof(int16_t));
             onSteeringCommand(steering);
             break;
+        case MessageType::IMU_CALIBRATION:
+            displayIMUCalibrationInitializeLed();
+            for (int i = iAx; i <= iGz; i++) {
+                Target[i] = 0; // must fix for ZAccel
+                HighOffset[i] = 0;
+                LowOffset[i] = 0;
+            }
+            Target[iAz] = 16384;
+            SetAveraging(NFast);
+
+            PullBracketsOut();
+            PullBracketsIn();
+            WriteEEPROM();
+            displayIMUCalibrationSuccessLed();
+            delay(1000);
+            mpu.resetFIFO();
+            disableLed();
+            break;
+
         case MessageType::LED_CMD:
             char cmd[size];
             memcpy(&cmd, &message[1], size);
@@ -460,14 +689,6 @@ void sendVoltage(float voltage) {
     uint8_t buf[size];
     buf[0] = (uint8_t)MessageType::VOLTAGE;
     memcpy(&buf[1], &voltage, sizeof(voltage));
-    packetSerial.send(buf, size);
-}
-
-void sendSpeed(float speed) {
-    uint8_t size = 1 + sizeof(speed);
-    uint8_t buf[size];
-    buf[0] = (uint8_t)MessageType::SPEED;
-    memcpy(&buf[1], &speed, sizeof(speed));
     packetSerial.send(buf, size);
 }
 
@@ -674,16 +895,20 @@ void loop() {
             sendIMU(fifoBuffer, temperature);
             sendTicks(ticks);
             ticks = 0;
-            int steeringAngle = analogRead(SERVO_FEEDBACK_MOTOR_PIN);
+            uint16_t steeringAngle = analogRead(SERVO_FEEDBACK_MOTOR_PIN);
             steeringAngle = analogRead(SERVO_FEEDBACK_MOTOR_PIN);
             sendSteeringAngle((uint16_t)steeringAngle);
 
             /***Voltmeter**/
-            int vol = analogRead(BATTERY_PIN);
-            vol = analogRead(BATTERY_PIN);
-            voltageBuffer[voltageIndex++] = vol;
-            if (voltageIndex >= VOLTAGE_BUFFER_SIZE) {
-                voltageIndex = 0;
+            voltageCycle++;
+            if (voltageCycle >= 2) {
+                uint16_t vol = analogRead(BATTERY_PIN);
+                vol = analogRead(BATTERY_PIN);
+                voltageBuffer[voltageIndex++] = vol;
+                if (voltageIndex >= VOLTAGE_BUFFER_SIZE) {
+                    voltageIndex = 0;
+                }
+                voltageCycle = 0;
             }
 
             float voltage = meanVoltage();
