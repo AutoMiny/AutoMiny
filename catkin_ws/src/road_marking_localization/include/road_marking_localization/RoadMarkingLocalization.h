@@ -17,6 +17,7 @@
 #include <road_marking_localization/crop_box.h>
 #include <tf/transform_listener.h>
 #include <image_geometry/pinhole_camera_model.h>
+#include <std_msgs/Float64MultiArray.h>
 
 namespace road_marking_localization {
 
@@ -114,6 +115,12 @@ namespace road_marking_localization {
          */
         sensor_msgs::PointCloud2ConstPtr getAlignedPointCloud();
 
+        /**
+         * Gets the transformation matrix
+         * @return Transformation matrix converted to Float64MultiArray
+         */
+        std_msgs::Float64MultiArrayConstPtr getTransformationMatrix();
+
     private:
         /**
          * Converts a depth image into a pointcloud.
@@ -141,6 +148,7 @@ namespace road_marking_localization {
         pcl::PointCloud<pcl::PointXYZ>::Ptr alignedPointCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr transformedCloud;
         cv_bridge::CvImagePtr cv;
+        pcl::Registration<pcl::PointXYZ, pcl::PointXYZ>::Matrix4 transformationMatrix;
 
     public:
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW

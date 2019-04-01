@@ -3,6 +3,7 @@
 #include <cv.hpp>
 #include <pcl_ros/point_cloud.h>
 #include <pcl_ros/transforms.h>
+#include <eigen_conversions/eigen_msg.h>
 
 namespace road_marking_localization {
     RoadMarkingLocalization::RoadMarkingLocalization() {
@@ -148,7 +149,7 @@ namespace road_marking_localization {
             iterativeClosestPoint.setInputSource(randomSampledCloud);
             iterativeClosestPoint.align(*alignedPointCloud);
 
-            auto transformationMatrix = iterativeClosestPoint.getFinalTransformation();
+            transformationMatrix = iterativeClosestPoint.getFinalTransformation();
 
             auto yaw = transformationMatrix.block<3, 3>(0, 0, 3, 3).eulerAngles(0, 1, 2)[2];
             auto xCorrection = transformationMatrix(0, 3);
@@ -293,6 +294,13 @@ namespace road_marking_localization {
     sensor_msgs::PointCloud2ConstPtr RoadMarkingLocalization::getMapPointCloud() {
         auto ret = boost::make_shared<sensor_msgs::PointCloud2>();
         pcl::toROSMsg(*mapPointCloud, *ret);
+
+        return ret;
+    }
+
+    std_msgs::Float64MultiArrayConstPtr RoadMarkingLocalization::getTransformationMatrix() {
+        auto ret = boost::make_shared<std_msgs::Float64MultiArray>();
+        tf::matrixEigenToMsg(transformationMatrix, *ret);
 
         return ret;
     }

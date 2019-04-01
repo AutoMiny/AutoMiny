@@ -25,6 +25,7 @@
     <depend>tf</depend>
     <depend>pcl_ros</depend>
     <depend>robot_localization</depend>
+    <depend>eigen_conversions</depend>
 
     <!-- export of nodelet definition XML -->
     <export>

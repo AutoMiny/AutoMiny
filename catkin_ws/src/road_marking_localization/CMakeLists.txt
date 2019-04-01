@@ -34,6 +34,7 @@ find_package(catkin REQUIRED COMPONENTS
         image_geometry
         tf
         pcl_ros
+        eigen_conversions
         )
 
 find_package(OpenCV REQUIRED)
@@ -71,6 +72,7 @@ catkin_package(
         CATKIN_DEPENDS
         dynamic_reconfigure
         nodelet
+        eigen_conversions
 )
 ## Build ##
 ###########

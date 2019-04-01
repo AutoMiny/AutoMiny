@@ -43,6 +43,7 @@ namespace road_marking_localization {
             randomSampledPclPublisher = pnh.advertise<sensor_msgs::PointCloud2>("random_sampled_pcl", 1);
             alignedPclPublisher = pnh.advertise<sensor_msgs::PointCloud2>("aligned_pcl", 1);
             mapCloudPublisher = pnh.advertise<sensor_msgs::PointCloud2>("map_pcl", 1, true);
+            transformationMatrixPublisher = pnh.advertise<std_msgs::Float64MultiArray>("transformation_matrix", 1, true);
             robotLocalizationSetPose = pnh.serviceClient<robot_localization::SetPose>("/localization/set_pose");
 
             mapSubscriber = pnh.subscribe("map", 1, &RoadMarkingLocalizationNodelet::onMap, this);
@@ -88,6 +89,7 @@ namespace road_marking_localization {
                     randomSampledPclPublisher.publish(localization->getRandomSampledPointCloud());
                     alignedPclPublisher.publish(localization->getAlignedPointCloud());
                     thresholdedImagePublisher.publish(localization->getThresholdedImage());
+                    transformationMatrixPublisher.publish(localization->getTransformationMatrix());
                 }
             }
         }
@@ -129,6 +131,7 @@ namespace road_marking_localization {
         ros::Publisher alignedPclPublisher;
         ros::Publisher mapCloudPublisher;
         ros::Publisher odometryPublisher;
+        ros::Publisher transformationMatrixPublisher;
         ros::ServiceClient robotLocalizationSetPose;
         tf::TransformBroadcaster odometryBroadcaster;
 
