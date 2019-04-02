@@ -11,6 +11,7 @@
 		type="nodelet"
 		name="$(arg nodelet_manager)"
 		args="manager"
+		output="screen"
 	>
 		<!-- number of worker threads - if value is too low, performance will suffer! -->
 		<param name="num_worker_threads" value="64" />
