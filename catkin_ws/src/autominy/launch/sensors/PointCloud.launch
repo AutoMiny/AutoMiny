@@ -30,6 +30,6 @@
 		  args="load depth_image_proc/point_cloud_xyz $(arg pcl_nodelet_manager)"
 	>
 		<remap from="camera_info" to="/sensors/camera/depth/camera_info" />
-		<remap from="image_raw" to="/sensors/camera/depth/image_rect_raw" />
+		<remap from="image_rect" to="/sensors/camera/depth/image_rect_raw" />
 	</node>
 </launch>
