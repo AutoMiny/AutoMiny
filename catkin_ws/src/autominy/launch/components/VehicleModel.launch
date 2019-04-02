@@ -1,6 +1,0 @@
-<launch>
-	<include file="$(find car_robot_model)/launch/car_robot_model.launch">
-		<arg name="name" value="model_car"/>
-		<arg name="model" value="car"/>
-	</include>
-</launch>

@@ -4,34 +4,48 @@
 	<arg name="nodelet_manager" default="$(optenv SENSOR_NODELET_MANAGER sensor_nodelet_manager)" />
 
 	<!-- Intel Realsense D435 -->
-	<include file="$(find autominy)/launch/components/sensors/D435.launch">
+	<include file="$(find autominy)/launch/sensors/D435.launch">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- RPLidar -->
-	<include if="$(arg live)" file="$(find autominy)/launch/components/sensors/RPLidar.launch">
+	<include if="$(arg live)" file="$(find autominy)/launch/sensors/RPLidar.launch">
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- Hardware communication -->
-	<include file="$(find autominy)/launch/components/sensors/HardwareCommunication.launch">
+	<include file="$(find autominy)/launch/sensors/HardwareCommunication.launch">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- Odometry -->
-	<include file="$(find autominy)/launch/components/sensors/Odometry.launch">
+	<include file="$(find autominy)/launch/sensors/Odometry.launch">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
 	<!-- Road marking localization -->
-	<include file="$(find autominy)/launch/components/sensors/RoadMarkingLocalization.launch">
+	<include file="$(find autominy)/launch/sensors/RoadMarkingLocalization.launch">
+		<arg name="live"            value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	</include>
+
+	<!-- Vehicle model URDF -->
+	<include file="$(find autominy)/launch/sensors/VehicleModel.launch">
+		<arg name="live"            value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	</include>
+
+	<!-- PointCloud -->
+	<include file="$(find autominy)/launch/sensors/PointCloud.launch">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />

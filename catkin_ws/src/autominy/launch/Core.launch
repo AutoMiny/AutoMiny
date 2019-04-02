@@ -16,13 +16,8 @@
 		<param name="num_worker_threads" value="64" />
 	</node>
 
-
-	<!-- car model -->
-	<include file="$(find autominy)/launch/components/VehicleModel.launch" />
-
-
 	<!-- the sensors -->
-	<include file="$(find autominy)/launch/components/Sensors.launch" ns="sensors">
+	<include file="$(find autominy)/launch/sensors/Sensors.launch" ns="sensors">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />

@@ -1,0 +1,10 @@
+<launch>
+	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
+	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
+	<arg name="nodelet_manager" default="$(optenv VEHICLE_MODEL_NODELET_MANAGER core_nodelet_manager)" />
+
+	<include file="$(find car_robot_model)/launch/car_robot_model.launch">
+		<arg name="name" value="model_car"/>
+		<arg name="model" value="car"/>
+	</include>
+</launch>

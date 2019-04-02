@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<launch>
+	<arg name="use_nodelets" default="$(optenv USE_NODELETS false)"/>
+	<arg name="nodelet_manager" default="$(optenv POINTCLOUD_NODELET_MANAGER pointcloud_nodelet_manager)"/>
+
+	<![CDATA[
+    <!--
+          FOR DEBUGGING: add to node tag: launch-prefix="gnome-terminal -x gdb --args"
+          additionally add <param name="/bond_disable_heartbeat_timeout" value="true" /> to debug nodelets
+    -->
+    ]]>
+
+	<arg unless="$(arg use_nodelets)" name="pcl_nodelet_manager" value="pointcloud_nodelet_manager" />
+	<arg if="$(arg use_nodelets)" name="pcl_nodelet_manager" value="$(arg nodelet_manager)" />
+
+	<node unless="$(arg use_nodelets)"
+		  pkg="nodelet"
+		  type="nodelet"
+		  name="pointcloud_nodelet_manager"
+		  args="manager"
+	>
+		<param name="num_worker_threads" value="8" />
+	</node>
+
+	<node if="$(arg use_nodelets)"
+		  pkg="nodelet"
+		  type="nodelet"
+		  name="point_cloud_xyz"
+		  args="load depth_image_proc/point_cloud_xyz $(arg pcl_nodelet_manager)"
+	>
+		<remap from="camera_info" to="/sensors/camera/depth/camera_info" />
+		<remap from="image_raw" to="/sensors/camera/depth/image_rect_raw" />
+	</node>
+</launch>
