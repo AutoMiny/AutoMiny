@@ -30,5 +30,20 @@
 	>
 		<remap from="camera_info" to="/sensors/camera/depth/camera_info" />
 		<remap from="image_rect" to="/sensors/camera/depth/image_rect_raw" />
+		<remap from="points" to="/sensors/pointcloud/points_xyz" />
 	</node>
+
+	<!--<node pkg="nodelet"
+		  type="nodelet"
+		  name="voxelgrid"
+		  args="load pcl/VoxelGrid $(arg pcl_nodelet_manager)"
+	>
+		<remap from="~input" to="/sensors/pointcloud/points_xyz" />
+		<remap from="~output" to="/sensors/pointcloud/points_xyz_voxelgrid_filtered" />
+
+		<param name="filter_field_name" value="z"/>
+		<param name="filter_field_min" value="-1.0"/>
+		<param name="filter_field_max" value="1.0"/>
+		<param name="leaf_size" value="0.01"/>
+	</node>-->
 </launch>
