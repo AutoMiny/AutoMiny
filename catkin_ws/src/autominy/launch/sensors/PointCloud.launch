@@ -23,8 +23,7 @@
 		<param name="num_worker_threads" value="8" />
 	</node>
 
-	<node if="$(arg use_nodelets)"
-		  pkg="nodelet"
+	<node pkg="nodelet"
 		  type="nodelet"
 		  name="point_cloud_xyz"
 		  args="load depth_image_proc/point_cloud_xyz $(arg pcl_nodelet_manager)"
