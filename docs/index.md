@@ -6,7 +6,7 @@ controlled remotely (e.g. with a smartphone or XBox controller) or can
 be programmed to drive in fully autonomous mode. The cars run on ROS
 melodic on Ubuntu 18.04.
 
-![car](img/car.png)
+![car](img/car.jpg)
 
 ### Overview
 
