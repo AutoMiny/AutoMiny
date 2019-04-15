@@ -12,6 +12,8 @@ might destroy the battery and might explode when charging. Carefully
 connect a 14.4V rated LiPo battery to the battery cable and fixate the
 battery using the velcro stripe to the car.
 
+![battery](img/battery.jpg) ![battery-car](img/battery-car.jpg)
+
 ### Startup
 Switch the lever pointing towards the back of the car and press the
 start button for at least 3 seconds. The car will now turn on and show
