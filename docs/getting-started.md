@@ -27,8 +27,42 @@ the car but you should turn off the car immediately when the battery
 voltage tester begins buzzing.
 
 It takes about 10s until the odroid has booted and the car's software
-starts up.
+starts up. Once the car has booted the LiDAR will start spinning.
 
 ### Connecting to the car
 Each car is identified by it's number which is printed on the acrylic
-plate.
+plate. This number is used to connect to the car over the WiFi network.
+By default the car's IP address is `192.168.43.[NUMBER]`. To confirm the
+car is running simply try connecting via ssh with user `root` and the
+password `elfmeter`:
+
+```bash
+ssh root@192.168.43.[NUMBER]
+```
+
+### Testing the actuators
+Now you can try to steer and drive the car. Place the car on a box and
+run:
+
+Driving the car at a speed level of 0.2:
+```bash
+rostopic pub /control/command/normalized_wanted_steering autominy_msgs/NormalizedSteeringCommand "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+value: 0.2"
+```
+
+Setting the steering angle fully to the left:
+```bash
+rostopic pub /control/command/normalized_wanted_steering autominy_msgs/NormalizedSteeringCommand "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+value: 1.0"
+```
+
