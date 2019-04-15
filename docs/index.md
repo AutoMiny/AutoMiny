@@ -11,7 +11,7 @@ melodic on Ubuntu 18.04.
 ### Overview
 
 * [Getting started](getting-started.md)
-* Setting up ROS and the project
+* [Setting up ROS and the project](ros.md)
 * Hardware
 * Flashing the Arduino
 * Calibration
