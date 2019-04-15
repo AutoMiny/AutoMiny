@@ -9,9 +9,8 @@ melodic on Ubuntu 18.04.
 ![car](img/car.jpg)
 
 ### Overview
-
 * [Getting started](getting-started.md)
 * [Setting up ROS and the project](ros.md)
 * [Hardware](hardware.md)
-* Flashing the Arduino
-* Calibration
+* [Flashing the Arduino](flashing-arduino.md)
+* [Calibration](calibration.md)
