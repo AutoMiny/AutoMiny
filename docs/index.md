@@ -11,6 +11,7 @@ melodic on Ubuntu 18.04.
 ### Overview
 * [Getting started](getting-started.md)
 * [Setting up ROS and the project](ros.md)
+* [CLion](clion.md)
 * [Hardware](hardware.md)
 * [Flashing the Arduino](flashing-arduino.md)
 * [Calibration](calibration.md)
