@@ -17,7 +17,6 @@ cmake $CATKIN_PARAMS "$@"
 
 ### Symbolic linking
 By default workspaces are configured to use a linked development workspace. The symbolic linking is not handled by CMake but by catkin after a package has been build. Since again CLion is not using catkin but interfacing directly with CMake, this step is not performed when building through CMake. Fortunately, this behaviour can be changed to a merged development workspace which is not symbolic linked. In a terminal use the following command inside your `catkin_ws` folder to disable symbolic linking:
-
 ```bash
 catkin config --merge-devel
 ```
@@ -27,3 +26,14 @@ In CLion select `Open Project` from the file menu. Navigate to the autominy proj
 
 ### Recommended plugins
 The [hatchery](https://github.com/duckietown/hatchery) plugin is highly recommended which can be installed using the plugin browser. It features basic integration with ROS such as roslaunch, syntax highlighting for launch files, URDF and much more.
+
+### Use clang by default
+If you want to leverage clang's faster compilation speed and better error messages, clang can be configured as the default toolchain in a catkin workspace. Open up a terminal in your catkin workspace and type:
+```bash
+catkin config --cmake-args -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++
+```
+
+You can also enable Debug mode to add debug symbols:
+```bash
+catkin config --cmake-args -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_BUILD_TYPE=Debug
+```
