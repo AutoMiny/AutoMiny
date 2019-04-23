@@ -19,3 +19,4 @@ melodic on Ubuntu 18.04.
 * [Updating](updating.md)
 * [Realsense](realsense.md)
 * [Camera pose estimation](camera-pose-estimation.md)
+* [Localization](localization.md)
