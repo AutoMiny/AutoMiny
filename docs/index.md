@@ -15,3 +15,6 @@ melodic on Ubuntu 18.04.
 * [Hardware](hardware.md)
 * [Flashing the Arduino](flashing-arduino.md)
 * [Calibration](calibration.md)
+* [Visualization](visualization.md)
+* [Updating](updating.md)
+* [Realsense](realsense.md)
