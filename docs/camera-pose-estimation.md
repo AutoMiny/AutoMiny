@@ -18,7 +18,7 @@ We can calculate the camera's roll and pitch:
 
 Height above ground is given by:
 
-![](https://latex.codecogs.com/gif.latex?z&space;=&space;\frac{1}{|s|})
+![](https://latex.codecogs.com/gif.latex?z%20%3D%20%5Cfrac%7B1%7D%7B%7Cs%7C%7D)
 
 Since we got a lot of points from the pointcloud roll and pitch are quite accurate.
 
