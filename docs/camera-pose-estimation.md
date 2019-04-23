@@ -25,3 +25,10 @@ Since we got a lot of points from the pointcloud roll and pitch are quite accura
 We find the camera's yaw angle using the aruco marker on the front of the car. We use the color camera to detect the marker since it has a lower field of view which in return makes the marker appear bigger in the camera image than in the infrared ones. Make sure the camera is tilted (rolled) slightly to the ground plane so that the marker can be seen in the color image. Aruco markers can be used to get a 6-DOF pose relative to the marker. Since we know the marker's position on the car we can calculate the camera's position on the car. By default we only estimate the yaw angle using the marker but the marker can also be used to find the x y and z of the camera. The reason why we also use the ground plane is that the pose of the aruco marker can sometimes be noisy because the edges are not detected accurately. Another issue is that the estimated axis on the aruco markers sometimes are switched around and we can use the ground plane estimation to validate the pose from the marker.
 
 After calculation is done the node broadcasts the transform from `camera_bottom_screw_frame` to `base_link` over tf.
+
+### Example
+Estimated ground plane (taken from `/sensors/camera/stereo_camera_pose_estimation/plane_pcl`):
+![](img/ground-plane.png)
+
+Aruco marker and projected frame (taken from `/sensors/camera/stereo_camera_pose_estimation/marker`):
+![](img/pose-marker.png)
