@@ -1,0 +1,85 @@
+#include <lidar_pose_estimation/LidarPoseEstimation.h>
+#include <pcl_ros/point_cloud.h>
+#include <pcl_ros/transforms.h>
+#include <pcl_ros/point_cloud.h>
+#include <laser_geometry/laser_geometry.h>
+
+namespace lidar_pose_estimation {
+    LidarPoseEstimation::LidarPoseEstimation() : tfListener(tfBuffer) {
+        poles = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
+        data = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
+    }
+
+    LidarPoseEstimation::~LidarPoseEstimation() = default;
+
+    void LidarPoseEstimation::setConfig(LidarPoseEstimationConfig& config) {
+        this->config = config;
+    }
+
+    bool LidarPoseEstimation::processLaserScan(const sensor_msgs::LaserScanConstPtr& scan) {
+        sensor_msgs::PointCloud2 cloud;
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloudptr (new pcl::PointCloud<pcl::PointXYZ>());
+
+        projector.transformLaserScanToPointCloud("lidar_base_link", *scan, cloud, tfBuffer, config.max_dist);
+        pcl::fromROSMsg(cloud, *cloudptr);
+
+        data->header = cloudptr->header;
+        *data += *cloudptr;
+
+        return false;
+    }
+
+    sensor_msgs::PointCloud2ConstPtr LidarPoseEstimation::getPoles() {
+        auto ret = boost::make_shared<sensor_msgs::PointCloud2>();
+        pcl::toROSMsg(*poles, *ret);
+
+        return ret;
+    }
+
+    bool LidarPoseEstimation::estimateLidarPosition(const ros::TimerEvent& evnt) {
+        poles->clear();
+        voxelGridFilter.setLeafSize(config.voxel_grid_leaf_size, config.voxel_grid_leaf_size, config.voxel_grid_leaf_size);
+        voxelGridFilter.setMinimumPointsNumberPerVoxel(config.voxel_grid_minimum_points_per_voxel);
+        voxelGridFilter.setInputCloud(data);
+        voxelGridFilter.filter(*poles);
+        data->clear();
+
+        if (poles->size() == 2) {
+            Eigen::Vector2f p1(poles->points[0].x, poles->points[0].y);
+            Eigen::Vector2f p2(poles->points[1].x, poles->points[1].y);
+
+            Eigen::Vector2f pRef1(-0.05, 0.0565);
+            Eigen::Vector2f pRef2(-0.05, -0.0565);
+
+            auto vec = p1 - p2;
+            auto yaw = std::atan(vec.x() / vec.y());
+            Eigen::Rotation2Df rot(yaw);
+            p1 = rot * p1;
+            p2 = rot * p2;
+
+            auto pMiddle = (p1 + p2) * 0.5;
+            auto pRefMiddle = (pRef1 + pRef2) * 0.5;
+            auto x = pMiddle.x() - pRefMiddle.x() - 0.05;
+            auto y = pMiddle.y() - pRefMiddle.y();
+
+            ROS_ERROR("measured: %f, ref: %f, yaw: %f, x: %f, y: %f", (p1-p2).norm(), (pRef1-pRef2).norm(), yaw, x , y);
+
+            geometry_msgs::TransformStamped transform;
+            transform.header.stamp = ros::Time::now();
+            transform.header.frame_id = "base_link";
+            transform.child_frame_id = "lidar_base_link";
+            transform.transform.translation.x = -x;
+            transform.transform.translation.y = -y;
+            transform.transform.translation.z = config.z;
+            transform.transform.rotation = tf::createQuaternionMsgFromRollPitchYaw(config.roll, config.pitch, yaw);
+
+            tfBroadcaster.sendTransform(transform);
+
+            return true;
+        }
+
+        return false;
+    }
+
+
+}
