@@ -16,8 +16,8 @@
 #include <opencv2/core/mat.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/aruco.hpp>
-#include <tf/transform_listener.h>
-#include <tf/transform_broadcaster.h>
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/static_transform_broadcaster.h>
 #include <image_geometry/pinhole_camera_model.h>
 
 namespace stereo_camera_pose_estimation {
@@ -84,8 +84,9 @@ namespace stereo_camera_pose_estimation {
         image_geometry::PinholeCameraModel imageCameraModel;
         cv_bridge::CvImagePtr image;
         cv::Ptr<cv::aruco::Dictionary> dictionary;
-        tf::TransformListener tfListener;
-        tf::TransformBroadcaster tfBroadcaster;
+        tf2_ros::Buffer tfBuffer;
+        tf2_ros::TransformListener tfListener;
+        tf2_ros::StaticTransformBroadcaster tfBroadcaster;
         pcl::PointCloud<pcl::PointXYZ>::Ptr planePointCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr transformedPointCloud;
         pcl::ModelCoefficients::Ptr coefficients;

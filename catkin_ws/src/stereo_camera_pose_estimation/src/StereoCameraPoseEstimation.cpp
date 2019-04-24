@@ -3,9 +3,11 @@
 #include <cv.hpp>
 #include <pcl_ros/point_cloud.h>
 #include <pcl_ros/transforms.h>
+#include <tf2/LinearMath/Matrix3x3.h>
+#include <tf2/utils.h>
 
 namespace stereo_camera_pose_estimation {
-    StereoCameraPoseEstimation::StereoCameraPoseEstimation() {
+    StereoCameraPoseEstimation::StereoCameraPoseEstimation() : tfListener(tfBuffer) {
         coefficients = pcl::ModelCoefficients::Ptr(new pcl::ModelCoefficients);
         planePointCloud = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
         transformedPointCloud = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
@@ -75,7 +77,7 @@ namespace stereo_camera_pose_estimation {
 
         auto pcl = getPointcloud(depthImage, depthCameraInfo, config.maximum_depth);
         try {
-            pcl_ros::transformPointCloud("camera_bottom_screw_frame", *pcl, *transformedPointCloud, tfListener);
+            tfBuffer.transform(*pcl, *transformedPointCloud, "camera_bottom_screw_frame");
         } catch (const tf::TransformException& e) {
             ROS_ERROR("%s", e.what());
             return false;
@@ -130,9 +132,11 @@ namespace stereo_camera_pose_estimation {
             cv::aruco::estimatePoseSingleMarkers(corners, static_cast<float>(config.aruco_size), imageCameraModel.intrinsicMatrix(),
                                                  imageCameraModel.distortionCoeffs(), rvecs, tvecs);
 
-            tf::StampedTransform t;
+            geometry_msgs::TransformStamped t;
+            tf2::Quaternion tt;
             try {
-                tfListener.lookupTransform("camera_bottom_screw_frame", image->header.frame_id, ros::Time(0), t);
+                t = tfBuffer.lookupTransform("camera_bottom_screw_frame", image->header.frame_id, ros::Time(0));
+                tf2::convert(t, tt);
             } catch (const tf::TransformException& e) {
                 ROS_ERROR("%s", e.what());
                 return false;
@@ -147,17 +151,17 @@ namespace stereo_camera_pose_estimation {
                 cv::Mat1d  cameraTransformRotation;
                 cv::Rodrigues(rvecs[i], cameraTransformRotation);
 
-                tf::Matrix3x3 rotation
+                tf2::Matrix3x3 rotation
                         (cameraTransformRotation(0, 0), cameraTransformRotation(0, 1), cameraTransformRotation(0, 2),
                          cameraTransformRotation(1, 0), cameraTransformRotation(1, 1), cameraTransformRotation(1, 2),
                          cameraTransformRotation(2, 0), cameraTransformRotation(2, 1), cameraTransformRotation(2, 2));
 
-                tf::Quaternion q;
+                tf2::Quaternion q;
                 rotation.getRotation(q);
-                q = t * q;
+                q = tt * q;
                 q = q.inverse();
 
-                yaw = tf::getYaw(q);
+                yaw = tf2::getYaw(q);
 
                 break;
             }
@@ -182,10 +186,14 @@ namespace stereo_camera_pose_estimation {
         }
 
 
-        auto rot = tf::createQuaternionFromRPY(roll + config.roll_offset, -pitch + config.pitch_offset, yaw + config.yaw_offset);
-        auto trans = tf::Vector3(0.0 + config.x_offset, 0.0 + config.y_offset, height + config.height_offset);
-        tf::Transform t(rot, trans);
-        tf::StampedTransform transform(t, ros::Time::now(), "base_link", "camera_bottom_screw_frame");
+        geometry_msgs::TransformStamped transform;
+        transform.header.frame_id = "base_link";
+        transform.header.stamp = ros::Time::now();
+        transform.child_frame_id = "camera_bottom_screw_frame";
+        transform.transform.translation.x = 0.0 + config.x_offset;
+        transform.transform.translation.y = 0.0 + config.y_offset;
+        transform.transform.translation.z = height + config.height_offset;
+        transform.transform.rotation = tf::createQuaternionMsgFromRollPitchYaw(roll + config.roll_offset, -pitch + config.pitch_offset, yaw + config.yaw_offset);
         tfBroadcaster.sendTransform(transform);
 
         lastPoseEstimationTime = ros::Time::now();
