@@ -4,7 +4,8 @@
 #include <sensor_msgs/PointCloud2.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
-#include <pcl/filters/voxel_grid.h>
+#include <pcl/segmentation/extract_clusters.h>
+#include <pcl/segmentation/sac_segmentation.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/static_transform_broadcaster.h>
 #include <sensor_msgs/LaserScan.h>
@@ -44,12 +45,10 @@ namespace lidar_pose_estimation {
 
         pcl::PointCloud<pcl::PointXYZ>::Ptr poles;
         pcl::PointCloud<pcl::PointXYZ>::Ptr data;
-        pcl::VoxelGrid<pcl::PointXYZ> voxelGridFilter;
 
         tf2_ros::Buffer tfBuffer;
         tf2_ros::TransformListener tfListener;
         tf2_ros::StaticTransformBroadcaster tfBroadcaster;
-        ros::Time lastPoseEstimationTime;
         laser_geometry::LaserProjection projector;
 
     public:
