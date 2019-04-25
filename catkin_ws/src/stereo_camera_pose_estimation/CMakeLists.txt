@@ -35,7 +35,7 @@ find_package(catkin REQUIRED COMPONENTS
         tf2
         tf2_ros
         tf2_msgs
-        tf2_sensor_msgs
+        tf2_eigen
         pcl_ros
         )
 

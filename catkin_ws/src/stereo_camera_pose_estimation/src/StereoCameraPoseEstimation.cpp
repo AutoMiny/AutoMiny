@@ -1,8 +1,9 @@
 #include <stereo_camera_pose_estimation/StereoCameraPoseEstimation.h>
 #include <opencv2/imgcodecs.hpp>
 #include <cv.hpp>
-#include <pcl_ros/point_cloud.h>
-#include <pcl_ros/transforms.h>
+#include <pcl_conversions/pcl_conversions.h>
+#include <pcl/common/transforms.h>
+#include <tf2_eigen/tf2_eigen.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <tf2/utils.h>
 
@@ -77,8 +78,12 @@ namespace stereo_camera_pose_estimation {
 
         auto pcl = getPointcloud(depthImage, depthCameraInfo, config.maximum_depth);
         try {
-            tfBuffer.transform(*pcl, *transformedPointCloud, "camera_bottom_screw_frame");
-        } catch (const tf::TransformException& e) {
+            auto t = tfBuffer.lookupTransform("camera_bottom_screw_frame", pcl->header.frame_id, depthImage->header.stamp);
+            Eigen::Affine3d tt = tf2::transformToEigen(t);
+            pcl::transformPointCloud(*pcl, *transformedPointCloud, tt);
+            transformedPointCloud->header.frame_id = "camera_bottom_screw_frame";
+            transformedPointCloud->header.stamp = pcl->header.stamp;
+        } catch (const tf2::TransformException& e) {
             ROS_ERROR("%s", e.what());
             return false;
         }
@@ -136,8 +141,8 @@ namespace stereo_camera_pose_estimation {
             tf2::Quaternion tt;
             try {
                 t = tfBuffer.lookupTransform("camera_bottom_screw_frame", image->header.frame_id, ros::Time(0));
-                tf2::convert(t, tt);
-            } catch (const tf::TransformException& e) {
+                tf2::convert(t.transform.rotation, tt);
+            } catch (const tf2::TransformException& e) {
                 ROS_ERROR("%s", e.what());
                 return false;
             }
@@ -148,7 +153,7 @@ namespace stereo_camera_pose_estimation {
 
                 cv::aruco::drawAxis(cvImage, imageCameraModel.intrinsicMatrix(), imageCameraModel.distortionCoeffs(),
                                     rvecs[i], tvecs[i], 0.1);
-                cv::Mat1d  cameraTransformRotation;
+                cv::Mat1d cameraTransformRotation;
                 cv::Rodrigues(rvecs[i], cameraTransformRotation);
 
                 tf2::Matrix3x3 rotation
@@ -193,7 +198,11 @@ namespace stereo_camera_pose_estimation {
         transform.transform.translation.x = 0.0 + config.x_offset;
         transform.transform.translation.y = 0.0 + config.y_offset;
         transform.transform.translation.z = height + config.height_offset;
-        transform.transform.rotation = tf::createQuaternionMsgFromRollPitchYaw(roll + config.roll_offset, -pitch + config.pitch_offset, yaw + config.yaw_offset);
+        tf2::Quaternion q;
+        q.setRPY(roll + config.roll_offset, -pitch + config.pitch_offset, yaw + config.yaw_offset);
+        geometry_msgs::Quaternion qq;
+        tf2::convert(q, qq);
+        transform.transform.rotation = qq;
         tfBroadcaster.sendTransform(transform);
 
         lastPoseEstimationTime = ros::Time::now();
