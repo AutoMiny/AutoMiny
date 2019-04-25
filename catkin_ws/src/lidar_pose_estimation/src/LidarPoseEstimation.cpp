@@ -68,8 +68,16 @@ namespace lidar_pose_estimation {
             Eigen::Vector2f p1(poles->points[0].x, poles->points[0].y);
             Eigen::Vector2f p2(poles->points[1].x, poles->points[1].y);
 
-            Eigen::Vector2f pRef1(-0.035, 0.055);
-            Eigen::Vector2f pRef2(-0.035, -0.055);
+            //Eigen::Vector2f pRef1(-0.035, 0.055);
+            //Eigen::Vector2f pRef2(-0.035, -0.055);
+
+            Eigen::Vector2f pRef1(config.p_ref_1_x, config.p_ref_1_y);
+            Eigen::Vector2f pRef2(config.p_ref_2_x, config.p_ref_2_y);
+
+
+            if (std::fabs((p1 - p2).norm() - (pRef1 - pRef2).norm()) > config.max_reference_distance_deviation) {
+                return false;
+            }
 
             auto vec = p1 - p2;
             auto yaw = std::atan(vec.x() / vec.y());
