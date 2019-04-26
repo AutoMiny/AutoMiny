@@ -32,7 +32,11 @@ find_package(catkin REQUIRED COMPONENTS
         cv_bridge
         image_transport
         image_geometry
-        tf
+        tf2
+        tf2_ros
+        tf2_eigen
+        tf2_msgs
+        tf2_geometry_msgs
         pcl_ros
         eigen_conversions
         )

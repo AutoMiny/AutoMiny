@@ -7,7 +7,6 @@
 #include <road_marking_localization/RoadMarkingLocalization.h>
 #include <road_marking_localization/RoadMarkingLocalizationFwd.h>
 #include <image_transport/image_transport.h>
-#include <tf/transform_broadcaster.h>
 #include <image_transport/subscriber_filter.h>
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
@@ -133,7 +132,6 @@ namespace road_marking_localization {
         ros::Publisher odometryPublisher;
         ros::Publisher transformationMatrixPublisher;
         ros::ServiceClient robotLocalizationSetPose;
-        tf::TransformBroadcaster odometryBroadcaster;
 
         /// pointer to dynamic reconfigure service
         boost::shared_ptr<dynamic_reconfigure::Server<RoadMarkingLocalizationConfig>> configServer;

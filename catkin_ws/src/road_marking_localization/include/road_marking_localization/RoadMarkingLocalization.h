@@ -15,7 +15,7 @@
 #include <pcl/registration/transformation_estimation_svd.h>
 #include <road_marking_localization/random_sample.h>
 #include <road_marking_localization/crop_box.h>
-#include <tf/transform_listener.h>
+#include <tf2_ros/transform_listener.h>
 #include <image_geometry/pinhole_camera_model.h>
 #include <std_msgs/Float64MultiArray.h>
 
@@ -141,7 +141,8 @@ namespace road_marking_localization {
         nav_msgs::Odometry correctedPosition;
         pcl::CropBox<pcl::PointXYZ> boxFilter;
         pcl::RandomSample<pcl::PointXYZ> randomSampleFilter;
-        tf::TransformListener tfListener;
+        tf2_ros::Buffer tfBuffer;
+        tf2_ros::TransformListener tfListener;
         pcl::PointCloud<pcl::PointXYZ>::Ptr mapPointCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr randomSampledCloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr croppedCloud;

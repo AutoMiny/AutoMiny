@@ -22,10 +22,14 @@
     <depend>sensor_msgs</depend>
     <depend>nav_msgs</depend>
     <depend>cv_bridge</depend>
-    <depend>tf</depend>
     <depend>pcl_ros</depend>
     <depend>robot_localization</depend>
     <depend>eigen_conversions</depend>
+    <depend>tf2</depend>
+    <depend>tf2_ros</depend>
+    <depend>tf2_eigen</depend>
+    <depend>tf2_msgs</depend>
+    <depend>tf2_geometry_msgs</depend>
 
     <!-- export of nodelet definition XML -->
     <export>
