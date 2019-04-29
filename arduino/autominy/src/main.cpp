@@ -26,7 +26,7 @@
 #define ENABLE_PIN 7
 #define HEARTBEAT_TIMEOUT 100
 
-#define REFERENCE_VOLTAGE 5.1 //Default reference on Teensy is 3.3V
+#define REFERENCE_VOLTAGE 5.2 //Default reference on Teensy is 3.3V
 #define R1 3300.0
 #define R2 1490.0
 #define VOLTAGE_BUFFER_SIZE 128
