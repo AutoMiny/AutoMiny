@@ -36,7 +36,7 @@ namespace lidar_pose_estimation {
             f = boost::bind(&LidarPoseEstimationNodelet::callbackReconfigure, this, _1, _2);
             configServer->setCallback(f);
 
-            laserSubscriber = pnh.subscribe("/sensors/rplidar/scan", 1, &LidarPoseEstimationNodelet::onLaserScan, this, ros::TransportHints().tcpNoDelay());
+            laserSubscriber = pnh.subscribe("scan", 1, &LidarPoseEstimationNodelet::onLaserScan, this, ros::TransportHints().tcpNoDelay());
             calibrationTimer = pnh.createTimer(ros::Duration(1), &LidarPoseEstimationNodelet::onCalibration, this);
         }
 
