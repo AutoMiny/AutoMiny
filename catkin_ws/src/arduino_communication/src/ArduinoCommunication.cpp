@@ -95,6 +95,8 @@ void ArduinoCommunication::onReceive(uint8_t *message, size_t length) {
             case MessageType::SPEED_CMD:break;
             case MessageType::STEERING_CMD:break;
             case MessageType::LED_CMD:break;
+            case MessageType::HEARTBEAT:break;
+            case MessageType::IMU_CALIBRATION:break;
             case MessageType::STEERING_ANGLE:onSteeringAngle(&message[1]);
                 break;
             case MessageType::TICKS:onTicks(&message[1]);
