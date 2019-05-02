@@ -126,97 +126,12 @@
 
     <!-- Aruco Marker -->
     <link name="marker">
-        <inertial>
-            <mass value="0.2000000"/>
-            <origin xyz="0.00000000 0.00000000 0.00000000" rpy="0 0 0"/>
-            <inertia ixx="0.00000000" ixy="0.0" ixz="0.0"
-                     iyy="0.00000000" iyz="0.0"
-                     izz="0.00000000"/>
-        </inertial>
-        <visual>
-            <origin xyz="0 0 0.003" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.12 0.12 0.002"/>
-            </geometry>
-            <material name="White"/>
-        </visual>
-        <visual>
-            <origin xyz="0.0 0.0 0.004" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.09 0.09 0.002"/>
-            </geometry>
-            <material name="Black"/>
-        </visual>
-
-        <visual>
-            <origin xyz="0.0225 0.0225 0.005" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.015 0.015 0.002"/>
-            </geometry>
-            <material name="White"/>
-        </visual>
-
-        <visual>
-            <origin xyz="0.0225 0.0075 0.005" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.015 0.015 0.002"/>
-            </geometry>
-            <material name="White"/>
-        </visual>
-
-        <visual>
-            <origin xyz="0.0225 -0.0075 0.005" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.015 0.015 0.002"/>
-            </geometry>
-            <material name="White"/>
-        </visual>
-
-        <visual>
-            <origin xyz="0.0075 0.0225 0.005" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.015 0.015 0.002"/>
-            </geometry>
-            <material name="White"/>
-        </visual>
-
-        <visual>
-            <origin xyz="0.0075 -0.0075 0.005" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.015 0.015 0.002"/>
-            </geometry>
-            <material name="White"/>
-        </visual>
-
-        <visual>
-            <origin xyz="0.0075 -0.0225 0.005" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.015 0.015 0.002"/>
-            </geometry>
-            <material name="White"/>
-        </visual>
-
-        <visual>
-            <origin xyz="-0.0075 0.0075 0.005" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.015 0.015 0.002"/>
-            </geometry>
-            <material name="White"/>
-        </visual>
- 
-        <visual>
-            <origin xyz="-0.0225 0.0225 0.005" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.015 0.015 0.002"/>
-            </geometry>
-            <material name="White"/>
-        </visual>
     </link>
 
-    <joint name="joint_camera_board_to_marker" type="fixed">
-        <parent link="camera_board"/>
+    <joint name="joint_sensor_board_to_marker" type="fixed">
+        <parent link="sensor_board"/>
         <child link="marker"/>
-        <origin xyz="0.01 0 0" rpy="0 0 0"/>
+        <origin xyz="0.30 0 0" rpy="0 0 0"/>
     </joint>
 
 
