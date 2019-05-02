@@ -44,10 +44,10 @@ namespace stereo_camera_pose_estimation {
 
             markerImagePublisher = pnh.advertise<sensor_msgs::Image>("marker", 1);
 
-            infraImageSubscriber.subscribe(it, "camera/color/image_rect_color", 2, image_transport::TransportHints("raw", ros::TransportHints().tcpNoDelay()));
-            depthImageSubscriber.subscribe(it, "camera/depth/image_rect_raw", 2, image_transport::TransportHints("raw", ros::TransportHints().tcpNoDelay()));
-            infraCameraInfoSubscriber.subscribe(pnh, "camera/color/camera_info", 2, ros::TransportHints().tcpNoDelay());
-            depthCameraInfoSubscriber.subscribe(pnh, "camera/depth/camera_info", 2, ros::TransportHints().tcpNoDelay());
+            infraImageSubscriber.subscribe(it, "/sensors/camera/color/image_rect_color", 2, image_transport::TransportHints("raw", ros::TransportHints().tcpNoDelay()));
+            depthImageSubscriber.subscribe(it, "/sensors/camera/depth/image_rect_raw", 2, image_transport::TransportHints("raw", ros::TransportHints().tcpNoDelay()));
+            infraCameraInfoSubscriber.subscribe(pnh, "/sensors/camera/color/camera_info", 2, ros::TransportHints().tcpNoDelay());
+            depthCameraInfoSubscriber.subscribe(pnh, "/sensors/camera/depth/camera_info", 2, ros::TransportHints().tcpNoDelay());
 
             sync = std::make_shared<SynchronizerDepthImage>(SyncPolicyDepthImage(20));
             sync->connectInput(infraImageSubscriber, infraCameraInfoSubscriber, depthImageSubscriber,
