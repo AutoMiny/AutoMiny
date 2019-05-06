@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="gps_id" default="999" />
+
+    <!-- start standalone node -->
+    <node pkg="road_marking_localization"
+          name="road_marking_localization_initialpose"
+          type="gps_initialpose.py"
+    >
+    </node>
+
+</launch>
