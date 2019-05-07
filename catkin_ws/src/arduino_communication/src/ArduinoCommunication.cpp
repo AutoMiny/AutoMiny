@@ -85,10 +85,10 @@ void ArduinoCommunication::spin() {
             }
 
             while (connected && serial->available() > 0) {
-                uint8_t recv;
-                size_t bytes = serial->read(&recv, 1);
-                if (bytes > 0) {
-                    if (recv == 0) {
+                uint8_t buf[16];
+                size_t bytes = serial->read(buf, 16);
+                for (int i = 0; i < bytes; i++) {
+                    if (buf[i] == 0) {
                         uint8_t decodeBuffer[receiveBufferIndex];
 
                         size_t numDecoded = COBS::decode(receiveBuffer,
@@ -96,10 +96,10 @@ void ArduinoCommunication::spin() {
                                                          decodeBuffer);
 
                         onReceive(decodeBuffer, numDecoded);
-
+                        receiveBufferIndex = 0;
                     } else {
                         if (receiveBufferIndex + 1 < 512) {
-                            receiveBuffer[receiveBufferIndex++] = recv;
+                            receiveBuffer[receiveBufferIndex++] = buf[i];
                         } else {
                             ROS_ERROR("Buffer overflow");
                         }
