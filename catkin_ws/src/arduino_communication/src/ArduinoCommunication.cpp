@@ -7,7 +7,7 @@ namespace arduino_communication {
 
 ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     device = nh.param<std::string>("device", "/dev/ttyUSB1");
-    baudrate = nh.param("baud", 115200);
+    baudrate = nh.param("baud", 500000);
 
     steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 2);
     voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 2);
@@ -54,7 +54,7 @@ void ArduinoCommunication::onReceive(uint8_t *message, size_t length) {
     }
 }
 
-size_t ArduinoCommunication::onSend(uint8_t *message, size_t length) {
+size_t ArduinoCommunication::onSend(uint8_t* message, size_t length) {
     try {
         if (serial && serial->isOpen()) {
             return serial->write(message, length);
@@ -279,7 +279,7 @@ void ArduinoCommunication::onLedCommand(std_msgs::StringConstPtr const &led) {
 }
 
 void ArduinoCommunication::onHeartbeat(ros::TimerEvent const &event) {
-    uint8_t size = sizeof(MessageType) + 1;
+    uint8_t size = sizeof(MessageType);
     uint8_t message[size];
 
     message[0] = (uint8_t) MessageType::HEARTBEAT;
