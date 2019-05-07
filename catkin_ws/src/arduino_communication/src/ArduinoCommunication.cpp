@@ -253,8 +253,6 @@ void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringCommandConst
     uint8_t output[outputSize];
     auto cobs = COBS::encode(message, size, output);
 
-    onSend(output, cobs);
-
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
         ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
@@ -271,8 +269,6 @@ void ArduinoCommunication::onLedCommand(std_msgs::StringConstPtr const &led) {
     uint8_t output[outputSize];
     auto cobs = COBS::encode(message, size, output);
 
-    onSend(output, cobs);
-
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
         ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
@@ -288,8 +284,6 @@ void ArduinoCommunication::onHeartbeat(ros::TimerEvent const &event) {
     auto outputSize = COBS::getEncodedBufferSize(size);
     uint8_t output[outputSize];
     auto cobs = COBS::encode(message, size, output);
-
-    onSend(output, cobs);
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
