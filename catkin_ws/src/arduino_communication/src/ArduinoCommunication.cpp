@@ -1,5 +1,6 @@
 #include <memory>
 
+#include "COBS.h"
 #include "ArduinoCommunication.h"
 
 namespace arduino_communication {
@@ -19,62 +20,6 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     steeringSubscriber = nh.subscribe("steering", 2, &ArduinoCommunication::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
     ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this, ros::TransportHints().tcpNoDelay());
     imuCalibrationService = nh.advertiseService("calibrate_imu", &ArduinoCommunication::calibrateIMU, this);
-}
-
-size_t ArduinoCommunication::cobsEncode(const uint8_t *input, size_t length, uint8_t *output) {
-    size_t write_idx = 1;
-    size_t read_idx = 0;
-    uint8_t code = 1;
-    size_t code_idx = 0;
-
-    while (read_idx < length) {
-        if (input[read_idx] == 0) {
-            output[code_idx] = code;
-            code = 1;
-            code_idx = write_idx++;
-            read_idx++;
-        } else {
-            output[write_idx++] = input[read_idx++];
-            code++;
-            if (code == 0xFF) {
-                output[code_idx] = code;
-                code = 1;
-                code_idx = write_idx++;
-            }
-        }
-    }
-
-    output[code_idx] = code;
-    output[write_idx++] = 0;
-
-    return write_idx;
-}
-
-size_t ArduinoCommunication::cobsDecode(const uint8_t *input, size_t length, uint8_t *output) {
-    size_t write_idx = 0;
-    size_t read_idx = 0;
-    uint8_t i;
-    uint8_t code;
-
-    while (read_idx < length) {
-        code = input[read_idx];
-
-        if (read_idx + code > length && code != 1) {
-            return 0;
-        }
-
-        read_idx++;
-
-        for (i = 1; i < code; i++) {
-            output[write_idx++] = input[read_idx++];
-        }
-
-        if (code != 0xFF && read_idx != length) {
-            output[write_idx++] = '\0';
-        }
-    }
-
-    return write_idx;
 }
 
 void ArduinoCommunication::onReceive(uint8_t *message, size_t length) {
@@ -139,25 +84,26 @@ void ArduinoCommunication::spin() {
                 connected = serial->isOpen();
             }
 
-            while (connected && serial->available()) {
+            while (connected && serial->available() > 0) {
                 uint8_t recv;
                 size_t bytes = serial->read(&recv, 1);
                 if (bytes > 0) {
-                    receiveBuffer[receiveBufferIndex++] = recv;
-
                     if (recv == 0) {
-                        uint8_t message[512];
-                        size_t read = cobsDecode(receiveBuffer, receiveBufferIndex, message);
+                        uint8_t decodeBuffer[receiveBufferIndex];
 
-                        if (read == 0) {
-                            ROS_WARN("Dropped corrupted package from arduino!");
+                        size_t numDecoded = COBS::decode(receiveBuffer,
+                                                         receiveBufferIndex,
+                                                         decodeBuffer);
+
+                        onReceive(decodeBuffer, numDecoded);
+
+                    } else {
+                        if (receiveBufferIndex + 1 < 512) {
+                            receiveBuffer[receiveBufferIndex++] = recv;
                         } else {
-                            onReceive(message, read);
+                            ROS_ERROR("Buffer overflow");
                         }
-
-                        receiveBufferIndex = 0;
                     }
-
                 }
             }
         } catch (const std::exception& exception) {
@@ -300,11 +246,12 @@ void ArduinoCommunication::onTicks(uint8_t *message) {
 void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringCommandConstPtr const &steering) {
     uint8_t size = sizeof(MessageType) + sizeof(int16_t);
     uint8_t message[size];
-    uint8_t output[size * 2 + 1];
 
     message[0] = (uint8_t) MessageType::STEERING_CMD;
     memcpy(&message[1], &steering->value, sizeof(int16_t));
-    auto cobs = cobsEncode(message, size, output);
+    auto outputSize = COBS::getEncodedBufferSize(size);
+    uint8_t output[outputSize];
+    auto cobs = COBS::encode(message, size, output);
 
     onSend(output, cobs);
 
@@ -317,11 +264,12 @@ void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringCommandConst
 void ArduinoCommunication::onLedCommand(std_msgs::StringConstPtr const &led) {
     uint8_t size = sizeof(MessageType) + led->data.length() + 1;
     uint8_t message[size];
-    uint8_t output[size * 2 + 1];
 
     message[0] = (uint8_t) MessageType::LED_CMD;
     memcpy(&message[1], led->data.c_str(), led->data.length() + 1);
-    auto cobs = cobsEncode(message, size, output);
+    auto outputSize = COBS::getEncodedBufferSize(size);
+    uint8_t output[outputSize];
+    auto cobs = COBS::encode(message, size, output);
 
     onSend(output, cobs);
 
@@ -335,10 +283,11 @@ void ArduinoCommunication::onLedCommand(std_msgs::StringConstPtr const &led) {
 void ArduinoCommunication::onHeartbeat(ros::TimerEvent const &event) {
     uint8_t size = sizeof(MessageType) + 1;
     uint8_t message[size];
-    uint8_t output[size * 2 + 1];
 
     message[0] = (uint8_t) MessageType::HEARTBEAT;
-    auto cobs = cobsEncode(message, size, output);
+    auto outputSize = COBS::getEncodedBufferSize(size);
+    uint8_t output[outputSize];
+    auto cobs = COBS::encode(message, size, output);
 
     onSend(output, cobs);
 
@@ -351,11 +300,12 @@ void ArduinoCommunication::onHeartbeat(ros::TimerEvent const &event) {
 void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedCommandConstPtr const &speed) {
     uint8_t size = sizeof(MessageType) + sizeof(int16_t);
     uint8_t message[size];
-    uint8_t output[size * 2 + 1];
 
     message[0] = (uint8_t) MessageType::SPEED_CMD;
     memcpy(&message[1], &speed->value, sizeof(int16_t));
-    auto cobs = cobsEncode(message, size, output);
+    auto outputSize = COBS::getEncodedBufferSize(size);
+    uint8_t output[outputSize];
+    auto cobs = COBS::encode(message, size, output);
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
@@ -366,10 +316,11 @@ void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedCommandConstPtr co
 bool ArduinoCommunication::calibrateIMU(std_srvs::EmptyRequest& req, std_srvs::EmptyResponse& resp) {
     uint8_t size = sizeof(MessageType);
     uint8_t message[size];
-    uint8_t output[size * 2 + 1];
 
     message[0] = (uint8_t) MessageType::IMU_CALIBRATION;
-    auto cobs = cobsEncode(message, size, output);
+    auto outputSize = COBS::getEncodedBufferSize(size);
+    uint8_t output[outputSize];
+    auto cobs = COBS::encode(message, size, output);
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {

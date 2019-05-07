@@ -46,9 +46,6 @@ class ArduinoCommunication {
     void onTicks(uint8_t *message);
     bool calibrateIMU(std_srvs::EmptyRequest& req, std_srvs::EmptyResponse& resp);
 
-    size_t cobsDecode(const uint8_t *input, size_t length, uint8_t *output);
-    size_t cobsEncode(const uint8_t *input, size_t length, uint8_t *output);
-
     ros::Publisher ticksPublisher;
     ros::Publisher steeringAnglePublisher;
     ros::Publisher voltagePublisher;
