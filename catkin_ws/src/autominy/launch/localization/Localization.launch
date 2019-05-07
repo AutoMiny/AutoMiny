@@ -36,10 +36,11 @@
 		</node>
 	</group>
 
-	<remap from="gps" to="/communication/gps/$(arg gps_id)" />
+    <arg name="gps_id" value="$(optenv ROS_GPS_MARKER 999)" />
+    <remap from="gps" to="/communication/gps/$(arg gps_id)" />
 	<remap from="localization" to="/localization/odometry/filtered_map" />
 	<include file="$(find road_marking_localization)/launch/Initialpose.launch">
-		<arg name="gps_id" value="$(optenv ROS_GPS_MARKER 999)" />
+		<arg name="gps_id" value="$(arg gps_id)" />
 	</include>
 
 </launch>
