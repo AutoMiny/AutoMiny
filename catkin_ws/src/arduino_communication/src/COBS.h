@@ -68,6 +68,8 @@ public:
         }
 
         encodedBuffer[code_index] = code;
+        encodedBuffer[write_index++] = 0;
+
 
         return write_index;
     }
@@ -121,7 +123,7 @@ public:
     /// \returns the maximum size of the required encoded buffer.
     static size_t getEncodedBufferSize(size_t unencodedBufferSize)
     {
-        return unencodedBufferSize + unencodedBufferSize / 254 + 1;
+        return unencodedBufferSize + unencodedBufferSize / 254 + 2;
     }
 
 };

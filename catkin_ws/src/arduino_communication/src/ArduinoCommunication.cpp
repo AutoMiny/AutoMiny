@@ -6,7 +6,7 @@
 namespace arduino_communication {
 
 ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
-    device = nh.param<std::string>("device", "/dev/ttyUSB1");
+    device = nh.param<std::string>("device", "/dev/ttyUSB0");
     baudrate = nh.param("baud", 500000);
 
     steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 2);
@@ -250,9 +250,8 @@ void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringCommandConst
     message[0] = (uint8_t) MessageType::STEERING_CMD;
     memcpy(&message[1], &steering->value, sizeof(int16_t));
     auto outputSize = COBS::getEncodedBufferSize(size);
-    uint8_t output[outputSize + 1];
+    uint8_t output[outputSize];
     auto cobs = COBS::encode(message, size, output);
-    output[++cobs] = 0;
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
@@ -267,9 +266,8 @@ void ArduinoCommunication::onLedCommand(std_msgs::StringConstPtr const &led) {
     message[0] = (uint8_t) MessageType::LED_CMD;
     memcpy(&message[1], led->data.c_str(), led->data.length() + 1);
     auto outputSize = COBS::getEncodedBufferSize(size);
-    uint8_t output[outputSize + 1];
+    uint8_t output[outputSize];
     auto cobs = COBS::encode(message, size, output);
-    output[++cobs] = 0;
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
@@ -284,9 +282,8 @@ void ArduinoCommunication::onHeartbeat(ros::TimerEvent const &event) {
 
     message[0] = (uint8_t) MessageType::HEARTBEAT;
     auto outputSize = COBS::getEncodedBufferSize(size);
-    uint8_t output[outputSize + 1];
+    uint8_t output[outputSize];
     auto cobs = COBS::encode(message, size, output);
-    output[++cobs] = 0;
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
@@ -301,9 +298,8 @@ void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedCommandConstPtr co
     message[0] = (uint8_t) MessageType::SPEED_CMD;
     memcpy(&message[1], &speed->value, sizeof(int16_t));
     auto outputSize = COBS::getEncodedBufferSize(size);
-    uint8_t output[outputSize + 1];
+    uint8_t output[outputSize];
     auto cobs = COBS::encode(message, size, output);
-    output[++cobs] = 0;
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
@@ -317,9 +313,8 @@ bool ArduinoCommunication::calibrateIMU(std_srvs::EmptyRequest& req, std_srvs::E
 
     message[0] = (uint8_t) MessageType::IMU_CALIBRATION;
     auto outputSize = COBS::getEncodedBufferSize(size);
-    uint8_t output[outputSize + 1];
+    uint8_t output[outputSize];
     auto cobs = COBS::encode(message, size, output);
-    output[++cobs] = 0;
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
