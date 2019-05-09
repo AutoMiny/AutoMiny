@@ -75,7 +75,7 @@ void ArduinoCommunication::spin() {
 
     bool connected = false;
 
-    ros::Rate r(100);
+    ros::Rate r(200);
     while (ros::ok()) {
         try {
 
@@ -85,8 +85,8 @@ void ArduinoCommunication::spin() {
             }
 
             while (connected && serial->available() > 0) {
-                uint8_t buf[16];
-                size_t bytes = serial->read(buf, 16);
+                uint8_t buf[128];
+                size_t bytes = serial->read(buf, 128);
                 for (int i = 0; i < bytes; i++) {
                     if (buf[i] == 0) {
                         uint8_t decodeBuffer[receiveBufferIndex];
