@@ -9,16 +9,16 @@ ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     device = nh.param<std::string>("device", "/dev/ttyUSB0");
     baudrate = nh.param("baud", 500000);
 
-    steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 2);
-    voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 2);
-    ticksPublisher = nh.advertise<autominy_msgs::Tick>("ticks", 2);
-    imuPublisher = nh.advertise<sensor_msgs::Imu>("imu", 2);
-    imuTemperaturePublisher = nh.advertise<sensor_msgs::Temperature>("imu/temperature", 2);
+    steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 1);
+    voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 1);
+    ticksPublisher = nh.advertise<autominy_msgs::Tick>("ticks", 1);
+    imuPublisher = nh.advertise<sensor_msgs::Imu>("imu", 1);
+    imuTemperaturePublisher = nh.advertise<sensor_msgs::Temperature>("imu/temperature", 1);
 
     heartbeatTimer = nh.createTimer(ros::Duration(0.01), &ArduinoCommunication::onHeartbeat, this);
-    speedSubscriber = nh.subscribe("speed", 2, &ArduinoCommunication::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
-    steeringSubscriber = nh.subscribe("steering", 2, &ArduinoCommunication::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
-    ledSubscriber = nh.subscribe("led", 2, &ArduinoCommunication::onLedCommand, this, ros::TransportHints().tcpNoDelay());
+    speedSubscriber = nh.subscribe("speed", 1, &ArduinoCommunication::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
+    steeringSubscriber = nh.subscribe("steering", 1, &ArduinoCommunication::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
+    ledSubscriber = nh.subscribe("led", 1, &ArduinoCommunication::onLedCommand, this, ros::TransportHints().tcpNoDelay());
     imuCalibrationService = nh.advertiseService("calibrate_imu", &ArduinoCommunication::calibrateIMU, this);
 }
 

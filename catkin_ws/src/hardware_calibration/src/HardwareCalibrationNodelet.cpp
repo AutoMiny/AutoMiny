@@ -15,10 +15,10 @@ namespace hardware_calibration {
             f = boost::bind(&HardwareCalibrationNodelet::onReconfigure, this, _1, _2);
             configServer->setCallback(f);
 
-            steeringPublisher = pnh.advertise<autominy_msgs::SteeringCommand>("arduino/steering", 2);
-            speedPublisher = pnh.advertise<autominy_msgs::SpeedCommand>("arduino/speed", 2);
-            calibratedSpeedPublisher = pnh.advertise<autominy_msgs::Speed>("carstate/calibrated_speed", 2);
-            steeringAnglePublisher = pnh.advertise<autominy_msgs::SteeringAngle>("carstate/steering_angle", 2);
+            steeringPublisher = pnh.advertise<autominy_msgs::SteeringCommand>("arduino/steering", 1);
+            speedPublisher = pnh.advertise<autominy_msgs::SpeedCommand>("arduino/speed", 1);
+            calibratedSpeedPublisher = pnh.advertise<autominy_msgs::Speed>("carstate/calibrated_speed", 1);
+            steeringAnglePublisher = pnh.advertise<autominy_msgs::SteeringAngle>("carstate/steering_angle", 1);
             steeringFeedbackSubscriber = pnh.subscribe("arduino/steering_angle", 1,
                                                       &HardwareCalibrationNodelet::onSteeringFeedback, this, ros::TransportHints().tcpNoDelay());
             wantedSpeedSubscriber = pnh.subscribe("control/normalized_wanted_speed", 1, &HardwareCalibrationNodelet::onWantedSpeed, this, ros::TransportHints().tcpNoDelay());
@@ -37,7 +37,7 @@ namespace hardware_calibration {
                 autominy_msgs::Speed speedMsg;
                 speedMsg.header.stamp = ros::Time::now();
                 speedMsg.header.frame_id = "base_link";
-                auto duration = (ticksBuffer.back()->header.stamp - ticksBuffer.front()->header.stamp).toSec();
+                auto duration = ticksBuffer.size() * 0.01;
                 if (duration == 0.0) {
                     return;
                 }

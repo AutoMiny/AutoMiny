@@ -57,6 +57,7 @@ int16_t LinesOut;
 int16_t N;
 uint16_t ledOffset = 0;
 int16_t ledIncreaseVal = 1;
+uint8_t imubuf[23];
 
 int ledState = HIGH;                // ledState used to set the LED
 unsigned long previousMillis = 0;   // will store last time LED was updated
@@ -85,7 +86,7 @@ uint8_t mpuIntStatus;   // holds actual interrupt status byte from MPU
 uint8_t devStatus;      // return status after each device operation (0 = success, !0 = error)
 uint8_t packetSize;    // expected DMP packet size (default is 42 bytes)
 uint16_t fifoCount;     // count of all bytes currently in FIFO
-uint8_t fifoBuffer[64]; // FIFO storage buffer
+uint8_t fifoBuffer[128]; // FIFO storage buffer
 
 volatile bool mpuInterrupt = false;     // indicates whether MPU interrupt pin has gone high
 unsigned long lastHeartbeat = 0;
@@ -652,36 +653,30 @@ void logwarn(char *str) {
 }
 
 void sendIMU(uint8_t* fifoBuffer, int16_t temperature) {
-    uint8_t size = 1 + 22;
-    uint8_t buf[size];
-    buf[0] = (uint8_t)MessageType::IMU;
-    uint8_t lowTemp, highTemp;
-    lowTemp = temperature >> 8;
-    highTemp = temperature & 0xFF;
-
-    buf[1] = fifoBuffer[0];
-    buf[2] = fifoBuffer[1];
-    buf[3] = fifoBuffer[4];
-    buf[4] = fifoBuffer[5];
-    buf[5] = fifoBuffer[8];
-    buf[6] = fifoBuffer[9];
-    buf[7] = fifoBuffer[12];
-    buf[8] = fifoBuffer[13];
-    buf[9] = fifoBuffer[16];
-    buf[10] = fifoBuffer[17];
-    buf[11] = fifoBuffer[20];
-    buf[12] = fifoBuffer[21];
-    buf[13] = fifoBuffer[24];
-    buf[14] = fifoBuffer[25];
-    buf[15] = fifoBuffer[28];
-    buf[16] = fifoBuffer[29];
-    buf[17] = fifoBuffer[32];
-    buf[18] = fifoBuffer[33];
-    buf[19] = fifoBuffer[36];
-    buf[20] = fifoBuffer[37];
-    buf[21] = lowTemp;
-    buf[22] = highTemp;
-    packetSerial.send(buf, size);
+    imubuf[0] = (uint8_t)MessageType::IMU;
+    imubuf[1] = fifoBuffer[0];
+    imubuf[2] = fifoBuffer[1];
+    imubuf[3] = fifoBuffer[4];
+    imubuf[4] = fifoBuffer[5];
+    imubuf[5] = fifoBuffer[8];
+    imubuf[6] = fifoBuffer[9];
+    imubuf[7] = fifoBuffer[12];
+    imubuf[8] = fifoBuffer[13];
+    imubuf[9] = fifoBuffer[16];
+    imubuf[10] = fifoBuffer[17];
+    imubuf[11] = fifoBuffer[20];
+    imubuf[12] = fifoBuffer[21];
+    imubuf[13] = fifoBuffer[24];
+    imubuf[14] = fifoBuffer[25];
+    imubuf[15] = fifoBuffer[28];
+    imubuf[16] = fifoBuffer[29];
+    imubuf[17] = fifoBuffer[32];
+    imubuf[18] = fifoBuffer[33];
+    imubuf[19] = fifoBuffer[36];
+    imubuf[20] = fifoBuffer[37];
+    imubuf[21] = temperature >> 8;
+    imubuf[22] = temperature & 0xFF;
+    packetSerial.send(imubuf, 23);
 }
 
 void sendVoltage(float voltage) {
@@ -803,10 +798,10 @@ void setup() {
     pinMode(MOTOR_SPEED_PIN, OUTPUT);
     pinMode(BATTERY_PIN, INPUT);
     pinMode(DIR_PIN, OUTPUT);
-    pinMode(ENCODER_PIN, INPUT_PULLUP);
+    pinMode(ENCODER_PIN, INPUT);
     pinMode(SERVO_FEEDBACK_MOTOR_PIN, INPUT);
-    digitalWrite(ENCODER_PIN, HIGH);             //pull up
-    attachInterrupt(digitalPinToInterrupt(ENCODER_PIN), encoder, RISING);
+    //digitalWrite(ENCODER_PIN, HIGH);             //pull up
+    attachInterrupt(digitalPinToInterrupt(ENCODER_PIN), encoder, CHANGE);
     pixels.begin(); // This initializes the NeoPixel library.
     //Voltmeter
     pinMode(NEWLED_PIN, OUTPUT);
@@ -866,19 +861,15 @@ void loop() {
         fifoCount = mpu.getFIFOCount();
 
         // check for overflow (this should never happen unless our code is too inefficient)
-        if (fifoCount >= 1024) {
+        if ((mpuIntStatus & _BV(MPU6050_INTERRUPT_FIFO_OFLOW_BIT)) || fifoCount >= 1024)  {
             // reset so we can continue cleanly
             mpu.resetFIFO();
+            fifoCount = mpu.getFIFOCount();
             logerror("FIFO Overflow");
             // otherwise, check for DMP data ready interrupt (this should happen frequently)
-        } else if (mpuIntStatus & 0x10) {
-            // reset so we can continue cleanly
-            mpu.resetFIFO();
-            logerror("IMU bad status");
-            // otherwise, check for DMP data ready interrupt (this should happen frequently)
-        } else if (mpuIntStatus & 0x02) {
+        } else if (mpuIntStatus & _BV(MPU6050_INTERRUPT_DMP_INT_BIT)) {
             // wait for correct available data length, should be a VERY short wait
-            if (fifoCount < packetSize) {
+            while (fifoCount < packetSize) {
                 fifoCount = mpu.getFIFOCount();
             }
 
