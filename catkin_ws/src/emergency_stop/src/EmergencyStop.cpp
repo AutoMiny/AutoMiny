@@ -14,6 +14,7 @@ namespace emergency_stop {
         }
 
         auto angleIncrement = scan->angle_increment;
+
         if (wantedSpeed >= 0) {    //forward.
             auto frontAngle = config.angle_front / 2.0;
             auto start = 0;
