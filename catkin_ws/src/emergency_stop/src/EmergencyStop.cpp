@@ -17,6 +17,7 @@ namespace emergency_stop {
 
         if (wantedSpeed >= 0) {    //forward.
             auto frontAngle = config.angle_front / 2.0;
+
             auto start = 0;
             auto end = static_cast<int>(frontAngle / angleIncrement);
 
@@ -30,6 +31,7 @@ namespace emergency_stop {
 
             start = scan->ranges.size() - 1 - static_cast<int>(frontAngle / angleIncrement);
             end = scan->ranges.size();
+
             for (int k = start; k < end; k++) {
                 if (scan->ranges[k] <= breakDistance + config.forward_minimum_distance &&
                     scan->ranges[k] > config.forward_minimum_distance) {
