@@ -14,7 +14,7 @@ namespace emergency_stop {
         }
 
         auto angleIncrement = scan->angle_increment;
-
+// TODO:
         if (wantedSpeed >= 0) {    //forward.
             auto frontAngle = config.angle_front / 2.0;
 
@@ -28,6 +28,7 @@ namespace emergency_stop {
                     return;
                 }
             }
+            //TODO:
 
             start = scan->ranges.size() - 1 - static_cast<int>(frontAngle / angleIncrement);
             end = scan->ranges.size();
@@ -40,6 +41,7 @@ namespace emergency_stop {
                 }
             }
         }
+        // TODO:
 
         if (wantedSpeed < 0) { //backward.
             auto backAngle = config.angle_back / 2.0;
