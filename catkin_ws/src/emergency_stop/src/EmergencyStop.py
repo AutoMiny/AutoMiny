@@ -43,9 +43,9 @@ class EmergencyStop:
     def _get_break_distance(self):
         config = self._emergencyStopConfig
 
-        current_break_distance_is_null_or_zero = bool(config.break_distance_based_on_speed) is False
+        some_condition_i_dont_understand = config.break_distance_based_on_speed
 
-        if current_break_distance_is_null_or_zero:
+        if some_condition_i_dont_understand:
 
             current_speed = self._currentSpeed
             negative_acceleration = config.negative_acceleration
