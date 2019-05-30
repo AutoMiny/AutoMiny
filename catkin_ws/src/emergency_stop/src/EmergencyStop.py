@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-from EmergencyStopUtils import first_forward_emergency_stop_evaluation, calculate_break_distance, \
-    second_forward_emergency_stop_evaluation, move_forward, get_break_distance, move_backward
+from EmergencyStopSharedUtils import get_break_distance
+from EmergencyStopForwardUtils import move_forward
+from EmergencyStopBackwardUtils import move_backward
 
 PACKAGE = "emergency_stop"
 
@@ -24,8 +25,12 @@ class EmergencyStop:
         self._wantedSpeed = speed
 
     def get_safe_speed(self):
-        # code
-        return None
+
+        if self._emergencyStop:
+            speed_command = 0
+        else:
+            speed_command = self._wantedSpeed
+        return speed_command
 
     def check_emergency_stop(self, laser_scan):
 
