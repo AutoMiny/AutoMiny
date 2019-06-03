@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="bno055_usb_stick" type="bno055_usb_stick_node" name="bno055" output="screen">
+        <param name="baud" value="115200"/>
+        <param name="device" value="/dev/ttyIMU"/>
+    </node>
+</launch>

@@ -1,0 +1,10 @@
+std_msgs/Header header
+geometry_msgs/Vector3 acceleration
+geometry_msgs/Vector3 magnetometer
+geometry_msgs/Vector3 gyroscope
+bno055_usb_stick_msgs/EulerAngles euler_angles
+geometry_msgs/Quaternion quaternion
+geometry_msgs/Vector3 linear_acceleration
+geometry_msgs/Vector3 gravity_vector
+float64 temperature
+bno055_usb_stick_msgs/CalibrationStatus calibration_status
