@@ -2,8 +2,8 @@
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
 	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
 
-	<!-- Arduino communication -->
-	<remap from="/sensors/arduino/imu" to="/sensors/imu" />
-	<include file="$(find arduino_communication)/launch/ArduinoCommunication.launch">
+	<!-- BNO055 -->
+	<remap from="/sensors/bno055/imu" to="/sensors/imu" />
+	<include file="$(find bno055_usb_stick)/launch/BNO055.launch">
 	</include>
 </launch>

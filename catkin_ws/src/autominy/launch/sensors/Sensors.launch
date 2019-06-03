@@ -16,6 +16,12 @@
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
+	<!-- BNO055 -->
+	<include if="$(arg live)" file="$(find autominy)/launch/sensors/BNO055.launch">
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	</include>
+
 	<!-- Hardware communication -->
     <include if="$(arg live)" file="$(find autominy)/launch/sensors/Arduino.launch">
         <arg name="use_nodelets"    value="$(arg use_nodelets)" />
