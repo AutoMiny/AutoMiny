@@ -35,14 +35,19 @@ void twistCallback(const autominy_msgs::Speed &msg) {
 }
 
 void headingCallback(const sensor_msgs::Imu &msg) {
+    auto yaw = tf::getYaw(msg.orientation);
+    if (std::isnan(yaw)) {
+        return;
+    }
+
+    head = yaw;
+
     if (!init) {
         init = true;
-        head = tf::getYaw(msg.orientation); //rad
         initial_head = head;
         vth = 0.0;
         th = initial_yaw;
     } else {
-        head = tf::getYaw(msg.orientation); //rad
         double delta_head = head - initial_head + initial_yaw;
         if (delta_head > 3.14)
             delta_head = delta_head - 6.28;
