@@ -1,4 +1,4 @@
-def move_backward(config, laser_scan, break_distance):
+def moving_backward_evaluation(config, laser_scan, break_distance):
     angle_back = config.angle_back / 2.0
     ranges = laser_scan.ranges
     angle_increment = laser_scan.angle_increment

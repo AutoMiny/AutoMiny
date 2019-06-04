@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from EmergencyStopSharedUtils import get_break_distance
-from EmergencyStopForwardUtils import move_forward
-from EmergencyStopBackwardUtils import move_backward
+from EmergencyStopForwardUtils import moving_forward_evaluation
+from EmergencyStopBackwardUtils import moving_backward_evaluation
 
 PACKAGE = "emergency_stop"
 
@@ -41,13 +41,13 @@ class EmergencyStop:
         plan_is_to_move_forward = self._wantedSpeed >= 0
 
         if plan_is_to_move_forward:
-            emergency_stop_is_necessary = move_forward(config, laser_scan, break_distance)
+            emergency_stop_is_necessary = moving_forward_evaluation(config, laser_scan, break_distance)
             if emergency_stop_is_necessary:
                 self._emergencyStop = True
                 return
 
         else:
-            emergency_stop_is_necessary = move_backward(config, laser_scan, break_distance)
+            emergency_stop_is_necessary = moving_backward_evaluation(config, laser_scan, break_distance)
 
             if emergency_stop_is_necessary:
                 self._emergencyStop = True

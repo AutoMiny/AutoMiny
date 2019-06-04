@@ -1,4 +1,4 @@
-def move_forward(config, laser_scan, break_distance):
+def moving_forward_evaluation(config, laser_scan, break_distance):
     angle_front = config.angle_front / 2.0
     forward_minimum_distance = config.forward_minimum_distance
 

@@ -33,6 +33,7 @@ namespace emergency_stop {
 
         void setWantedSpeed(const autominy_msgs::SpeedCommandConstPtr &speed);
 
+
         autominy_msgs::SpeedCommand getSafeSpeed();
 
     private:
@@ -41,5 +42,21 @@ namespace emergency_stop {
         double currentSpeed = 0.0;
         int16_t wantedSpeed = 0;
         bool emergencyStop = true;
+
+        double getBreakDistance();
+
+        double calculateBreakDistance() const;
+
+        bool movingForwardEvaluation(const sensor_msgs::LaserScanConstPtr &scan, double breakDistance,
+                                     float angleIncrement);
+
+        bool movingBackwardEvaluation(const sensor_msgs::LaserScanConstPtr &scan, double breakDistance,
+                                      float angleIncrement);
+
+        bool firstForwardEvaluation(const sensor_msgs::LaserScanConstPtr &scan, double breakDistance,
+                                    float angleIncrement, double angleFront) const;
+
+        bool secondForwardEvaluation(const sensor_msgs::LaserScanConstPtr &scan, double breakDistance,
+                                     float angleIncrement, double angleFront) const;
     };
 }
