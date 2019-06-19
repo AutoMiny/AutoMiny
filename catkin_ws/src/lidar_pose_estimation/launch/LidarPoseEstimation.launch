@@ -19,11 +19,11 @@
         <param name="max_reference_distance_deviation" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_MAX_REFERENCE_DEVIATION 0.01)" />
         <param name="roll" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_ROLL 0.0)" />
         <param name="pitch" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_PITCH 0.0)" />
-        <param name="z" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_ROLL_Z 0.0)" />
-        <param name="p_ref_1_x" type="double" value="$(optenv ROS_LIDAR_P_REF_1_X -0.035)" />
-        <param name="p_ref_1_y" type="double" value="$(optenv ROS_LIDAR_P_REF_1_Y -0.055)" />
-        <param name="p_ref_2_x" type="double" value="$(optenv ROS_LIDAR_P_REF_2_X -0.035)" />
-        <param name="p_ref_2_y" type="double" value="$(optenv ROS_LIDAR_P_REF_2_Y -0.055)" />
+        <param name="z" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_Z 0.0)" />
+        <param name="p_ref_1_x" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_P_REF_1_X -0.035)" />
+        <param name="p_ref_1_y" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_P_REF_1_Y -0.055)" />
+        <param name="p_ref_2_x" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_P_REF_2_X -0.035)" />
+        <param name="p_ref_2_y" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_P_REF_2_Y -0.055)" />
     </node>
 
     <!-- start standalone node -->
