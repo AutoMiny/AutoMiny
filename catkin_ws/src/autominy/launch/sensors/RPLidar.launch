@@ -13,10 +13,10 @@
 	</node>
 
 	<remap from="/sensors/lidar_pose_estimation/scan" to="/sensors/rplidar/scan"/>
-	<!--
+
 	<include file="$(find lidar_pose_estimation)/launch/LidarPoseEstimation.launch">
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
-	-->
+
 </launch>

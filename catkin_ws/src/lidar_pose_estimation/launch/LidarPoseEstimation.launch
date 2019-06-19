@@ -10,6 +10,22 @@
     -->
     ]]>
 
+    <node name="$(anon reconfigure)" pkg="dynamic_reconfigure" type="dynparam" args="set_from_parameters lidar_pose_estimation">
+        <param name="max_dist" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_MAX_DISTANCE 0.25)" />
+        <param name="execution_frequency" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_EXECUTION_FREQUENCY 1.0)" />
+        <param name="cluster_tolerance" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_CLUSTER_TOLERANCE 0.02)" />
+        <param name="min_cluster_size" type="int" value="$(optenv ROS_LIDAR_CALIBRATION_MIN_CLUSTER_SIZE 10)" />
+        <param name="max_cluster_size" type="int" value="$(optenv ROS_LIDAR_CALIBRATION_MAX_CLUSTER_SIZE 100)" />
+        <param name="max_reference_distance_deviation" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_MAX_REFERENCE_DEVIATION 0.01)" />
+        <param name="roll" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_ROLL 0.0)" />
+        <param name="pitch" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_PITCH 0.0)" />
+        <param name="z" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_ROLL_Z 0.0)" />
+        <param name="p_ref_1_x" type="double" value="$(optenv ROS_LIDAR_P_REF_1_X -0.035)" />
+        <param name="p_ref_1_y" type="double" value="$(optenv ROS_LIDAR_P_REF_1_Y -0.055)" />
+        <param name="p_ref_2_x" type="double" value="$(optenv ROS_LIDAR_P_REF_2_X -0.035)" />
+        <param name="p_ref_2_y" type="double" value="$(optenv ROS_LIDAR_P_REF_2_Y -0.055)" />
+    </node>
+
     <!-- start standalone node -->
     <node unless="$(arg use_nodelets)"
           pkg="lidar_pose_estimation"
