@@ -5,6 +5,9 @@
 
 	<!-- Arduino communication -->
 	<remap from="/sensors/arduino/imu" to="/sensors/imu" />
+	<remap from="~speed" to="/actuators/speed_pwm" />
+	<remap from="~steering" to="/actuators/steering_pwm" />
+	<remap from="~led" to="/actuators/led" />
 	<include file="$(find arduino_communication)/launch/ArduinoCommunication.launch">
 		<arg name="baud" value="$(arg baudrate)" />
 	</include>

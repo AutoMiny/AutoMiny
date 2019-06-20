@@ -3,9 +3,9 @@
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
 	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
 
-	<remap from="/autonomics/emergency_stop/speed" to="/sensors/arduino/speed" />
-	<remap from="/autonomics/emergency_stop/carstate/speed" to="/carstate/speed" />
-	<remap from="/autonomics/emergency_stop/scan" to="/sensors/rplidar/scan" />
+	<remap from="~speed" to="/actuators/speed_pwm" />
+	<remap from="~carstate/speed" to="/sensors/speed" />
+	<remap from="~scan" to="/sensors/rplidar/scan" />
 
 	<include file="$(find emergency_stop)/launch/EmergencyStop.launch">
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
