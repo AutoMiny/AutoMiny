@@ -107,7 +107,7 @@
     <joint name="joint_sensor_board_to_bno055" type="fixed">
         <parent link="sensor_board"/>
         <child link="bno055"/>
-        <origin xyz="0.235 0.0 0.023" rpy="0 0 0"/>
+        <origin xyz="0.235 0.0 0.023" rpy="0 0 1.5708"/>
     </joint>
 
 
