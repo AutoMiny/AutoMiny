@@ -1,6 +1,6 @@
 <launch>
-    <node respawn="true" pkg="topic_tools" type="transform" name="visualization_speed" args="/carstate/speed /visualization/speed autominy_msgs/Plot 'autominy_msgs.msg.Plot(header=m.header, value=m.value)' --import autominy_msgs" />
-    <node respawn="true" pkg="topic_tools" type="transform" name="visualization_steering" args="/carstate/steering /visualization/steering autominy_msgs/Plot 'autominy_msgs.msg.Plot(header=m.header, value=m.value)' --import autominy_msgs" />
+    <node respawn="true" pkg="topic_tools" type="transform" name="visualization_speed" args="/sensors/speed /visualization/speed autominy_msgs/Plot 'autominy_msgs.msg.Plot(header=m.header, value=m.value)' --import autominy_msgs" />
+    <node respawn="true" pkg="topic_tools" type="transform" name="visualization_steering" args="/sensors/steering /visualization/steering autominy_msgs/Plot 'autominy_msgs.msg.Plot(header=m.header, value=m.value)' --import autominy_msgs" />
 
     <node respawn="true" pkg="topic_tools" type="transform" name="visualization_wanted_speed" args="/control/command/normalized_wanted_speed /visualization/visualization_wanted_speed autominy_msgs/Plot 'autominy_msgs.msg.Plot(header=m.header, value=m.value)' --import autominy_msgs" />
     <node respawn="true" pkg="topic_tools" type="transform" name="visualization_wanted_steering" args="/control/command/normalized_wanted_steering /visualization/visualization_wanted_steering autominy_msgs/Plot 'autominy_msgs.msg.Plot(header=m.header, value=m.value)' --import autominy_msgs" />

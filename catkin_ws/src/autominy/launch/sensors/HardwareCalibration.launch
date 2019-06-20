@@ -5,8 +5,8 @@
 	<!-- Arduino communication -->
 	<remap from="/sensors/hardware_calibration/control/normalized_wanted_speed" to="/control/command/normalized_wanted_speed" />
 	<remap from="/sensors/hardware_calibration/control/normalized_wanted_steering" to="/control/command/normalized_wanted_steering" />
-	<remap from="/sensors/hardware_calibration/carstate/calibrated_speed" to="/carstate/speed" />
-	<remap from="/sensors/hardware_calibration/carstate/steering_angle" to="/carstate/steering" />
+	<remap from="~carstate/calibrated_speed" to="speed" />
+	<remap from="~carstate/steering_angle" to="steering" />
 	<remap from="/sensors/hardware_calibration/arduino/speed" to="/autonomics/emergency_stop/wanted_speed" />
 	<remap from="/sensors/hardware_calibration/arduino/steering_angle" to="/sensors/arduino/steering_angle" />
 	<remap from="/sensors/hardware_calibration/arduino/steering" to="/sensors/arduino/steering" />

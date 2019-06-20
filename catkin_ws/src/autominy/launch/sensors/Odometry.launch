@@ -3,9 +3,9 @@
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
 	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
 
-	<remap from="/sensors/odometry/carstate/steering" to="/carstate/steering"/>
-	<remap from="/sensors/odometry/speed" to="/carstate/speed"/>
-	<remap from="/sensors/odometry/imu" to="/sensors/imu"/>
+	<remap from="~steering" to="steering"/>
+	<remap from="~speed" to="speed"/>
+	<remap from="~imu" to="imu"/>
 	<include file="$(find odometry)/launch/odometry.launch">
 	</include>
 </launch>
