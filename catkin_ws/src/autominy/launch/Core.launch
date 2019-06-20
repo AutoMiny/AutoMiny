@@ -30,30 +30,31 @@
 		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
 	</include>
 
-	<!-- start autonomics -->
+	<!-- autonomics -->
 	<include file="$(find autominy)/launch/autonomics/Autonomics.launch" ns="autonomics">
 		<arg name="live"    		value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
 	</include>
 
-	<!-- sensor postprocessing -->
-	<group ns="postprocessing">
-	</group>
-
 	<!-- control -->
 	<group ns="control">
 		<!-- actuation -->
-		<include file="$(find autominy)/launch/control/Actuators.launch">
+		<include file="Controllers.launch">
 			<arg name="live"            value="$(arg live)" />
 			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
 		</include>
 	</group>
 
-	<!-- carstate -->
-	<group ns="carstate">
-
+	<!-- actuators -->
+	<group ns="actuator">
+		<!-- actuation -->
+		<include file="Actuators.launch">
+			<arg name="live"            value="$(arg live)" />
+			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		</include>
 	</group>
 
 	<!-- visualization -->
