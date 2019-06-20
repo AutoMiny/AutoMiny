@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
     std::string model_car_twist, model_car_yaw, steering_command, steering_feedback;
     n.param<std::string>("model_car_twist", model_car_twist, "speed");
     n.param<std::string>("model_car_yaw", model_car_yaw, "imu");
-    n.param<std::string>("steering_feedback", steering_feedback, "carstate/steering");
+    n.param<std::string>("steering_feedback", steering_feedback, "steering");
 
     n.param("initial_x", initial_x, 2.5);
     n.param("initial_y", initial_y, 0.5);
