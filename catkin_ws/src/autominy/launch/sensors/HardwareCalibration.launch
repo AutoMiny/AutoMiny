@@ -9,7 +9,7 @@
 	<remap from="~carstate/steering_angle" to="steering" />
 	<remap from="/sensors/hardware_calibration/arduino/speed" to="/autonomics/emergency_stop/wanted_speed" />
 	<remap from="/sensors/hardware_calibration/arduino/steering_angle" to="/sensors/arduino/steering_angle" />
-	<remap from="/sensors/hardware_calibration/arduino/steering" to="/sensors/arduino/steering" />
+	<remap from="/sensors/hardware_calibration/arduino/steering" to="/actuators/steering_pwm" />
 	<remap from="/sensors/hardware_calibration/arduino/ticks" to="/sensors/arduino/ticks" />
 	<include file="$(find hardware_calibration)/launch/HardwareCalibration.launch">
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
