@@ -40,7 +40,7 @@
 	<!-- control -->
 	<group ns="control">
 		<!-- actuation -->
-		<include file="Controllers.launch">
+		<include file="$(find autominy)/launch/control/Controllers.launch">
 			<arg name="live"            value="$(arg live)" />
 			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
@@ -50,7 +50,7 @@
 	<!-- actuators -->
 	<group ns="actuator">
 		<!-- actuation -->
-		<include file="Actuators.launch">
+		<include file="$(find autominy)/launch/actuators/Actuators.launch">
 			<arg name="live"            value="$(arg live)" />
 			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
