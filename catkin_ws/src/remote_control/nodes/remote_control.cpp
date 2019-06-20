@@ -3,7 +3,6 @@
 #include <ros/ros.h>
 
 #include <remote_control/backend.h>
-// #include <remote_control/httpcommunicator.h>
 #include <remote_control/xboxcommunicator.h>
 
 void emergency_stop(bool emergency_on) {
@@ -21,8 +20,6 @@ int main(int argc, char **argv)
 	
 	ROS_INFO("Initialize XBoxCommunicator");
 	remote_control::XboxCommunicator xboxCommunicator(backend);
-	// ROS_INFO("Initialize HttpCommunicator.");
-	// remote_control::HttpCommunicator httpCommunicator(backend, 8080);
 
 	backend.set_speed(0);
 	backend.set_steering(90);

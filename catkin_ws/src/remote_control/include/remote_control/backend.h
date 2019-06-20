@@ -3,7 +3,6 @@
 #include <cstdint>
 #include <functional>
 
-#include "remote_control/monitor.h"
 #include "remote_control/controller.h"
 
 namespace remote_control
@@ -19,8 +18,6 @@ namespace remote_control
 		 , m_set_steering(0)
 		 , m_is_emergency(false)
 		{
-			m_monitor.set_emergency_stop_callback(std::bind(&Backend::on_emergency_stop, this, std::placeholders::_1));
-			m_monitor.set_image_callback(std::bind(&Backend::on_new_image, this, std::placeholders::_1));
 		}
 
 		Backend(const Backend&) = delete;
@@ -29,11 +26,6 @@ namespace remote_control
 		void add_emergency_stop_callback(const emergency_stop_callback_t& emergency_stop_cb)
 		{
 			m_emergency_stop_callbacks.push_back(emergency_stop_cb);
-		}
-
-		void add_image_callback(const image_callback_t& image_cb)
-		{
-			m_image_callbacks.push_back(image_cb);
 		}
 
 		void set_speed(double speed)
@@ -70,18 +62,8 @@ namespace remote_control
 			}
 		}
 
-		void on_new_image(const image_t& image) const
-		{
-			for(const auto& callback : m_image_callbacks)
-			{
-				callback(image);
-			}
-		}
-
-		Monitor m_monitor;
 		Controller m_controller;
 		std::vector<emergency_stop_callback_t> m_emergency_stop_callbacks;
-		std::vector<image_callback_t> m_image_callbacks;
 		double m_set_speed, m_set_steering;
 		bool m_is_emergency;
 	};
