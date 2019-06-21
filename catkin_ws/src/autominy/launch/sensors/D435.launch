@@ -6,7 +6,8 @@
     <group if="$(arg live)">
         <group if="$(arg use_nodelets)">
             <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
-                <arg name="manager" value="core_nodelet_manager" />
+                <arg name="align_depth" value="false" />
+                <arg name="external_manager" value="true" />
                 <arg name="align_depth" value="false" />
                 <arg name="depth_registered_processing" value="false"/>
                 <arg name="enable_color" value="true"/>
@@ -20,8 +21,6 @@
 
         <group unless="$(arg use_nodelets)">
             <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
-                <arg name="align_depth" value="false" />
-                <arg name="external_manager" value="true" />
                 <arg name="manager" value="$(arg nodelet_manager)" />
                 <arg name="depth_registered_processing" value="false"/>
                 <arg name="enable_color" value="true"/>
