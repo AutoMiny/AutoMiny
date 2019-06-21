@@ -1,0 +1,29 @@
+<!-- Rosbag Record file -->
+<launch>
+	<node name="record" pkg="rosbag" type="record"
+		  args="record
+/sensors/arduino/imu/temperature
+/sensors/arduino/steering_angle
+/sensors/arduino/ticks
+/sensors/arduino/voltage
+/sensors/bno055/magnetic_field
+/sensors/bno055/output
+/sensors/bno055/pose
+/sensors/bno055/temperature
+/sensors/camera/color/camera_info
+/sensors/camera/color/image_raw
+/sensors/camera/color/image_rect_color
+/sensors/camera/depth/camera_info
+/sensors/camera/depth/image_rect_raw
+/sensors/camera/extrinsics/depth_to_color
+/sensors/camera/extrinsics/depth_to_infra1
+/sensors/camera/infra1/camera_info
+/sensors/camera/infra1/image_rect_raw
+/sensors/imu
+/sensors/odometry/odom
+/sensors/rplidar/scan
+/sensors/speed
+/sensors/steering
+" />
+
+</launch>
