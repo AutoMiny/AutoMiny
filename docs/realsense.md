@@ -1,6 +1,21 @@
-The realsense camera is interfaced using librealsense which consists of a driver library and kernel patches. Unfortunately, on arm there are no prebuild packages for librealsense so we will have to build the library along with the kernel patches ourselves. The following script will install librealsense and the realsense ros node.
+## Realsense driver
+The realsense camera is interfaced using librealsense which consists of a driver library and kernel patches.
 
-# Updating Realsense (lib and ROS node)
+
+### Updating Realsense (Intel NUC)
+On x64 we just use the provided packages from Intel. librealsense is already provided by the packages along with the needed kernel patches.
+
+```
+sudo apt update
+sudo apt upgrade -y
+cd /opt/autominy/catkin_ws/realsense-ros
+git pull
+catkin build
+```
+
+### Updating Realsense (Odroid XU4)
+Unfortunately, on ARM (Odroid XU4) there are no prebuild packages for librealsense so we will have to build the library along with the kernel patches ourselves. The following script will install librealsense and the realsense ros node.
+
 ```
 pkill ros
 apt update
@@ -19,11 +34,7 @@ cd build
 cmake ../ -DBUILD_EXAMPLES=true -DBUILD_GRAPHICAL_EXAMPLES=false -DCMAKE_BUILD_TYPE=Release
 make uninstall && make clean && make -j1 && make install
 
-rm -rf /opt/model_car/catkin_ws/src/realsense
-mkdir -p /opt/realsense-ros/src/
-cd /opt/realsense-ros/src/
-git clone https://github.com/intel-ros/realsense
-cd ../
-catkin config --cmake-args "-DCMAKE_BUILD_TYPE=Release"
-catkin build -j2
+cd /opt/autominy/catkin_ws/src/realsense-ros
+git pull
+catkin build -j1
 ```
