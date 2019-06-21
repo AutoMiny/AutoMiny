@@ -11,15 +11,16 @@
     ]]>
 
     <!-- start standalone node -->
-    <node respawn="true" unless="$(arg use_nodelets)"
+    <node respawn="true" respawn_delay="1" unless="$(arg use_nodelets)"
           pkg="emergency_stop"
           name="emergency_stop"
           type="emergency_stop_node"
+          output="screen"
     >
     </node>
 
     <!-- start nodelet (nodelet manager needed, see below) -->
-    <node respawn="true" if="$(arg use_nodelets)"
+    <node respawn="true" respawn_delay="1" if="$(arg use_nodelets)"
           pkg="nodelet"
           type="nodelet"
           name="emergency_stop"
