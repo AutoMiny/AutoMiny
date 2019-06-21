@@ -1,7 +1,7 @@
 <!-- Rosbag Record file -->
 <launch>
 	<node name="record" pkg="rosbag" type="record"
-		  args="record
+		  args="record -o /home/ros/
 /sensors/arduino/imu/temperature
 /sensors/arduino/steering_angle
 /sensors/arduino/ticks
@@ -20,10 +20,7 @@
 /sensors/camera/infra1/camera_info
 /sensors/camera/infra1/image_rect_raw
 /sensors/imu
-/sensors/odometry/odom
 /sensors/rplidar/scan
-/sensors/speed
-/sensors/steering
 " />
 
 </launch>
