@@ -32,12 +32,14 @@ namespace remote_control {
                     if (SDL_IsGameController(event.cdevice.which)) {
                         auto controller = SDL_GameControllerOpen(event.cdevice.which);
                         controllers.emplace_back(controller);
+                        ROS_INFO("Controller %s connected", SDL_GameControllerName(controller));
                     }
                     break;
                 }
                 case SDL_CONTROLLERDEVICEREMOVED: {
                     auto con = SDL_GameControllerFromInstanceID(event.cdevice.which);
                     controllers.erase(std::remove(controllers.begin(), controllers.end(), con), controllers.end());
+                    ROS_INFO("Controller %s connected", SDL_GameControllerName(con));
                     SDL_GameControllerClose(con);
                     break;
                 }
