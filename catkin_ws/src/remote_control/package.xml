@@ -1,23 +1,27 @@
 <?xml version="1.0"?>
-<package>
-  <name>remote_control</name>
-  <version>1.0.0</version>
-  <description>Package provides remote control for the model car.</description>
+<package format="2">
+    <name>remote_control</name>
+    <version>0.0.1</version>
+    <description>Emergency stop using LiDAR</description>
 
-  <maintainer email="martin.fischer@student.hpi.de">Martin Fischer</maintainer>
-  <maintainer email="schr.andre@fu-berlin.de">Andre Schröder</maintainer>
-  <maintainer email="jan.dieken@student.hpi.de">Jan van Dieken</maintainer>
+    <maintainer email="s.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</maintainer>
 
-  <license>MIT</license>
+    <license>proprietary</license>
 
-  <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>roscpp</build_depend>
-  <build_depend>autominy_msgs</build_depend>
-  <build_depend>sensor_msgs</build_depend>
-  <build_depend>geometry_msgs</build_depend>
+    <url type="website">https://www.autonomos-labs.de/</url>
 
-  <run_depend>roscpp</run_depend>
-  <run_depend>std_msgs</run_depend>
-  <run_depend>sensor_msgs</run_depend>
-  <run_depend>geometry_msgs</run_depend>
+    <author email="s.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>roscpp</build_depend>
+
+    <depend>nodelet</depend>
+    <depend>dynamic_reconfigure</depend>
+    <depend>libsdl2-dev</depend>
+    <depend>autominy_msgs</depend>
+
+    <!-- export of nodelet definition XML -->
+    <export>
+        <nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+    </export>
 </package>

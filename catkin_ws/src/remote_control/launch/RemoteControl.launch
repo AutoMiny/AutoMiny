@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="use_nodelets" default="$(optenv USE_NODELETS false)"/>
+    <arg name="nodelet_manager" default="$(optenv remote_control_NODELET_MANAGER remote_control_nodelet_manager)"/>
+
+    <![CDATA[
+    <!--
+          FOR DEBUGGING: add to node tag: launch-prefix="gnome-terminal -x gdb --args"
+          additionally add <param name="/bond_disable_heartbeat_timeout" value="true" /> to debug nodelets
+    -->
+    ]]>
+
+    <remap from="~speed" to="/control/command/normalized_wanted_speed" />
+    <remap from="~steering" to="/control/command/normalized_wanted_steering" />
+    <!-- start standalone node -->
+    <node unless="$(arg use_nodelets)"
+          pkg="remote_control"
+          name="remote_control"
+          type="remote_control_node"
+          output="screen"
+    >
+    </node>
+
+    <!-- start nodelet (nodelet manager needed, see below) -->
+    <node if="$(arg use_nodelets)"
+          pkg="nodelet"
+          type="nodelet"
+          name="remote_control"
+          args="load remote_control/Nodelet $(arg nodelet_manager)"
+    >
+    </node>
+</launch>
