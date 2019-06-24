@@ -154,8 +154,12 @@
     <!-- front camera -->
     <xacro:property name="front_camera_name" value="camera"/>
 
-    <sensor_d435 parent="camera_board">
+    <sensor_d435 parent="camera_board" sensor_name="camera">
         <origin xyz="0.087 0 0.04" rpy="0 0.15 0"/>
+    </sensor_d435>
+
+    <sensor_d435 parent="camera_board" sensor_name="rear_camera">
+        <origin xyz="0 0 1.57" rpy="0 0.15 0"/>
     </sensor_d435>
 
 </robot>
