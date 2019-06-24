@@ -62,6 +62,9 @@ namespace remote_control {
         void onPublish(const ros::TimerEvent& event) {
             autominy_msgs::NormalizedSteeringCommand steeringCommand;
             autominy_msgs::NormalizedSpeedCommand speedCommand;
+            auto now = ros::Time::now();
+
+            steeringCommand.header.stamp = speedCommand.header.stamp = now;
 
             steeringCommand.value = remoteControl->getSteering();
             speedCommand.value = remoteControl->getSpeed();

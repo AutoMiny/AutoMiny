@@ -58,12 +58,12 @@ namespace emergency_stop {
         currentSpeed = speed->value;
     }
 
-    void EmergencyStop::setWantedSpeed(const autominy_msgs::SpeedCommandConstPtr &speed) {
+    void EmergencyStop::setWantedSpeed(const autominy_msgs::SpeedPWMCommandConstPtr &speed) {
         wantedSpeed = speed->value;
     }
 
-    autominy_msgs::SpeedCommand EmergencyStop::getSafeSpeed() {
-        autominy_msgs::SpeedCommand msg;
+    autominy_msgs::SpeedPWMCommand EmergencyStop::getSafeSpeed() {
+        autominy_msgs::SpeedPWMCommand msg;
 
         if (emergencyStop) {
             msg.value = 0;

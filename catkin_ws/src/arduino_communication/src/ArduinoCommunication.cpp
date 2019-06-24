@@ -291,7 +291,7 @@ void ArduinoCommunication::onHeartbeat(ros::TimerEvent const &event) {
     }
 }
 
-void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedCommandConstPtr const &speed) {
+void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedPWMCommandConstPtr const &speed) {
     uint8_t size = sizeof(MessageType) + sizeof(int16_t);
     uint8_t message[size];
 

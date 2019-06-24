@@ -16,11 +16,12 @@ namespace hardware_calibration {
             configServer->setCallback(f);
 
             steeringPublisher = pnh.advertise<autominy_msgs::SteeringCommand>("arduino/steering", 1);
-            speedPublisher = pnh.advertise<autominy_msgs::SpeedCommand>("arduino/speed", 1);
+            speedPublisher = pnh.advertise<autominy_msgs::SpeedPWMCommand>("arduino/speed", 1);
             calibratedSpeedPublisher = pnh.advertise<autominy_msgs::Speed>("carstate/calibrated_speed", 1);
             steeringAnglePublisher = pnh.advertise<autominy_msgs::SteeringAngle>("carstate/steering_angle", 1);
             steeringFeedbackSubscriber = pnh.subscribe("arduino/steering_angle", 1,
                                                       &HardwareCalibrationNodelet::onSteeringFeedback, this, ros::TransportHints().tcpNoDelay());
+            speedSubscriber = pnh.subscribe("actuators/speed", 1, &HardwareCalibrationNodelet::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
             wantedSpeedSubscriber = pnh.subscribe("control/normalized_wanted_speed", 1, &HardwareCalibrationNodelet::onWantedSpeed, this, ros::TransportHints().tcpNoDelay());
             wantedSteeringSubscriber = pnh.subscribe("control/normalized_wanted_steering", 1, &HardwareCalibrationNodelet::onWantedSteering, this, ros::TransportHints().tcpNoDelay());
             ticksSubscriber = pnh.subscribe("arduino/ticks", 1, &HardwareCalibrationNodelet::onTicks, this, ros::TransportHints().tcpNoDelay());
@@ -83,7 +84,7 @@ namespace hardware_calibration {
 
             auto pwm = mapRange(-1.0, 1.0, config.minimum_speed_pwm, config.maximum_speed_pwm, wantedSpeed);
 
-            autominy_msgs::SpeedCommand speedMsg;
+            autominy_msgs::SpeedPWMCommand speedMsg;
             speedMsg.header.stamp = ros::Time::now();
             speedMsg.header.frame_id = "base_link";
             speedMsg.value = static_cast<int16_t>(pwm);
@@ -112,6 +113,17 @@ namespace hardware_calibration {
             steeringMsg.header.frame_id = "base_link";
             steeringMsg.value = static_cast<int16_t>(pwm);
             steeringPublisher.publish(steeringMsg);
+        }
+
+        void HardwareCalibrationNodelet::onSpeedCommand(const autominy_msgs::SpeedCommandConstPtr& msg) {
+            auto normalized =   -3.8352728298649436e-001 * std::pow(msg->value, 0)
+                              +  4.2102108438715931e+000 * std::pow(msg->value, 1)
+                              + -1.9043811735924316e+000 * std::pow(msg->value, 2);
+
+            auto command = boost::make_shared<autominy_msgs::NormalizedSpeedCommand>();
+            command->header = msg->header;
+            command->value = normalized;
+            this->onWantedSpeed(command);
         }
 
         void HardwareCalibrationNodelet::onReconfigure(HardwareCalibrationConfig& config, uint32_t level) {

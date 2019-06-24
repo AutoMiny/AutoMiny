@@ -1,4 +1,4 @@
 Header header
 
-# speed pwm
-int16 value
+# speed [m/s]
+float64 value

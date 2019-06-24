@@ -6,7 +6,7 @@
 #include <emergency_stop/EmergencyStopConfig.h>
 #include <emergency_stop/EmergencyStop.h>
 #include <sensor_msgs/LaserScan.h>
-#include <autominy_msgs/SpeedCommand.h>
+#include <autominy_msgs/SpeedPWMCommand.h>
 #include <autominy_msgs/Speed.h>
 
 namespace emergency_stop {
@@ -35,7 +35,7 @@ namespace emergency_stop {
 
             emergencyStop = std::make_shared<EmergencyStop>();
 
-            speedPublisher = pnh.advertise<autominy_msgs::SpeedCommand>("speed", 1);
+            speedPublisher = pnh.advertise<autominy_msgs::SpeedPWMCommand>("speed", 1);
             scanSubscriber = pnh.subscribe("scan", 1, &EmergencyStopNodelet::onScan, this, ros::TransportHints().tcpNoDelay());
             wantedSpeedSubscriber = pnh.subscribe("wanted_speed", 1, &EmergencyStopNodelet::onWantedSpeed, this, ros::TransportHints().tcpNoDelay());
             currentSpeedSubscriber = pnh.subscribe("carstate/speed", 1, &EmergencyStopNodelet::onCurrentSpeed, this, ros::TransportHints().tcpNoDelay());
@@ -60,7 +60,7 @@ namespace emergency_stop {
             emergencyStop->setCurrentSpeed(msg);
         }
 
-        void onWantedSpeed(autominy_msgs::SpeedCommandConstPtr const &msg) {
+        void onWantedSpeed(autominy_msgs::SpeedPWMCommandConstPtr const &msg) {
             emergencyStop->setWantedSpeed(msg);
         }
 

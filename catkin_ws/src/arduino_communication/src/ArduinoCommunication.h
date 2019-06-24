@@ -7,7 +7,7 @@
 #include <std_msgs/String.h>
 #include <std_msgs/Float32.h>
 #include <autominy_msgs/Speed.h>
-#include <autominy_msgs/SpeedCommand.h>
+#include <autominy_msgs/SpeedPWMCommand.h>
 #include <autominy_msgs/SteeringAngle.h>
 #include <autominy_msgs/SteeringCommand.h>
 #include <autominy_msgs/SteeringFeedback.h>
@@ -28,7 +28,7 @@ class ArduinoCommunication {
 
     void spin();
  private:
-    void onSpeedCommand(autominy_msgs::SpeedCommandConstPtr const &speed);
+    void onSpeedCommand(autominy_msgs::SpeedPWMCommandConstPtr const &speed);
     void onSteeringCommand(autominy_msgs::SteeringCommandConstPtr const &steering);
     void onLedCommand(std_msgs::StringConstPtr const &led);
     void onHeartbeat(ros::TimerEvent const &event);
