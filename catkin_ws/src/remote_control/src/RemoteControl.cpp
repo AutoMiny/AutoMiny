@@ -44,6 +44,10 @@ namespace remote_control {
                     break;
                 }
                 case SDL_CONTROLLERAXISMOTION: {
+                    if (std::abs(event.caxis.value) < config.deadspot) {
+                        event.caxis.value = 0;
+                    }
+
                     // Speed
                     if (event.caxis.axis == SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) {
                         currentSpeed = event.caxis.value;
