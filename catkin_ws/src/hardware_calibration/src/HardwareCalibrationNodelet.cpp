@@ -116,13 +116,17 @@ namespace hardware_calibration {
         }
 
         void HardwareCalibrationNodelet::onSpeedCommand(const autominy_msgs::SpeedCommandConstPtr& msg) {
-            auto normalized =   -3.8352728298649436e-001 * std::pow(msg->value, 0)
-                              +  4.2102108438715931e+000 * std::pow(msg->value, 1)
-                              + -1.9043811735924316e+000 * std::pow(msg->value, 2);
+            // The mapping is symmetric so interpolate the absolute value
+            auto x = std::abs(msg->value);
+
+            auto normalized =  1.5136448288272340e-002 * pow(x,0)
+                               +  7.2086980469484707e-001 * pow(x,1)
+                               + -5.7014814155497762e-001 * pow(x,2)
+                               +  2.3646519448237449e-001 * pow(x,3);
 
             auto command = boost::make_shared<autominy_msgs::NormalizedSpeedCommand>();
             command->header = msg->header;
-            command->value = normalized;
+            command->value = std::copysign(normalized, msg->value);
             this->onWantedSpeed(command);
         }
 
