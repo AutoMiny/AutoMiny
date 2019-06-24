@@ -78,10 +78,10 @@ namespace stereo_camera_pose_estimation {
 
         auto pcl = getPointcloud(depthImage, depthCameraInfo, config.maximum_depth);
         try {
-            auto t = tfBuffer.lookupTransform("camera_bottom_screw_frame", pcl->header.frame_id, depthImage->header.stamp);
+            auto t = tfBuffer.lookupTransform(config.camera_frame, pcl->header.frame_id, depthImage->header.stamp);
             Eigen::Affine3d tt = tf2::transformToEigen(t);
             pcl::transformPointCloud(*pcl, *transformedPointCloud, tt);
-            transformedPointCloud->header.frame_id = "camera_bottom_screw_frame";
+            transformedPointCloud->header.frame_id = config.camera_frame;
             transformedPointCloud->header.stamp = pcl->header.stamp;
         } catch (const tf2::TransformException& e) {
             ROS_ERROR("%s", e.what());
@@ -146,7 +146,7 @@ namespace stereo_camera_pose_estimation {
                 tf2::Stamped<tf2::Transform> markerToBaseLink;
                 try {
                     geometry_msgs::TransformStamped t;
-                    t = tfBuffer.lookupTransform("camera_bottom_screw_frame", image->header.frame_id, ros::Time(0));
+                    t = tfBuffer.lookupTransform(config.camera_frame, image->header.frame_id, ros::Time(0));
                     tf2::convert(t.transform.rotation, tt);
                     tf2::convert(t, imageToScrew);
 
@@ -210,7 +210,7 @@ namespace stereo_camera_pose_estimation {
         geometry_msgs::TransformStamped transform;
         transform.header.frame_id = "base_link";
         transform.header.stamp = ros::Time::now();
-        transform.child_frame_id = "camera_bottom_screw_frame";
+        transform.child_frame_id = config.camera_frame;
         transform.transform.translation.x = x + config.x_offset;
         transform.transform.translation.y = y + config.y_offset;
         transform.transform.translation.z = height + config.height_offset;
