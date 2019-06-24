@@ -17,7 +17,7 @@
 
     <depend>nodelet</depend>
     <depend>dynamic_reconfigure</depend>
-    <depend>libsdl2-dev</depend>
+    <depend>sdl2</depend>
     <depend>autominy_msgs</depend>
 
     <!-- export of nodelet definition XML -->
