@@ -119,69 +119,76 @@ namespace stereo_camera_pose_estimation {
         auto x = 0.0;
         auto y = 0.0;
 
-        try {
-            this->image = cv_bridge::toCvCopy(image);
-        }
-        catch (cv_bridge::Exception& e) {
-            ROS_ERROR("Could not convert from '%s' to 'bgr8'.", image->encoding.c_str());
-            return false;
-        }
-        auto& cvImage = this->image->image;
-        imageCameraModel.fromCameraInfo(cameraInfo);
-
-        std::vector<int> ids;
-        std::vector<std::vector<cv::Point2f>> corners;
-        std::vector<cv::Vec3d> rvecs, tvecs;
-        cv::aruco::detectMarkers(cvImage, dictionary, corners, ids);
-
-        if (!ids.empty()) {
-            cv::aruco::drawDetectedMarkers(cvImage, corners, ids);
-            cv::aruco::estimatePoseSingleMarkers(corners, static_cast<float>(config.aruco_size), imageCameraModel.intrinsicMatrix(),
-                                                 imageCameraModel.distortionCoeffs(), rvecs, tvecs);
-
-            tf2::Quaternion tt;
-            tf2::Stamped<tf2::Transform> imageToScrew;
-            tf2::Stamped<tf2::Transform> markerToBaseLink;
+        if(config.use_marker) {
             try {
-                geometry_msgs::TransformStamped t;
-                t = tfBuffer.lookupTransform("camera_bottom_screw_frame", image->header.frame_id, ros::Time(0));
-                tf2::convert(t.transform.rotation, tt);
-                tf2::convert(t, imageToScrew);
-
-                t = tfBuffer.lookupTransform("marker", "base_link", ros::Time(0));
-                tf2::convert(t, markerToBaseLink);
-            } catch (const tf2::TransformException& e) {
-                ROS_ERROR("%s", e.what());
+                this->image = cv_bridge::toCvCopy(image);
+            }
+            catch (cv_bridge::Exception& e) {
+                ROS_ERROR("Could not convert from '%s' to 'bgr8'.", image->encoding.c_str());
                 return false;
             }
-            for (int i = 0; i < ids.size(); i++) {
-                if (ids[i] != config.aruco_id) {
-                    continue;
+            auto& cvImage = this->image->image;
+            imageCameraModel.fromCameraInfo(cameraInfo);
+
+            std::vector<int> ids;
+            std::vector<std::vector<cv::Point2f>> corners;
+            std::vector<cv::Vec3d> rvecs, tvecs;
+            cv::aruco::detectMarkers(cvImage, dictionary, corners, ids);
+
+            if (!ids.empty()) {
+                cv::aruco::drawDetectedMarkers(cvImage, corners, ids);
+                cv::aruco::estimatePoseSingleMarkers(corners, static_cast<float>(config.aruco_size),
+                                                     imageCameraModel.intrinsicMatrix(),
+                                                     imageCameraModel.distortionCoeffs(), rvecs, tvecs);
+
+                tf2::Quaternion tt;
+                tf2::Stamped<tf2::Transform> imageToScrew;
+                tf2::Stamped<tf2::Transform> markerToBaseLink;
+                try {
+                    geometry_msgs::TransformStamped t;
+                    t = tfBuffer.lookupTransform("camera_bottom_screw_frame", image->header.frame_id, ros::Time(0));
+                    tf2::convert(t.transform.rotation, tt);
+                    tf2::convert(t, imageToScrew);
+
+                    t = tfBuffer.lookupTransform("marker", "base_link", ros::Time(0));
+                    tf2::convert(t, markerToBaseLink);
+                } catch (const tf2::TransformException& e) {
+                    ROS_ERROR("%s", e.what());
+                    return false;
                 }
+                for (int i = 0; i < ids.size(); i++) {
+                    if (ids[i] != config.aruco_id) {
+                        continue;
+                    }
 
-                cv::aruco::drawAxis(cvImage, imageCameraModel.intrinsicMatrix(), imageCameraModel.distortionCoeffs(),
-                                    rvecs[i], tvecs[i], 0.1);
-                cv::Mat1d cameraTransformRotation;
-                cv::Rodrigues(rvecs[i], cameraTransformRotation);
+                    cv::aruco::drawAxis(cvImage, imageCameraModel.intrinsicMatrix(),
+                                        imageCameraModel.distortionCoeffs(),
+                                        rvecs[i], tvecs[i], 0.1);
+                    cv::Mat1d cameraTransformRotation;
+                    cv::Rodrigues(rvecs[i], cameraTransformRotation);
 
 
-                tf2::Matrix3x3 rotation
-                        (cameraTransformRotation(0, 0), cameraTransformRotation(0, 1), cameraTransformRotation(0, 2),
-                         cameraTransformRotation(1, 0), cameraTransformRotation(1, 1), cameraTransformRotation(1, 2),
-                         cameraTransformRotation(2, 0), cameraTransformRotation(2, 1), cameraTransformRotation(2, 2));
+                    tf2::Matrix3x3 rotation
+                            (cameraTransformRotation(0, 0), cameraTransformRotation(0, 1),
+                             cameraTransformRotation(0, 2),
+                             cameraTransformRotation(1, 0), cameraTransformRotation(1, 1),
+                             cameraTransformRotation(1, 2),
+                             cameraTransformRotation(2, 0), cameraTransformRotation(2, 1),
+                             cameraTransformRotation(2, 2));
 
-                tf2::Transform arucoTransform(rotation, tf2::Vector3(tvecs[i][0], tvecs[i][1], tvecs[i][2]));
-                auto s = arucoTransform.inverse() * imageToScrew.inverse();
-                yaw = tf2::getYaw(s.getRotation());
+                    tf2::Transform arucoTransform(rotation, tf2::Vector3(tvecs[i][0], tvecs[i][1], tvecs[i][2]));
+                    auto s = arucoTransform.inverse() * imageToScrew.inverse();
+                    yaw = tf2::getYaw(s.getRotation());
 
-                x = s.getOrigin().x() - markerToBaseLink.getOrigin().x();
-                y = s.getOrigin().y() - markerToBaseLink.getOrigin().y();
+                    x = s.getOrigin().x() - markerToBaseLink.getOrigin().x();
+                    y = s.getOrigin().y() - markerToBaseLink.getOrigin().y();
 
-                break;
+                    break;
+                }
+            } else {
+                ROS_ERROR("Marker not found!");
+                return false;
             }
-        } else {
-            ROS_ERROR("Marker not found!");
-            return false;
         }
 
         if (std::fabs(roll) > config.max_roll) {
