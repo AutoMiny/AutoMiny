@@ -2,10 +2,13 @@
     <arg name="live"        doc="Whether to connect to hardware (true) or just run the parsing nodes (false)" />
     <arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
     <arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+    <arg name="camera_serial_no" default="$(optenv ROS_CAMERA_SERIAL_NO)" />
+    <arg name="rear_camera_serial_no" default="$(optenv ROS_REAR_CAMERA_SERIAL_NO)" />
 
     <group if="$(arg live)">
         <group if="$(arg use_nodelets)">
             <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
+                <arg name="serial_no" value="$(arg camera_serial_no)"/>
                 <arg name="external_manager" value="true" />
                 <arg name="manager" value="$(arg nodelet_manager)" />
                 <arg name="align_depth" value="false" />
@@ -21,6 +24,41 @@
 
         <group unless="$(arg use_nodelets)">
             <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
+                <arg name="serial_no" value="$(arg camera_serial_no)"/>
+                <arg name="align_depth" value="false" />
+                <arg name="depth_registered_processing" value="false"/>
+                <arg name="enable_color" value="true"/>
+                <arg name="enable_infra1" value="true"/>
+                <arg name="enable_infra2" value="false"/>
+                <arg name="depth_fps" value="15"/>
+                <arg name="infra_fps" value="15"/>
+                <arg name="color_fps" value="15"/>
+            </include>
+        </group>
+
+        <group if="$(eval use_nodelets and rear_camera_serial_no != '')">
+            <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
+                <arg name="serial_no" value="$(arg rear_camera_serial_no)"/>
+                <arg name="camera" value="rear_camera"/>
+                <arg name="tf_prefix" value="rear_camera"/>
+                <arg name="external_manager" value="true" />
+                <arg name="manager" value="$(arg nodelet_manager)" />
+                <arg name="align_depth" value="false" />
+                <arg name="depth_registered_processing" value="false"/>
+                <arg name="enable_color" value="true"/>
+                <arg name="enable_infra1" value="true"/>
+                <arg name="enable_infra2" value="false"/>
+                <arg name="depth_fps" value="15"/>
+                <arg name="infra_fps" value="15"/>
+                <arg name="color_fps" value="15"/>
+            </include>
+        </group>
+
+        <group if="$(eval not use_nodelets and rear_camera_serial_no != '')">
+            <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
+                <arg name="serial_no" value="$(arg rear_camera_serial_no)"/>
+                <arg name="camera" value="rear_camera"/>
+                <arg name="tf_prefix" value="rear_camera"/>
                 <arg name="align_depth" value="false" />
                 <arg name="depth_registered_processing" value="false"/>
                 <arg name="enable_color" value="true"/>
