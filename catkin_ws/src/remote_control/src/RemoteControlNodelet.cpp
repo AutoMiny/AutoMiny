@@ -41,7 +41,8 @@ namespace remote_control {
             f = boost::bind(&RemoteControlNodelet::callbackReconfigure, this, _1, _2);
             config_server_->setCallback(f);
 
-            inputTimer = pnh.createTimer(ros::Duration(0.01), &RemoteControlNodelet::onCheckInput, this);
+            inputTimer = pnh.createTimer(ros::Duration(0.002), &RemoteControlNodelet::onCheckInput, this);
+            publishTimer = pnh.createTimer(ros::Duration(0.1), &RemoteControlNodelet::onPublish, this);
         }
 
     private:
@@ -55,19 +56,23 @@ namespace remote_control {
 
         void onCheckInput(const ros::TimerEvent& event) {
             if (remoteControl->checkInput()) {
-                autominy_msgs::NormalizedSteeringCommand steeringCommand;
-                autominy_msgs::NormalizedSpeedCommand speedCommand;
-
-                steeringCommand.value = remoteControl->getSteering();
-                speedCommand.value = remoteControl->getSpeed();
-
-                steeringPublisher.publish(steeringCommand);
-                speedPublisher.publish(speedCommand);
             }
+        }
+
+        void onPublish(const ros::TimerEvent& event) {
+            autominy_msgs::NormalizedSteeringCommand steeringCommand;
+            autominy_msgs::NormalizedSpeedCommand speedCommand;
+
+            steeringCommand.value = remoteControl->getSteering();
+            speedCommand.value = remoteControl->getSpeed();
+
+            steeringPublisher.publish(steeringCommand);
+            speedPublisher.publish(speedCommand);
         }
 
         /// timer
         ros::Timer inputTimer;
+        ros::Timer publishTimer;
 
         /// publisher
         ros::Publisher speedPublisher;
