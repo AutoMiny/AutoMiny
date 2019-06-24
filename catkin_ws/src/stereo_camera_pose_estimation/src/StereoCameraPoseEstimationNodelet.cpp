@@ -70,7 +70,9 @@ namespace stereo_camera_pose_estimation {
 
             if (estimation->processImage(msg, info_msg, depth_image, depth_camera_info) && config.debug) {
                 planeCloudPublisher.publish(estimation->getPlaneCloud());
-                markerImagePublisher.publish(estimation->getMarkerImage());
+                if(config.use_marker) {
+                    markerImagePublisher.publish(estimation->getMarkerImage());
+                }
             }
         }
 
