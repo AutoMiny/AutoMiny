@@ -1,5 +1,6 @@
 #include <remote_control/RemoteControl.h>
 #include <ros/ros.h>
+#include <boost/algorithm/clamp.hpp>
 
 namespace remote_control {
     RemoteControl::RemoteControl() : initialized(false), currentSpeed(0), currentSteering(0) {}
@@ -67,10 +68,10 @@ namespace remote_control {
     }
 
     double RemoteControl::getSteering() {
-        return (currentSteering / -32767.0) * config.max_steering;
+        return boost::algorithm::clamp((currentSteering / -32767.0) * config.max_steering, -1.0, 1.0);
     }
 
     double RemoteControl::getSpeed() {
-        return (currentSpeed / -32767.0) * config.max_speed;
+        return boost::algorithm::clamp((currentSpeed / -32767.0) * config.max_speed, -1.0, 1.0);
     }
 }
