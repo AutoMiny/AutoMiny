@@ -10,7 +10,7 @@ from scipy import stats
 import rospy
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Int16, UInt8, UInt16
-from autominy_msgs.msg import NormalizedSpeedCommand, SteeringCommand, SteeringFeedback
+from autominy_msgs.msg import NormalizedSpeedCommand, SteeringPWMCommand, SteeringFeedback
 
 from time import localtime, strftime
 
@@ -37,8 +37,8 @@ wall_angle = 0
 target_angle = wall_angle #mask the lidar points
 add_pi = np.pi
 last_theta = 0
-pub_speed = rospy.Publisher("/control/command/normalized_wanted_speed", NormalizedSpeedCommand, queue_size=100)
-pub_steering = rospy.Publisher("/sensors/arduino/steering", SteeringCommand, queue_size=100, latch=True)
+pub_speed = rospy.Publisher("/actuators/speed_normalized", NormalizedSpeedCommand, queue_size=100)
+pub_steering = rospy.Publisher("/actuators/steering_pwm", SteeringPWMCommand, queue_size=100, latch=True)
 steering_angle_feedback=0
 
 invert_sign_gamma = False

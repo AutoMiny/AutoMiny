@@ -6,7 +6,7 @@ from autominy_msgs.msg import Plot
 from std_msgs.msg import Header
 
 def main():
-    pubWantedSteering = rospy.Publisher('/control/command/normalized_wanted_steering', Plot, queue_size=1)
+    pubWantedSteering = rospy.Publisher('/actuators/steering_normalized', Plot, queue_size=1)
     pubSteering = rospy.Publisher('/carstate/steering', Plot, queue_size=1)
     rospy.init_node('talker', anonymous=True)
     rate = rospy.Rate(10) # 10hz

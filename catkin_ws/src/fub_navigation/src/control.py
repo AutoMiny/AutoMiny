@@ -40,12 +40,12 @@ class VectorfieldController:
         else:
             self.matrix = self.matrix_lane_2
 
-        self.pub_speed = rospy.Publisher("/control/command/normalized_wanted_speed", NormalizedSpeedCommand,
+        self.pub_speed = rospy.Publisher("/actuators/speed_normalized", NormalizedSpeedCommand,
                                          queue_size=1, tcp_nodelay=True)
         rospy.on_shutdown(self.shutdown)
 
         self.shutdown_ = False
-        self.pub = rospy.Publisher("/control/command/normalized_wanted_steering", NormalizedSteeringCommand,
+        self.pub = rospy.Publisher("/actuators/steering_normalized", NormalizedSteeringCommand,
                                    queue_size=1, tcp_nodelay=True)
         self.sub_odom = rospy.Subscriber("/localization/odometry/filtered_map", Odometry, self.callback, queue_size=1)
         self.lidar_sub = rospy.Subscriber("/sensors/rplidar/scan", LaserScan, self.on_lidar, queue_size=1)

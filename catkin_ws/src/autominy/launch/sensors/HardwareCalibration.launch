@@ -3,8 +3,8 @@
 	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
 
 	<!-- Arduino communication -->
-	<remap from="/sensors/hardware_calibration/control/normalized_wanted_speed" to="/control/command/normalized_wanted_speed" />
-	<remap from="/sensors/hardware_calibration/control/normalized_wanted_steering" to="/control/command/normalized_wanted_steering" />
+	<remap from="~actuators/speed_normalized" to="/actuators/speed_normalized" />
+	<remap from="~actuators/steering_normalized" to="/actuators/steering_normalized" />
 	<remap from="~carstate/calibrated_speed" to="speed" />
 	<remap from="~carstate/steering_angle" to="steering" />
 	<remap from="/sensors/hardware_calibration/arduino/speed" to="/autonomics/emergency_stop/wanted_speed" />

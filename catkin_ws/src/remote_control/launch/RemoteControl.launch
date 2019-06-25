@@ -10,8 +10,8 @@
     -->
     ]]>
 
-    <remap from="~speed" to="/control/command/normalized_wanted_speed" />
-    <remap from="~steering" to="/control/command/normalized_wanted_steering" />
+    <remap from="~speed" to="/actuators/speed_normalized" />
+    <remap from="~steering" to="/actuators/steering_normalized" />
     <!-- start standalone node -->
     <node unless="$(arg use_nodelets)"
           pkg="remote_control"

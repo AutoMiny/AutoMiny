@@ -23,8 +23,8 @@ namespace hardware_calibration {
                                                       &HardwareCalibrationNodelet::onSteeringFeedback, this, ros::TransportHints().tcpNoDelay());
             speedSubscriber = pnh.subscribe("actuators/speed", 1, &HardwareCalibrationNodelet::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
             steeringSubscriber = pnh.subscribe("actuators/steering", 1, &HardwareCalibrationNodelet::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
-            wantedSpeedSubscriber = pnh.subscribe("control/normalized_wanted_speed", 1, &HardwareCalibrationNodelet::onWantedSpeed, this, ros::TransportHints().tcpNoDelay());
-            wantedSteeringSubscriber = pnh.subscribe("control/normalized_wanted_steering", 1, &HardwareCalibrationNodelet::onWantedSteering, this, ros::TransportHints().tcpNoDelay());
+            wantedSpeedSubscriber = pnh.subscribe("actuators/speed_normalized", 1, &HardwareCalibrationNodelet::onWantedSpeed, this, ros::TransportHints().tcpNoDelay());
+            wantedSteeringSubscriber = pnh.subscribe("actuators/steering_normalized", 1, &HardwareCalibrationNodelet::onWantedSteering, this, ros::TransportHints().tcpNoDelay());
             ticksSubscriber = pnh.subscribe("arduino/ticks", 1, &HardwareCalibrationNodelet::onTicks, this, ros::TransportHints().tcpNoDelay());
         }
 
