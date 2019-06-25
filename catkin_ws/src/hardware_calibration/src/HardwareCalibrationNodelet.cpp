@@ -56,7 +56,7 @@ namespace hardware_calibration {
             double average = std::accumulate(steeringFeedbackBuffer.begin(), steeringFeedbackBuffer.end(), 0.0) / steeringFeedbackBuffer.size();
 
             if (average < config.minimum_steering_feedback || average > config.maximum_steering_feedback) {
-                ROS_ERROR("Steering feedback is not within range %i to %i: %f. Clamping!", config.minimum_steering_feedback, config.maximum_steering_feedback, average);
+                ROS_INFO("Steering feedback is not within range %i to %i: %f. Clamping!", config.minimum_steering_feedback, config.maximum_steering_feedback, average);
                 average = boost::algorithm::clamp(average, config.minimum_steering_feedback, config.maximum_steering_feedback);
             }
 
@@ -79,7 +79,7 @@ namespace hardware_calibration {
             }
 
             if (wantedSpeed < -1.0 || wantedSpeed > 1.0) {
-                ROS_ERROR("Wanted speed is not within range -1.0 to 1.0: %f. Clamping!", wantedSpeed);
+                ROS_INFO("Wanted speed is not within range -1.0 to 1.0: %f. Clamping!", wantedSpeed);
                 wantedSpeed = boost::algorithm::clamp(wantedSpeed, -1.0, 1.0);
             }
 
@@ -96,7 +96,7 @@ namespace hardware_calibration {
             auto wantedSteering = msg->value;
 
             if (wantedSteering < -1.0 || wantedSteering > 1.0) {
-                ROS_ERROR("Wanted steering is not within range -1.0 to 1.0: %f. Clamping!", wantedSteering);
+                ROS_INFO("Wanted steering is not within range -1.0 to 1.0: %f. Clamping!", wantedSteering);
                 wantedSteering = boost::algorithm::clamp(wantedSteering, -1.0, 1.0);
             }
 
