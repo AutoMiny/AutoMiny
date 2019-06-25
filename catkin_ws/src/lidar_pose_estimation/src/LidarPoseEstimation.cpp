@@ -57,8 +57,6 @@ namespace lidar_pose_estimation {
             Eigen::Vector4f centroid;
             pcl::compute3DCentroid(*cluster, centroid);
             poles->points.emplace_back(pcl::PointXYZ(centroid.x(), centroid.y(), centroid.z()));
-
-            ROS_INFO("cluster size: %lu", cluster->size());
         }
         poles->header.frame_id = data->header.frame_id;
 
@@ -92,9 +90,6 @@ namespace lidar_pose_estimation {
             auto pRefMiddle = (pRef1 + pRef2) * 0.5;
             auto x = pMiddle.x() - pRefMiddle.x();
             auto y = pMiddle.y() - pRefMiddle.y();
-
-            ROS_ERROR("measured: %f, ref: %f, yaw: %f, x: %f, y: %f", (p1 - p2).norm(), (pRef1 - pRef2).norm(), yaw, x,
-                      y);
 
             geometry_msgs::TransformStamped transform;
             transform.header.stamp = ros::Time::now();
