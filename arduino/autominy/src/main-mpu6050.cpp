@@ -704,7 +704,7 @@ void sendSteeringAngle(uint16_t steeringAngle) {
 }
 
 void setup() {
-    packetSerial.begin(500000);
+    packetSerial.begin(115200);
     packetSerial.setStream(&Serial);
     packetSerial.setPacketHandler(&onPacketReceived);
 

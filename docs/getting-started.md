@@ -28,7 +28,7 @@ The car will turn itself off at 12.8V to prevent any permanent damage to
 the car but you should turn off the car immediately when the battery
 voltage tester begins buzzing.
 
-It takes about 10s until the odroid has booted and the car's software
+It takes about 30s until the NUC has booted and the car's software
 starts up. Once the car has booted the LiDAR will start spinning.
 
 ### Connecting to the car
@@ -39,7 +39,7 @@ car is running simply try connecting via ssh with user `root` and the
 password `elfmeter`:
 
 ```bash
-ssh root@192.168.43.[NUMBER]
+ssh ros@192.168.43.[NUMBER]
 ```
 
 ### Testing the actuators
@@ -48,7 +48,7 @@ run:
 
 Driving the car at a speed level of 0.2:
 ```bash
-rostopic pub /control/command/normalized_wanted_steering autominy_msgs/NormalizedSteeringCommand "header:
+rostopic pub /actuators/speed_normalized autominy_msgs/NormalizedSpeedCommand "header:
   seq: 0
   stamp:
     secs: 0
@@ -59,7 +59,7 @@ value: 0.2"
 
 Setting the steering angle fully to the left:
 ```bash
-rostopic pub /control/command/normalized_wanted_steering autominy_msgs/NormalizedSteeringCommand "header:
+rostopic pub /control/command/steering_normalized autominy_msgs/NormalizedSteeringCommand "header:
   seq: 0
   stamp:
     secs: 0
@@ -68,3 +68,14 @@ rostopic pub /control/command/normalized_wanted_steering autominy_msgs/Normalize
 value: 1.0"
 ```
 
+### Create a workspace
+The basic autominy packages are installed in ```/opt/autominy/catkin_ws```. However, your packages should not be placed in that workspace. The autominy workspace might get updated and your work might get lost. Instead create your own workspace:
+
+```
+mkdir -p ~/[WORKSPACE_NAME]/src
+cd cd ~/[WORKSPACE_NAME]/
+catkin build
+source devel/setup.zsh
+```
+
+Place your code and packages inside the ```src``` directory.

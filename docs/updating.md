@@ -1,7 +1,17 @@
 ## Updating
-The car can either be updated from source code or using debian packages.
+The car can either be updated from source code or using debian packages (Odroid XU only).
 
-### Updating from debian package
+### Compiling from source
+We can also compile from source on the car directly but keep in mind that a full compilation will take quite some time and will keep the car busy.
+
+```bash
+cd /opt/autominy/catkin_ws
+git pull
+catkin build
+sudo reboot
+```
+
+### Updating from debian package (Odroid XU4 only)
 Download the most recent debian package from [our FTP server](http://ftp.imp.fu-berlin.de/pub/autonomos/data/modelcar/debian-packages). Copy the debian package to the car using scp:
 
 ```bash
@@ -14,7 +24,7 @@ On the car install the debian package using gdebi which will resolve and install
 gdebi --n autominy-basic-packages.deb
 ```
 
-### Creating a debian package
+### Creating a debian package (Odroid XU4 only)
 The debian packages can be created inside a docker environment. Install Docker CE by following the [installation guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/). Since we are building for armv7 we need qemu-armv7 for emulation:
 
 ```bash
@@ -39,15 +49,4 @@ Compilation takes quite a while (10 - 20 minutes) since we are emulating an arm 
 ```bash
 docker ps # find your container ID
 sudo docker cp <CONTAINER_ID>:/opt/debian-packaging/autominy-basic-packages.deb .
-```
-
-### Compiling from source
-We can also compile from source on the car directly but keep in mind that a full compilation will take quite some time and will keep the car busy.
-
-```bash
-cd /opt/autominy/catkin_ws
-git pull
-pkill ros # stop ROS to speed up compilation and save memory
-catkin build -j1 # only one core else we run out of memory
-reboot
 ```
