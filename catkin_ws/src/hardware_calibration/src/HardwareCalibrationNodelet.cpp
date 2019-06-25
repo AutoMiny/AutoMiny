@@ -57,10 +57,10 @@ namespace hardware_calibration {
 
             if (average < config.minimum_steering_feedback || average > config.maximum_steering_feedback) {
                 ROS_ERROR("Steering feedback is not within range %i to %i: %f. Clamping!", config.minimum_steering_feedback, config.maximum_steering_feedback, average);
-                boost::algorithm::clamp(average, config.minimum_steering_feedback, config.maximum_steering_feedback);
+                average = boost::algorithm::clamp(average, config.minimum_steering_feedback, config.maximum_steering_feedback);
             }
 
-            auto radianSteering = mapRange(config.minimum_steering_feedback, config.maximum_steering_feedback, config.minimum_steering_radians, config.maximum_steering_radians, steeringFeedback);
+            auto radianSteering = mapRange(config.minimum_steering_feedback, config.maximum_steering_feedback, config.minimum_steering_radians, config.maximum_steering_radians, average);
 
             autominy_msgs::SteeringAngle steeringAngleMsg;
             steeringAngleMsg.header.stamp = ros::Time::now();
@@ -80,7 +80,7 @@ namespace hardware_calibration {
 
             if (wantedSpeed < -1.0 || wantedSpeed > 1.0) {
                 ROS_ERROR("Wanted speed is not within range -1.0 to 1.0: %f. Clamping!", wantedSpeed);
-                boost::algorithm::clamp(wantedSpeed, -1.0, 1.0);
+                wantedSpeed = boost::algorithm::clamp(wantedSpeed, -1.0, 1.0);
             }
 
             auto pwm = mapRange(-1.0, 1.0, config.minimum_speed_pwm, config.maximum_speed_pwm, wantedSpeed);
@@ -97,7 +97,7 @@ namespace hardware_calibration {
 
             if (wantedSteering < -1.0 || wantedSteering > 1.0) {
                 ROS_ERROR("Wanted steering is not within range -1.0 to 1.0: %f. Clamping!", wantedSteering);
-                boost::algorithm::clamp(wantedSteering, -1.0, 1.0);
+                wantedSteering = boost::algorithm::clamp(wantedSteering, -1.0, 1.0);
             }
 
             // left and right have different limits
