@@ -243,7 +243,7 @@ void ArduinoCommunication::onTicks(uint8_t *message) {
     ticksPublisher.publish(msg);
 }
 
-void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringCommandConstPtr const &steering) {
+void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringPWMCommandConstPtr const &steering) {
     uint8_t size = sizeof(MessageType) + sizeof(int16_t);
     uint8_t message[size];
 

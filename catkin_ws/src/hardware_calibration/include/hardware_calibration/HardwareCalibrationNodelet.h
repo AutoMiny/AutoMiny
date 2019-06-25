@@ -12,6 +12,7 @@
 #include <autominy_msgs/Speed.h>
 #include <autominy_msgs/SpeedPWMCommand.h>
 #include <autominy_msgs/SteeringCommand.h>
+#include <autominy_msgs/SteeringPWMCommand.h>
 #include <autominy_msgs/SpeedCommand.h>
 #include <hardware_calibration/HardwareCalibrationConfig.h>
 #include <boost/algorithm/clamp.hpp>
@@ -33,6 +34,7 @@ namespace hardware_calibration {
         void onWantedSpeed(const autominy_msgs::NormalizedSpeedCommandConstPtr& msg);
         void onWantedSteering(const autominy_msgs::NormalizedSteeringCommandConstPtr& msg);
         void onSpeedCommand(const autominy_msgs::SpeedCommandConstPtr& msg);
+        void onSteeringCommand(const autominy_msgs::SteeringCommandConstPtr& msg);
         void onReconfigure(HardwareCalibrationConfig &config, uint32_t level);
     private:
         double mapRange(double a1, double a2, double b1, double b2, double s);
@@ -40,6 +42,7 @@ namespace hardware_calibration {
         /// subscriber
         ros::Subscriber steeringFeedbackSubscriber;
         ros::Subscriber speedSubscriber;
+        ros::Subscriber steeringSubscriber;
         ros::Subscriber wantedSpeedSubscriber;
         ros::Subscriber wantedSteeringSubscriber;
         ros::Subscriber ticksSubscriber;

@@ -1,4 +1,4 @@
 Header header
 
-# steering angle pwm
-int16 value
+# steering angle [rad]
+float64 value

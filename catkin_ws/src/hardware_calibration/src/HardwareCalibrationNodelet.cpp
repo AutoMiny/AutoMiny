@@ -15,13 +15,14 @@ namespace hardware_calibration {
             f = boost::bind(&HardwareCalibrationNodelet::onReconfigure, this, _1, _2);
             configServer->setCallback(f);
 
-            steeringPublisher = pnh.advertise<autominy_msgs::SteeringCommand>("arduino/steering", 1);
+            steeringPublisher = pnh.advertise<autominy_msgs::SteeringPWMCommand>("arduino/steering", 1);
             speedPublisher = pnh.advertise<autominy_msgs::SpeedPWMCommand>("arduino/speed", 1);
             calibratedSpeedPublisher = pnh.advertise<autominy_msgs::Speed>("carstate/calibrated_speed", 1);
             steeringAnglePublisher = pnh.advertise<autominy_msgs::SteeringAngle>("carstate/steering_angle", 1);
             steeringFeedbackSubscriber = pnh.subscribe("arduino/steering_angle", 1,
                                                       &HardwareCalibrationNodelet::onSteeringFeedback, this, ros::TransportHints().tcpNoDelay());
             speedSubscriber = pnh.subscribe("actuators/speed", 1, &HardwareCalibrationNodelet::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
+            steeringSubscriber = pnh.subscribe("actuators/steering", 1, &HardwareCalibrationNodelet::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
             wantedSpeedSubscriber = pnh.subscribe("control/normalized_wanted_speed", 1, &HardwareCalibrationNodelet::onWantedSpeed, this, ros::TransportHints().tcpNoDelay());
             wantedSteeringSubscriber = pnh.subscribe("control/normalized_wanted_steering", 1, &HardwareCalibrationNodelet::onWantedSteering, this, ros::TransportHints().tcpNoDelay());
             ticksSubscriber = pnh.subscribe("arduino/ticks", 1, &HardwareCalibrationNodelet::onTicks, this, ros::TransportHints().tcpNoDelay());
@@ -108,7 +109,7 @@ namespace hardware_calibration {
             }
             pwm = mapRange(config.minimum_steering_radians, config.maximum_steering_radians, config.minimum_steering_pwm, config.maximum_steering_pwm, pwm);
 
-            autominy_msgs::SteeringCommand steeringMsg;
+            autominy_msgs::SteeringPWMCommand steeringMsg;
             steeringMsg.header.stamp = ros::Time::now();
             steeringMsg.header.frame_id = "base_link";
             steeringMsg.value = static_cast<int16_t>(pwm);
@@ -128,6 +129,20 @@ namespace hardware_calibration {
             command->header = msg->header;
             command->value = std::copysign(normalized, msg->value);
             this->onWantedSpeed(command);
+        }
+
+        void HardwareCalibrationNodelet::onSteeringCommand(const autominy_msgs::SteeringCommandConstPtr& msg) {
+            auto val = msg->value;
+            if (msg->value < 0) {
+                val /= config.minimum_steering_radians;
+            } else {
+                val /= config.maximum_steering_radians;
+            }
+
+            auto command = boost::make_shared<autominy_msgs::NormalizedSteeringCommand>();
+            command->header = msg->header;
+            command->value = val;
+            this->onWantedSteering(command);
         }
 
         void HardwareCalibrationNodelet::onReconfigure(HardwareCalibrationConfig& config, uint32_t level) {

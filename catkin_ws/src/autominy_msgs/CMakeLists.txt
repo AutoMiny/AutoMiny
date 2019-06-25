@@ -24,6 +24,7 @@ add_message_files(
         SpeedPWMCommand.msg
         SteeringAngle.msg
         SteeringCommand.msg
+        SteeringPWMCommand.msg
         SteeringFeedback.msg
         Tick.msg
         Trajectory.msg

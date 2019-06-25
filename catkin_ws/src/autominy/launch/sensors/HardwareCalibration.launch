@@ -12,6 +12,7 @@
 	<remap from="/sensors/hardware_calibration/arduino/steering" to="/actuators/steering_pwm" />
 	<remap from="/sensors/hardware_calibration/arduino/ticks" to="/sensors/arduino/ticks" />
 	<remap from="~actuators/speed" to="/actuators/speed" />
+	<remap from="~actuators/steering" to="/actuators/steering" />
 	<include file="$(find hardware_calibration)/launch/HardwareCalibration.launch">
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />

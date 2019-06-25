@@ -5,7 +5,6 @@
 #include <std_msgs/UInt8.h>
 #include <std_msgs/UInt16.h>
 #include <autominy_msgs/Speed.h>
-#include <autominy_msgs/SteeringCommand.h>
 #include <autominy_msgs/SteeringAngle.h>
 #include <sensor_msgs/Imu.h>
 #include <vector>
