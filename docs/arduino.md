@@ -47,6 +47,7 @@ enum class MessageType :uint8_t {
 The ROS node `arduino_communication` manages the communication with the arduino. All of the above message types are mapped to subscribers and publishers in this node. The heartbeat is send to the Arduino at 100hz.
 
 #### Publishers
+
 | Topic            | Type                           | Description                                                     |
 |:-----------------|:-------------------------------|:----------------------------------------------------------------|
 | ~voltage         | autominy_msgs/Voltage          | Battery voltage \[V\]                                           |
@@ -56,12 +57,14 @@ The ROS node `arduino_communication` manages the communication with the arduino.
 | ~imu/temperature | sensor_msgs/Temperature        | IMU temperature from MPU6050 (if enabled)                       |
 
 #### Subscribers
+
 | Topic     | Type                             | Description                               |
 |:----------|:---------------------------------|:------------------------------------------|
 | ~steering | autominy_msgs/SteeringPWMCommand | Steering motor command in PWM Signal duty |
 | ~speed    | autominy_msgs/SpeedPWMCommand    | Speed motor command in PWM Signal duty    |
 
 #### Services
+
 | Topic          | Type           | Description                                                                                          |
 |:---------------|:---------------|:-----------------------------------------------------------------------------------------------------|
 | ~calibrate_imu | std_msgs/Empty | Calibrates the MPU6050 (if enabled). Takes ~5 minutes and the car must be stable during calibration. |
