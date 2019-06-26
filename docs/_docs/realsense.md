@@ -4,7 +4,7 @@ permalink: /docs/realsense/
 excerpt: "Realsense"
 toc: true
 ---
-
+We support up to two realsense D435 cameras.
 ### Configuration
 We configure the realsense camera with the following parameters:
 
@@ -21,7 +21,16 @@ We configure the realsense camera with the following parameters:
 
 The default size of the images is 640x480. The color camera supports up to 1920x1080@30Hz. Depth and infrared is supported up to 1280x800@30Hz. Use the `rs-enumerate-devices` tool on the car to find valid combinations of framerate and resolution.
 
+### Two camera mode
+In two camera mode we need the serial numbers of the cameras to distinguish between the front and rear camera. You can retrieve the different serial numbers using the `rs-enumerate-devices` tool. Two camera mode is configured using the following environment variables. These can be added to `~/ros-config.sh`
+
+| Name                      | Value                      |
+|:--------------------------|:---------------------------|
+| ROS_CAMERA_SERIAL_NO      | Front camera serial number |
+| ROS_REAR_CAMERA_SERIAL_NO | Rear camera serial number  |
+
 ### Publishers
+
 | Topic                   | Type                   | Information                   |
 |:------------------------|:-----------------------|:------------------------------|
 | ~color/camera_info      | sensor_msgs/CameraInfo | Color camera parameter        |
