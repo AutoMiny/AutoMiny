@@ -22,3 +22,4 @@ melodic on Ubuntu 18.04.
 * [Localization](localization.md)
 * [Network configuration](network.md)
 * [Arduino](arduino.md)
+* [Rosbag](rosbag.md)
