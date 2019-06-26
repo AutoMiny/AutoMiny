@@ -31,14 +31,14 @@ In two camera mode we need the serial numbers of the cameras to distinguish betw
 
 ### Publishers
 
-| Topic                   | Type                   | Information                   |
-|:------------------------|:-----------------------|:------------------------------|
-| ~color/camera_info      | sensor_msgs/CameraInfo | Color camera parameter        |
-| ~color/image_raw        | sensor_msgs/Image      | Color image                   |
-| ~color/image_rect_color | sensor_msgs/Image      | Color image rectified         |
-| ~depth/camera_info      | sensor_msgs/CameraInfo | Depth image camera parameters |
-| ~depth/image_rect_raw   | sensor_msgs/Image      | Depth image rectified         |
-| ~infra1/camera_info     | sensor_msgs/CameraInfo | Infrared camera 1 parameters  |
-| ~infra1/image_rect_raw  | sensor_msgs/Image      | Infrared camera 1 image       |
+| Topic                   | Type                   | Information                       |
+|:------------------------|:-----------------------|:----------------------------------|
+| ~color/camera_info      | sensor_msgs/CameraInfo | Color camera parameter            |
+| ~color/image_raw        | sensor_msgs/Image      | Color image                       |
+| ~color/image_rect_color | sensor_msgs/Image      | Color image rectified             |
+| ~depth/camera_info      | sensor_msgs/CameraInfo | Depth image camera parameters     |
+| ~depth/image_rect_raw   | sensor_msgs/Image      | Depth image rectified             |
+| ~infra1/camera_info     | sensor_msgs/CameraInfo | Infrared camera 1 parameters      |
+| ~infra1/image_rect_raw  | sensor_msgs/Image      | Infrared camera 1 image rectified |
 
 For more information on the realsense driver refer to the [realsense documentation](https://github.com/IntelRealSense/realsense-ros).
