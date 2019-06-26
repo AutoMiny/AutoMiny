@@ -28,7 +28,7 @@ After calculation is done the node broadcasts the transform from `camera_bottom_
 
 ### Example
 Estimated ground plane (taken from `/sensors/camera/stereo_camera_pose_estimation/plane_pcl`):
-![](img/ground-plane.png)
+![](../assets/images/ground-plane.png)
 
 Aruco marker and projected frame (taken from `/sensors/camera/stereo_camera_pose_estimation/marker`):
-![](img/pose-marker.png)
+![](../assets/images/pose-marker.png)

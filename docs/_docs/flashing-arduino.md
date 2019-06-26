@@ -15,4 +15,4 @@ Alternatively use `sudo chmod 777 /dev/ttyUSB0` to give write permissions tempor
 
 Once connected, press the right facing arrow on the bottom in Visual Studio Code to compile and flash the code to the Arduino. If flashing fails with a sync error it is likely an Arduino version mismatch. By default the project is configured for the new Arduino Nano boards. The version can be changed in the platformio.ini file by setting `env_default` to `nanoatmega328new` (for the new boards) or `nanoatmega328` (for older boards).
 
-![platformio](img/platformio.png)
+![platformio](../assets/images/platformio.png)

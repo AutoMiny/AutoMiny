@@ -1,3 +1,13 @@
+---
+title: "Quick-Start Guide"
+permalink: /docs/quick-start-guide/
+excerpt: "How to quickly install and setup Minimal Mistakes for use with GitHub Pages."
+last_modified_at: 2019-04-18T15:53:52-04:00
+redirect_from:
+  - /theme-setup/
+toc: true
+---
+
 ## Getting started
 
 ### Connect the battery
@@ -12,7 +22,7 @@ might destroy the battery and might explode when charging. Carefully
 connect a 14.4V rated LiPo battery to the battery cable and fixate the
 battery using the velcro stripe to the car.
 
-![battery](img/battery.jpg) ![battery-car](img/battery-car.jpg)
+![battery](/assets/images/battery.jpg) ![battery-car](./assets/images/battery-car.jpg)
 
 ### Startup
 Switch the lever pointing towards the back of the car and press the

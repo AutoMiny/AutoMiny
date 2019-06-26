@@ -1,7 +1,7 @@
 ## Visualize sensor data
 On your computer run `rviz` and open `live.rviz` from `src/autominy/rviz` in your `catkin_ws`. You should be seeing something like this:
 
-![hardware](img/rviz.png)
+![hardware](../assets/images/rviz.png)
 
 The default view does visualize the most important sensor data. We do not visualize camera images by default since they consume quite a lot of bandwidth. Doing so could cause issues with the wifi network due to bandwidth shortage.
 

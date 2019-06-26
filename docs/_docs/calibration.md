@@ -1,3 +1,11 @@
+---
+title: "Navigation"
+permalink: /docs/navigation/
+excerpt: "Instructions on how to customize the main navigation and enabling breadcrumb links."
+last_modified_at: 2018-03-20T15:59:40-04:00
+toc: true
+---
+
 ## IMU
 AutoMiny comes with a BNO055 USB Stick IMU and an Invensense MPU6050. By default, the BNO055 will be used. The MPU6050 can be used by flashing ```main-mpu6050.cpp``` onto the Arduino. When using the MPU6050 the BNO055 should be disconnected since both devices publish their data on ```/sensors/imu```.
 
