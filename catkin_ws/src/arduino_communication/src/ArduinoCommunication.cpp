@@ -7,7 +7,7 @@ namespace arduino_communication {
 
 ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
     device = nh.param<std::string>("device", "/dev/ttyUSB0");
-    baudrate = nh.param("baud", 500000);
+    baudrate = nh.param("baud", 115200);
 
     steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 1);
     voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 1);
