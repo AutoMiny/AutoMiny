@@ -1,3 +1,10 @@
+---
+title: "Arduino"
+permalink: /docs/arduino/
+excerpt: "Arduino"
+toc: true
+---
+
 ## Arduino
 
 ### Serial protocol

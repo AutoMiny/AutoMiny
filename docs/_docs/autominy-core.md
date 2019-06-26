@@ -14,7 +14,6 @@ diagram_gallery:
   - image_path: /assets/images/diagram.png
     url: /assets/images/diagram.png
     alt: "Autominy hardware diagram"
-
 ---
 
 The base Hardware of our car, processes all the algorithms on an Intel NUC CPU and provides the basic configuration to run the car autonomously.

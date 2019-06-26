@@ -9,7 +9,6 @@ single_layout_gallery:
   - image_path: /assets/images/battery-car.jpg
     alt: "Battery installed into car"
 ---
-
 ### Connect the battery
 We use 14.8V (4 cells with 3.8V nominal voltage each) LiPo batteries to
 power the car. Plug the battery voltage tester to the battery and check

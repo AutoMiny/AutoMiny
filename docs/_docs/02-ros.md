@@ -1,5 +1,9 @@
-## Setting up ROS and the project
-
+---
+title: "Setting up ROS and the project"
+permalink: /docs/ros/
+excerpt: "Setting up the autominy project along with ROS"
+toc: true
+---
 ### Setting up ROS
 These instructions assume that you are running Ubuntu 18.04. Install ROS
 melodic using the installation guide at the

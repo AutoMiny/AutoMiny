@@ -5,7 +5,7 @@ header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/team_b.jpg
   actions:
-    - label: "<i class='fas fa-download'></i> Install now"
+    - label: "<i class='fas fa-download'></i> Get started!"
       url: "/docs/quick-start-guide/"
 excerpt: >
   An autonomous model car for education.<br />
