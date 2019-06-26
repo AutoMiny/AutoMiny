@@ -9,3 +9,4 @@ odroid-install/
 .metadata/
 .idea
 **/.idea/**
+/docs/_site/

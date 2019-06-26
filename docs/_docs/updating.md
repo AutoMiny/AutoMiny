@@ -1,5 +1,11 @@
-## Updating
-The car can either be updated from source code or using debian packages (Odroid XU only).
+---
+title: "Updating"
+permalink: /docs/updating/
+excerpt: "Updating the car to the newest software"
+toc: true
+---
+
+Sometimes it is necessary to update the car to keep up with the newest software features, changes and bugfixes. The car can either be updated from source code or using debian packages (Odroid XU only).
 
 ### Compiling from source
 We can also compile from source on the car directly but keep in mind that a full compilation will take quite some time and will keep the car busy.

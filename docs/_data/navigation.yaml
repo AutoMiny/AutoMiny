@@ -11,12 +11,12 @@ docs:
     children:
       - title: "Quick-Start Guide"
         url: /docs/quick-start-guide/
-      - title: "Setting up ROS and the project"
+      - title: "Setting up ROS"
         url: /docs/ros/
       - title: "Installation"
         url: /docs/installation/
-      - title: "Upgrading"
-        url: /docs/upgrading/
+      - title: "Updating"
+        url: /docs/updating/
 
   - title: Hardware
     children:

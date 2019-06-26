@@ -1,14 +1,9 @@
 ---
-title: "Setting up ROS and the project"
-permalink: /docs/ros/
-excerpt: "Setting up the autominy project along with ROS"
+title: "Installation"
+permalink: /docs/installation/
+excerpt: "Compile and install the autominy software on your computer"
 toc: true
 ---
-### Setting up ROS
-These instructions assume that you are running Ubuntu 18.04. Install ROS
-melodic using the installation guide at the
-[ROS wiki](http://wiki.ros.org/melodic/Installation/Ubuntu). At the end of that tutorial you will have a working ROS installation onto which the autominy packages will be installed.
-
 ### Compile the autominy project
 The autominy project must be installed on your computer to interact and develop for the car:
 
