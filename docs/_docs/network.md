@@ -4,8 +4,7 @@ permalink: /docs/network/
 excerpt: "Setting up the network"
 toc: true
 ---
-
-The default WiFi configuration is:
+The network configuration is not handled via the NetworkManager. Instead we installed a preconfigured static configuration. The default WiFi configuration is:
 
 |   |    |
 |:---|:---|

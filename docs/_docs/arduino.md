@@ -5,8 +5,6 @@ excerpt: "Arduino"
 toc: true
 ---
 
-## Arduino
-
 ### Serial protocol
 We use a binary protocol for the communication between the Intel NUC and the Arduino Nano. The protocol uses [COBS](https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing) encoding for packet framing. Each packet consists of a flag indicating the message type and data. The data length is defined for each message type differently.
 

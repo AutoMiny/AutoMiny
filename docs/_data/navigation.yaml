@@ -49,3 +49,5 @@ docs:
         url: /docs/calibration/
       - title: "Camera pose estimation"
         url: /docs/camera-pose-estimation/
+      - title: "Realsense"
+        url: /docs/realsense/
