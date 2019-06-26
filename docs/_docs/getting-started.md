@@ -1,14 +1,14 @@
 ---
 title: "Quick-Start Guide"
 permalink: /docs/quick-start-guide/
-excerpt: "How to quickly install and setup Minimal Mistakes for use with GitHub Pages."
-last_modified_at: 2019-04-18T15:53:52-04:00
-redirect_from:
-  - /theme-setup/
+excerpt: "How to quickly start and operate the car."
 toc: true
+single_layout_gallery:
+  - image_path: /assets/images/battery.jpg
+    alt: "Battery with voltage tester"
+  - image_path: /assets/images/battery-car.jpg
+    alt: "Battery installed into car"
 ---
-
-## Getting started
 
 ### Connect the battery
 We use 14.8V (4 cells with 3.8V nominal voltage each) LiPo batteries to
@@ -22,7 +22,7 @@ might destroy the battery and might explode when charging. Carefully
 connect a 14.4V rated LiPo battery to the battery cable and fixate the
 battery using the velcro stripe to the car.
 
-![battery](/assets/images/battery.jpg) ![battery-car](./assets/images/battery-car.jpg)
+{% include gallery id="single_layout_gallery" caption="Battery installation" %}
 
 ### Startup
 Switch the lever pointing towards the back of the car and press the

@@ -19,3 +19,14 @@ docs:
         url: /docs/installation/
       - title: "Upgrading"
         url: /docs/upgrading/
+
+  - title: Hardware
+    children:
+      - title: "Autominy Core"
+        url: /docs/autominy-core/
+      - title: "Autominy Nano and Xavier"
+        url: /docs/autominy-nano-and-xavier/
+      - title: "Autominy Specs"
+        url: /docs/autominy-specifications/
+      - title: "Wiring"
+        url: /docs/wiring/
