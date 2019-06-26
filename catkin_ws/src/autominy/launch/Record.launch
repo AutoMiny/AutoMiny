@@ -19,6 +19,15 @@
 /sensors/camera/extrinsics/depth_to_infra1
 /sensors/camera/infra1/camera_info
 /sensors/camera/infra1/image_rect_raw
+/sensors/rear_camera/color/camera_info
+/sensors/rear_camera/color/image_raw
+/sensors/rear_camera/color/image_rect_color
+/sensors/rear_camera/depth/camera_info
+/sensors/rear_camera/depth/image_rect_raw
+/sensors/rear_camera/extrinsics/depth_to_color
+/sensors/rear_camera/extrinsics/depth_to_infra1
+/sensors/rear_camera/infra1/camera_info
+/sensors/rear_camera/infra1/image_rect_raw
 /sensors/imu
 /sensors/rplidar/scan
 " />
