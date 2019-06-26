@@ -1,4 +1,10 @@
-## Network configuration
+---
+title: "Network"
+permalink: /docs/network/
+excerpt: "Setting up the network"
+toc: true
+---
+
 The default WiFi configuration is:
 
 |   |    |

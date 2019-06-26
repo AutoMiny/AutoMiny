@@ -1,4 +1,10 @@
-## Rosbag
+---
+title: "Rosbag"
+permalink: /docs/rosbag/
+excerpt: "Recording and playing back data using rosbag"
+toc: true
+---
+
 Sometimes it is easier to record data once and then play it back while developing for the car. We provide easy to use launch files to record and play back a rosbag. While playing back the whole AutoMiny software stack is launched manually so you have the same environment as running on a car.
 
 ### Recording

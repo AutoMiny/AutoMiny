@@ -1,4 +1,9 @@
-## CLion
+---
+title: "CLion"
+permalink: /docs/clion/
+excerpt: "Setting up CLion"
+toc: true
+---
 CLion is the recommended IDE to develop with. CLion features support for both C++ and Python and integrates with the CMake system used by ROS. Jetbrains offers free CLion licenses for students for educational purposes on their website.
 
 ### ROS CMake behaviour

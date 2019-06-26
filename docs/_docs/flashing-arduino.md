@@ -1,4 +1,14 @@
-## Flashing the Arduino
+---
+title: "Flashing the Arduino"
+permalink: /docs/arduino-firmware/
+excerpt: "Flash the arduino with the firmware"
+toc: true
+platformio_gallery:
+  - image_path: /assets/images/platformio.png
+    url: /assets/images/platformio.png
+    alt: "Platform.io IDE"
+---
+
 The Arduino handles communication with the sensors and the odroid and does some basic safety checks. The firmware can be flashed via USB on a computer.
 
 ### Install Platform.io
@@ -15,4 +25,4 @@ Alternatively use `sudo chmod 777 /dev/ttyUSB0` to give write permissions tempor
 
 Once connected, press the right facing arrow on the bottom in Visual Studio Code to compile and flash the code to the Arduino. If flashing fails with a sync error it is likely an Arduino version mismatch. By default the project is configured for the new Arduino Nano boards. The version can be changed in the platformio.ini file by setting `env_default` to `nanoatmega328new` (for the new boards) or `nanoatmega328` (for older boards).
 
-![platformio](../assets/images/platformio.png)
+{% include gallery id="platformio_gallery" caption="Platform.io" %}

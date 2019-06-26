@@ -28,3 +28,24 @@ docs:
         url: /docs/autominy-specifications/
       - title: "Wiring"
         url: /docs/wiring/
+
+  - title: Software
+    children:
+      - title: "Arduino"
+        url: /docs/arduino/
+      - title: "Arduino firmware"
+        url: /docs/arduino-firmware/
+      - title: "CLion"
+        url: /docs/clion/
+      - title: "Network"
+        url: /docs/network/
+      - title: "Rosbag"
+        url: /docs/rosbag/
+      - title: "Visualization"
+        url: /docs/visualization/
+      - title: "Localization"
+        url: /docs/localization/
+      - title: "Calibration"
+        url: /docs/calibration/
+      - title: "Camera pose estimation"
+        url: /docs/camera-pose-estimation/

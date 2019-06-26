@@ -1,4 +1,10 @@
-## Localization
+---
+title: "Localization"
+permalink: /docs/localization/
+excerpt: "Localization"
+toc: true
+---
+
 Localization for the car is done using a combination of wheel odometry and road marking localization.
 
 ### Odometry

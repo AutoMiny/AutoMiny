@@ -1,7 +1,17 @@
-## Visualize sensor data
+---
+title: "Visualization"
+permalink: /docs/visualization/
+excerpt: "Visualization using rviz"
+toc: true
+visualization_gallery:
+  - image_path: /assets/images/rviz.png
+    url: /assets/images/rviz.png
+    alt: "RViz"
+
+---
 On your computer run `rviz` and open `live.rviz` from `src/autominy/rviz` in your `catkin_ws`. You should be seeing something like this:
 
-![hardware](../assets/images/rviz.png)
+{% include gallery id="visualization_gallery" caption="Camera pose estimation example" %}
 
 The default view does visualize the most important sensor data. We do not visualize camera images by default since they consume quite a lot of bandwidth. Doing so could cause issues with the wifi network due to bandwidth shortage.
 

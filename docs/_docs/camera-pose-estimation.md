@@ -1,4 +1,18 @@
-## Automatic camera pose estimation
+---
+title: "Camera pose estimation"
+permalink: /docs/camera-pose-estimation/
+excerpt: "Camera pose estimation"
+toc: true
+camera_pose_estimation_gallery:
+  - image_path: /assets/images/ground-plane.png
+    url: /assets/images/ground-plane.png
+    alt: "Ground plane detection"
+  - image_path: /assets/images/pose-marker.png
+    url: /assets/images/pose-marker.png
+    alt: "Aruco marker pose"
+
+---
+
 The `stereo_camera_pose_estimation` node tries to find the stereo camera pose on the car. It uses the pointcloud and an aruco marker on the front to estimate the camera pose.
 
 ### Basic idea
@@ -27,8 +41,4 @@ We find the camera's yaw angle using the aruco marker on the front of the car. W
 After calculation is done the node broadcasts the transform from `camera_bottom_screw_frame` to `base_link` over tf.
 
 ### Example
-Estimated ground plane (taken from `/sensors/camera/stereo_camera_pose_estimation/plane_pcl`):
-![](../assets/images/ground-plane.png)
-
-Aruco marker and projected frame (taken from `/sensors/camera/stereo_camera_pose_estimation/marker`):
-![](../assets/images/pose-marker.png)
+{% include gallery id="camera_pose_estimation_gallery" caption="Camera pose estimation example" %}
