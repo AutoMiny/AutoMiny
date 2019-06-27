@@ -59,3 +59,5 @@ docs:
         url: /docs/road-marking-localization/
       - title: "Emergency Stop"
         url: /docs/emergency-stop/
+      - title: "Lidar Pose Estimation"
+        url: /docs/lidar-pose-estimation

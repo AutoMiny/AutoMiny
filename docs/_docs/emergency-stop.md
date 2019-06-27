@@ -4,9 +4,6 @@ permalink: /docs/emergency-stop/
 excerpt: "Emergency stop maneuvers"
 toc: true
 ---
-
-{% include gallery id="road_gallery" caption="Road marking localization alignment" %}
-
 The emergency stop module monitors obstacles that are in the driving direction and can stop the car if an crash is imminent. The module uses the LiDAR and checks if there are any obstacles too close. The module monitors the input to the actuators and in cases of an crash intercepts the communication with the actuators. In such a scenario the emergency stop module immediately stops the car and allows for no further movement.
 
 ### Configuration
