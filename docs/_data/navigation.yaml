@@ -53,3 +53,7 @@ docs:
         url: /docs/realsense/
       - title: "Architecture"
         url: /docs/architecture/
+      - title: "Odometry"
+        url: /docs/odometry/
+      - title: "Road Marking Localization"
+        url: /docs/road-marking-localization/
