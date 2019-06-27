@@ -57,3 +57,5 @@ docs:
         url: /docs/odometry/
       - title: "Road Marking Localization"
         url: /docs/road-marking-localization/
+      - title: "Emergency Stop"
+        url: /docs/emergency-stop/
