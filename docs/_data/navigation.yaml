@@ -51,3 +51,5 @@ docs:
         url: /docs/camera-pose-estimation/
       - title: "Realsense"
         url: /docs/realsense/
+      - title: "Architecture"
+        url: /docs/architecture/
