@@ -5,8 +5,11 @@ header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/team_f_.jpg
   actions:
-    - label: "<i class='fas fa-download'></i> Get started!"
+    - label: "<i class='fas fa-download'></i> Install!"
+      url: "https://github.com/autominy/autominy"
+    - label: "<i class='fas fa-book'></i> Get started!"
       url: "/docs/quick-start-guide/"
+
 excerpt: >
   An autonomous model car for education.<br />
   <small><a href="https://github.com/autominy/autominy">Latest release v5</a></small>
@@ -15,7 +18,7 @@ feature_row:
     alt: "Autonomous"
     title: "A fully autonomous car architecture"
     excerpt: "A fully autonomous 1:10 model car. Perfect for getting started with autonomous cars."
-    url: "/docs/getting-started/"
+    url: "/docs/quick-start-guide/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
   - image_path: /assets/images/melodic.png
