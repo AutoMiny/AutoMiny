@@ -3,7 +3,7 @@ layout: splash
 permalink: /
 header:
   overlay_color: "#5e616c"
-  overlay_image: /assets/images/team_b.jpg
+  overlay_image: /assets/images/team_f_.jpg
   actions:
     - label: "<i class='fas fa-download'></i> Get started!"
       url: "/docs/quick-start-guide/"
