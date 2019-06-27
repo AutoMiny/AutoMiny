@@ -61,3 +61,5 @@ docs:
         url: /docs/emergency-stop/
       - title: "Lidar Pose Estimation"
         url: /docs/lidar-pose-estimation
+      - title: "Hardware calibration"
+        url: /docs/hardware-calibration
