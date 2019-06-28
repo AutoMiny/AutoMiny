@@ -60,8 +60,10 @@ docs:
       - title: "Emergency Stop"
         url: /docs/emergency-stop/
       - title: "LiDAR Pose Estimation"
-        url: /docs/lidar-pose-estimation
+        url: /docs/lidar-pose-estimation/
       - title: "Hardware calibration"
-        url: /docs/hardware-calibration
+        url: /docs/hardware-calibration/
       - title: "Vector Field Navigation"
-        url: /docs/vector-field-navigation
+        url: /docs/vector-field-navigation/
+      - title: "Service"
+        url: /docs/service/
