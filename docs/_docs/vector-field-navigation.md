@@ -23,3 +23,10 @@ Once we have the force matrix we can use it to navigate the car. Using the car's
 
 ### Avoiding obstacles
 Utilizing a vector with with zero lookahead offset we can check if there are obstacles on the path. This vector field has direction vectors to the closest point on the path. From the LiDAR data we check if there are any objects in near distance on our path and if so we switch lanes by setting the vector field to another lane.
+
+### Start the navigation
+The navigation can be launched by
+
+```bash
+rosrun fub_navigation controller.py
+```
