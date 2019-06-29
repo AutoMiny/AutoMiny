@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>visualization_converter</name>
+    <version>0.0.1</version>
+    <description>Brief description what this package is doing</description>
+
+    <maintainer email="stephan.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</maintainer>
+
+    <license>GPLv3</license>
+
+    <url type="website">https://www.autonomos-labs.de/</url>
+
+    <author email="stephan.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <build_depend>roscpp</build_depend>
+
+    <depend>nodelet</depend>
+    <depend>dynamic_reconfigure</depend>
+    <depend>sensor_msgs</depend>
+    <depend>nav_msgs</depend>
+    <depend>autominy_msgs</depend>
+
+    <!-- export of nodelet definition XML -->
+    <export>
+        <nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+    </export>
+</package>

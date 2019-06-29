@@ -1,0 +1,18 @@
+<!--int
+    relative workspace path to .so file (without file suffix),
+    e.g. this path refers to catkin_ws/devel/lib/libfub_dummy_nodelet.so
+-->
+<library path="lib/libvisualization_converter_nodelet">
+    <!--
+        name: value of variable nodeletName in DummyNode.cpp
+        type/base_class_type: first/second param of macro PLUGINLIB_EXPORT_CLASS in VisualizationConverterNodelet.cpp
+    -->
+    <class name="visualization_converter/Nodelet"
+           type="visualization_converter::VisualizationConverterNodelet"
+           base_class_type="nodelet::Nodelet"
+    >
+        <description>
+            Short description what this nodelet is doing
+        </description>
+    </class>
+</library>
