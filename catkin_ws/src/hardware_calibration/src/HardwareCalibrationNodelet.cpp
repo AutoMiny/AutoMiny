@@ -37,8 +37,7 @@ namespace hardware_calibration {
                     ticks += tick->value;
                 }
                 autominy_msgs::Speed speedMsg;
-                speedMsg.header.stamp = ros::Time::now();
-                speedMsg.header.frame_id = "base_link";
+                speedMsg.header = msg->header;
                 auto duration = ticksBuffer.size() * 0.01;
                 if (duration == 0.0) {
                     return;
@@ -63,8 +62,7 @@ namespace hardware_calibration {
             auto radianSteering = mapRange(config.minimum_steering_feedback, config.maximum_steering_feedback, config.minimum_steering_radians, config.maximum_steering_radians, average);
 
             autominy_msgs::SteeringAngle steeringAngleMsg;
-            steeringAngleMsg.header.stamp = ros::Time::now();
-            steeringAngleMsg.header.frame_id = "base_link";
+            steeringAngleMsg.header = msg->header;
             steeringAngleMsg.value = radianSteering;
             steeringAnglePublisher.publish(steeringAngleMsg);
         }
@@ -86,8 +84,7 @@ namespace hardware_calibration {
             auto pwm = mapRange(-1.0, 1.0, config.minimum_speed_pwm, config.maximum_speed_pwm, wantedSpeed);
 
             autominy_msgs::SpeedPWMCommand speedMsg;
-            speedMsg.header.stamp = ros::Time::now();
-            speedMsg.header.frame_id = "base_link";
+            speedMsg.header = msg->header;
             speedMsg.value = static_cast<int16_t>(pwm);
             speedPublisher.publish(speedMsg);
         }
@@ -110,8 +107,7 @@ namespace hardware_calibration {
             pwm = mapRange(config.minimum_steering_radians, config.maximum_steering_radians, config.minimum_steering_pwm, config.maximum_steering_pwm, pwm);
 
             autominy_msgs::SteeringPWMCommand steeringMsg;
-            steeringMsg.header.stamp = ros::Time::now();
-            steeringMsg.header.frame_id = "base_link";
+            steeringMsg.header = msg->header;
             steeringMsg.value = static_cast<int16_t>(pwm);
             steeringPublisher.publish(steeringMsg);
         }
