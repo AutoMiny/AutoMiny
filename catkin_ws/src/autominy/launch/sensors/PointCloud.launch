@@ -10,28 +10,91 @@
           additionally add <param name="/bond_disable_heartbeat_timeout" value="true" /> to debug nodelets
     -->
     ]]>
+	<arg unless="$(arg use_nodelets)" name="pcl_xyz_nodelet_manager" value="pcl_xyz_nodelet_manager" />
+	<arg if="$(arg use_nodelets)" name="pcl_xyz_nodelet_manager" value="$(arg nodelet_manager)" />
 
-	<arg unless="$(arg use_nodelets)" name="pcl_nodelet_manager" value="pointcloud_nodelet_manager" />
-	<arg if="$(arg use_nodelets)" name="pcl_nodelet_manager" value="$(arg nodelet_manager)" />
+    <arg unless="$(arg use_nodelets)" name="pcl_xyzi_nodelet_manager" value="pcl_xyzi_nodelet_manager" />
+    <arg if="$(arg use_nodelets)" name="pcl_xyzi_nodelet_manager" value="$(arg nodelet_manager)" />
+
+	<arg unless="$(arg use_nodelets)" name="pcl_register_depth_nodelet_manager" value="pcl_register_depth_nodelet_manager" />
+	<arg if="$(arg use_nodelets)" name="pcl_register_depth_nodelet_manager" value="$(arg nodelet_manager)" />
+
+	<arg unless="$(arg use_nodelets)" name="pcl_xyzrgb_nodelet_manager" value="pcl_xyzrgb_nodelet_manager" />
+	<arg if="$(arg use_nodelets)" name="pcl_xyzrgb_nodelet_manager" value="$(arg nodelet_manager)" />
 
 	<node unless="$(arg use_nodelets)"
 		  pkg="nodelet"
 		  type="nodelet"
-		  name="pointcloud_nodelet_manager"
-		  args="manager"
-	>
+		  name="pcl_xyz_nodelet_manager"
+		  args="manager">
 		<param name="num_worker_threads" value="8" />
 	</node>
+
+	<node unless="$(arg use_nodelets)"
+    		  pkg="nodelet"
+    		  type="nodelet"
+    		  name="pcl_xyzi_nodelet_manager"
+    		  args="manager">
+        <param name="num_worker_threads" value="8" />
+    </node>
+
+    <node unless="$(arg use_nodelets)"
+              pkg="nodelet"
+              type="nodelet"
+              name="pcl_register_depth_nodelet_manager"
+              args="manager">
+        <param name="num_worker_threads" value="8" />
+    </node>
+
+    <node unless="$(arg use_nodelets)"
+              pkg="nodelet"
+              type="nodelet"
+              name="pcl_xyzrgb_nodelet_manager"
+              args="manager">
+        <param name="num_worker_threads" value="8" />
+    </node>
 
 	<node pkg="nodelet"
 		  type="nodelet"
 		  name="point_cloud_xyz"
-		  args="load depth_image_proc/point_cloud_xyz $(arg pcl_nodelet_manager)"
+		  args="load depth_image_proc/point_cloud_xyz $(arg pcl_xyz_nodelet_manager)"
 	>
 		<remap from="camera_info" to="/sensors/camera/depth/camera_info" />
 		<remap from="image_rect" to="/sensors/camera/depth/image_rect_raw" />
 		<remap from="points" to="/sensors/pointcloud/points_xyz" />
 	</node>
+
+    <node pkg="nodelet"
+          type="nodelet"
+          name="point_cloud_xyzi"
+          args="load depth_image_proc/point_cloud_xyzi $(arg pcl_xyzi_nodelet_manager)"
+    >
+        <remap from="depth/camera_info" to="/sensors/camera/depth/camera_info" />
+        <remap from="depth/image_rect" to="/sensors/camera/depth/image_rect_raw" />
+        <remap from="intensity/camera_info" to="/sensors/camera/infra1/camera_info" />
+        <remap from="intensity/image_rect" to="/sensors/camera/infra1/image_rect_raw" />
+        <remap from="depth/points" to="/sensors/pointcloud/points_xyzi" />
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="register_depth"
+        args="load depth_image_proc/register $(arg pcl_register_depth_nodelet_manager)">
+        <remap from="rgb/camera_info" to="/sensors/camera/color/camera_info" />
+        <remap from="depth/camera_info" to="/sensors/camera/depth/camera_info" />
+        <remap from="depth/image_rect" to="/sensors/camera/depth/image_rect_raw" />
+        <remap from="depth_registered/image_rect" to="/sensors/camera/depth/depth_image_registered" />
+    </node>
+
+    <node pkg="nodelet"
+          type="nodelet"
+          name="point_cloud_xyzrgb"
+          args="load depth_image_proc/point_cloud_xyzrgb $(arg pcl_xyzrgb_nodelet_manager)"
+    >
+        <remap from="rgb/camera_info" to="/sensors/camera/color/camera_info" />
+        <remap from="rgb/image_rect_color" to="/sensors/camera/color/image_rect_color" />
+        <remap from="depth_registered/image_rect" to="/sensors/camera/depth/depth_image_registered" />
+        <remap from="depth_registered/points" to="/sensors/pointcloud/points_xyzrgb" />
+    </node>
+
 
 	<!--<node pkg="nodelet"
 		  type="nodelet"
