@@ -89,6 +89,13 @@ namespace hardware_calibration {
                     +  3.8440484313852670e+000 * std::pow(x, 2)
                     -  3.3170433193228730e+000 * std::pow(x, 3);
 
+            // interpolation is not perfect so clip
+            if (msg->value >= 0 && mps < 0) {
+                mps = 0;
+            } else if (msg->value < 0 && mps > 0) {
+                mps = 0;
+            }
+
             autominy_msgs::SpeedCommand speedMsg;
             speedMsg.header = msg->header;
             speedMsg.value = std::copysign(mps, msg->value);
