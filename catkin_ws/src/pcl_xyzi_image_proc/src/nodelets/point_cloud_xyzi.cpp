@@ -51,7 +51,7 @@
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/imgproc/imgproc.hpp>
 
-namespace depth_image_proc {
+namespace pcl_xyzi_image_proc {
 
 using namespace message_filters::sync_policies;
 namespace enc = sensor_msgs::image_encodings;
@@ -260,7 +260,7 @@ void PointCloudXyziNodelet::convert(const sensor_msgs::ImageConstPtr& depth_msg,
   float center_y = model_.cy();
 
   // Combine unit conversion (if necessary) with scaling by focal length for computing (X,Y)
-  double unit_scaling = DepthTraits<T>::toMeters( T(1) );
+  double unit_scaling = depth_image_proc::DepthTraits<T>::toMeters( T(1) );
   float constant_x = unit_scaling / model_.fx();
   float constant_y = unit_scaling / model_.fy();
   float bad_point = std::numeric_limits<float>::quiet_NaN ();
@@ -283,7 +283,7 @@ void PointCloudXyziNodelet::convert(const sensor_msgs::ImageConstPtr& depth_msg,
       T depth = depth_row[u];
       T2 inten = inten_row[u];
       // Check for invalid measurements
-      if (!DepthTraits<T>::valid(depth))
+      if (!depth_image_proc::DepthTraits<T>::valid(depth))
       {
         *iter_x = *iter_y = *iter_z = bad_point;
       }
@@ -292,7 +292,7 @@ void PointCloudXyziNodelet::convert(const sensor_msgs::ImageConstPtr& depth_msg,
         // Fill in XYZ
         *iter_x = (u - center_x) * depth * constant_x;
         *iter_y = (v - center_y) * depth * constant_y;
-        *iter_z = DepthTraits<T>::toMeters(depth);
+        *iter_z = depth_image_proc::DepthTraits<T>::toMeters(depth);
       }
 
       // Fill in intensity
@@ -301,8 +301,8 @@ void PointCloudXyziNodelet::convert(const sensor_msgs::ImageConstPtr& depth_msg,
   }
 }
 
-} // namespace depth_image_proc
+} // namespace pcl_xyzi_image_proc
 
 // Register as nodelet
 #include <pluginlib/class_list_macros.h>
-PLUGINLIB_EXPORT_CLASS(depth_image_proc::PointCloudXyziNodelet,nodelet::Nodelet);
+PLUGINLIB_EXPORT_CLASS(pcl_xyzi_image_proc::PointCloudXyziNodelet, nodelet::Nodelet);

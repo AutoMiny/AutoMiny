@@ -67,9 +67,8 @@
     <node pkg="nodelet"
           type="nodelet"
           name="point_cloud_xyzi"
-          args="load depth_image_proc/point_cloud_xyzi $(arg pcl_xyzi_nodelet_manager)"
+          args="load pcl_xyzi_image_proc/point_cloud_xyzi $(arg pcl_xyzi_nodelet_manager)"
     >
-        <remap from="depth/camera_info" to="/sensors/camera/depth/camera_info" />
         <remap from="depth/image_rect" to="/sensors/camera/depth/image_rect_raw" />
         <remap from="intensity/camera_info" to="/sensors/camera/infra1/camera_info" />
         <remap from="intensity/image_rect" to="/sensors/camera/infra1/image_rect_raw" />
@@ -81,7 +80,8 @@
         <remap from="rgb/camera_info" to="/sensors/camera/color/camera_info" />
         <remap from="depth/camera_info" to="/sensors/camera/depth/camera_info" />
         <remap from="depth/image_rect" to="/sensors/camera/depth/image_rect_raw" />
-        <remap from="depth_registered/image_rect" to="/sensors/camera/depth/depth_image_registered" />
+        <remap from="depth_registered/image_rect" to="/sensors/camera/depth_aligned_to_color/image_rect_raw" />
+        <remap from="depth_registered/camera_info" to="/sensors/camera/depth_aligned_to_color/camera_info" />
     </node>
 
     <node pkg="nodelet"
@@ -91,7 +91,7 @@
     >
         <remap from="rgb/camera_info" to="/sensors/camera/color/camera_info" />
         <remap from="rgb/image_rect_color" to="/sensors/camera/color/image_rect_color" />
-        <remap from="depth_registered/image_rect" to="/sensors/camera/depth/depth_image_registered" />
+        <remap from="depth_registered/image_rect" to="/sensors/camera/depth_aligned_to_color/image_rect_raw" />
         <remap from="depth_registered/points" to="/sensors/pointcloud/points_xyzrgb" />
     </node>
 
