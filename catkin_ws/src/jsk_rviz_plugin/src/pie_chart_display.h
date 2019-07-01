@@ -46,12 +46,12 @@
 #include <rviz/properties/color_property.h>
 #include <rviz/properties/bool_property.h>
 #include <rviz/properties/ros_topic_property.h>
+#include <rviz/message_filter_display.h>
 #endif
 
 namespace jsk_rviz_plugins
 {
-    class PieChartDisplay
-            : public rviz::Display
+    class PieChartDisplay : public rviz::MessageFilterDisplay<autominy_msgs::Plot>
     {
         Q_OBJECT
     public:
@@ -66,16 +66,13 @@ namespace jsk_rviz_plugins
         virtual int getY() { return top_; };
 
     protected:
-        virtual void subscribe();
-        virtual void unsubscribe();
-        virtual void onEnable();
-        virtual void onDisable();
-        virtual void onInitialize();
-        virtual void processMessage(const autominy_msgs::Plot::ConstPtr& msg);
-        virtual void drawPlot(double val);
-        virtual void update(float wall_dt, float ros_dt);
+        void onEnable() override;
+        void onDisable() override;
+        void onInitialize() override;
+        void processMessage(const autominy_msgs::Plot::ConstPtr& msg) override;
+        void drawPlot(double val);
+        void update(float wall_dt, float ros_dt) override;
         // properties
-        rviz::RosTopicProperty* update_topic_property_;
         rviz::IntProperty* size_property_;
         rviz::IntProperty* left_property_;
         rviz::IntProperty* top_property_;
@@ -117,7 +114,6 @@ namespace jsk_rviz_plugins
         boost::mutex mutex_;
 
     protected Q_SLOTS:
-                void updateTopic();
         void updateSize();
         void updateTop();
         void updateLeft();

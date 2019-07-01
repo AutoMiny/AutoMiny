@@ -50,13 +50,14 @@
 #include <rviz/properties/color_property.h>
 #include <rviz/properties/bool_property.h>
 #include <rviz/properties/ros_topic_property.h>
+#include <rviz/message_filter_display.h>
 #endif
 
 namespace jsk_rviz_plugins
 {
 
     class Plotter2DDisplay
-            : public rviz::Display
+            : public rviz::MessageFilterDisplay<autominy_msgs::Plot>
     {
     Q_OBJECT
     public:
@@ -74,8 +75,6 @@ namespace jsk_rviz_plugins
         // methods
         ////////////////////////////////////////////////////////
         void update(float wall_dt, float ros_dt) override;
-        virtual void subscribe();
-        virtual void unsubscribe();
 
         void onEnable() override;
 
@@ -83,12 +82,11 @@ namespace jsk_rviz_plugins
         virtual void initializeBuffer();
 
         void onInitialize() override;
-        virtual void processMessage(const autominy_msgs::Plot::ConstPtr& msg);
+        void processMessage(const autominy_msgs::Plot::ConstPtr& msg) override;
         virtual void drawPlot();
         ////////////////////////////////////////////////////////
         // properties
         ////////////////////////////////////////////////////////
-        rviz::RosTopicProperty* update_topic_property_;
         rviz::BoolProperty* show_value_property_;
         rviz::ColorProperty* fg_color_property_;
         rviz::ColorProperty* bg_color_property_;
@@ -146,7 +144,6 @@ namespace jsk_rviz_plugins
         ros::Subscriber sub_;
 
     protected Q_SLOTS:
-        void updateTopic();
         void updateShowValue();
         void updateBufferSize();
         void updateTimeFrameLength();

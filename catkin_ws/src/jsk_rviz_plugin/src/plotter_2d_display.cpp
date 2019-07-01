@@ -45,13 +45,8 @@
 namespace jsk_rviz_plugins
 {
     Plotter2DDisplay::Plotter2DDisplay()
-            : rviz::Display(), min_value_(0.0), max_value_(0.0), time_frame_length_(10.0)
+            : min_value_(0.0), max_value_(0.0), time_frame_length_(10.0)
     {
-        update_topic_property_ = new rviz::RosTopicProperty(
-                "Topic", "",
-                ros::message_traits::datatype<autominy_msgs::Plot>(),
-                "autominy_msgs::Plot topic to subscribe to.",
-                this, SLOT(updateTopic()));
         show_value_property_ = new rviz::BoolProperty(
                 "Show Value", true,
                 "Show value on plotter",
@@ -155,26 +150,6 @@ namespace jsk_rviz_plugins
     Plotter2DDisplay::~Plotter2DDisplay()
     {
         onDisable();
-        // delete update_topic_property_;
-        // delete buffer_length_property_;
-        // delete fg_color_property_;
-        // delete bg_color_property_;
-        // delete fg_alpha_property_;
-        // delete bg_alpha_property_;
-        // delete top_property_;
-        // delete left_property_;
-        // delete width_property_;
-        // delete height_property_;
-        // delete line_width_property_;
-        // delete show_border_property_;
-        // delete auto_color_change_property_;
-        // delete max_color_property_;
-        // delete update_interval_property_;
-        // delete show_caption_property_;
-        // delete text_size_property_;
-        // delete min_value_property_;
-        // delete max_value_property_;
-        // delete auto_color_change_property_;
     }
 
     void Plotter2DDisplay::initializeBuffer()
@@ -188,6 +163,7 @@ namespace jsk_rviz_plugins
 
     void Plotter2DDisplay::onInitialize()
     {
+        MFDClass::onInitialize();
         static int count = 0;
         rviz::UniformStringStream ss;
         ss << "Plotter2DDisplayObject" << count++;
@@ -374,31 +350,16 @@ namespace jsk_rviz_plugins
         }
     }
 
-    void Plotter2DDisplay::subscribe()
-    {
-        initializeBuffer();
-        std::string topic_name = update_topic_property_->getTopicStd();
-        if (topic_name.length() > 0 && topic_name != "/") {
-            ros::NodeHandle n;
-            sub_ = n.subscribe(topic_name, 1, &Plotter2DDisplay::processMessage, this);
-        }
-    }
-
-    void Plotter2DDisplay::unsubscribe()
-    {
-        sub_.shutdown();
-    }
-
     void Plotter2DDisplay::onEnable()
     {
         last_time_ = 0;
-        subscribe();
+        MFDClass::onEnable();
         overlay_->show();
     }
 
     void Plotter2DDisplay::onDisable()
     {
-        unsubscribe();
+        MFDClass::onDisable();
         overlay_->hide();
     }
 
@@ -442,12 +403,6 @@ namespace jsk_rviz_plugins
     void Plotter2DDisplay::updateBGAlpha()
     {
         bg_alpha_ = bg_alpha_property_->getFloat() * 255.0;
-    }
-
-    void Plotter2DDisplay::updateTopic()
-    {
-        unsubscribe();
-        subscribe();
     }
 
     void Plotter2DDisplay::updateShowValue()
