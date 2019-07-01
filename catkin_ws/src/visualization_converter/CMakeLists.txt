@@ -65,7 +65,6 @@ add_library(${PROJECT_NAME}_nodelet
         include/visualization_converter/VisualizationConverterNodelet.h)
 
 add_dependencies(${PROJECT_NAME}_nodelet
-        ${PROJECT_NAME}_gencfg
         ${catkin_EXPORTED_TARGETS}
         )
 
