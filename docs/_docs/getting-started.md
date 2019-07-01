@@ -44,7 +44,7 @@ starts up. Once the car has booted the LiDAR will start spinning.
 Each car is identified by it's number which is printed on the acrylic
 plate. This number is used to connect to the car over the WiFi network.
 By default the car's IP address is `192.168.43.[NUMBER]`. To confirm the
-car is running simply try connecting via ssh with user `root` and the
+car is running simply try connecting via ssh with user `ros` and the
 password `elfmeter`:
 
 ```bash
