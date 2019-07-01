@@ -50,7 +50,7 @@ namespace visualization_converter {
         plot.header = msg->header;
         plot.value = msg->value;
 
-        wantedSpeedPublisher.publish(plot);
+        wantedSteeringPublisher.publish(plot);
     }
 
     void VisualizationConverterNodelet::onVoltage(const autominy_msgs::VoltageConstPtr& msg) {
