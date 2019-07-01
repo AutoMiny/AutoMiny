@@ -84,10 +84,10 @@ namespace hardware_calibration {
 
             // function to go from [-1, 1] to m/s
             auto x = std::abs(wantedSpeed);
-            auto mps = -4.3169477821510316e-002 * std::pow(x, 0)
-                    +  1.5091199126551316e+000 * std::pow(x, 1)
-                    +  3.4867190053991615e+000 * std::pow(x, 2)
-                    + -3.0932556270516303e+000 * std::pow(x, 3);
+            auto mps = -2.3166083379533089e-002 * std::pow(x, 0)
+                    +  1.3445417918423774e+000 * std::pow(x, 1)
+                    +  3.8440484313852670e+000 * std::pow(x, 2)
+                    -  3.3170433193228730e+000 * std::pow(x, 3);
 
             autominy_msgs::SpeedCommand speedMsg;
             speedMsg.header = msg->header;
