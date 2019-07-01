@@ -92,8 +92,6 @@ namespace hardware_calibration {
             // interpolation is not perfect so clip
             if (msg->value >= 0 && mps < 0) {
                 mps = 0;
-            } else if (msg->value < 0 && mps > 0) {
-                mps = 0;
             }
 
             autominy_msgs::SpeedCommand speedMsg;
@@ -136,8 +134,6 @@ namespace hardware_calibration {
 
             // interpolation is not perfect so clip
             if (msg->value >= 0 && normalized < 0) {
-                normalized = 0;
-            } else if (msg->value < 0 && normalized > 0) {
                 normalized = 0;
             }
 
