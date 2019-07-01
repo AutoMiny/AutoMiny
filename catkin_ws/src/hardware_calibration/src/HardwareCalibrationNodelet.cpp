@@ -19,6 +19,7 @@ namespace hardware_calibration {
             speedPublisher = pnh.advertise<autominy_msgs::SpeedPWMCommand>("arduino/speed", 1);
             calibratedSpeedPublisher = pnh.advertise<autominy_msgs::Speed>("carstate/calibrated_speed", 1);
             steeringAnglePublisher = pnh.advertise<autominy_msgs::SteeringAngle>("carstate/steering_angle", 1);
+            speedMPSPublisher = pnh.advertise<autominy_msgs::SpeedCommand>("actuators/speed", 1);
             steeringFeedbackSubscriber = pnh.subscribe("arduino/steering_angle", 1,
                                                       &HardwareCalibrationNodelet::onSteeringFeedback, this, ros::TransportHints().tcpNoDelay());
             speedSubscriber = pnh.subscribe("actuators/speed", 1, &HardwareCalibrationNodelet::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
@@ -81,12 +82,17 @@ namespace hardware_calibration {
                 wantedSpeed = boost::algorithm::clamp(wantedSpeed, -1.0, 1.0);
             }
 
-            auto pwm = mapRange(-1.0, 1.0, config.minimum_speed_pwm, config.maximum_speed_pwm, wantedSpeed);
+            // function to go from [-1, 1] to m/s
+            auto x = std::abs(wantedSpeed);
+            auto mps = -4.3169477821510316e-002 * std::pow(x, 0)
+                    +  1.5091199126551316e+000 * std::pow(x, 1)
+                    +  3.4867190053991615e+000 * std::pow(x, 2)
+                    + -3.0932556270516303e+000 * std::pow(x, 3);
 
-            autominy_msgs::SpeedPWMCommand speedMsg;
+            autominy_msgs::SpeedCommand speedMsg;
             speedMsg.header = msg->header;
-            speedMsg.value = static_cast<int16_t>(pwm);
-            speedPublisher.publish(speedMsg);
+            speedMsg.value = std::copysign(mps, x);
+            speedMPSPublisher.publish(speedMsg);
         }
 
         void HardwareCalibrationNodelet::onWantedSteering(const autominy_msgs::NormalizedSteeringCommandConstPtr& msg) {
@@ -121,10 +127,10 @@ namespace hardware_calibration {
                                + -5.7014814155497762e-001 * pow(x,2)
                                +  2.3646519448237449e-001 * pow(x,3);
 
-            auto command = boost::make_shared<autominy_msgs::NormalizedSpeedCommand>();
+            auto command = boost::make_shared<autominy_msgs::SpeedPWMCommand>();
             command->header = msg->header;
-            command->value = std::copysign(normalized, msg->value);
-            this->onWantedSpeed(command);
+            command->value = std::copysign(normalized, msg->value) * 1000.0;
+            speedPublisher.publish(command);
         }
 
         void HardwareCalibrationNodelet::onSteeringCommand(const autominy_msgs::SteeringCommandConstPtr& msg) {

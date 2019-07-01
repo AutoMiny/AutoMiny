@@ -51,6 +51,7 @@ namespace hardware_calibration {
         ros::Publisher steeringPublisher;
         ros::Publisher speedPublisher;
         ros::Publisher steeringAnglePublisher;
+        ros::Publisher speedMPSPublisher;
         ros::Publisher calibratedSpeedPublisher;
 
         /// pointer to dynamic reconfigure service
