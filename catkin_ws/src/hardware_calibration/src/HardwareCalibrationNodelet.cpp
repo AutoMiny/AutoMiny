@@ -91,7 +91,7 @@ namespace hardware_calibration {
 
             autominy_msgs::SpeedCommand speedMsg;
             speedMsg.header = msg->header;
-            speedMsg.value = std::copysign(mps, x);
+            speedMsg.value = std::copysign(mps, msg->value);
             speedMPSPublisher.publish(speedMsg);
         }
 
