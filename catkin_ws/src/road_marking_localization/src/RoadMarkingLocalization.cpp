@@ -136,7 +136,7 @@ namespace road_marking_localization {
             boxFilter.filter(*croppedCloud);
 
             if (croppedCloud->size() < config.minimum_points) {
-                ROS_ERROR("Not enough points for correction");
+                ROS_WARN("Not enough points for correction");
                 return false;
             }
 
@@ -159,7 +159,7 @@ namespace road_marking_localization {
                 yaw > config.maximum_yaw_correction ||
                 xCorrection < -config.maximum_x_correction || yCorrection < -config.maximum_y_correction ||
                 yaw < -config.maximum_yaw_correction) {
-                ROS_ERROR_STREAM("Too large transformation, not doing anything" << transformationMatrix);
+                ROS_WARN_STREAM("Too large transformation, not doing anything" << transformationMatrix);
                 return false;
             }
 
