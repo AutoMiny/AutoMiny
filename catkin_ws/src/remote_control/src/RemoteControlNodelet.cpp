@@ -65,6 +65,7 @@ namespace remote_control {
             auto now = ros::Time::now();
 
             steeringCommand.header.stamp = speedCommand.header.stamp = now;
+            steeringCommand.header.frame_id = speedCommand.header.frame_id = "base_link";
 
             steeringCommand.value = remoteControl->getSteering();
             speedCommand.value = remoteControl->getSpeed();
