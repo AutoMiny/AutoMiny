@@ -134,6 +134,13 @@ namespace hardware_calibration {
                                + -5.7014814155497762e-001 * pow(x,2)
                                +  2.3646519448237449e-001 * pow(x,3);
 
+            // interpolation is not perfect so clip
+            if (msg->value >= 0 && normalized < 0) {
+                normalized = 0;
+            } else if (msg->value < 0 && normalized > 0) {
+                normalized = 0;
+            }
+
             auto command = boost::make_shared<autominy_msgs::SpeedPWMCommand>();
             command->header = msg->header;
             command->value = std::copysign(normalized, msg->value) * 1000.0;
