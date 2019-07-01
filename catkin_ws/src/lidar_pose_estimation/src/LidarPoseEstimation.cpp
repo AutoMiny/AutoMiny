@@ -83,9 +83,6 @@ namespace lidar_pose_estimation {
             p1 = rot * p1;
             p2 = rot * p2;
 
-            ROS_ERROR_STREAM(p1);
-            ROS_ERROR_STREAM(p2);
-
             auto pMiddle = (p1 + p2) * 0.5;
             auto pRefMiddle = (pRef1 + pRef2) * 0.5;
             auto x = pMiddle.x() - pRefMiddle.x();
