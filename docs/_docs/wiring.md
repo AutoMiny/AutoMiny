@@ -4,8 +4,8 @@ permalink: /docs/wiring/
 excerpt: "Wiring of modules and controller board"
 toc: true
 wiring_gallery:
-  - image_path: /assets/images/control_board_connections.png
-    url: /assets/images/control_board_connections.png
+  - image_path: /assets/images/control_board_connections.jpg
+    url: /assets/images/control_board_connections.jpg
     alt: "Control board connections"
 
 ---
