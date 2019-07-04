@@ -90,7 +90,7 @@ namespace hardware_calibration {
                     -  3.3170433193228730e+000 * std::pow(x, 3);
 
             // interpolation is not perfect so clip
-            if (msg->value >= 0 && mps < 0) {
+            if (msg->value > 0 && mps < 0) {
                 mps = 0;
             }
 
@@ -124,6 +124,12 @@ namespace hardware_calibration {
         }
 
         void HardwareCalibrationNodelet::onSpeedCommand(const autominy_msgs::SpeedCommandConstPtr& msg) {
+            if (msg->value < 0.0) {
+                direction = Direction::BACKWARD;
+            } else if (msg->value > 0.0) {
+                direction = Direction::FORWARD;
+            }
+
             // The mapping is symmetric so interpolate the absolute value
             auto x = std::abs(msg->value);
 
@@ -133,7 +139,7 @@ namespace hardware_calibration {
                                +  2.3646519448237449e-001 * pow(x,3);
 
             // interpolation is not perfect so clip
-            if (msg->value >= 0 && normalized < 0) {
+            if (msg->value > 0 && normalized < 0) {
                 normalized = 0;
             }
 

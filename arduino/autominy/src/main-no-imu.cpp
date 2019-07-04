@@ -224,8 +224,8 @@ void onSpeedCommand(const int16_t cmd_msg) {
         displayForwardLed();
     }
 
-    if (servo_val < 15) {
-        servo_val = 15;
+    if (servo_val < 0) {
+        servo_val = 0;
         disableDirectionLed();
     }
 
