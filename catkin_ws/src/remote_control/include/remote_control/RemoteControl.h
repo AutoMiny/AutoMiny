@@ -39,5 +39,6 @@ namespace remote_control {
 
         int currentSteering;
         int currentSpeed;
+        int lastValue;
     };
 }

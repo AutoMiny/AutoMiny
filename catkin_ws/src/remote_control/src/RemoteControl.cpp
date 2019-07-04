@@ -46,7 +46,14 @@ namespace remote_control {
                 }
                 case SDL_CONTROLLERAXISMOTION: {
                     if (std::abs(event.caxis.value) < config.deadspot) {
-                        event.caxis.value = 0;
+                        if (lastValue > 0) {
+                            event.caxis.value = 1;
+                        }
+                        if (lastValue < 0) {
+                            event.caxis.value = -1;
+                        }
+                    } else {
+                        lastValue = event.caxis.value;
                     }
 
                     // Speed
@@ -68,10 +75,10 @@ namespace remote_control {
     }
 
     double RemoteControl::getSteering() {
-        return boost::algorithm::clamp((currentSteering / -32767.0) * config.max_steering, -1.0, 1.0);
+        return std::copysign(boost::algorithm::clamp((currentSteering / -32767.0) * config.max_steering, -1.0, 1.0), -currentSteering);
     }
 
     double RemoteControl::getSpeed() {
-        return boost::algorithm::clamp((currentSpeed / -32767.0) * config.max_speed, -1.0, 1.0);
+        return std::copysign(boost::algorithm::clamp((currentSpeed / -32767.0) * config.max_speed, -1.0, 1.0), -currentSpeed);
     }
 }
