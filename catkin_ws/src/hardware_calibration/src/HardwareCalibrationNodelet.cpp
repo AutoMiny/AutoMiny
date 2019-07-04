@@ -88,6 +88,7 @@ namespace hardware_calibration {
                     +  1.3445417918423774e+000 * std::pow(x, 1)
                     +  3.8440484313852670e+000 * std::pow(x, 2)
                     -  3.3170433193228730e+000 * std::pow(x, 3);
+            mps *= 2.0;
 
             // interpolation is not perfect so clip
             if (mps < 0) {
@@ -145,7 +146,7 @@ namespace hardware_calibration {
 
             auto command = boost::make_shared<autominy_msgs::SpeedPWMCommand>();
             command->header = msg->header;
-            command->value = std::copysign(normalized, msg->value) * 1000.0;
+            command->value = (std::copysign(normalized, msg->value) * 1000.0) / 2.0;
             speedPublisher.publish(command);
         }
 
