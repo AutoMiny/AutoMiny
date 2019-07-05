@@ -293,12 +293,12 @@ void onSpeedCommand(const int16_t cmd_msg) {
         displayForwardLed();
     }
 
-    if (servo_val < 15) {
-        servo_val = 15;
+    if (servo_val < 5) {
+        servo_val = 5;
         disableDirectionLed();
     }
 
-    analogWrite(MOTOR_SPEED_PIN, servo_val);
+    OCR2A = servo_val;
 }
 
 void GetSmoothed() {
@@ -806,6 +806,11 @@ void setup() {
     //Voltmeter
     pinMode(NEWLED_PIN, OUTPUT);
     digitalWrite(ENABLE_PIN, LOW);
+
+    // Set up timer2 with frequency of ~8kHz on pin 11
+    TCCR2B = _BV(CS21); // fast PWM, prescaler of 8
+    TCCR2A = _BV(COM2A1) | _BV(WGM21) | _BV(WGM20);
+    OCR2A = 5;
 }
 
 float meanVoltage() {
