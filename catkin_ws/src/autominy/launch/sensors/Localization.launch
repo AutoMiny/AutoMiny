@@ -3,8 +3,6 @@
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
 	<arg name="nodelet_manager" default="$(optenv LOCALIZATION_NODELET_MANAGER core_nodelet_manager)" />
 
-	<include file="$(find map_publisher)/launch/robotics_lab.launch" />
-
 	<rosparam command="load" file="$(find autominy)/params/ekf_localization.yaml" />
 	<remap from="odometry/wheel"     to="/sensors/odometry/odom" />
 	<remap from="odometry/gps"       to="/sensors/road_marking_localization/corrected_odom" />
@@ -18,7 +16,7 @@
 				clear_params="true"
 				output="screen"
 		>
-			<remap from="odometry/filtered"  to="odometry/filtered_map"/>
+			<remap from="odometry/filtered"  to="localization/filtered_map"/>
 		</node>
 	</group>
 
@@ -32,13 +30,13 @@
 				output="screen"
 				args="load RobotLocalization/EkfNodelet $(arg nodelet_manager)"
 		>
-			<remap from="odometry/filtered"  to="odometry/filtered_map"/>
+			<remap from="odometry/filtered"  to="localization/filtered_map"/>
 		</node>
 	</group>
 
     <arg name="gps_id" value="$(optenv ROS_GPS_MARKER 999)" />
     <remap from="gps" to="/communication/gps/$(arg gps_id)" />
-	<remap from="localization" to="/localization/odometry/filtered_map" />
+	<remap from="localization" to="/sensors/localization/filtered_map" />
 	<include file="$(find road_marking_localization)/launch/Initialpose.launch">
 		<arg name="gps_id" value="$(arg gps_id)" />
 	</include>

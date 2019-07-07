@@ -34,7 +34,7 @@ namespace tick_calibration {
 
             tickCalibration = std::make_shared<TickCalibration>();
 
-            localizationSubscriber = pnh.subscribe("/localization/odometry/filtered_map", 10, &TickCalibrationNodelet::onLocalization, this, ros::TransportHints().tcpNoDelay());
+            localizationSubscriber = pnh.subscribe("/sensors/localization/filtered_map", 10, &TickCalibrationNodelet::onLocalization, this, ros::TransportHints().tcpNoDelay());
             tickSubscriber = pnh.subscribe("/sensors/arduino/ticks", 10, &TickCalibrationNodelet::onTick, this, ros::TransportHints().tcpNoDelay());
             calibrationTimer = pnh.createTimer(ros::Duration(0.1), &TickCalibrationNodelet::onCalibrate, this);
 

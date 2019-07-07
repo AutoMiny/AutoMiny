@@ -47,7 +47,7 @@ class VectorfieldController:
         self.shutdown_ = False
         self.pub = rospy.Publisher("/actuators/steering_normalized", NormalizedSteeringCommand,
                                    queue_size=1, tcp_nodelay=True)
-        self.sub_odom = rospy.Subscriber("/localization/odometry/filtered_map", Odometry, self.callback, queue_size=1)
+        self.sub_odom = rospy.Subscriber("/sensors/localization/filtered_map", Odometry, self.callback, queue_size=1)
         self.lidar_sub = rospy.Subscriber("/sensors/rplidar/scan", LaserScan, self.on_lidar, queue_size=1)
 
     def callback(self, data):

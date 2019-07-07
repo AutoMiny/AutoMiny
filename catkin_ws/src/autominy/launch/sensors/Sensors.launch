@@ -61,4 +61,17 @@
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
+	<!-- Localization -->
+	<include file="$(find autominy)/launch/sensors/Localization.launch">
+		<arg name="live"            value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	</include>
+
+	<!-- Map -->
+	<include file="$(find autominy)/launch/sensors/Map.launch">
+		<arg name="live"            value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	</include>
 </launch>

@@ -8,6 +8,6 @@
         <rosparam param="sync_topics">['/*communication*']</rosparam>
         <rosparam param="sync_nodes">['/*communication*']</rosparam>
         <rosparam param="sync_services">['/*communication*']</rosparam>
-        <rosparam param="ignore_subscribers">['/localization/odometry/filtered_map']</rosparam>
+        <rosparam param="ignore_subscribers">['/sensors/localization/filtered_map']</rosparam>
     </node>
 </launch>

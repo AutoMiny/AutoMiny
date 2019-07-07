@@ -1,0 +1,7 @@
+<launch>
+	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
+	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
+	<arg name="nodelet_manager" default="$(optenv LOCALIZATION_NODELET_MANAGER core_nodelet_manager)" />
+
+	<include file="$(find map_publisher)/launch/robotics_lab.launch" />
+</launch>

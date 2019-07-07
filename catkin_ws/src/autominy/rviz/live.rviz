@@ -346,7 +346,7 @@ Visualization Manager:
         Shaft Length: 0.10000000149011612
         Shaft Radius: 0.009999999776482582
         Value: Arrow
-      Topic: /localization/odometry/filtered_map
+      Topic: /sensors/localization/filtered_map
       Unreliable: false
       Value: true
     - Class: jsk_rviz_plugin/PieChart
