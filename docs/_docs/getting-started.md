@@ -68,7 +68,7 @@ value: 0.2"
 
 Setting the steering angle fully to the left:
 ```bash
-rostopic pub /control/command/steering_normalized autominy_msgs/NormalizedSteeringCommand "header:
+rostopic pub /actuators/steering_normalized autominy_msgs/NormalizedSteeringCommand "header:
   seq: 0
   stamp:
     secs: 0
