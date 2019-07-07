@@ -28,6 +28,7 @@ namespace hardware_calibration {
     class HardwareCalibrationNodelet : public nodelet::Nodelet {
 
     public:
+        HardwareCalibrationNodelet();
         void onInit() override;
         void onTicks(const autominy_msgs::TickConstPtr& msg);
         void onSteeringFeedback(const autominy_msgs::SteeringFeedbackConstPtr& msg);
@@ -60,7 +61,9 @@ namespace hardware_calibration {
 
         boost::circular_buffer<int16_t> steeringFeedbackBuffer;
         boost::circular_buffer<autominy_msgs::TickConstPtr> ticksBuffer;
-        Direction direction = Direction::FORWARD;
+        Direction direction;
+        Direction wantedDirection;
+        double currentSpeed;
     };
 }
 
