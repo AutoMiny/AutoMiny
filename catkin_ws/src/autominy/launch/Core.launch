@@ -24,12 +24,6 @@
 		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
 	</include>
 
-	<!-- localization -->
-	<include file="$(find autominy)/launch/localization/Localization.launch" ns="localization">
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
-	</include>
-
 	<!-- autonomics -->
 	<include file="$(find autominy)/launch/autonomics/Autonomics.launch" ns="autonomics">
 		<arg name="live"    		value="$(arg live)" />
@@ -38,24 +32,18 @@
 	</include>
 
 	<!-- control -->
-	<group ns="control">
-		<!-- actuation -->
-		<include file="$(find autominy)/launch/control/Controllers.launch">
-			<arg name="live"            value="$(arg live)" />
-			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
-		</include>
-	</group>
+	<include file="$(find autominy)/launch/control/Controllers.launch" ns="control">
+		<arg name="live"            value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+	</include>
 
 	<!-- actuators -->
-	<group ns="actuator">
-		<!-- actuation -->
-		<include file="$(find autominy)/launch/actuators/Actuators.launch">
-			<arg name="live"            value="$(arg live)" />
-			<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-			<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
-		</include>
-	</group>
+	<include file="$(find autominy)/launch/actuators/Actuators.launch" ns="actuators">
+		<arg name="live"            value="$(arg live)" />
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+	</include>
 
 	<!-- visualization -->
 	<include file="$(find autominy)/launch/visualization/Visualization.launch" ns="visualization">
