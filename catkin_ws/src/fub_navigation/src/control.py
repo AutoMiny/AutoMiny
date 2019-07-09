@@ -3,7 +3,7 @@ import math
 import numpy as np
 import rospkg
 import rospy
-from autominy_msgs.msg import NormalizedSteeringCommand, NormalizedSpeedCommand
+from autominy_msgs.msg import NormalizedSteeringCommand, SpeedCommand
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import LaserScan
 from tf.transformations import euler_from_quaternion
@@ -40,7 +40,7 @@ class VectorfieldController:
         else:
             self.matrix = self.matrix_lane_2
 
-        self.pub_speed = rospy.Publisher("/actuators/speed_normalized", NormalizedSpeedCommand,
+        self.pub_speed = rospy.Publisher("/actuators/speed", SpeedCommand,
                                          queue_size=1, tcp_nodelay=True)
         rospy.on_shutdown(self.shutdown)
 
@@ -124,7 +124,7 @@ class VectorfieldController:
         self.pub.publish(steerMsg)
 
         if not self.shutdown_:
-            msg = NormalizedSpeedCommand()
+            msg = SpeedCommand()
             msg.value = speed
             msg.header.stamp = rospy.Time.now()
             self.pub_speed.publish(msg)
@@ -132,7 +132,7 @@ class VectorfieldController:
     def shutdown(self):
         print("shutdown!")
         self.shutdown_ = True
-        msg = NormalizedSpeedCommand()
+        msg = SpeedCommand()
         msg.value = 0
         self.pub_speed.publish(msg)
         rospy.sleep(1)
