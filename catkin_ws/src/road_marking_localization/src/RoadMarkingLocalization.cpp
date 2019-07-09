@@ -57,16 +57,19 @@ namespace road_marking_localization {
                 lmTE->setWarpFunction(warp_fcn);
 
                 transformationEstimation.reset(lmTE);
+                ROS_INFO("Tranformation estimation using Levenberg Marquardt");
                 break;
             }
             case RoadMarkingLocalization_center_of_mass: {
                 auto teCoM = new pcl::registration::TransformationEstimation2D<pcl::PointXYZ, pcl::PointXYZ>();
                 transformationEstimation.reset(teCoM);
+                ROS_INFO("Tranformation estimation using center of mass");
                 break;
             }
             case RoadMarkingLocalization_svd: {
                 auto teSVD = new pcl::registration::TransformationEstimationSVD<pcl::PointXYZ, pcl::PointXYZ>();
                 transformationEstimation.reset(teSVD);
+                ROS_INFO("Tranformation estimation using SVD");
                 break;
             }
 
