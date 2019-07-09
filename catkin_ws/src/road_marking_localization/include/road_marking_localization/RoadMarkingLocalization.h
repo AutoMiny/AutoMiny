@@ -14,6 +14,8 @@
 #include <pcl/registration/transformation_estimation_lm.h>
 #include <pcl/registration/transformation_estimation_svd.h>
 #include <pcl/registration/transformation_estimation_2D.h>
+#include <pcl/registration/transformation_estimation_dual_quaternion.h>
+#include <road_marking_localization/transformation_estimation_svd_2d.h>
 #include <road_marking_localization/random_sample.h>
 #include <road_marking_localization/crop_box.h>
 #include <tf2_ros/transform_listener.h>

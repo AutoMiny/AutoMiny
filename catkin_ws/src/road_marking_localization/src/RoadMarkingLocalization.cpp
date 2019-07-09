@@ -73,6 +73,20 @@ namespace road_marking_localization {
                 break;
             }
 
+            case RoadMarkingLocalization_svd2D: {
+                auto teSVD = new pcl::registration::TransformationEstimationSVD2D<pcl::PointXYZ, pcl::PointXYZ>();
+                transformationEstimation.reset(teSVD);
+                ROS_INFO("Tranformation estimation using SVD 2D");
+                break;
+            }
+
+            case RoadMarkingLocalization_dual_quaternion: {
+                auto teDQ = new pcl::registration::TransformationEstimationDualQuaternion<pcl::PointXYZ, pcl::PointXYZ>();
+                transformationEstimation.reset(teDQ);
+                ROS_INFO("Tranformation estimation using dual quaternion");
+                break;
+            }
+
             iterativeClosestPoint.setTransformationEstimation(transformationEstimation);
         }
     }
