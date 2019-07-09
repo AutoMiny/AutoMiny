@@ -13,6 +13,7 @@
 #include <pcl/registration/warp_point_rigid_3d.h>
 #include <pcl/registration/transformation_estimation_lm.h>
 #include <pcl/registration/transformation_estimation_svd.h>
+#include <pcl/registration/transformation_estimation_2D.h>
 #include <road_marking_localization/random_sample.h>
 #include <road_marking_localization/crop_box.h>
 #include <tf2_ros/transform_listener.h>
@@ -150,6 +151,7 @@ namespace road_marking_localization {
         pcl::PointCloud<pcl::PointXYZ>::Ptr transformedCloud;
         cv_bridge::CvImagePtr cv;
         pcl::Registration<pcl::PointXYZ, pcl::PointXYZ>::Matrix4 transformationMatrix;
+        boost::shared_ptr<pcl::registration::TransformationEstimation<pcl::PointXYZ, pcl::PointXYZ>> transformationEstimation;
 
     public:
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW

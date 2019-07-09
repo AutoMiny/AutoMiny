@@ -17,14 +17,17 @@ namespace road_marking_localization {
                 (new pcl::registration::WarpPointRigid3D<pcl::PointXYZ, pcl::PointXYZ>);
 
         // Create a TransformationEstimationLM object, and set the warp to it
-        boost::shared_ptr<pcl::registration::TransformationEstimationLM<pcl::PointXYZ, pcl::PointXYZ>> te(
-                new pcl::registration::TransformationEstimationLM<pcl::PointXYZ, pcl::PointXYZ>);
-        te->setWarpFunction(warp_fcn);
+        auto lmTE = new pcl::registration::TransformationEstimationLM<pcl::PointXYZ, pcl::PointXYZ>();
+        lmTE->setWarpFunction(warp_fcn);
+
+        transformationEstimation.reset(lmTE);
 
         // Pass the TransformationEstimation object to the ICP algorithm
-        iterativeClosestPoint.setTransformationEstimation(te);
+        iterativeClosestPoint.setTransformationEstimation(transformationEstimation);
 
         randomSampleFilter.setSeed(static_cast<unsigned int>(rand()));
+
+        transformationMatrix.setIdentity();
     }
 
     RoadMarkingLocalization::~RoadMarkingLocalization() = default;
@@ -44,6 +47,31 @@ namespace road_marking_localization {
         iterativeClosestPoint.setRANSACIterations(config.icp_RANSAC_iterations);
 
         randomSampleFilter.setSample(static_cast<unsigned int>(config.icp_sample_size));
+
+        switch(config.transformation_estimation) {
+            case RoadMarkingLocalization_levenberg_marquardt: {
+                boost::shared_ptr<pcl::registration::WarpPointRigid3D<pcl::PointXYZ, pcl::PointXYZ> > warp_fcn
+                        (new pcl::registration::WarpPointRigid3D<pcl::PointXYZ, pcl::PointXYZ>);
+
+                auto lmTE = new pcl::registration::TransformationEstimationLM<pcl::PointXYZ, pcl::PointXYZ>();
+                lmTE->setWarpFunction(warp_fcn);
+
+                transformationEstimation.reset(lmTE);
+                break;
+            }
+            case RoadMarkingLocalization_center_of_mass: {
+                auto teCoM = new pcl::registration::TransformationEstimation2D<pcl::PointXYZ, pcl::PointXYZ>();
+                transformationEstimation.reset(teCoM);
+                break;
+            }
+            case RoadMarkingLocalization_svd: {
+                auto teSVD = new pcl::registration::TransformationEstimationSVD<pcl::PointXYZ, pcl::PointXYZ>();
+                transformationEstimation.reset(teSVD);
+                break;
+            }
+
+            iterativeClosestPoint.setTransformationEstimation(transformationEstimation);
+        }
     }
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr RoadMarkingLocalization::getPointcloud(
@@ -160,6 +188,7 @@ namespace road_marking_localization {
                 xCorrection < -config.maximum_x_correction || yCorrection < -config.maximum_y_correction ||
                 yaw < -config.maximum_yaw_correction) {
                 ROS_WARN_STREAM("Too large transformation, not doing anything" << transformationMatrix);
+                transformationMatrix = transformationMatrix.setIdentity();
                 return false;
             }
 
