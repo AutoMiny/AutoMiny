@@ -8,7 +8,7 @@
     <remap from="/sensors/road_marking_localization/camera/infra1/camera_info" to="/sensors/camera/infra1/camera_info"/>
     <remap from="/sensors/road_marking_localization/camera/depth/camera_info" to="/sensors/camera/depth/camera_info"/>
     <remap from="/sensors/road_marking_localization/initialpose" to="/initialpose"/>
-    <remap from="/sensors/road_marking_localization/map" to="/localization/map"/>
+    <remap from="/sensors/road_marking_localization/map" to="/sensors/map"/>
 
     <include file="$(find road_marking_localization)/launch/RoadMarkingLocalization.launch">
         <arg name="use_nodelets"    value="$(arg use_nodelets)" />
