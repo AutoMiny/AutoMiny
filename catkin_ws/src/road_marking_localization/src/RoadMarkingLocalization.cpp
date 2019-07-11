@@ -25,6 +25,9 @@ namespace road_marking_localization {
         // Pass the TransformationEstimation object to the ICP algorithm
         iterativeClosestPoint.setTransformationEstimation(transformationEstimation);
 
+        auto pr = boost::make_shared<pcl::CustomPointRepresentation<pcl::PointXYZ>>(2);
+        iterativeClosestPoint.setPointRepresentation(pr);
+
         randomSampleFilter.setSeed(static_cast<unsigned int>(rand()));
 
         transformationMatrix.setIdentity();
