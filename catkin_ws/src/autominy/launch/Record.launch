@@ -2,6 +2,7 @@
 <launch>
 	<node name="record" pkg="rosbag" type="record"
 		  args="record -o /home/ros/
+/communication/gps/$(optenv ROS_GPS_MARKER 999)
 /sensors/arduino/imu/temperature
 /sensors/arduino/steering_angle
 /sensors/arduino/ticks
