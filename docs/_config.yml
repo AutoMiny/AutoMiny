@@ -3,11 +3,11 @@ remote_theme: "mmistakes/minimal-mistakes@4.16.4"
 locale                   : "en-US"
 title                    : "Autominy"
 title_separator          : "-"
-name                     : &name "Autominy" # &name is a YAML anchor which can be *referenced later
+name                     : &name "AutoMiny" # &name is a YAML anchor which can be *referenced later
 description              : &description "An autonomous model car for education."
 url                      : https://autominy.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : "/autominy" # the subpath of your site, e.g. "/blog"
-repository               : "autominy/autominy"
+baseurl                  : "/AutoMiny" # the subpath of your site, e.g. "/blog"
+repository               : "autominy/AutoMiny"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 200
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
@@ -16,7 +16,7 @@ footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/autominy"
+      url: "https://github.com/AutoMiny"
 
 # Reading Files
 include:
