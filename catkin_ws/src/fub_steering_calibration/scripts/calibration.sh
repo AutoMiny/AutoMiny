@@ -1,4 +1,4 @@
-for i in 950 2150
+for i in -1.0 0.0 1.0
 do
 	echo "Put the car infront of a wall in around 1 meter distance
      ___

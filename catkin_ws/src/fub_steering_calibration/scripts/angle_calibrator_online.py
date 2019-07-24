@@ -10,13 +10,13 @@ from scipy import stats
 import rospy
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Int16, UInt8, UInt16
-from autominy_msgs.msg import NormalizedSpeedCommand, SteeringPWMCommand, SteeringFeedback
+from autominy_msgs.msg import NormalizedSpeedCommand, SteeringNormalizedCommand, SteeringFeedback
 
 from time import localtime, strftime
 
 speed_value = 0.15 #speed value
 speed = speed_value # initial direction is backward
-steering_angle = 950
+steering_angle = -1.0
 
 max_y = 2.0 # initial y limitation is 2 meter
 
@@ -38,7 +38,7 @@ target_angle = wall_angle #mask the lidar points
 add_pi = np.pi
 last_theta = 0
 pub_speed = rospy.Publisher("/actuators/speed_normalized", NormalizedSpeedCommand, queue_size=100)
-pub_steering = rospy.Publisher("/actuators/steering_pwm", SteeringPWMCommand, queue_size=100, latch=True)
+pub_steering = rospy.Publisher("/actuators/steering_normalized", SteeringNormalizedCommand, queue_size=100, latch=True)
 steering_angle_feedback=0
 
 invert_sign_gamma = False
@@ -260,7 +260,7 @@ def scan_callback(scan_msg):
 			pub_speed.publish(speed_msg)
 
 			print (steering_angle)
-			if (900 > steering_angle and steering_angle > 2350):
+			if (-1.0 > steering_angle and steering_angle > 1.0):
 				if wall_dist<1.2:
 					if len(turn_radii)>0:
 						average_r=0
@@ -273,7 +273,7 @@ def scan_callback(scan_msg):
 						gamma = np.arcsin(l/average_r)
 						if (invert_sign_gamma==True):
 							gamma=-gamma
-						save_xml(int(steering_angle),average_r,gamma,feedback)
+						save_xml(float(steering_angle),average_r,gamma,feedback)
 					else:
 						print "turn radius is nan!!"
 					stop_driving()
@@ -343,14 +343,14 @@ def main(args):
 	rospy.init_node("angle_calibration")
 	if len(args) > 1:
 		try:
-			steering_angle = int(args[1])
+			steering_angle = float(args[1])
 			rospy.Subscriber("/sensors/rplidar/scan", LaserScan, scan_callback, queue_size=1)
 			rospy.Subscriber("/sensors/arduino/steering_angle", SteeringFeedback, steering_feedback_callback, queue_size=1)  # small queue for only reading recent data
 
 		except rospy.ROSInterruptException:
 			pass
 	else:
-		print("please provide a steering setting from [0,180]") 
+		print("please provide a steering setting from [-1.0, 1.0]")
 
 	if plotting:
 		plt.show()  # block until plots are closed
