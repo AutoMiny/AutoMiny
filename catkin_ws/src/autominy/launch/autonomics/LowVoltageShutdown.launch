@@ -1,0 +1,12 @@
+<launch>
+	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
+	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
+	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+
+	<remap from="~voltage" to="/sensors/arduino/voltage" />
+
+	<include if="$(arg live)" file="$(find low_voltage_shutdown)/launch/LowVoltageShutdown.launch">
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	</include>
+</launch>
