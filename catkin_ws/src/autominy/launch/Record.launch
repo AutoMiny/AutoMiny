@@ -2,6 +2,26 @@
 <launch>
 	<node name="record" pkg="rosbag" type="record"
 		  args="record -o /home/ros/
+/communication/gps/0
+/communication/gps/1
+/communication/gps/2
+/communication/gps/3
+/communication/gps/4
+/communication/gps/5
+/communication/gps/6
+/communication/gps/7
+/communication/gps/8
+/communication/gps/9
+/communication/gps/10
+/communication/gps/12
+/communication/gps/13
+/communication/gps/14
+/communication/gps/15
+/communication/gps/16
+/communication/gps/17
+/communication/gps/18
+/communication/gps/19
+/communication/gps/20
 /sensors/arduino/imu/temperature
 /sensors/arduino/steering_angle
 /sensors/arduino/ticks
