@@ -12,6 +12,7 @@
 
     <depend>autominy_msgs</depend>
     <depend>rviz</depend>
+    <depend>qt5-default</depend>
 
     <export>
         <rviz plugin="${prefix}/plugin_description.xml"/>
