@@ -14,7 +14,7 @@
     <depend>rviz</depend>
     <depend>image_geometry</depend>
     <depend>cv_bridge</depend>
-    <depend>qtbase5-dev </depend>
+    <depend>qtbase5-dev</depend>
 
     <export>
         <rviz plugin="${prefix}/plugin_description.xml"/>
