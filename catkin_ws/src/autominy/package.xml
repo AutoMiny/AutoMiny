@@ -18,7 +18,7 @@
   <depend>multimaster_fkie</depend>
   <depend>xacro</depend>
   <depend>rgbd_launch</depend>
-  <depend>rosbrige_server</depend>
+  <depend>rosbridge_server</depend>
   <export>
   </export>
 </package>
