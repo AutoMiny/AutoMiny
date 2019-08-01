@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<root xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="perimeter_gazebo" params="perimeter_name">
+    
+    <gazebo>
+      <static>true</static>
+    </gazebo>
+    
+    <gazebo reference="body1">
+      <material>Gazebo/Grey</material>
+      <mu1>0</mu1>
+      <mu2>0</mu2>
+    </gazebo>
+    
+   <gazebo reference="body2">
+      <material>Gazebo/Grey</material>
+      <mu1>0</mu1>
+      <mu2>0</mu2>
+    </gazebo>
+    
+   <gazebo reference="body3">
+      <material>Gazebo/Grey</material>
+      <mu1>0</mu1>
+      <mu2>0</mu2>
+    </gazebo>
+    
+   <gazebo reference="body4">
+      <material>Gazebo/Grey</material>
+      <mu1>0</mu1>
+      <mu2>0</mu2>
+    </gazebo>
+
+  </xacro:macro>
+
+</root>

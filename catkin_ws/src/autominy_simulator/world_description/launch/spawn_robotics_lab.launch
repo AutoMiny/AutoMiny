@@ -1,0 +1,21 @@
+<!-- -->
+<launch>
+  <arg name="name"  default="lab"/>
+  <arg name="parent" default="$(arg name)_base_link"/>
+
+  <param name="lab_description" textfile="$(find world_description)/urdf/circuits/lab.urdf" />
+
+  <node name="world_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -param lab_description -x 2.890656 -y 1.951848 -z 0.0001 -Y 3.14159 -model lab_model" respawn="false" output="screen" />
+
+   <node name="$(arg name)_state_publisher"
+        pkg ="robot_state_publisher"
+        type="robot_state_publisher">
+    <param name="tf_prefix" value="/$(arg name)" type="str" />
+    <remap from="robot_description" to="$(arg name)_description" />
+    <remap from="/joint_states" to="/$(arg name)/joint_states" />
+  </node>
+  
+  <node name="$(arg name)_static_tf" pkg="tf" type="static_transform_publisher"
+        args="2.35 2.891 0.0001 -1.5708 0 0 world $(arg parent) 100"/>
+</launch>
+ 

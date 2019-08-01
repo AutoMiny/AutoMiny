@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<root xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="PI" value="3.1415926535897931" />
+
+  <xacro:macro name="road" params="parent:=road_base_link name:=road size:=1.0 dae:=straight height:=0.001 *origin">
+
+    <joint name="joint_${name}_parent_to_link" type="fixed">
+      <xacro:insert_block name="origin" /> 
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+    </joint>
+
+    <link name="${name}_link">
+    </link>
+
+    <joint name="joint_${name}_link_to_image" type="fixed">
+      <origin xyz="0 0 ${height}" rpy="${PI/2} 0 -${PI/2}" />
+      <parent link="${name}_link"/>
+      <child link="${name}_image" />
+    </joint>
+
+    <link name="${name}_image">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://road_description/urdf/roads/dae/${dae}.dae" scale="${size} 1.0 ${size}"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <gazebo>
+      <static>1</static>
+    </gazebo>
+
+    <gazebo reference="${name}_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="${name}_image">
+    </gazebo>
+
+  </xacro:macro>
+
+</root>
+

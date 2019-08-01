@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot name="$(arg name)" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find road_description)/urdf/roads/road_piece.xacro" />
+  <xacro:include filename="$(find road_description)/urdf/roads/road_ground.xacro" />
+
+  <link name="$(arg parent)"/>
+  
+  <link name="$(arg parent)_body">
+    <inertial>
+      <mass value="100"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="21.33933333" ixy="0" ixz="0" iyy="13.73933333" iyz="0" izz="35.07266667" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="red"/>
+    </collision>
+  </link>
+  
+  <joint name="joint_$(arg parent)_to_$(arg parent)_body" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="$(arg parent)"/>
+      <child link="$(arg parent)_body" />
+  </joint>
+
+  <xacro:road name="$(arg name)0" parent="$(arg parent)" dae="new" size="6">
+    <origin xyz="0.0 -2.15 0.0" rpy="0 0 0"/>
+  </xacro:road>
+
+
+</robot>

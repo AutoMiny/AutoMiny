@@ -1,0 +1,34 @@
+<!-- -->
+<launch>
+
+  <arg name="name"  default="model_car"/>
+  <arg name="model" default="car"/>
+  <arg name="world_name" default="empty"/>
+  <arg name="circuit_name" default="robotics_lab"/>
+  <arg name="gazebo_gui" default="True"/>
+  <arg name="fake_localization" default="false" doc="Whether to run the localization nodes or to use localization provided by the simulator." />
+  <arg name="car_x"    default="0.189021"/>
+  <arg name="car_y"    default="4.092613"/> <!--CW: -0.2, CCW: 0.2 -->
+  <arg name="car_yaw"  default="-1.5708"/> <!--CW: 0.0, CCW: 3.1416 -->
+
+  <!-- Spawn the World -->
+  <include file="$(find autominy_sim)/launch/world.launch">
+    <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="gui"   value="$(arg gazebo_gui)"/>
+  </include>
+  
+  <include file="$(find world_description)/launch/spawn_world.launch">
+    <arg name="circuit_name"  value="$(arg circuit_name)"/>
+  </include>
+  
+  <!-- Spawn the Car -->
+  <include file="$(find car_description)/launch/spawn_car.launch">
+    <arg name="name"  value="$(arg name)"/>
+    <arg name="model" value="$(arg model)"/>
+    <arg name="x"     value="$(arg car_x)"/>
+    <arg name="y"     value="$(arg car_y)"/>
+    <arg name="yaw"   value="$(arg car_yaw)"/>
+    <arg name="fake_localization"   value="$(arg fake_localization)"/>
+  </include>
+
+</launch>

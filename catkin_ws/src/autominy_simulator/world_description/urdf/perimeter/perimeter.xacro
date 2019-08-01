@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<robot name="$(arg name)" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find road_description)/urdf/materials.xacro" />
+  
+  <xacro:include filename="$(find road_description)/urdf/perimeter/urdf.xacro" />
+  
+  <xacro:perimeter_urdf name="$(arg name)" MLENGTH="$(arg mlength)" MWIDTH="$(arg mwidth)" WIDTH="$(arg width)" HEIGHT="$(arg height)"/>
+  
+  <xacro:include filename="$(find road_description)/urdf/perimeter/gazebo.gazebo" />
+  
+  <xacro:perimeter_gazebo perimeter_name="$(arg name)"/>
+
+</robot>

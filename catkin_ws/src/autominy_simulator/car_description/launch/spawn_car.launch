@@ -1,0 +1,38 @@
+<!-- -->
+<launch>
+  <arg name="name"  default="model_car"/>
+  <arg name="model" default="car"/>
+  <arg name="x"     default="0.0"/>
+  <arg name="y"     default="0.0"/>
+  <arg name="yaw"   default="0.0"/>
+
+  <arg name="world_frame" default="world"/>
+  <arg name="map_frame"   default="map"/>
+  <arg name="odom_frame"  default="odom"/>
+
+  <arg name="fake_localization" default="false" doc="Whether to run the localization nodes or to use localization provided by the simulator." />
+  
+  <include file="$(find car_description)/launch/description.launch">
+    <arg name="name"  value="$(arg name)"/>
+    <arg name="model" value="$(arg model)"/>
+  </include>
+
+  <node name="spawn_urdf_$(arg name)"
+        pkg ="gazebo_ros"
+        type="spawn_model" 
+        args="-param robot_description
+              -urdf -model $(arg name)
+              -x $(arg x) -y $(arg y) -z 0.124 -R 0 -P 0 -Y $(arg yaw) "/>
+
+  <include file="$(find sim_car_controller)/launch/control.launch">
+    <arg name="name" value="$(arg name)"/>
+  </include>
+
+  <node name="$(arg name)_static_tf_world_map" pkg="tf" type="static_transform_publisher"
+        args="0 0 0 0 0 0 $(arg world_frame) $(arg map_frame) 100"/>
+
+  <include file="$(find autominy)/launch/Sim.launch">
+    <arg name="fake_localization" value="$(arg fake_localization)"/>
+  </include>
+
+</launch>

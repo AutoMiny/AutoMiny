@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<root xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="PI" value="3.1415926535897931" />
+
+  <xacro:macro name="road_ground" params="parent:=road_base_link name:=road size:=1.0 dae:=empty thickness:=0.01 *origin">
+
+    <joint name="joint_${parent}_to_${name}_link" type="fixed">
+      <xacro:insert_block name="origin" /> 
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+    </joint>
+
+    <link name="${name}_link">
+      <inertial>
+        <mass value="100"/>
+        <origin xyz="0 0 ${thickness/2}" rpy="0 0 0"/>
+        <inertia ixx="21.33933333" ixy="0" ixz="0" iyy="13.73933333" iyz="0" izz="35.07266667" />
+      </inertial>
+      <collision>
+        <origin xyz="0 0 ${thickness/2}" rpy="0 0 0"/>
+        <geometry>
+          <box size="${size} ${size} ${thickness}"/>
+        </geometry>
+        <material name="black"/>
+      </collision>
+    </link>
+
+    <joint name="joint_${name}_link_to_${name}_image" type="fixed">
+      <origin xyz="0 0 ${thickness}" rpy="${PI/2} 0 -${PI/2}" />
+      <parent link="${name}_link"/>
+      <child link="${name}_image" />
+    </joint>
+
+    <link name="${name}_image">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://road_description/urdf/roads/dae/${dae}.dae" scale="${size} 1.0 ${size}"/>
+        </geometry>
+      </visual>
+    </link>
+    
+    <gazebo>
+      <static>1</static>
+    </gazebo>
+
+    <gazebo reference="${name}_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="${name}_image">
+    </gazebo>
+
+  </xacro:macro>
+
+</root>
+

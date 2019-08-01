@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+
+<root xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="PI" value="3.1415926535897931" />
+
+  <xacro:macro name="perimeter_urdf" 
+               params="
+                MLENGTH:=6.0
+                MWIDTH:=4.3
+                WIDTH:=0.02
+                HEIGHT:=0.2
+                name:=perimeter
+                ">
+
+    <link name="${name}_base_footprint"/>
+
+    <link name="${name}_base_link">
+      <inertial>
+        <mass value="100" />
+        <origin xyz="0 0 0" />
+        <inertia 
+          ixx="1.0" ixy="0.0" ixz="0.0"
+          iyy="1.0" iyz="0.0" 
+          izz="1.0" />
+      </inertial>
+    </link>
+    
+    <joint name="base_footprint_to_base_link" type="fixed">
+      <parent link="${name}_base_footprint"/>
+      <child link="${name}_base_link"/>
+      <origin xyz="0 0 ${HEIGHT/2.0}" rpy="0 0 0"/>
+    </joint>
+    
+    <link name="${name}_body1">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${MWIDTH} ${WIDTH} ${HEIGHT}"/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${MWIDTH} ${WIDTH} ${HEIGHT}"/>
+        </geometry>
+        <material name="grey"/>
+      </visual>
+    </link>
+    
+    <joint name="base_link_to_body1" type="fixed">
+      <parent link="${name}_base_link"/>
+      <child link="${name}_body1"/>
+      <origin xyz="${MLENGTH/2.0} 0 0" rpy="0 0 ${-PI/2}"/>
+    </joint>
+    
+    <link name="${name}_body2">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${MWIDTH} ${WIDTH} ${HEIGHT}"/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${MWIDTH} ${WIDTH} ${HEIGHT}"/>
+        </geometry>
+        <material name="grey"/>
+      </visual>
+    </link>
+    
+    <joint name="base_link_to_body2" type="fixed">
+      <parent link="${name}_base_link"/>
+      <child link="${name}_body2"/>
+      <origin xyz="${-MLENGTH/2.0} 0 0" rpy="0 0 ${-PI/2}"/>
+    </joint>
+    
+    <link name="${name}_body3">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${MLENGTH} ${WIDTH} ${HEIGHT}"/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${MLENGTH} ${WIDTH} ${HEIGHT}"/>
+        </geometry>
+        <material name="grey"/>
+      </visual>
+    </link>
+    
+    <joint name="base_link_to_body3" type="fixed">
+      <parent link="${name}_base_link"/>
+      <child link="${name}_body3"/>
+      <origin xyz="0 ${MWIDTH/2.0} 0" rpy="0 0 0"/>
+    </joint>
+    
+    <link name="${name}_body4">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${MLENGTH} ${WIDTH} ${HEIGHT}"/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${MLENGTH} ${WIDTH} ${HEIGHT}"/>
+        </geometry>
+        <material name="grey"/>
+      </visual>
+    </link>
+    
+    <joint name="base_link_to_body4" type="fixed">
+      <parent link="${name}_base_link"/>
+      <child link="${name}_body4"/>
+      <origin xyz="0 ${-MWIDTH/2.0} 0" rpy="0 0 0"/>
+    </joint>
+
+  </xacro:macro>
+
+</root>

@@ -1,0 +1,22 @@
+<!-- -->
+<launch>
+
+  <arg name="name" default="model_car"/>
+  <arg name="model" default="car"/>
+  
+  <param name="robot_description"
+         command="cat $(find car_description)/urdf/$(arg model).urdf" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="tf_broadcaster_$(arg name)">
+    <param name="publish_frequency" type="double" value="50.0"/>
+    <remap from="/joint_states" to="/$(arg name)/joint_states" />
+  </node>
+
+  <node name="joint_state_publisher"
+        pkg ="joint_state_publisher"
+        type="joint_state_publisher">
+    <remap from="/joint_states"
+           to="/$(arg name)/joint_states" />
+  </node>
+
+</launch>

@@ -1,0 +1,9 @@
+<!-- -->
+<launch>
+
+  <arg name="circuit_name" default="robotics_lab"/>
+
+  <include file="$(find world_description)/launch/spawn_$(arg circuit_name).launch">
+  </include>
+
+</launch>  
