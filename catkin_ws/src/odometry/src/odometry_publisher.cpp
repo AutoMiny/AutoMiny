@@ -100,6 +100,12 @@ int main(int argc, char **argv) {
 
         //compute odometry in a typical way given the velocities of the robot
         double dt = (current_time - last_time).toSec();
+
+        if (dt > 1 || dt < 0.001) {
+            last_time = current_time;
+            continue;
+        }
+
         double beta = atan((lr / (lr + lf)) * tan(steer_angle));
         double delta_x = 0.0;
         double delta_y = 0.0;
