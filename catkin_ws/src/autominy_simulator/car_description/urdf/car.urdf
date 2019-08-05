@@ -567,7 +567,7 @@
         <updateRate>15.0</updateRate>
         <cameraName>sensors/camera</cameraName>
         <frameName>camera_depth_frame</frameName>                   
-        <imageTopicName>infra1/image_rect_color</imageTopicName>
+        <imageTopicName>infra1/image_rect_raw</imageTopicName>
         <cameraInfoTopicName>infra1/camera_info</cameraInfoTopicName>
         <depthImageTopicName>depth/image_rect_raw</depthImageTopicName>
         <pointCloudTopicName>depth/points</pointCloudTopicName>
