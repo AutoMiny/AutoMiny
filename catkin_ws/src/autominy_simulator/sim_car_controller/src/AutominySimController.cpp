@@ -66,6 +66,9 @@ namespace autominy_sim_control
         // Controller name
         this->name = internal::getNamespace(this->controller_nh);
 
+        last_publish = ros::Time::now();
+        acc = 0.0;
+
         // get the joint names
         this->joint_names.clear();
         if (!(getJointName("drive_rear_left_joint") &&
@@ -199,41 +202,41 @@ namespace autominy_sim_control
         command = pids[3]->computeCommand(error, period);
         this->joints[3].setCommand(command);
 
-        // Publish steer angle
-        double cotan_steer, steer_angle_radians;
-        cotan_steer = (1 / tan(steer_l_pos) + 1 / tan(steer_r_pos)) / 2;
-        steer_angle_radians = atan2(1.0, cotan_steer);
-        if (steer_angle_radians > 3.14159 / 2.0) {
-            steer_angle_radians -= 3.14159;
-        }
-
-        // Publish steer angle feedback
-        auto steer_angle = internal::mapRange(-0.498, 0.512, 192, 420, steer_angle_radians);
-        autominy_msgs::SteeringFeedback msg;
-        msg.value = static_cast<int16_t>(steer_angle);
-        msg.header.stamp = ros::Time::now();
-        msg.header.frame_id = "base_link";
-        this->steer_angle_pub.publish(msg);
-
-        // Publish ticks
-        static double acc = 0.0;
         acc += (this->linear_speed * period.toSec());
-        autominy_msgs::Tick tick;
-        tick.header.stamp = ros::Time::now();
-        tick.header.frame_id = "base_link";
-        tick.value = 0;
-        while (acc >= 0.0027) {
-            tick.value += 1;
-            acc -= 0.0027;
-        }
-        ticks_pub.publish(tick);
 
-        // Publish voltage
-        autominy_msgs::Voltage volt;
-        msg.value = 16.0f;
-        msg.header.stamp = ros::Time::now();
-        msg.header.frame_id = "base_link";
-        voltage_pub.publish(volt);
+        if (ros::Time::now() - last_publish >= ros::Duration(0.01)) {
+            // Publish steer angle
+            double cotan_steer, steer_angle_radians;
+            cotan_steer = (1 / tan(steer_l_pos) + 1 / tan(steer_r_pos)) / 2;
+            steer_angle_radians = atan2(1.0, cotan_steer);
+            if (steer_angle_radians > 3.14159 / 2.0) {
+                steer_angle_radians -= 3.14159;
+            }
+
+            // Publish steer angle feedback
+            auto steer_angle = internal::mapRange(-0.498, 0.512, 192, 420, steer_angle_radians);
+            autominy_msgs::SteeringFeedback msg;
+            msg.value = static_cast<int16_t>(steer_angle);
+            msg.header.stamp = ros::Time::now();
+            msg.header.frame_id = "base_link";
+            this->steer_angle_pub.publish(msg);
+
+            // Publish ticks
+            autominy_msgs::Tick tick;
+            tick.header.stamp = ros::Time::now();
+            tick.header.frame_id = "base_link";
+            tick.value = acc / 0.003;
+            acc = std::fmod(acc, 0.003);
+            ticks_pub.publish(tick);
+
+            // Publish voltage
+            autominy_msgs::Voltage volt;
+            volt.value = 16.0f;
+            volt.header.stamp = ros::Time::now();
+            volt.header.frame_id = "base_link";
+            voltage_pub.publish(volt);
+            last_publish = ros::Time::now();
+        }
     }
 
     // helper functions
@@ -332,7 +335,7 @@ namespace autominy_sim_control
         // TODO: this needs to be corrected
 
         /* convert input data [-1000 <-> 1000] */
-        motor_voltage = (speed->value / 4.0) * 5.0 / 255.0;// cmd * pwm_max_voltage / pwm_number of steps
+        motor_voltage = (speed->value / 3.0) * 5.0 / 255.0;// cmd * pwm_max_voltage / pwm_number of steps
         motor_speed = motor_voltage * 1000.0; // motor_voltage * speed_controller conversion factor (1V <-> 1000 rev/min)
         wheel_speed = motor_speed / 5.5; // motor_speed / gear_ratio of the car
         this->linear_speed = wheel_speed * 3.14159 * this->wheel_diameter / 60.0; // rpm * radius * 2pi / 60

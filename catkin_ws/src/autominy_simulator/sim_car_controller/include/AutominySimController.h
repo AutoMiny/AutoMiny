@@ -87,6 +87,7 @@ namespace autominy_sim_control
       std::string speed_topic;
       std::string ticks_topic;
       std::string voltage_topic;
+      ros::Time last_publish;
 
       // joint commands
       double left_steer_cmd;
@@ -100,6 +101,7 @@ namespace autominy_sim_control
       double last_cmd_drive;
       double last_cmd_steer;
       double linear_speed;
+      double acc;
   };
 
 } // namespace
