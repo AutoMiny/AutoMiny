@@ -290,7 +290,7 @@ namespace autominy_sim_control
     }
 
     template <class HardwareInterface>
-    void AutominySimController<HardwareInterface>::steering_callback(autominy_msgs::SteeringCommandConstPtr const &msg) {
+    void AutominySimController<HardwareInterface>::steering_callback(autominy_msgs::SteeringPWMCommandConstPtr const &msg) {
         int16_t steering_command;
         double car_angle;
         double curve_radius;
@@ -320,7 +320,7 @@ namespace autominy_sim_control
     }
 
     template <class HardwareInterface>
-    void AutominySimController<HardwareInterface>::speed_callback(autominy_msgs::SpeedCommandConstPtr const &speed) {
+    void AutominySimController<HardwareInterface>::speed_callback(autominy_msgs::SpeedPWMCommandConstPtr const &speed) {
         double radius;
         double motor_voltage, motor_speed, wheel_speed;
 

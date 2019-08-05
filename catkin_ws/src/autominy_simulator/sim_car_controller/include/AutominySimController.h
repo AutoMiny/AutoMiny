@@ -26,9 +26,9 @@
 #include <hardware_interface/joint_command_interface.h>
 
 // autominy
-#include <autominy_msgs/SteeringCommand.h>
+#include <autominy_msgs/SteeringPWMCommand.h>
 #include <autominy_msgs/SteeringFeedback.h>
-#include <autominy_msgs/SpeedCommand.h>
+#include <autominy_msgs/SpeedPWMCommand.h>
 #include <autominy_msgs/Tick.h>
 #include <autominy_msgs/Voltage.h>
 
@@ -58,8 +58,8 @@ namespace autominy_sim_control
       void setupParamas();
 
       // action subscriber
-      void steering_callback(autominy_msgs::SteeringCommandConstPtr const &msg);
-      void speed_callback(autominy_msgs::SpeedCommandConstPtr const &speed);
+      void steering_callback(autominy_msgs::SteeringPWMCommandConstPtr const &msg);
+      void speed_callback(autominy_msgs::SpeedPWMCommandConstPtr const &speed);
 
       ros::NodeHandle controller_nh;
       std::string name;///< Controller name.

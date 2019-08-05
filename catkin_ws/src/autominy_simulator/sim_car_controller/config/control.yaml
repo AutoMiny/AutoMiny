@@ -15,9 +15,9 @@
     axel_distance: 0.26
     wheel_distance: 0.165
     wheel_diameter: 0.063
-    steering_topic: /sensors/arduino/steering
+    steering_topic: /actuators/steering_pwm
     steering_fb_topic: /sensors/arduino/steering_angle
-    speed_topic: /sensors/arduino/speed
+    speed_topic: /actuators/speed_pwm
     ticks_topic: /sensors/arduino/ticks 
     voltage_topic: /sensors/arduino/voltage
     zero_steer_angle: 0.0
