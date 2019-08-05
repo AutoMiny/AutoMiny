@@ -544,11 +544,11 @@
       <update_rate>15.0</update_rate>
       <camera>
         <pose>0 0 0 0 0.30 0</pose>
-        <horizontal_fov>0.83</horizontal_fov>  
+        <horizontal_fov>1.59174</horizontal_fov>
         <image>
           <width>640</width>
           <height>480</height>
-          <format>R8G8B8</format>
+          <format>L8</format>
         </image>
         <depth_camera>
         </depth_camera>
@@ -567,17 +567,17 @@
         <updateRate>15.0</updateRate>
         <cameraName>sensors/camera</cameraName>
         <frameName>camera_depth_frame</frameName>                   
-        <imageTopicName>color/image_rect_color</imageTopicName>
-        <cameraInfoTopicName>color/camera_info</cameraInfoTopicName>
+        <imageTopicName>infra1/image_rect_color</imageTopicName>
+        <cameraInfoTopicName>infra1/camera_info</cameraInfoTopicName>
         <depthImageTopicName>depth/image_rect_raw</depthImageTopicName>
         <pointCloudTopicName>depth/points</pointCloudTopicName>
         <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>            
         <pointCloudCutoff>0.4</pointCloudCutoff>                
         <hackBaseline>0.007</hackBaseline>
-        <CxPrime>0.0</CxPrime>
-        <Cx>0.0</Cx>
-        <Cy>0.0</Cy>
-        <focalLength>0.0</focalLength>
+        <CxPrime>322.3056945800781</CxPrime>
+        <Cx>322.3056945800781</Cx>
+        <Cy>241.67051696777344</Cy>
+        <focalLength>383.7944641113281</focalLength>
         <noise>
           <type>gaussian</type>
           <mean>0.0</mean>
@@ -592,11 +592,11 @@
       <update_rate>15.0</update_rate>
       <camera>
         <pose>0 0 0 0 0.30 0</pose>
-        <horizontal_fov>0.83</horizontal_fov>
+        <horizontal_fov>0.7417649</horizontal_fov>
         <image>
           <width>640</width>
           <height>480</height>
-          <format>L8</format>
+          <format>R8G8B8</format>
         </image>
         <clip>
           <near>0.01</near>
@@ -611,11 +611,11 @@
       <plugin name="camera_controller2" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>15.0</updateRate>
-        <cameraName>sensors/camera/infra1</cameraName>
-        <imageTopicName>image_rect_raw</imageTopicName>
+        <cameraName>sensors/camera/color</cameraName>
+        <imageTopicName>image_rect_color</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>camera</frameName>
-        <hackBaseline>0.07</hackBaseline>
+        <hackBaseline>0.0193</hackBaseline>
         <distortionK1>0.0</distortionK1>
         <distortionK2>0.0</distortionK2>
         <distortionK3>0.0</distortionK3>
