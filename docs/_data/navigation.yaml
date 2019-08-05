@@ -67,3 +67,5 @@ docs:
         url: /docs/vector-field-navigation/
       - title: "Service"
         url: /docs/service/
+      - title: "Simulation"
+        url: /docs/simulation/
