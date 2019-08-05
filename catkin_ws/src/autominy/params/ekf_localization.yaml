@@ -35,6 +35,17 @@ ekf_se_map:
   odom1_differential: false
   odom1_relative: false
 
+  odom2: /simulation/odom_ground_truth
+  odom2_config: [true,  true,  true,
+                 true,  true,  true,
+                 true,  true,  true,
+                 true,  true,  true,
+                 true,  true,  true]
+  odom2_queue_size: 100
+  odom2_nodelay: true
+  odom2_differential: false
+  odom2_relative: false
+
   process_noise_covariance: [1e-2, 0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    1e-2, 0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    1e-5, 0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,

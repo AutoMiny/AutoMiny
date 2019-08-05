@@ -513,14 +513,14 @@
     <plugin name="model_car_ground_truth" filename="libgazebo_ros_p3d.so">
       <frameName>map</frameName>
       <bodyName>base_link</bodyName>
-      <topicName>odom_ground_truth</topicName>
+      <topicName>/simulation/odom_ground_truth</topicName>
       <updateRate>30.0</updateRate>
     </plugin>
   </gazebo>
 
   <gazebo>
     <plugin filename="libhector_gazebo_ros_imu.so" name="autominy_imu">
-      <updateRate>20.0</updateRate>
+      <updateRate>100.0</updateRate>
       <robotNamespace>/</robotNamespace>
       <bodyName>imu</bodyName>
       <frameId>imu</frameId>
@@ -541,7 +541,7 @@
     <sensor type="depth" name="camera1">       
       <always_on>1</always_on>
       <visualize>true</visualize>
-      <update_rate>30.0</update_rate>
+      <update_rate>15.0</update_rate>
       <camera>
         <pose>0 0 0 0 0.30 0</pose>
         <horizontal_fov>0.83</horizontal_fov>  
@@ -564,7 +564,7 @@
       </camera>
       <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
         <alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
+        <updateRate>15.0</updateRate>
         <cameraName>sensors/camera</cameraName>
         <frameName>camera_depth_frame</frameName>                   
         <imageTopicName>color/image_rect_color</imageTopicName>
@@ -589,7 +589,7 @@
 
   <gazebo reference="camera">
     <sensor type="camera" name="camera2">
-      <update_rate>30.0</update_rate>
+      <update_rate>15.0</update_rate>
       <camera>
         <pose>0 0 0 0 0.30 0</pose>
         <horizontal_fov>0.83</horizontal_fov>
@@ -610,7 +610,7 @@
       </camera>
       <plugin name="camera_controller2" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
+        <updateRate>15.0</updateRate>
         <cameraName>sensors/camera/infra1</cameraName>
         <imageTopicName>image_rect_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
