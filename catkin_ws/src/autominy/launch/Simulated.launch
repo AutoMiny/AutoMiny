@@ -3,7 +3,7 @@
 	<!-- nodelet -->
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
 	<arg name="nodelet_manager" default="$(optenv NODELET_MANAGER core_nodelet_manager)" />
-	<arg name="logfile" />
+	<param name="use_sim_time" value="true" />
 
 	<!-- launch core components that should always run -->
 	<include file="$(find autominy)/launch/Core.launch">
@@ -12,6 +12,8 @@
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 
-        <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
-        </include>
+	<!-- launch simulation -->
+	<include file="$(find autominy_sim)/launch/sim.launch">
+	</include>
+
 </launch>

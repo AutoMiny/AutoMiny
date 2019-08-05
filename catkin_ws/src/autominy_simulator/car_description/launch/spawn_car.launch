@@ -10,8 +10,6 @@
   <arg name="map_frame"   default="map"/>
   <arg name="odom_frame"  default="odom"/>
 
-  <arg name="fake_localization" default="false" doc="Whether to run the localization nodes or to use localization provided by the simulator." />
-  
   <include file="$(find car_description)/launch/description.launch">
     <arg name="name"  value="$(arg name)"/>
     <arg name="model" value="$(arg model)"/>
@@ -30,9 +28,5 @@
 
   <node name="$(arg name)_static_tf_world_map" pkg="tf" type="static_transform_publisher"
         args="0 0 0 0 0 0 $(arg world_frame) $(arg map_frame) 100"/>
-
-  <include file="$(find autominy)/launch/Sim.launch">
-    <arg name="fake_localization" value="$(arg fake_localization)"/>
-  </include>
 
 </launch>

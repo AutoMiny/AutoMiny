@@ -28,7 +28,6 @@
     <arg name="x"     value="$(arg car_x)"/>
     <arg name="y"     value="$(arg car_y)"/>
     <arg name="yaw"   value="$(arg car_yaw)"/>
-    <arg name="fake_localization"   value="$(arg fake_localization)"/>
   </include>
 
 </launch>
