@@ -120,12 +120,14 @@ class VectorfieldController:
 
         steerMsg = NormalizedSteeringCommand()
         steerMsg.value = steering
+        steerMsg.header.frame_id = "base_link"
         steerMsg.header.stamp = rospy.Time.now()
         self.pub.publish(steerMsg)
 
         if not self.shutdown_:
             msg = SpeedCommand()
             msg.value = speed
+            msg.header.frame_id = "base_link"
             msg.header.stamp = rospy.Time.now()
             self.pub_speed.publish(msg)
 
@@ -134,6 +136,7 @@ class VectorfieldController:
         self.shutdown_ = True
         msg = SpeedCommand()
         msg.value = 0
+        msg.header.frame_id = "base_link"
         self.pub_speed.publish(msg)
         rospy.sleep(1)
 
