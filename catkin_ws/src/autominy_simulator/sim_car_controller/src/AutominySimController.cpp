@@ -202,7 +202,7 @@ namespace autominy_sim_control
         command = pids[3]->computeCommand(error, period);
         this->joints[3].setCommand(command);
 
-        acc += (this->linear_speed * period.toSec());
+        acc += (std::abs(this->linear_speed) * period.toSec());
 
         if (ros::Time::now() - last_publish >= ros::Duration(0.01)) {
             // Publish steer angle
