@@ -77,6 +77,18 @@ namespace stereo_camera_pose_estimation {
                 const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
                 double maximumDepth);
 
+        /**
+         * Converts a depth image into a pointcloud.
+         * @param depthImage The depth image to calculate the pointcloud from.
+         * @param depthCameraInfo The camera parameters.
+         * @param maximumDepth Maximum depth (if depth > maximum depth point is omitted)
+         * @return Pointcloud from depth image.
+         */
+        pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloudFloat(
+                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+                double maximumDepth);
+
+
         /// dynamic config attribute
         StereoCameraPoseEstimationConfig config;
 

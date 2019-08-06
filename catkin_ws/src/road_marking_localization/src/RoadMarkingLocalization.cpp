@@ -137,6 +137,50 @@ namespace road_marking_localization {
         return pointcloud;
     }
 
+    pcl::PointCloud<pcl::PointXYZ>::Ptr RoadMarkingLocalization::getPointcloudFloat(
+            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+            const cv::Mat& mask) {
+        model.fromCameraInfo(depthCameraInfo);
+
+        auto center_x = static_cast<float>(model.cx());
+        auto center_y = static_cast<float>(model.cy());
+
+        // Combine unit conversion (if necessary) with scaling by focal length for computing (X,Y)
+        double unit_scaling = 1.0;
+        auto constant_x = static_cast<float>(unit_scaling / model.fx());
+        auto constant_y = static_cast<float>(unit_scaling / model.fy());
+
+        auto depth_row = reinterpret_cast<const float*>(&depthImage->data[0]);
+        int row_step = depthImage->step / sizeof(float);
+
+        auto pointcloud = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>);
+        pointcloud->reserve(100000);
+        for (int v = 0; v < (int) depthImage->height; ++v, depth_row += row_step) {
+            for (int u = 0; u < (int) depthImage->width; ++u) {
+                auto depth = depth_row[u];
+
+                // Skip missing points
+                if (!std::isfinite(depth) || mask.at<char>(v, u) == 0) {
+                    continue;
+                }
+
+                pointcloud->push_back(pcl::PointXYZ(
+                        (u - center_x) * depth * constant_x, (v - center_y) * depth * constant_y, depth));
+            }
+        }
+
+
+        pointcloud->height = 1;
+        pointcloud->width = static_cast<uint32_t>(pointcloud->points.size());
+        pointcloud->is_dense = true;
+        pointcloud->header.stamp = depthImage->header.stamp.toNSec() / 1000ull;
+        pointcloud->header.seq = depthImage->header.seq;
+        pointcloud->header.frame_id = depthImage->header.frame_id;
+
+        return pointcloud;
+    }
+
+
     bool RoadMarkingLocalization::processImage(
             const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& cameraInfo,
             const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo) {
@@ -155,7 +199,12 @@ namespace road_marking_localization {
         cv::blur(cvImage, cvImage, cv::Size(config.blur_kernel_size, config.blur_kernel_size));
         cv::threshold(cvImage, cvImage, config.threshold, 255, CV_THRESH_BINARY);
 
-        auto roadMarkerCloud = getPointcloud(depthImage, depthCameraInfo, cvImage);
+        pcl::PointCloud<pcl::PointXYZ>::Ptr roadMarkerCloud;
+        if (depthImage->encoding == sensor_msgs::image_encodings::TYPE_32FC1) {
+            roadMarkerCloud = getPointcloudFloat(depthImage, depthCameraInfo, cvImage);
+        } else {
+            roadMarkerCloud = getPointcloud(depthImage, depthCameraInfo, cvImage);
+        }
 
         Eigen::Affine3d t;
         Eigen::Affine3d baseLinkTransform;

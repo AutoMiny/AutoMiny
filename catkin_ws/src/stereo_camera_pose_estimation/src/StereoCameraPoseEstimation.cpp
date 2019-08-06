@@ -67,6 +67,53 @@ namespace stereo_camera_pose_estimation {
         return pointcloud;
     }
 
+    pcl::PointCloud<pcl::PointXYZ>::Ptr StereoCameraPoseEstimation::getPointcloudFloat(
+            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+            double maximumDepth) {
+        depthCameraModel.fromCameraInfo(depthCameraInfo);
+
+        auto center_x = static_cast<float>(depthCameraModel.cx());
+        auto center_y = static_cast<float>(depthCameraModel.cy());
+
+        // Combine unit conversion (if necessary) with scaling by focal length for computing (X,Y)
+        double unit_scaling = 1.0;
+        auto constant_x = static_cast<float>(unit_scaling / depthCameraModel.fx());
+        auto constant_y = static_cast<float>(unit_scaling / depthCameraModel.fy());
+        auto maximum_depth = maximumDepth;
+
+        auto depth_row = reinterpret_cast<const float*>(&depthImage->data[0]);
+        int row_step = depthImage->step / sizeof(float);
+
+        auto pointcloud = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>);
+        for (int v = 0; v < (int) depthImage->height; ++v, depth_row += row_step) {
+            for (int u = 0; u < (int) depthImage->width; ++u) {
+                auto depth = depth_row[u];
+
+                // Skip missing points
+                if (!std::isfinite(depth) || depth > maximum_depth) {
+                    continue;
+                }
+
+                pcl::PointXYZ p;
+                p.x = (u - center_x) * depth * constant_x;
+                p.y = (v - center_y) * depth * constant_y;
+                p.z = depth;
+                pointcloud->push_back(p);
+            }
+        }
+
+
+        pointcloud->height = 1;
+        pointcloud->width = static_cast<uint32_t>(pointcloud->points.size());
+        pointcloud->is_dense = true;
+        pointcloud->header.stamp = depthImage->header.stamp.toNSec() / 1000ull;
+        pointcloud->header.seq = depthImage->header.seq;
+        pointcloud->header.frame_id = depthImage->header.frame_id;
+
+        return pointcloud;
+    }
+
+
     bool StereoCameraPoseEstimation::processImage(
             const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& cameraInfo,
             const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo) {
@@ -76,7 +123,13 @@ namespace stereo_camera_pose_estimation {
             return false;
         }
 
-        auto pcl = getPointcloud(depthImage, depthCameraInfo, config.maximum_depth);
+        pcl::PointCloud<pcl::PointXYZ>::Ptr pcl;
+        if (depthImage->encoding == sensor_msgs::image_encodings::TYPE_32FC1) {
+            pcl = getPointcloudFloat(depthImage, depthCameraInfo, config.maximum_depth);
+        } else {
+            pcl = getPointcloud(depthImage, depthCameraInfo, config.maximum_depth);
+        }
+
         try {
             auto t = tfBuffer.lookupTransform(config.camera_frame, pcl->header.frame_id, depthImage->header.stamp);
             Eigen::Affine3d tt = tf2::transformToEigen(t);

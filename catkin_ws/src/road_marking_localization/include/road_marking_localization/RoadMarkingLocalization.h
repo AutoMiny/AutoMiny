@@ -137,6 +137,18 @@ namespace road_marking_localization {
                 const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
                 const cv::Mat& mask);
 
+        /**
+ * Converts a depth image into a pointcloud.
+ * @param depthImage The depth image to calculate the pointcloud from.
+ * @param depthCameraInfo The camera parameters.
+ * @param mask A mask to use (pixels == 0 are skipped)
+ * @return Pointcloud from depth image.
+ */
+        pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloudFloat(
+                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+                const cv::Mat& mask);
+
+
         /// dynamic config attribute
         RoadMarkingLocalizationConfig config;
 
