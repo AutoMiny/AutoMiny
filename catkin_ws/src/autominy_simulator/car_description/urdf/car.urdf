@@ -23,14 +23,14 @@
   
   <link name="base_link">
     <visual>
-      <origin rpy="0.0 0 0" xyz="0 0 0.01"/>
+      <origin rpy="0.0 0 0" xyz="0.135 0 0.01"/>
       <geometry>
         <mesh filename="package://car_description/meshes/chasi.dae"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
-      <origin rpy="0.0 0 0" xyz="0 0 0.01"/>
+      <origin rpy="0.0 0 0" xyz="0.135 0 0.01"/>
       <geometry>
         <mesh filename="package://car_description/meshes/chasi.dae"/>
       </geometry>
@@ -39,18 +39,20 @@
 
   <link name="board">
     <visual>
-      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <origin rpy="0.0 0 0" xyz="0.135 0 0"/>
       <geometry>
         <mesh filename="package://car_description/meshes/board.dae"/>
       </geometry>
       <material name="plastic"/>
     </visual>
     <collision>
+      <origin rpy="0.0 0 0" xyz="0.135 0 0"/>
       <geometry>
         <mesh filename="package://car_description/meshes/board.dae"/>
       </geometry>
     </collision>
     <inertial>
+      <origin rpy="0.0 0 0" xyz="0.135 0 0"/>
       <mass value="1.0"/>
       <inertia ixx="0.00213542" ixy="0.0" ixz="0.0" iyy="0.01235417" iyz="0.0" izz="0.01448542"/>
     </inertial>
@@ -85,11 +87,13 @@
       <material name="plastic"/>
     </visual>
     <collision>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://car_description/meshes/camera_board.dae"/>
       </geometry>
     </collision>
     <inertial>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="0.00014165" ixy="0.0" ixz="0.0" iyy="0.00006758" iyz="0.0" izz="0.00020865"/>
     </inertial>
@@ -186,7 +190,6 @@
     </visual>
     <collision>
       <geometry>>
-
         <mesh filename="package://car_description/meshes/wheel.dae"/>
       </geometry>
     </collision>
@@ -319,7 +322,7 @@
   <joint name="board_cameraboard" type="fixed">
     <parent link="board"/>
     <child link="camera_board"/>
-    <origin xyz="-0.160 0 0.15"/>
+    <origin xyz="-0.025 0 0.15"/>
   </joint>
 
   <joint name="camera_cameraboard" type="fixed">
@@ -340,22 +343,22 @@
     <child link="camera_bottom_screw_frame"/>
   </joint>
 
-  <joint name="board_laster" type="fixed">
+  <joint name="board_laser" type="fixed">
     <parent link="board"/>
     <child link="laser"/>
-    <origin rpy="0 0 3.14159" xyz="0.05 0 0.025"/>
+    <origin rpy="0 0 3.14159" xyz="0.185 0 0.025"/>
   </joint>
 
-    <joint name="board_imu" type="fixed">
+  <joint name="board_imu" type="fixed">
     <parent link="board"/>
     <child link="imu"/>
-    <origin xyz="-0.06559 -0.017 0"/>
+    <origin xyz="0.07 -0.017 0"/>
   </joint>
 
   <joint name="board_marker" type="fixed">
     <parent link="board"/>
     <child link="marker"/>
-    <origin xyz="0.18 0 0.0025"/>
+    <origin xyz="0.315 0 0.0025"/>
   </joint>
 
   <joint name="frontwheel_steering_left" type="revolute">
@@ -363,7 +366,7 @@
     <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
     <parent link="base_link"/>
     <child link="axis_fl"/>
-    <origin xyz="0.12 0.08 0.02"/>
+    <origin xyz="0.255 0.08 0.02"/>
   </joint>
 
   <joint name="frontwheel_steering_right" type="revolute">
@@ -371,7 +374,7 @@
     <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
     <parent link="base_link"/>
     <child link="axis_fr"/>
-    <origin xyz="0.12 -0.08 0.02"/>
+    <origin xyz="0.255 -0.08 0.02"/>
   </joint>
 
   <joint name="frontwheel_left" type="revolute">
@@ -395,7 +398,7 @@
     <axis xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="wheel_bl"/>
-    <origin xyz="-0.135 0.085 0.02"/>
+    <origin xyz="0 0.085 0.02"/>
     <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
   </joint>
 
@@ -403,20 +406,20 @@
     <axis xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="wheel_br"/>
-    <origin xyz="-0.135 -0.085 0.02"/>
+    <origin xyz="0 -0.085 0.02"/>
     <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
   </joint>
 
   <joint name="board_support_l" type="fixed">
     <parent link="board"/>
     <child link="support_l"/>
-    <origin xyz="-0.159000 0.053000 0.112000"/>
+    <origin xyz="-0.024000 0.053000 0.112000"/>
   </joint>
 
   <joint name="board_support_r" type="fixed">
     <parent link="board"/>
     <child link="support_r"/>
-    <origin xyz="-0.159000 -0.053000 0.112000"/>
+    <origin xyz="-0.024000 -0.053000 0.112000"/>
   </joint>
 
   <transmission name="steering_front_left_wheel">
@@ -566,7 +569,7 @@
         <alwaysOn>true</alwaysOn>
         <updateRate>15.0</updateRate>
         <cameraName>sensors/camera</cameraName>
-        <frameName>camera_depth_frame</frameName>                   
+        <frameName>camera_depth_optical_frame</frameName>
         <imageTopicName>infra1/image_rect_raw</imageTopicName>
         <cameraInfoTopicName>infra1/camera_info</cameraInfoTopicName>
         <depthImageTopicName>depth/image_rect_raw</depthImageTopicName>
