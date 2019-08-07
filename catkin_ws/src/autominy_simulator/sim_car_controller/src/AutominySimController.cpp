@@ -309,7 +309,7 @@ namespace autominy_sim_control
         else
             curve_radius = std::numeric_limits<double>::max();
 
-        std::cout << "Car: " << car_angle << ", Car (deg): "<< (car_angle / 3.14159 * 180) << ", Radius: " << curve_radius << std::endl;
+        //std::cout << "Car: " << car_angle << ", Car (deg): "<< (car_angle / 3.14159 * 180) << ", Radius: " << curve_radius << std::endl;
 
         if (car_angle > 0) {
             this->right_steer_cmd = atan2(this->axe_distance, curve_radius + this->wheel_distance / 2.0);
@@ -334,8 +334,12 @@ namespace autominy_sim_control
 
         // TODO: this needs to be corrected
 
+        auto val = speed->value;
+        if (std::abs(val) < 20) {
+            val = 0;
+        }
         /* convert input data [-1000 <-> 1000] */
-        motor_voltage = (speed->value / 3.0) * 5.0 / 255.0;// cmd * pwm_max_voltage / pwm_number of steps
+        motor_voltage = (val / 3.0) * 5.0 / 255.0;// cmd * pwm_max_voltage / pwm_number of steps
         motor_speed = motor_voltage * 1000.0; // motor_voltage * speed_controller conversion factor (1V <-> 1000 rev/min)
         wheel_speed = motor_speed / 5.5; // motor_speed / gear_ratio of the car
         this->linear_speed = wheel_speed * 3.14159 * this->wheel_diameter / 60.0; // rpm * radius * 2pi / 60
