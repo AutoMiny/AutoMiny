@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot name="car" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find car_robot_model)/urdf/include/_d435.urdf.xacro"/>
+  <xacro:include filename="$(find car_description)/urdf/_d435.urdf.xacro"/>
 
   <material name="black">
     <color rgba="0.1 0.1 0.1 1"/>
