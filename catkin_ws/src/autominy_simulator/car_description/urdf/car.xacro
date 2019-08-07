@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<robot name="car">
+<robot name="car" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find car_robot_model)/urdf/include/_d435.urdf.xacro"/>
 
   <material name="black">
     <color rgba="0.1 0.1 0.1 1"/>
@@ -39,42 +40,22 @@
 
   <link name="board">
     <visual>
-      <origin rpy="0.0 0 0" xyz="0.135 0 0"/>
+      <origin rpy="0.0 0 0" xyz="0.115 0 0"/>
       <geometry>
         <mesh filename="package://car_description/meshes/board.dae"/>
       </geometry>
       <material name="plastic"/>
     </visual>
     <collision>
-      <origin rpy="0.0 0 0" xyz="0.135 0 0"/>
+      <origin rpy="0.0 0 0" xyz="0.115 0 0"/>
       <geometry>
         <mesh filename="package://car_description/meshes/board.dae"/>
       </geometry>
     </collision>
     <inertial>
-      <origin rpy="0.0 0 0" xyz="0.135 0 0"/>
+      <origin rpy="0.0 0 0" xyz="0.115 0 0"/>
       <mass value="1.0"/>
       <inertia ixx="0.00213542" ixy="0.0" ixz="0.0" iyy="0.01235417" iyz="0.0" izz="0.01448542"/>
-    </inertial>
-  </link>
-
-  <link name="camera">
-    <visual>
-      <origin rpy="-2.0944 0 -1.570796" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="package://car_description/meshes/camera.dae"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <origin rpy="-2.0944 0 -1.570796" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="package://car_description/meshes/camera.dae"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.1"/>
-      <inertia ixx="0.00001051" ixy="0.0" ixz="0.0" iyy="0.00006385" iyz="0.0" izz="0.00006403"/>
     </inertial>
   </link>
 
@@ -99,10 +80,6 @@
     </inertial>
   </link>
 
-  <link name="camera_bottom_screw_frame"/>
-
-  <link name="camera_depth_frame"/>
-
   <link name="laser">
     <visual>
       <origin rpy="0.0 0 0" xyz="0 0 -0.02"/>
@@ -123,81 +100,31 @@
     </inertial>
   </link>
 
-  <link name="wheel_fl">
-    <visual>
-      <origin rpy="0.0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="package://car_description/meshes/wheel.dae"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://car_description/meshes/wheel.dae"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.05"/>
-      <inertia ixx="0.00001793" ixy="0.0" ixz="0.0" iyy="0.00002867" iyz="0.0" izz="0.00001813"/>
-    </inertial>
-  </link>
+  <xacro:macro name="wheel" params="name">
+    <link name="${name}">
+      <visual>
+        <origin rpy="0.0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://car_description/meshes/wheel.dae"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://car_description/meshes/wheel.dae"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.05"/>
+        <inertia ixx="0.00001793" ixy="0.0" ixz="0.0" iyy="0.00002867" iyz="0.0" izz="0.00001813"/>
+      </inertial>
+    </link>
+  </xacro:macro>
 
-  <link name="wheel_fr">
-    <visual>
-      <origin rpy="0.0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="package://car_description/meshes/wheel.dae"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://car_description/meshes/wheel.dae"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.05"/>
-      <inertia ixx="0.00001793" ixy="0.0" ixz="0.0" iyy="0.00002867" iyz="0.0" izz="0.00001813"/>
-    </inertial>
-  </link>
-
-  <link name="wheel_bl">
-    <visual>
-      <origin rpy="0.0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="package://car_description/meshes/wheel.dae"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://car_description/meshes/wheel.dae"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.05"/>
-      <inertia ixx="0.00001793" ixy="0.0" ixz="0.0" iyy="0.00002867" iyz="0.0" izz="0.00001813"/>
-    </inertial>
-  </link>
-
-  <link name="wheel_br">
-    <visual>
-      <origin rpy="0.0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="package://car_description/meshes/wheel.dae"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <geometry>>
-        <mesh filename="package://car_description/meshes/wheel.dae"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.05"/>
-      <inertia ixx="0.00001793" ixy="0.0" ixz="0.0" iyy="0.00002867" iyz="0.0" izz="0.00001813"/>
-    </inertial>
-  </link>
+  <xacro:wheel name="wheel_fr"/>
+  <xacro:wheel name="wheel_fl"/>
+  <xacro:wheel name="wheel_br"/>
+  <xacro:wheel name="wheel_bl"/>
 
   <link name="axis_fl">
     <visual>
@@ -317,6 +244,17 @@
   <link name="bno055">
   </link>
 
+  <!-- front camera -->
+  <xacro:property name="front_camera_name" value="camera"/>
+
+  <sensor_d435 parent="camera_board" sensor_name="camera">
+    <origin xyz="0.03 0 0.025" rpy="0 0.2 0"/>
+  </sensor_d435>
+
+  <sensor_d435 parent="camera_board" sensor_name="rear_camera">
+    <origin xyz="-0.02 0 0.025" rpy="0 0.2 3.141"/>
+  </sensor_d435>
+
   <joint name="joint_board_to_bno055" type="fixed">
       <parent link="board"/>
       <child link="bno055"/>
@@ -326,31 +264,13 @@
   <joint name="base_link_board" type="fixed">
     <parent link="base_link"/>
     <child link="board"/>
-    <origin xyz="-0.018 0 0.06"/>
+    <origin xyz="0 0 0.07"/>
   </joint>
 
   <joint name="board_cameraboard" type="fixed">
     <parent link="board"/>
     <child link="camera_board"/>
     <origin xyz="-0.025 0 0.15"/>
-  </joint>
-
-  <joint name="camera_cameraboard" type="fixed">
-    <parent link="camera_board"/>
-    <child link="camera"/>
-    <origin xyz="0.035 0 0.03"/>
-  </joint>
-
-  <joint name="camera_depth" type="fixed">
-    <parent link="camera"/>
-    <child link="camera_depth_frame"/>
-    <origin rpy="-1.57079632679 0 -1.57079632679"/>
-  </joint>
-
-  <joint name="camera_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.035 0 0.03"/>
-    <parent link="camera_board"/>
-    <child link="camera_bottom_screw_frame"/>
   </joint>
 
   <joint name="board_laser" type="fixed">
@@ -368,7 +288,7 @@
   <joint name="board_marker" type="fixed">
     <parent link="board"/>
     <child link="marker"/>
-    <origin xyz="0.315 0 0.0025"/>
+    <origin xyz="0.30 0 0.0025"/>
   </joint>
 
   <joint name="frontwheel_steering_left" type="revolute">
@@ -550,14 +470,14 @@
     </plugin>
   </gazebo>
 
-  <gazebo reference="camera">
+  <gazebo reference="camera_depth_frame">
     <sensor type="depth" name="camera1">       
       <always_on>1</always_on>
       <visualize>true</visualize>
       <update_rate>15.0</update_rate>
       <camera>
-        <pose>0 0 0 0 0.30 0</pose>
-        <horizontal_fov>1.59174</horizontal_fov>
+        <pose>0 0 0 0 0.20 0</pose>
+        <horizontal_fov>1.3900031938640904</horizontal_fov>
         <image>
           <width>640</width>
           <height>480</height>
@@ -600,12 +520,12 @@
     </sensor>
   </gazebo>
 
-  <gazebo reference="camera">
+  <gazebo reference="camera_color_frame">
     <sensor type="camera" name="camera2">
       <update_rate>15.0</update_rate>
       <camera>
-        <pose>0 0 0 0 0.30 0</pose>
-        <horizontal_fov>0.7417649</horizontal_fov>
+        <pose>0 0 0.02 0 0.20 0</pose>
+        <horizontal_fov>0.95417536656506718</horizontal_fov>
         <image>
           <width>640</width>
           <height>480</height>
@@ -627,7 +547,7 @@
         <cameraName>sensors/camera/color</cameraName>
         <imageTopicName>image_rect_color</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>camera</frameName>
+        <frameName>camera_color_optical_frame</frameName>
         <hackBaseline>0.0193</hackBaseline>
         <distortionK1>0.0</distortionK1>
         <distortionK2>0.0</distortionK2>
