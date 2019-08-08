@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot name="car" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find car_description)/urdf/_d435.urdf.xacro"/>
+  <xacro:include filename="$(find car_description)/urdf/common.xacro"/>
 
   <material name="black">
     <color rgba="0.1 0.1 0.1 1"/>
@@ -113,6 +114,26 @@
         <geometry>
           <mesh filename="package://car_description/meshes/wheel.dae"/>
         </geometry>
+        <minDepth>0.005</minDepth>
+        <maxContacts>1</maxContacts>
+        <max_contacts>1</max_contacts>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <fdir1>0 0 1</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <min_depth>0.005</min_depth>
+              <kp>1e8</kp>
+            </ode>
+          </contact>
+        </surface>
       </collision>
       <inertial>
         <mass value="0.05"/>
@@ -296,7 +317,7 @@
     <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
     <parent link="base_link"/>
     <child link="axis_fl"/>
-    <origin xyz="0.255 0.08 0.02"/>
+    <origin xyz="0.255 0.08 0.03"/>
   </joint>
 
   <joint name="frontwheel_steering_right" type="revolute">
@@ -304,7 +325,7 @@
     <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
     <parent link="base_link"/>
     <child link="axis_fr"/>
-    <origin xyz="0.255 -0.08 0.02"/>
+    <origin xyz="0.255 -0.08 0.03"/>
   </joint>
 
   <joint name="frontwheel_left" type="revolute">
@@ -328,15 +349,15 @@
     <axis xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="wheel_bl"/>
-    <origin xyz="0 0.085 0.02"/>
+    <origin xyz="0 0.085 0.03"/>
     <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
-  </joint>
+   </joint>
 
   <joint name="rearwheel_right" type="revolute">
     <axis xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="wheel_br"/>
-    <origin xyz="0 -0.085 0.02"/>
+    <origin xyz="0 -0.085 0.03"/>
     <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
   </joint>
 
@@ -436,6 +457,7 @@
   <gazebo reference="frontwheel_steering_left">
     <implicitSpringDamper>true</implicitSpringDamper>
   </gazebo>
+
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
       <robotNamespace>model_car</robotNamespace>
@@ -590,19 +612,19 @@
   </gazebo>
   <gazebo reference="wheel_fl">
     <mu1>1.34</mu1>
-    <mu2>1.34</mu2>  
+    <mu2>1.34</mu2>
   </gazebo>
   <gazebo reference="wheel_fr">
     <mu1>1.34</mu1>
-    <mu2>1.34</mu2>  
+    <mu2>1.34</mu2>
   </gazebo>
   <gazebo reference="wheel_br">
     <mu1>1.34</mu1>
-    <mu2>1.34</mu2>  
+    <mu2>1.34</mu2>
   </gazebo>
   <gazebo reference="wheel_bl">
     <mu1>1.34</mu1>
-    <mu2>1.34</mu2>  
+    <mu2>1.34</mu2>
   </gazebo>
 
   <gazebo reference="support_r">
