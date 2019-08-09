@@ -3,7 +3,7 @@
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
 	<arg name="nodelet_manager" default="$(optenv VEHICLE_MODEL_NODELET_MANAGER core_nodelet_manager)" />
 
-	<include file="$(find car_description)/launch/description.launch">
+	<include file="$(find car_description)/launch/description.launch" ns="/">
 		<arg name="name" value="model_car"/>
 		<arg name="model" value="car"/>
 	</include>
