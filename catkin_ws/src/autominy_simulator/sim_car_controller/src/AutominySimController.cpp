@@ -108,10 +108,7 @@ namespace autominy_sim_control
                 ros::NodeHandle joint_nh(controller_nh, std::string("gains/") + this->joints[i].getName());
                 // Init PID gains from ROS parameter server
                 this->pids[i].reset(new control_toolbox::Pid());
-                if (!this->pids[i]->init(joint_nh)) {
-                    ROS_WARN_STREAM("Failed to initialize PID gains from ROS parameter server.");
-                    return false;
-                }
+                this->pids[i]->initDynamicReconfig(joint_nh);
             } catch (...) {
                 ROS_ERROR_STREAM_NAMED(name, "Could not find joint '" << this->joint_names[i] << "' in '" <<
                 this->getHardwareInterfaceType() << "'.");

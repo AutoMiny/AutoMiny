@@ -21,36 +21,3 @@
     ticks_topic: /sensors/arduino/ticks 
     voltage_topic: /sensors/arduino/voltage
     zero_steer_angle: 0.0
-    
-    gains:
-      frontwheel_left:
-        p: 0.001
-        d: 0.0
-        i: 0.0
-        i_clamp: 1
-      frontwheel_right:
-        p: 0.001
-        d: 0.0
-        i: 0.0
-        i_clamp: 1
-      rearwheel_left:
-        p: 0.001
-        d: 0.0
-        i: 0.0
-        i_clamp: 1
-      rearwheel_right:
-        p: 0.001
-        d: 0.0
-        i: 0.0
-        i_clamp: 1
-      frontwheel_steering_left:
-        p: 1.0
-        d: 0.0
-        i: 0.1
-        i_clamp: 1
-      frontwheel_steering_right:
-        p: 1.0
-        d: 0.0
-        i: 0.1
-        i_clamp: 1
-
