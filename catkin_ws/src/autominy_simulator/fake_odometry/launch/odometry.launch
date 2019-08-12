@@ -1,6 +1,0 @@
-<launch>
- 	<node pkg="fake_odometry" type="odometry_publisher" name="odometry" output="screen">
-		<param name="bicycle_model" value="true" /> <!--use just bicycle model-->
-		<param name="publish_tf" value="true" /> <!--use just bicycle model-->
-	</node>
-</launch>
