@@ -27,6 +27,13 @@ When using zsh:
 echo "source /path/to/your/installation/catkin_ws/devel/setup.zsh" >> ~/.zshrc
 ```
 
+### Speeding up compilation using CLang
+You can use Clang instead of the (default) gcc compiler. Clang is much faster during compilation and uses less memory. The following commands install clang and tell catkin to use the clang compiler by default.
+
+```bash
+sudo apt install clang
+--cmake-args -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++
+```
 
 ### Working on the car remotely
 You can connect to the ROS running on the car remotely from your computer by setting the environment variables `ROS_MASTER_URI` and `ROS_IP`:
