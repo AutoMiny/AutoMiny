@@ -30,4 +30,9 @@
     <arg name="yaw"   value="$(arg car_yaw)"/>
   </include>
 
+  <node name="$(anon reconfigure)" pkg="dynamic_reconfigure" type="dynparam" args="set_from_parameters /sensors/road_marking_localization">
+    <param name="threshold" type="int" value="130" />
+  </node>
+
+
 </launch>
