@@ -181,7 +181,7 @@ namespace hardware_calibration {
         if (msg->value < 0) {
             val /= config.minimum_steering_radians;
         } else {
-            val /= config.maximum_steering_radians;
+            val /= -config.maximum_steering_radians;
         }
 
         auto command = boost::make_shared<autominy_msgs::NormalizedSteeringCommand>();
