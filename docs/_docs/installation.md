@@ -32,7 +32,7 @@ You can use Clang instead of the (default) gcc compiler. Clang is much faster du
 
 ```bash
 sudo apt install clang
---cmake-args -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++
+catkin config --cmake-args -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++
 ```
 
 ### Working on the car remotely
