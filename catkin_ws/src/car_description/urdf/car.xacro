@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot name="car" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find car_description)/urdf/_d435.urdf.xacro"/>
+  <xacro:include filename="$(find car_description)/urdf/rplidar_a2.xacro"/>
   <xacro:include filename="$(find car_description)/urdf/common.xacro"/>
 
   <material name="black">
@@ -78,26 +79,6 @@
       <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <mass value="0.1"/>
       <inertia ixx="0.00014165" ixy="0.0" ixz="0.0" iyy="0.00006758" iyz="0.0" izz="0.00020865"/>
-    </inertial>
-  </link>
-
-  <link name="laser">
-    <visual>
-      <origin rpy="0.0 0 0" xyz="0 0 -0.02"/>
-      <geometry>
-        <mesh filename="package://car_description/meshes/laser.dae"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <collision>
-       <origin rpy="0.0 0 0" xyz="0 0 -0.02"/>
-      <geometry>
-        <mesh filename="package://car_description/meshes/laser.dae"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.1"/>
-      <inertia ixx="0.00005965" ixy="0.0" ixz="0.0" iyy="0.00005759" iyz="0.0" izz="0.00009268"/>
     </inertial>
   </link>
 
@@ -277,6 +258,10 @@
     <origin xyz="-0.02 0 0.025" rpy="0 0.2 3.141"/>
   </sensor_d435>
 
+  <sensor_rplidar_a2 parent="board" prefix="lidar">
+    <origin xyz="0.14 0 0.0425" rpy="0 0 0"/>
+  </sensor_rplidar_a2>
+
   <joint name="joint_board_to_bno055" type="fixed">
       <parent link="board"/>
       <child link="bno055"/>
@@ -293,12 +278,6 @@
     <parent link="board"/>
     <child link="camera_board"/>
     <origin xyz="-0.025 0 0.15"/>
-  </joint>
-
-  <joint name="board_laser" type="fixed">
-    <parent link="board"/>
-    <child link="laser"/>
-    <origin rpy="0 0 3.14159" xyz="0.14 0 0.0625"/>
   </joint>
 
   <joint name="board_imu" type="fixed">
