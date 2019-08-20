@@ -289,7 +289,7 @@
   <joint name="board_marker" type="fixed">
     <parent link="board"/>
     <child link="marker"/>
-    <origin xyz="0.30 0 0.0025"/>
+    <origin xyz="$(optenv ROS_ESTIMATION_MARKER_X 0.30) $(optenv ROS_ESTIMATION_MARKER_Y 0.0) 0.0025"/>
   </joint>
 
   <joint name="board_nuc" type="fixed">

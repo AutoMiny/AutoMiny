@@ -90,7 +90,7 @@ namespace lidar_pose_estimation {
 
             geometry_msgs::TransformStamped transform;
             transform.header.stamp = ros::Time::now();
-            transform.header.frame_id = "sensor_board";
+            transform.header.frame_id = "board";
             transform.child_frame_id = "lidar_base_link";
             transform.transform.translation.x = -x;
             transform.transform.translation.y = -y;
