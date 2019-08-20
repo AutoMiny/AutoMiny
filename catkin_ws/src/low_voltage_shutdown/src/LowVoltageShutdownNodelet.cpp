@@ -12,7 +12,7 @@ namespace low_voltage_shutdown {
         configServer->setCallback(f);
 
         /// Subscriber
-        voltageSubscriber = pnh.subscribe("sensors/voltage", 10, &LowVoltageShutdownNodelet::onVoltage, this);
+        voltageSubscriber = pnh.subscribe("voltage", 10, &LowVoltageShutdownNodelet::onVoltage, this);
     }
 
     void LowVoltageShutdownNodelet::onConfig(const LowVoltageShutdownConfig& config, uint32_t level) {
