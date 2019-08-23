@@ -19,8 +19,12 @@ namespace lidar_pose_estimation {
     bool LidarPoseEstimation::processLaserScan(const sensor_msgs::LaserScanConstPtr& scan) {
         sensor_msgs::PointCloud2 cloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloudptr(new pcl::PointCloud<pcl::PointXYZ>());
-
-        projector.transformLaserScanToPointCloud("lidar_base_link", *scan, cloud, tfBuffer, config.max_dist);
+        try {
+            projector.transformLaserScanToPointCloud("lidar_base_link", *scan, cloud, tfBuffer, config.max_dist);
+        } catch(const tf2::LookupException& e) {
+            ROS_ERROR("%s", e.what());
+            return false;
+        }
         pcl::fromROSMsg(cloud, *cloudptr);
 
         data->header = cloudptr->header;
