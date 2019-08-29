@@ -102,7 +102,9 @@ int main(int argc, char **argv) {
         double dt = (current_time - last_time).toSec();
 
         if (dt > 1 || dt < 0.001) {
+            ROS_ERROR("Odometry time difference too small or big");
             last_time = current_time;
+            r.sleep();
             continue;
         }
 
