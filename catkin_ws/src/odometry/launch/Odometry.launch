@@ -11,7 +11,7 @@
     ]]>
 
     <!-- start standalone node -->
-    <node respawn="true" respawn_delay="1" unless="$(arg use_nodelets)"
+    <node unless="$(arg use_nodelets)"
           pkg="odometry"
           name="odometry"
           type="odometry_node"
@@ -20,7 +20,7 @@
     </node>
 
     <!-- start nodelet (nodelet manager needed, see below) -->
-    <node respawn="true" respawn_delay="1" if="$(arg use_nodelets)"
+    <node if="$(arg use_nodelets)"
           pkg="nodelet"
           type="nodelet"
           name="odometry"
