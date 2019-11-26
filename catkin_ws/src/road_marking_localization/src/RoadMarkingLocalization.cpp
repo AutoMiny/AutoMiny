@@ -272,12 +272,12 @@ namespace road_marking_localization {
             correctedPosition.pose.pose.position.x = pos[0];
             correctedPosition.pose.pose.position.y = pos[1];
             correctedPosition.pose.pose.position.z = pos[2];
-            correctedPosition.pose.covariance = { 0.01, 0, 0, 0, 0, 0,
-                                                  0, 0.01, 0, 0, 0, 0,
-                                                  0, 0, 0.01, 0, 0, 0,
-                                                  0, 0, 0, 0.01, 0, 0,
-                                                  0, 0, 0, 0, 0.01, 0,
-                                                  0, 0, 0, 0, 0, 0.01
+            correctedPosition.pose.covariance = { 0.0001, 0, 0, 0, 0, 0,
+                                                  0, 0.0001, 0, 0, 0, 0,
+                                                  0, 0, 0.0001, 0, 0, 0,
+                                                  0, 0, 0, 0.0001, 0, 0,
+                                                  0, 0, 0, 0, 0.0001, 0,
+                                                  0, 0, 0, 0, 0, 0.0001
             };
             tf2::Quaternion q;
 
