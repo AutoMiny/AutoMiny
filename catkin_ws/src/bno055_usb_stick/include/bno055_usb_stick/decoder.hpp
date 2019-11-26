@@ -64,15 +64,19 @@ namespace bno055_usb_stick {
             imu.angular_velocity = output.gyroscope;
             imu.linear_acceleration = output.linear_acceleration;
 
-            // To indicate no covariance estimate, set the 1st elements of matrice -1
-            imu.orientation_covariance[0] = -1;
-            std::fill(imu.orientation_covariance.begin() + 1, imu.orientation_covariance.end(), 0.);
-            imu.angular_velocity_covariance[0] = -1;
-            std::fill(imu.angular_velocity_covariance.begin() + 1, imu.angular_velocity_covariance.end(),
-                      0.);
-            imu.linear_acceleration_covariance[0] = -1;
-            std::fill(imu.linear_acceleration_covariance.begin() + 1,
-                      imu.linear_acceleration_covariance.end(), 0.);
+            // Covariances. The Bosch BNO055 datasheet is pretty useless regarding the sensor's accuracy.
+            // - The accuracy of the magnetometer is +-2.5deg. Users on online forums agree on that number.
+            // - The accuracy of the gyroscope is unknown. I use the +-3deg/s zero rate offset. To be tested.
+            // - The accuracy of the accelerometer is unknown. Based on the typical and maximum zero-g offset (+-80mg and
+            //   +-150mg) and the fact that my graphs look better than that, I use 80mg. To be tested.
+            // Cross-axis errors are not (yet) taken into account. To be tested.
+            for(unsigned row = 0; row < 3; ++ row) {
+                for(unsigned col = 0; col < 3; ++ col) {
+                    imu.orientation_covariance[row * 3 + col] = (row == col? 0.002: 0.);  // +-2.5deg
+                    imu.angular_velocity_covariance[row * 3 + col] = (row == col? 0.003: 0.);  // +-3deg/s
+                    imu.linear_acceleration_covariance[row * 3 + col] = (row == col? 0.60: 0.);  // +-80mg
+                }
+            }
 
             return imu;
         }
