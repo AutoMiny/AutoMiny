@@ -6,5 +6,7 @@
 	<remap from="~steering" to="steering"/>
 	<remap from="~speed" to="speed"/>
 	<include file="$(find odometry)/launch/Odometry.launch">
+		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
+		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
 </launch>
