@@ -1,17 +1,29 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>odometry</name>
-  <version>3.0.1</version>
-  <description>The odometry_publisher package</description>
+    <name>odometry</name>
+    <version>0.0.1</version>
+    <description>Emergency stop using LiDAR</description>
 
-  <maintainer email="boroujeni@fu-berlin.de">Zahra Boroujeni</maintainer>
+    <maintainer email="s.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</maintainer>
 
-  <license>BSD</license>
-  <author>Zahra Boroujeni</author>
-  <buildtool_depend>catkin</buildtool_depend>
-  <depend>nav_msgs</depend>
-  <depend>autominy_msgs</depend>
-  <depend>std_msgs</depend>
-  <depend>roscpp</depend>
-  <depend>tf</depend>
+    <license>proprietary</license>
+
+    <url type="website">https://www.autonomos-labs.de/</url>
+
+    <author email="s.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>roscpp</build_depend>
+
+    <depend>nodelet</depend>
+    <depend>dynamic_reconfigure</depend>
+    <depend>nav_msgs</depend>
+    <depend>autominy_msgs</depend>
+    <depend>tf2</depend>
+    <depend>tf2_ros</depend>
+
+    <!-- export of nodelet definition XML -->
+    <export>
+        <nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+    </export>
 </package>

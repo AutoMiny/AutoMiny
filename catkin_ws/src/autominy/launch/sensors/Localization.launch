@@ -6,7 +6,7 @@
 	<rosparam command="load" file="$(find autominy)/params/ekf_localization.yaml" />
 	<remap from="odometry/wheel"     to="/sensors/odometry/odom" />
 	<remap from="odometry/gps"       to="/sensors/road_marking_localization/corrected_odom" />
-	<remap from="imu/data"           to="/sensors/arduino/imu" />
+	<remap from="imu/data"           to="/sensors/imu" />
 
 	<group unless="$(arg use_nodelets)">
 		<node

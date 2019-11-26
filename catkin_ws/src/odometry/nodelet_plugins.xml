@@ -1,0 +1,18 @@
+<!--
+    relative workspace path to .so file (without file suffix),
+    e.g. this path refers to catkin_ws/devel/lib/libodometry_nodelet.so
+-->
+<library path="lib/libodometry_nodelet">
+    <!--
+        name: value of variable nodeletName in OdometryNode.cpp
+        type/base_class_type: first/second param of macro PLUGINLIB_EXPORT_CLASS in OdometryNodelet.cpp
+    -->
+    <class name="odometry/Nodelet"
+           type="odometry::OdometryNodelet"
+           base_class_type="nodelet::Nodelet"
+    >
+        <description>
+            Short description what this nodelet is doing
+        </description>
+    </class>
+</library>

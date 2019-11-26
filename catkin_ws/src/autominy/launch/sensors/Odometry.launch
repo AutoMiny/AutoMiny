@@ -5,7 +5,6 @@
 
 	<remap from="~steering" to="steering"/>
 	<remap from="~speed" to="speed"/>
-	<remap from="~imu" to="imu"/>
-	<include file="$(find odometry)/launch/odometry.launch">
+	<include file="$(find odometry)/launch/Odometry.launch">
 	</include>
 </launch>
