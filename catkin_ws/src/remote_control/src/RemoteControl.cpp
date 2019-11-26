@@ -75,10 +75,10 @@ namespace remote_control {
     }
 
     double RemoteControl::getSteering() {
-        return std::copysign(boost::algorithm::clamp((currentSteering / -32767.0) * config.max_steering, -1.0, 1.0), -currentSteering);
+        return std::copysign(boost::algorithm::clamp((currentSteering / -32767.0), -config.max_steering, config.max_steering), -currentSteering);
     }
 
     double RemoteControl::getSpeed() {
-        return std::copysign(boost::algorithm::clamp((currentSpeed / -32767.0) * config.max_speed, -1.0, 1.0), -currentSpeed);
+        return std::copysign(boost::algorithm::clamp((currentSpeed / -32767.0), -config.max_speed, config.max_speed), -currentSpeed);
     }
 }
