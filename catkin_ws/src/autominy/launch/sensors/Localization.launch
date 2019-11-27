@@ -52,7 +52,7 @@
 				output="screen"
 				args="load RobotLocalization/EkfNodelet $(arg nodelet_manager)"
 		>
-			<remap from="odometry/filtered"  to="odometry/filtered_odom"/>
+			<remap from="odometry/filtered"  to="localization/filtered_odom"/>
 		</node>
 
 	</group>
