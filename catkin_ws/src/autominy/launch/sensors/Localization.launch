@@ -18,6 +18,17 @@
 		>
 			<remap from="odometry/filtered"  to="localization/filtered_map"/>
 		</node>
+
+		<node
+				pkg="robot_localization"
+				name="ekf_se_odom"
+				type="ekf_localization_node"
+				clear_params="true"
+				output="screen"
+		>
+			<remap from="odometry/filtered"  to="localization/filtered_odom"/>
+		</node>
+
 	</group>
 
 	<!-- ========================== use nodelets ========================== -->
@@ -32,6 +43,18 @@
 		>
 			<remap from="odometry/filtered"  to="localization/filtered_map"/>
 		</node>
+
+		<node
+				pkg="nodelet"
+				type="nodelet"
+				name="ekf_se_odom"
+				clear_params="true"
+				output="screen"
+				args="load RobotLocalization/EkfNodelet $(arg nodelet_manager)"
+		>
+			<remap from="odometry/filtered"  to="odometry/filtered_odom"/>
+		</node>
+
 	</group>
 
     <arg name="gps_id" value="$(optenv ROS_GPS_MARKER 999)" />
