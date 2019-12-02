@@ -383,7 +383,7 @@ Visualization Manager:
       Draw Behind: false
       Enabled: true
       Name: Map
-      Topic: /localization/map
+      Topic: /sensors/map
       Unreliable: false
       Use Timestamp: false
       Value: true
