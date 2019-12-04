@@ -100,12 +100,13 @@ namespace road_marking_localization {
 
         void onEstimatedPosition(const geometry_msgs::PoseWithCovarianceStamped& msg) {
             localization->setPosition(msg);
+            odometryPublisher.publish(localization->getCorrectedPosition());
             robot_localization::SetPose srv;
             srv.request.pose = msg;
-            if(!robotLocalizationSetPose.call(srv)) {
+            srv.request.pose.header.stamp = ros::Time::now();
+            if (!robotLocalizationSetPose.call(srv)) {
                 ROS_ERROR("Could not call robot localization service!");
             }
-            odometryPublisher.publish(localization->getCorrectedPosition());
         }
 
         /// subscriber
