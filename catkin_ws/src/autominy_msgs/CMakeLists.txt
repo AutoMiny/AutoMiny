@@ -27,11 +27,17 @@ add_message_files(
         SteeringPWMCommand.msg
         SteeringFeedback.msg
         Tick.msg
+        TrafficLight.msg
+        TrafficLightState.msg
         Trajectory.msg
         TrajectoryPoint.msg
         Voltage.msg
 )
 
+add_service_files(
+        FILES
+        SetTrafficLightState.srv
+)
 
 ## Generate added messages and services with any dependencies listed here
 generate_messages(

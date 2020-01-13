@@ -1,0 +1,9 @@
+Header header
+
+uint8 id
+uint8 status
+
+uint8 TRAFFIC_LIGHT_GREEN=0
+uint8 TRAFFIC_LIGHT_YELLOW=1
+uint8 TRAFFIC_LIGHT_RED=2
+uint8 TRAFFIC_LIGHT_YELLOW_RED=3
