@@ -46,6 +46,7 @@
 #include <rviz/properties/ros_topic_property.h>
 #include <rviz/ogre_helpers/shape.h>
 #include <rviz/ogre_helpers/billboard_line.h>
+#include <OGRE/OgreSceneManager.h>
 #include <OGRE/OgreSceneNode.h>
 #include <image_geometry/pinhole_camera_model.h>
 #include <sensor_msgs/Image.h>
