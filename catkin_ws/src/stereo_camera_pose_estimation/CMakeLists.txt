@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(stereo_camera_pose_estimation)
 
 set(CMAKE_CXX_STANDARD 14)
