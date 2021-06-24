@@ -15,7 +15,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <depend>rplidar_ros</depend>
   <depend>robot_localization</depend>
-  <depend>multimaster_fkie</depend>
+  <depend>fkie_multimaster</depend>
   <depend>xacro</depend>
   <depend>rgbd_launch</depend>
   <depend>rosbridge_server</depend>
