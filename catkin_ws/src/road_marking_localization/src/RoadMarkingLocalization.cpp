@@ -1,6 +1,6 @@
 #include <road_marking_localization/RoadMarkingLocalization.h>
 #include <opencv2/imgcodecs.hpp>
-#include <cv.hpp>
+#include <opencv2/opencv.hpp>
 #include <pcl_ros/point_cloud.h>
 #include <eigen_conversions/eigen_msg.h>
 #include <tf2_eigen/tf2_eigen.h>

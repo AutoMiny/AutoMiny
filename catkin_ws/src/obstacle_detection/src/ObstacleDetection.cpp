@@ -1,6 +1,6 @@
 #include <obstacle_detection/ObstacleDetection.h>
 #include <opencv2/imgcodecs.hpp>
-#include <cv.hpp>
+#include <opencv2/opencv.hpp>
 #include <pcl_ros/point_cloud.h>
 #include <pcl_ros/transforms.h>
 

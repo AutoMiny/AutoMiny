@@ -1,6 +1,6 @@
 #include <stereo_camera_pose_estimation/StereoCameraPoseEstimation.h>
 #include <opencv2/imgcodecs.hpp>
-#include <cv.hpp>
+#include <opencv2/opencv.hpp>
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/common/transforms.h>
 #include <tf2_eigen/tf2_eigen.h>
