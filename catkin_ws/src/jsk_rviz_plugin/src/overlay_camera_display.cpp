@@ -163,8 +163,8 @@ void OverlayCameraDisplay::onInitialize()
 {
   ImageDisplayBase::onInitialize();
   
-  caminfo_tf_filter_ = new tf::MessageFilter<sensor_msgs::CameraInfo>(
-    *context_->getTFClient(), fixed_frame_.toStdString(),
+  caminfo_tf_filter_ = new tf2_ros::MessageFilter<sensor_msgs::CameraInfo>(
+    *context_->getTF2BufferPtr(), fixed_frame_.toStdString(),
     queue_size_property_->getInt(), update_nh_ );
 
   bg_scene_node_ = scene_node_->createChildSceneNode();
