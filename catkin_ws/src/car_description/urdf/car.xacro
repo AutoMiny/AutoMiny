@@ -250,17 +250,17 @@
   <!-- front camera -->
   <xacro:property name="front_camera_name" value="camera"/>
 
-  <sensor_d435 parent="camera_board" sensor_name="camera">
+  <xacro:sensor_d435 parent="camera_board" sensor_name="camera">
     <origin xyz="0.03 0 0.025" rpy="0 0.2 0"/>
-  </sensor_d435>
+  </xacro:sensor_d435>
 
-  <sensor_d435 parent="camera_board" sensor_name="rear_camera">
+  <xacro:sensor_d435 parent="camera_board" sensor_name="rear_camera">
     <origin xyz="-0.02 0 0.025" rpy="0 0.2 3.141"/>
-  </sensor_d435>
+  </xacro:sensor_d435>
 
-  <sensor_rplidar_a2 parent="board" prefix="lidar">
+  <xacro:sensor_rplidar_a2 parent="board" prefix="lidar">
     <origin xyz="0.14 0 0.0425" rpy="0 0 0"/>
-  </sensor_rplidar_a2>
+  </xacro:sensor_rplidar_a2>
 
   <joint name="joint_board_to_bno055" type="fixed">
       <parent link="board"/>
