@@ -16,7 +16,7 @@ class VectorFieldGenerator:
         self.map = map
         traffic_rules = lanelet2.traffic_rules.create(lanelet2.traffic_rules.Locations.Germany,
                                                       lanelet2.traffic_rules.Participants.Vehicle)
-        self.graph = lanelet2.routing.RoutingGraph(map, traffic_rules)
+        self.graph = lanelet2.routing.RoutingGraph(self.map, traffic_rules)
 
     def bbox(self, lanelet):
         previous = self.graph.previous(lanelet)
