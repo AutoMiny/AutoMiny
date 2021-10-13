@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>hd_map</name>
+  <name>lanelet_force_navigation</name>
   <version>0.0.1</version>
   <description>
     The hd_map package.
@@ -25,7 +25,7 @@
 
   <depend>tf2</depend>
   <depend>nav_msgs</depend>
-  <depend>roscpp</depend>
+  <depend>rospy</depend>
   <depend>std_msgs</depend>
   <depend>visualization_msgs</depend>
 
