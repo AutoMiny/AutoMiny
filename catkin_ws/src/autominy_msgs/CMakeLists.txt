@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
         std_msgs
         geometry_msgs
         message_generation
+        nav_msgs
         )
 
 
@@ -29,6 +30,8 @@ add_message_files(
         Tick.msg
         Trajectory.msg
         TrajectoryPoint.msg
+        Obstacle.msg
+        Obstacles.msg
         Voltage.msg
 )
 
@@ -38,6 +41,7 @@ generate_messages(
         DEPENDENCIES
         std_msgs
         geometry_msgs
+        nav_msgs
 )
 
 ###################################
