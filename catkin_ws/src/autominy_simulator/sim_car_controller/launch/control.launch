@@ -2,6 +2,7 @@
 <launch>
   <arg name="name"         default="model_car"/>
   <arg name="agent_prefix" default=""/>
+  <arg name="tf_prefix" default=""/>
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find sim_car_controller)/config/control.yaml" command="load" ns="$(arg agent_prefix)/$(arg name)"/>
@@ -19,7 +20,24 @@
         respawn="false"
         output="screen"
         ns="$(arg agent_prefix)/$(arg name)"
-        args="joint_state_controller car_cont"/>
+        args="joint_state_controller car_cont">
+        <param name="type" value="effort_controllers/AutominySimController" />
+        <param name="drive_rear_left_joint" value="$(arg tf_prefix)rearwheel_left" />
+        <param name="drive_rear_right_joint" value="$(arg tf_prefix)rearwheel_right" />
+        <param name="drive_front_left_joint" value="$(arg tf_prefix)frontwheel_left" />
+        <param name="drive_front_right_joint" value="$(arg tf_prefix)frontwheel_right" />
+        <param name="steer_left_joint" value="$(arg tf_prefix)frontwheel_steering_left" />
+        <param name="steer_right_joint" value="$(arg tf_prefix)frontwheel_steering_right" />
+        <param name="axel_distance" value="0.26" />
+        <param name="wheel_distance" value="0.165" />
+        <param name="wheel_diameter" value="0.063" />
+        <param name="zero_steer_angle" value="0.0" />
+        <param name="steering_topic" value="$(arg agent_prefix)/actuators/steering_pwm" />
+        <param name="steering_fb_topic" value="$(arg agent_prefix)/sensors/arduino/steering_angle" />
+        <param name="speed_topic" value="$(arg agent_prefix)/actuators/speed_pwm" />
+        <param name="ticks_topic" value="$(arg agent_prefix)/sensors/arduino" />
+        <param name="voltage_topic" value="$(arg agent_prefix)/sensors/arduino/voltage" />
+    </node>
 
 </launch>
 

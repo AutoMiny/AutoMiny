@@ -19,6 +19,7 @@
         <include file="$(find autominy_sim)/launch/spawn_additional_vehicle.launch">
             <arg name="name" value="model_car" />
             <arg name="agent_prefix" value="/agent1" />
+            <arg name="tf_prefix" value="agent1_" />
         </include>
 	</group>
 

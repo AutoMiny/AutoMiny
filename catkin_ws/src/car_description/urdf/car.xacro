@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="car" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="$(arg car_name)" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find car_description)/urdf/_d435.urdf.xacro"/>
   <xacro:include filename="$(find car_description)/urdf/rplidar_a2.xacro"/>
   <xacro:include filename="$(find car_description)/urdf/common.xacro"/>
@@ -299,7 +299,7 @@
     <origin xyz="0.16 0 0"/>
   </joint>
 
-  <joint name="frontwheel_steering_left" type="revolute">
+  <joint name="$(arg tf_prefix)frontwheel_steering_left" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
     <parent link="$(arg tf_prefix)base_link"/>
@@ -307,7 +307,7 @@
     <origin xyz="0.255 0.08 0.03"/>
   </joint>
 
-  <joint name="frontwheel_steering_right" type="revolute">
+  <joint name="$(arg tf_prefix)frontwheel_steering_right" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
     <parent link="$(arg tf_prefix)base_link"/>
@@ -315,7 +315,7 @@
     <origin xyz="0.255 -0.08 0.03"/>
   </joint>
 
-  <joint name="frontwheel_left" type="revolute">
+  <joint name="$(arg tf_prefix)frontwheel_left" type="revolute">
     <axis xyz="0 1 0"/>
     <anchor xyz="0 0 0"/>
     <parent link="$(arg tf_prefix)axis_fl"/>
@@ -447,7 +447,7 @@
 
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamespace>model_car</robotNamespace>
+      <robotNamespace>$(arg car_name)</robotNamespace>
     </plugin>
   </gazebo>
 
