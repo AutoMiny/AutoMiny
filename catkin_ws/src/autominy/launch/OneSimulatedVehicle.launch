@@ -1,0 +1,25 @@
+<!-- Launch file to start the full system in a vehicle. -->
+<launch>
+	<!-- nodelet -->
+	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
+	<arg name="nodelet_manager" default="$(optenv NODELET_MANAGER core_nodelet_manager)" />
+	<param name="use_sim_time" value="true" />
+
+	<!-- launch core components that should always run -->
+	<group ns="agent1">
+        <include file="$(find autominy)/launch/Core.launch">
+            <arg name="live"            value="false" />
+            <arg name="use_nodelets"    value="$(arg use_nodelets)" />
+            <arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+            <arg name="tf_prefix" value="agent1_" />
+            <arg name="agent_prefix" value="/agent1" />
+        </include>
+
+        <!-- launch simulation -->
+        <include file="$(find autominy_sim)/launch/spawn_additional_vehicle.launch">
+            <arg name="name" value="model_car" />
+            <arg name="agent_prefix" value="/agent1" />
+        </include>
+	</group>
+
+</launch>

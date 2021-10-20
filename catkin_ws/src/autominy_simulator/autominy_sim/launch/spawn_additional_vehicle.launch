@@ -1,0 +1,27 @@
+<!-- -->
+<launch>
+  <arg name="name"  default="model_car"/>
+  <arg name="model" default="car"/>
+  <arg name="x"     default="0.0"/>
+  <arg name="y"     default="0.0"/>
+  <arg name="yaw"   default="0.0"/>
+
+  <arg name="world_frame" default="world"/>
+  <arg name="map_frame"   default="map"/>
+  <arg name="odom_frame"  default="odom"/>
+
+  <arg name="agent_prefix"  default=""/>
+
+  <node name="spawn_urdf_$(arg name)"
+        pkg ="gazebo_ros"
+        type="spawn_model"
+        output="screen"
+        args="-param $(arg agent_prefix)/robot_description
+              -urdf -model $(arg model)
+              -x $(arg x) -y $(arg y) -z 0.124 -R 0 -P 0 -Y $(arg yaw) "/>
+
+  <include file="$(find sim_car_controller)/launch/control.launch">
+    <arg name="name"         value="$(arg name)"/>
+    <arg name="agent_prefix" value="$(arg agent_prefix)"/>
+  </include>
+</launch>

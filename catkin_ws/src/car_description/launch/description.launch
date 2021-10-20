@@ -1,22 +1,22 @@
 <!-- -->
 <launch>
-
   <arg name="name" default="model_car"/>
   <arg name="model" default="car"/>
+  <arg name="tf_prefix" default=""/>
 
   <param name="robot_description"
-         command="$(find xacro)/xacro '$(find car_description)/urdf/$(arg model).xacro'" />
+         command="$(find xacro)/xacro '$(find car_description)/urdf/$(arg model).xacro' tf_prefix:=$(arg tf_prefix)" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="tf_broadcaster_$(arg name)">
     <param name="publish_frequency" type="double" value="50.0"/>
-    <remap from="/joint_states" to="/$(arg name)/joint_states" />
+    <remap from="joint_states" to="$(arg name)/joint_states" />
   </node>
 
   <node name="joint_state_publisher"
         pkg ="joint_state_publisher"
         type="joint_state_publisher">
-    <remap from="/joint_states"
-           to="/$(arg name)/joint_states" />
+    <remap from="joint_states"
+           to="$(arg name)/joint_states" />
   </node>
 
 </launch>

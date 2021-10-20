@@ -1,15 +1,16 @@
 <!-- -->
 <launch>
-  <arg name="name" default="model_car"/>
+  <arg name="name"         default="model_car"/>
+  <arg name="agent_prefix" default=""/>
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find sim_car_controller)/config/control.yaml" command="load" ns="$(arg name)"/>
-  <node name="$(anon fls)" pkg="dynamic_reconfigure" type="dynparam" args="load /model_car/car_cont/gains/frontwheel_steering_left $(find sim_car_controller)/config/frontwheel_steering_left.yaml"/>
-  <node name="$(anon frs)" pkg="dynamic_reconfigure" type="dynparam" args="load /model_car/car_cont/gains/frontwheel_steering_right $(find sim_car_controller)/config/frontwheel_steering_right.yaml"/>
-  <node name="$(anon fl)" pkg="dynamic_reconfigure" type="dynparam" args="load /model_car/car_cont/gains/frontwheel_left $(find sim_car_controller)/config/frontwheel_left.yaml"/>
-  <node name="$(anon fr)" pkg="dynamic_reconfigure" type="dynparam" args="load /model_car/car_cont/gains/frontwheel_right $(find sim_car_controller)/config/frontwheel_right.yaml"/>
-  <node name="$(anon rl)" pkg="dynamic_reconfigure" type="dynparam" args="load /model_car/car_cont/gains/rearwheel_left $(find sim_car_controller)/config/rearwheel_left.yaml"/>
-  <node name="$(anon rr)" pkg="dynamic_reconfigure" type="dynparam" args="load /model_car/car_cont/gains/rearwheel_right $(find sim_car_controller)/config/rearwheel_right.yaml"/>
+  <rosparam file="$(find sim_car_controller)/config/control.yaml" command="load" ns="$(arg agent_prefix)/$(arg name)"/>
+  <node name="$(anon fls)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/frontwheel_steering_left $(find sim_car_controller)/config/frontwheel_steering_left.yaml"/>
+  <node name="$(anon frs)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/frontwheel_steering_right $(find sim_car_controller)/config/frontwheel_steering_right.yaml"/>
+  <node name="$(anon fl)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/frontwheel_left $(find sim_car_controller)/config/frontwheel_left.yaml"/>
+  <node name="$(anon fr)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/frontwheel_right $(find sim_car_controller)/config/frontwheel_right.yaml"/>
+  <node name="$(anon rl)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/rearwheel_left $(find sim_car_controller)/config/rearwheel_left.yaml"/>
+  <node name="$(anon rr)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/rearwheel_right $(find sim_car_controller)/config/rearwheel_right.yaml"/>
 
   <!-- load the controllers -->
   <node name="controller_spawner"
@@ -17,7 +18,7 @@
         type="spawner"
         respawn="false"
         output="screen"
-        ns="model_car"
+        ns="$(arg agent_prefix)/$(arg name)"
         args="joint_state_controller car_cont"/>
 
 </launch>

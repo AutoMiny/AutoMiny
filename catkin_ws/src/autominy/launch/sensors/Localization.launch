@@ -2,20 +2,23 @@
 	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
 	<arg name="nodelet_manager" default="$(optenv LOCALIZATION_NODELET_MANAGER core_nodelet_manager)" />
+	<arg name="tf_prefix" default="" />
+	<arg name="agent_prefix" default="" />
 
 	<rosparam command="load" file="$(find autominy)/params/ekf_localization.yaml" />
-	<remap from="odometry/wheel"     to="/sensors/odometry/odom" />
-	<remap from="odometry/gps"       to="/sensors/road_marking_localization/corrected_odom" />
-	<remap from="imu/data"           to="/sensors/imu" />
+	<remap from="odometry/wheel"     to="odometry/odom" />
+	<remap from="odometry/gps"       to="road_marking_localization/corrected_odom" />
+	<remap from="imu/data"           to="imu" />
+	<remap from="simulation/odom_ground_truth" to="$(arg agent_prefix)/simulation/odom_ground_truth" />
 
 	<group unless="$(arg use_nodelets)">
 		<node
 				pkg="robot_localization"
 				name="ekf_se_map"
 				type="ekf_localization_node"
-				clear_params="true"
 				output="screen"
 		>
+			<param name="base_link_frame"    value="$(arg tf_prefix)base_link"/>
 			<remap from="odometry/filtered"  to="localization/filtered_map"/>
 		</node>
 	</group>
@@ -26,10 +29,10 @@
 				pkg="nodelet"
 				type="nodelet"
 				name="ekf_se_map"
-				clear_params="true"
 				output="screen"
 				args="load RobotLocalization/EkfNodelet $(arg nodelet_manager)"
 		>
+			<param name="base_link_frame"    value="$(arg tf_prefix)base_link"/>
 			<remap from="odometry/filtered"  to="localization/filtered_map"/>
 		</node>
 	</group>

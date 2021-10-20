@@ -2,9 +2,11 @@
 	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
 	<arg name="nodelet_manager" default="$(optenv VEHICLE_MODEL_NODELET_MANAGER core_nodelet_manager)" />
+    <arg name="tf_prefix" default=""/>
 
-	<include file="$(find car_description)/launch/description.launch" ns="/">
+	<include file="$(find car_description)/launch/description.launch">
 		<arg name="name" value="model_car"/>
 		<arg name="model" value="car"/>
+		<arg name="tf_prefix" value="$(arg tf_prefix)"/>
 	</include>
 </launch>
