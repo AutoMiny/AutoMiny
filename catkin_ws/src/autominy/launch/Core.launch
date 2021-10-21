@@ -41,6 +41,7 @@
 		<arg name="live"    		value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="/$(arg nodelet_manager)" />
+		<arg name="agent_prefix"    value="$(arg agent_prefix)" />
 	</include>
 
 	<!-- control -->

@@ -30,7 +30,7 @@
        <param name="steering_topic" value="$(arg agent_prefix)/actuators/steering_pwm" />
        <param name="steering_fb_topic" value="$(arg agent_prefix)/sensors/arduino/steering_angle" />
        <param name="speed_topic" value="$(arg agent_prefix)/actuators/speed_pwm" />
-       <param name="ticks_topic" value="$(arg agent_prefix)/sensors/arduino" />
+       <param name="ticks_topic" value="$(arg agent_prefix)/sensors/arduino/ticks" />
        <param name="voltage_topic" value="$(arg agent_prefix)/sensors/arduino/voltage" />
    </group>
 

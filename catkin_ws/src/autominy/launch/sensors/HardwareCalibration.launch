@@ -8,10 +8,10 @@
 	<remap from="~actuators/steering_normalized" to="$(arg agent_prefix)/actuators/steering_normalized" />
 	<remap from="~carstate/calibrated_speed" to="speed" />
 	<remap from="~carstate/steering_angle" to="steering" />
-	<remap from="/sensors/hardware_calibration/arduino/speed" to="$(arg agent_prefix)/autonomics/emergency_stop/wanted_speed" />
-	<remap from="/sensors/hardware_calibration/arduino/steering_angle" to="$(arg agent_prefix)/sensors/arduino/steering_angle" />
-	<remap from="/sensors/hardware_calibration/arduino/steering" to="$(arg agent_prefix)/actuators/steering_pwm" />
-	<remap from="/sensors/hardware_calibration/arduino/ticks" to="$(arg agent_prefix)/sensors/arduino/ticks" />
+	<remap from="~arduino/speed" to="$(arg agent_prefix)/autonomics/emergency_stop/wanted_speed" />
+	<remap from="~arduino/steering_angle" to="$(arg agent_prefix)/sensors/arduino/steering_angle" />
+	<remap from="~arduino/steering" to="$(arg agent_prefix)/actuators/steering_pwm" />
+	<remap from="~arduino/ticks" to="$(arg agent_prefix)/sensors/arduino/ticks" />
 	<remap from="~actuators/speed" to="$(arg agent_prefix)/actuators/speed" />
 	<remap from="~actuators/steering" to="$(arg agent_prefix)/actuators/steering" />
 	<include file="$(find hardware_calibration)/launch/HardwareCalibration.launch">
