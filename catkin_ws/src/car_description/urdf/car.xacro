@@ -252,7 +252,7 @@
   <!-- front camera -->
   <xacro:property name="front_camera_name" value="camera"/>
 
-  <xacro:sensor_d435 parent="$(arg tf_prefix)camera_board" sensor_name="camera">
+  <xacro:sensor_d435 parent="$(arg tf_prefix)camera_board" sensor_name="$(arg tf_prefix)camera">
     <origin xyz="0.03 0 0.025" rpy="0 0.2 0"/>
   </xacro:sensor_d435>
 
