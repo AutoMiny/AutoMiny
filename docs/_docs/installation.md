@@ -10,7 +10,7 @@ The autominy project must be installed on your computer to interact and develop 
 ```bash
 git clone https://github.com/autominy/autominy
 cd autominy/catkin_ws
-apt install python-catkin-tools
+apt install python3-catkin-tools python3-osrf-pycommon
 rosdep install --from-paths . --ignore-src --rosdistro=noetic -y
 catkin build
 source devel/setup.bash # if using bash
