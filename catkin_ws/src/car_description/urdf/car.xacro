@@ -463,8 +463,7 @@
   <gazebo>
     <plugin filename="libhector_gazebo_ros_imu.so" name="autominy_imu">
       <updateRate>100.0</updateRate>
-      <robotNamespace>/</robotNamespace>
-      <bodyName>imu</bodyName>
+      <bodyName>$(arg tf_prefix)imu</bodyName>
       <frameId>$(arg tf_prefix)imu</frameId>
       <topicName>sensors/imu</topicName>
       <accelOffset>0 0 0</accelOffset>
