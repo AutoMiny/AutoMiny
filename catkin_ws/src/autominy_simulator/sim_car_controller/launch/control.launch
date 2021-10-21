@@ -6,12 +6,33 @@
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find sim_car_controller)/config/control.yaml" command="load" ns="$(arg agent_prefix)/$(arg name)"/>
-  <node name="$(anon fls)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/frontwheel_steering_left $(find sim_car_controller)/config/frontwheel_steering_left.yaml"/>
-  <node name="$(anon frs)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/frontwheel_steering_right $(find sim_car_controller)/config/frontwheel_steering_right.yaml"/>
-  <node name="$(anon fl)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/frontwheel_left $(find sim_car_controller)/config/frontwheel_left.yaml"/>
-  <node name="$(anon fr)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/frontwheel_right $(find sim_car_controller)/config/frontwheel_right.yaml"/>
-  <node name="$(anon rl)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/rearwheel_left $(find sim_car_controller)/config/rearwheel_left.yaml"/>
-  <node name="$(anon rr)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/rearwheel_right $(find sim_car_controller)/config/rearwheel_right.yaml"/>
+  <node name="$(anon fls)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/$(arg tf_prefix)frontwheel_steering_left $(find sim_car_controller)/config/frontwheel_steering_left.yaml"/>
+  <node name="$(anon frs)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/$(arg tf_prefix)frontwheel_steering_right $(find sim_car_controller)/config/frontwheel_steering_right.yaml"/>
+  <node name="$(anon fl)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/$(arg tf_prefix)frontwheel_left $(find sim_car_controller)/config/frontwheel_left.yaml"/>
+  <node name="$(anon fr)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/$(arg tf_prefix)frontwheel_right $(find sim_car_controller)/config/frontwheel_right.yaml"/>
+  <node name="$(anon rl)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/$(arg tf_prefix)rearwheel_left $(find sim_car_controller)/config/rearwheel_left.yaml"/>
+  <node name="$(anon rr)" pkg="dynamic_reconfigure" type="dynparam" args="load $(arg agent_prefix)/model_car/car_cont/gains/$(arg tf_prefix)rearwheel_right $(find sim_car_controller)/config/rearwheel_right.yaml"/>
+
+
+   <group ns="$(arg agent_prefix)/$(arg name)/car_cont">
+       <param name="type" value="effort_controllers/AutominySimController" />
+       <param name="robot_description_param" value="$(arg agent_prefix)/robot_description" />
+       <param name="drive_rear_left_joint" value="$(arg tf_prefix)rearwheel_left" />
+       <param name="drive_rear_right_joint" value="$(arg tf_prefix)rearwheel_right" />
+       <param name="drive_front_left_joint" value="$(arg tf_prefix)frontwheel_left" />
+       <param name="drive_front_right_joint" value="$(arg tf_prefix)frontwheel_right" />
+       <param name="steer_left_joint" value="$(arg tf_prefix)frontwheel_steering_left" />
+       <param name="steer_right_joint" value="$(arg tf_prefix)frontwheel_steering_right" />
+       <param name="axel_distance" value="0.26" />
+       <param name="wheel_distance" value="0.165" />
+       <param name="wheel_diameter" value="0.063" />
+       <param name="zero_steer_angle" value="0.0" />
+       <param name="steering_topic" value="$(arg agent_prefix)/actuators/steering_pwm" />
+       <param name="steering_fb_topic" value="$(arg agent_prefix)/sensors/arduino/steering_angle" />
+       <param name="speed_topic" value="$(arg agent_prefix)/actuators/speed_pwm" />
+       <param name="ticks_topic" value="$(arg agent_prefix)/sensors/arduino" />
+       <param name="voltage_topic" value="$(arg agent_prefix)/sensors/arduino/voltage" />
+   </group>
 
   <!-- load the controllers -->
   <node name="controller_spawner"
@@ -20,23 +41,7 @@
         respawn="false"
         output="screen"
         ns="$(arg agent_prefix)/$(arg name)"
-        args="joint_state_controller car_cont">
-        <param name="type" value="effort_controllers/AutominySimController" />
-        <param name="drive_rear_left_joint" value="$(arg tf_prefix)rearwheel_left" />
-        <param name="drive_rear_right_joint" value="$(arg tf_prefix)rearwheel_right" />
-        <param name="drive_front_left_joint" value="$(arg tf_prefix)frontwheel_left" />
-        <param name="drive_front_right_joint" value="$(arg tf_prefix)frontwheel_right" />
-        <param name="steer_left_joint" value="$(arg tf_prefix)frontwheel_steering_left" />
-        <param name="steer_right_joint" value="$(arg tf_prefix)frontwheel_steering_right" />
-        <param name="axel_distance" value="0.26" />
-        <param name="wheel_distance" value="0.165" />
-        <param name="wheel_diameter" value="0.063" />
-        <param name="zero_steer_angle" value="0.0" />
-        <param name="steering_topic" value="$(arg agent_prefix)/actuators/steering_pwm" />
-        <param name="steering_fb_topic" value="$(arg agent_prefix)/sensors/arduino/steering_angle" />
-        <param name="speed_topic" value="$(arg agent_prefix)/actuators/speed_pwm" />
-        <param name="ticks_topic" value="$(arg agent_prefix)/sensors/arduino" />
-        <param name="voltage_topic" value="$(arg agent_prefix)/sensors/arduino/voltage" />
+        args="joint_state_controller car_cont --namespace=$(arg agent_prefix)/$(arg name)">
     </node>
 
 </launch>

@@ -3,10 +3,12 @@
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
 	<arg name="nodelet_manager" default="$(optenv VEHICLE_MODEL_NODELET_MANAGER core_nodelet_manager)" />
     <arg name="tf_prefix" default=""/>
+    <arg name="agent_prefix" default=""/>
 
 	<include file="$(find car_description)/launch/description.launch">
 		<arg name="name" value="model_car"/>
 		<arg name="model" value="car"/>
 		<arg name="tf_prefix" value="$(arg tf_prefix)"/>
+		<arg name="agent_prefix" value="$(arg agent_prefix)"/>
 	</include>
 </launch>

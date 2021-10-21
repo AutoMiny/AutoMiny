@@ -22,7 +22,7 @@
               -x $(arg x) -y $(arg y) -z 0.124 -R 0 -P 0 -Y $(arg yaw) "/>
 
   <include file="$(find sim_car_controller)/launch/control.launch">
-    <arg name="name"         value="$(arg tf_prefix)$(arg name)"/>
+    <arg name="name"         value="$(arg name)"/>
     <arg name="agent_prefix" value="$(arg agent_prefix)"/>
     <arg name="tf_prefix"    value="$(arg tf_prefix)"/>
   </include>

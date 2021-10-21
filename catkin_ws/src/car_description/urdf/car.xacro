@@ -4,6 +4,7 @@
   <xacro:include filename="$(find car_description)/urdf/rplidar_a2.xacro"/>
   <xacro:include filename="$(find car_description)/urdf/common.xacro"/>
   <xacro:arg name="tf_prefix" default=""/>
+  <xacro:arg name="agent_prefix" default=""/>
 
   <material name="black">
     <color rgba="0.1 0.1 0.1 1"/>
@@ -447,7 +448,7 @@
 
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamespace>$(arg car_name)</robotNamespace>
+      <robotNamespace>$(arg agent_prefix)/model_car</robotNamespace>
     </plugin>
   </gazebo>
 
