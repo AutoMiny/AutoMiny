@@ -1,18 +1,19 @@
 <launch>
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
 	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+	<arg name="agent_prefix"    default="" />
 
 	<!-- Arduino communication -->
-	<remap from="~actuators/speed_normalized" to="/actuators/speed_normalized" />
-	<remap from="~actuators/steering_normalized" to="/actuators/steering_normalized" />
+	<remap from="~actuators/speed_normalized" to="$(arg agent_prefix)/actuators/speed_normalized" />
+	<remap from="~actuators/steering_normalized" to="$(arg agent_prefix)/actuators/steering_normalized" />
 	<remap from="~carstate/calibrated_speed" to="speed" />
 	<remap from="~carstate/steering_angle" to="steering" />
-	<remap from="/sensors/hardware_calibration/arduino/speed" to="/autonomics/emergency_stop/wanted_speed" />
-	<remap from="/sensors/hardware_calibration/arduino/steering_angle" to="/sensors/arduino/steering_angle" />
-	<remap from="/sensors/hardware_calibration/arduino/steering" to="/actuators/steering_pwm" />
-	<remap from="/sensors/hardware_calibration/arduino/ticks" to="/sensors/arduino/ticks" />
-	<remap from="~actuators/speed" to="/actuators/speed" />
-	<remap from="~actuators/steering" to="/actuators/steering" />
+	<remap from="/sensors/hardware_calibration/arduino/speed" to="$(arg agent_prefix)/autonomics/emergency_stop/wanted_speed" />
+	<remap from="/sensors/hardware_calibration/arduino/steering_angle" to="$(arg agent_prefix)/sensors/arduino/steering_angle" />
+	<remap from="/sensors/hardware_calibration/arduino/steering" to="$(arg agent_prefix)/actuators/steering_pwm" />
+	<remap from="/sensors/hardware_calibration/arduino/ticks" to="$(arg agent_prefix)/sensors/arduino/ticks" />
+	<remap from="~actuators/speed" to="$(arg agent_prefix)/actuators/speed" />
+	<remap from="~actuators/steering" to="$(arg agent_prefix)/actuators/steering" />
 	<include file="$(find hardware_calibration)/launch/HardwareCalibration.launch">
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />

@@ -33,6 +33,7 @@
     <include file="$(find autominy)/launch/sensors/HardwareCalibration.launch">
         <arg name="use_nodelets"    value="$(arg use_nodelets)" />
         <arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+        <arg name="agent_prefix"    value="$(arg agent_prefix)" />
     </include>
 
 	<!-- Odometry -->
