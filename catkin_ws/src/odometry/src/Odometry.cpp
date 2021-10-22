@@ -33,8 +33,8 @@ namespace odometry {
         y += currentSpeed * sin(yaw) * dt;
 
         odom.header.stamp = evnt.current_real;
-        odom.header.frame_id = "odom";
-        odom.child_frame_id = "base_link";
+        odom.header.frame_id = config.odom_frame;
+        odom.child_frame_id = config.base_link_frame;
         odom.pose.pose.position.x = x;
         odom.pose.pose.position.y = y;
         odom.pose.pose.position.z = 0.0;
