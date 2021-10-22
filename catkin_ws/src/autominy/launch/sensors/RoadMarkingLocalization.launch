@@ -2,13 +2,17 @@
     <arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
     <arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
     <arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+    <arg name="tf_prefix"       default="" />
+    <arg name="agent_prefix"    default="" />
 
-    <remap from="/sensors/road_marking_localization/camera/infra1/image_rect_raw" to="/sensors/camera/infra1/image_rect_raw" />
-    <remap from="/sensors/road_marking_localization/camera/depth/image_rect_raw" to="/sensors/camera/depth/image_rect_raw"/>
-    <remap from="/sensors/road_marking_localization/camera/infra1/camera_info" to="/sensors/camera/infra1/camera_info"/>
-    <remap from="/sensors/road_marking_localization/camera/depth/camera_info" to="/sensors/camera/depth/camera_info"/>
-    <remap from="/sensors/road_marking_localization/initialpose" to="/initialpose"/>
-    <remap from="/sensors/road_marking_localization/map" to="/sensors/map"/>
+    <remap from="$(arg agent_prefix)/sensors/road_marking_localization/camera/infra1/image_rect_raw" to="$(arg agent_prefix)/sensors/camera/infra1/image_rect_raw" />
+    <remap from="$(arg agent_prefix)/sensors/road_marking_localization/camera/depth/image_rect_raw" to="$(arg agent_prefix)/sensors/camera/depth/image_rect_raw"/>
+    <remap from="$(arg agent_prefix)/sensors/road_marking_localization/camera/infra1/camera_info" to="$(arg agent_prefix)/sensors/camera/infra1/camera_info"/>
+    <remap from="$(arg agent_prefix)/sensors/road_marking_localization/camera/depth/camera_info" to="$(arg agent_prefix)/sensors/camera/depth/camera_info"/>
+    <remap from="$(arg agent_prefix)/sensors/road_marking_localization/initialpose" to="$(arg agent_prefix)/initialpose"/>
+    <remap from="$(arg agent_prefix)/sensors/road_marking_localization/map" to="$(arg agent_prefix)/sensors/map"/>
+
+    <node name="$(anon dynamic_reconfigure_load_10)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/road_marking_localization base_link_frame $(arg tf_prefix)base_link" />
 
     <include file="$(find road_marking_localization)/launch/RoadMarkingLocalization.launch">
         <arg name="use_nodelets"    value="$(arg use_nodelets)" />

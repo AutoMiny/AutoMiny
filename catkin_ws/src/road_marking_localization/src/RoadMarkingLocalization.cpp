@@ -209,16 +209,16 @@ namespace road_marking_localization {
         Eigen::Affine3d t;
         Eigen::Affine3d baseLinkTransform;
         try {
-            tfBuffer.canTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp, ros::Duration(0.03));
-            t = tf2::transformToEigen(tfBuffer.lookupTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp));
-            baseLinkTransform = tf2::transformToEigen(tfBuffer.lookupTransform("map", "base_link", depthImage->header.stamp));
+            tfBuffer.canTransform(config.map_frame, roadMarkerCloud->header.frame_id, depthImage->header.stamp, ros::Duration(0.03));
+            t = tf2::transformToEigen(tfBuffer.lookupTransform(config.map_frame, roadMarkerCloud->header.frame_id, depthImage->header.stamp));
+            baseLinkTransform = tf2::transformToEigen(tfBuffer.lookupTransform(config.map_frame, config.base_link_frame, depthImage->header.stamp));
         } catch (tf2::TransformException& e) {
             ROS_ERROR("%s", e.what());
             return false;
         }
 
         pcl::transformPointCloud(*roadMarkerCloud, *transformedCloud, t);
-        transformedCloud->header.frame_id = "map";
+        transformedCloud->header.frame_id = config.map_frame;
 
         if (mapPointCloud) {
             boxFilter.setInputCloud(transformedCloud);
@@ -267,8 +267,8 @@ namespace road_marking_localization {
                     static_cast<const float&>(baseLinkTransform.translation().z()), 1);
             auto pos = transformationMatrix * currentPos;
             correctedPosition.header.stamp = depthImage->header.stamp;
-            correctedPosition.header.frame_id = "map";
-            correctedPosition.child_frame_id = "base_link";
+            correctedPosition.header.frame_id = config.map_frame;
+            correctedPosition.child_frame_id = config.base_link_frame;
             correctedPosition.pose.pose.position.x = pos[0];
             correctedPosition.pose.pose.position.y = pos[1];
             correctedPosition.pose.pose.position.z = pos[2];
@@ -330,15 +330,15 @@ namespace road_marking_localization {
 
         geometry_msgs::TransformStamped t;
         try {
-            t = tfBuffer.lookupTransform("map", pose.header.frame_id, ros::Time(0));
+            t = tfBuffer.lookupTransform(config.map_frame, pose.header.frame_id, ros::Time(0));
         } catch (tf2::TransformException& e) {
             ROS_ERROR("%s", e.what());
         }
         tf2::doTransform(tfPose, tfPose, t);
 
         correctedPosition.header.stamp = pose.header.stamp;
-        correctedPosition.header.frame_id = "map";
-        correctedPosition.child_frame_id = "base_link";
+        correctedPosition.header.frame_id = config.map_frame;
+        correctedPosition.child_frame_id = config.base_link_frame;
 
         correctedPosition.pose.pose = tfPose;
 

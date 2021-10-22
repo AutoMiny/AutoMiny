@@ -26,4 +26,9 @@
     <arg name="agent_prefix" value="$(arg agent_prefix)"/>
     <arg name="tf_prefix"    value="$(arg tf_prefix)"/>
   </include>
+
+  <node name="$(anon reconfigure)" pkg="dynamic_reconfigure" type="dynparam" args="set_from_parameters $(arg agent_prefix)/sensors/road_marking_localization">
+    <param name="threshold" type="int" value="130" />
+  </node>
+
 </launch>
