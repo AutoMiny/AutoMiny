@@ -8,6 +8,4 @@
         <arg name="use_nodelets"    value="$(arg use_nodelets)" />
         <arg name="nodelet_manager" value="$(arg nodelet_manager)" />
     </include>
-
-    <include file="$(find autominy)/launch/visualization/Map.launch" />
 </launch>
