@@ -2,8 +2,8 @@
 
 #include <emergency_stop/EmergencyStopConfig.h>
 #include <sensor_msgs/LaserScan.h>
-#include <autominy_msgs/Speed.h>
-#include <autominy_msgs/SpeedPWMCommand.h>
+#include "autominy_msgs/msg/speed.hpp"
+#include "autominy_msgs/msg/speed_pwm_command.hpp"
 
 namespace emergency_stop {
 
@@ -27,13 +27,13 @@ namespace emergency_stop {
          */
         void setConfig(emergency_stop::EmergencyStopConfig &config);
 
-        void checkEmergencyStop(const sensor_msgs::LaserScanConstPtr &scan);
+        void checkEmergencyStop(const sensor_msgs::msg::LaserScanConstPtr &scan);
 
-        void setCurrentSpeed(const autominy_msgs::SpeedConstPtr &speed);
+        void setCurrentSpeed(const autominy_msgs::msg::SpeedConstPtr &speed);
 
-        void setWantedSpeed(const autominy_msgs::SpeedPWMCommandConstPtr &speed);
+        void setWantedSpeed(const autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr &speed);
 
-        autominy_msgs::SpeedPWMCommand getSafeSpeed();
+        autominy_msgs::msg::SpeedPWMCommand getSafeSpeed();
 
     private:
         /// dynamic config attribute

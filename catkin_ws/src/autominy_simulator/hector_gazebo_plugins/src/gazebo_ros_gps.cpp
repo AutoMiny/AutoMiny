@@ -98,7 +98,7 @@ void GazeboRosGps::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   reference_heading_   = DEFAULT_REFERENCE_HEADING * M_PI/180.0;
   reference_altitude_  = DEFAULT_REFERENCE_ALTITUDE;
 
-  fix_.status.status  = sensor_msgs::NavSatStatus::STATUS_FIX;
+  fix_.status.status  = sensor_msgs::msg::NavSatStatus::STATUS_FIX;
   fix_.status.service = 0;
 
   if (_sdf->HasElement("frameId"))
@@ -126,13 +126,13 @@ void GazeboRosGps::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   if (_sdf->HasElement("status")) {
     int status = fix_.status.status;
     if (_sdf->GetElement("status")->GetValue()->Get(status))
-      fix_.status.status = static_cast<sensor_msgs::NavSatStatus::_status_type>(status);
+      fix_.status.status = static_cast<sensor_msgs::msg::NavSatStatus::_status_type>(status);
   }
 
   if (_sdf->HasElement("service")) {
     unsigned int service = fix_.status.service;
     if (_sdf->GetElement("service")->GetValue()->Get(service))
-      fix_.status.service = static_cast<sensor_msgs::NavSatStatus::_service_type>(service);
+      fix_.status.service = static_cast<sensor_msgs::msg::NavSatStatus::_service_type>(service);
   }
 
   fix_.header.frame_id = frame_id_;
@@ -156,7 +156,7 @@ void GazeboRosGps::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   }
 
   node_handle_ = new ros::NodeHandle(namespace_);
-  fix_publisher_ = node_handle_->advertise<sensor_msgs::NavSatFix>(fix_topic_, 10);
+  fix_publisher_ = node_handle_->advertise<sensor_msgs::msg::NavSatFix>(fix_topic_, 10);
   velocity_publisher_ = node_handle_->advertise<geometry_msgs::Vector3Stamped>(velocity_topic_, 10);
 
   // setup dynamic_reconfigure servers
@@ -184,7 +184,7 @@ void GazeboRosGps::Reset()
 
 void GazeboRosGps::dynamicReconfigureCallback(GazeboRosGps::GNSSConfig &config, uint32_t level)
 {
-  using sensor_msgs::NavSatStatus;
+  using sensor_msgs::msg::NavSatStatus;
   if (level == 1) {
     if (!config.STATUS_FIX) {
       fix_.status.status = NavSatStatus::STATUS_NO_FIX;
@@ -244,7 +244,7 @@ void GazeboRosGps::Update()
   velocity_.vector.y = -sin(reference_heading_) * velocity.X() + cos(reference_heading_) * velocity.Y();
   velocity_.vector.z = velocity.Z();
 
-  fix_.position_covariance_type = sensor_msgs::NavSatFix::COVARIANCE_TYPE_DIAGONAL_KNOWN;
+  fix_.position_covariance_type = sensor_msgs::msg::NavSatFix::COVARIANCE_TYPE_DIAGONAL_KNOWN;
   fix_.position_covariance[0] = position_error_model_.drift.X()*position_error_model_.drift.X() + position_error_model_.gaussian_noise.X()*position_error_model_.gaussian_noise.X();
   fix_.position_covariance[4] = position_error_model_.drift.Y()*position_error_model_.drift.Y() + position_error_model_.gaussian_noise.Y()*position_error_model_.gaussian_noise.Y();
   fix_.position_covariance[8] = position_error_model_.drift.Z()*position_error_model_.drift.Z() + position_error_model_.gaussian_noise.Z()*position_error_model_.gaussian_noise.Z();
@@ -256,7 +256,7 @@ void GazeboRosGps::Update()
   velocity_.vector.y = -sin(reference_heading_) * velocity.x + cos(reference_heading_) * velocity.y;
   velocity_.vector.z = velocity.z;
 
-  fix_.position_covariance_type = sensor_msgs::NavSatFix::COVARIANCE_TYPE_DIAGONAL_KNOWN;
+  fix_.position_covariance_type = sensor_msgs::msg::NavSatFix::COVARIANCE_TYPE_DIAGONAL_KNOWN;
   fix_.position_covariance[0] = position_error_model_.drift.x*position_error_model_.drift.x + position_error_model_.gaussian_noise.x*position_error_model_.gaussian_noise.x;
   fix_.position_covariance[4] = position_error_model_.drift.y*position_error_model_.drift.y + position_error_model_.gaussian_noise.y*position_error_model_.gaussian_noise.y;
   fix_.position_covariance[8] = position_error_model_.drift.z*position_error_model_.drift.z + position_error_model_.gaussian_noise.z*position_error_model_.gaussian_noise.z;

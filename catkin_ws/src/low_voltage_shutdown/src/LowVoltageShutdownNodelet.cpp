@@ -12,14 +12,14 @@ namespace low_voltage_shutdown {
         configServer->setCallback(f);
 
         /// Subscriber
-        voltageSubscriber = pnh.subscribe("voltage", 10, &LowVoltageShutdownNodelet::onVoltage, this);
+        voltageSubscriber = create_subscription<>("voltage", 10, &LowVoltageShutdownNodelet::onVoltage, this);
     }
 
     void LowVoltageShutdownNodelet::onConfig(const LowVoltageShutdownConfig& config, uint32_t level) {
         this->config = config;
     }
 
-    void LowVoltageShutdownNodelet::onVoltage(const autominy_msgs::VoltageConstPtr& msg) {
+    void LowVoltageShutdownNodelet::onVoltage(const autominy_msgs::msg::VoltageConstPtr& msg) {
         if (msg->value < config.shutdown_voltage) {
             system("sudo shutdown now");
         }

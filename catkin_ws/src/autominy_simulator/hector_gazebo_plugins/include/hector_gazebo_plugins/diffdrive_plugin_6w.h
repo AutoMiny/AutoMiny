@@ -31,10 +31,10 @@
 #include <gazebo/common/Time.hh>
 
 // ROS 
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_listener.h>
-#include <geometry_msgs/Twist.h>
+#include "geometry_msgs/msg/twist.hpp"
 #include <nav_msgs/Odometry.h>
 
 // Custom Callback Queue
@@ -82,8 +82,8 @@ private:
 
   // ROS STUFF
   ros::NodeHandle* rosnode_;
-  ros::Publisher pub_;
-  ros::Subscriber sub_;
+  rclcpp::Publisher<>::SharedPtr pub_;
+  rclcpp::Subscription<>::SharedPtr sub_;
   tf::TransformBroadcaster *transform_broadcaster_;
   nav_msgs::Odometry odom_;
   std::string tf_prefix_;

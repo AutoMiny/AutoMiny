@@ -30,7 +30,7 @@
 #define HECTOR_GAZEBO_PLUGINS_RESET_PLUGIN_H
 
 #include <gazebo/common/Plugin.hh>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 namespace gazebo
 {
@@ -47,7 +47,7 @@ protected:
 
 private:
   ros::NodeHandle* node_handle_;
-  ros::Publisher publisher_;
+  rclcpp::Publisher<>::SharedPtr publisher_;
 };
 
 } // namespace gazebo

@@ -7,7 +7,7 @@ namespace emergency_stop {
 
     void EmergencyStop::setConfig(emergency_stop::EmergencyStopConfig &config) { this->config = config; }
 
-    void EmergencyStop::checkEmergencyStop(const sensor_msgs::LaserScanConstPtr &scan) {
+    void EmergencyStop::checkEmergencyStop(const sensor_msgs::msg::LaserScanConstPtr &scan) {
         double breakDistance = config.break_distance;
         if (config.break_distance_based_on_speed) {
             breakDistance = std::pow(currentSpeed, 2) / 2.0 * config.negative_acceleration;
@@ -54,16 +54,16 @@ namespace emergency_stop {
         emergencyStop = false;
     }
 
-    void EmergencyStop::setCurrentSpeed(const autominy_msgs::SpeedConstPtr &speed) {
+    void EmergencyStop::setCurrentSpeed(const autominy_msgs::msg::SpeedConstPtr &speed) {
         currentSpeed = speed->value;
     }
 
-    void EmergencyStop::setWantedSpeed(const autominy_msgs::SpeedPWMCommandConstPtr &speed) {
+    void EmergencyStop::setWantedSpeed(const autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr &speed) {
         wantedSpeed = speed->value;
     }
 
-    autominy_msgs::SpeedPWMCommand EmergencyStop::getSafeSpeed() {
-        autominy_msgs::SpeedPWMCommand msg;
+    autominy_msgs::msg::SpeedPWMCommand EmergencyStop::getSafeSpeed() {
+        autominy_msgs::msg::SpeedPWMCommand msg;
 
         if (emergencyStop) {
             msg.value = 0;

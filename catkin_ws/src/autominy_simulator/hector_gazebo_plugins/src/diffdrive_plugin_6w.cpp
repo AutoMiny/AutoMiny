@@ -37,10 +37,10 @@
 #include <gazebo/common/Events.hh>
 #include <gazebo/physics/physics.hh>
 
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_listener.h>
-#include <geometry_msgs/Twist.h>
+#include "geometry_msgs/msg/twist.hpp"
 #include <nav_msgs/Odometry.h>
 #include <boost/bind.hpp>
 

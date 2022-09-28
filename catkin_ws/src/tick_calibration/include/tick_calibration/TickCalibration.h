@@ -2,7 +2,7 @@
 
 #include <tick_calibration/TickCalibrationConfig.h>
 #include <nav_msgs/Odometry.h>
-#include <autominy_msgs/Tick.h>
+#include "autominy_msgs/msg/tick.hpp"
 #include <boost/circular_buffer.hpp>
 
 namespace tick_calibration {
@@ -29,7 +29,7 @@ namespace tick_calibration {
 
         void addLocalization(const nav_msgs::OdometryConstPtr& odom);
 
-        void addTick(const autominy_msgs::TickConstPtr& tick);
+        void addTick(const autominy_msgs::msg::TickConstPtr& tick);
 
         double calibrate();
 
@@ -37,6 +37,6 @@ namespace tick_calibration {
         /// dynamic config attribute
         tick_calibration::TickCalibrationConfig config;
         boost::circular_buffer<nav_msgs::OdometryConstPtr> pastTrajectory;
-        boost::circular_buffer<autominy_msgs::TickConstPtr> pastTicks;
+        boost::circular_buffer<autominy_msgs::msg::TickConstPtr> pastTicks;
     };
 }

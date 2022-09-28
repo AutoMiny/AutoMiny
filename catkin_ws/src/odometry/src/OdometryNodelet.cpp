@@ -1,13 +1,13 @@
 #include <nodelet/nodelet.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 #include <dynamic_reconfigure/server.h>
 #include <odometry/OdometryFwd.h>
 #include <odometry/OdometryConfig.h>
 #include <odometry/Odometry.h>
 #include <sensor_msgs/LaserScan.h>
-#include <autominy_msgs/SpeedPWMCommand.h>
-#include <autominy_msgs/Speed.h>
+#include "autominy_msgs/msg/speed_pwm_command.hpp"
+#include "autominy_msgs/msg/speed.hpp"
 #include <nav_msgs/Odometry.h>
 
 namespace odometry {
@@ -36,16 +36,16 @@ namespace odometry {
 
             odometry = std::make_shared<Odometry>();
 
-            odometryPublisher = pnh.advertise<nav_msgs::Odometry>("odom", 1);
-            speedSubscriber = pnh.subscribe("speed", 1, &OdometryNodelet::onSpeed, this, ros::TransportHints().tcpNoDelay());
-            steeringSubscriber = pnh.subscribe("steering", 1, &OdometryNodelet::onSteering, this, ros::TransportHints().tcpNoDelay());
+            odometryPublisher = pcreate_publisher<nav_msgs::Odometry>("odom", 1);
+            speedSubscriber = create_subscription<>("speed", 1, &OdometryNodelet::onSpeed, this, ros::TransportHints().tcpNoDelay());
+            steeringSubscriber = create_subscription<>("steering", 1, &OdometryNodelet::onSteering, this, ros::TransportHints().tcpNoDelay());
 
             config_server_ = boost::make_shared<dynamic_reconfigure::Server<odometry::OdometryConfig> >(pnh);
             dynamic_reconfigure::Server<odometry::OdometryConfig>::CallbackType f;
             f = boost::bind(&OdometryNodelet::callbackReconfigure, this, _1, _2);
             config_server_->setCallback(f);
 
-            timer = pnh.createTimer(ros::Duration(0.01), &OdometryNodelet::onOdometry, this);
+            timer = prclcpp::create_timer(rclcpp::Duration::from_seconds(0.01), &OdometryNodelet::onOdometry, this);
         }
 
     private:
@@ -55,11 +55,11 @@ namespace odometry {
             odometryPublisher.publish(msg);
         }
 
-        void onSpeed(autominy_msgs::SpeedConstPtr const &msg) {
+        void onSpeed(autominy_msgs::msg::SpeedConstPtr const &msg) {
             odometry->setSpeed(msg);
         }
 
-        void onSteering(autominy_msgs::SteeringAngleConstPtr const &msg) {
+        void onSteering(autominy_msgs::msg::SteeringAngleConstPtr const &msg) {
             odometry->setSteering(msg);
         }
 
@@ -72,11 +72,11 @@ namespace odometry {
         }
 
         /// subscriber
-        ros::Subscriber speedSubscriber;
-        ros::Subscriber steeringSubscriber;
+        rclcpp::Subscription<>::SharedPtr speedSubscriber;
+        rclcpp::Subscription<>::SharedPtr steeringSubscriber;
 
         /// publisher
-        ros::Publisher odometryPublisher;
+        rclcpp::Publisher<>::SharedPtr odometryPublisher;
 
         ros::Timer timer;
 

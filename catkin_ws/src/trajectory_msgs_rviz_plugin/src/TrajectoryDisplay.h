@@ -33,7 +33,7 @@ namespace rviz {
  * \class TrajectoryDisplay
  * \brief Displays an autominy::Trajectory message
  */
-    class TrajectoryDisplay : public MessageFilterDisplay<autominy_msgs::Trajectory> {
+    class TrajectoryDisplay : public MessageFilterDisplay<autominy_msgs::msg::Trajectory> {
     Q_OBJECT
     public:
         TrajectoryDisplay();
@@ -48,7 +48,7 @@ namespace rviz {
         void onInitialize() override;
 
         /** @brief Overridden from MessageFilterDisplay. */
-        void processMessage(autominy_msgs::TrajectoryConstPtr const &msg) override;
+        void processMessage(autominy_msgs::msg::TrajectoryConstPtr const &msg) override;
 
     private Q_SLOTS:
 

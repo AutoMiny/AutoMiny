@@ -31,7 +31,7 @@
 
 #include <gazebo/common/Plugin.hh>
 
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <sensor_msgs/NavSatFix.h>
 #include <geometry_msgs/Vector3Stamped.h>
 #include <hector_gazebo_plugins/sensor_model.h>
@@ -65,10 +65,10 @@ private:
   physics::LinkPtr link;
 
   ros::NodeHandle* node_handle_;
-  ros::Publisher fix_publisher_;
-  ros::Publisher velocity_publisher_;
+  rclcpp::Publisher<>::SharedPtr fix_publisher_;
+  rclcpp::Publisher<>::SharedPtr velocity_publisher_;
 
-  sensor_msgs::NavSatFix fix_;
+  sensor_msgs::msg::NavSatFix fix_;
   geometry_msgs::Vector3Stamped velocity_;
 
   std::string namespace_;

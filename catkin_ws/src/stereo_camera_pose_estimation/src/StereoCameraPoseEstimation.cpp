@@ -22,7 +22,7 @@ namespace stereo_camera_pose_estimation {
     }
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr StereoCameraPoseEstimation::getPointcloud(
-            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+            const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
             double maximumDepth) {
         depthCameraModel.fromCameraInfo(depthCameraInfo);
 
@@ -68,7 +68,7 @@ namespace stereo_camera_pose_estimation {
     }
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr StereoCameraPoseEstimation::getPointcloudFloat(
-            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+            const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
             double maximumDepth) {
         depthCameraModel.fromCameraInfo(depthCameraInfo);
 
@@ -115,16 +115,16 @@ namespace stereo_camera_pose_estimation {
 
 
     bool StereoCameraPoseEstimation::processImage(
-            const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& cameraInfo,
-            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo) {
+            const sensor_msgs::msg::ImageConstPtr& image, const sensor_msgs::msg::CameraInfoConstPtr& cameraInfo,
+            const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo) {
 
-        auto durationSinceLastCalibration = ros::Time::now() - lastPoseEstimationTime;
+        auto durationSinceLastCalibration = now() - lastPoseEstimationTime;
         if (durationSinceLastCalibration.toSec() < config.idle_time) {
             return false;
         }
 
         pcl::PointCloud<pcl::PointXYZ>::Ptr pcl;
-        if (depthImage->encoding == sensor_msgs::image_encodings::TYPE_32FC1) {
+        if (depthImage->encoding == sensor_msgs::msg::image_encodings::TYPE_32FC1) {
             pcl = getPointcloudFloat(depthImage, depthCameraInfo, config.maximum_depth);
         } else {
             pcl = getPointcloud(depthImage, depthCameraInfo, config.maximum_depth);
@@ -137,7 +137,7 @@ namespace stereo_camera_pose_estimation {
             transformedPointCloud->header.frame_id = config.camera_frame;
             transformedPointCloud->header.stamp = pcl->header.stamp;
         } catch (const tf2::TransformException& e) {
-            ROS_ERROR("%s", e.what());
+            RCLCPP_ERROR(get_logger(), "%s", e.what());
             return false;
         }
 
@@ -177,7 +177,7 @@ namespace stereo_camera_pose_estimation {
                 this->image = cv_bridge::toCvCopy(image);
             }
             catch (cv_bridge::Exception& e) {
-                ROS_ERROR("Could not convert from '%s' to 'bgr8'.", image->encoding.c_str());
+                RCLCPP_ERROR(get_logger(), "Could not convert from '%s' to 'bgr8'.", image->encoding.c_str());
                 return false;
             }
             auto& cvImage = this->image->image;
@@ -206,7 +206,7 @@ namespace stereo_camera_pose_estimation {
                     t = tfBuffer.lookupTransform("marker", "base_link", ros::Time(0));
                     tf2::convert(t, markerToBaseLink);
                 } catch (const tf2::TransformException& e) {
-                    ROS_ERROR("%s", e.what());
+                    RCLCPP_ERROR(get_logger(), "%s", e.what());
                     return false;
                 }
                 for (int i = 0; i < ids.size(); i++) {
@@ -239,30 +239,30 @@ namespace stereo_camera_pose_estimation {
                     break;
                 }
             } else {
-                ROS_ERROR("Marker not found!");
+                RCLCPP_ERROR(get_logger(), "Marker not found!");
                 return false;
             }
         }
 
         if (std::fabs(roll) > config.max_roll) {
-            ROS_ERROR("Roll is bigger than configured threshold. Estimated %f but max threshold %f!", roll, config.max_roll);
+            RCLCPP_ERROR(get_logger(), "Roll is bigger than configured threshold. Estimated %f but max threshold %f!", roll, config.max_roll);
             return false;
         }
 
         if (std::fabs(pitch) > config.max_pitch) {
-            ROS_ERROR("Pitch is bigger than configured threshold. Estimated %f but max threshold %f!", pitch, config.max_pitch);
+            RCLCPP_ERROR(get_logger(), "Pitch is bigger than configured threshold. Estimated %f but max threshold %f!", pitch, config.max_pitch);
             return false;
         }
 
         if (std::fabs(yaw) > config.max_yaw) {
-            ROS_ERROR("Yaw is bigger than configured threshold. Estimated %f but max threshold %f!", yaw, config.max_yaw);
+            RCLCPP_ERROR(get_logger(), "Yaw is bigger than configured threshold. Estimated %f but max threshold %f!", yaw, config.max_yaw);
             return false;
         }
 
 
         geometry_msgs::TransformStamped transform;
         transform.header.frame_id = "base_link";
-        transform.header.stamp = ros::Time::now();
+        transform.header.stamp = now();
         transform.child_frame_id = config.camera_frame;
         transform.transform.translation.x = x + config.x_offset;
         transform.transform.translation.y = y + config.y_offset;
@@ -274,19 +274,19 @@ namespace stereo_camera_pose_estimation {
         transform.transform.rotation = qq;
         tfBroadcaster.sendTransform(transform);
 
-        lastPoseEstimationTime = ros::Time::now();
+        lastPoseEstimationTime = now();
 
         return true;
     }
 
-    sensor_msgs::PointCloud2ConstPtr StereoCameraPoseEstimation::getPlaneCloud() {
-        auto ret = boost::make_shared<sensor_msgs::PointCloud2>();
+    sensor_msgs::msg::PointCloud2ConstPtr StereoCameraPoseEstimation::getPlaneCloud() {
+        auto ret = boost::make_shared<sensor_msgs::msg::PointCloud2>();
         pcl::toROSMsg(*planePointCloud, *ret);
 
         return ret;
     }
 
-    sensor_msgs::ImagePtr StereoCameraPoseEstimation::getMarkerImage() {
+    sensor_msgs::msg::ImagePtr StereoCameraPoseEstimation::getMarkerImage() {
         return image->toImageMsg();
     }
 }

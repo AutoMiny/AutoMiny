@@ -1,5 +1,5 @@
 #include <nodelet/nodelet.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <ros/package.h>
 #include <cv_bridge/cv_bridge.h>
 
@@ -40,7 +40,7 @@ namespace obstacle_detection {
             f = boost::bind(&ObstacleDetectionNodelet::callbackReconfigure, this, _1, _2);
             configServer->setCallback(f);
 
-            markerPublisher = pnh.advertise<visualization_msgs::MarkerArray>("marker", 1);
+            markerPublisher = pcreate_publisher<visualization_msgs::MarkerArray>("marker", 1);
 
             infraImageSubscriber.subscribe(it, "/sensors/camera/color/image_rect_color", 2, image_transport::TransportHints("raw", ros::TransportHints().tcpNoDelay()));
             depthImageSubscriber.subscribe(it, "/sensors/camera/depth/image_rect_raw", 2, image_transport::TransportHints("raw", ros::TransportHints().tcpNoDelay()));
@@ -63,8 +63,8 @@ namespace obstacle_detection {
             this->config = config;
         }
 
-        void onImage(const sensor_msgs::ImageConstPtr& msg, const sensor_msgs::CameraInfoConstPtr& info_msg,
-                     const sensor_msgs::ImageConstPtr& depth_image, const sensor_msgs::CameraInfoConstPtr& depth_camera_info) {
+        void onImage(const sensor_msgs::msg::ImageConstPtr& msg, const sensor_msgs::msg::CameraInfoConstPtr& info_msg,
+                     const sensor_msgs::msg::ImageConstPtr& depth_image, const sensor_msgs::msg::CameraInfoConstPtr& depth_camera_info) {
 
             if (obstacleDetection->processImage(msg, info_msg, depth_image, depth_camera_info) && config.debug) {
                 markerPublisher.publish(obstacleDetection->getObstacleMarkers());
@@ -74,14 +74,14 @@ namespace obstacle_detection {
         /// subscriber
         image_transport::SubscriberFilter depthImageSubscriber;
         image_transport::SubscriberFilter infraImageSubscriber;
-        message_filters::Subscriber<sensor_msgs::CameraInfo> depthCameraInfoSubscriber;
-        message_filters::Subscriber<sensor_msgs::CameraInfo> infraCameraInfoSubscriber;
+        message_filters::Subscriber<sensor_msgs::msg::CameraInfo> depthCameraInfoSubscriber;
+        message_filters::Subscriber<sensor_msgs::msg::CameraInfo> infraCameraInfoSubscriber;
 
         /// Publisher
-        ros::Publisher planeCloudPublisher;
-        ros::Publisher markerPublisher;
+        rclcpp::Publisher<>::SharedPtr planeCloudPublisher;
+        rclcpp::Publisher<>::SharedPtr markerPublisher;
 
-        typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::Image, sensor_msgs::CameraInfo, sensor_msgs::Image, sensor_msgs::CameraInfo> SyncPolicyDepthImage;
+        typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::msg::Image, sensor_msgs::msg::CameraInfo, sensor_msgs::msg::Image, sensor_msgs::msg::CameraInfo> SyncPolicyDepthImage;
         typedef message_filters::Synchronizer<SyncPolicyDepthImage> SynchronizerDepthImage;
         std::shared_ptr<SynchronizerDepthImage> sync;
 

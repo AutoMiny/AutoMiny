@@ -1,5 +1,5 @@
 #include <nodelet/nodelet.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 #include <dynamic_reconfigure/server.h>
 #include <remote_control/RemoteControlConfig.h>
@@ -33,16 +33,16 @@ namespace remote_control {
             ros::NodeHandle pnh = getPrivateNodeHandle();
             remoteControl = std::make_unique<RemoteControl>();
 
-            speedPublisher = pnh.advertise<autominy_msgs::NormalizedSpeedCommand>("speed", 1);
-            steeringPublisher = pnh.advertise<autominy_msgs::NormalizedSteeringCommand>("steering", 1);
+            speedPublisher = pcreate_publisher<autominy_msgs::msg::NormalizedSpeedCommand>("speed", 1);
+            steeringPublisher = pcreate_publisher<autominy_msgs::msg::NormalizedSteeringCommand>("steering", 1);
 
             config_server_ = boost::make_shared<dynamic_reconfigure::Server<remote_control::RemoteControlConfig> >(pnh);
             dynamic_reconfigure::Server<remote_control::RemoteControlConfig>::CallbackType f;
             f = boost::bind(&RemoteControlNodelet::callbackReconfigure, this, _1, _2);
             config_server_->setCallback(f);
 
-            inputTimer = pnh.createTimer(ros::Duration(0.002), &RemoteControlNodelet::onCheckInput, this);
-            publishTimer = pnh.createTimer(ros::Duration(0.1), &RemoteControlNodelet::onPublish, this);
+            inputTimer = prclcpp::create_timer(rclcpp::Duration::from_seconds(0.002), &RemoteControlNodelet::onCheckInput, this);
+            publishTimer = prclcpp::create_timer(rclcpp::Duration::from_seconds(0.1), &RemoteControlNodelet::onPublish, this);
         }
 
     private:
@@ -60,9 +60,9 @@ namespace remote_control {
         }
 
         void onPublish(const ros::TimerEvent& event) {
-            autominy_msgs::NormalizedSteeringCommand steeringCommand;
-            autominy_msgs::NormalizedSpeedCommand speedCommand;
-            auto now = ros::Time::now();
+            autominy_msgs::msg::NormalizedSteeringCommand steeringCommand;
+            autominy_msgs::msg::NormalizedSpeedCommand speedCommand;
+            auto now = now();
 
             steeringCommand.header.stamp = speedCommand.header.stamp = now;
             steeringCommand.header.frame_id = speedCommand.header.frame_id = "base_link";
@@ -79,8 +79,8 @@ namespace remote_control {
         ros::Timer publishTimer;
 
         /// publisher
-        ros::Publisher speedPublisher;
-        ros::Publisher steeringPublisher;
+        rclcpp::Publisher<>::SharedPtr speedPublisher;
+        rclcpp::Publisher<>::SharedPtr steeringPublisher;
 
         std::unique_ptr<RemoteControl> remoteControl;
 

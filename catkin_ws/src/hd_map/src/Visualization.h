@@ -1,6 +1,6 @@
 #pragma once
 
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include "hd_map/HDMap.h"
 
 namespace hd_map {
@@ -11,11 +11,11 @@ namespace hd_map {
         void onClickedPoint(const geometry_msgs::PointStampedConstPtr& point);
     private:
         HDMap map;
-        ros::Publisher roadsPublisher;
-        ros::Publisher lanesPublisher;
-        ros::Publisher routePublisher;
-        ros::Subscriber mapOriginSubscriber;
-        ros::Subscriber clickedPointSubscriber;
+        rclcpp::Publisher<>::SharedPtr roadsPublisher;
+        rclcpp::Publisher<>::SharedPtr lanesPublisher;
+        rclcpp::Publisher<>::SharedPtr routePublisher;
+        rclcpp::Subscription<>::SharedPtr mapOriginSubscriber;
+        rclcpp::Subscription<>::SharedPtr clickedPointSubscriber;
         geometry_msgs::PointStampedConstPtr start, end;
     };
 }

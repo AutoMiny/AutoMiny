@@ -19,7 +19,7 @@ namespace obstacle_detection {
     }
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr ObstacleDetection::getPointcloud(
-            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+            const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
             double maximumDepth) {
         depthCameraModel.fromCameraInfo(depthCameraInfo);
 
@@ -65,8 +65,8 @@ namespace obstacle_detection {
     }
 
     bool ObstacleDetection::processImage(
-            const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& cameraInfo,
-            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo) {
+            const sensor_msgs::msg::ImageConstPtr& image, const sensor_msgs::msg::CameraInfoConstPtr& cameraInfo,
+            const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo) {
 
         auto pcl = getPointcloud(depthImage, depthCameraInfo, config.maximum_depth);
         pcl_ros::transformPointCloud("base_link", *pcl, *transformedPointCloud, tfListener);
@@ -131,7 +131,7 @@ namespace obstacle_detection {
         uint32_t shape = visualization_msgs::Marker::CUBE;
         visualization_msgs::Marker marker;
         marker.header.frame_id = "base_link";
-        marker.header.stamp = ros::Time::now();
+        marker.header.stamp = now();
 
         marker.ns = ns;
         marker.id = id;

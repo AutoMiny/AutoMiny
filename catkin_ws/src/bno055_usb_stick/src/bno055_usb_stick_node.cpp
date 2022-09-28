@@ -4,7 +4,7 @@
 #include <ros/init.h>
 #include <ros/node_handle.h>
 #include <ros/param.h>
-#include <sensor_msgs/Imu.h>
+#include "sensor_msgs/msg/imu.hpp"
 #include <sensor_msgs/MagneticField.h>
 #include <sensor_msgs/Temperature.h>
 #include <tf/transform_broadcaster.h>
@@ -18,12 +18,12 @@
 
 namespace bus = bno055_usb_stick;
 
-ros::Publisher out_pub;
-ros::Publisher imu_pub;
-ros::Publisher pose_pub;
+rclcpp::Publisher<>::SharedPtr out_pub;
+rclcpp::Publisher<>::SharedPtr imu_pub;
+rclcpp::Publisher<>::SharedPtr pose_pub;
 std::string pose_frame_id;
-ros::Publisher mag_pub;
-ros::Publisher temp_pub;
+rclcpp::Publisher<>::SharedPtr mag_pub;
+rclcpp::Publisher<>::SharedPtr temp_pub;
 boost::shared_ptr<tf::TransformBroadcaster> tf_pub;
 std::string tf_frame_id, tf_child_frame_id;
 bool invert_tf;
@@ -63,11 +63,11 @@ int main(int argc, char* argv[]) {
     invert_tf = ros::param::param("~invert_tf", false);
 
     // setup publishers
-    out_pub = nh.advertise<bno055_usb_stick_msgs::Output>("output", 1);
-    imu_pub = nh.advertise<sensor_msgs::Imu>("imu", 1);
-    pose_pub = nh.advertise<geometry_msgs::PoseStamped>("pose", 1);
-    mag_pub = nh.advertise<sensor_msgs::MagneticField>("magnetic_field", 1);
-    temp_pub = nh.advertise<sensor_msgs::Temperature>("temperature", 1);
+    out_pub = create_publisher<bno055_usb_stick_msgs::Output>("output", 1);
+    imu_pub = create_publisher<sensor_msgs::msg::Imu>("imu", 1);
+    pose_pub = create_publisher<geometry_msgs::PoseStamped>("pose", 1);
+    mag_pub = create_publisher<sensor_msgs::msg::MagneticField>("magnetic_field", 1);
+    temp_pub = create_publisher<sensor_msgs::msg::Temperature>("temperature", 1);
     if (publish_tf) {
         tf_pub.reset(new tf::TransformBroadcaster);
     }

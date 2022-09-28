@@ -50,20 +50,20 @@ namespace stereo_camera_pose_estimation {
          * @return True if camera pose was found, false if pose estimation failed.
          */
         bool processImage(
-                const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& cameraInfo,
-                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo);
+                const sensor_msgs::msg::ImageConstPtr& image, const sensor_msgs::msg::CameraInfoConstPtr& cameraInfo,
+                const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo);
 
         /**
          * Gets the plane pointcloud
          * @return Pointcloud message
          */
-        sensor_msgs::PointCloud2ConstPtr getPlaneCloud();
+        sensor_msgs::msg::PointCloud2ConstPtr getPlaneCloud();
 
         /**
          * Gets the detected markers in the camera image
          * @return Image message
          */
-        sensor_msgs::ImagePtr getMarkerImage();
+        sensor_msgs::msg::ImagePtr getMarkerImage();
 
     private:
         /**
@@ -74,7 +74,7 @@ namespace stereo_camera_pose_estimation {
          * @return Pointcloud from depth image.
          */
         pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloud(
-                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+                const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
                 double maximumDepth);
 
         /**
@@ -85,7 +85,7 @@ namespace stereo_camera_pose_estimation {
          * @return Pointcloud from depth image.
          */
         pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloudFloat(
-                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+                const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
                 double maximumDepth);
 
 

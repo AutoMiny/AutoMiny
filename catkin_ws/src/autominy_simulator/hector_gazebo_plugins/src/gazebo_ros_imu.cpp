@@ -38,7 +38,7 @@ namespace gazebo
 // #define DEBUG_OUTPUT
 #ifdef DEBUG_OUTPUT
   #include <geometry_msgs/PoseStamped.h>
-  static ros::Publisher debugPublisher;
+  static rclcpp::Publisher<>::SharedPtr debugPublisher;
 #endif // DEBUG_OUTPUT
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -135,7 +135,7 @@ void GazeboRosIMU::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
     this->offset_.pos = _sdf->Get<math::Vector3>("xyzOffset");
 #endif
   } else {
-    ROS_INFO("imu plugin missing <xyzOffset>, defaults to 0s");
+    RCLCPP_INFO(get_logger(), "imu plugin missing <xyzOffset>, defaults to 0s");
 #if (GAZEBO_MAJOR_VERSION >= 8)
     this->offset_.Pos() = ignition::math::Vector3d(0, 0, 0);
 #else
@@ -150,7 +150,7 @@ void GazeboRosIMU::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
     this->offset_.rot = _sdf->Get<math::Vector3>("rpyOffset");
 #endif
   } else {
-    ROS_INFO("imu plugin missing <rpyOffset>, defaults to 0s");
+    RCLCPP_INFO(get_logger(), "imu plugin missing <rpyOffset>, defaults to 0s");
 #if (GAZEBO_MAJOR_VERSION >= 8)
     this->offset_.Rot() = ignition::math::Quaterniond(0, 0, 0);
 #else
@@ -187,9 +187,9 @@ void GazeboRosIMU::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
 
   // if topic name specified as empty, do not publish (then what is this plugin good for?)
   if (!topic_.empty())
-    pub_ = node_handle_->advertise<sensor_msgs::Imu>(topic_, 10);
+    pub_ = node_handle_->advertise<sensor_msgs::msg::Imu>(topic_, 10);
   if (!bias_topic_.empty())
-    bias_pub_ = node_handle_->advertise<sensor_msgs::Imu>(bias_topic_, 10);
+    bias_pub_ = node_handle_->advertise<sensor_msgs::msg::Imu>(bias_topic_, 10);
 
 #ifdef DEBUG_OUTPUT
   debugPublisher = rosnode_->advertise<geometry_msgs::PoseStamped>(topic_ + "/pose", 10);
@@ -243,8 +243,8 @@ void GazeboRosIMU::Reset()
 
 ////////////////////////////////////////////////////////////////////////////////
 // returns true always, imu is always calibrated in sim
-bool GazeboRosIMU::ServiceCallback(std_srvs::Empty::Request &req,
-                                        std_srvs::Empty::Response &res)
+bool GazeboRosIMU::ServiceCallback(std_srvs::srv::Empty::Request &req,
+                                        std_srvs::srv::Empty::Response &res)
 {
   boost::mutex::scoped_lock scoped_lock(lock);
 #if (GAZEBO_MAJOR_VERSION >= 8)

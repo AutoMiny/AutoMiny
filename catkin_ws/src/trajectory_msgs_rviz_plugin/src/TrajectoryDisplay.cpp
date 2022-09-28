@@ -71,15 +71,15 @@ namespace rviz {
         }
     }
 
-    bool validateFloats(autominy_msgs::TrajectoryConstPtr const &msg) {
+    bool validateFloats(autominy_msgs::msg::TrajectoryConstPtr const &msg) {
         bool valid = true;
-        for (const autominy_msgs::TrajectoryPoint &point : msg->trajectory) {
+        for (const autominy_msgs::msg::TrajectoryPoint &point : msg->trajectory) {
             valid = valid && validateFloats(point.pose);
         }
         return valid;
     }
 
-    void TrajectoryDisplay::processMessage(autominy_msgs::TrajectoryConstPtr const &msg) {
+    void TrajectoryDisplay::processMessage(autominy_msgs::msg::TrajectoryConstPtr const &msg) {
         size_t bufferIndex = messages_received_ % bufferLength->getInt();
 
         rviz::BillboardLine *pathLine = nullptr;
@@ -94,7 +94,7 @@ namespace rviz {
         Ogre::Vector3 position;
         Ogre::Quaternion orientation;
         if (!context_->getFrameManager()->getTransform(msg->header, position, orientation)) {
-            ROS_DEBUG("Error transforming from frame '%s' to frame '%s'", msg->header.frame_id.c_str(),
+            RCLCPP_DEBUG(get_logger(), "Error transforming from frame '%s' to frame '%s'", msg->header.frame_id.c_str(),
                       qPrintable(fixed_frame_));
         }
 
@@ -108,7 +108,7 @@ namespace rviz {
         pathLine->setMaxPointsPerLine(msg->trajectory.size());
         pathLine->setLineWidth(lineWidth->getFloat());
 
-        for (const autominy_msgs::TrajectoryPoint &point : msg->trajectory) {
+        for (const autominy_msgs::msg::TrajectoryPoint &point : msg->trajectory) {
             auto pos = point.pose.position;
             auto xpos = transform * Ogre::Vector3(pos.x, pos.y, pos.z);
             tf::Vector3 vel;

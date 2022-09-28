@@ -34,12 +34,12 @@
 #include <gazebo/physics/physics.hh>
 #include <sdf/sdf.hh>
 
-#include <geometry_msgs/Twist.h>
+#include "geometry_msgs/msg/twist.hpp"
 #include <nav_msgs/OccupancyGrid.h>
 #include <nav_msgs/Odometry.h>
 #include <ros/advertise_options.h>
 #include <ros/callback_queue.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_listener.h>
 
@@ -71,8 +71,8 @@ namespace gazebo {
       private: std::string link_name_;
 
       boost::shared_ptr<ros::NodeHandle> rosnode_;
-      ros::Publisher odometry_pub_;
-      ros::Subscriber vel_sub_;
+      rclcpp::Publisher<>::SharedPtr odometry_pub_;
+      rclcpp::Subscription<>::SharedPtr vel_sub_;
       boost::shared_ptr<tf::TransformBroadcaster> transform_broadcaster_;
       nav_msgs::Odometry odom_;
       std::string tf_prefix_;

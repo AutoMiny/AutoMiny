@@ -1,5 +1,5 @@
 #include <utility>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <hd_map/Polyline3D.h>
 
 
@@ -32,7 +32,7 @@ namespace hd_map {
 
     tf2::Vector3 Polyline3D::interpolate(double param) {
         if (param < 0 || param > length()) {
-            ROS_ERROR("Interpolation is out of range");
+            RCLCPP_ERROR(get_logger(), "Interpolation is out of range");
         }
 
         tf2::Vector3 p;

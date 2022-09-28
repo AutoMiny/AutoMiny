@@ -26,11 +26,11 @@ int main(int argc, char** argv) {
 hd_map::Visualization::Visualization(ros::NodeHandle &nh)
 {
     map.loadMap();
-    clickedPointSubscriber = nh.subscribe("/clicked_point", 1, &Visualization::onClickedPoint, this);
+    clickedPointSubscriber = create_subscription("/clicked_point", 1, &Visualization::onClickedPoint, this);
 
-    roadsPublisher = nh.advertise<visualization_msgs::MarkerArray>("roads", 1, true);
-    lanesPublisher = nh.advertise<visualization_msgs::MarkerArray>("lanes", 1, true);
-    routePublisher = nh.advertise<visualization_msgs::MarkerArray>("route", 1);
+    roadsPublisher = create_publisher<visualization_msgs::MarkerArray>("roads", 1, true);
+    lanesPublisher = create_publisher<visualization_msgs::MarkerArray>("lanes", 1, true);
+    routePublisher = create_publisher<visualization_msgs::MarkerArray>("route", 1);
 
     visualize();
 }
@@ -156,7 +156,7 @@ void hd_map::Visualization::visualize() {
                 laneMarker.points.push_back(p);
             }
             for (int i = 0; i < lane->getReferenceTrack()->getPoints().size(); i++) {
-                std_msgs::ColorRGBA laneColor;
+                std_msgs::msg::ColorRGBA laneColor;
                 laneColor.r = (float) i / (float)lane->getReferenceTrack()->getPoints().size();
                 laneColor.b = laneGroup->isJunction() ? 1.0 : 0.0;
                 laneColor.g = 0;
@@ -191,7 +191,7 @@ void hd_map::Visualization::visualize() {
             }
 
             for (int i = 0; i < lane->getLeftBoundary()->getPoints().size(); i++) {
-                std_msgs::ColorRGBA laneColor;
+                std_msgs::msg::ColorRGBA laneColor;
                 laneColor.r = (float) i / (float) lane->getLeftBoundary()->getPoints().size();
                 laneColor.b = 1.0;
                 laneColor.g = 1.0;
@@ -229,7 +229,7 @@ void hd_map::Visualization::visualize() {
             }
 
             for (int i = 0; i < lane->getRightBoundary()->getPoints().size(); i++) {
-                std_msgs::ColorRGBA laneColor;
+                std_msgs::msg::ColorRGBA laneColor;
                 laneColor.r = (float) i / (float)lane->getRightBoundary()->getPoints().size();
                 laneColor.b = 1.0;
                 laneColor.g = 1.0;
@@ -395,7 +395,7 @@ void hd_map::Visualization::onClickedPoint(const geometry_msgs::PointStampedCons
             laneMarker.points.push_back(p);
         }
         for (int i = 0; i < lane->getReferenceTrack()->getPoints().size(); i++) {
-            std_msgs::ColorRGBA laneColor;
+            std_msgs::msg::ColorRGBA laneColor;
             laneColor.r = (float) i / (float)lane->getReferenceTrack()->getPoints().size();
             laneColor.b = lane->getLaneGroup()->isJunction() ? 1.0 : 0.0;
             laneColor.g = 0;

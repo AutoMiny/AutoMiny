@@ -53,8 +53,8 @@ namespace obstacle_detection {
          * @return True if camera pose was found, false if pose estimation failed.
          */
         bool processImage(
-                const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& cameraInfo,
-                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo);
+                const sensor_msgs::msg::ImageConstPtr& image, const sensor_msgs::msg::CameraInfoConstPtr& cameraInfo,
+                const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo);
 
         visualization_msgs::MarkerArray getObstacleMarkers();
 
@@ -67,7 +67,7 @@ namespace obstacle_detection {
          * @return Pointcloud from depth image.
          */
         pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloud(
-                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+                const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
                 double maximumDepth);
 
         visualization_msgs::Marker markCluster(const pcl::PointCloud<pcl::PointXYZ>::Ptr cloudCluster, std::string ns ,int id, float r, float g, float b);

@@ -5,21 +5,21 @@
 
 namespace arduino_communication {
 
-ArduinoCommunication::ArduinoCommunication(ros::NodeHandle &nh) {
-    device = nh.param<std::string>("device", "/dev/ttyUSB0");
-    baudrate = nh.param("baud", 115200);
+ArduinoCommunication::ArduinoCommunication(const rclcpp::NodeOptions& opts) : rclcpp::Node("arduino_communication", opts) {
+    device = declare_parameter<std::string>("device", "/dev/ttyUSB0");
+    baudrate = declare_parameter<int>("baud", 115200);
 
-    steeringAnglePublisher = nh.advertise<autominy_msgs::SteeringFeedback>("steering_angle", 1);
-    voltagePublisher = nh.advertise<autominy_msgs::Voltage>("voltage", 1);
-    ticksPublisher = nh.advertise<autominy_msgs::Tick>("ticks", 1);
-    imuPublisher = nh.advertise<sensor_msgs::Imu>("imu", 1);
-    imuTemperaturePublisher = nh.advertise<sensor_msgs::Temperature>("imu/temperature", 1);
+    steeringAnglePublisher = create_publisher<autominy_msgs::msg::SteeringFeedback>("steering_angle", 1);
+    voltagePublisher = create_publisher<autominy_msgs::msg::Voltage>("voltage", 1);
+    ticksPublisher = create_publisher<autominy_msgs::msg::Tick>("ticks", 1);
+    imuPublisher = create_publisher<sensor_msgs::msg::Imu>("imu", 1);
+    imuTemperaturePublisher = create_publisher<sensor_msgs::msg::Temperature>("imu/temperature", 1);
 
-    heartbeatTimer = nh.createTimer(ros::Duration(0.01), &ArduinoCommunication::onHeartbeat, this);
-    speedSubscriber = nh.subscribe("speed", 1, &ArduinoCommunication::onSpeedCommand, this, ros::TransportHints().tcpNoDelay());
-    steeringSubscriber = nh.subscribe("steering", 1, &ArduinoCommunication::onSteeringCommand, this, ros::TransportHints().tcpNoDelay());
-    ledSubscriber = nh.subscribe("led", 1, &ArduinoCommunication::onLedCommand, this, ros::TransportHints().tcpNoDelay());
-    imuCalibrationService = nh.advertiseService("calibrate_imu", &ArduinoCommunication::calibrateIMU, this);
+    heartbeatTimer = rclcpp::create_timer(this, get_clock(), rclcpp::Duration::from_seconds(0.01), std::bind(&ArduinoCommunication::onHeartbeat, this));
+    speedSubscriber = create_subscription<autominy_msgs::msg::SpeedPWMCommand>("speed", 1, std::bind(&ArduinoCommunication::onSpeedCommand, this, std::placeholders::_1));
+    steeringSubscriber = create_subscription<autominy_msgs::msg::SteeringPWMCommand>("steering", 1, std::bind(&ArduinoCommunication::onSteeringCommand, this, std::placeholders::_1));
+    ledSubscriber = create_subscription<std_msgs::msg::String>("led", 1, std::bind(&ArduinoCommunication::onLedCommand, this, std::placeholders::_1));
+    imuCalibrationService = create_service<std_srvs::srv::Empty>("calibrate_imu", std::bind(&ArduinoCommunication::calibrateIMU, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 void ArduinoCommunication::onReceive(uint8_t *message, size_t length) {
@@ -59,10 +59,12 @@ size_t ArduinoCommunication::onSend(uint8_t* message, size_t length) {
         if (serial && serial->isOpen()) {
             return serial->write(message, length);
         } else {
-            ROS_ERROR_THROTTLE(1, "Could not send to the Arduino!");
+            auto clk = *get_clock();
+            RCLCPP_ERROR_THROTTLE(get_logger(), clk, 1000, "Could not send to the Arduino!");
         }
     } catch(const std::exception& exception) {
-        ROS_ERROR_THROTTLE(1, "Could not send to the Arduino! %s", exception.what());
+        auto clk = *get_clock();
+        RCLCPP_ERROR_THROTTLE(get_logger(), clk, 1000, "Could not send to the Arduino! %s", exception.what());
     }
 
     return 0;
@@ -75,8 +77,8 @@ void ArduinoCommunication::spin() {
 
     bool connected = false;
 
-    ros::Rate r(200);
-    while (ros::ok()) {
+    rclcpp::Rate r(200);
+    while (rclcpp::ok()) {
         try {
 
             if (!connected) {
@@ -101,17 +103,18 @@ void ArduinoCommunication::spin() {
                         if (receiveBufferIndex + 1 < 512) {
                             receiveBuffer[receiveBufferIndex++] = buf[i];
                         } else {
-                            ROS_ERROR("Buffer overflow");
+                            RCLCPP_ERROR(get_logger(), "Buffer overflow");
                         }
                     }
                 }
             }
         } catch (const std::exception& exception) {
             connected = false;
-            ROS_ERROR_THROTTLE(1, "Could not connect to arduino %s", exception.what());
+            auto clk = *get_clock();
+            RCLCPP_ERROR_THROTTLE(get_logger(), clk, 1000, "Could not connect to arduino %s", exception.what());
         }
 
-        ros::spinOnce();
+        rclcpp::spin(this->shared_from_this());
         r.sleep();
     }
 }
@@ -122,11 +125,11 @@ void ArduinoCommunication::onSteeringAngle(uint8_t *message) {
               reinterpret_cast<const char *>(&message[2]),
               reinterpret_cast<char *>(&angle));
 
-    autominy_msgs::SteeringFeedback msg;
+    autominy_msgs::msg::SteeringFeedback msg;
     msg.value = angle;
-    msg.header.stamp = ros::Time::now();
+    msg.header.stamp = now();
     msg.header.frame_id = "base_link";
-    steeringAnglePublisher.publish(msg);
+    steeringAnglePublisher->publish(msg);
 
 }
 void ArduinoCommunication::onVoltage(uint8_t *message) {
@@ -135,16 +138,16 @@ void ArduinoCommunication::onVoltage(uint8_t *message) {
               reinterpret_cast<const char *>(&message[4]),
               reinterpret_cast<char *>(&voltage));
 
-    autominy_msgs::Voltage msg;
+    autominy_msgs::msg::Voltage msg;
     msg.value = voltage;
-    msg.header.stamp = ros::Time::now();
+    msg.header.stamp = now();
     msg.header.frame_id = "base_link";
-    voltagePublisher.publish(msg);
+    voltagePublisher->publish(msg);
 }
 void ArduinoCommunication::onIMU(uint8_t *message) {
-    sensor_msgs::Imu imuMsg;
+    sensor_msgs::msg::Imu imuMsg;
     imuMsg.header.frame_id = "imu";
-    imuMsg.header.stamp = ros::Time::now();
+    imuMsg.header.stamp = now();
 
 
     int16_t w = (message[0] << 8) | message[1];
@@ -174,11 +177,11 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
     double azf = az * (8.0 / 65536.0) * 9.81;
 
     int16_t temperature = (message[20] << 8) | message[21];
-    sensor_msgs::Temperature temperatureMsg;
-    temperatureMsg.header.stamp = ros::Time::now();
+    sensor_msgs::msg::Temperature temperatureMsg;
+    temperatureMsg.header.stamp = now();
     temperatureMsg.header.frame_id = "imu";
     temperatureMsg.temperature = (temperature / 340.0 ) + 36.53;
-    imuTemperaturePublisher.publish(temperatureMsg);
+    imuTemperaturePublisher->publish(temperatureMsg);
 
     // map from NED to ENU
     imuMsg.orientation.x = yf;
@@ -211,39 +214,39 @@ void ArduinoCommunication::onIMU(uint8_t *message) {
     imuMsg.orientation_covariance[4] = pitchRollStdDev * pitchRollStdDev;
     imuMsg.orientation_covariance[8] = yawStdDev * yawStdDev;
 
-    imuPublisher.publish(imuMsg);
+    imuPublisher->publish(imuMsg);
 }
 
 void ArduinoCommunication::onWarn(uint8_t *message) {
-    ROS_WARN("%s", message);
+    RCLCPP_WARN(get_logger(), "%s", message);
 }
 
 void ArduinoCommunication::onError(uint8_t *message) {
-    ROS_ERROR("%s", message);
+    RCLCPP_ERROR(get_logger(), "%s", message);
 }
 
 void ArduinoCommunication::onInfo(uint8_t *message) {
-    ROS_INFO("%s", message);
+    RCLCPP_INFO(get_logger(), "%s", message);
 }
 
 void ArduinoCommunication::onDebug(uint8_t *message) {
-    ROS_DEBUG("%s", message);
+    RCLCPP_DEBUG(get_logger(), "%s", message);
 }
 
 void ArduinoCommunication::onTicks(uint8_t *message) {
-    autominy_msgs::Tick msg;
+    autominy_msgs::msg::Tick msg;
     uint8_t ticks;
     std::copy(reinterpret_cast<const char *>(&message[0]),
               reinterpret_cast<const char *>(&message[1]),
               reinterpret_cast<char *>(&ticks));
 
     msg.value = ticks;
-    msg.header.stamp = ros::Time::now();
+    msg.header.stamp = now();
     msg.header.frame_id = "base_link";
-    ticksPublisher.publish(msg);
+    ticksPublisher->publish(msg);
 }
 
-void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringPWMCommandConstPtr const &steering) {
+void ArduinoCommunication::onSteeringCommand(const autominy_msgs::msg::SteeringPWMCommand::SharedPtr steering) {
     uint8_t size = sizeof(MessageType) + sizeof(int16_t);
     uint8_t message[size];
 
@@ -255,11 +258,11 @@ void ArduinoCommunication::onSteeringCommand(autominy_msgs::SteeringPWMCommandCo
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
-        ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
+        RCLCPP_ERROR(get_logger(), "Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
     }
 }
 
-void ArduinoCommunication::onLedCommand(std_msgs::StringConstPtr const &led) {
+void ArduinoCommunication::onLedCommand(const std_msgs::msg::String::SharedPtr led) {
     uint8_t size = sizeof(MessageType) + led->data.length() + 1;
     uint8_t message[size];
 
@@ -271,12 +274,12 @@ void ArduinoCommunication::onLedCommand(std_msgs::StringConstPtr const &led) {
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
-        ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
+        RCLCPP_ERROR(get_logger(), "Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
     }
 
 }
 
-void ArduinoCommunication::onHeartbeat(ros::TimerEvent const &event) {
+void ArduinoCommunication::onHeartbeat() {
     uint8_t size = sizeof(MessageType);
     uint8_t message[size];
 
@@ -287,11 +290,11 @@ void ArduinoCommunication::onHeartbeat(ros::TimerEvent const &event) {
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
-        ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
+        RCLCPP_ERROR(get_logger(), "Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
     }
 }
 
-void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedPWMCommandConstPtr const &speed) {
+void ArduinoCommunication::onSpeedCommand(const autominy_msgs::msg::SpeedPWMCommand::SharedPtr speed) {
     uint8_t size = sizeof(MessageType) + sizeof(int16_t);
     uint8_t message[size];
 
@@ -303,11 +306,11 @@ void ArduinoCommunication::onSpeedCommand(autominy_msgs::SpeedPWMCommandConstPtr
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
-        ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
+        RCLCPP_ERROR(get_logger(), "Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
     }
 }
 
-bool ArduinoCommunication::calibrateIMU(std_srvs::EmptyRequest& req, std_srvs::EmptyResponse& resp) {
+bool ArduinoCommunication::calibrateIMU(const std_srvs::srv::Empty::Request::SharedPtr req, std_srvs::srv::Empty::Response::SharedPtr resp) {
     uint8_t size = sizeof(MessageType);
     uint8_t message[size];
 
@@ -318,7 +321,7 @@ bool ArduinoCommunication::calibrateIMU(std_srvs::EmptyRequest& req, std_srvs::E
 
     auto wrote = onSend(output, cobs);
     if (wrote != cobs) {
-        ROS_ERROR("Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
+        RCLCPP_ERROR(get_logger(), "Could not write all of the data. Size should be %lu but wrote only %lu", cobs, wrote);
     }
 
     return true;

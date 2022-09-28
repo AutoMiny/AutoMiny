@@ -73,8 +73,8 @@ namespace road_marking_localization {
          * @return True if correction was found, false if correction failed.
          */
         bool processImage(
-                const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& cameraInfo,
-                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo);
+                const sensor_msgs::msg::ImageConstPtr& image, const sensor_msgs::msg::CameraInfoConstPtr& cameraInfo,
+                const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo);
 
 
         /**
@@ -85,45 +85,45 @@ namespace road_marking_localization {
 
         /**
          * Gets the thresholded image.
-         * @return Thresholded image converted to ROS sensor_msgs::ImageConstPtr
+         * @return Thresholded image converted to ROS sensor_msgs::msg::ImageConstPtr
          */
-        sensor_msgs::ImageConstPtr getThresholdedImage();
+        sensor_msgs::msg::ImageConstPtr getThresholdedImage();
 
         /**
          * Gets the map point cloud.
-         * @return Map point cloud converted to ROS sensor_msgs::PointCloud2ConstPtr
+         * @return Map point cloud converted to ROS sensor_msgs::msg::PointCloud2ConstPtr
          */
-        sensor_msgs::PointCloud2ConstPtr getMapPointCloud();
+        sensor_msgs::msg::PointCloud2ConstPtr getMapPointCloud();
 
         /**
          * Gets the raw pointcloud after transferring into the map frame.
-         * @return Raw point cloud converted to ROS sensor_msgs::PointCloud2ConstPtr
+         * @return Raw point cloud converted to ROS sensor_msgs::msg::PointCloud2ConstPtr
          */
-        sensor_msgs::PointCloud2ConstPtr getRawPointCloud();
+        sensor_msgs::msg::PointCloud2ConstPtr getRawPointCloud();
 
         /**
          * Gets the cropped point cloud.
-         * @return Cropped point cloud converted to ROS sensor_msgs::PointCloud2ConstPtr
+         * @return Cropped point cloud converted to ROS sensor_msgs::msg::PointCloud2ConstPtr
          */
-        sensor_msgs::PointCloud2ConstPtr getCroppedPointCloud();
+        sensor_msgs::msg::PointCloud2ConstPtr getCroppedPointCloud();
 
         /**
          * Gets the random sampled point cloud.
-         * @return Random sampled point cloud converted to ROS sensor_msgs::PointCloud2ConstPtr
+         * @return Random sampled point cloud converted to ROS sensor_msgs::msg::PointCloud2ConstPtr
          */
-        sensor_msgs::PointCloud2ConstPtr getRandomSampledPointCloud();
+        sensor_msgs::msg::PointCloud2ConstPtr getRandomSampledPointCloud();
 
         /**
          * Gets the aligned point cloud.
-         * @return Aligned point cloud converted to ROS sensor_msgs::PointCloud2ConstPtr
+         * @return Aligned point cloud converted to ROS sensor_msgs::msg::PointCloud2ConstPtr
          */
-        sensor_msgs::PointCloud2ConstPtr getAlignedPointCloud();
+        sensor_msgs::msg::PointCloud2ConstPtr getAlignedPointCloud();
 
         /**
          * Gets the transformation matrix
          * @return Transformation matrix converted to Float64MultiArray
          */
-        std_msgs::Float64MultiArrayConstPtr getTransformationMatrix();
+        std_msgs::msg::Float64MultiArrayConstPtr getTransformationMatrix();
 
     private:
         /**
@@ -134,7 +134,7 @@ namespace road_marking_localization {
          * @return Pointcloud from depth image.
          */
         pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloud(
-                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+                const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
                 const cv::Mat& mask);
 
         /**
@@ -145,7 +145,7 @@ namespace road_marking_localization {
  * @return Pointcloud from depth image.
  */
         pcl::PointCloud<pcl::PointXYZ>::Ptr getPointcloudFloat(
-                const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+                const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
                 const cv::Mat& mask);
 
 

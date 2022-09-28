@@ -1,5 +1,5 @@
 #include <nodelet/loader.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 /** Starting point for the node. It instantiates the nodelet within the node
  ** (alternatively the nodelet could be run in a standalone nodelet manager).

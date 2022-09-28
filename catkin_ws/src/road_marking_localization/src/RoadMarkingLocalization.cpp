@@ -60,33 +60,33 @@ namespace road_marking_localization {
                 lmTE->setWarpFunction(warp_fcn);
 
                 transformationEstimation.reset(lmTE);
-                ROS_INFO("Tranformation estimation using Levenberg Marquardt");
+                RCLCPP_INFO(get_logger(), "Tranformation estimation using Levenberg Marquardt");
                 break;
             }
             case RoadMarkingLocalization_center_of_mass: {
                 auto teCoM = new pcl::registration::TransformationEstimation2D<pcl::PointXYZ, pcl::PointXYZ>();
                 transformationEstimation.reset(teCoM);
-                ROS_INFO("Tranformation estimation using center of mass");
+                RCLCPP_INFO(get_logger(), "Tranformation estimation using center of mass");
                 break;
             }
             case RoadMarkingLocalization_svd: {
                 auto teSVD = new pcl::registration::TransformationEstimationSVD<pcl::PointXYZ, pcl::PointXYZ>();
                 transformationEstimation.reset(teSVD);
-                ROS_INFO("Tranformation estimation using SVD");
+                RCLCPP_INFO(get_logger(), "Tranformation estimation using SVD");
                 break;
             }
 
             case RoadMarkingLocalization_svd2D: {
                 auto teSVD = new pcl::registration::TransformationEstimationSVD2D<pcl::PointXYZ, pcl::PointXYZ>();
                 transformationEstimation.reset(teSVD);
-                ROS_INFO("Tranformation estimation using SVD 2D");
+                RCLCPP_INFO(get_logger(), "Tranformation estimation using SVD 2D");
                 break;
             }
 
             case RoadMarkingLocalization_dual_quaternion: {
                 auto teDQ = new pcl::registration::TransformationEstimationDualQuaternion<pcl::PointXYZ, pcl::PointXYZ>();
                 transformationEstimation.reset(teDQ);
-                ROS_INFO("Tranformation estimation using dual quaternion");
+                RCLCPP_INFO(get_logger(), "Tranformation estimation using dual quaternion");
                 break;
             }
 
@@ -95,7 +95,7 @@ namespace road_marking_localization {
     }
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr RoadMarkingLocalization::getPointcloud(
-            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+            const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
             const cv::Mat& mask) {
         model.fromCameraInfo(depthCameraInfo);
 
@@ -138,7 +138,7 @@ namespace road_marking_localization {
     }
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr RoadMarkingLocalization::getPointcloudFloat(
-            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo,
+            const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo,
             const cv::Mat& mask) {
         model.fromCameraInfo(depthCameraInfo);
 
@@ -182,14 +182,14 @@ namespace road_marking_localization {
 
 
     bool RoadMarkingLocalization::processImage(
-            const sensor_msgs::ImageConstPtr& image, const sensor_msgs::CameraInfoConstPtr& cameraInfo,
-            const sensor_msgs::ImageConstPtr& depthImage, const sensor_msgs::CameraInfoConstPtr& depthCameraInfo) {
+            const sensor_msgs::msg::ImageConstPtr& image, const sensor_msgs::msg::CameraInfoConstPtr& cameraInfo,
+            const sensor_msgs::msg::ImageConstPtr& depthImage, const sensor_msgs::msg::CameraInfoConstPtr& depthCameraInfo) {
 
         try {
             cv = cv_bridge::toCvCopy(image);
         }
         catch (cv_bridge::Exception& e) {
-            ROS_ERROR("Could not convert from '%s' to 'bgr8'.", image->encoding.c_str());
+            RCLCPP_ERROR(get_logger(), "Could not convert from '%s' to 'bgr8'.", image->encoding.c_str());
             return false;
         }
         auto& cvImage = cv->image;
@@ -200,7 +200,7 @@ namespace road_marking_localization {
         cv::threshold(cvImage, cvImage, config.threshold, 255, CV_THRESH_BINARY);
 
         pcl::PointCloud<pcl::PointXYZ>::Ptr roadMarkerCloud;
-        if (depthImage->encoding == sensor_msgs::image_encodings::TYPE_32FC1) {
+        if (depthImage->encoding == sensor_msgs::msg::image_encodings::TYPE_32FC1) {
             roadMarkerCloud = getPointcloudFloat(depthImage, depthCameraInfo, cvImage);
         } else {
             roadMarkerCloud = getPointcloud(depthImage, depthCameraInfo, cvImage);
@@ -209,11 +209,11 @@ namespace road_marking_localization {
         Eigen::Affine3d t;
         Eigen::Affine3d baseLinkTransform;
         try {
-            tfBuffer.canTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp, ros::Duration(0.03));
+            tfBuffer.canTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp, rclcpp::Duration::from_seconds(0.03));
             t = tf2::transformToEigen(tfBuffer.lookupTransform("map", roadMarkerCloud->header.frame_id, depthImage->header.stamp));
             baseLinkTransform = tf2::transformToEigen(tfBuffer.lookupTransform("map", "base_link", depthImage->header.stamp));
         } catch (tf2::TransformException& e) {
-            ROS_ERROR("%s", e.what());
+            RCLCPP_ERROR(get_logger(), "%s", e.what());
             return false;
         }
 
@@ -233,7 +233,7 @@ namespace road_marking_localization {
             boxFilter.filter(*croppedCloud);
 
             if (croppedCloud->size() < config.minimum_points) {
-                ROS_WARN("Not enough points for correction");
+                RCLCPP_WARN(get_logger(),"Not enough points for correction");
                 return false;
             }
 
@@ -332,7 +332,7 @@ namespace road_marking_localization {
         try {
             t = tfBuffer.lookupTransform("map", pose.header.frame_id, ros::Time(0));
         } catch (tf2::TransformException& e) {
-            ROS_ERROR("%s", e.what());
+            RCLCPP_ERROR(get_logger(), "%s", e.what());
         }
         tf2::doTransform(tfPose, tfPose, t);
 
@@ -352,47 +352,47 @@ namespace road_marking_localization {
         tfBuffer.clear();
     }
 
-    sensor_msgs::ImageConstPtr RoadMarkingLocalization::getThresholdedImage() {
+    sensor_msgs::msg::ImageConstPtr RoadMarkingLocalization::getThresholdedImage() {
         return cv->toImageMsg();
     }
 
-    sensor_msgs::PointCloud2ConstPtr RoadMarkingLocalization::getRawPointCloud() {
-        auto ret = boost::make_shared<sensor_msgs::PointCloud2>();
+    sensor_msgs::msg::PointCloud2ConstPtr RoadMarkingLocalization::getRawPointCloud() {
+        auto ret = boost::make_shared<sensor_msgs::msg::PointCloud2>();
         pcl::toROSMsg(*transformedCloud, *ret);
 
         return ret;
     }
 
-    sensor_msgs::PointCloud2ConstPtr RoadMarkingLocalization::getCroppedPointCloud() {
-        auto ret = boost::make_shared<sensor_msgs::PointCloud2>();
+    sensor_msgs::msg::PointCloud2ConstPtr RoadMarkingLocalization::getCroppedPointCloud() {
+        auto ret = boost::make_shared<sensor_msgs::msg::PointCloud2>();
         pcl::toROSMsg(*croppedCloud, *ret);
 
         return ret;
     }
 
-    sensor_msgs::PointCloud2ConstPtr RoadMarkingLocalization::getRandomSampledPointCloud() {
-        auto ret = boost::make_shared<sensor_msgs::PointCloud2>();
+    sensor_msgs::msg::PointCloud2ConstPtr RoadMarkingLocalization::getRandomSampledPointCloud() {
+        auto ret = boost::make_shared<sensor_msgs::msg::PointCloud2>();
         pcl::toROSMsg(*randomSampledCloud, *ret);
 
         return ret;
     }
 
-    sensor_msgs::PointCloud2ConstPtr RoadMarkingLocalization::getAlignedPointCloud() {
-        auto ret = boost::make_shared<sensor_msgs::PointCloud2>();
+    sensor_msgs::msg::PointCloud2ConstPtr RoadMarkingLocalization::getAlignedPointCloud() {
+        auto ret = boost::make_shared<sensor_msgs::msg::PointCloud2>();
         pcl::toROSMsg(*alignedPointCloud, *ret);
 
         return ret;
     }
 
-    sensor_msgs::PointCloud2ConstPtr RoadMarkingLocalization::getMapPointCloud() {
-        auto ret = boost::make_shared<sensor_msgs::PointCloud2>();
+    sensor_msgs::msg::PointCloud2ConstPtr RoadMarkingLocalization::getMapPointCloud() {
+        auto ret = boost::make_shared<sensor_msgs::msg::PointCloud2>();
         pcl::toROSMsg(*mapPointCloud, *ret);
 
         return ret;
     }
 
-    std_msgs::Float64MultiArrayConstPtr RoadMarkingLocalization::getTransformationMatrix() {
-        auto ret = boost::make_shared<std_msgs::Float64MultiArray>();
+    std_msgs::msg::Float64MultiArrayConstPtr RoadMarkingLocalization::getTransformationMatrix() {
+        auto ret = boost::make_shared<std_msgs::msg::Float64MultiArray>();
         tf::matrixEigenToMsg(transformationMatrix, *ret);
 
         return ret;

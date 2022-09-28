@@ -1,13 +1,13 @@
 #pragma once
 
 #include <nodelet/nodelet.h>
-#include <ros/ros.h>
-#include <autominy_msgs/SteeringAngle.h>
-#include <autominy_msgs/Speed.h>
+#include "rclcpp/rclcpp.hpp"
+#include "autominy_msgs/msg/steering_angle.hpp"
+#include "autominy_msgs/msg/speed.hpp"
 #include <autominy_msgs/SteeringCommand.h>
 #include <autominy_msgs/SpeedCommand.h>
 #include <autominy_msgs/Plot.h>
-#include <autominy_msgs/Voltage.h>
+#include "autominy_msgs/msg/voltage.hpp"
 
 namespace visualization_converter {
 
@@ -15,26 +15,26 @@ namespace visualization_converter {
 
     public:
         void onInit() override;
-        void onSteeringAngle(const autominy_msgs::SteeringAngleConstPtr& msg);
-        void onSpeed(const autominy_msgs::SpeedConstPtr& msg);
-        void onWantedSpeed(const autominy_msgs::SpeedCommandConstPtr& msg);
-        void onWantedSteering(const autominy_msgs::SteeringCommandConstPtr& msg);
-        void onVoltage(const autominy_msgs::VoltageConstPtr& msg);
+        void onSteeringAngle(const autominy_msgs::msg::SteeringAngleConstPtr& msg);
+        void onSpeed(const autominy_msgs::msg::SpeedConstPtr& msg);
+        void onWantedSpeed(const autominy_msgs::msg::SpeedCommandConstPtr& msg);
+        void onWantedSteering(const autominy_msgs::msg::SteeringCommandConstPtr& msg);
+        void onVoltage(const autominy_msgs::msg::VoltageConstPtr& msg);
 
     private:
         /// subscriber
-        ros::Subscriber steeringAngleSubscriber;
-        ros::Subscriber speedSubscriber;
-        ros::Subscriber wantedSpeedSubscriber;
-        ros::Subscriber wantedSteeringSubscriber;
-        ros::Subscriber voltageSubscriber;
+        rclcpp::Subscription<>::SharedPtr steeringAngleSubscriber;
+        rclcpp::Subscription<>::SharedPtr speedSubscriber;
+        rclcpp::Subscription<>::SharedPtr wantedSpeedSubscriber;
+        rclcpp::Subscription<>::SharedPtr wantedSteeringSubscriber;
+        rclcpp::Subscription<>::SharedPtr voltageSubscriber;
 
         /// Publisher
-        ros::Publisher steeringAnglePublisher;
-        ros::Publisher speedPublisher;
-        ros::Publisher wantedSpeedPublisher;
-        ros::Publisher wantedSteeringPublisher;
-        ros::Publisher voltagePublisher;
+        rclcpp::Publisher<>::SharedPtr steeringAnglePublisher;
+        rclcpp::Publisher<>::SharedPtr speedPublisher;
+        rclcpp::Publisher<>::SharedPtr wantedSpeedPublisher;
+        rclcpp::Publisher<>::SharedPtr wantedSteeringPublisher;
+        rclcpp::Publisher<>::SharedPtr voltagePublisher;
     };
 }
 

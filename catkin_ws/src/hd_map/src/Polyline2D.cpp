@@ -1,7 +1,7 @@
 #include <utility>
 #include <hd_map/Polyline2D.h>
 #include <rosconsole/macros_generated.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 namespace hd_map {
     const std::vector<tf2::Vector3>& Polyline2D::getPoints() {
@@ -33,7 +33,7 @@ namespace hd_map {
 
     tf2::Vector3 Polyline2D::interpolate(double param) {
         if (param < 0 || param > length()) {
-            ROS_ERROR("Interpolation is out of range");
+            RCLCPP_ERROR(get_logger(), "Interpolation is out of range");
         }
         tf2::Vector3 p;
 

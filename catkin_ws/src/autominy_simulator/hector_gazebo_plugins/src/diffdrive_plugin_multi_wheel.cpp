@@ -82,10 +82,10 @@
 #endif
 #include <sdf/sdf.hh>
 
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_listener.h>
-#include <geometry_msgs/Twist.h>
+#include "geometry_msgs/msg/twist.hpp"
 #include <nav_msgs/GetMap.h>
 #include <nav_msgs/Odometry.h>
 #include <boost/bind.hpp>
@@ -118,7 +118,7 @@ namespace gazebo {
 
     this->robot_namespace_ = "";
     if (!_sdf->HasElement("robotNamespace")) {
-      ROS_INFO("GazeboRosDiffDriveMultiWheel Plugin missing <robotNamespace>, defaults to \"%s\"", 
+      RCLCPP_INFO(get_logger(), "GazeboRosDiffDriveMultiWheel Plugin missing <robotNamespace>, defaults to \"%s\"",
           this->robot_namespace_.c_str());
     } else {
       this->robot_namespace_ = 
@@ -143,7 +143,7 @@ namespace gazebo {
 
     this->wheel_separation_ = 0.34;
     if (!_sdf->HasElement("wheelSeparation")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <wheelSeparation>, defaults to %f",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <wheelSeparation>, defaults to %f",
           this->robot_namespace_.c_str(), this->wheel_separation_);
     } else {
       this->wheel_separation_ = 
@@ -152,7 +152,7 @@ namespace gazebo {
 
     this->wheel_diameter_ = 0.15;
     if (!_sdf->HasElement("wheelDiameter")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <wheelDiameter>, defaults to %f",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <wheelDiameter>, defaults to %f",
           this->robot_namespace_.c_str(), this->wheel_diameter_);
     } else {
       this->wheel_diameter_ = _sdf->GetElement("wheelDiameter")->Get<double>();
@@ -160,7 +160,7 @@ namespace gazebo {
 
     this->torque = 5.0;
     if (!_sdf->HasElement("torque")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <torque>, defaults to %f",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <torque>, defaults to %f",
           this->robot_namespace_.c_str(), this->torque);
     } else {
       this->torque = _sdf->GetElement("torque")->Get<double>();
@@ -168,7 +168,7 @@ namespace gazebo {
 
     this->command_topic_ = "cmd_vel";
     if (!_sdf->HasElement("commandTopic")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <commandTopic>, defaults to \"%s\"",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <commandTopic>, defaults to \"%s\"",
           this->robot_namespace_.c_str(), this->command_topic_.c_str());
     } else {
       this->command_topic_ = _sdf->GetElement("commandTopic")->Get<std::string>();
@@ -176,7 +176,7 @@ namespace gazebo {
 
     this->odometry_topic_ = "odom";
     if (!_sdf->HasElement("odometryTopic")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <odometryTopic>, defaults to \"%s\"",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <odometryTopic>, defaults to \"%s\"",
           this->robot_namespace_.c_str(), this->odometry_topic_.c_str());
     } else {
       this->odometry_topic_ = _sdf->GetElement("odometryTopic")->Get<std::string>();
@@ -184,7 +184,7 @@ namespace gazebo {
 
     this->odometry_frame_ = "odom";
     if (!_sdf->HasElement("odometryFrame")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <odometryFrame>, defaults to \"%s\"",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <odometryFrame>, defaults to \"%s\"",
           this->robot_namespace_.c_str(), this->odometry_frame_.c_str());
     } else {
       this->odometry_frame_ = _sdf->GetElement("odometryFrame")->Get<std::string>();
@@ -192,7 +192,7 @@ namespace gazebo {
 
     this->robot_base_frame_ = "base_footprint";
     if (!_sdf->HasElement("robotBaseFrame")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <robotBaseFrame>, defaults to \"%s\"",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <robotBaseFrame>, defaults to \"%s\"",
           this->robot_namespace_.c_str(), this->robot_base_frame_.c_str());
     } else {
       this->robot_base_frame_ = _sdf->GetElement("robotBaseFrame")->Get<std::string>();
@@ -200,7 +200,7 @@ namespace gazebo {
 
     this->update_rate_ = 100.0;
     if (!_sdf->HasElement("updateRate")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <updateRate>, defaults to %f",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <updateRate>, defaults to %f",
           this->robot_namespace_.c_str(), this->update_rate_);
     } else {
       this->update_rate_ = _sdf->GetElement("updateRate")->Get<double>();
@@ -209,7 +209,7 @@ namespace gazebo {
 
     this->publish_odometry_tf_ = true;
     if (!_sdf->HasElement("publishOdometryTf")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <publishOdometryTf>, defaults to %s",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <publishOdometryTf>, defaults to %s",
                this->robot_namespace_.c_str(), this->publish_odometry_tf_ ? "true" : "false");
     } else {
       this->publish_odometry_tf_ = _sdf->GetElement("publishOdometryTf")->Get<bool>();
@@ -217,7 +217,7 @@ namespace gazebo {
 
     this->publish_odometry_msg_ = true;
     if (!_sdf->HasElement("publishOdometryMsg")) {
-      ROS_WARN("GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <publishOdometryMsg>, defaults to %s",
+      RCLCPP_WARN(get_logger(),"GazeboRosDiffDriveMultiWheel Plugin (ns = %s) missing <publishOdometryMsg>, defaults to %s",
                this->robot_namespace_.c_str(), this->publish_odometry_msg_ ? "true" : "false");
     } else {
       this->publish_odometry_msg_ = _sdf->GetElement("publishOdometryMsg")->Get<bool>();
@@ -273,7 +273,7 @@ namespace gazebo {
 
     rosnode_ = new ros::NodeHandle(this->robot_namespace_);
 
-    ROS_INFO("Starting GazeboRosDiffDriveMultiWheel Plugin (ns = %s)!", this->robot_namespace_.c_str());
+    RCLCPP_INFO(get_logger(), "Starting GazeboRosDiffDriveMultiWheel Plugin (ns = %s)!", this->robot_namespace_.c_str());
 
     tf_prefix_ = tf::getPrefixParam(*rosnode_);
     transform_broadcaster_ = new tf::TransformBroadcaster();
@@ -366,7 +366,7 @@ namespace gazebo {
   }
 
   void GazeboRosDiffDriveMultiWheel::publishOdometry(double step_time) {
-    ros::Time current_time = ros::Time::now();
+    ros::Time current_time = now();
     std::string odom_frame = 
       tf::resolve(tf_prefix_, odometry_frame_);
     std::string base_footprint_frame = 

@@ -14,8 +14,8 @@
 #include <ros/node_handle.h>
 #include <std_msgs/UInt16.h>
 #include <std_msgs/UInt8.h>
-#include <std_msgs/Float32.h>
-#include <sensor_msgs/Imu.h>
+#include "std_msgs/msg/float32.hpp"
+#include "sensor_msgs/msg/imu.hpp"
 
 // URDF
 #include <urdf/model.h>
@@ -26,11 +26,11 @@
 #include <hardware_interface/joint_command_interface.h>
 
 // autominy
-#include <autominy_msgs/SteeringPWMCommand.h>
-#include <autominy_msgs/SteeringFeedback.h>
-#include <autominy_msgs/SpeedPWMCommand.h>
-#include <autominy_msgs/Tick.h>
-#include <autominy_msgs/Voltage.h>
+#include "autominy_msgs/msg/steering_pwm_command.hpp"
+#include "autominy_msgs/msg/steering_feedback.hpp"
+#include "autominy_msgs/msg/speed_pwm_command.hpp"
+#include "autominy_msgs/msg/tick.hpp"
+#include "autominy_msgs/msg/voltage.hpp"
 
 #include <pluginlib/class_list_macros.h>
 
@@ -58,8 +58,8 @@ namespace autominy_sim_control
       void setupParamas();
 
       // action subscriber
-      void steering_callback(autominy_msgs::SteeringPWMCommandConstPtr const &msg);
-      void speed_callback(autominy_msgs::SpeedPWMCommandConstPtr const &speed);
+      void steering_callback(autominy_msgs::msg::SteeringPWMCommand::ConstSharedPtr const &msg);
+      void speed_callback(autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr const &speed);
 
       ros::NodeHandle controller_nh;
       std::string name;///< Controller name.
@@ -71,12 +71,12 @@ namespace autominy_sim_control
       typedef boost::shared_ptr<control_toolbox::Pid> PidPtr;
       std::vector<PidPtr> pids;
 
-      ros::Subscriber speed_sub;
-      ros::Subscriber imu_sub;
-      ros::Subscriber steering_sub;
-      ros::Publisher steer_angle_pub;
-      ros::Publisher ticks_pub;
-      ros::Publisher voltage_pub;
+      rclcpp::Subscription<>::SharedPtr speed_sub;
+      rclcpp::Subscription<>::SharedPtr imu_sub;
+      rclcpp::Subscription<>::SharedPtr steering_sub;
+      rclcpp::Publisher<>::SharedPtr steer_angle_pub;
+      rclcpp::Publisher<>::SharedPtr ticks_pub;
+      rclcpp::Publisher<>::SharedPtr voltage_pub;
 
       double axe_distance;
       double wheel_distance;

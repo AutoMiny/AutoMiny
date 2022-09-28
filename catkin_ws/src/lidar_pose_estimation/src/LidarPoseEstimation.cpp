@@ -16,13 +16,13 @@ namespace lidar_pose_estimation {
         this->config = config;
     }
 
-    bool LidarPoseEstimation::processLaserScan(const sensor_msgs::LaserScanConstPtr& scan) {
-        sensor_msgs::PointCloud2 cloud;
+    bool LidarPoseEstimation::processLaserScan(const sensor_msgs::msg::LaserScanConstPtr& scan) {
+        sensor_msgs::msg::PointCloud2 cloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloudptr(new pcl::PointCloud<pcl::PointXYZ>());
         try {
             projector.transformLaserScanToPointCloud("lidar_base_link", *scan, cloud, tfBuffer, config.max_dist);
         } catch(const tf2::LookupException& e) {
-            ROS_ERROR("%s", e.what());
+            RCLCPP_ERROR(get_logger(), "%s", e.what());
             return false;
         }
         pcl::fromROSMsg(cloud, *cloudptr);
@@ -33,8 +33,8 @@ namespace lidar_pose_estimation {
         return false;
     }
 
-    sensor_msgs::PointCloud2ConstPtr LidarPoseEstimation::getPoles() {
-        auto ret = boost::make_shared<sensor_msgs::PointCloud2>();
+    sensor_msgs::msg::PointCloud2ConstPtr LidarPoseEstimation::getPoles() {
+        auto ret = boost::make_shared<sensor_msgs::msg::PointCloud2>();
         pcl::toROSMsg(*poles, *ret);
 
         return ret;
@@ -93,7 +93,7 @@ namespace lidar_pose_estimation {
             auto y = pMiddle.y() - pRefMiddle.y();
 
             geometry_msgs::TransformStamped transform;
-            transform.header.stamp = ros::Time::now();
+            transform.header.stamp = now();
             transform.header.frame_id = "board";
             transform.child_frame_id = "lidar_base_link";
             transform.transform.translation.x = -x;

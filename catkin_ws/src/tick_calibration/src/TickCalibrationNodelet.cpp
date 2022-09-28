@@ -1,12 +1,12 @@
 #include <nodelet/nodelet.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 #include <dynamic_reconfigure/server.h>
 #include <tick_calibration/TickCalibrationFwd.h>
 #include <tick_calibration/TickCalibrationConfig.h>
 #include <tick_calibration/TickCalibration.h>
 #include <nav_msgs/Odometry.h>
-#include <autominy_msgs/Tick.h>
+#include "autominy_msgs/msg/tick.hpp"
 
 namespace tick_calibration {
 
@@ -34,9 +34,9 @@ namespace tick_calibration {
 
             tickCalibration = std::make_shared<TickCalibration>();
 
-            localizationSubscriber = pnh.subscribe("/sensors/localization/filtered_map", 10, &TickCalibrationNodelet::onLocalization, this, ros::TransportHints().tcpNoDelay());
-            tickSubscriber = pnh.subscribe("/sensors/arduino/ticks", 10, &TickCalibrationNodelet::onTick, this, ros::TransportHints().tcpNoDelay());
-            calibrationTimer = pnh.createTimer(ros::Duration(0.1), &TickCalibrationNodelet::onCalibrate, this);
+            localizationSubscriber = create_subscription<>("/sensors/localization/filtered_map", 10, &TickCalibrationNodelet::onLocalization, this, ros::TransportHints().tcpNoDelay());
+            tickSubscriber = create_subscription<>("/sensors/arduino/ticks", 10, &TickCalibrationNodelet::onTick, this, ros::TransportHints().tcpNoDelay());
+            calibrationTimer = prclcpp::create_timer(rclcpp::Duration::from_seconds(0.1), &TickCalibrationNodelet::onCalibrate, this);
 
             config_server_ = boost::make_shared<dynamic_reconfigure::Server<tick_calibration::TickCalibrationConfig> >(pnh);
             dynamic_reconfigure::Server<tick_calibration::TickCalibrationConfig>::CallbackType f;
@@ -51,14 +51,14 @@ namespace tick_calibration {
          */
         void callbackReconfigure(tick_calibration::TickCalibrationConfig &config, uint32_t level) {
             tickCalibration->setConfig(config);
-            calibrationTimer.setPeriod(ros::Duration(1.0 / config.calibration_frequency));
+            calibrationTimer.setPeriod(rclcpp::Duration::from_seconds(1.0 / config.calibration_frequency));
         }
 
         void onLocalization(const nav_msgs::OdometryConstPtr& odom) {
             tickCalibration->addLocalization(odom);
         }
 
-        void onTick(const autominy_msgs::TickConstPtr& tick) {
+        void onTick(const autominy_msgs::msg::TickConstPtr& tick) {
             tickCalibration->addTick(tick);
         }
 
@@ -67,8 +67,8 @@ namespace tick_calibration {
         }
 
         /// subscriber
-        ros::Subscriber localizationSubscriber;
-        ros::Subscriber tickSubscriber;
+        rclcpp::Subscription<>::SharedPtr localizationSubscriber;
+        rclcpp::Subscription<>::SharedPtr tickSubscriber;
         ros::Timer calibrationTimer;
 
         /// pointer to dynamic reconfigure service

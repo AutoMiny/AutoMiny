@@ -1,13 +1,13 @@
 #include <nodelet/nodelet.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 #include <dynamic_reconfigure/server.h>
 #include <emergency_stop/EmergencyStopFwd.h>
 #include <emergency_stop/EmergencyStopConfig.h>
 #include <emergency_stop/EmergencyStop.h>
 #include <sensor_msgs/LaserScan.h>
-#include <autominy_msgs/SpeedPWMCommand.h>
-#include <autominy_msgs/Speed.h>
+#include "autominy_msgs/msg/speed_pwm_command.hpp"
+#include "autominy_msgs/msg/speed.hpp"
 
 namespace emergency_stop {
 
@@ -35,10 +35,10 @@ namespace emergency_stop {
 
             emergencyStop = std::make_shared<EmergencyStop>();
 
-            speedPublisher = pnh.advertise<autominy_msgs::SpeedPWMCommand>("speed", 1);
-            scanSubscriber = pnh.subscribe("scan", 1, &EmergencyStopNodelet::onScan, this, ros::TransportHints().tcpNoDelay());
-            wantedSpeedSubscriber = pnh.subscribe("wanted_speed", 1, &EmergencyStopNodelet::onWantedSpeed, this, ros::TransportHints().tcpNoDelay());
-            currentSpeedSubscriber = pnh.subscribe("carstate/speed", 1, &EmergencyStopNodelet::onCurrentSpeed, this, ros::TransportHints().tcpNoDelay());
+            speedPublisher = pcreate_publisher<autominy_msgs::msg::SpeedPWMCommand>("speed", 1);
+            scanSubscriber = create_subscription<>("scan", 1, &EmergencyStopNodelet::onScan, this, ros::TransportHints().tcpNoDelay());
+            wantedSpeedSubscriber = create_subscription<>("wanted_speed", 1, &EmergencyStopNodelet::onWantedSpeed, this, ros::TransportHints().tcpNoDelay());
+            currentSpeedSubscriber = create_subscription<>("carstate/speed", 1, &EmergencyStopNodelet::onCurrentSpeed, this, ros::TransportHints().tcpNoDelay());
 
             config_server_ = boost::make_shared<dynamic_reconfigure::Server<emergency_stop::EmergencyStopConfig> >(pnh);
             dynamic_reconfigure::Server<emergency_stop::EmergencyStopConfig>::CallbackType f;
@@ -51,16 +51,16 @@ namespace emergency_stop {
          **
          ** @param msg
          */
-        void onScan(sensor_msgs::LaserScanConstPtr const &msg) {
+        void onScan(sensor_msgs::msg::LaserScanConstPtr const &msg) {
             emergencyStop->checkEmergencyStop(msg);
             speedPublisher.publish(emergencyStop->getSafeSpeed());
         }
 
-        void onCurrentSpeed(autominy_msgs::SpeedConstPtr const &msg) {
+        void onCurrentSpeed(autominy_msgs::msg::SpeedConstPtr const &msg) {
             emergencyStop->setCurrentSpeed(msg);
         }
 
-        void onWantedSpeed(autominy_msgs::SpeedPWMCommandConstPtr const &msg) {
+        void onWantedSpeed(autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr const &msg) {
             emergencyStop->setWantedSpeed(msg);
         }
 
@@ -73,12 +73,12 @@ namespace emergency_stop {
         }
 
         /// subscriber
-        ros::Subscriber scanSubscriber;
-        ros::Subscriber currentSpeedSubscriber;
-        ros::Subscriber wantedSpeedSubscriber;
+        rclcpp::Subscription<>::SharedPtr scanSubscriber;
+        rclcpp::Subscription<>::SharedPtr currentSpeedSubscriber;
+        rclcpp::Subscription<>::SharedPtr wantedSpeedSubscriber;
 
         /// publisher
-        ros::Publisher speedPublisher;
+        rclcpp::Publisher<>::SharedPtr speedPublisher;
 
         /// pointer to dynamic reconfigure service
         boost::shared_ptr<dynamic_reconfigure::Server<emergency_stop::EmergencyStopConfig> > config_server_;

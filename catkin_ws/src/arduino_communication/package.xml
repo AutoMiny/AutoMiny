@@ -9,7 +9,7 @@
 
   <license>TODO</license>
 
-  <buildtool_depend>colcon</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>rclcpp</depend>
   <depend>autominy_msgs</depend>
   <depend>geometry_msgs</depend>

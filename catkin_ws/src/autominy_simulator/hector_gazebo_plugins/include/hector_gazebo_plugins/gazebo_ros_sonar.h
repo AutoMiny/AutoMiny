@@ -32,7 +32,7 @@
 #include <gazebo/common/Plugin.hh>
 
 #include <ros/callback_queue.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 #include <sensor_msgs/Range.h>
 #include <hector_gazebo_plugins/sensor_model.h>
@@ -61,9 +61,9 @@ private:
   sensors::RaySensorPtr sensor_;
 
   ros::NodeHandle* node_handle_;
-  ros::Publisher publisher_;
+  rclcpp::Publisher<>::SharedPtr publisher_;
 
-  sensor_msgs::Range range_;
+  sensor_msgs::msg::Range range_;
 
   std::string namespace_;
   std::string topic_;

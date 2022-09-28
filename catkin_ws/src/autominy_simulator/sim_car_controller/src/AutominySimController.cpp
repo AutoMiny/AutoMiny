@@ -57,7 +57,7 @@ namespace autominy_sim_control
 
     template <class HardwareInterface>
     bool AutominySimController<HardwareInterface>::init(HardwareInterface* hw, ros::NodeHandle& root_nh, ros::NodeHandle& controller_nh) {
-        ROS_INFO("Init");
+        RCLCPP_INFO(get_logger(), "Init");
         std::string joint_name;
 
         // Cache controller node handle
@@ -66,7 +66,7 @@ namespace autominy_sim_control
         // Controller name
         this->name = internal::getNamespace(this->controller_nh);
 
-        last_publish = ros::Time::now();
+        last_publish = now();
         acc = 0.0;
 
         // get the joint names
@@ -81,7 +81,7 @@ namespace autominy_sim_control
             return false;
         }
         const unsigned int n_joints = joint_names.size();
-        ROS_INFO("Joint-Names %d", n_joints);
+        RCLCPP_INFO(get_logger(), "Joint-Names %d", n_joints);
 
         // get the joints from the urdf file
         std::shared_ptr<urdf::Model> urdf = internal::getUrdf(root_nh, "robot_description");
@@ -120,13 +120,13 @@ namespace autominy_sim_control
         setupParamas();
 
         // ros communications
-        this->steering_sub = root_nh.subscribe(this->steering_topic, 1, &AutominySimController<HardwareInterface>::steering_callback, this);
-        this->speed_sub = root_nh.subscribe(this->speed_topic, 1, &AutominySimController<HardwareInterface>::speed_callback, this);
+        this->steering_sub = root_create_subscription(this->steering_topic, 1, &AutominySimController<HardwareInterface>::steering_callback, this);
+        this->speed_sub = root_create_subscription(this->speed_topic, 1, &AutominySimController<HardwareInterface>::speed_callback, this);
 
-        this->steer_angle_pub = root_nh.advertise<autominy_msgs::SteeringFeedback>(this->steering_fb_topic, 1);
-        this->ticks_pub = root_nh.advertise<autominy_msgs::Tick>(this->ticks_topic, 1);
+        this->steer_angle_pub = root_create_publisher<autominy_msgs::msg::SteeringFeedback>(this->steering_fb_topic, 1);
+        this->ticks_pub = root_create_publisher<autominy_msgs::msg::Tick>(this->ticks_topic, 1);
 
-        this->voltage_pub = root_nh.advertise<autominy_msgs::Voltage>(this->voltage_topic, 1);
+        this->voltage_pub = root_create_publisher<autominy_msgs::msg::Voltage>(this->voltage_topic, 1);
 
         ROS_DEBUG_STREAM_NAMED(name, "Initialized controller '" << name << "' with:" <<
         "\n- Number of joints: " << joints.size() <<
@@ -144,7 +144,7 @@ namespace autominy_sim_control
         for (unsigned int i = 0; i < this->pids.size(); ++i) {
             this->pids[i]->reset();
             this->joints[i].setCommand(0.0);
-            ROS_INFO("Joint - Pos: %f, Speed: %f", this->joints[i].getPosition(), this->joints[i].getVelocity());
+            RCLCPP_INFO(get_logger(), "Joint - Pos: %f, Speed: %f", this->joints[i].getPosition(), this->joints[i].getVelocity());
         }
         this->left_steer_cmd = 0;
         this->right_steer_cmd = 0;
@@ -159,7 +159,7 @@ namespace autominy_sim_control
 
     template <class HardwareInterface>
     void AutominySimController<HardwareInterface>::update(const ros::Time& time, const ros::Duration& period) {
-        //ROS_INFO("Duration %f", period.toSec());
+        //RCLCPP_INFO(get_logger(), "Duration %f", period.toSec());
         double error, command;
         double steer_l_pos, steer_r_pos;
         double drive_r_l_vel, drive_r_r_vel, drive_f_l_vel, drive_f_r_vel;
@@ -201,7 +201,7 @@ namespace autominy_sim_control
 
         acc += (std::abs(this->linear_speed) * period.toSec());
 
-        if (ros::Time::now() - last_publish >= ros::Duration(0.01)) {
+        if (now() - last_publish >= rclcpp::Duration::from_seconds(0.01)) {
             // Publish steer angle
             double cotan_steer, steer_angle_radians;
             cotan_steer = (1 / tan(steer_l_pos) + 1 / tan(steer_r_pos)) / 2;
@@ -212,27 +212,27 @@ namespace autominy_sim_control
 
             // Publish steer angle feedback
             auto steer_angle = internal::mapRange(-0.498, 0.512, 192, 420, -steer_angle_radians);
-            autominy_msgs::SteeringFeedback msg;
+            autominy_msgs::msg::SteeringFeedback msg;
             msg.value = static_cast<int16_t>(steer_angle);
-            msg.header.stamp = ros::Time::now();
+            msg.header.stamp = now();
             msg.header.frame_id = "base_link";
             this->steer_angle_pub.publish(msg);
 
             // Publish ticks
-            autominy_msgs::Tick tick;
-            tick.header.stamp = ros::Time::now();
+            autominy_msgs::msg::Tick tick;
+            tick.header.stamp = now();
             tick.header.frame_id = "base_link";
             tick.value = acc / 0.003;
             acc = std::fmod(acc, 0.003);
             ticks_pub.publish(tick);
 
             // Publish voltage
-            autominy_msgs::Voltage volt;
+            autominy_msgs::msg::Voltage volt;
             volt.value = 16.0f;
-            volt.header.stamp = ros::Time::now();
+            volt.header.stamp = now();
             volt.header.frame_id = "base_link";
             voltage_pub.publish(volt);
-            last_publish = ros::Time::now();
+            last_publish = now();
         }
     }
 
@@ -290,7 +290,7 @@ namespace autominy_sim_control
     }
 
     template <class HardwareInterface>
-    void AutominySimController<HardwareInterface>::steering_callback(autominy_msgs::SteeringPWMCommandConstPtr const &msg) {
+    void AutominySimController<HardwareInterface>::steering_callback(autominy_msgs::msg::SteeringPWMCommand::ConstSharedPtr const &msg) {
         int16_t steering_command;
         double car_angle;
         double curve_radius;
@@ -320,7 +320,7 @@ namespace autominy_sim_control
     }
 
     template <class HardwareInterface>
-    void AutominySimController<HardwareInterface>::speed_callback(autominy_msgs::SpeedPWMCommandConstPtr const &speed) {
+    void AutominySimController<HardwareInterface>::speed_callback(autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr const &speed) {
         double radius;
         double motor_voltage, motor_speed, wheel_speed;
 

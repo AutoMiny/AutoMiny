@@ -14,11 +14,11 @@ namespace odometry {
         this->config = config;
     }
 
-    void Odometry::setSpeed(const autominy_msgs::SpeedConstPtr &speed) {
+    void Odometry::setSpeed(const autominy_msgs::msg::SpeedConstPtr &speed) {
         currentSpeed = speed->value;
     }
 
-    void Odometry::setSteering(const autominy_msgs::SteeringAngleConstPtr &speed) {
+    void Odometry::setSteering(const autominy_msgs::msg::SteeringAngleConstPtr &speed) {
         currentSteering = speed->value;
     }
 

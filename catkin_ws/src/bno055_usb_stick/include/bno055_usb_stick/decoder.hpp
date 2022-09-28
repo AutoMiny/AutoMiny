@@ -10,7 +10,7 @@
 #include <ros/names.h>
 #include <ros/param.h>
 #include <ros/time.h>
-#include <sensor_msgs/Imu.h>
+#include "sensor_msgs/msg/imu.hpp"
 #include <sensor_msgs/MagneticField.h>
 #include <sensor_msgs/Temperature.h>
 #include <tf/transform_datatypes.h>
@@ -32,7 +32,7 @@ namespace bno055_usb_stick {
 
         bno055_usb_stick_msgs::Output decode(const boost::uint8_t* data) {
             bno055_usb_stick_msgs::Output output;
-            output.header.stamp = ros::Time::now();
+            output.header.stamp = now();
             output.header.frame_id = frame_id_;
             output.acceleration = decodeAcc(data + Constants::ACC_POS);
             output.magnetometer = decodeMag(data + Constants::MAG_POS);
@@ -57,8 +57,8 @@ namespace bno055_usb_stick {
                                         output.header.stamp, frame_id, child_frame_id);
         }
 
-        static sensor_msgs::Imu toImuMsg(const bno055_usb_stick_msgs::Output& output) {
-            sensor_msgs::Imu imu;
+        static sensor_msgs::msg::Imu toImuMsg(const bno055_usb_stick_msgs::Output& output) {
+            sensor_msgs::msg::Imu imu;
             imu.header = output.header;
             imu.orientation = output.quaternion;
             imu.angular_velocity = output.gyroscope;
@@ -91,16 +91,16 @@ namespace bno055_usb_stick {
             return pose;
         }
 
-        static sensor_msgs::MagneticField toMagMsg(const bno055_usb_stick_msgs::Output& output) {
-            sensor_msgs::MagneticField mag;
+        static sensor_msgs::msg::MagneticField toMagMsg(const bno055_usb_stick_msgs::Output& output) {
+            sensor_msgs::msg::MagneticField mag;
             mag.header = output.header;
             mag.magnetic_field = output.magnetometer;
             std::fill(mag.magnetic_field_covariance.begin(), mag.magnetic_field_covariance.end(), 0.);
             return mag;
         }
 
-        static sensor_msgs::Temperature toTempMsg(const bno055_usb_stick_msgs::Output& output) {
-            sensor_msgs::Temperature temp;
+        static sensor_msgs::msg::Temperature toTempMsg(const bno055_usb_stick_msgs::Output& output) {
+            sensor_msgs::msg::Temperature temp;
             temp.header = output.header;
             temp.temperature = output.temperature;
             temp.variance = 0.;

@@ -81,10 +81,10 @@
 #include <gazebo/physics/physics.hh>
 
 // ROS
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_listener.h>
-#include <geometry_msgs/Twist.h>
+#include "geometry_msgs/msg/twist.hpp"
 #include <nav_msgs/Odometry.h>
 #include <nav_msgs/OccupancyGrid.h>
 
@@ -131,8 +131,8 @@ namespace gazebo {
 
       // ROS STUFF
       ros::NodeHandle* rosnode_;
-      ros::Publisher odometry_publisher_;
-      ros::Subscriber cmd_vel_subscriber_;
+      rclcpp::Publisher<>::SharedPtr odometry_publisher_;
+      rclcpp::Subscription<>::SharedPtr cmd_vel_subscriber_;
       tf::TransformBroadcaster *transform_broadcaster_;
       nav_msgs::Odometry odom_;
       std::string tf_prefix_;

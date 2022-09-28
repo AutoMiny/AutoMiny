@@ -33,11 +33,11 @@ namespace lidar_pose_estimation {
          */
         void setConfig(LidarPoseEstimationConfig& config);
 
-        bool processLaserScan(const sensor_msgs::LaserScanConstPtr& scan);
+        bool processLaserScan(const sensor_msgs::msg::LaserScanConstPtr& scan);
 
         bool estimateLidarPosition(const ros::TimerEvent& evnt);
 
-        sensor_msgs::PointCloud2ConstPtr getPoles();
+        sensor_msgs::msg::PointCloud2ConstPtr getPoles();
 
     private:
         /// dynamic config attribute

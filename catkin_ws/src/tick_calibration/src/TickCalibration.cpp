@@ -16,7 +16,7 @@ namespace tick_calibration {
         pastTrajectory.push_back(odom);
     }
 
-    void TickCalibration::addTick(const autominy_msgs::TickConstPtr& tick) {
+    void TickCalibration::addTick(const autominy_msgs::msg::TickConstPtr& tick) {
         pastTicks.push_back(tick);
     }
 
@@ -33,7 +33,7 @@ namespace tick_calibration {
             }
 
             if (distance < config.min_length) {
-                ROS_WARN("Distance smaller than min length needed for calibration");
+                RCLCPP_WARN(get_logger(),"Distance smaller than min length needed for calibration");
                 return -1;
             }
 
@@ -43,11 +43,11 @@ namespace tick_calibration {
             }
 
             if (ticks < config.min_ticks) {
-                ROS_WARN("Ticks less than min ticks needed for calibration");
+                RCLCPP_WARN(get_logger(),"Ticks less than min ticks needed for calibration");
                 return -1;
             }
 
-            ROS_INFO("Ticks to m: %f", distance / ticks);
+            RCLCPP_INFO(get_logger(), "Ticks to m: %f", distance / ticks);
             return distance / ticks;
         }
 

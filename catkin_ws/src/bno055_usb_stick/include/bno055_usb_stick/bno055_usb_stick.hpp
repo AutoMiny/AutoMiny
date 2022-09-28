@@ -95,7 +95,7 @@ namespace bno055_usb_stick {
 
         void startSendCommand() {
             if (commands_.empty()) {
-                ROS_ERROR("startSendCommand: No command in the queue");
+                RCLCPP_ERROR(get_logger(), "startSendCommand: No command in the queue");
                 restart();
                 return;
             }
@@ -223,7 +223,7 @@ namespace bno055_usb_stick {
                                 void (BNO055USBStick::*handler)()) {
             // make sure this callback is called by a deadline expiration
             if (error == boost::asio::error::operation_aborted) {
-                // ROS_INFO("handleWaitDeadline: the deadline disabled");
+                // RCLCPP_INFO(get_logger(), "handleWaitDeadline: the deadline disabled");
                 return;
             } else if (error) {
                 ROS_ERROR_STREAM("handleWaitDeadline: " << error.message());

@@ -29,7 +29,7 @@
 #include <hector_gazebo_plugins/reset_plugin.h>
 #include <gazebo/common/Events.hh>
 
-#include <std_msgs/String.h>
+#include "std_msgs/msg/string.h"
 
 namespace gazebo {
 
@@ -58,14 +58,14 @@ void GazeboResetPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   }
 
   node_handle_ = new ros::NodeHandle;
-  publisher_ = node_handle_->advertise<std_msgs::String>("/syscommand", 1);
+  publisher_ = node_handle_->advertise<std_msgs::msg::String>("/syscommand", 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Reset the controller
 void GazeboResetPlugin::Reset()
 {
-  std_msgs::String command;
+  std_msgs::msg::String command;
   command.data = "reset";
   publisher_.publish(command);
 }

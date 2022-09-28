@@ -1,8 +1,8 @@
 #pragma once
 
 #include <nodelet/nodelet.h>
-#include <ros/ros.h>
-#include <autominy_msgs/Voltage.h>
+#include "rclcpp/rclcpp.hpp"
+#include "autominy_msgs/msg/voltage.hpp"
 #include <dynamic_reconfigure/server.h>
 #include <low_voltage_shutdown/LowVoltageShutdownConfig.h>
 
@@ -12,12 +12,12 @@ namespace low_voltage_shutdown {
 
     public:
         void onInit() override;
-        void onVoltage(const autominy_msgs::VoltageConstPtr& msg);
+        void onVoltage(const autominy_msgs::msg::VoltageConstPtr& msg);
         void onConfig(const LowVoltageShutdownConfig& config, uint32_t level);
 
     private:
         /// subscriber
-        ros::Subscriber voltageSubscriber;
+        rclcpp::Subscription<>::SharedPtr voltageSubscriber;
 
         boost::shared_ptr<dynamic_reconfigure::Server<LowVoltageShutdownConfig>> configServer;
         LowVoltageShutdownConfig config;

@@ -31,7 +31,7 @@
 
 #include <gazebo/common/Plugin.hh>
 
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <geometry_msgs/Vector3Stamped.h>
 #include <hector_gazebo_plugins/sensor_model.h>
 #include <hector_gazebo_plugins/update_timer.h>
@@ -60,7 +60,7 @@ private:
   physics::LinkPtr link;
 
   ros::NodeHandle* node_handle_;
-  ros::Publisher publisher_;
+  rclcpp::Publisher<>::SharedPtr publisher_;
 
   geometry_msgs::Vector3Stamped magnetic_field_;
 #if (GAZEBO_MAJOR_VERSION >= 8)

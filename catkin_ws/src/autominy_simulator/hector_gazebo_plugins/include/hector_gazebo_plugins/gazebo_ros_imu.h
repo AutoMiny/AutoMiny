@@ -37,9 +37,9 @@
 
 #include <gazebo/common/Plugin.hh>
 
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <boost/thread/mutex.hpp>
-#include <sensor_msgs/Imu.h>
+#include "sensor_msgs/msg/imu.hpp"
 #include <std_srvs/Empty.h>
 #include <hector_gazebo_plugins/SetBias.h>
 #include <hector_gazebo_plugins/sensor_model.h>
@@ -72,12 +72,12 @@ namespace gazebo
 
       /// \brief pointer to ros node
       ros::NodeHandle* node_handle_;
-      ros::Publisher pub_;
-      ros::Publisher bias_pub_;
+      rclcpp::Publisher<>::SharedPtr pub_;
+      rclcpp::Publisher<>::SharedPtr bias_pub_;
 
       /// \brief ros message
-      sensor_msgs::Imu imuMsg;
-      sensor_msgs::Imu biasMsg;
+      sensor_msgs::msg::Imu imuMsg;
+      sensor_msgs::msg::Imu biasMsg;
 
       /// \brief store link name
       std::string link_name_;
@@ -126,8 +126,8 @@ namespace gazebo
       std::string namespace_;
 
       /// \brief call back when using service
-      bool ServiceCallback(std_srvs::Empty::Request &req,
-                                    std_srvs::Empty::Response &res);
+      bool ServiceCallback(std_srvs::srv::Empty::Request &req,
+                                    std_srvs::srv::Empty::Response &res);
       ros::ServiceServer srv_;
       std::string serviceName;
 

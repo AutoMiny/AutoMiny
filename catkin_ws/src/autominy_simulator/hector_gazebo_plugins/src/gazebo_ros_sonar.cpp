@@ -96,7 +96,7 @@ void GazeboRosSonar::Load(sensors::SensorPtr _sensor, sdf::ElementPtr _sdf)
   sensor_model_.Load(_sdf);
 
   range_.header.frame_id = frame_id_;
-  range_.radiation_type = sensor_msgs::Range::ULTRASOUND;
+  range_.radiation_type = sensor_msgs::msg::Range::ULTRASOUND;
 #if (GAZEBO_MAJOR_VERSION > 6)
   range_.field_of_view = std::min(fabs((sensor_->AngleMax() - sensor_->AngleMin()).Radian()), fabs((sensor_->VerticalAngleMax() - sensor_->VerticalAngleMin()).Radian()));
   range_.max_range = sensor_->RangeMax();
@@ -116,7 +116,7 @@ void GazeboRosSonar::Load(sensors::SensorPtr _sensor, sdf::ElementPtr _sdf)
   }
 
   node_handle_ = new ros::NodeHandle(namespace_);
-  publisher_ = node_handle_->advertise<sensor_msgs::Range>(topic_, 1);
+  publisher_ = node_handle_->advertise<sensor_msgs::msg::Range>(topic_, 1);
 
   // setup dynamic_reconfigure server
   dynamic_reconfigure_server_.reset(new dynamic_reconfigure::Server<SensorModelConfig>(ros::NodeHandle(*node_handle_, topic_)));
@@ -162,7 +162,7 @@ void GazeboRosSonar::Update()
 #endif
 
   // find ray with minimal range
-  range_.range = std::numeric_limits<sensor_msgs::Range::_range_type>::max();
+  range_.range = std::numeric_limits<sensor_msgs::msg::Range::_range_type>::max();
 #if (GAZEBO_MAJOR_VERSION > 6)
   int num_ranges = sensor_->LaserShape()->GetSampleCount() * sensor_->LaserShape()->GetVerticalSampleCount();
 #else

@@ -2,8 +2,8 @@
 
 #include <odometry/OdometryConfig.h>
 #include <nav_msgs/Odometry.h>
-#include <autominy_msgs/Speed.h>
-#include <autominy_msgs/SteeringAngle.h>
+#include "autominy_msgs/msg/speed.hpp"
+#include "autominy_msgs/msg/steering_angle.hpp"
 #include <tf2_ros/transform_broadcaster.h>
 
 namespace odometry {
@@ -28,9 +28,9 @@ namespace odometry {
          */
         void setConfig(odometry::OdometryConfig &config);
 
-        void setSpeed(const autominy_msgs::SpeedConstPtr &speed);
+        void setSpeed(const autominy_msgs::msg::SpeedConstPtr &speed);
 
-        void setSteering(const autominy_msgs::SteeringAngleConstPtr &steering);
+        void setSteering(const autominy_msgs::msg::SteeringAngleConstPtr &steering);
 
         nav_msgs::Odometry step(const ros::TimerEvent& evnt);
 

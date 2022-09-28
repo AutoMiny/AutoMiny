@@ -29,7 +29,7 @@
 #endif
 
 // ROS 
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_listener.h>
 #include <geometry_msgs/QuaternionStamped.h>
@@ -83,7 +83,7 @@ private:
   unsigned int countOfServos;
   unsigned int orderOfAxes[3];
   unsigned int rotationConv;
-  sensor_msgs::JointState joint_state;
+  sensor_msgs::msg::JointState joint_state;
 
   // parameters
   std::string robotNamespace;
@@ -98,8 +98,8 @@ private:
 
   // ROS STUFF
   ros::NodeHandle* rosnode_;
-  ros::Publisher jointStatePub_;
-  ros::Subscriber sub_;
+  rclcpp::Publisher<>::SharedPtr jointStatePub_;
+  rclcpp::Subscription<>::SharedPtr sub_;
   tf::TransformListener* transform_listener_;
 
   // Custom Callback Queue

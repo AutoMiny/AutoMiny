@@ -149,7 +149,7 @@ void ServoPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   rosnode_ = new ros::NodeHandle(robotNamespace);
 
   transform_listener_ = new tf::TransformListener();
-  transform_listener_->setExtrapolationLimit(ros::Duration(1.0));
+  transform_listener_->setExtrapolationLimit(rclcpp::Duration::from_seconds(1.0));
 
   if (!topicName.empty()) {
     ros::SubscribeOptions so = ros::SubscribeOptions::create<geometry_msgs::QuaternionStamped>(topicName, 1,
@@ -159,7 +159,7 @@ void ServoPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   }
 
   if (!jointStateName.empty()) {
-    jointStatePub_ = rosnode_->advertise<sensor_msgs::JointState>(jointStateName, 10);
+    jointStatePub_ = rosnode_->advertise<sensor_msgs::msg::JointState>(jointStateName, 10);
   }
 
   joint_state.header.frame_id = transform_listener_->resolve(_model->GetLink()->GetName());
@@ -284,7 +284,7 @@ void ServoPlugin::CalculateVelocities()
     transform_listener_->lookupTransform("base_link", current_cmd->header.frame_id, ros::Time(0), transform);
   }
   catch (tf::TransformException ex){
-    ROS_DEBUG("%s",ex.what());
+    RCLCPP_DEBUG(get_logger(), "%s",ex.what());
     servo[FIRST].velocity = 0.0;
     servo[SECOND].velocity = 0.0;
     servo[THIRD].velocity = 0.0;

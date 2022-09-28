@@ -36,7 +36,7 @@
 #include <boost/thread/lock_guard.hpp>
 #endif
 
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <nodelet/nodelet.h>
 #include <image_transport/image_transport.h>
 #include <image_transport/subscriber_filter.h>
@@ -54,7 +54,7 @@
 namespace pcl_xyzi_image_proc {
 
 using namespace message_filters::sync_policies;
-namespace enc = sensor_msgs::image_encodings;
+namespace enc = sensor_msgs::msg::image_encodings;
 
 class PointCloudXyziNodelet : public nodelet::Nodelet
 {
@@ -63,15 +63,15 @@ class PointCloudXyziNodelet : public nodelet::Nodelet
   
   // Subscriptions
   image_transport::SubscriberFilter sub_depth_, sub_intensity_;
-  message_filters::Subscriber<sensor_msgs::CameraInfo> sub_info_;
-  typedef ApproximateTime<sensor_msgs::Image, sensor_msgs::Image, sensor_msgs::CameraInfo> SyncPolicy;
+  message_filters::Subscriber<sensor_msgs::msg::CameraInfo> sub_info_;
+  typedef ApproximateTime<sensor_msgs::msg::Image, sensor_msgs::msg::Image, sensor_msgs::msg::CameraInfo> SyncPolicy;
   typedef message_filters::Synchronizer<SyncPolicy> Synchronizer;
   boost::shared_ptr<Synchronizer> sync_;
 
   // Publications
   boost::mutex connect_mutex_;
-  typedef sensor_msgs::PointCloud2 PointCloud;
-  ros::Publisher pub_point_cloud_;
+  typedef sensor_msgs::msg::PointCloud2 PointCloud;
+  rclcpp::Publisher<>::SharedPtr pub_point_cloud_;
 
   image_geometry::PinholeCameraModel model_;
 
@@ -79,13 +79,13 @@ class PointCloudXyziNodelet : public nodelet::Nodelet
 
   void connectCb();
 
-  void imageCb(const sensor_msgs::ImageConstPtr& depth_msg,
-               const sensor_msgs::ImageConstPtr& intensity_msg,
-               const sensor_msgs::CameraInfoConstPtr& info_msg);
+  void imageCb(const sensor_msgs::msg::ImageConstPtr& depth_msg,
+               const sensor_msgs::msg::ImageConstPtr& intensity_msg,
+               const sensor_msgs::msg::CameraInfoConstPtr& info_msg);
 
   template<typename T, typename T2>
-  void convert(const sensor_msgs::ImageConstPtr& depth_msg,
-               const sensor_msgs::ImageConstPtr& intensity_msg,
+  void convert(const sensor_msgs::msg::ImageConstPtr& depth_msg,
+               const sensor_msgs::msg::ImageConstPtr& intensity_msg,
                const PointCloud::Ptr& cloud_msg);
 };
 
@@ -107,10 +107,10 @@ void PointCloudXyziNodelet::onInit()
   sync_->registerCallback(boost::bind(&PointCloudXyziNodelet::imageCb, this, _1, _2, _3));
   
   // Monitor whether anyone is subscribed to the output
-  ros::SubscriberStatusCallback connect_cb = boost::bind(&PointCloudXyziNodelet::connectCb, this);
+  rclcpp::Subscription<>::SharedPtrStatusCallback connect_cb = boost::bind(&PointCloudXyziNodelet::connectCb, this);
   // Make sure we don't enter connectCb() between advertising and assigning to pub_point_cloud_
   boost::lock_guard<boost::mutex> lock(connect_mutex_);
-  pub_point_cloud_ = depth_nh.advertise<PointCloud>("points", 1, connect_cb, connect_cb);
+  pub_point_cloud_ = depth_create_publisher<PointCloud>("points", 1, connect_cb, connect_cb);
 }
 
 // Handles (un)subscribing when clients (un)subscribe
@@ -140,18 +140,18 @@ void PointCloudXyziNodelet::connectCb()
   }
 }
 
-void PointCloudXyziNodelet::imageCb(const sensor_msgs::ImageConstPtr& depth_msg,
-                                      const sensor_msgs::ImageConstPtr& intensity_msg_in,
-                                      const sensor_msgs::CameraInfoConstPtr& info_msg)
+void PointCloudXyziNodelet::imageCb(const sensor_msgs::msg::ImageConstPtr& depth_msg,
+                                      const sensor_msgs::msg::ImageConstPtr& intensity_msg_in,
+                                      const sensor_msgs::msg::CameraInfoConstPtr& info_msg)
 {
   // Update camera model
   model_.fromCameraInfo(info_msg);
 
   // Check if the input image has to be resized
-  sensor_msgs::ImageConstPtr intensity_msg = intensity_msg_in;
+  sensor_msgs::msg::ImageConstPtr intensity_msg = intensity_msg_in;
   if (depth_msg->width != intensity_msg->width || depth_msg->height != intensity_msg->height)
   {
-    sensor_msgs::CameraInfo info_msg_tmp = *info_msg;
+    sensor_msgs::msg::CameraInfo info_msg_tmp = *info_msg;
     info_msg_tmp.width = depth_msg->width;
     info_msg_tmp.height = depth_msg->height;
     float ratio = float(depth_msg->width)/float(intensity_msg->width);
@@ -172,7 +172,7 @@ void PointCloudXyziNodelet::imageCb(const sensor_msgs::ImageConstPtr& depth_msg,
     }
     catch (cv_bridge::Exception& e)
     {
-      ROS_ERROR("cv_bridge exception: %s", e.what());
+      RCLCPP_ERROR(get_logger(), "cv_bridge exception: %s", e.what());
       return;
     }
     cv_bridge::CvImage cv_rsz;
@@ -212,13 +212,13 @@ void PointCloudXyziNodelet::imageCb(const sensor_msgs::ImageConstPtr& depth_msg,
   cloud_msg->is_dense = false;
   cloud_msg->is_bigendian = false;
 
-  sensor_msgs::PointCloud2Modifier pcd_modifier(*cloud_msg);
+  sensor_msgs::msg::PointCloud2Modifier pcd_modifier(*cloud_msg);
 //  pcd_modifier.setPointCloud2FieldsByString(2, "xyz", "i");
   pcd_modifier.setPointCloud2Fields(4,
-   "x", 1, sensor_msgs::PointField::FLOAT32,
-   "y", 1, sensor_msgs::PointField::FLOAT32,
-   "z", 1, sensor_msgs::PointField::FLOAT32,
-   "intensity", 1, sensor_msgs::PointField::FLOAT32);
+   "x", 1, sensor_msgs::msg::PointField::FLOAT32,
+   "y", 1, sensor_msgs::msg::PointField::FLOAT32,
+   "z", 1, sensor_msgs::msg::PointField::FLOAT32,
+   "intensity", 1, sensor_msgs::msg::PointField::FLOAT32);
 
 
   if (depth_msg->encoding == enc::TYPE_16UC1 && 
@@ -251,8 +251,8 @@ void PointCloudXyziNodelet::imageCb(const sensor_msgs::ImageConstPtr& depth_msg,
 }
 
 template<typename T, typename T2>
-void PointCloudXyziNodelet::convert(const sensor_msgs::ImageConstPtr& depth_msg,
-                                      const sensor_msgs::ImageConstPtr& intensity_msg,
+void PointCloudXyziNodelet::convert(const sensor_msgs::msg::ImageConstPtr& depth_msg,
+                                      const sensor_msgs::msg::ImageConstPtr& intensity_msg,
                                       const PointCloud::Ptr& cloud_msg)
 {
   // Use correct principal point from calibration
@@ -271,10 +271,10 @@ void PointCloudXyziNodelet::convert(const sensor_msgs::ImageConstPtr& depth_msg,
   const T2* inten_row = reinterpret_cast<const T2*>(&intensity_msg->data[0]);
   int inten_row_step  = intensity_msg->step / sizeof(T2);
 
-  sensor_msgs::PointCloud2Iterator<float> iter_x(*cloud_msg, "x");
-  sensor_msgs::PointCloud2Iterator<float> iter_y(*cloud_msg, "y");
-  sensor_msgs::PointCloud2Iterator<float> iter_z(*cloud_msg, "z");
-  sensor_msgs::PointCloud2Iterator<float> iter_i(*cloud_msg, "intensity");
+  sensor_msgs::msg::PointCloud2Iterator<float> iter_x(*cloud_msg, "x");
+  sensor_msgs::msg::PointCloud2Iterator<float> iter_y(*cloud_msg, "y");
+  sensor_msgs::msg::PointCloud2Iterator<float> iter_z(*cloud_msg, "z");
+  sensor_msgs::msg::PointCloud2Iterator<float> iter_i(*cloud_msg, "intensity");
 
   for (int v = 0; v < int(cloud_msg->height); ++v, depth_row += row_step, inten_row += inten_row_step)
   {

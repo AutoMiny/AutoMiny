@@ -1,5 +1,5 @@
 #include <nodelet/nodelet.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include <ros/package.h>
 
 #include <dynamic_reconfigure/server.h>
@@ -29,15 +29,15 @@ namespace lidar_pose_estimation {
             ros::NodeHandle pnh = getPrivateNodeHandle();
 
             estimation = std::make_unique<LidarPoseEstimation>();
-            poleCloudPublisher = pnh.advertise<sensor_msgs::PointCloud2>("poles", 10);
+            poleCloudPublisher = pcreate_publisher<sensor_msgs::msg::PointCloud2>("poles", 10);
 
             configServer = boost::make_shared<dynamic_reconfigure::Server<LidarPoseEstimationConfig> >(pnh);
             dynamic_reconfigure::Server<LidarPoseEstimationConfig>::CallbackType f;
             f = boost::bind(&LidarPoseEstimationNodelet::callbackReconfigure, this, _1, _2);
             configServer->setCallback(f);
 
-            laserSubscriber = pnh.subscribe("scan", 1, &LidarPoseEstimationNodelet::onLaserScan, this, ros::TransportHints().tcpNoDelay());
-            calibrationTimer = pnh.createTimer(ros::Duration(1), &LidarPoseEstimationNodelet::onCalibration, this);
+            laserSubscriber = create_subscription<>("scan", 1, &LidarPoseEstimationNodelet::onLaserScan, this, ros::TransportHints().tcpNoDelay());
+            calibrationTimer = prclcpp::create_timer(rclcpp::Duration::from_seconds(1), &LidarPoseEstimationNodelet::onCalibration, this);
         }
 
     private:
@@ -47,11 +47,11 @@ namespace lidar_pose_estimation {
          */
         void callbackReconfigure(LidarPoseEstimationConfig& config, uint32_t level) {
             estimation->setConfig(config);
-            calibrationTimer.setPeriod(ros::Duration(1.0 / config.execution_frequency));
+            calibrationTimer.setPeriod(rclcpp::Duration::from_seconds(1.0 / config.execution_frequency));
             this->config = config;
         }
 
-        void onLaserScan(const sensor_msgs::LaserScanConstPtr msg) {
+        void onLaserScan(const sensor_msgs::msg::LaserScanConstPtr msg) {
             if(estimation->processLaserScan(msg)) {
             }
         }
@@ -63,11 +63,11 @@ namespace lidar_pose_estimation {
         }
 
         /// Subscriber
-        ros::Subscriber laserSubscriber;
+        rclcpp::Subscription<>::SharedPtr laserSubscriber;
         ros::Timer calibrationTimer;
 
         /// Publisher
-        ros::Publisher poleCloudPublisher;
+        rclcpp::Publisher<>::SharedPtr poleCloudPublisher;
 
         /// pointer to dynamic reconfigure service
         boost::shared_ptr<dynamic_reconfigure::Server<LidarPoseEstimationConfig>> configServer;
