@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.22)
 
 project(fub_steering_calibration)
 
@@ -20,9 +20,9 @@ include_directories(
 # install(
 #     TARGETS
 #         ${PROJECT_NAME}
-#     ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#     LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#     RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#     ARCHIVE DESTINATION lib
+#     LIBRARY DESTINATION lib
+#     RUNTIME DESTINATION bin
 # )
 
 # ## Mark cpp header files for installation

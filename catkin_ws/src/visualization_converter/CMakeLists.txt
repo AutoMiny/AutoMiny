@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.22)
 project(visualization_converter)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -97,7 +97,7 @@ target_link_libraries(${PROJECT_NAME}_node
 ## in contrast to setup.py, you can choose the destination
 # install(PROGRAMS
 #   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#   DESTINATION bin
 # )
 
 ## Mark executables and/or libraries for installation
@@ -105,9 +105,9 @@ install(
         TARGETS
         ${PROJECT_NAME}_node
         ${PROJECT_NAME}_nodelet
-        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-        LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
 )
 
 ## Mark cpp header files for installation
@@ -119,12 +119,12 @@ install(DIRECTORY include/${PROJECT_NAME}/
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(
         DIRECTORY launch
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+        DESTINATION share/${PROJECT_NAME}
 )
 
 install(
         FILES nodelet_plugins.xml
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+        DESTINATION share/${PROJECT_NAME}
 )
 
 #############

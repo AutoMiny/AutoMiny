@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.22)
 project(bno055_usb_stick)
 
 ## Find catkin macros and libraries
@@ -165,14 +165,14 @@ target_link_libraries(
 ## in contrast to setup.py, you can choose the destination
 # install(PROGRAMS
 #   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#   DESTINATION bin
 # )
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS bno055_usb_stick bno055_usb_stick_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#   ARCHIVE DESTINATION lib
+#   LIBRARY DESTINATION lib
+#   RUNTIME DESTINATION bin
 # )
 
 ## Mark cpp header files for installation
@@ -186,7 +186,7 @@ target_link_libraries(
 # install(FILES
 #   # myfile1
 #   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+#   DESTINATION share/${PROJECT_NAME}
 # )
 
 #############

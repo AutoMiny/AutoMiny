@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>autominy</name>
   <version>0.0.1</version>
   <description>Startup project</description>
@@ -18,7 +18,6 @@
   <depend>xacro</depend>
   <depend>rgbd_launch</depend>
   <depend>rosbridge_server</depend>
-  <depend>rplidar_ros</depend>
   <export>
   </export>
 </package>

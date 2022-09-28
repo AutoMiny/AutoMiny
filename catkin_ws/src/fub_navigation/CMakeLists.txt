@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.22)
 project(fub_navigation)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
@@ -160,14 +160,14 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
  install(PROGRAMS
    src/control.py
-   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+   DESTINATION bin
  )
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#   ARCHIVE DESTINATION lib
+#   LIBRARY DESTINATION lib
+#   RUNTIME DESTINATION bin
 # )
 
 ## Mark cpp header files for installation
@@ -181,7 +181,7 @@ include_directories(
  install(FILES
    src/matrix25cm_lane2.npy
    src/matrix25cm_lane1.npy
-   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/src/
+   DESTINATION share/${PROJECT_NAME}/src/
  )
 
 #############

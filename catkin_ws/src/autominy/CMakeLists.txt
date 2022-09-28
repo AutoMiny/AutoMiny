@@ -1,11 +1,10 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.22)
 project(autominy)
  
-find_package(catkin REQUIRED)
+find_package(ament_cmake REQUIRED)
 
-catkin_package(
-)
 install(DIRECTORY launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-  USE_SOURCE_PERMISSIONS
-)
+  DESTINATION share/${PROJECT_NAME}
+  USE_SOURCE_PERMISSIONS)
+
+ament_package()

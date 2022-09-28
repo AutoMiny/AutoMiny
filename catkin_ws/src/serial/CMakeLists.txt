@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.22)
 project(serial)
 
 # Find catkin
@@ -66,8 +66,8 @@ include_directories(include)
 
 ## Install executable
 install(TARGETS ${PROJECT_NAME}
-    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
 )
 
 ## Install headers

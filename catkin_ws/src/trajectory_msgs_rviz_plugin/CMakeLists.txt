@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.22)
 project(trajectory_msgs_rviz_plugin)
 
 
@@ -72,11 +72,11 @@ target_link_libraries(${PROJECT_NAME}
 
 install(TARGETS
         ${PROJECT_NAME}
-        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-        LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
         )
 
 install(FILES
         plugin_description.xml
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+        DESTINATION share/${PROJECT_NAME})

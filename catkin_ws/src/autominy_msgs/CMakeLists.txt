@@ -1,57 +1,36 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.22)
 project(autominy_msgs)
 
-## Find catkin macros and libraries
-find_package(catkin REQUIRED COMPONENTS
-        std_msgs
-        geometry_msgs
-        message_generation
-        )
-
+find_package(ament_cmake REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
 ################################################
 ## Declare ROS messages, services and actions ##
 ################################################
 
-add_message_files(
-        FILES
-        NormalizedSpeedCommand.msg
-        NormalizedSteeringCommand.msg
-        Plot.msg
-        SteeringAngle.msg
-        Speed.msg
-        SpeedCommand.msg
-        SpeedPWMCommand.msg
-        SteeringAngle.msg
-        SteeringCommand.msg
-        SteeringPWMCommand.msg
-        SteeringFeedback.msg
-        Tick.msg
-        Trajectory.msg
-        TrajectoryPoint.msg
-        Voltage.msg
+set(msg_files
+        msg/NormalizedSpeedCommand.msg
+        msg/NormalizedSteeringCommand.msg
+        msg/Plot.msg
+        msg/Speed.msg
+        msg/SpeedCommand.msg
+        msg/SpeedPWMCommand.msg
+        msg/SteeringAngle.msg
+        msg/SteeringCommand.msg
+        msg/SteeringPWMCommand.msg
+        msg/SteeringFeedback.msg
+        msg/Tick.msg
+        msg/Trajectory.msg
+        msg/TrajectoryPoint.msg
+        msg/Voltage.msg
 )
 
-
-## Generate added messages and services with any dependencies listed here
-generate_messages(
-        DEPENDENCIES
-        std_msgs
-        geometry_msgs
+rosidl_generate_interfaces(${PROJECT_NAME}
+        ${msg_files}
+        DEPENDENCIES std_msgs geometry_msgs
 )
 
-###################################
-## catkin specific configuration ##
-###################################
-catkin_package(
-        CATKIN_DEPENDS
-        std_msgs
-        message_runtime
-)
-
-## Mark cpp header files for installation
-install(DIRECTORY include/${PROJECT_NAME}
-        DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-        FILES_MATCHING PATTERN "*.h"
-        PATTERN ".git" EXCLUDE
-        )
+ament_export_dependencies(std_msgs message_geometry_msgs)
+ament_package()

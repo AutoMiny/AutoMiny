@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.22)
 project(autominy_sim)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -122,14 +122,14 @@ catkin_package(
 ## in contrast to setup.py, you can choose the destination
 # install(PROGRAMS
 #   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#   DESTINATION bin
 # )
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS car_gazebo car_gazebo_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#   ARCHIVE DESTINATION lib
+#   LIBRARY DESTINATION lib
+#   RUNTIME DESTINATION bin
 # )
 
 ## Mark cpp header files for installation
@@ -143,7 +143,7 @@ catkin_package(
 # install(FILES
 #   # myfile1
 #   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+#   DESTINATION share/${PROJECT_NAME}
 # )
 
 #############

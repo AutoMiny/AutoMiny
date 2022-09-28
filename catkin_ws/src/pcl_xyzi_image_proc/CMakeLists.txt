@@ -24,8 +24,8 @@ add_library(${PROJECT_NAME} src/nodelets/point_cloud_xyzi.cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 install(TARGETS ${PROJECT_NAME}
-        DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        DESTINATION lib
 )
 install(FILES nodelet_plugins.xml
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+        DESTINATION share/${PROJECT_NAME}
 )

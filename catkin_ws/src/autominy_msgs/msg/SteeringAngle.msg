@@ -1,4 +1,4 @@
-Header header
+std_msgs/Header header
 
 # speed [radians, positive = left, negative = right]
 float64 value
