@@ -1,71 +1,78 @@
 #pragma once
 
-#include <nodelet/nodelet.h>
 #include "rclcpp/rclcpp.hpp"
-#include <dynamic_reconfigure/server.h>
-#include <image_transport/image_transport.h>
 #include "autominy_msgs/msg/tick.hpp"
 #include "autominy_msgs/msg/steering_feedback.hpp"
 #include "autominy_msgs/msg/steering_angle.hpp"
-#include <autominy_msgs/NormalizedSteeringCommand.h>
-#include <autominy_msgs/NormalizedSpeedCommand.h>
+#include "autominy_msgs/msg/normalized_steering_command.hpp"
+#include "autominy_msgs/msg/normalized_speed_command.hpp"
 #include "autominy_msgs/msg/speed.hpp"
 #include "autominy_msgs/msg/speed_pwm_command.hpp"
-#include <autominy_msgs/SteeringCommand.h>
+#include "autominy_msgs/msg/steering_command.hpp"
+#include "autominy_msgs/msg/speed_command.hpp"
 #include "autominy_msgs/msg/steering_pwm_command.hpp"
-#include <autominy_msgs/SpeedCommand.h>
-#include <hardware_calibration/HardwareCalibrationConfig.h>
 #include <boost/algorithm/clamp.hpp>
 #include <boost/circular_buffer.hpp>
 #include <numeric>
 
 namespace hardware_calibration {
+
+    struct HardwareCalibrationConfig {
+        int minimum_steering_feedback = 192;
+        int maximum_steering_feedback = 420;
+        double minimum_steering_radians = 0.512;
+        double maximum_steering_radians = -0.498;
+        int minimum_steering_pwm = 950;
+        int maximum_steering_pwm = 2150;
+        int minimum_speed_pwm = -1000;
+        int maximum_speed_pwm = 1000;
+        double ticks_to_m = 0.0027;
+        int number_of_ticks_filter = 20;
+        int number_of_steering_msgs_filter = 10;
+        double direction_change_max_speed = 0.3;
+    };
+
     enum class Direction : int8_t {
         FORWARD = 1,
         BACKWARD = -1
     };
 
-    class HardwareCalibrationNodelet : public nodelet::Nodelet {
+    class HardwareCalibrationNodelet : public rclcpp::Node {
 
     public:
-        HardwareCalibrationNodelet();
-        void onInit() override;
-        void onTicks(const autominy_msgs::msg::TickConstPtr& msg);
-        void onSteeringFeedback(const autominy_msgs::msg::SteeringFeedbackConstPtr& msg);
-        void onWantedSpeed(const autominy_msgs::msg::NormalizedSpeedCommandConstPtr& msg);
-        void onWantedSteering(const autominy_msgs::msg::NormalizedSteeringCommandConstPtr& msg);
-        void onSpeedCommand(const autominy_msgs::msg::SpeedCommandConstPtr& msg);
-        void onSteeringCommand(const autominy_msgs::msg::SteeringCommandConstPtr& msg);
-        void onReconfigure(HardwareCalibrationConfig &config, uint32_t level);
+        HardwareCalibrationNodelet(const rclcpp::NodeOptions& opts = rclcpp::NodeOptions());
+        void onTicks(const autominy_msgs::msg::Tick::ConstSharedPtr & msg);
+        void onSteeringFeedback(const autominy_msgs::msg::SteeringFeedback::ConstSharedPtr& msg);
+        void onWantedSpeed(const autominy_msgs::msg::NormalizedSpeedCommand::ConstSharedPtr& msg);
+        void onWantedSteering(const autominy_msgs::msg::NormalizedSteeringCommand::ConstSharedPtr& msg);
+        void onSpeedCommand(const autominy_msgs::msg::SpeedCommand::ConstSharedPtr& msg);
+        void onSteeringCommand(const autominy_msgs::msg::SteeringCommand::ConstSharedPtr& msg);
     private:
         double mapRange(double a1, double a2, double b1, double b2, double s);
 
         /// subscriber
-        rclcpp::Subscription<>::SharedPtr steeringFeedbackSubscriber;
-        rclcpp::Subscription<>::SharedPtr speedSubscriber;
-        rclcpp::Subscription<>::SharedPtr steeringSubscriber;
-        rclcpp::Subscription<>::SharedPtr wantedSpeedSubscriber;
-        rclcpp::Subscription<>::SharedPtr wantedSteeringSubscriber;
-        rclcpp::Subscription<>::SharedPtr ticksSubscriber;
+        rclcpp::Subscription<autominy_msgs::msg::SteeringFeedback>::SharedPtr steeringFeedbackSubscriber;
+        rclcpp::Subscription<autominy_msgs::msg::SpeedCommand>::SharedPtr speedSubscriber;
+        rclcpp::Subscription<autominy_msgs::msg::SteeringCommand>::SharedPtr steeringSubscriber;
+        rclcpp::Subscription<autominy_msgs::msg::NormalizedSpeedCommand>::SharedPtr wantedSpeedSubscriber;
+        rclcpp::Subscription<autominy_msgs::msg::NormalizedSteeringCommand>::SharedPtr wantedSteeringSubscriber;
+        rclcpp::Subscription<autominy_msgs::msg::Tick>::SharedPtr ticksSubscriber;
 
         /// Publisher
-        rclcpp::Publisher<>::SharedPtr steeringPublisher;
-        rclcpp::Publisher<>::SharedPtr speedPublisher;
-        rclcpp::Publisher<>::SharedPtr steeringAnglePublisher;
-        rclcpp::Publisher<>::SharedPtr speedMPSPublisher;
-        rclcpp::Publisher<>::SharedPtr calibratedSpeedPublisher;
+        rclcpp::Publisher<autominy_msgs::msg::SteeringPWMCommand>::SharedPtr steeringPublisher;
+        rclcpp::Publisher<autominy_msgs::msg::SpeedPWMCommand>::SharedPtr speedPublisher;
+        rclcpp::Publisher<autominy_msgs::msg::SteeringAngle>::SharedPtr steeringAnglePublisher;
+        rclcpp::Publisher<autominy_msgs::msg::SpeedCommand>::SharedPtr speedMPSPublisher;
+        rclcpp::Publisher<autominy_msgs::msg::Speed>::SharedPtr calibratedSpeedPublisher;
 
         /// pointer to dynamic reconfigure service
-        boost::shared_ptr<dynamic_reconfigure::Server<HardwareCalibrationConfig>> configServer;
         HardwareCalibrationConfig config;
 
         boost::circular_buffer<int16_t> steeringFeedbackBuffer;
-        boost::circular_buffer<autominy_msgs::msg::TickConstPtr> ticksBuffer;
+        boost::circular_buffer<autominy_msgs::msg::Tick::ConstSharedPtr> ticksBuffer;
         Direction direction;
         Direction wantedDirection;
         double currentSpeed;
     };
 }
 
-#include <pluginlib/class_list_macros.h>
-PLUGINLIB_EXPORT_CLASS(hardware_calibration::HardwareCalibrationNodelet, nodelet::Nodelet);

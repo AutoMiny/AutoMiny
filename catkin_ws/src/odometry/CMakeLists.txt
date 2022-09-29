@@ -58,4 +58,5 @@ install(
         DESTINATION share/${PROJECT_NAME}
 )
 
+rclcpp_components_register_nodes(odometry_nodelet "odometry::OdometryNodelet")
 ament_package()
