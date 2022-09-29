@@ -15,11 +15,11 @@ namespace autominy_sim_control
       
             if (nh.getParam(param_name, urdf_str)) {
                 if (!urdf->initString(urdf_str)) {
-                    ROS_ERROR_STREAM("Failed to parse URDF contained in '" << param_name << "' parameter (namespace: " << nh.getNamespace() << ").");
+                    RCLCPP_ERROR_STREAM(get_logger(), "Failed to parse URDF contained in '" << param_name << "' parameter (namespace: " << nh.getNamespace() << ").");
                     return std::shared_ptr<urdf::Model>();
                 }
             } else if (!urdf->initParam("robot_description")) {
-                ROS_ERROR_STREAM("Failed to parse URDF contained in '" << param_name << "' parameter");
+                RCLCPP_ERROR_STREAM(get_logger(), "Failed to parse URDF contained in '" << param_name << "' parameter");
                 return std::shared_ptr<urdf::Model>();
             }
             return urdf;
@@ -34,7 +34,7 @@ namespace autominy_sim_control
                 if (urdf_joint) {
                     out.push_back(urdf_joint);
                 } else {
-                    ROS_ERROR_STREAM("Could not find joint '" << joint_names[i] << "' in URDF model.");
+                    RCLCPP_ERROR_STREAM(get_logger(), "Could not find joint '" << joint_names[i] << "' in URDF model.");
                     return std::vector<UrdfJointConstPtr>();
                 }
             }

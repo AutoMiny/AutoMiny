@@ -103,7 +103,7 @@ namespace gazebo
     if (sdf->HasElement("y_velocity_p_gain"))
       (sdf->GetElement("y_velocity_p_gain")->GetValue()->Get(force_y_velocity_p_gain_));
       
-    ROS_INFO_STREAM("ForceBasedMove using gains: yaw: " << torque_yaw_velocity_p_gain_ <<
+    RCLCPP_INFO_STREAM(get_logger(), "ForceBasedMove using gains: yaw: " << torque_yaw_velocity_p_gain_ <<
                                                  " x: " << force_x_velocity_p_gain_ <<
                                                  " y: " << force_y_velocity_p_gain_ << "\n");
 
@@ -119,7 +119,7 @@ namespace gazebo
       robot_base_frame_ = sdf->GetElement("robotBaseFrame")->Get<std::string>();
     }
 
-    ROS_INFO_STREAM("robotBaseFrame for force based move plugin: " << robot_base_frame_  << "\n");
+    RCLCPP_INFO_STREAM(get_logger(), "robotBaseFrame for force based move plugin: " << robot_base_frame_  << "\n");
 
     this->link_ = parent->GetLink(robot_base_frame_);
 

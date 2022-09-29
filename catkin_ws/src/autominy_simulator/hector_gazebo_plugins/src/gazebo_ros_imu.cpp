@@ -37,7 +37,7 @@ namespace gazebo
 
 // #define DEBUG_OUTPUT
 #ifdef DEBUG_OUTPUT
-  #include <geometry_msgs/PoseStamped.h>
+  #include "geometry_msgs/msg/pose_stamped.hpp"
   static rclcpp::Publisher<>::SharedPtr debugPublisher;
 #endif // DEBUG_OUTPUT
 

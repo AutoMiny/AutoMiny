@@ -6,15 +6,12 @@
 #include <sstream>
 #include <string>
 
-#include <ros/console.h>
-#include <ros/duration.h>
-#include <ros/names.h>
-#include <ros/param.h>
+#include "rclcpp/rclcpp.hpp"
 
-#include <bno055_usb_stick/constants.hpp>
-#include <bno055_usb_stick/decoder.hpp>
-#include <bno055_usb_stick/match_conditions.hpp>
-#include <bno055_usb_stick_msgs/Output.h>
+#include "bno055_usb_stick/constants.hpp"
+#include "bno055_usb_stick/decoder.hpp"
+#include "bno055_usb_stick/match_conditions.hpp"
+#include "bno055_usb_stick_msgs/msg/output.hpp"
 
 #include <boost/asio/deadline_timer.hpp>
 #include <boost/asio/io_service.hpp>
@@ -32,15 +29,16 @@ namespace bno055_usb_stick {
 
     class BNO055USBStick {
     public:
-        typedef boost::function<void(const bno055_usb_stick_msgs::Output&)> Callback;
+        typedef boost::function<void(const bno055_usb_stick_msgs::msg::Output&)> Callback;
 
     public:
-        BNO055USBStick(boost::asio::io_service& asio_service, const Callback& callback,
+        BNO055USBStick(rclcpp::Node& nh, boost::asio::io_service& asio_service, const Callback& callback,
                        const std::string& ns = "~")
-                : port_(ros::param::param<std::string>(ros::names::append(ns, "port"), "/dev/ttyIMU")),
-                  timeout_(ros::param::param(ros::names::append(ns, "timeout"), 1.)),
-                  mode_(ros::param::param<std::string>(ros::names::append(ns, "mode"), "imu")),
-                  serial_(asio_service), timer_(asio_service), callback_(callback), decoder_(ns) {
+                : nh(nh),
+                  port_(nh.declare_parameter<std::string>("port", "/dev/ttyIMU")),
+                  timeout_(rclcpp::Duration::from_seconds(nh.declare_parameter("timeout", 1.))),
+                  mode_(nh.declare_parameter<std::string>("mode", "imu")),
+                  serial_(asio_service), timer_(asio_service), callback_(callback), decoder_(nh) {
             start();
         }
 
@@ -63,7 +61,7 @@ namespace bno055_usb_stick {
                 serial_.set_option(Serial::character_size(8));
             } catch (const boost::system::system_error& error) {
                 // retry if something is wrong
-                ROS_ERROR_STREAM("start: " << error.what());
+                RCLCPP_ERROR_STREAM(nh.get_logger(), "start: " << error.what());
                 restart();
                 return;
             }
@@ -79,7 +77,7 @@ namespace bno055_usb_stick {
                     commands_.push_back(*command);
                 }
             } else {
-                ROS_WARN_STREAM("Unknown mode \""
+                RCLCPP_WARN_STREAM(nh.get_logger(), "Unknown mode \""
                                         << mode_ << "\" was given. Will use the default mode \"ndof\" instead.");
                 for (const boost::uint8_t** command = Constants::toNDOFCommands(); *command; ++command) {
                     commands_.push_back(*command);
@@ -95,7 +93,7 @@ namespace bno055_usb_stick {
 
         void startSendCommand() {
             if (commands_.empty()) {
-                RCLCPP_ERROR(get_logger(), "startSendCommand: No command in the queue");
+                RCLCPP_ERROR(nh.get_logger(), "startSendCommand: No command in the queue");
                 restart();
                 return;
             }
@@ -115,7 +113,7 @@ namespace bno055_usb_stick {
             cancelWaitDeadline();
 
             if (error) {
-                ROS_ERROR_STREAM("handleSendCommand: " << error.message());
+                RCLCPP_ERROR_STREAM(nh.get_logger(), "handleSendCommand: " << error.message());
                 restart();
                 return;
             }
@@ -142,7 +140,7 @@ namespace bno055_usb_stick {
             cancelWaitDeadline();
 
             if (error) {
-                ROS_ERROR_STREAM("handleWaitResponse: " << error.message());
+                RCLCPP_ERROR_STREAM(nh.get_logger(), "handleWaitResponse: " << error.message());
                 restart();
                 return;
             }
@@ -173,7 +171,7 @@ namespace bno055_usb_stick {
             cancelWaitDeadline();
 
             if (error) {
-                ROS_ERROR_STREAM("handleWaitData: " << error.message());
+                RCLCPP_ERROR_STREAM(nh.get_logger(), "handleWaitData: " << error.message());
                 restart();
                 return;
             }
@@ -184,7 +182,7 @@ namespace bno055_usb_stick {
                 const boost::uint8_t* data_end(
                         boost::asio::buffer_cast<const boost::uint8_t*>(buffer_.data()) + bytes);
                 const boost::uint8_t* data_begin(data_end - Constants::DAT_LEN);
-                const bno055_usb_stick_msgs::Output output(decoder_.decode(data_begin));
+                const bno055_usb_stick_msgs::msg::Output output(decoder_.decode(data_begin));
                 callback_(output);
             }
 
@@ -203,7 +201,7 @@ namespace bno055_usb_stick {
                 }
             } catch (const boost::system::system_error& error) {
                 // just print the error because can do nothing further
-                ROS_ERROR_STREAM("stop: " << error.what());
+                RCLCPP_ERROR_STREAM(nh.get_logger(), "stop: " << error.what());
             }
         }
 
@@ -213,7 +211,7 @@ namespace bno055_usb_stick {
         }
 
         void startWaitDeadline(void (BNO055USBStick::*handler)()) {
-            timer_.expires_from_now(timeout_.toBoost());
+            timer_.expires_from_now(boost::posix_time::milliseconds(static_cast<int>(timeout_.seconds() * 1000.0)));
             timer_.async_wait(boost::bind(&BNO055USBStick::handleWaitDeadline, this, _1, handler));
         }
 
@@ -226,7 +224,7 @@ namespace bno055_usb_stick {
                 // RCLCPP_INFO(get_logger(), "handleWaitDeadline: the deadline disabled");
                 return;
             } else if (error) {
-                ROS_ERROR_STREAM("handleWaitDeadline: " << error.message());
+                RCLCPP_ERROR_STREAM(nh.get_logger(), "handleWaitDeadline: " << error.message());
                 return;
             }
 
@@ -236,7 +234,7 @@ namespace bno055_usb_stick {
                     serial_.cancel();
                 }
             } catch (const boost::system::system_error& error_on_cancel) {
-                ROS_ERROR_STREAM("handleWaitDeadline: " << error_on_cancel.what());
+                RCLCPP_ERROR_STREAM(nh.get_logger(), "handleWaitDeadline: " << error_on_cancel.what());
             }
 
             // execute the given handler
@@ -252,7 +250,7 @@ namespace bno055_usb_stick {
             for (const boost::uint8_t* c = begin; c != end; ++c) {
                 oss << "0x" << std::setw(2) << std::setfill('0') << std::hex << int(*c) << " ";
             }
-            ROS_INFO_STREAM(prefix << oss.str());
+            RCLCPP_INFO_STREAM(nh.get_logger(), prefix << oss.str());
         }
 
         void dumpRead(const std::string& prefix, const std::size_t bytes) {
@@ -262,13 +260,15 @@ namespace bno055_usb_stick {
             for (const boost::uint8_t* c = begin; c != end; ++c) {
                 oss << "0x" << std::setw(2) << std::setfill('0') << std::hex << int(*c) << " ";
             }
-            ROS_INFO_STREAM(prefix << oss.str());
+            RCLCPP_INFO_STREAM(nh.get_logger(), prefix << oss.str());
         }
 
     private:
+        rclcpp::Node& nh;
+
         // parameters
         const std::string port_;
-        const ros::Duration timeout_;
+        const rclcpp::Duration timeout_;
         const std::string mode_;
 
         // buffers

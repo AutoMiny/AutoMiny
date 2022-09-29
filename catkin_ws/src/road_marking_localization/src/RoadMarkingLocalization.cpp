@@ -256,7 +256,7 @@ namespace road_marking_localization {
                 yaw > config.maximum_yaw_correction ||
                 xCorrection < -config.maximum_x_correction || yCorrection < -config.maximum_y_correction ||
                 yaw < -config.maximum_yaw_correction) {
-                ROS_WARN_STREAM("Too large transformation, not doing anything" << transformationMatrix);
+                RCLCPP_WARN_STREAM(get_logger(), ("Too large transformation, not doing anything" << transformationMatrix);
                 transformationMatrix = transformationMatrix.setIdentity();
                 return false;
             }
