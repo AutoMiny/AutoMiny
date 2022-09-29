@@ -121,3 +121,4 @@ emergency_stop::EmergencyStopNodelet::onConfig(const std::vector<rclcpp::Paramet
 
 #include "rclcpp_components/register_node_macro.hpp"
 RCLCPP_COMPONENTS_REGISTER_NODE(emergency_stop::EmergencyStopNodelet);
+

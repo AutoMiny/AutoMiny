@@ -1,94 +1,88 @@
-#include <nodelet/nodelet.h>
-#include "rclcpp/rclcpp.hpp"
-
-#include <dynamic_reconfigure/server.h>
-#include <odometry/OdometryFwd.h>
-#include <odometry/OdometryConfig.h>
-#include <odometry/Odometry.h>
-#include "sensor_msgs/msg/laser_scan.hpp"
-#include "autominy_msgs/msg/speed_pwm_command.hpp"
-#include "autominy_msgs/msg/speed.hpp"
-#include <nav_msgs/Odometry.h>
+#include "odometry/Odometry.h"
 
 namespace odometry {
+    OdometryNodelet::OdometryNodelet(const rclcpp::NodeOptions &opts) : rclcpp::Node("odometry", opts),
+                                                                                  tfBroadCaster(this) {
+        axleDistance = declare_parameter<double>("axle_distance", 0.27);
+        publishTf = declare_parameter<bool>("publish_tf", false);
 
-/** Odometry nodelet. Does nothing. You can break
- ** lines like this.
- **
- ** @ingroup @@
- */
-    class OdometryNodelet : public nodelet::Nodelet {
-    public:
-        /** Constructor.
-         */
-        OdometryNodelet() = default;
+        odometryPublisher = create_publisher<nav_msgs::msg::Odometry>("odom", 1);
+        speedSubscriber = create_subscription<autominy_msgs::msg::Speed>("speed", 1,
+                                                                         std::bind(&OdometryNodelet::onSpeed, this,
+                                                                                   std::placeholders::_1));
+        steeringSubscriber = create_subscription<autominy_msgs::msg::SteeringAngle>("steering", 1, std::bind(
+                &OdometryNodelet::onSteering, this, std::placeholders::_1));
 
-        /** Destructor.
-         */
-        ~OdometryNodelet() override {}
+        last = now();
+        timer = rclcpp::create_timer(this, get_clock(), rclcpp::Duration::from_seconds(0.01),
+                                     std::bind(&OdometryNodelet::onOdometry, this));
+    }
 
-        /** Nodelet initialization. Called by nodelet manager on initialization,
-         ** can be used to e.g. subscribe to topics and define publishers.
-         */
-        virtual void onInit() override {
-            ros::NodeHandle nh = getNodeHandle();
-            ros::NodeHandle pnh = getPrivateNodeHandle();
+    void OdometryNodelet::onOdometry() {
+        nav_msgs::msg::Odometry odom;
 
-            odometry = std::make_shared<Odometry>();
+        auto t = now();
+        auto dt = (t - last).seconds();
+        last = t;
+        if (dt <= 0) return;
 
-            odometryPublisher = pcreate_publisher<nav_msgs::Odometry>("odom", 1);
-            speedSubscriber = create_subscription<>("speed", 1, &OdometryNodelet::onSpeed, this, ros::TransportHints().tcpNoDelay());
-            steeringSubscriber = create_subscription<>("steering", 1, &OdometryNodelet::onSteering, this, ros::TransportHints().tcpNoDelay());
+        auto vth = (currentSpeed / axleDistance) * tan(currentSteering);
+        yaw += vth * dt;
+        x += currentSpeed * cos(yaw) * dt;
+        y += currentSpeed * sin(yaw) * dt;
 
-            config_server_ = boost::make_shared<dynamic_reconfigure::Server<odometry::OdometryConfig> >(pnh);
-            dynamic_reconfigure::Server<odometry::OdometryConfig>::CallbackType f;
-            f = boost::bind(&OdometryNodelet::callbackReconfigure, this, _1, _2);
-            config_server_->setCallback(f);
+        odom.header.stamp = t;
+        odom.header.frame_id = "odom";
+        odom.child_frame_id = "base_link";
+        odom.pose.pose.position.x = x;
+        odom.pose.pose.position.y = y;
+        odom.pose.pose.position.z = 0.0;
+        odom.twist.twist.linear.x = currentSpeed;
+        odom.twist.twist.angular.z = vth;
 
-            timer = prclcpp::create_timer(rclcpp::Duration::from_seconds(0.01), &OdometryNodelet::onOdometry, this);
+        tf2::Quaternion q;
+        q.setRPY(0.0, 0.0, yaw);
+        odom.pose.pose.orientation = tf2::toMsg(q);
+
+        odom.pose.covariance = { 0.01, 0, 0, 0, 0, 0,
+                                 0, 0.01, 0, 0, 0, 0,
+                                 0, 0, 0.01, 0, 0, 0,
+                                 0, 0, 0, 0.01, 0, 0,
+                                 0, 0, 0, 0, 0.01, 0,
+                                 0, 0, 0, 0, 0, 0.03
+        };
+
+        odom.twist.covariance = {0.001, 0, 0, 0, 0, 0,
+                                 0, 0.0001, 0, 0, 0, 0,
+                                 0, 0, 0.001, 0, 0, 0,
+                                 0, 0, 0, 0.01, 0, 0,
+                                 0, 0, 0, 0, 0.01, 0,
+                                 0, 0, 0, 0, 0, 0.03
+        };
+
+        if (publishTf) {
+            geometry_msgs::msg::TransformStamped trans;
+            trans.header = odom.header;
+            trans.child_frame_id = odom.child_frame_id;
+            trans.transform.translation.x = odom.pose.pose.position.x;
+            trans.transform.translation.y = odom.pose.pose.position.y;
+            trans.transform.rotation = odom.pose.pose.orientation;
+
+            tfBroadCaster.sendTransform(trans);
         }
 
-    private:
+        odometryPublisher->publish(odom);
+    }
 
-        void onOdometry(const ros::TimerEvent& event) {
-            auto msg = odometry->step(event);
-            odometryPublisher.publish(msg);
-        }
+    void OdometryNodelet::onSpeed(const autominy_msgs::msg::Speed::ConstSharedPtr &msg) {
+        currentSpeed = msg->value;
+    }
 
-        void onSpeed(autominy_msgs::msg::Speed::ConstSharedPtr const &msg) {
-            odometry->setSpeed(msg);
-        }
+    void OdometryNodelet::onSteering(const autominy_msgs::msg::SteeringAngle::ConstSharedPtr &msg) {
+        currentSteering = msg->value;
+    }
 
-        void onSteering(autominy_msgs::msg::SteeringAngleConstPtr const &msg) {
-            odometry->setSteering(msg);
-        }
-
-        /** Callback for dynamic_reconfigure.
-         **
-         ** @param msg
-         */
-        void callbackReconfigure(odometry::OdometryConfig &config, uint32_t level) {
-            odometry->setConfig(config);
-        }
-
-        /// subscriber
-        rclcpp::Subscription<>::SharedPtr speedSubscriber;
-        rclcpp::Subscription<>::SharedPtr steeringSubscriber;
-
-        /// publisher
-        rclcpp::Publisher<>::SharedPtr odometryPublisher;
-
-        ros::Timer timer;
-
-        /// pointer to dynamic reconfigure service
-        boost::shared_ptr<dynamic_reconfigure::Server<odometry::OdometryConfig> > config_server_;
-
-        /// pointer to the functionality class
-        OdometryPtr odometry;
-    };
 }
 
-#include <pluginlib/class_list_macros.h>
-
-PLUGINLIB_EXPORT_CLASS(odometry::OdometryNodelet, nodelet::Nodelet);
-// nodelet_plugins.xml refers to the parameters as "type" and "base_class_type"
+#include "rclcpp_components/register_node_macro.hpp"
+RCLCPP_COMPONENTS_REGISTER_NODE(odometry::OdometryNodelet)

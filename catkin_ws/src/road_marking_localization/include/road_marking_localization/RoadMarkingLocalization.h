@@ -8,7 +8,7 @@
 #include <opencv2/core/mat.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <nav_msgs/OccupancyGrid.h>
-#include <nav_msgs/Odometry.h>
+#include "nav_msgs/msg/odometry.hpp"
 #include <pcl/registration/icp.h>
 #include <pcl/registration/warp_point_rigid_3d.h>
 #include <pcl/registration/transformation_estimation_lm.h>

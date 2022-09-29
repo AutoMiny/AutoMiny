@@ -1,46 +1,61 @@
 #pragma once
 
-#include <odometry/OdometryConfig.h>
-#include <nav_msgs/Odometry.h>
+#include "rclcpp/rclcpp.hpp"
+
+#include <odometry/Odometry.h>
+#include "tf2_ros/transform_broadcaster.h"
 #include "autominy_msgs/msg/speed.hpp"
 #include "autominy_msgs/msg/steering_angle.hpp"
-#include <tf2_ros/transform_broadcaster.h>
+#include "nav_msgs/msg/odometry.hpp"
+#include "tf2/convert.h"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
+#include "tf2/LinearMath/Quaternion.h"
 
 namespace odometry {
 
-/** Odometry class. Contains the general functionality of this package.
+/** Odometry nodelet. Does nothing. You can break
+ ** lines like this.
  **
  ** @ingroup @@
  */
-    class Odometry {
+    class OdometryNodelet : public rclcpp::Node {
     public:
-        /** Constructor.
-         */
-        Odometry();
-
         /** Destructor.
          */
-        virtual ~Odometry();
+        ~OdometryNodelet() override = default;
 
-        /** Sets the current dynamic configuration.
-         **
-         ** @param config
+        /** Nodelet initialization. Called by nodelet manager on initialization,
+         ** can be used to e.g. subscribe to topics and define publishers.
          */
-        void setConfig(odometry::OdometryConfig &config);
-
-        void setSpeed(const autominy_msgs::msg::Speed::ConstSharedPtr &speed);
-
-        void setSteering(const autominy_msgs::msg::SteeringAngleConstPtr &steering);
-
-        nav_msgs::Odometry step(const ros::TimerEvent& evnt);
+        OdometryNodelet(const rclcpp::NodeOptions& opts = rclcpp::NodeOptions());
 
     private:
-        /// dynamic config attribute
-        odometry::OdometryConfig config;
+
+        void onOdometry();
+
+        void onSpeed(autominy_msgs::msg::Speed::ConstSharedPtr const &msg);
+
+        void onSteering(autominy_msgs::msg::SteeringAngle::ConstSharedPtr const &msg);
+
+        /// subscriber
+        rclcpp::Subscription<autominy_msgs::msg::Speed>::SharedPtr speedSubscriber;
+        rclcpp::Subscription<autominy_msgs::msg::SteeringAngle>::SharedPtr steeringSubscriber;
+
+        /// publisher
+        rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odometryPublisher;
+
+        rclcpp::TimerBase::SharedPtr timer;
+
+        double axleDistance = 0.27;
+        bool publishTf = false;
+
         double currentSpeed = 0.0;
         double currentSteering = 0.0;
-        double x, y, yaw;
+        double x, y, yaw = 0.0;
+
+        rclcpp::Time last;
 
         tf2_ros::TransformBroadcaster tfBroadCaster;
     };
 }
+

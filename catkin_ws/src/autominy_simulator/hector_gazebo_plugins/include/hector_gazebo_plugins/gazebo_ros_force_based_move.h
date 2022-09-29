@@ -36,7 +36,7 @@
 
 #include "geometry_msgs/msg/twist.hpp"
 #include <nav_msgs/OccupancyGrid.h>
-#include <nav_msgs/Odometry.h>
+#include "nav_msgs/msg/odometry.hpp"
 #include <ros/advertise_options.h>
 #include <ros/callback_queue.h>
 #include "rclcpp/rclcpp.hpp"
