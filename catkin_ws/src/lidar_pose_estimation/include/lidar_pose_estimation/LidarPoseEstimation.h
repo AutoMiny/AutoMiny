@@ -8,7 +8,7 @@
 #include <pcl/segmentation/sac_segmentation.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/static_transform_broadcaster.h>
-#include <sensor_msgs/LaserScan.h>
+#include "sensor_msgs/msg/laser_scan.hpp"
 #include <laser_geometry/laser_geometry.h>
 
 namespace lidar_pose_estimation {
@@ -33,7 +33,7 @@ namespace lidar_pose_estimation {
          */
         void setConfig(LidarPoseEstimationConfig& config);
 
-        bool processLaserScan(const sensor_msgs::msg::LaserScanConstPtr& scan);
+        bool processLaserScan(const sensor_msgs::msg::LaserScan::ConstSharedPtr& scan);
 
         bool estimateLidarPosition(const ros::TimerEvent& evnt);
 

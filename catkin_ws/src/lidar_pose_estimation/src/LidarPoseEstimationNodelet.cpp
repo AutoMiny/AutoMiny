@@ -6,7 +6,7 @@
 #include <lidar_pose_estimation/LidarPoseEstimation.h>
 #include <lidar_pose_estimation/LidarPoseEstimationFwd.h>
 #include <tf/transform_broadcaster.h>
-#include <sensor_msgs/LaserScan.h>
+#include <sensor_msgs/msg/laser_scan.hpp
 
 namespace lidar_pose_estimation {
 
@@ -51,7 +51,7 @@ namespace lidar_pose_estimation {
             this->config = config;
         }
 
-        void onLaserScan(const sensor_msgs::msg::LaserScanConstPtr msg) {
+        void onLaserScan(const sensor_msgs::msg::LaserScan::ConstSharedPtr msg) {
             if(estimation->processLaserScan(msg)) {
             }
         }

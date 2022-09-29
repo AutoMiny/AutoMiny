@@ -28,7 +28,7 @@ namespace odometry {
          */
         void setConfig(odometry::OdometryConfig &config);
 
-        void setSpeed(const autominy_msgs::msg::SpeedConstPtr &speed);
+        void setSpeed(const autominy_msgs::msg::Speed::ConstSharedPtr &speed);
 
         void setSteering(const autominy_msgs::msg::SteeringAngleConstPtr &steering);
 

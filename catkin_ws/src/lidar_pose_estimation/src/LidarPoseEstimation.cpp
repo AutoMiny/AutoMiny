@@ -16,7 +16,7 @@ namespace lidar_pose_estimation {
         this->config = config;
     }
 
-    bool LidarPoseEstimation::processLaserScan(const sensor_msgs::msg::LaserScanConstPtr& scan) {
+    bool LidarPoseEstimation::processLaserScan(const sensor_msgs::msg::LaserScan::ConstSharedPtr& scan) {
         sensor_msgs::msg::PointCloud2 cloud;
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloudptr(new pcl::PointCloud<pcl::PointXYZ>());
         try {

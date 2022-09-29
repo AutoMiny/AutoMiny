@@ -14,7 +14,7 @@ namespace odometry {
         this->config = config;
     }
 
-    void Odometry::setSpeed(const autominy_msgs::msg::SpeedConstPtr &speed) {
+    void Odometry::setSpeed(const autominy_msgs::msg::Speed::ConstSharedPtr &speed) {
         currentSpeed = speed->value;
     }
 

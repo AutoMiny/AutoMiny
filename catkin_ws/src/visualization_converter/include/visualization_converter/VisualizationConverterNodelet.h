@@ -16,7 +16,7 @@ namespace visualization_converter {
     public:
         void onInit() override;
         void onSteeringAngle(const autominy_msgs::msg::SteeringAngleConstPtr& msg);
-        void onSpeed(const autominy_msgs::msg::SpeedConstPtr& msg);
+        void onSpeed(const autominy_msgs::msg::Speed::ConstSharedPtr& msg);
         void onWantedSpeed(const autominy_msgs::msg::SpeedCommandConstPtr& msg);
         void onWantedSteering(const autominy_msgs::msg::SteeringCommandConstPtr& msg);
         void onVoltage(const autominy_msgs::msg::VoltageConstPtr& msg);

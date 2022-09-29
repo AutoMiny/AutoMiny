@@ -5,7 +5,7 @@
 #include <odometry/OdometryFwd.h>
 #include <odometry/OdometryConfig.h>
 #include <odometry/Odometry.h>
-#include <sensor_msgs/LaserScan.h>
+#include "sensor_msgs/msg/laser_scan.hpp"
 #include "autominy_msgs/msg/speed_pwm_command.hpp"
 #include "autominy_msgs/msg/speed.hpp"
 #include <nav_msgs/Odometry.h>
@@ -55,7 +55,7 @@ namespace odometry {
             odometryPublisher.publish(msg);
         }
 
-        void onSpeed(autominy_msgs::msg::SpeedConstPtr const &msg) {
+        void onSpeed(autominy_msgs::msg::Speed::ConstSharedPtr const &msg) {
             odometry->setSpeed(msg);
         }
 

@@ -21,7 +21,7 @@ namespace visualization_converter {
         voltageSubscriber = create_subscription<>("sensors/voltage", 10, &VisualizationConverterNodelet::onVoltage, this);
     }
 
-    void VisualizationConverterNodelet::onSpeed(const autominy_msgs::msg::SpeedConstPtr& msg) {
+    void VisualizationConverterNodelet::onSpeed(const autominy_msgs::msg::Speed::ConstSharedPtr& msg) {
         autominy_msgs::msg::Plot plot;
         plot.header = msg->header;
         plot.value = msg->value;
