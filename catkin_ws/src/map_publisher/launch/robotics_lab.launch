@@ -1,5 +1,6 @@
-<launch>	
-	<node pkg="tf" type="static_transform_publisher" name="map_broadcaster"   args="0 0 0 0 0 0 1 map odom 100" />
+<launch>
+    <arg name="tf_prefix" default="" />
+	<node if="$(eval tf_prefix=='')" pkg="tf" type="static_transform_publisher" name="map_broadcaster"   args="0 0 0 0 0 0 1 map odom 100" />
 
 	<!-- Run the map server-->
 	<arg name="map_file" default="$(find map_publisher)/map/fu_robotics_lab_map.yaml"/> 

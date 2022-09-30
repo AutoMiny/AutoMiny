@@ -40,15 +40,15 @@ class VectorfieldController:
         else:
             self.matrix = self.matrix_lane_2
 
-        self.pub_speed = rospy.Publisher("/actuators/speed", SpeedCommand,
+        self.pub_speed = rospy.Publisher("actuators/speed", SpeedCommand,
                                          queue_size=1, tcp_nodelay=True)
         rospy.on_shutdown(self.shutdown)
 
         self.shutdown_ = False
-        self.pub = rospy.Publisher("/actuators/steering_normalized", NormalizedSteeringCommand,
+        self.pub = rospy.Publisher("actuators/steering_normalized", NormalizedSteeringCommand,
                                    queue_size=1, tcp_nodelay=True)
-        self.sub_odom = rospy.Subscriber("/sensors/localization/filtered_map", Odometry, self.callback, queue_size=1)
-        self.lidar_sub = rospy.Subscriber("/sensors/rplidar/scan", LaserScan, self.on_lidar, queue_size=1)
+        self.sub_odom = rospy.Subscriber("sensors/localization/filtered_map", Odometry, self.callback, queue_size=1)
+        self.lidar_sub = rospy.Subscriber("sensors/rplidar/scan", LaserScan, self.on_lidar, queue_size=1)
 
     def callback(self, data):
         dt = (data.header.stamp - self.last_time).to_sec()

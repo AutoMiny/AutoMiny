@@ -4,6 +4,8 @@
     <arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
     <arg name="camera_serial_no" default="$(optenv ROS_CAMERA_SERIAL_NO)" />
     <arg name="rear_camera_serial_no" default="$(optenv ROS_REAR_CAMERA_SERIAL_NO)" />
+    <arg name="agent_prefix" default="" />
+    <arg name="tf_prefix" default="" />
 
     <group if="$(arg live)">
         <group if="$(arg use_nodelets)">
@@ -75,16 +77,22 @@
 
     <group ns="camera">
     <!-- Stereo camera estimation -->
-        <remap from="/sensors/camera/stereo_camera_pose_estimation/camera/color/image_rect_color" to="/sensors/camera/color/image_rect_color" />
-        <remap from="/sensors/camera/stereo_camera_pose_estimation/camera/depth/image_rect_raw" to="/sensors/camera/depth/image_rect_raw"/>
-        <remap from="/sensors/camera/stereo_camera_pose_estimation/camera/color/camera_info" to="/sensors/camera/color/camera_info"/>
-        <remap from="/sensors/camera/stereo_camera_pose_estimation/camera/depth/camera_info" to="/sensors/camera/depth/camera_info"/>
+        <remap from="$(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/color/image_rect_color" to="$(arg agent_prefix)/sensors/camera/color/image_rect_color" />
+        <remap from="$(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/depth/image_rect_raw" to="$(arg agent_prefix)/sensors/camera/depth/image_rect_raw"/>
+        <remap from="$(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/color/camera_info" to="$(arg agent_prefix)/sensors/camera/color/camera_info"/>
+        <remap from="$(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/depth/camera_info" to="$(arg agent_prefix)/sensors/camera/depth/camera_info"/>
         <include file="$(find stereo_camera_pose_estimation)/launch/StereoCameraPoseEstimation.launch">
             <arg name="use_nodelets"    value="$(arg use_nodelets)" />
             <arg name="nodelet_manager" value="$(arg nodelet_manager)" />
         </include>
 
-        <node name="dynamic_reconfigure_load" pkg="dynamic_reconfigure" type="dynparam" args="set /sensors/camera/stereo_camera_pose_estimation aruco_id $(optenv ROS_CALIBRATION_MARKER_ID 0)" />
+        <node name="$(anon dynamic_reconfigure_load)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation aruco_id $(optenv ROS_CALIBRATION_MARKER_ID 0)" />
+
+        <group if="$(eval tf_prefix != '')">
+            <node name="$(anon dynamic_reconfigure_load_6)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation base_link_frame $(arg tf_prefix)base_link" />
+            <node name="$(anon dynamic_reconfigure_load_7)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation camera_frame $(arg tf_prefix)camera_bottom_screw_frame" />
+            <node name="$(anon dynamic_reconfigure_load_8)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation marker_frame $(arg tf_prefix)marker" />
+        </group>
     </group>
 
     <group if="$(eval rear_camera_serial_no != '')" ns="rear_camera">

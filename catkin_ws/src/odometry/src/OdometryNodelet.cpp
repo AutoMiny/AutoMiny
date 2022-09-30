@@ -5,6 +5,8 @@ namespace odometry {
                                                                                   tfBroadCaster(this) {
         axleDistance = declare_parameter<double>("axle_distance", 0.27);
         publishTf = declare_parameter<bool>("publish_tf", false);
+        baseLinkFrame = declare_parameter<std::string>("base_link_frame", "base_link");
+        odomFrame = declare_parameter<std::string>("odom_frame", "odom");
 
         odometryPublisher = create_publisher<nav_msgs::msg::Odometry>("odom", 1);
         speedSubscriber = create_subscription<autominy_msgs::msg::Speed>("speed", 1,
@@ -32,8 +34,8 @@ namespace odometry {
         y += currentSpeed * sin(yaw) * dt;
 
         odom.header.stamp = t;
-        odom.header.frame_id = "odom";
-        odom.child_frame_id = "base_link";
+        odom.header.frame_id = baseLinkFrame;
+        odom.child_frame_id = odomFrame;
         odom.pose.pose.position.x = x;
         odom.pose.pose.position.y = y;
         odom.pose.pose.position.z = 0.0;

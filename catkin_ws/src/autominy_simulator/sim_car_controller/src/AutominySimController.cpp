@@ -78,13 +78,20 @@ namespace autominy_sim_control
             getJointName("steer_left_joint") &&
             getJointName("steer_right_joint")))
         {
+            ROS_ERROR("Joints names were not found");
             return false;
         }
         const unsigned int n_joints = joint_names.size();
         RCLCPP_INFO(get_logger(), "Joint-Names %d", n_joints);
+        RCLCPP_INFO(get_logger(), "Joint-Names %d", n_joints);
+        RCLCPP_INFO(get_logger(), "ROOT NS %s", root_nh.getNamespace().c_str());
+        RCLCPP_INFO(get_logger(), "Controller NS %s", controller_nh.getNamespace().c_str());
+
+        std::string robotDescriptionParam = controller_nh.param<std::string>("robot_description_param", "robot_description");
+        ROS_INFO("Robot description %s", robotDescriptionParam.c_str());
 
         // get the joints from the urdf file
-        std::shared_ptr<urdf::Model> urdf = internal::getUrdf(root_nh, "robot_description");
+        std::shared_ptr<urdf::Model> urdf = internal::getUrdf(root_nh, robotDescriptionParam);
         if (!urdf) {
             ROS_ERROR_STREAM_NAMED(name, "No robot description found");
             return false;

@@ -2,6 +2,8 @@
 	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
 	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+	<arg name="tf_prefix"       default="" />
+	<arg name="agent_prefix"    default="" />
 
 	<remap from="~steering" to="steering"/>
 	<remap from="~speed" to="speed"/>
@@ -9,4 +11,6 @@
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
 	</include>
+
+    <node name="$(anon dynamic_reconfigure_load)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/odometry base_link_frame $(arg tf_prefix)base_link" />
 </launch>

@@ -11,7 +11,7 @@ The autominy project must be installed on your computer to interact and develop 
 git clone https://github.com/autominy/autominy
 cd autominy/catkin_ws
 apt install python-catkin-tools
-rosdep install --from-paths . --ignore-src --rosdistro=melodic -y
+rosdep install --from-paths . --ignore-src --rosdistro=noetic -y
 catkin build
 source devel/setup.bash # if using bash
 source devel/setup.zsh # if using zsh

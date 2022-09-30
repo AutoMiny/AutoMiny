@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<robot name="car" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="$(arg car_name)" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find car_description)/urdf/_d435.urdf.xacro"/>
   <xacro:include filename="$(find car_description)/urdf/rplidar_a2.xacro"/>
   <xacro:include filename="$(find car_description)/urdf/common.xacro"/>
+  <xacro:arg name="tf_prefix" default=""/>
+  <xacro:arg name="agent_prefix" default=""/>
 
   <material name="black">
     <color rgba="0.1 0.1 0.1 1"/>
@@ -24,7 +26,7 @@
     <color rgba="0.95 0.95 0.95 1"/>
   </material>		
   
-  <link name="base_link">
+  <link name="$(arg tf_prefix)base_link">
     <visual>
       <origin rpy="0.0 0 0" xyz="0.135 0 0.01"/>
       <geometry>
@@ -40,7 +42,7 @@
     </collision>
   </link>
 
-  <link name="board">
+  <link name="$(arg tf_prefix)board">
     <visual>
       <origin rpy="0.0 0 0" xyz="0.115 0 0"/>
       <geometry>
@@ -61,7 +63,7 @@
     </inertial>
   </link>
 
-  <link name="camera_board">
+  <link name="$(arg tf_prefix)camera_board">
     <visual>
       <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -103,12 +105,12 @@
     </link>
   </xacro:macro>
 
-  <xacro:wheel name="wheel_fr"/>
-  <xacro:wheel name="wheel_fl"/>
-  <xacro:wheel name="wheel_br"/>
-  <xacro:wheel name="wheel_bl"/>
+  <xacro:wheel name="$(arg tf_prefix)wheel_fr"/>
+  <xacro:wheel name="$(arg tf_prefix)wheel_fl"/>
+  <xacro:wheel name="$(arg tf_prefix)wheel_br"/>
+  <xacro:wheel name="$(arg tf_prefix)wheel_bl"/>
 
-  <link name="axis_fl">
+  <link name="$(arg tf_prefix)axis_fl">
     <visual>
       <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -127,7 +129,7 @@
     </inertial>
   </link>
 
-  <link name="axis_fr">
+  <link name="$(arg tf_prefix)axis_fr">
     <visual>
       <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -146,7 +148,7 @@
     </inertial>
   </link>
 
-  <link name="imu">
+  <link name="$(arg tf_prefix)imu">
     <visual>
       <geometry>
         <box size="0.066 0.064 0.01"/>
@@ -165,7 +167,7 @@
     </inertial>
   </link>
 
-  <link name="marker">
+  <link name="$(arg tf_prefix)marker">
     <visual>
       <geometry>
         <mesh filename="package://car_description/meshes/marker.dae"/>
@@ -184,7 +186,7 @@
     </inertial>
   </link>
 
-  <link name="support_l">
+  <link name="$(arg tf_prefix)support_l">
     <visual>
       <geometry>
         <cylinder length="0.22" radius="0.004"/>
@@ -203,7 +205,7 @@
     </inertial>
   </link>
 
-  <link name="support_r">
+  <link name="$(arg tf_prefix)support_r">
     <visual>
       <geometry>
         <cylinder length="0.22" radius="0.004"/>
@@ -223,10 +225,10 @@
   </link>
 
   <!-- BNO055 -->
-  <link name="bno055">
+  <link name="$(arg tf_prefix)bno055">
   </link>
 
-  <link name="nuc">
+  <link name="$(arg tf_prefix)nuc">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0.022"/>
       <geometry>
@@ -250,129 +252,129 @@
   <!-- front camera -->
   <xacro:property name="front_camera_name" value="camera"/>
 
-  <xacro:sensor_d435 parent="camera_board" sensor_name="camera">
+  <xacro:sensor_d435 parent="$(arg tf_prefix)camera_board" sensor_name="$(arg tf_prefix)camera">
     <origin xyz="0.03 0 0.025" rpy="0 0.2 0"/>
   </xacro:sensor_d435>
 
-  <xacro:sensor_d435 parent="camera_board" sensor_name="rear_camera">
+  <xacro:sensor_d435 parent="$(arg tf_prefix)camera_board" sensor_name="rear_camera">
     <origin xyz="-0.02 0 0.025" rpy="0 0.2 3.141"/>
   </xacro:sensor_d435>
 
-  <xacro:sensor_rplidar_a2 parent="board" prefix="lidar">
+  <xacro:sensor_rplidar_a2 parent="$(arg tf_prefix)board" prefix="lidar" tf_prefix="$(arg tf_prefix)">
     <origin xyz="0.14 0 0.0425" rpy="0 0 0"/>
   </xacro:sensor_rplidar_a2>
 
-  <joint name="joint_board_to_bno055" type="fixed">
-      <parent link="board"/>
-      <child link="bno055"/>
+  <joint name="$(arg tf_prefix)joint_board_to_bno055" type="fixed">
+      <parent link="$(arg tf_prefix)board"/>
+      <child link="$(arg tf_prefix)bno055"/>
       <origin xyz="0.235 0.0 0.023" rpy="0 0 1.5708"/>
   </joint>
 
-  <joint name="base_link_board" type="fixed">
-    <parent link="base_link"/>
-    <child link="board"/>
+  <joint name="$(arg tf_prefix)base_link_board" type="fixed">
+    <parent link="$(arg tf_prefix)base_link"/>
+    <child link="$(arg tf_prefix)board"/>
     <origin xyz="0 0 0.07"/>
   </joint>
 
-  <joint name="board_cameraboard" type="fixed">
-    <parent link="board"/>
-    <child link="camera_board"/>
+  <joint name="$(arg tf_prefix)board_cameraboard" type="fixed">
+    <parent link="$(arg tf_prefix)board"/>
+    <child link="$(arg tf_prefix)camera_board"/>
     <origin xyz="-0.025 0 0.15"/>
   </joint>
 
-  <joint name="board_imu" type="fixed">
-    <parent link="board"/>
-    <child link="imu"/>
+  <joint name="$(arg tf_prefix)board_imu" type="fixed">
+    <parent link="$(arg tf_prefix)board"/>
+    <child link="$(arg tf_prefix)imu"/>
     <origin xyz="0.07 -0.017 0"/>
   </joint>
 
-  <joint name="board_marker" type="fixed">
-    <parent link="board"/>
-    <child link="marker"/>
+  <joint name="$(arg tf_prefix)board_marker" type="fixed">
+    <parent link="$(arg tf_prefix)board"/>
+    <child link="$(arg tf_prefix)marker"/>
     <origin xyz="$(optenv ROS_ESTIMATION_MARKER_X 0.30) $(optenv ROS_ESTIMATION_MARKER_Y 0.0) 0.0025"/>
   </joint>
 
-  <joint name="board_nuc" type="fixed">
-    <parent link="board"/>
-    <child link="nuc"/>
+  <joint name="$(arg tf_prefix)board_nuc" type="fixed">
+    <parent link="$(arg tf_prefix)board"/>
+    <child link="$(arg tf_prefix)nuc"/>
     <origin xyz="0.16 0 0"/>
   </joint>
 
-  <joint name="frontwheel_steering_left" type="revolute">
+  <joint name="$(arg tf_prefix)frontwheel_steering_left" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
-    <parent link="base_link"/>
-    <child link="axis_fl"/>
+    <parent link="$(arg tf_prefix)base_link"/>
+    <child link="$(arg tf_prefix)axis_fl"/>
     <origin xyz="0.255 0.08 0.03"/>
   </joint>
 
-  <joint name="frontwheel_steering_right" type="revolute">
+  <joint name="$(arg tf_prefix)frontwheel_steering_right" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
-    <parent link="base_link"/>
-    <child link="axis_fr"/>
+    <parent link="$(arg tf_prefix)base_link"/>
+    <child link="$(arg tf_prefix)axis_fr"/>
     <origin xyz="0.255 -0.08 0.03"/>
   </joint>
 
-  <joint name="frontwheel_left" type="revolute">
+  <joint name="$(arg tf_prefix)frontwheel_left" type="revolute">
     <axis xyz="0 1 0"/>
     <anchor xyz="0 0 0"/>
-    <parent link="axis_fl"/>
-    <child link="wheel_fl"/>
+    <parent link="$(arg tf_prefix)axis_fl"/>
+    <child link="$(arg tf_prefix)wheel_fl"/>
     <origin xyz="0 0 0"/>
     <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
   </joint>
 
-  <joint name="frontwheel_right" type="revolute">
+  <joint name="$(arg tf_prefix)frontwheel_right" type="revolute">
     <axis xyz="0 1 0"/>
-    <parent link="axis_fr"/>
-    <child link="wheel_fr"/>
+    <parent link="$(arg tf_prefix)axis_fr"/>
+    <child link="$(arg tf_prefix)wheel_fr"/>
     <origin xyz="0 0 0"/>
     <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
   </joint>
 
-   <joint name="rearwheel_left" type="revolute">
+   <joint name="$(arg tf_prefix)rearwheel_left" type="revolute">
     <axis xyz="0 1 0"/>
-    <parent link="base_link"/>
-    <child link="wheel_bl"/>
+    <parent link="$(arg tf_prefix)base_link"/>
+    <child link="$(arg tf_prefix)wheel_bl"/>
     <origin xyz="0 0.085 0.03"/>
     <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
    </joint>
 
-  <joint name="rearwheel_right" type="revolute">
+  <joint name="$(arg tf_prefix)rearwheel_right" type="revolute">
     <axis xyz="0 1 0"/>
-    <parent link="base_link"/>
-    <child link="wheel_br"/>
+    <parent link="$(arg tf_prefix)base_link"/>
+    <child link="$(arg tf_prefix)wheel_br"/>
     <origin xyz="0 -0.085 0.03"/>
     <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
   </joint>
 
-  <joint name="board_support_l" type="fixed">
-    <parent link="board"/>
-    <child link="support_l"/>
+  <joint name="$(arg tf_prefix)board_support_l" type="fixed">
+    <parent link="$(arg tf_prefix)board"/>
+    <child link="$(arg tf_prefix)support_l"/>
     <origin xyz="-0.024000 0.053000 0.112000"/>
   </joint>
 
-  <joint name="board_support_r" type="fixed">
-    <parent link="board"/>
-    <child link="support_r"/>
+  <joint name="$(arg tf_prefix)board_support_r" type="fixed">
+    <parent link="$(arg tf_prefix)board"/>
+    <child link="$(arg tf_prefix)support_r"/>
     <origin xyz="-0.024000 -0.053000 0.112000"/>
   </joint>
 
-  <transmission name="steering_front_left_wheel">
+  <transmission name="$(arg tf_prefix)steering_front_left_wheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="frontwheel_steering_left">
+    <joint name="$(arg tf_prefix)frontwheel_steering_left">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="front_left_steering_motor">
+    <actuator name="$(arg tf_prefix)front_left_steering_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="steering_front_right_wheel">
+  <transmission name="$(arg tf_prefix)steering_front_right_wheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="frontwheel_steering_right">
+    <joint name="$(arg tf_prefix)frontwheel_steering_right">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="front_right_steering_motor">
@@ -381,80 +383,80 @@
     </actuator>
   </transmission>
 
-  <transmission name="tran_front_left_wheel">
+  <transmission name="$(arg tf_prefix)tran_front_left_wheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="frontwheel_left">
+    <joint name="$(arg tf_prefix)frontwheel_left">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="front_left_wheel_motor">
+    <actuator name="$(arg tf_prefix)front_left_wheel_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="tran_front_right_wheel">
+  <transmission name="$(arg tf_prefix)tran_front_right_wheel">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="frontwheel_right">
+    <joint name="$(arg tf_prefix)frontwheel_right">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="front_right_wheel_motor">
+    <actuator name="$(arg tf_prefix)front_right_wheel_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="tran_rear_left">
+  <transmission name="$(arg tf_prefix)tran_rear_left">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rearwheel_left">
+    <joint name="$(arg tf_prefix)rearwheel_left">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rear_left_motor">
+    <actuator name="$(arg tf_prefix)rear_left_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="tran_rear_right">
+  <transmission name="$(arg tf_prefix)tran_rear_right">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rearwheel_right">
+    <joint name="$(arg tf_prefix)rearwheel_right">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rear_right_motor">
+    <actuator name="$(arg tf_prefix)rear_right_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <gazebo reference="rearwheel_left">
+  <gazebo reference="$(arg tf_prefix)rearwheel_left">
     <implicitSpringDamper>true</implicitSpringDamper>
   </gazebo>
-  <gazebo reference="rearwheel_right">
+  <gazebo reference="$(arg tf_prefix)rearwheel_right">
     <implicitSpringDamper>true</implicitSpringDamper>
   </gazebo>
-  <gazebo reference="frontwheel_right">
+  <gazebo reference="$(arg tf_prefix)frontwheel_right">
     <implicitSpringDamper>true</implicitSpringDamper>
   </gazebo>
-  <gazebo reference="frontwheel_left">
+  <gazebo reference="$(arg tf_prefix)frontwheel_left">
     <implicitSpringDamper>true</implicitSpringDamper>
   </gazebo>
-  <gazebo reference="frontwheel_steering_right">
+  <gazebo reference="$(arg tf_prefix)frontwheel_steering_right">
     <implicitSpringDamper>true</implicitSpringDamper>
   </gazebo>
-  <gazebo reference="frontwheel_steering_left">
+  <gazebo reference="$(arg tf_prefix)frontwheel_steering_left">
     <implicitSpringDamper>true</implicitSpringDamper>
   </gazebo>
 
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamespace>model_car</robotNamespace>
+      <robotNamespace>$(arg agent_prefix)/model_car</robotNamespace>
     </plugin>
   </gazebo>
 
   <gazebo>
     <plugin name="model_car_ground_truth" filename="libgazebo_ros_p3d.so">
       <frameName>map</frameName>
-      <bodyName>base_link</bodyName>
-      <topicName>/simulation/odom_ground_truth</topicName>
+      <bodyName>$(arg tf_prefix)base_link</bodyName>
+      <topicName>simulation/odom_ground_truth</topicName>
       <updateRate>30.0</updateRate>
     </plugin>
   </gazebo>
@@ -462,9 +464,8 @@
   <gazebo>
     <plugin filename="libhector_gazebo_ros_imu.so" name="autominy_imu">
       <updateRate>100.0</updateRate>
-      <robotNamespace>/</robotNamespace>
-      <bodyName>imu</bodyName>
-      <frameId>imu</frameId>
+      <bodyName>$(arg tf_prefix)imu</bodyName>
+      <frameId>$(arg tf_prefix)imu</frameId>
       <topicName>sensors/imu</topicName>
       <accelOffset>0 0 0</accelOffset>
       <accelDrift>0.5 0.5 0.5</accelDrift>
@@ -478,7 +479,7 @@
     </plugin>
   </gazebo>
 
-  <gazebo reference="camera_depth_frame">
+  <gazebo reference="$(arg tf_prefix)camera_depth_frame">
     <sensor type="depth" name="camera1">       
       <always_on>1</always_on>
       <visualize>true</visualize>
@@ -507,7 +508,7 @@
         <alwaysOn>true</alwaysOn>
         <updateRate>15.0</updateRate>
         <cameraName>sensors/camera</cameraName>
-        <frameName>camera_depth_optical_frame</frameName>
+        <frameName>$(arg tf_prefix)camera_depth_optical_frame</frameName>
         <imageTopicName>infra1/image_rect_raw</imageTopicName>
         <cameraInfoTopicName>infra1/camera_info</cameraInfoTopicName>
         <depthImageTopicName>depth/image_rect_raw</depthImageTopicName>
@@ -529,7 +530,7 @@
     </sensor>
   </gazebo>
 
-  <gazebo reference="camera_color_frame">
+  <gazebo reference="$(arg tf_prefix)camera_color_frame">
     <sensor type="camera" name="camera2">
       <update_rate>15.0</update_rate>
       <camera>
@@ -556,7 +557,7 @@
         <cameraName>sensors/camera/color</cameraName>
         <imageTopicName>image_rect_color</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>camera_color_optical_frame</frameName>
+        <frameName>$(arg tf_prefix)camera_color_optical_frame</frameName>
         <hackBaseline>0.0193</hackBaseline>
         <distortionK1>0.0</distortionK1>
         <distortionK2>0.0</distortionK2>
@@ -567,7 +568,7 @@
     </sensor>
   </gazebo>
 
-  <gazebo reference="laser">
+  <gazebo reference="$(arg tf_prefix)laser">
     <sensor type="ray" name="rp_lidar_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
@@ -592,37 +593,37 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/sensors/rplidar/scan</topicName>
-        <frameName>laser</frameName>
+        <topicName>sensors/rplidar/scan</topicName>
+        <frameName>$(arg tf_prefix)laser</frameName>
       </plugin>
     </sensor>
   </gazebo>
-  <gazebo reference="wheel_fl">
+  <gazebo reference="$(arg tf_prefix)wheel_fl">
     <mu1>1.34</mu1>
     <mu2>1.34</mu2>
   </gazebo>
-  <gazebo reference="wheel_fr">
+  <gazebo reference="$(arg tf_prefix)wheel_fr">
     <mu1>1.34</mu1>
     <mu2>1.34</mu2>
   </gazebo>
-  <gazebo reference="wheel_br">
+  <gazebo reference="$(arg tf_prefix)wheel_br">
     <mu1>1.34</mu1>
     <mu2>1.34</mu2>
   </gazebo>
-  <gazebo reference="wheel_bl">
+  <gazebo reference="$(arg tf_prefix)wheel_bl">
     <mu1>1.34</mu1>
     <mu2>1.34</mu2>
   </gazebo>
 
-  <gazebo reference="support_r">
+  <gazebo reference="$(arg tf_prefix)support_r">
     <material>Gazebo/Black</material>
   </gazebo>
 
-  <gazebo reference="support_l">
+  <gazebo reference="$(arg tf_prefix)support_l">
     <material>Gazebo/Black</material>
   </gazebo>
 
-  <gazebo reference="nuc">
+  <gazebo reference="$(arg tf_prefix)nuc">
     <material>Gazebo/Black</material>
   </gazebo>
 </robot>

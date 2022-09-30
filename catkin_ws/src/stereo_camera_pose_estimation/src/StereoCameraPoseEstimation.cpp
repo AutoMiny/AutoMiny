@@ -203,7 +203,7 @@ namespace stereo_camera_pose_estimation {
                     tf2::convert(t.transform.rotation, tt);
                     tf2::convert(t, imageToScrew);
 
-                    t = tfBuffer.lookupTransform("marker", "base_link", ros::Time(0));
+                    t = tfBuffer.lookupTransform(config.marker_frame, config.base_link_frame, ros::Time(0));
                     tf2::convert(t, markerToBaseLink);
                 } catch (const tf2::TransformException& e) {
                     RCLCPP_ERROR(get_logger(), "%s", e.what());
@@ -261,7 +261,7 @@ namespace stereo_camera_pose_estimation {
 
 
         geometry_msgs::TransformStamped transform;
-        transform.header.frame_id = "base_link";
+        transform.header.frame_id = config.base_link_frame;
         transform.header.stamp = now();
         transform.child_frame_id = config.camera_frame;
         transform.transform.translation.x = x + config.x_offset;

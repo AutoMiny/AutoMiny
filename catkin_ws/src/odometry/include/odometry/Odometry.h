@@ -53,6 +53,9 @@ namespace odometry {
         double currentSteering = 0.0;
         double x, y, yaw = 0.0;
 
+        std::string baseLinkFrame;
+        std::string odomFrame;
+
         rclcpp::Time last;
 
         tf2_ros::TransformBroadcaster tfBroadCaster;

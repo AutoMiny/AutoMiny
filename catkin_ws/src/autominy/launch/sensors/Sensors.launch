@@ -2,12 +2,16 @@
 	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
 	<arg name="nodelet_manager" default="$(optenv SENSOR_NODELET_MANAGER sensor_nodelet_manager)" />
+	<arg name="tf_prefix" default="" />
+	<arg name="agent_prefix" default="" />
 
 	<!-- Intel Realsense D435 -->
 	<include file="$(find autominy)/launch/sensors/D435.launch">
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+		<arg name="tf_prefix"       value="$(arg tf_prefix)" />
+		<arg name="agent_prefix"    value="$(arg agent_prefix)" />
 	</include>
 
 	<!-- RPLidar -->
@@ -31,6 +35,7 @@
     <include file="$(find autominy)/launch/sensors/HardwareCalibration.launch">
         <arg name="use_nodelets"    value="$(arg use_nodelets)" />
         <arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+        <arg name="agent_prefix"    value="$(arg agent_prefix)" />
     </include>
 
 	<!-- Odometry -->
@@ -38,6 +43,8 @@
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+		<arg name="agent_prefix"       value="$(arg agent_prefix)" />
+		<arg name="tf_prefix"       value="$(arg tf_prefix)" />
 	</include>
 
 	<!-- Road marking localization -->
@@ -45,13 +52,8 @@
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-	</include>
-
-	<!-- Vehicle model URDF -->
-	<include file="$(find autominy)/launch/sensors/VehicleModel.launch">
-		<arg name="live"            value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+        <arg name="agent_prefix"    value="$(arg agent_prefix)" />
+        <arg name="tf_prefix"       value="$(arg tf_prefix)" />
 	</include>
 
 	<!-- PointCloud -->
@@ -66,6 +68,8 @@
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+		<arg name="tf_prefix" value="$(arg tf_prefix)" />
+		<arg name="agent_prefix" value="$(arg agent_prefix)" />
 	</include>
 
 	<!-- Map -->
@@ -73,5 +77,6 @@
 		<arg name="live"            value="$(arg live)" />
 		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
 		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+		<arg name="tf_prefix"       value="$(arg tf_prefix)" />
 	</include>
 </launch>
