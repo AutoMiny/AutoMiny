@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>lanelet_force_navigation</name>
+  <version>0.0.1</version>
+  <description>
+    The lanelet_force_navigation package.
+  </description>
+
+
+  <maintainer email="stephan.sundermann@fu-berlin.de">Stephan Sundermann</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">www.autonomos-labs.de</url>
+
+  <author email="stephan.sundermann@fu-berlin.de">Stephan Sundermann</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <build_depend>cmake_modules</build_depend>
+
+  <depend>tf2</depend>
+  <depend>nav_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>visualization_msgs</depend>
+
+</package>
