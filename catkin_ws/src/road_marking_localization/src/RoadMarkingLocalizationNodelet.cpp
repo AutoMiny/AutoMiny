@@ -43,7 +43,7 @@ namespace road_marking_localization {
             alignedPclPublisher = pcreate_publisher<sensor_msgs::msg::PointCloud2>("aligned_pcl", 1);
             mapCloudPublisher = pcreate_publisher<sensor_msgs::msg::PointCloud2>("map_pcl", 1, true);
             transformationMatrixPublisher = pcreate_publisher<std_msgs::msg::Float64MultiArray>("transformation_matrix", 1, true);
-            robotLocalizationSetPose = pnh.serviceClient<robot_localization::SetPose>("/localization/set_pose");
+            robotLocalizationSetPose = pnh.serviceClient<robot_localization::SetPose>("/sensors/set_pose");
 
             mapSubscriber = create_subscription<>("map", 1, &RoadMarkingLocalizationNodelet::onMap, this);
             positionEstimateSubscriber = create_subscription<>("initialpose", 1, &RoadMarkingLocalizationNodelet::onEstimatedPosition, this);

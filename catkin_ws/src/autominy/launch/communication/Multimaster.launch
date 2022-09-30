@@ -3,8 +3,8 @@
     <arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
     <arg name="nodelet_manager" default="$(optenv AUTONOMICS_NODELET_MANAGER core_nodelet_manager)" />
 
-    <node name="master_discovery" pkg="master_discovery_fkie" type="master_discovery" output="screen"/>
-    <node name="master_sync" pkg="master_sync_fkie" type="master_sync" output="screen">
+    <node name="master_discovery" pkg="fkie_master_discovery" type="master_discovery" output="screen"/>
+    <node name="master_sync" pkg="fkie_master_sync" type="master_sync" output="screen">
         <rosparam param="sync_topics">['/*communication*']</rosparam>
         <rosparam param="sync_nodes">['/*communication*']</rosparam>
         <rosparam param="sync_services">['/*communication*']</rosparam>
