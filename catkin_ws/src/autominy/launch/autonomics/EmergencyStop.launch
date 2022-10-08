@@ -1,15 +1,15 @@
 <launch>
-	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
-	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
-	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+	<arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="agent_prefix"    default="" />
 
-	<remap from="~speed" to="$(arg agent_prefix)/actuators/speed_pwm" />
-	<remap from="~carstate/speed" to="$(arg agent_prefix)/sensors/speed" />
-	<remap from="~scan" to="$(arg agent_prefix)/sensors/rplidar/scan" />
-
-	<include file="$(find emergency_stop)/launch/EmergencyStop.launch">
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-	</include>
+    <node respawn="true" respawn_delay="1"
+          pkg="emergency_stop"
+          name="emergency_stop"
+          exec="emergency_stop_node"
+          output="screen"
+    >
+    	<remap from="speed" to="$(var agent_prefix)/actuators/speed_pwm" />
+    	<remap from="carstate/speed" to="$(var agent_prefix)/sensors/speed" />
+    	<remap from="scan" to="$(var agent_prefix)/sensors/rplidar/scan" />
+    </node>
 </launch>

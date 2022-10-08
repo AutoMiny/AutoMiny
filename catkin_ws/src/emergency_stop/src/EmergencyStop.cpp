@@ -3,11 +3,6 @@
 emergency_stop::EmergencyStopNodelet::~EmergencyStopNodelet() = default;
 
 emergency_stop::EmergencyStopNodelet::EmergencyStopNodelet(const rclcpp::NodeOptions &opts) : rclcpp::Node("emergency_stop", opts) {
-    speedPublisher = create_publisher<autominy_msgs::msg::SpeedPWMCommand>("speed", 1);
-    scanSubscriber = create_subscription<sensor_msgs::msg::LaserScan>("scan", 1, std::bind(&EmergencyStopNodelet::onScan, this, std::placeholders::_1));
-    wantedSpeedSubscriber = create_subscription<autominy_msgs::msg::SpeedPWMCommand>("wanted_speed", 1, std::bind(&EmergencyStopNodelet::onWantedSpeed, this, std::placeholders::_1));
-    currentSpeedSubscriber = create_subscription<autominy_msgs::msg::Speed>("carstate/speed", 1, std::bind(&EmergencyStopNodelet::onCurrentSpeed, this, std::placeholders::_1));
-
     config.angle_front = declare_parameter<double>("angle_front", 0.7);
     config.angle_back = declare_parameter<double>("angle_back", 0.7);
     config.break_distance = declare_parameter<double>("break_distance", 0.45);
@@ -17,6 +12,11 @@ emergency_stop::EmergencyStopNodelet::EmergencyStopNodelet(const rclcpp::NodeOpt
     config.negative_acceleration = declare_parameter<double>("negative_acceleration", 4.0);
 
     cb = add_on_set_parameters_callback(std::bind(&EmergencyStopNodelet::onConfig, this, std::placeholders::_1));
+
+    speedPublisher = create_publisher<autominy_msgs::msg::SpeedPWMCommand>("speed", 1);
+    scanSubscriber = create_subscription<sensor_msgs::msg::LaserScan>("scan", 1, std::bind(&EmergencyStopNodelet::onScan, this, std::placeholders::_1));
+    wantedSpeedSubscriber = create_subscription<autominy_msgs::msg::SpeedPWMCommand>("wanted_speed", 1, std::bind(&EmergencyStopNodelet::onWantedSpeed, this, std::placeholders::_1));
+    currentSpeedSubscriber = create_subscription<autominy_msgs::msg::Speed>("carstate/speed", 1, std::bind(&EmergencyStopNodelet::onCurrentSpeed, this, std::placeholders::_1));
 }
 
 void emergency_stop::EmergencyStopNodelet::onScan(const sensor_msgs::msg::LaserScan::ConstSharedPtr &scan) {

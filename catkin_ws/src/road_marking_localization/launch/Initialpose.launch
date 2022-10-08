@@ -5,7 +5,7 @@
     <!-- start standalone node -->
     <node pkg="road_marking_localization"
           name="road_marking_localization_initialpose"
-          type="gps_initialpose.py"
+          exec="gps_initialpose.py"
     >
     </node>
 

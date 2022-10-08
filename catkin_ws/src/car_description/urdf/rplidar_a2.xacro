@@ -15,16 +15,16 @@
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://car_description/meshes/laser.dae"/>
+                    <mesh filename="file://$(find car_description)/meshes/laser.dae"/>
                 </geometry>
             </collision>
 
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://car_description/meshes/laser.dae"/>
+                    <mesh filename="file://$(find car_description)/meshes/laser.dae"/>
                 </geometry>
-                <material name="Black"/>
+                <material name="black"/>
             </visual>
 
             <inertial>

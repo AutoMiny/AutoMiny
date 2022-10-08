@@ -13,22 +13,18 @@
   <arg name="agent_prefix"  default=""/>
   <arg name="tf_prefix"     default=""/>
 
-  <node name="spawn_urdf_$(arg name)"
+  <node name="spawn_urdf_$(var name)"
         pkg ="gazebo_ros"
-        type="spawn_model"
+        exec="spawn_entity.py"
         output="screen"
-        args="-param $(arg agent_prefix)/robot_description
-              -urdf -model $(arg tf_prefix)$(arg model)
-              -x $(arg x) -y $(arg y) -z 0.124 -R 0 -P 0 -Y $(arg yaw) "/>
+        args="-param -topic /robot_description
+              -entity $(var tf_prefix)$(var model)
+              -x $(var x) -y $(var y) -z 0.124 -R 0 -P 0 -Y $(var yaw) "/>
 
-  <include file="$(find sim_car_controller)/launch/control.launch">
-    <arg name="name"         value="$(arg name)"/>
-    <arg name="agent_prefix" value="$(arg agent_prefix)"/>
-    <arg name="tf_prefix"    value="$(arg tf_prefix)"/>
+  <include file="$(find-pkg-share sim_car_controller)/launch/control.launch">
+    <arg name="name"         value="$(var name)"/>
+    <arg name="agent_prefix" value="$(var agent_prefix)"/>
+    <arg name="tf_prefix"    value="$(var tf_prefix)"/>
   </include>
-
-  <node name="$(anon reconfigure)" pkg="dynamic_reconfigure" type="dynparam" args="set_from_parameters $(arg agent_prefix)/sensors/road_marking_localization">
-    <param name="threshold" type="int" value="130" />
-  </node>
 
 </launch>

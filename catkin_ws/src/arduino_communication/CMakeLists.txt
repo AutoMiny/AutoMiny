@@ -27,6 +27,11 @@ install(TARGETS arduino_communication_node
   RUNTIME DESTINATION bin
 )
 
+install(
+        TARGETS ${PROJECT_NAME}_node
+        DESTINATION lib/${PROJECT_NAME}
+)
+
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )

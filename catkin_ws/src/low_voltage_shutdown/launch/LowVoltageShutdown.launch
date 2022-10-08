@@ -1,42 +1,17 @@
 <?xml version="1.0" ?>
 <launch>
-    <arg name="use_nodelets" default="$(optenv USE_NODELETS false)"/>
-    <arg name="nodelet_manager" default="$(optenv low_voltage_shutdown_NODELET_MANAGER core_nodelet_manager)"/>
-
     <![CDATA[
     <!--
           FOR DEBUGGING: add to node tag: launch-prefix="gnome-terminal -x gdb --args"
-          additionally add <param name="/bond_disable_heartbeat_timeout" value="true" /> to debug nodelets
     -->
     ]]>
 
     <!-- start standalone node -->
-    <node unless="$(arg use_nodelets)"
+    <node
           pkg="low_voltage_shutdown"
           name="low_voltage_shutdown"
-          type="low_voltage_shutdown_node"
+          exec="low_voltage_shutdown_node"
     >
     </node>
-
-    <!-- start nodelet (nodelet manager needed" />see below) -->
-    <node if="$(arg use_nodelets)"
-          pkg="nodelet"
-          type="nodelet"
-          name="low_voltage_shutdown"
-          args="load low_voltage_shutdown/Nodelet $(arg nodelet_manager)"
-    >
-    </node>
-
-    <!-- start nodelet manager" />if not already started from outside of this launch file -->
-    <!--
-    <node if="$(arg use_nodelets)"
-        pkg="nodelet"
-        type="nodelet"
-        name="$(arg nodelet_manager)"
-        args="manager"
-    >
-        <param name="num_worker_threads" value="64" />
-    </node>
-    -->
 
 </launch>

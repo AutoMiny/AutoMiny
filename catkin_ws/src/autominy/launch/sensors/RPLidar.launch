@@ -1,22 +1,37 @@
 <launch>
-	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
-	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
-	<arg name="baudrate" default="$(optenv ROS_RPLIDAR_BAUDRATE 115200)" />
+	<arg name="baudrate" default="$(env ROS_RPLIDAR_BAUDRATE 115200)" />
 
-	<remap from="/sensors/scan" to="/sensors/rplidar/scan"/>
-	<node name="rplidar"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
-		<param name="serial_port"         type="string" value="/dev/ttyLidar"/>
-		<param name="serial_baudrate"     type="int"    value="$(arg baudrate)"/>
-		<param name="frame_id"            type="string" value="laser"/>
-		<param name="inverted"            type="bool"   value="false"/>
-		<param name="angle_compensate"    type="bool"   value="true"/>
+	<node name="rplidar"          pkg="rplidar_ros"  exec="rplidarNode" output="screen">
+		<remap from="/sensors/scan" to="/sensors/rplidar/scan"/>
+
+		<param name="serial_port"         value="/dev/ttyLidar"/>
+		<param name="serial_baudrate"     value="$(var baudrate)"/>
+		<param name="frame_id"            value="laser"/>
+		<param name="inverted"            value="false"/>
+		<param name="angle_compensate"    value="true"/>
 	</node>
 
-	<remap from="/sensors/lidar_pose_estimation/scan" to="/sensors/rplidar/scan"/>
+    <node
+          pkg="lidar_pose_estimation"
+          name="lidar_pose_estimation"
+          exec="lidar_pose_estimation_node"
+    >
+        <param name="max_dist" value="$(env ROS_LIDAR_CALIBRATION_MAX_DISTANCE 0.25)" />
+        <param name="execution_frequency" value="$(env ROS_LIDAR_CALIBRATION_EXECUTION_FREQUENCY 1.0)" />
+        <param name="cluster_tolerance" value="$(env ROS_LIDAR_CALIBRATION_CLUSTER_TOLERANCE 0.02)" />
+        <param name="min_cluster_size" value="$(env ROS_LIDAR_CALIBRATION_MIN_CLUSTER_SIZE 10)" />
+        <param name="max_cluster_size" value="$(env ROS_LIDAR_CALIBRATION_MAX_CLUSTER_SIZE 100)" />
+        <param name="max_reference_distance_deviation" value="$(env ROS_LIDAR_CALIBRATION_MAX_REFERENCE_DEVIATION 0.01)" />
+        <param name="roll" value="$(env ROS_LIDAR_CALIBRATION_ROLL 0.0)" />
+        <param name="pitch" value="$(env ROS_LIDAR_CALIBRATION_PITCH 0.0)" />
+        <param name="z" value="$(env ROS_LIDAR_CALIBRATION_Z 0.0)" />
+        <param name="p_ref_1_x" value="$(env ROS_LIDAR_CALIBRATION_P_REF_1_X -0.035)" />
+        <param name="p_ref_1_y" value="$(env ROS_LIDAR_CALIBRATION_P_REF_1_Y -0.055)" />
+        <param name="p_ref_2_x" value="$(env ROS_LIDAR_CALIBRATION_P_REF_2_X -0.035)" />
+        <param name="p_ref_2_y" value="$(env ROS_LIDAR_CALIBRATION_P_REF_2_Y -0.055)" />
 
-	<include file="$(find lidar_pose_estimation)/launch/LidarPoseEstimation.launch">
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-	</include>
+        <remap from="/sensors/lidar_pose_estimation/scan" to="/sensors/rplidar/scan"/>
+    </node>
+
 
 </launch>

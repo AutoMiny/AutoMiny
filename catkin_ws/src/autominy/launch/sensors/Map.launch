@@ -1,10 +1,8 @@
 <launch>
-	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
-	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
-	<arg name="nodelet_manager" default="$(optenv LOCALIZATION_NODELET_MANAGER core_nodelet_manager)" />
+	<arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="tf_prefix"       default="" />
 
-	<include file="$(find map_publisher)/launch/robotics_lab.launch">
-	    <arg name="tf_prefix" value="$(arg tf_prefix)" />
+	<include file="$(find-pkg-share map_publisher)/launch/robotics_lab.launch">
+	    <arg name="tf_prefix" value="$(var tf_prefix)" />
 	</include>
 </launch>

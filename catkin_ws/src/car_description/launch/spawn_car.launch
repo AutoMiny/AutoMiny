@@ -10,18 +10,18 @@
   <arg name="map_frame"   default="map"/>
   <arg name="odom_frame"  default="odom"/>
 
-  <node name="spawn_urdf_$(arg name)"
+  <node name="spawn_urdf_$(var name)"
         pkg ="gazebo_ros"
-        type="spawn_model" 
-        args="-param robot_description
-              -urdf -model $(arg name)
-              -x $(arg x) -y $(arg y) -z 0.124 -R 0 -P 0 -Y $(arg yaw) "/>
+        exec="spawn_entity.py"
+        args="-topic /robot_description
+              -entity $(var name)
+              -x $(var x) -y $(var y) -z 0.124 -R 0 -P 0 -Y $(var yaw) "/>
 
-  <include file="$(find sim_car_controller)/launch/control.launch">
-    <arg name="name" value="$(arg name)"/>
-  </include>
+  <!--<include file="$(find-pkg-share sim_car_controller)/launch/control.launch">
+    <arg name="name" value="$(var name)"/>
+  </include>-->
 
-  <node name="$(arg name)_static_tf_world_map" pkg="tf" type="static_transform_publisher"
-        args="0 0 0 0 0 0 $(arg world_frame) $(arg map_frame) 100"/>
+  <node name="$(var name)_static_tf_world_map" pkg="tf2_ros" exec="static_transform_publisher"
+        args="0 0 0 0 0 0 $(var world_frame) $(var map_frame)"/>
 
 </launch>

@@ -1,56 +1,11 @@
 <?xml version="1.0" ?>
 <launch>
-    <arg name="use_nodelets" default="$(optenv USE_NODELETS false)"/>
-    <arg name="nodelet_manager" default="$(optenv HARDWARE_CALIBRATION_NODELET_MANAGER hardware_calibration_nodelet_manager)"/>
-
     <![CDATA[
     <!--
           FOR DEBUGGING: add to node tag: launch-prefix="gnome-terminal -x gdb --args"
-          additionally add <param name="/bond_disable_heartbeat_timeout" value="true" /> to debug nodelets
     -->
     ]]>
 
-    <node name="$(anon reconfigure)" pkg="dynamic_reconfigure" type="dynparam" args="set_from_parameters hardware_calibration">
-        <param name="minimum_steering_feedback" type="int" value="$(optenv ROS_MINIMUM_STEERING_FEEDBACK 192)" />
-        <param name="maximum_steering_feedback" type="int" value="$(optenv ROS_MAXIMUM_STEERING_FEEDBACK 420)" />
-        <param name="minimum_steering_radians" type="double" value="$(optenv ROS_MINIMUM_STEERING_RADIANS 0.38)" />
-        <param name="maximum_steering_radians" type="double" value="$(optenv ROS_MAXIMUM_STEERING_RADIANS -0.38)" />
-        <param name="minimum_steering_pwm" type="int" value="$(optenv ROS_MINIMUM_STEERING_PWM 950)" />
-        <param name="maximum_steering_pwm" type="int" value="$(optenv ROS_MAXIMUM_STEERING_PWM 2150)" />
-        <param name="minimum_speed_pwm" type="int" value="$(optenv ROS_MINIMUM_SPEED_PWM -1000)" />
-        <param name="maximum_speed_pwm" type="int" value="$(optenv ROS_MAXIMUM_SPEED_PWM 1000)" />
-        <param name="ticks_to_m" type="double" value="$(optenv ROS_TICKS_TO_M 0.0027)" />
-        <param name="number_of_ticks_filter" type="int" value="$(optenv ROS_NUMBER_OF_TICKS_FILTER 20)" />
-        <param name="number_of_steering_msgs_filter" type="int" value="$(optenv ROS_STEERING_MSGS_FILTER 10)" />
-    </node>
 
-    <!-- start standalone node -->
-    <node unless="$(arg use_nodelets)"
-          pkg="hardware_calibration"
-          name="hardware_calibration"
-          type="hardware_calibration_node"
-    >
-    </node>
-
-    <!-- start nodelet (nodelet manager needed" />see below) -->
-    <node if="$(arg use_nodelets)"
-          pkg="nodelet"
-          type="nodelet"
-          name="hardware_calibration"
-          args="load hardware_calibration/Nodelet $(arg nodelet_manager)"
-    >
-    </node>
-
-    <!-- start nodelet manager" />if not already started from outside of this launch file -->
-    <!--
-    <node if="$(arg use_nodelets)"
-        pkg="nodelet"
-        type="nodelet"
-        name="$(arg nodelet_manager)"
-        args="manager"
-    >
-        <param name="num_worker_threads" value="64" />
-    </node>
-    -->
 
 </launch>

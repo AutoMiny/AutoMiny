@@ -1,133 +1,46 @@
 <launch>
-    <arg name="live"        doc="Whether to connect to hardware (true) or just run the parsing nodes (false)" />
-    <arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
-    <arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
-    <arg name="camera_serial_no" default="$(optenv ROS_CAMERA_SERIAL_NO)" />
-    <arg name="rear_camera_serial_no" default="$(optenv ROS_REAR_CAMERA_SERIAL_NO)" />
+    <arg name="live"        description="Whether to connect to hardware (true) or just run the parsing nodes (false)" />
     <arg name="agent_prefix" default="" />
     <arg name="tf_prefix" default="" />
 
-    <group if="$(arg live)">
-        <group if="$(arg use_nodelets)">
-            <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
-                <arg name="serial_no" value="$(arg camera_serial_no)"/>
-                <arg name="external_manager" value="true" />
-                <arg name="manager" value="$(arg nodelet_manager)" />
-                <arg name="align_depth" value="false" />
-                <arg name="depth_registered_processing" value="false"/>
-                <arg name="enable_color" value="true"/>
-                <arg name="enable_infra1" value="true"/>
-                <arg name="enable_infra2" value="false"/>
-                <arg name="depth_fps" value="15"/>
-                <arg name="infra_fps" value="15"/>
-                <arg name="color_fps" value="15"/>
-                <arg name="depth_width" value="848"/>
-                <arg name="infra_width" value="848"/>
-                <arg name="color_width" value="640"/>
-                <arg name="depth_height" value="480"/>
-                <arg name="infra_height" value="480"/>
-                <arg name="color_height" value="480"/>
-            </include>
-        </group>
-
-        <group unless="$(arg use_nodelets)">
-            <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
-                <arg name="serial_no" value="$(arg camera_serial_no)"/>
-                <arg name="align_depth" value="false" />
-                <arg name="depth_registered_processing" value="false"/>
-                <arg name="enable_color" value="true"/>
-                <arg name="enable_infra1" value="true"/>
-                <arg name="enable_infra2" value="false"/>
-                <arg name="depth_fps" value="15"/>
-                <arg name="infra_fps" value="15"/>
-                <arg name="color_fps" value="15"/>
-                <arg name="depth_width" value="848"/>
-                <arg name="infra_width" value="848"/>
-                <arg name="color_width" value="640"/>
-                <arg name="depth_height" value="480"/>
-                <arg name="infra_height" value="480"/>
-                <arg name="color_height" value="480"/>
-            </include>
-        </group>
-
-        <group if="$(eval use_nodelets and rear_camera_serial_no != '')">
-            <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
-                <arg name="serial_no" value="$(arg rear_camera_serial_no)"/>
-                <arg name="camera" value="rear_camera"/>
-                <arg name="tf_prefix" value="rear_camera"/>
-                <arg name="external_manager" value="true" />
-                <arg name="manager" value="$(arg nodelet_manager)" />
-                <arg name="align_depth" value="false" />
-                <arg name="depth_registered_processing" value="false"/>
-                <arg name="enable_color" value="true"/>
-                <arg name="enable_infra1" value="true"/>
-                <arg name="enable_infra2" value="false"/>
-                <arg name="depth_fps" value="15"/>
-                <arg name="infra_fps" value="15"/>
-                <arg name="color_fps" value="15"/>
-            </include>
-        </group>
-
-        <group if="$(eval not use_nodelets and rear_camera_serial_no != '')">
-            <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
-                <arg name="serial_no" value="$(arg rear_camera_serial_no)"/>
-                <arg name="camera" value="rear_camera"/>
-                <arg name="tf_prefix" value="rear_camera"/>
-                <arg name="align_depth" value="false" />
-                <arg name="depth_registered_processing" value="false"/>
-                <arg name="enable_color" value="true"/>
-                <arg name="enable_infra1" value="true"/>
-                <arg name="enable_infra2" value="false"/>
-                <arg name="depth_fps" value="15"/>
-                <arg name="infra_fps" value="15"/>
-                <arg name="color_fps" value="15"/>
-                <arg name="depth_width" value="848"/>
-                <arg name="infra_width" value="848"/>
-                <arg name="color_width" value="640"/>
-                <arg name="depth_height" value="480"/>
-                <arg name="infra_height" value="480"/>
-                <arg name="color_height" value="480"/>
-            </include>
-        </group>
-
-        <node name="dynamic_reconfigure_load" pkg="dynamic_reconfigure" type="dynparam" args="set /sensors/camera/stereo_module emitter_enabled Off" />
-    </group>
-
-    <group ns="camera">
-    <!-- Stereo camera estimation -->
-        <remap from="$(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/color/image_rect_color" to="$(arg agent_prefix)/sensors/camera/color/image_rect_color" />
-        <remap from="$(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/depth/image_rect_raw" to="$(arg agent_prefix)/sensors/camera/depth/image_rect_raw"/>
-        <remap from="$(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/color/camera_info" to="$(arg agent_prefix)/sensors/camera/color/camera_info"/>
-        <remap from="$(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/depth/camera_info" to="$(arg agent_prefix)/sensors/camera/depth/camera_info"/>
-        <include file="$(find stereo_camera_pose_estimation)/launch/StereoCameraPoseEstimation.launch">
-            <arg name="use_nodelets"    value="$(arg use_nodelets)" />
-            <arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+    <!--<group if="$(var live)">
+        <include file="$(find-pkg-share realsense2_camera)/launch/rs_rgbd.launch">
+            <arg name="align_depth" value="false" />
+            <arg name="depth_registered_processing" value="false"/>
+            <arg name="enable_color" value="true"/>
+            <arg name="enable_infra1" value="true"/>
+            <arg name="enable_infra2" value="false"/>
+            <arg name="depth_fps" value="15"/>
+            <arg name="infra_fps" value="15"/>
+            <arg name="color_fps" value="15"/>
+            <arg name="depth_width" value="848"/>
+            <arg name="infra_width" value="848"/>
+            <arg name="color_width" value="640"/>
+            <arg name="depth_height" value="480"/>
+            <arg name="infra_height" value="480"/>
+            <arg name="color_height" value="480"/>
         </include>
+    </group>-->
 
-        <node name="$(anon dynamic_reconfigure_load)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation aruco_id $(optenv ROS_CALIBRATION_MARKER_ID 0)" />
+    <group>
+        <push_ros_namespace namespace="camera"/>
 
-        <group if="$(eval tf_prefix != '')">
-            <node name="$(anon dynamic_reconfigure_load_6)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation base_link_frame $(arg tf_prefix)base_link" />
-            <node name="$(anon dynamic_reconfigure_load_7)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation camera_frame $(arg tf_prefix)camera_bottom_screw_frame" />
-            <node name="$(anon dynamic_reconfigure_load_8)" pkg="dynamic_reconfigure" type="dynparam" args="set $(arg agent_prefix)/sensors/camera/stereo_camera_pose_estimation marker_frame $(arg tf_prefix)marker" />
-        </group>
-    </group>
+        <node
+              pkg="stereo_camera_pose_estimation"
+              name="stereo_camera_pose_estimation"
+              exec="stereo_camera_pose_estimation_node"
+        >
+            <param name="aruco_id" value="$(env ROS_CALIBRATION_MARKER_ID 0)" />
+            <param name="base_link_frame" value="$(var tf_prefix)base_link" />
+            <param name="camera_frame" value="$(var tf_prefix)camera_bottom_screw_frame" />
+            <param name="marker_frame" value="$(var tf_prefix)marker" />
+            <!--<param name="threshold" value="130" />-->
 
-    <group if="$(eval rear_camera_serial_no != '')" ns="rear_camera">
-        <!-- Stereo camera estimation -->
-        <remap from="/sensors/rear_camera/stereo_camera_pose_estimation/camera/color/image_rect_color" to="/sensors/rear_camera/color/image_rect_color" />
-        <remap from="/sensors/rear_camera/stereo_camera_pose_estimation/camera/depth/image_rect_raw" to="/sensors/rear_camera/depth/image_rect_raw"/>
-        <remap from="/sensors/rear_camera/stereo_camera_pose_estimation/camera/color/camera_info" to="/sensors/rear_camera/color/camera_info"/>
-        <remap from="/sensors/rear_camera/stereo_camera_pose_estimation/camera/depth/camera_info" to="/sensors/rear_camera/depth/camera_info"/>
-        <include file="$(find stereo_camera_pose_estimation)/launch/StereoCameraPoseEstimation.launch">
-            <arg name="use_nodelets"    value="$(arg use_nodelets)" />
-            <arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-        </include>
-
-        <node name="$(anon dynamic_reconfigure_load2)" pkg="dynamic_reconfigure" type="dynparam" args="set /sensors/rear_camera/stereo_camera_pose_estimation aruco_id $(optenv ROS_CALIBRATION_MARKER_ID 0)" />
-        <node name="$(anon dynamic_reconfigure_load3)" pkg="dynamic_reconfigure" type="dynparam" args="set /sensors/rear_camera/stereo_camera_pose_estimation use_marker False" />
-        <node name="$(anon dynamic_reconfigure_load4)" pkg="dynamic_reconfigure" type="dynparam" args="set /sensors/rear_camera/stereo_camera_pose_estimation camera_frame rear_camera_bottom_screw_frame" />
-        <node name="$(anon dynamic_reconfigure_load5)" pkg="dynamic_reconfigure" type="dynparam" args="set /sensors/rear_camera/stereo_camera_pose_estimation yaw_offset 3.141" />
+            <remap from="$(var agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/color/image_rect_color" to="$(var agent_prefix)/sensors/camera/color/image_rect_color" />
+            <remap from="$(var agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/depth/image_rect_raw" to="$(var agent_prefix)/sensors/camera/depth/image_rect_raw"/>
+            <remap from="$(var agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/color/camera_info" to="$(var agent_prefix)/sensors/camera/color/camera_info"/>
+            <remap from="$(var agent_prefix)/sensors/camera/stereo_camera_pose_estimation/camera/depth/camera_info" to="$(var agent_prefix)/sensors/camera/depth/camera_info"/>
+        </node>
     </group>
 </launch>
 

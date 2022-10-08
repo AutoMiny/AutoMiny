@@ -12,7 +12,7 @@ namespace hardware_calibration {
         config.minimum_steering_feedback = declare_parameter<int>("minimum_steering_feedback", 192);
         config.maximum_steering_feedback = declare_parameter<int>("maximum_steering_feedback", 420);
         config.minimum_steering_radians = declare_parameter<double>("minimum_steering_radians", 0.512);
-        config.maximum_steering_radians = declare_parameter<double>("minimum_steering_feedback", -0.498);
+        config.maximum_steering_radians = declare_parameter<double>("maximum_steering_radians", -0.498);
         config.minimum_steering_pwm = declare_parameter<int>("minimum_steering_pwm", 950);
         config.maximum_steering_pwm = declare_parameter<int>("maximum_steering_pwm", 2150);
         config.minimum_speed_pwm = declare_parameter<int>("minimum_speed_pwm", -1000);

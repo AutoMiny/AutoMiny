@@ -1,8 +1,6 @@
 <launch>
-    <arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
-    <arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
-    <arg name="nodelet_manager" default="$(optenv AUTONOMICS_NODELET_MANAGER core_nodelet_manager)" />
-    <arg name="car_id"         default="$(optenv ROS_CAR_ID 129)" />
+    <arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
+    <arg name="car_id"         default="$(env ROS_CAR_ID 129)" />
 
-    <node pkg="topic_tools" type="relay" name="relay_odom_$(arg car_id)" args="/sensors/localization/filtered_map /communication/$(arg car_id)/localization" />
+    <node pkg="topic_tools" exec="relay" name="relay_odom_$(var car_id)" args="/sensors/localization/filtered_map /communication/$(var car_id)/localization" />
 </launch>

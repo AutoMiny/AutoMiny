@@ -16,7 +16,6 @@
 
     <depend>rclcpp_components</depend>
     <depend>rclcpp</depend>
-    <depend>dynamic_reconfigure</depend>
     <depend>sdl2</depend>
     <depend>autominy_msgs</depend>
 

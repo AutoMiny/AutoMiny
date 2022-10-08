@@ -1,21 +1,32 @@
 <launch>
-	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
-	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
 	<arg name="agent_prefix"    default="" />
 
-	<!-- Arduino communication -->
-	<remap from="~actuators/speed_normalized" to="$(arg agent_prefix)/actuators/speed_normalized" />
-	<remap from="~actuators/steering_normalized" to="$(arg agent_prefix)/actuators/steering_normalized" />
-	<remap from="~carstate/calibrated_speed" to="speed" />
-	<remap from="~carstate/steering_angle" to="steering" />
-	<remap from="~arduino/speed" to="$(arg agent_prefix)/autonomics/emergency_stop/wanted_speed" />
-	<remap from="~arduino/steering_angle" to="$(arg agent_prefix)/sensors/arduino/steering_angle" />
-	<remap from="~arduino/steering" to="$(arg agent_prefix)/actuators/steering_pwm" />
-	<remap from="~arduino/ticks" to="$(arg agent_prefix)/sensors/arduino/ticks" />
-	<remap from="~actuators/speed" to="$(arg agent_prefix)/actuators/speed" />
-	<remap from="~actuators/steering" to="$(arg agent_prefix)/actuators/steering" />
-	<include file="$(find hardware_calibration)/launch/HardwareCalibration.launch">
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-	</include>
+    <node
+          pkg="hardware_calibration"
+          name="hardware_calibration"
+          exec="hardware_calibration_node"
+    >
+        <param name="minimum_steering_feedback" value="$(env ROS_MINIMUM_STEERING_FEEDBACK 192)" />
+        <param name="maximum_steering_feedback" value="$(env ROS_MAXIMUM_STEERING_FEEDBACK 420)" />
+        <param name="minimum_steering_radians" value="$(env ROS_MINIMUM_STEERING_RADIANS 0.38)" />
+        <param name="maximum_steering_radians" value="$(env ROS_MAXIMUM_STEERING_RADIANS -0.38)" />
+        <param name="minimum_steering_pwm" value="$(env ROS_MINIMUM_STEERING_PWM 950)" />
+        <param name="maximum_steering_pwm" value="$(env ROS_MAXIMUM_STEERING_PWM 2150)" />
+        <param name="minimum_speed_pwm" value="$(env ROS_MINIMUM_SPEED_PWM -1000)" />
+        <param name="maximum_speed_pwm" value="$(env ROS_MAXIMUM_SPEED_PWM 1000)" />
+        <param name="ticks_to_m" value="$(env ROS_TICKS_TO_M 0.0027)" />
+        <param name="number_of_ticks_filter" value="$(env ROS_NUMBER_OF_TICKS_FILTER 20)" />
+        <param name="number_of_steering_msgs_filter" value="$(env ROS_STEERING_MSGS_FILTER 10)" />
+
+        <remap from="actuators/speed_normalized" to="$(var agent_prefix)/actuators/speed_normalized" />
+        <remap from="actuators/steering_normalized" to="$(var agent_prefix)/actuators/steering_normalized" />
+        <remap from="carstate/calibrated_speed" to="speed" />
+        <remap from="carstate/steering_angle" to="steering" />
+        <remap from="arduino/speed" to="$(var agent_prefix)/autonomics/emergency_stop/wanted_speed" />
+        <remap from="arduino/steering_angle" to="$(var agent_prefix)/sensors/arduino/steering_angle" />
+        <remap from="arduino/steering" to="$(var agent_prefix)/actuators/steering_pwm" />
+        <remap from="arduino/ticks" to="$(var agent_prefix)/sensors/arduino/ticks" />
+        <remap from="actuators/speed" to="$(var agent_prefix)/actuators/speed" />
+        <remap from="actuators/steering" to="$(var agent_prefix)/actuators/steering" />
+    </node>
 </launch>

@@ -1,20 +1,14 @@
 <launch>
-	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
-	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
-	<arg name="nodelet_manager" default="$(optenv AUTONOMICS_NODELET_MANAGER core_nodelet_manager)" />
+	<arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="agent_prefix"    default="" />
 
-	<include file="$(find autominy)/launch/autonomics/EmergencyStop.launch">
-		<arg name="live"    		value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-		<arg name="agent_prefix"    value="$(arg agent_prefix)" />
+	<include file="$(find-pkg-share autominy)/launch/autonomics/EmergencyStop.launch">
+		<arg name="live"    		value="$(var live)" />
+		<arg name="agent_prefix"    value="$(var agent_prefix)" />
 	</include>
 
-	<include file="$(find autominy)/launch/autonomics/LowVoltageShutdown.launch">
-		<arg name="live"    		value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	<include file="$(find-pkg-share autominy)/launch/autonomics/LowVoltageShutdown.launch">
+		<arg name="live"    		value="$(var live)" />
 	</include>
 
 </launch>

@@ -1,21 +1,29 @@
 <!-- -->
 <launch>
   <arg name="name"  default="lab"/>
-  <arg name="parent" default="$(arg name)_base_link"/>
+  <arg name="parent" default="$(var name)_base_link"/>
 
-  <param name="lab_description" textfile="$(find world_description)/urdf/circuits/lab.urdf" />
 
-  <node name="world_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -param lab_description -x 2.890656 -y 1.951848 -z 0.0001 -Y 3.14159 -model lab_model" respawn="false" output="screen" />
+  <node name="world_spawner" pkg="gazebo_ros" exec="spawn_entity.py" args="-topic /world/robot_description -x 2.890656 -y 1.951848 -z 0.0001 -Y 3.14159 -entity lab_model" respawn="false" output="screen" />
 
-   <node name="$(arg name)_state_publisher"
+   <!--<node name="$(var name)_state_publisher"
         pkg ="robot_state_publisher"
-        type="robot_state_publisher">
-    <param name="tf_prefix" value="/$(arg name)" type="str" />
-    <remap from="robot_description" to="$(arg name)_description" />
-    <remap from="/joint_states" to="/$(arg name)/joint_states" />
-  </node>
+        exec="robot_state_publisher">
+    <param name="tf_prefix" value="/$(var name)" />
+    <remap from="robot_description" to="$(var name)_description" />
+    <remap from="/joint_states" to="/$(var name)/joint_states" />
+  </node>-->
+
+    <node pkg="robot_state_publisher" exec="robot_state_publisher" name="world_state_publisher">
+      <param name="publish_frequency" value="50.0"/>
+      <remap from="/robot_description" to="/world/robot_description" />
+      <remap from="/joint_states" to="/world/joint_states" />
+
+      <param name="robot_description" value="$(command 'xacro \'$(find-pkg-share world_description)/urdf/circuits/lab.urdf\'')" />
+    </node>
+
   
-  <node name="$(arg name)_static_tf" pkg="tf" type="static_transform_publisher"
-        args="2.35 2.891 0.0001 -1.5708 0 0 world $(arg parent) 100"/>
+  <node name="$(var name)_static_tf" pkg="tf2_ros" exec="static_transform_publisher"
+        args="2.35 2.891 0.0001 -1.5708 0 0 world $(var parent) 100"/>
 </launch>
  

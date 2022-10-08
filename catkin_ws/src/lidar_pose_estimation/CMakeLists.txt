@@ -25,7 +25,7 @@ include_directories(SYSTEM
 
 ## determines target name as lib[name].so, here: libfub_dummy_nodelet.so
 ## the library path in nodelet_plugins.xml refers to this file
-add_library(${PROJECT_NAME}_nodelet
+add_library(${PROJECT_NAME}_nodelet SHARED
         src/LidarPoseEstimationNodelet.cpp
         )
 
@@ -54,6 +54,11 @@ install(
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
         RUNTIME DESTINATION bin
+)
+
+install(
+        TARGETS ${PROJECT_NAME}_node
+        DESTINATION lib/${PROJECT_NAME}
 )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)

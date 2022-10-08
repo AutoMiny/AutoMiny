@@ -21,7 +21,7 @@ include_directories(SYSTEM
 #####################################################
 
 
-add_library(${PROJECT_NAME}_nodelet
+add_library(${PROJECT_NAME}_nodelet SHARED
         src/RemoteControlNodelet.cpp
         )
 
@@ -56,6 +56,11 @@ install(
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
         RUNTIME DESTINATION bin
+)
+
+install(
+        TARGETS ${PROJECT_NAME}_node
+        DESTINATION lib/${PROJECT_NAME}
 )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)

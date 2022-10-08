@@ -12,12 +12,13 @@
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
   <license>proprietary</license>
 
-  <buildtool_depend>colcon</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>rplidar_ros</depend>
   <depend>robot_localization</depend>
   <depend>xacro</depend>
   <depend>rgbd_launch</depend>
   <depend>rosbridge_server</depend>
   <export>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>

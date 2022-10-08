@@ -1,8 +1,8 @@
 <launch>
     <arg name="tf_prefix" default="" />
-	<node if="$(eval tf_prefix=='')" pkg="tf" type="static_transform_publisher" name="map_broadcaster"   args="0 0 0 0 0 0 1 map odom 100" />
+	<node pkg="tf2_ros" exec="static_transform_publisher" name="map_broadcaster"   args="0 0 0 0 0 0 1 map odom" />
 
 	<!-- Run the map server-->
-	<arg name="map_file" default="$(find map_publisher)/map/fu_robotics_lab_map.yaml"/> 
-	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" output="screen"/>
+	<arg name="map_file" default="$(find-pkg-share nav2_map_server)/map/fu_robotics_lab_map.yaml"/>
+	<node name="map_server" pkg="nav2_map_server" exec="map_server" args="$(var map_file)" output="screen"/>
 </launch>

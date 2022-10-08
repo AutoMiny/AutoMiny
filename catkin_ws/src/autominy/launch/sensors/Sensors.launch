@@ -1,82 +1,60 @@
 <launch>
-	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
-	<arg name="use_nodelets"    default="$(optenv USE_NODELETS true)" />
-	<arg name="nodelet_manager" default="$(optenv SENSOR_NODELET_MANAGER sensor_nodelet_manager)" />
+	<arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="tf_prefix" default="" />
 	<arg name="agent_prefix" default="" />
 
 	<!-- Intel Realsense D435 -->
-	<include file="$(find autominy)/launch/sensors/D435.launch">
-		<arg name="live"            value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-		<arg name="tf_prefix"       value="$(arg tf_prefix)" />
-		<arg name="agent_prefix"    value="$(arg agent_prefix)" />
+	<include file="$(find-pkg-share autominy)/launch/sensors/D435.launch">
+		<arg name="live"            value="$(var live)" />
+		<arg name="tf_prefix"       value="$(var tf_prefix)" />
+		<arg name="agent_prefix"    value="$(var agent_prefix)" />
 	</include>
 
 	<!-- RPLidar -->
-	<include if="$(arg live)" file="$(find autominy)/launch/sensors/RPLidar.launch">
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	<include if="$(var live)" file="$(find-pkg-share autominy)/launch/sensors/RPLidar.launch">
 	</include>
 
 	<!-- BNO055 -->
-	<include if="$(arg live)" file="$(find autominy)/launch/sensors/BNO055.launch">
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	<include if="$(var live)" file="$(find-pkg-share autominy)/launch/sensors/BNO055.launch">
 	</include>
 
 	<!-- Hardware communication -->
-    <include if="$(arg live)" file="$(find autominy)/launch/sensors/Arduino.launch">
-        <arg name="use_nodelets"    value="$(arg use_nodelets)" />
-        <arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+    <include if="$(var live)" file="$(find-pkg-share autominy)/launch/sensors/Arduino.launch">
     </include>
 
-    <include file="$(find autominy)/launch/sensors/HardwareCalibration.launch">
-        <arg name="use_nodelets"    value="$(arg use_nodelets)" />
-        <arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-        <arg name="agent_prefix"    value="$(arg agent_prefix)" />
+    <include file="$(find-pkg-share autominy)/launch/sensors/HardwareCalibration.launch">
+        <arg name="agent_prefix"    value="$(var agent_prefix)" />
     </include>
 
 	<!-- Odometry -->
-	<include file="$(find autominy)/launch/sensors/Odometry.launch">
-		<arg name="live"            value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-		<arg name="agent_prefix"       value="$(arg agent_prefix)" />
-		<arg name="tf_prefix"       value="$(arg tf_prefix)" />
+	<include file="$(find-pkg-share autominy)/launch/sensors/Odometry.launch">
+		<arg name="live"            value="$(var live)" />
+		<arg name="agent_prefix"       value="$(var agent_prefix)" />
+		<arg name="tf_prefix"       value="$(var tf_prefix)" />
 	</include>
 
 	<!-- Road marking localization -->
-	<include file="$(find autominy)/launch/sensors/RoadMarkingLocalization.launch">
-		<arg name="live"            value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-        <arg name="agent_prefix"    value="$(arg agent_prefix)" />
-        <arg name="tf_prefix"       value="$(arg tf_prefix)" />
+	<include file="$(find-pkg-share autominy)/launch/sensors/RoadMarkingLocalization.launch">
+		<arg name="live"            value="$(var live)" />
+        <arg name="agent_prefix"    value="$(var agent_prefix)" />
+        <arg name="tf_prefix"       value="$(var tf_prefix)" />
 	</include>
 
 	<!-- PointCloud -->
-	<include file="$(find autominy)/launch/sensors/PointCloud.launch">
-		<arg name="live"            value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	<include file="$(find-pkg-share autominy)/launch/sensors/PointCloud.launch">
+		<arg name="live"            value="$(var live)" />
 	</include>
 
 	<!-- Localization -->
-	<include file="$(find autominy)/launch/sensors/Localization.launch">
-		<arg name="live"            value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-		<arg name="tf_prefix" value="$(arg tf_prefix)" />
-		<arg name="agent_prefix" value="$(arg agent_prefix)" />
+	<include file="$(find-pkg-share autominy)/launch/sensors/Localization.launch">
+		<arg name="live"            value="$(var live)" />
+		<arg name="tf_prefix" value="$(var tf_prefix)" />
+		<arg name="agent_prefix" value="$(var agent_prefix)" />
 	</include>
 
 	<!-- Map -->
-	<include file="$(find autominy)/launch/sensors/Map.launch">
-		<arg name="live"            value="$(arg live)" />
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
-		<arg name="tf_prefix"       value="$(arg tf_prefix)" />
+	<include file="$(find-pkg-share autominy)/launch/sensors/Map.launch">
+		<arg name="live"            value="$(var live)" />
+		<arg name="tf_prefix"       value="$(var tf_prefix)" />
 	</include>
 </launch>

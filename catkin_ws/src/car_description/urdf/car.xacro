@@ -30,14 +30,14 @@
     <visual>
       <origin rpy="0.0 0 0" xyz="0.135 0 0.01"/>
       <geometry>
-        <mesh filename="package://car_description/meshes/chasi.dae"/>
+        <mesh filename="file://$(find car_description)/meshes/chasi.dae"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
       <origin rpy="0.0 0 0" xyz="0.135 0 0.01"/>
       <geometry>
-        <mesh filename="package://car_description/meshes/chasi.dae"/>
+        <mesh filename="file://$(find car_description)/meshes/chasi.dae"/>
       </geometry>
     </collision>
   </link>
@@ -46,14 +46,14 @@
     <visual>
       <origin rpy="0.0 0 0" xyz="0.115 0 0"/>
       <geometry>
-        <mesh filename="package://car_description/meshes/board.dae"/>
+        <mesh filename="file://$(find car_description)/meshes/board.dae"/>
       </geometry>
       <material name="plastic"/>
     </visual>
     <collision>
       <origin rpy="0.0 0 0" xyz="0.115 0 0"/>
       <geometry>
-        <mesh filename="package://car_description/meshes/board.dae"/>
+        <mesh filename="file://$(find car_description)/meshes/board.dae"/>
       </geometry>
     </collision>
     <inertial>
@@ -67,14 +67,14 @@
     <visual>
       <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://car_description/meshes/camera_board.dae"/>
+        <mesh filename="file://$(find car_description)/meshes/camera_board.dae"/>
       </geometry>
       <material name="plastic"/>
     </visual>
     <collision>
       <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://car_description/meshes/camera_board.dae"/>
+        <mesh filename="file://$(find car_description)/meshes/camera_board.dae"/>
       </geometry>
     </collision>
     <inertial>
@@ -89,7 +89,7 @@
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://car_description/meshes/wheel.dae"/>
+          <mesh filename="file://$(find car_description)/meshes/wheel.dae"/>
         </geometry>
         <material name="black"/>
       </visual>
@@ -170,7 +170,7 @@
   <link name="$(arg tf_prefix)marker">
     <visual>
       <geometry>
-        <mesh filename="package://car_description/meshes/marker.dae"/>
+        <mesh filename="file://$(find car_description)/meshes/marker.dae"/>
       </geometry>
       <origin rpy="0 0 1.5708" xyz="0 0 0"/>
           
@@ -291,7 +291,7 @@
   <joint name="$(arg tf_prefix)board_marker" type="fixed">
     <parent link="$(arg tf_prefix)board"/>
     <child link="$(arg tf_prefix)marker"/>
-    <origin xyz="$(optenv ROS_ESTIMATION_MARKER_X 0.30) $(optenv ROS_ESTIMATION_MARKER_Y 0.0) 0.0025"/>
+    <origin xyz="0.30 0.0 0.0025"/>
   </joint>
 
   <joint name="$(arg tf_prefix)board_nuc" type="fixed">
@@ -454,10 +454,10 @@
 
   <gazebo>
     <plugin name="model_car_ground_truth" filename="libgazebo_ros_p3d.so">
-      <frameName>map</frameName>
-      <bodyName>$(arg tf_prefix)base_link</bodyName>
-      <topicName>simulation/odom_ground_truth</topicName>
-      <updateRate>30.0</updateRate>
+      <frame_name>map</frame_name>
+      <body_name>$(arg tf_prefix)base_link</body_name>
+      <topic_name>simulation/odom_ground_truth</topic_name>
+      <update_rate>30.0</update_rate>
     </plugin>
   </gazebo>
 
