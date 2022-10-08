@@ -24,6 +24,6 @@
 
   
   <node name="$(var name)_static_tf" pkg="tf2_ros" exec="static_transform_publisher"
-        args="2.35 2.891 0.0001 -1.5708 0 0 world $(var parent) 100"/>
+        args="2.35 2.891 0.0001 -1.5708 0 0 world $(var parent)"/>
 </launch>
  
