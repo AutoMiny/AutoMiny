@@ -2,47 +2,47 @@
 #include <limits>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
-#include <tf/tf.h>
+#include <tf2/utils.h>
 
 namespace autominy_sim_control
 {
     namespace internal
     {
 
-        std::shared_ptr<urdf::Model> getUrdf(const ros::NodeHandle& nh, const std::string& param_name) {
+        std::shared_ptr<urdf::Model> getUrdf(const rclcpp_lifecycle::LifecycleNode::SharedPtr nh, const std::string& param_name) {
             std::shared_ptr<urdf::Model> urdf(new urdf::Model);
             std::string urdf_str;
       
-            if (nh.getParam(param_name, urdf_str)) {
+            if (nh->get_parameter(param_name, urdf_str)) {
                 if (!urdf->initString(urdf_str)) {
-                    RCLCPP_ERROR_STREAM(get_logger(), "Failed to parse URDF contained in '" << param_name << "' parameter (namespace: " << nh.getNamespace() << ").");
+                    RCLCPP_ERROR_STREAM(nh->get_logger(), "Failed to parse URDF contained in '" << param_name
+                                                                                                << "' parameter (namespace: "
+                                                                                                << nh->get_namespace()
+                                                                                                << ").");
                     return std::shared_ptr<urdf::Model>();
                 }
-            } else if (!urdf->initParam("robot_description")) {
-                RCLCPP_ERROR_STREAM(get_logger(), "Failed to parse URDF contained in '" << param_name << "' parameter");
-                return std::shared_ptr<urdf::Model>();
             }
             return urdf;
         }
 
         typedef std::shared_ptr<const urdf::Joint> UrdfJointConstPtr;
 
-        std::vector<UrdfJointConstPtr> getUrdfJoints(const urdf::Model& urdf, const std::vector<std::string>& joint_names) {
+        std::vector<UrdfJointConstPtr> getUrdfJoints(const rclcpp_lifecycle::LifecycleNode::SharedPtr nh, const urdf::Model& urdf, const std::vector<std::string>& joint_names) {
             std::vector<UrdfJointConstPtr> out;
             for (unsigned int i = 0; i < joint_names.size(); ++i) {
                 UrdfJointConstPtr urdf_joint = urdf.getJoint(joint_names[i]);
                 if (urdf_joint) {
                     out.push_back(urdf_joint);
                 } else {
-                    RCLCPP_ERROR_STREAM(get_logger(), "Could not find joint '" << joint_names[i] << "' in URDF model.");
+                    RCLCPP_ERROR_STREAM(nh->get_logger(), "Could not find joint '" << joint_names[i] << "' in URDF model.");
                     return std::vector<UrdfJointConstPtr>();
                 }
             }
             return out;
         }
 
-        std::string getNamespace(const ros::NodeHandle& nh) {
-            const std::string complete_ns = nh.getNamespace();
+        std::string getNamespace(const rclcpp_lifecycle::LifecycleNode::SharedPtr nh) {
+            const std::string complete_ns = nh->get_namespace();
             std::size_t id   = complete_ns.find_last_of("/");
             return complete_ns.substr(id + 1);
         }
@@ -52,21 +52,14 @@ namespace autominy_sim_control
         }
     }
 
-    template <class HardwareInterface>
-    AutominySimController<HardwareInterface>::AutominySimController() {}
-
-    template <class HardwareInterface>
-    bool AutominySimController<HardwareInterface>::init(HardwareInterface* hw, ros::NodeHandle& root_nh, ros::NodeHandle& controller_nh) {
-        RCLCPP_INFO(get_logger(), "Init");
+    controller_interface::CallbackReturn AutominySimController::on_init() {
+        RCLCPP_INFO(get_node()->get_logger(), "Init");
         std::string joint_name;
 
-        // Cache controller node handle
-        this->controller_nh = controller_nh;
-
         // Controller name
-        this->name = internal::getNamespace(this->controller_nh);
+        this->name = internal::getNamespace(this->get_node());
 
-        last_publish = now();
+        last_publish = get_node()->now();
         acc = 0.0;
 
         // get the joint names
@@ -78,29 +71,29 @@ namespace autominy_sim_control
             getJointName("steer_left_joint") &&
             getJointName("steer_right_joint")))
         {
-            ROS_ERROR("Joints names were not found");
-            return false;
+            RCLCPP_ERROR(get_node()->get_logger(), "Joints names were not found");
+            return CallbackReturn::FAILURE;
         }
         const unsigned int n_joints = joint_names.size();
-        RCLCPP_INFO(get_logger(), "Joint-Names %d", n_joints);
-        RCLCPP_INFO(get_logger(), "Joint-Names %d", n_joints);
-        RCLCPP_INFO(get_logger(), "ROOT NS %s", root_nh.getNamespace().c_str());
-        RCLCPP_INFO(get_logger(), "Controller NS %s", controller_nh.getNamespace().c_str());
+        RCLCPP_INFO(get_node()->get_logger(), "Joint-Names %d", n_joints);
+        RCLCPP_INFO(get_node()->get_logger(), "Joint-Names %d", n_joints);
+        RCLCPP_INFO(get_node()->get_logger(), "ROOT NS %s", get_node()->get_namespace());
+        RCLCPP_INFO(get_node()->get_logger(), "Controller NS %s", get_node()->get_namespace());
 
-        std::string robotDescriptionParam = controller_nh.param<std::string>("robot_description_param", "robot_description");
-        ROS_INFO("Robot description %s", robotDescriptionParam.c_str());
+        std::string robotDescriptionParam = get_node()->declare_parameter<std::string>("robot_description_param", "robot_description");
+        RCLCPP_INFO(get_node()->get_logger(), "Robot description %s", robotDescriptionParam.c_str());
 
         // get the joints from the urdf file
-        std::shared_ptr<urdf::Model> urdf = internal::getUrdf(root_nh, robotDescriptionParam);
+        std::shared_ptr<urdf::Model> urdf = internal::getUrdf(get_node(), robotDescriptionParam);
         if (!urdf) {
-            ROS_ERROR_STREAM_NAMED(name, "No robot description found");
-            return false;
+            RCLCPP_ERROR_STREAM(get_node()->get_logger(), "No robot description found");
+            return CallbackReturn::FAILURE;
         }
 
-        std::vector<internal::UrdfJointConstPtr> urdf_joints = internal::getUrdfJoints(*urdf, this->joint_names);
+        std::vector<internal::UrdfJointConstPtr> urdf_joints = internal::getUrdfJoints(get_node(), *urdf, this->joint_names);
         if (urdf_joints.empty()) {
-            ROS_ERROR_STREAM_NAMED(name, "Desired joint not found in the robot model");
-            return false;
+            RCLCPP_ERROR_STREAM(get_node()->get_logger(), "Desired joint not found in the robot model");
+            return CallbackReturn::FAILURE;
         }
 
         // Initialize the joints
@@ -112,14 +105,15 @@ namespace autominy_sim_control
                 this->joints[i] = hw->getHandle(this->joint_names[i]);
           
                 // Node handle to PID gains
-                ros::NodeHandle joint_nh(controller_nh, std::string("gains/") + this->joints[i].getName());
                 // Init PID gains from ROS parameter server
                 this->pids[i].reset(new control_toolbox::Pid());
-                this->pids[i]->initDynamicReconfig(joint_nh);
+                this->pids[i]->initPid(get_node()->get_parameter("gains/" + this->joints[i].getName() + "/p").as_double(),
+                                       get_node()->get_parameter("gains/" + this->joints[i].getName() + "/i").as_double(),
+                                       get_node()->get_parameter("gains/" + this->joints[i].getName() + "/d").as_double());
             } catch (...) {
-                ROS_ERROR_STREAM_NAMED(name, "Could not find joint '" << this->joint_names[i] << "' in '" <<
+                RCLCPP_ERROR_STREAM(get_node()->get_logger(), "Could not find joint '" << this->joint_names[i] << "' in '" <<
                 this->getHardwareInterfaceType() << "'.");
-                return false;
+                return CallbackReturn::FAILURE;
             }
         }
 
@@ -127,31 +121,29 @@ namespace autominy_sim_control
         setupParamas();
 
         // ros communications
-        this->steering_sub = root_create_subscription(this->steering_topic, 1, &AutominySimController<HardwareInterface>::steering_callback, this);
-        this->speed_sub = root_create_subscription(this->speed_topic, 1, &AutominySimController<HardwareInterface>::speed_callback, this);
+        this->steering_sub = get_node()->create_subscription(this->steering_topic, 1, std::bind(&AutominySimController::steering_callback, this, std::placeholders::_1));
+        this->speed_sub = get_node()->create_subscription(this->speed_topic, 1, std::bind(&AutominySimController::speed_callback, this, std::placeholders::_1));
 
-        this->steer_angle_pub = root_create_publisher<autominy_msgs::msg::SteeringFeedback>(this->steering_fb_topic, 1);
-        this->ticks_pub = root_create_publisher<autominy_msgs::msg::Tick>(this->ticks_topic, 1);
+        this->steer_angle_pub = get_node()->create_publisher<autominy_msgs::msg::SteeringFeedback>(this->steering_fb_topic, 1);
+        this->ticks_pub = get_node()->create_publisher<autominy_msgs::msg::Tick>(this->ticks_topic, 1);
 
-        this->voltage_pub = root_create_publisher<autominy_msgs::msg::Voltage>(this->voltage_topic, 1);
+        this->voltage_pub = get_node()->create_publisher<autominy_msgs::msg::Voltage>(this->voltage_topic, 1);
 
-        ROS_DEBUG_STREAM_NAMED(name, "Initialized controller '" << name << "' with:" <<
-        "\n- Number of joints: " << joints.size() <<
-        "\n- Hardware interface type: '" << this->getHardwareInterfaceType() << "'");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Initialized controller '" << name << "' with:" <<
+        "\n- Number of joints: " << joints.size());
 
         this->last_cmd_drive = 0.0;
         this->last_cmd_steer = 0.0;
 
-        return true;
+        return CallbackReturn::SUCCESS;
     }
 
-    template <class HardwareInterface>
-    inline void AutominySimController<HardwareInterface>::starting(const ros::Time& time) {
+    inline void AutominySimController::starting(const rclcpp::Time& time) {
         // Reset PIDs, zero effort commands
         for (unsigned int i = 0; i < this->pids.size(); ++i) {
             this->pids[i]->reset();
             this->joints[i].setCommand(0.0);
-            RCLCPP_INFO(get_logger(), "Joint - Pos: %f, Speed: %f", this->joints[i].getPosition(), this->joints[i].getVelocity());
+            RCLCPP_INFO(get_node()->get_logger(), "Joint - Pos: %f, Speed: %f", this->joints[i].getPosition(), this->joints[i].getVelocity());
         }
         this->left_steer_cmd = 0;
         this->right_steer_cmd = 0;
@@ -161,11 +153,9 @@ namespace autominy_sim_control
         ::srand(::time(NULL));
     }
 
-    template <class HardwareInterface>
-    inline void AutominySimController<HardwareInterface>::stopping(const ros::Time& time) {}
+    inline void AutominySimController::stopping(const rclcpp::Time& time) {}
 
-    template <class HardwareInterface>
-    void AutominySimController<HardwareInterface>::update(const ros::Time& time, const ros::Duration& period) {
+    controller_interface::return_type AutominySimController::update(const rclcpp::Time& time, const rclcpp::Duration& period) {
         //RCLCPP_INFO(get_logger(), "Duration %f", period.toSec());
         double error, command;
         double steer_l_pos, steer_r_pos;
@@ -181,34 +171,34 @@ namespace autominy_sim_control
 
         // Set steering
         error = this->left_steer_cmd - steer_l_pos;
-        command = pids[4]->computeCommand(error, period);
+        command = pids[4]->computeCommand(error, period.nanoseconds());
         this->joints[4].setCommand(command);
 
         error = this->right_steer_cmd - steer_r_pos;
-        command = pids[5]->computeCommand(error, period);
+        command = pids[5]->computeCommand(error, period.nanoseconds());
         this->joints[5].setCommand(command);
 
 
         // Set Speed
         error = this->left_drive_cmd - drive_r_l_vel;
-        command = pids[0]->computeCommand(error, period);
+        command = pids[0]->computeCommand(error, period.nanoseconds());
         this->joints[0].setCommand(command);
 
         error = this->right_drive_cmd - drive_r_r_vel;
-        command = pids[1]->computeCommand(error, period);
+        command = pids[1]->computeCommand(error, period.nanoseconds());
         this->joints[1].setCommand(command);
 
         error = this->left_drive_cmd - drive_f_l_vel;
-        command = pids[2]->computeCommand(error, period);
+        command = pids[2]->computeCommand(error, period.nanoseconds());
         this->joints[2].setCommand(command);
 
         error = this->right_drive_cmd - drive_f_r_vel;
-        command = pids[3]->computeCommand(error, period);
+        command = pids[3]->computeCommand(error, period.nanoseconds());
         this->joints[3].setCommand(command);
 
-        acc += (std::abs(this->linear_speed) * period.toSec());
+        acc += (std::abs(this->linear_speed) * period.seconds());
 
-        if (now() - last_publish >= rclcpp::Duration::from_seconds(0.01)) {
+        if (get_node()->now() - last_publish >= rclcpp::Duration::from_seconds(0.01)) {
             // Publish steer angle
             double cotan_steer, steer_angle_radians;
             cotan_steer = (1 / tan(steer_l_pos) + 1 / tan(steer_r_pos)) / 2;
@@ -221,83 +211,73 @@ namespace autominy_sim_control
             auto steer_angle = internal::mapRange(-0.498, 0.512, 192, 420, -steer_angle_radians);
             autominy_msgs::msg::SteeringFeedback msg;
             msg.value = static_cast<int16_t>(steer_angle);
-            msg.header.stamp = now();
+            msg.header.stamp = get_node()->now();
             msg.header.frame_id = "base_link";
-            this->steer_angle_pub.publish(msg);
+            this->steer_angle_pub->publish(msg);
 
             // Publish ticks
             autominy_msgs::msg::Tick tick;
-            tick.header.stamp = now();
+            tick.header.stamp = get_node()->now();
             tick.header.frame_id = "base_link";
             tick.value = acc / 0.003;
             acc = std::fmod(acc, 0.003);
-            ticks_pub.publish(tick);
+            ticks_pub->publish(tick);
 
             // Publish voltage
             autominy_msgs::msg::Voltage volt;
             volt.value = 16.0f;
-            volt.header.stamp = now();
+            volt.header.stamp = get_node()->now();
             volt.header.frame_id = "base_link";
-            voltage_pub.publish(volt);
-            last_publish = now();
+            voltage_pub->publish(volt);
+            last_publish = get_node()->now();
         }
+
+        return controller_interface::return_type::OK;
     }
 
     // helper functions
-    template <class HardwareInterface>
-    bool AutominySimController<HardwareInterface>::getJointName(const std::string& param_name) {
+    bool AutominySimController::getJointName(const std::string& param_name) {
         std::string joint_name = "";
         this->controller_nh.getParam(param_name, joint_name);
         if (joint_name == "") {
-            ROS_ERROR_STREAM_NAMED(this->name, param_name << " not defined");
+            RCLCPP_ERROR_STREAM(get_node()->get_logger(), param_name << " not defined");
             return false;
         }
         this->joint_names.push_back(joint_name);
         return true;
     }
 
-    template <class HardwareInterface>
-    void AutominySimController<HardwareInterface>::setupParamas() {
+    void AutominySimController::setupParamas() {
         // get the car parameters
-        this->axe_distance = 0.26;
-        this->controller_nh.getParam("axel_distance", this->axe_distance);
-        ROS_DEBUG_STREAM_NAMED(this->name, "Axl distance set to: " << this->axe_distance);
+        this->axe_distance = this->auto_declare("axel_distance", 0.26);
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Axl distance set to: " << this->axe_distance);
 
-        this->wheel_distance = 0.165;
-        this->controller_nh.getParam("wheel_distance", this->wheel_distance);
-        ROS_DEBUG_STREAM_NAMED(this->name, "Wheel distance set to: " << this->wheel_distance);
+        this->wheel_distance = this->auto_declare("wheel_distance", 0.165);
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Wheel distance set to: " << this->wheel_distance);
 
-        this->wheel_diameter = 0.063;
-        this->controller_nh.getParam("wheel_diameter", this->wheel_diameter);
-        ROS_DEBUG_STREAM_NAMED(this->name, "Wheel diameter set to: " << this->wheel_diameter);
+        this->wheel_diameter = this->auto_declare("wheel_diameter", 0.063);
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Wheel diameter set to: " << this->wheel_diameter);
 
-        this->zero_steer_angle = 0.0;
-        this->controller_nh.getParam("zero_steer_angle", this->zero_steer_angle);
-        ROS_DEBUG_STREAM_NAMED(this->name, "Zero steer angle set to: " << this->zero_steer_angle);
+        this->zero_steer_angle = this->auto_declare("zero_steer_angle", 0.0);
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Zero steer angle set to: " << this->zero_steer_angle);
 
-        this->steering_topic = "/steering";
-        this->controller_nh.getParam("steering_topic", this->steering_topic);
-        ROS_DEBUG_STREAM_NAMED(this->name, "Steering topic set to: " << this->steering_topic);
+        this->steering_topic = this->auto_declare("steering_topic", "/steering");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steering topic set to: " << this->steering_topic);
 
-        this->steering_fb_topic = "/steering_angle";
-        this->controller_nh.getParam("steering_fb_topic", this->steering_fb_topic);
-        ROS_DEBUG_STREAM_NAMED(this->name, "Steering feedback topic set to: " << this->steering_fb_topic);
+        this->steering_fb_topic = this->auto_declare("steering_fb_topic", "/steering_angle");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steering feedback topic set to: " << this->steering_fb_topic);
 
-        this->speed_topic = "/speed";
-        this->controller_nh.getParam("speed_topic", this->speed_topic);
-        ROS_DEBUG_STREAM_NAMED(this->name, "Speed topic set to: " << this->speed_topic);
+        this->speed_topic = this->auto_declare("speed_topic", "/speed");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Speed topic set to: " << this->speed_topic);
 
-        this->ticks_topic = "/ticks";
-        this->controller_nh.getParam("ticks_topic", this->ticks_topic);
-        ROS_DEBUG_STREAM_NAMED(this->name, "Ticks topic set to: " << this->ticks_topic);
+        this->ticks_topic = this->auto_declare("ticks_topic", "/ticks");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Ticks topic set to: " << this->ticks_topic);
 
-        this->voltage_topic = "/voltage";
-        this->controller_nh.getParam("voltage_topic", this->voltage_topic);
-        ROS_DEBUG_STREAM_NAMED(this->name, "Voltage topic set to: " << this->voltage_topic);
+        this->voltage_topic = this->auto_declare("voltage_topic", "/voltage");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Voltage topic set to: " << this->voltage_topic);
     }
 
-    template <class HardwareInterface>
-    void AutominySimController<HardwareInterface>::steering_callback(autominy_msgs::msg::SteeringPWMCommand::ConstSharedPtr const &msg) {
+    void AutominySimController::steering_callback(autominy_msgs::msg::SteeringPWMCommand::ConstSharedPtr const &msg) {
         int16_t steering_command;
         double car_angle;
         double curve_radius;
@@ -326,8 +306,7 @@ namespace autominy_sim_control
         this->last_cmd_steer = car_angle;
     }
 
-    template <class HardwareInterface>
-    void AutominySimController<HardwareInterface>::speed_callback(autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr const &speed) {
+    void AutominySimController::speed_callback(autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr const &speed) {
         double radius;
         double motor_voltage, motor_speed, wheel_speed;
 
@@ -356,13 +335,7 @@ namespace autominy_sim_control
 
 }
 
-namespace effort_controllers
-{
-  /**
-   * \brief Joint trajectory controller that represents trajectory segments as <b>quintic splines</b> and sends
-   * commands to a \b position interface.
-   */
-  typedef autominy_sim_control::AutominySimController<hardware_interface::EffortJointInterface> AutominySimController;
-}
 
-PLUGINLIB_EXPORT_CLASS(effort_controllers::AutominySimController, controller_interface::ControllerBase)
+#include "pluginlib/class_list_macros.hpp"
+
+PLUGINLIB_EXPORT_CLASS(autominy_sim_control::AutominySimController, controller_interface::ControllerInterface)

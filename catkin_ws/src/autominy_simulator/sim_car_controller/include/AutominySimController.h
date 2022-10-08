@@ -6,14 +6,9 @@
 #include <stdexcept>
 #include <string>
 
-// Boost
-#include <boost/shared_ptr.hpp>
-#include <boost/scoped_ptr.hpp>
-
 // ROS
-#include <ros/node_handle.h>
-#include <std_msgs/UInt16.h>
-#include <std_msgs/UInt8.h>
+#include "std_msgs/msg/u_int16.hpp"
+#include "std_msgs/msg/u_int8.hpp"
 #include "std_msgs/msg/float32.hpp"
 #include "sensor_msgs/msg/imu.hpp"
 
@@ -21,9 +16,9 @@
 #include <urdf/model.h>
 
 // ros_controls
-#include <controller_interface/controller.h>
-#include <control_toolbox/pid.h>
-#include <hardware_interface/joint_command_interface.h>
+#include <controller_interface/controller_interface.hpp>
+#include <control_toolbox/pid.hpp>
+//#include <hardware_interface/joint_command_interface.hpp>
 
 // autominy
 #include "autominy_msgs/msg/steering_pwm_command.hpp"
@@ -32,25 +27,22 @@
 #include "autominy_msgs/msg/tick.hpp"
 #include "autominy_msgs/msg/voltage.hpp"
 
-#include <pluginlib/class_list_macros.h>
-
 namespace autominy_sim_control
 {
   /**
    * \brief 
    *
    */
-  template <class HardwareInterface>
-  class AutominySimController : public controller_interface::Controller<HardwareInterface>
+  class AutominySimController : public controller_interface::ControllerInterface
   {
     public:
       AutominySimController();
       // public interface inherited from Controller
-      bool init(HardwareInterface* hw, ros::NodeHandle& root_nh, ros::NodeHandle& controller_nh);
+      CallbackReturn on_init() override;
       // public interface inherited from ControllerBase 
-      void starting(const ros::Time& time);
-      void stopping(const ros::Time& time);
-      void update(const ros::Time& time, const ros::Duration& period);
+      void starting(const rclcpp::Time& time);
+      void stopping(const rclcpp::Time& time);
+      controller_interface::return_type update(const rclcpp::Time& time, const rclcpp::Duration& period) override;
 
     private:
       // helper functions
@@ -61,22 +53,20 @@ namespace autominy_sim_control
       void steering_callback(autominy_msgs::msg::SteeringPWMCommand::ConstSharedPtr const &msg);
       void speed_callback(autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr const &speed);
 
-      ros::NodeHandle controller_nh;
       std::string name;///< Controller name.
 
-      typedef typename HardwareInterface::ResourceHandleType JointHandle;
       std::vector<JointHandle> joints;///< Handles to controlled joints.
       std::vector<std::string> joint_names;///< Controlled joint names.
 
-      typedef boost::shared_ptr<control_toolbox::Pid> PidPtr;
+      typedef std::shared_ptr<control_toolbox::Pid> PidPtr;
       std::vector<PidPtr> pids;
 
-      rclcpp::Subscription<>::SharedPtr speed_sub;
-      rclcpp::Subscription<>::SharedPtr imu_sub;
-      rclcpp::Subscription<>::SharedPtr steering_sub;
-      rclcpp::Publisher<>::SharedPtr steer_angle_pub;
-      rclcpp::Publisher<>::SharedPtr ticks_pub;
-      rclcpp::Publisher<>::SharedPtr voltage_pub;
+      rclcpp::Subscription<autominy_msgs::msg::SpeedPWMCommand>::SharedPtr speed_sub;
+      rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub;
+      rclcpp::Subscription<autominy_msgs::msg::SteeringPWMCommand>::SharedPtr steering_sub;
+      rclcpp::Publisher<autominy_msgs::msg::SteeringFeedback>::SharedPtr steer_angle_pub;
+      rclcpp::Publisher<autominy_msgs::msg::Tick>::SharedPtr ticks_pub;
+      rclcpp::Publisher<autominy_msgs::msg::Voltage>::SharedPtr voltage_pub;
 
       double axe_distance;
       double wheel_distance;
@@ -87,7 +77,7 @@ namespace autominy_sim_control
       std::string speed_topic;
       std::string ticks_topic;
       std::string voltage_topic;
-      ros::Time last_publish;
+      rclcpp::Time last_publish;
 
       // joint commands
       double left_steer_cmd;
