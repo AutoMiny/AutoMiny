@@ -48,7 +48,10 @@ namespace autominy_sim_control
 
       controller_interface::InterfaceConfiguration command_interface_configuration() const override;
       controller_interface::InterfaceConfiguration state_interface_configuration() const override;
-    private:
+
+      CallbackReturn on_configure(const rclcpp_lifecycle::State &previous_state) override;
+
+  private:
 
       struct JointHandle
       {

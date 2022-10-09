@@ -59,6 +59,36 @@ namespace autominy_sim_control
         return {controller_interface::interface_configuration_type::INDIVIDUAL, conf_names};
     }
 
+    controller_interface::CallbackReturn AutominySimController::on_configure(const rclcpp_lifecycle::State &previous_state) {// ros communications
+        this->steer_angle_pub = get_node()->create_publisher<autominy_msgs::msg::SteeringFeedback>(this->steering_fb_topic, 1);
+        this->ticks_pub = get_node()->create_publisher<autominy_msgs::msg::Tick>(this->ticks_topic, 1);
+        this->voltage_pub = get_node()->create_publisher<autominy_msgs::msg::Voltage>(this->voltage_topic, 1);
+
+        //this->steering_sub = get_node()->create_subscription<autominy_msgs::msg::SteeringPWMCommand>(this->steering_topic, 1, std::bind(&AutominySimController::steering_callback, this, std::placeholders::_1));
+        //this->speed_sub = get_node()->create_subscription<autominy_msgs::msg::SpeedPWMCommand>(this->speed_topic, 1, std::bind(&AutominySimController::speed_callback, this, std::placeholders::_1));
+
+
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Initialized controller '" << name << "' with:" <<
+                                                                                 "\n- Number of joints: " << joints.size());
+
+        this->last_cmd_drive = 0.0;
+        this->last_cmd_steer = 0.0;
+
+        this->joint_names.clear();
+
+        // Controller name
+        this->name = internal::getNamespace(this->get_node());
+
+        joint_names.emplace_back(this->get_node()->get_parameter("drive_rear_left_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("drive_rear_right_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("drive_front_left_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("drive_front_right_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("steer_left_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("steer_right_joint").as_string());
+
+        return controller_interface::CallbackReturn::SUCCESS;
+    }
+
     controller_interface::CallbackReturn AutominySimController::on_init() {
         // load additional parameters
         setupParamas();
@@ -67,28 +97,6 @@ namespace autominy_sim_control
 
         std::string robotDescriptionParam = get_node()->declare_parameter<std::string>("robot_description_param", "robot_description");
         RCLCPP_INFO(get_node()->get_logger(), "Robot description %s", robotDescriptionParam.c_str());
-
-        // get the joints from the urdf file
-        std::shared_ptr<urdf::Model> urdf = internal::getUrdf(get_node(), robotDescriptionParam);
-        if (!urdf) {
-            RCLCPP_ERROR_STREAM(get_node()->get_logger(), "No robot description found");
-            return CallbackReturn::FAILURE;
-        }
-
-        // ros communications
-        this->steering_sub = get_node()->create_subscription<autominy_msgs::msg::SteeringPWMCommand>(this->steering_topic, 1, std::bind(&AutominySimController::steering_callback, this, std::placeholders::_1));
-        this->speed_sub = get_node()->create_subscription<autominy_msgs::msg::SpeedPWMCommand>(this->speed_topic, 1, std::bind(&AutominySimController::speed_callback, this, std::placeholders::_1));
-
-        this->steer_angle_pub = get_node()->create_publisher<autominy_msgs::msg::SteeringFeedback>(this->steering_fb_topic, 1);
-        this->ticks_pub = get_node()->create_publisher<autominy_msgs::msg::Tick>(this->ticks_topic, 1);
-
-        this->voltage_pub = get_node()->create_publisher<autominy_msgs::msg::Voltage>(this->voltage_topic, 1);
-
-        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Initialized controller '" << name << "' with:" <<
-        "\n- Number of joints: " << joints.size());
-
-        this->last_cmd_drive = 0.0;
-        this->last_cmd_steer = 0.0;
 
         return CallbackReturn::SUCCESS;
     }
@@ -116,17 +124,16 @@ namespace autominy_sim_control
         RCLCPP_INFO(get_node()->get_logger(), "ROOT NS %s", get_node()->get_namespace());
         RCLCPP_INFO(get_node()->get_logger(), "Controller NS %s", get_node()->get_namespace());
 
-
         // Initialize the joints
         this->joints.clear();
         this->pids.resize(n_joints);
+
         for (unsigned int i = 0; i < n_joints; ++i) {
             // Joint handle
             const auto state_handle = std::find_if(
                     state_interfaces_.cbegin(), state_interfaces_.cend(),
                     [this, i](const auto & interface)
                     {
-                        RCLCPP_ERROR(get_node()->get_logger(), "%s %s", interface.get_prefix_name().c_str(), interface.get_interface_name().c_str());
                         return interface.get_prefix_name() == this->joint_names[i] &&
                                interface.get_interface_name() == (this->joint_names[i].find("steering") != std::string::npos ? hardware_interface::HW_IF_POSITION : hardware_interface::HW_IF_VELOCITY);
                     });
@@ -228,7 +235,7 @@ namespace autominy_sim_control
 
         acc += (std::abs(this->linear_speed) * period.seconds());
 
-        if (get_node()->now() - last_publish >= rclcpp::Duration::from_seconds(0.01)) {
+        if (time - last_publish >= rclcpp::Duration::from_seconds(0.01)) {
             // Publish steer angle
             double cotan_steer, steer_angle_radians;
             cotan_steer = (1 / tan(steer_l_pos) + 1 / tan(steer_r_pos)) / 2;
@@ -241,13 +248,13 @@ namespace autominy_sim_control
             auto steer_angle = internal::mapRange(-0.498, 0.512, 192, 420, -steer_angle_radians);
             autominy_msgs::msg::SteeringFeedback msg;
             msg.value = static_cast<int16_t>(steer_angle);
-            msg.header.stamp = get_node()->now();
+            msg.header.stamp = time;
             msg.header.frame_id = "base_link";
             this->steer_angle_pub->publish(msg);
 
             // Publish ticks
             autominy_msgs::msg::Tick tick;
-            tick.header.stamp = get_node()->now();
+            tick.header.stamp = time;
             tick.header.frame_id = "base_link";
             tick.value = acc / 0.003;
             acc = std::fmod(acc, 0.003);
@@ -256,10 +263,10 @@ namespace autominy_sim_control
             // Publish voltage
             autominy_msgs::msg::Voltage volt;
             volt.value = 16.0f;
-            volt.header.stamp = get_node()->now();
+            volt.header.stamp = time;
             volt.header.frame_id = "base_link";
             voltage_pub->publish(volt);
-            last_publish = get_node()->now();
+            last_publish = time;
         }
 
         return controller_interface::return_type::OK;
@@ -279,13 +286,13 @@ namespace autominy_sim_control
         this->zero_steer_angle = this->auto_declare<double>("zero_steer_angle", 0.0);
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Zero steer angle set to: " << this->zero_steer_angle);
 
-        this->steering_topic = this->auto_declare<std::string>("steering_topic", "/steering");
+        this->steering_topic = this->auto_declare<std::string>("steering_topic", "/actuators/steering_pwm");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steering topic set to: " << this->steering_topic);
 
         this->steering_fb_topic = this->auto_declare<std::string>("steering_fb_topic", "/steering_angle");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steering feedback topic set to: " << this->steering_fb_topic);
 
-        this->speed_topic = this->auto_declare<std::string>("speed_topic", "/speed");
+        this->speed_topic = this->auto_declare<std::string>("speed_topic", "/actuators/speed_pwm");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Speed topic set to: " << this->speed_topic);
 
         this->ticks_topic = this->auto_declare<std::string>("ticks_topic", "/ticks");
@@ -311,9 +318,6 @@ namespace autominy_sim_control
 
         this->steer_right_joint = this->auto_declare<std::string>("steer_right_joint", "frontwheel_steering_left");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steer right joint set to: " << this->steer_right_joint);
-
-
-
     }
 
     void AutominySimController::steering_callback(autominy_msgs::msg::SteeringPWMCommand::ConstSharedPtr const &msg) {
