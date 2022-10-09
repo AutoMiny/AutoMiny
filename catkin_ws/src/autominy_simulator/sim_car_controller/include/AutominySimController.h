@@ -18,6 +18,8 @@
 // ros_controls
 #include <controller_interface/controller_interface.hpp>
 #include <control_toolbox/pid.hpp>
+#include "hardware_interface/loaned_command_interface.hpp"
+#include "hardware_interface/loaned_state_interface.hpp"
 //#include <hardware_interface/joint_command_interface.hpp>
 
 // autominy
@@ -29,24 +31,32 @@
 
 namespace autominy_sim_control
 {
-  /**
+
+    /**
    * \brief 
    *
    */
   class AutominySimController : public controller_interface::ControllerInterface
   {
     public:
-      AutominySimController();
       // public interface inherited from Controller
       CallbackReturn on_init() override;
       // public interface inherited from ControllerBase 
-      void starting(const rclcpp::Time& time);
-      void stopping(const rclcpp::Time& time);
+      controller_interface::CallbackReturn on_activate(const rclcpp_lifecycle::State&) override;
+      controller_interface::CallbackReturn on_shutdown(const rclcpp_lifecycle::State&) override;
       controller_interface::return_type update(const rclcpp::Time& time, const rclcpp::Duration& period) override;
 
+      controller_interface::InterfaceConfiguration command_interface_configuration() const override;
+      controller_interface::InterfaceConfiguration state_interface_configuration() const override;
     private:
+
+      struct JointHandle
+      {
+          std::reference_wrapper<const hardware_interface::LoanedStateInterface> feedback;
+          std::reference_wrapper<hardware_interface::LoanedCommandInterface> effort;
+      };
+
       // helper functions
-      bool getJointName(const std::string& param_name);
       void setupParamas();
 
       // action subscriber
@@ -68,6 +78,9 @@ namespace autominy_sim_control
       rclcpp::Publisher<autominy_msgs::msg::Tick>::SharedPtr ticks_pub;
       rclcpp::Publisher<autominy_msgs::msg::Voltage>::SharedPtr voltage_pub;
 
+
+      std::string drive_rear_left_joint, drive_rear_right_joint, drive_front_left_joint, drive_front_right_joint;
+      std::string steer_left_joint, steer_right_joint;
       double axe_distance;
       double wheel_distance;
       double wheel_diameter;

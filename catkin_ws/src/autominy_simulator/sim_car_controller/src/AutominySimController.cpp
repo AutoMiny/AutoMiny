@@ -3,6 +3,7 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <tf2/utils.h>
+#include "hardware_interface/types/hardware_interface_type_values.hpp"
 
 namespace autominy_sim_control
 {
@@ -27,20 +28,6 @@ namespace autominy_sim_control
 
         typedef std::shared_ptr<const urdf::Joint> UrdfJointConstPtr;
 
-        std::vector<UrdfJointConstPtr> getUrdfJoints(const rclcpp_lifecycle::LifecycleNode::SharedPtr nh, const urdf::Model& urdf, const std::vector<std::string>& joint_names) {
-            std::vector<UrdfJointConstPtr> out;
-            for (unsigned int i = 0; i < joint_names.size(); ++i) {
-                UrdfJointConstPtr urdf_joint = urdf.getJoint(joint_names[i]);
-                if (urdf_joint) {
-                    out.push_back(urdf_joint);
-                } else {
-                    RCLCPP_ERROR_STREAM(nh->get_logger(), "Could not find joint '" << joint_names[i] << "' in URDF model.");
-                    return std::vector<UrdfJointConstPtr>();
-                }
-            }
-            return out;
-        }
-
         std::string getNamespace(const rclcpp_lifecycle::LifecycleNode::SharedPtr nh) {
             const std::string complete_ns = nh->get_namespace();
             std::size_t id   = complete_ns.find_last_of("/");
@@ -52,33 +39,31 @@ namespace autominy_sim_control
         }
     }
 
-    controller_interface::CallbackReturn AutominySimController::on_init() {
-        RCLCPP_INFO(get_node()->get_logger(), "Init");
-        std::string joint_name;
-
-        // Controller name
-        this->name = internal::getNamespace(this->get_node());
-
-        last_publish = get_node()->now();
-        acc = 0.0;
-
-        // get the joint names
-        this->joint_names.clear();
-        if (!(getJointName("drive_rear_left_joint") &&
-            getJointName("drive_rear_right_joint") &&
-            getJointName("drive_front_left_joint") &&
-            getJointName("drive_front_right_joint") &&
-            getJointName("steer_left_joint") &&
-            getJointName("steer_right_joint")))
+    controller_interface::InterfaceConfiguration AutominySimController::command_interface_configuration() const
+    {
+        std::vector<std::string> conf_names;
+        for (const auto & joint_name : joint_names)
         {
-            RCLCPP_ERROR(get_node()->get_logger(), "Joints names were not found");
-            return CallbackReturn::FAILURE;
+            conf_names.push_back(joint_name + "/" + hardware_interface::HW_IF_EFFORT);
         }
-        const unsigned int n_joints = joint_names.size();
-        RCLCPP_INFO(get_node()->get_logger(), "Joint-Names %d", n_joints);
-        RCLCPP_INFO(get_node()->get_logger(), "Joint-Names %d", n_joints);
-        RCLCPP_INFO(get_node()->get_logger(), "ROOT NS %s", get_node()->get_namespace());
-        RCLCPP_INFO(get_node()->get_logger(), "Controller NS %s", get_node()->get_namespace());
+        return {controller_interface::interface_configuration_type::INDIVIDUAL, conf_names};
+    }
+
+    controller_interface::InterfaceConfiguration AutominySimController::state_interface_configuration() const
+    {
+        std::vector<std::string> conf_names;
+        for (const auto & joint_name : joint_names)
+        {
+            conf_names.push_back(joint_name + "/" + (joint_name.find("steering") != std::string::npos ? hardware_interface::HW_IF_POSITION : hardware_interface::HW_IF_VELOCITY));
+        }
+        return {controller_interface::interface_configuration_type::INDIVIDUAL, conf_names};
+    }
+
+    controller_interface::CallbackReturn AutominySimController::on_init() {
+        // load additional parameters
+        setupParamas();
+
+        RCLCPP_INFO(get_node()->get_logger(), "Init");
 
         std::string robotDescriptionParam = get_node()->declare_parameter<std::string>("robot_description_param", "robot_description");
         RCLCPP_INFO(get_node()->get_logger(), "Robot description %s", robotDescriptionParam.c_str());
@@ -90,39 +75,9 @@ namespace autominy_sim_control
             return CallbackReturn::FAILURE;
         }
 
-        std::vector<internal::UrdfJointConstPtr> urdf_joints = internal::getUrdfJoints(get_node(), *urdf, this->joint_names);
-        if (urdf_joints.empty()) {
-            RCLCPP_ERROR_STREAM(get_node()->get_logger(), "Desired joint not found in the robot model");
-            return CallbackReturn::FAILURE;
-        }
-
-        // Initialize the joints
-        this->joints.resize(n_joints);
-        this->pids.resize(n_joints);
-        for (unsigned int i = 0; i < n_joints; ++i) {
-            // Joint handle
-            try {
-                this->joints[i] = hw->getHandle(this->joint_names[i]);
-          
-                // Node handle to PID gains
-                // Init PID gains from ROS parameter server
-                this->pids[i].reset(new control_toolbox::Pid());
-                this->pids[i]->initPid(get_node()->get_parameter("gains/" + this->joints[i].getName() + "/p").as_double(),
-                                       get_node()->get_parameter("gains/" + this->joints[i].getName() + "/i").as_double(),
-                                       get_node()->get_parameter("gains/" + this->joints[i].getName() + "/d").as_double());
-            } catch (...) {
-                RCLCPP_ERROR_STREAM(get_node()->get_logger(), "Could not find joint '" << this->joint_names[i] << "' in '" <<
-                this->getHardwareInterfaceType() << "'.");
-                return CallbackReturn::FAILURE;
-            }
-        }
-
-        // load additional parameters
-        setupParamas();
-
         // ros communications
-        this->steering_sub = get_node()->create_subscription(this->steering_topic, 1, std::bind(&AutominySimController::steering_callback, this, std::placeholders::_1));
-        this->speed_sub = get_node()->create_subscription(this->speed_topic, 1, std::bind(&AutominySimController::speed_callback, this, std::placeholders::_1));
+        this->steering_sub = get_node()->create_subscription<autominy_msgs::msg::SteeringPWMCommand>(this->steering_topic, 1, std::bind(&AutominySimController::steering_callback, this, std::placeholders::_1));
+        this->speed_sub = get_node()->create_subscription<autominy_msgs::msg::SpeedPWMCommand>(this->speed_topic, 1, std::bind(&AutominySimController::speed_callback, this, std::placeholders::_1));
 
         this->steer_angle_pub = get_node()->create_publisher<autominy_msgs::msg::SteeringFeedback>(this->steering_fb_topic, 1);
         this->ticks_pub = get_node()->create_publisher<autominy_msgs::msg::Tick>(this->ticks_topic, 1);
@@ -138,12 +93,83 @@ namespace autominy_sim_control
         return CallbackReturn::SUCCESS;
     }
 
-    inline void AutominySimController::starting(const rclcpp::Time& time) {
+    controller_interface::CallbackReturn AutominySimController::on_activate(const rclcpp_lifecycle::State &) {
+        last_publish = get_node()->now();
+        acc = 0.0;
+
+        // get the joint names
+        this->joint_names.clear();
+
+        // Controller name
+        this->name = internal::getNamespace(this->get_node());
+
+        joint_names.emplace_back(this->get_node()->get_parameter("drive_rear_left_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("drive_rear_right_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("drive_front_left_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("drive_front_right_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("steer_left_joint").as_string());
+        joint_names.emplace_back(this->get_node()->get_parameter("steer_right_joint").as_string());
+
+        const unsigned int n_joints = joint_names.size();
+        RCLCPP_INFO(get_node()->get_logger(), "Joint-Names %d", n_joints);
+        RCLCPP_INFO(get_node()->get_logger(), "Joint-Names %d", n_joints);
+        RCLCPP_INFO(get_node()->get_logger(), "ROOT NS %s", get_node()->get_namespace());
+        RCLCPP_INFO(get_node()->get_logger(), "Controller NS %s", get_node()->get_namespace());
+
+
+        // Initialize the joints
+        this->joints.clear();
+        this->pids.resize(n_joints);
+        for (unsigned int i = 0; i < n_joints; ++i) {
+            // Joint handle
+            const auto state_handle = std::find_if(
+                    state_interfaces_.cbegin(), state_interfaces_.cend(),
+                    [this, i](const auto & interface)
+                    {
+                        RCLCPP_ERROR(get_node()->get_logger(), "%s %s", interface.get_prefix_name().c_str(), interface.get_interface_name().c_str());
+                        return interface.get_prefix_name() == this->joint_names[i] &&
+                               interface.get_interface_name() == (this->joint_names[i].find("steering") != std::string::npos ? hardware_interface::HW_IF_POSITION : hardware_interface::HW_IF_VELOCITY);
+                    });
+
+            if (state_handle == state_interfaces_.cend())
+            {
+                RCLCPP_ERROR(get_node()->get_logger(), "Unable to obtain joint state handle for %s", this->joint_names[i].c_str());
+                return controller_interface::CallbackReturn::ERROR;
+            }
+
+            const auto command_handle = std::find_if(
+                    command_interfaces_.begin(), command_interfaces_.end(),
+                    [this, i](const auto & interface)
+                    {
+                        return interface.get_prefix_name() == this->joint_names[i] &&
+                               interface.get_interface_name() == hardware_interface::HW_IF_EFFORT;
+                    });
+
+            if (command_handle == command_interfaces_.end())
+            {
+                RCLCPP_ERROR(get_node()->get_logger(), "Unable to obtain joint command handle for %s", this->joint_names[i].c_str());
+                return controller_interface::CallbackReturn::ERROR;
+            }
+
+            // Node handle to PID gains
+            // Init PID gains from ROS parameter server
+            this->pids[i].reset(new control_toolbox::Pid());
+            this->pids[i]->initPid(joint_names[i].find("steering") != std::string::npos ? 1.0 : 0.001,
+                                   0,
+                                   joint_names[i].find("steering") != std::string::npos ? 0.1 : 0.0,
+                                   joint_names[i].find("steering") != std::string::npos ? -1.0 : 1.0,
+                                   1.0);
+
+            this->joints.emplace_back(
+                    JointHandle{std::ref(*state_handle), std::ref(*command_handle)});
+        }
+
+
+
         // Reset PIDs, zero effort commands
         for (unsigned int i = 0; i < this->pids.size(); ++i) {
             this->pids[i]->reset();
-            this->joints[i].setCommand(0.0);
-            RCLCPP_INFO(get_node()->get_logger(), "Joint - Pos: %f, Speed: %f", this->joints[i].getPosition(), this->joints[i].getVelocity());
+            this->joints[i].effort.get().set_value(0.0);
         }
         this->left_steer_cmd = 0;
         this->right_steer_cmd = 0;
@@ -151,9 +177,13 @@ namespace autominy_sim_control
         this->right_drive_cmd = 0;
 
         ::srand(::time(NULL));
+
+        return CallbackReturn::SUCCESS;
     }
 
-    inline void AutominySimController::stopping(const rclcpp::Time& time) {}
+    controller_interface::CallbackReturn AutominySimController::on_shutdown(const rclcpp_lifecycle::State &previous_state) {
+        return controller_interface::CallbackReturn::SUCCESS;
+    }
 
     controller_interface::return_type AutominySimController::update(const rclcpp::Time& time, const rclcpp::Duration& period) {
         //RCLCPP_INFO(get_logger(), "Duration %f", period.toSec());
@@ -161,40 +191,40 @@ namespace autominy_sim_control
         double steer_l_pos, steer_r_pos;
         double drive_r_l_vel, drive_r_r_vel, drive_f_l_vel, drive_f_r_vel;
 
-        steer_l_pos = this->joints[4].getPosition();
-        steer_r_pos = this->joints[5].getPosition();
+        steer_l_pos = this->joints[4].feedback.get().get_value();
+        steer_r_pos = this->joints[5].feedback.get().get_value();
 
-        drive_r_l_vel = this->joints[0].getVelocity();
-        drive_r_r_vel = this->joints[1].getVelocity();
-        drive_f_l_vel = this->joints[2].getVelocity();
-        drive_f_r_vel = this->joints[3].getVelocity();
+        drive_r_l_vel = this->joints[0].feedback.get().get_value();
+        drive_r_r_vel = this->joints[1].feedback.get().get_value();
+        drive_f_l_vel = this->joints[2].feedback.get().get_value();
+        drive_f_r_vel = this->joints[3].feedback.get().get_value();
 
         // Set steering
         error = this->left_steer_cmd - steer_l_pos;
         command = pids[4]->computeCommand(error, period.nanoseconds());
-        this->joints[4].setCommand(command);
+        this->joints[4].effort.get().set_value(command);
 
         error = this->right_steer_cmd - steer_r_pos;
         command = pids[5]->computeCommand(error, period.nanoseconds());
-        this->joints[5].setCommand(command);
+        this->joints[5].effort.get().set_value(command);
 
 
         // Set Speed
         error = this->left_drive_cmd - drive_r_l_vel;
         command = pids[0]->computeCommand(error, period.nanoseconds());
-        this->joints[0].setCommand(command);
+        this->joints[0].effort.get().set_value(command);
 
         error = this->right_drive_cmd - drive_r_r_vel;
         command = pids[1]->computeCommand(error, period.nanoseconds());
-        this->joints[1].setCommand(command);
+        this->joints[1].effort.get().set_value(command);
 
         error = this->left_drive_cmd - drive_f_l_vel;
         command = pids[2]->computeCommand(error, period.nanoseconds());
-        this->joints[2].setCommand(command);
+        this->joints[2].effort.get().set_value(command);
 
         error = this->right_drive_cmd - drive_f_r_vel;
         command = pids[3]->computeCommand(error, period.nanoseconds());
-        this->joints[3].setCommand(command);
+        this->joints[3].effort.get().set_value(command);
 
         acc += (std::abs(this->linear_speed) * period.seconds());
 
@@ -235,46 +265,55 @@ namespace autominy_sim_control
         return controller_interface::return_type::OK;
     }
 
-    // helper functions
-    bool AutominySimController::getJointName(const std::string& param_name) {
-        std::string joint_name = "";
-        this->controller_nh.getParam(param_name, joint_name);
-        if (joint_name == "") {
-            RCLCPP_ERROR_STREAM(get_node()->get_logger(), param_name << " not defined");
-            return false;
-        }
-        this->joint_names.push_back(joint_name);
-        return true;
-    }
-
     void AutominySimController::setupParamas() {
         // get the car parameters
-        this->axe_distance = this->auto_declare("axel_distance", 0.26);
+        this->axe_distance = this->auto_declare<double>("axel_distance", 0.26);
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Axl distance set to: " << this->axe_distance);
 
-        this->wheel_distance = this->auto_declare("wheel_distance", 0.165);
+        this->wheel_distance = this->auto_declare<double>("wheel_distance", 0.165);
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Wheel distance set to: " << this->wheel_distance);
 
-        this->wheel_diameter = this->auto_declare("wheel_diameter", 0.063);
+        this->wheel_diameter = this->auto_declare<double>("wheel_diameter", 0.063);
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Wheel diameter set to: " << this->wheel_diameter);
 
-        this->zero_steer_angle = this->auto_declare("zero_steer_angle", 0.0);
+        this->zero_steer_angle = this->auto_declare<double>("zero_steer_angle", 0.0);
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Zero steer angle set to: " << this->zero_steer_angle);
 
-        this->steering_topic = this->auto_declare("steering_topic", "/steering");
+        this->steering_topic = this->auto_declare<std::string>("steering_topic", "/steering");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steering topic set to: " << this->steering_topic);
 
-        this->steering_fb_topic = this->auto_declare("steering_fb_topic", "/steering_angle");
+        this->steering_fb_topic = this->auto_declare<std::string>("steering_fb_topic", "/steering_angle");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steering feedback topic set to: " << this->steering_fb_topic);
 
-        this->speed_topic = this->auto_declare("speed_topic", "/speed");
+        this->speed_topic = this->auto_declare<std::string>("speed_topic", "/speed");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Speed topic set to: " << this->speed_topic);
 
-        this->ticks_topic = this->auto_declare("ticks_topic", "/ticks");
+        this->ticks_topic = this->auto_declare<std::string>("ticks_topic", "/ticks");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Ticks topic set to: " << this->ticks_topic);
 
-        this->voltage_topic = this->auto_declare("voltage_topic", "/voltage");
+        this->voltage_topic = this->auto_declare<std::string>("voltage_topic", "/voltage");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Voltage topic set to: " << this->voltage_topic);
+
+        this->drive_rear_left_joint = this->auto_declare<std::string>("drive_rear_left_joint", "rearwheel_left");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Rear left joint set to: " << this->drive_rear_left_joint);
+
+        this->drive_rear_right_joint = this->auto_declare<std::string>("drive_rear_right_joint", "rearwheel_right");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Rear right joint set to: " << this->drive_rear_right_joint);
+
+        this->drive_front_left_joint = this->auto_declare<std::string>("drive_front_left_joint", "frontwheel_left");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Front left joint set to: " << this->drive_front_left_joint);
+
+        this->drive_front_right_joint = this->auto_declare<std::string>("drive_front_right_joint", "frontwheel_right");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Front right joint set to: " << this->drive_front_right_joint);
+
+        this->steer_left_joint = this->auto_declare<std::string>("steer_left_joint", "frontwheel_steering_left");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steer left joint set to: " << this->steer_left_joint);
+
+        this->steer_right_joint = this->auto_declare<std::string>("steer_right_joint", "frontwheel_steering_left");
+        RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steer right joint set to: " << this->steer_right_joint);
+
+
+
     }
 
     void AutominySimController::steering_callback(autominy_msgs::msg::SteeringPWMCommand::ConstSharedPtr const &msg) {
@@ -335,7 +374,5 @@ namespace autominy_sim_control
 
 }
 
-
-#include "pluginlib/class_list_macros.hpp"
-
-PLUGINLIB_EXPORT_CLASS(autominy_sim_control::AutominySimController, controller_interface::ControllerInterface)
+#include "class_loader/register_macro.hpp"
+CLASS_LOADER_REGISTER_CLASS(autominy_sim_control::AutominySimController, controller_interface::ControllerInterface)

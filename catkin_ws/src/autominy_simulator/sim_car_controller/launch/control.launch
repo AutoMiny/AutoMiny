@@ -4,45 +4,31 @@
   <arg name="agent_prefix" default=""/>
   <arg name="tf_prefix" default=""/>
 
-  <!-- Load joint controller configurations from YAML file to parameter server -->
-  <!--<rosparam file="$(find-pkg-share sim_car_controller)/config/control.yaml" command="load" ns="$(var agent_prefix)/$(var name)"/>
-  <node name="$(anon fls)" pkg="dynamic_reconfigure" exec="dynparam" args="load $(var agent_prefix)/model_car/car_cont/gains/$(var tf_prefix)frontwheel_steering_left $(find-pkg-share sim_car_controller)/config/frontwheel_steering_left.yaml"/>
-  <node name="$(anon frs)" pkg="dynamic_reconfigure" exec="dynparam" args="load $(var agent_prefix)/model_car/car_cont/gains/$(var tf_prefix)frontwheel_steering_right $(find-pkg-share sim_car_controller)/config/frontwheel_steering_right.yaml"/>
-  <node name="$(anon fl)" pkg="dynamic_reconfigure" exec="dynparam" args="load $(var agent_prefix)/model_car/car_cont/gains/$(var tf_prefix)frontwheel_left $(find-pkg-share sim_car_controller)/config/frontwheel_left.yaml"/>
-  <node name="$(anon fr)" pkg="dynamic_reconfigure" exec="dynparam" args="load $(var agent_prefix)/model_car/car_cont/gains/$(var tf_prefix)frontwheel_right $(find-pkg-share sim_car_controller)/config/frontwheel_right.yaml"/>
-  <node name="$(anon rl)" pkg="dynamic_reconfigure" exec="dynparam" args="load $(var agent_prefix)/model_car/car_cont/gains/$(var tf_prefix)rearwheel_left $(find-pkg-share sim_car_controller)/config/rearwheel_left.yaml"/>
-  <node name="$(anon rr)" pkg="dynamic_reconfigure" exec="dynparam" args="load $(var agent_prefix)/model_car/car_cont/gains/$(var tf_prefix)rearwheel_right $(find-pkg-share sim_car_controller)/config/rearwheel_right.yaml"/>
-
-
-   <group>
-   	   <push_ros_namespace namespace="$(var agent_prefix)/$(var name)/car_cont"/>
-       <set_parameter name="type" value="effort_controllers/AutominySimController" />
-       <set_parameter name="robot_description_param" value="$(var agent_prefix)/robot_description" />
-       <set_parameter name="drive_rear_left_joint" value="$(var tf_prefix)rearwheel_left" />
-       <set_parameter name="drive_rear_right_joint" value="$(var tf_prefix)rearwheel_right" />
-       <set_parameter name="drive_front_left_joint" value="$(var tf_prefix)frontwheel_left" />
-       <set_parameter name="drive_front_right_joint" value="$(var tf_prefix)frontwheel_right" />
-       <set_parameter name="steer_left_joint" value="$(var tf_prefix)frontwheel_steering_left" />
-       <set_parameter name="steer_right_joint" value="$(var tf_prefix)frontwheel_steering_right" />
-       <set_parameter name="axel_distance" value="0.26" />
-       <set_parameter name="wheel_distance" value="0.165" />
-       <set_parameter name="wheel_diameter" value="0.063" />
-       <set_parameter name="zero_steer_angle" value="0.0" />
-       <set_parameter name="steering_topic" value="$(var agent_prefix)/actuators/steering_pwm" />
-       <set_parameter name="steering_fb_topic" value="$(var agent_prefix)/sensors/arduino/steering_angle" />
-       <set_parameter name="speed_topic" value="$(var agent_prefix)/actuators/speed_pwm" />
-       <set_parameter name="ticks_topic" value="$(var agent_prefix)/sensors/arduino/ticks" />
-       <set_parameter name="voltage_topic" value="$(var agent_prefix)/sensors/arduino/voltage" />
-   </group>-->
-
   <!-- load the controllers -->
-  <node name="controller_spawner"
+    <node name="controller_spawner"
         pkg="controller_manager"
         exec="spawner"
         respawn="false"
         output="screen"
         ns="$(var agent_prefix)/$(var name)"
         args="joint_state_controller car_cont --namespace=$(var agent_prefix)/$(var name)">
+       <param name="type" value="effort_controllers/AutominySimController" />
+       <param name="robot_description_param" value="$(var agent_prefix)/robot_description" />
+       <param name="drive_rear_left_joint" value="$(var tf_prefix)rearwheel_left" />
+       <param name="drive_rear_right_joint" value="$(var tf_prefix)rearwheel_right" />
+       <param name="drive_front_left_joint" value="$(var tf_prefix)frontwheel_left" />
+       <param name="drive_front_right_joint" value="$(var tf_prefix)frontwheel_right" />
+       <param name="steer_left_joint" value="$(var tf_prefix)frontwheel_steering_left" />
+       <param name="steer_right_joint" value="$(var tf_prefix)frontwheel_steering_right" />
+       <param name="axel_distance" value="0.26" />
+       <param name="wheel_distance" value="0.165" />
+       <param name="wheel_diameter" value="0.063" />
+       <param name="zero_steer_angle" value="0.0" />
+       <param name="steering_topic" value="$(var agent_prefix)/actuators/steering_pwm" />
+       <param name="steering_fb_topic" value="$(var agent_prefix)/sensors/arduino/steering_angle" />
+       <param name="speed_topic" value="$(var agent_prefix)/actuators/speed_pwm" />
+       <param name="ticks_topic" value="$(var agent_prefix)/sensors/arduino/ticks" />
+       <param name="voltage_topic" value="$(var agent_prefix)/sensors/arduino/voltage" />
     </node>
 
 </launch>

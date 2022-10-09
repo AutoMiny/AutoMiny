@@ -15,7 +15,7 @@
         exec="spawn_entity.py"
         args="-topic /robot_description
               -entity $(var name)
-              -x $(var x) -y $(var y) -z 0.124 -R 0 -P 0 -Y $(var yaw) "/>
+              -x $(var x) -y $(var y) -z 0.124 -R 0 -P 0 -Y $(var yaw) -spawn_service_timeout 60"/>
 
   <!--<include file="$(find-pkg-share sim_car_controller)/launch/control.launch">
     <arg name="name" value="$(var name)"/>
