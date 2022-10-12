@@ -365,40 +365,37 @@
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
         <joint name="$(arg tf_prefix)rearwheel_left">
-            <command_interface name="effort" />
+          <command_interface name="velocity" />
           <state_interface name="position"/>
           <state_interface name="velocity"/>
         </joint>
 
         <joint name="$(arg tf_prefix)rearwheel_right">
-          <command_interface name="effort">
-          </command_interface>
+          <command_interface name="velocity" />
           <state_interface name="position"/>
           <state_interface name="velocity"/>
         </joint>
 
         <joint name="$(arg tf_prefix)frontwheel_left">
-        <command_interface name="effort"/>
+        <command_interface name="velocity"/>
           <state_interface name="position"/>
           <state_interface name="velocity"/>
         </joint>
         <joint name="$(arg tf_prefix)frontwheel_right">
-          <command_interface name="effort">
-          </command_interface>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
+          <command_interface name="velocity" />
+          <state_interface name="position" />
+          <state_interface name="velocity" />
         </joint>
 
         <joint name="$(arg tf_prefix)frontwheel_steering_left">
-        <command_interface name="effort"/>
-            <state_interface name="position"/>
-            <state_interface name="velocity"/>
+          <command_interface name="position" />
+            <state_interface name="position" />
+            <state_interface name="velocity" />
         </joint>
         <joint name="$(arg tf_prefix)frontwheel_steering_right">
-          <command_interface name="effort">
-          </command_interface>
-          <state_interface name="position"/>
-          <state_interface name="velocity"/>
+          <command_interface name="position" />
+          <state_interface name="position" />
+          <state_interface name="velocity" />
         </joint>
 
     </ros2_control>

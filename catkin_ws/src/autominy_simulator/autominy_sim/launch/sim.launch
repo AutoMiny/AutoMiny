@@ -28,5 +28,13 @@
     <arg name="yaw"   value="$(var car_yaw)"/>
   </include>
 
+    <include file="$(find-pkg-share sim_car_controller)/launch/control.launch">
+      <arg name="name"  value="$(var name)"/>
+      <arg name="model" value="$(var model)"/>
+      <arg name="x"     value="$(var car_x)"/>
+      <arg name="y"     value="$(var car_y)"/>
+      <arg name="yaw"   value="$(var car_yaw)"/>
+    </include>
+
 
 </launch>

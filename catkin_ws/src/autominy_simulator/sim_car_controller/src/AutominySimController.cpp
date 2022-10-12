@@ -44,7 +44,7 @@ namespace autominy_sim_control
         std::vector<std::string> conf_names;
         for (const auto & joint_name : joint_names)
         {
-            conf_names.push_back(joint_name + "/" + hardware_interface::HW_IF_EFFORT);
+            conf_names.push_back(joint_name + "/" + (joint_name.find("steering") != std::string::npos ? hardware_interface::HW_IF_POSITION : hardware_interface::HW_IF_VELOCITY));
         }
         return {controller_interface::interface_configuration_type::INDIVIDUAL, conf_names};
     }
@@ -149,7 +149,7 @@ namespace autominy_sim_control
                     [this, i](const auto & interface)
                     {
                         return interface.get_prefix_name() == this->joint_names[i] &&
-                               interface.get_interface_name() == hardware_interface::HW_IF_EFFORT;
+                               interface.get_interface_name() == (this->joint_names[i].find("steering") != std::string::npos ? hardware_interface::HW_IF_POSITION : hardware_interface::HW_IF_VELOCITY);
                     });
 
             if (command_handle == command_interfaces_.end())
@@ -161,11 +161,10 @@ namespace autominy_sim_control
             // Node handle to PID gains
             // Init PID gains from ROS parameter server
             this->pids[i].reset(new control_toolbox::Pid());
-            this->pids[i]->initPid(joint_names[i].find("steering") != std::string::npos ? 1.0 : 0.001,
+            this->pids[i]->initPid(joint_names[i].find("steering") != std::string::npos ? 0.2 : 0.001,
                                    0,
-                                   joint_names[i].find("steering") != std::string::npos ? 0.1 : 0.0,
-                                   joint_names[i].find("steering") != std::string::npos ? -1.0 : 1.0,
-                                   1.0);
+                                   joint_names[i].find("steering") != std::string::npos ? 0.0 : 0.0,
+                                   0,0);
 
             this->joints.emplace_back(
                     JointHandle{std::ref(*state_handle), std::ref(*command_handle)});
@@ -211,9 +210,20 @@ namespace autominy_sim_control
         command = pids[4]->computeCommand(error, period.nanoseconds());
         this->joints[4].effort.get().set_value(command);
 
+        RCLCPP_ERROR(get_node()->get_logger(), "Cmd front left steering: %f", this->left_steer_cmd);
+        RCLCPP_ERROR(get_node()->get_logger(), "Feedback front left steering: %f", steer_l_pos);
+        RCLCPP_ERROR(get_node()->get_logger(), "Error left right steering: %f", error);
+        RCLCPP_ERROR(get_node()->get_logger(), "Front left steering: %f", command);
+
+
         error = this->right_steer_cmd - steer_r_pos;
         command = pids[5]->computeCommand(error, period.nanoseconds());
         this->joints[5].effort.get().set_value(command);
+
+        RCLCPP_ERROR(get_node()->get_logger(), "Cmd front right steering: %f", this->right_steer_cmd);
+        RCLCPP_ERROR(get_node()->get_logger(), "Feedback front right steering: %f", steer_r_pos);
+        RCLCPP_ERROR(get_node()->get_logger(), "Error front right steering: %f", error);
+        RCLCPP_ERROR(get_node()->get_logger(), "Front right steering: %f", command);
 
 
         // Set Speed
@@ -221,17 +231,28 @@ namespace autominy_sim_control
         command = pids[0]->computeCommand(error, period.nanoseconds());
         this->joints[0].effort.get().set_value(command);
 
+        RCLCPP_ERROR(get_node()->get_logger(), "Rear left speed: %f", command);
+
         error = this->right_drive_cmd - drive_r_r_vel;
         command = pids[1]->computeCommand(error, period.nanoseconds());
         this->joints[1].effort.get().set_value(command);
+
+        RCLCPP_ERROR(get_node()->get_logger(), "Rear right speed: %f", command);
 
         error = this->left_drive_cmd - drive_f_l_vel;
         command = pids[2]->computeCommand(error, period.nanoseconds());
         this->joints[2].effort.get().set_value(command);
 
+        RCLCPP_ERROR(get_node()->get_logger(), "Front left speed: %f", command);
+
         error = this->right_drive_cmd - drive_f_r_vel;
         command = pids[3]->computeCommand(error, period.nanoseconds());
         this->joints[3].effort.get().set_value(command);
+
+        RCLCPP_ERROR(get_node()->get_logger(), "Cmd front right speed: %f", this->right_drive_cmd);
+        RCLCPP_ERROR(get_node()->get_logger(), "Feedback front right speed: %f", drive_f_r_vel);
+        RCLCPP_ERROR(get_node()->get_logger(), "Error front right speed: %f", error);
+        RCLCPP_ERROR(get_node()->get_logger(), "Front right speed: %f", command);
 
         acc += (std::abs(this->linear_speed) * period.seconds());
 

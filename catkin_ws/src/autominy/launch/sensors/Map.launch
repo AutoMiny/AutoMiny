@@ -2,7 +2,7 @@
 	<arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="tf_prefix"       default="" />
 
-	<!--<include file="$(find-pkg-share map_publisher)/launch/robotics_lab.launch">
+	<!--<include file="$(find-pkg-share map_publisher)/launch/robotics_lab.launch.py">
 	    <arg name="tf_prefix" value="$(var tf_prefix)" />
 	</include>-->
 </launch>

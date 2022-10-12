@@ -6,8 +6,6 @@
     -->
     ]]>
 
-    <remap from="speed" to="/actuators/speed_normalized" />
-    <remap from="steering" to="/actuators/steering_normalized" />
     <!-- start standalone node -->
     <node
           pkg="remote_control"
@@ -15,5 +13,7 @@
           exec="remote_control_node"
           output="screen"
     >
+        <remap from="speed" to="/actuators/speed_normalized" />
+        <remap from="steering" to="/actuators/steering_normalized" />
     </node>
 </launch>

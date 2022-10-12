@@ -8,6 +8,7 @@
           exec="emergency_stop_node"
           output="screen"
     >
+    	<remap from="wanted_speed" to="$(var agent_prefix)/autonomics/wanted_speed" />
     	<remap from="speed" to="$(var agent_prefix)/actuators/speed_pwm" />
     	<remap from="carstate/speed" to="$(var agent_prefix)/sensors/speed" />
     	<remap from="scan" to="$(var agent_prefix)/sensors/rplidar/scan" />

@@ -5,13 +5,13 @@
   <arg name="tf_prefix" default=""/>
 
   <!-- load the controllers -->
-    <node name="controller_spawner"
+    <!--<node name="controller_spawner"
         pkg="controller_manager"
         exec="spawner"
         respawn="false"
         output="screen"
         ns="$(var agent_prefix)/$(var name)"
-        args="joint_state_controller car_cont --namespace=$(var agent_prefix)/$(var name)">
+        args="joint_state_controller car_cont -namespace=$(var agent_prefix)/$(var name)">
        <param name="type" value="effort_controllers/AutominySimController" />
        <param name="robot_description_param" value="$(var agent_prefix)/robot_description" />
        <param name="drive_rear_left_joint" value="$(var tf_prefix)rearwheel_left" />
@@ -29,7 +29,10 @@
        <param name="speed_topic" value="$(var agent_prefix)/actuators/speed_pwm" />
        <param name="ticks_topic" value="$(var agent_prefix)/sensors/arduino/ticks" />
        <param name="voltage_topic" value="$(var agent_prefix)/sensors/arduino/voltage" />
-    </node>
+    </node>-->
+
+    <node pkg="controller_manager" exec="spawner" args="joint_state_broadcaster"></node>
+    <node pkg="controller_manager" exec="spawner" args="sim_car_controller"></node>
 
 </launch>
 

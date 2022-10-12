@@ -22,7 +22,7 @@
         <remap from="actuators/steering_normalized" to="$(var agent_prefix)/actuators/steering_normalized" />
         <remap from="carstate/calibrated_speed" to="speed" />
         <remap from="carstate/steering_angle" to="steering" />
-        <remap from="arduino/speed" to="$(var agent_prefix)/autonomics/emergency_stop/wanted_speed" />
+        <remap from="arduino/speed" to="$(var agent_prefix)/autonomics/wanted_speed" />
         <remap from="arduino/steering_angle" to="$(var agent_prefix)/sensors/arduino/steering_angle" />
         <remap from="arduino/steering" to="$(var agent_prefix)/actuators/steering_pwm" />
         <remap from="arduino/ticks" to="$(var agent_prefix)/sensors/arduino/ticks" />
