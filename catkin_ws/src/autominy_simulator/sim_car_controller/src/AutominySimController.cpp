@@ -9,25 +9,6 @@ namespace autominy_sim_control
 {
     namespace internal
     {
-
-        std::shared_ptr<urdf::Model> getUrdf(const rclcpp_lifecycle::LifecycleNode::SharedPtr nh, const std::string& param_name) {
-            std::shared_ptr<urdf::Model> urdf(new urdf::Model);
-            std::string urdf_str;
-      
-            if (nh->get_parameter(param_name, urdf_str)) {
-                if (!urdf->initString(urdf_str)) {
-                    RCLCPP_ERROR_STREAM(nh->get_logger(), "Failed to parse URDF contained in '" << param_name
-                                                                                                << "' parameter (namespace: "
-                                                                                                << nh->get_namespace()
-                                                                                                << ").");
-                    return std::shared_ptr<urdf::Model>();
-                }
-            }
-            return urdf;
-        }
-
-        typedef std::shared_ptr<const urdf::Joint> UrdfJointConstPtr;
-
         std::string getNamespace(const rclcpp_lifecycle::LifecycleNode::SharedPtr nh) {
             const std::string complete_ns = nh->get_namespace();
             std::size_t id   = complete_ns.find_last_of("/");
@@ -64,7 +45,7 @@ namespace autominy_sim_control
         this->ticks_pub = get_node()->create_publisher<autominy_msgs::msg::Tick>(this->ticks_topic, 1);
         this->voltage_pub = get_node()->create_publisher<autominy_msgs::msg::Voltage>(this->voltage_topic, 1);
 
-        //this->steering_sub = get_node()->create_subscription<autominy_msgs::msg::SteeringPWMCommand>(this->steering_topic, 1, std::bind(&AutominySimController::steering_callback, this, std::placeholders::_1));
+        this->steering_sub = get_node()->create_subscription<autominy_msgs::msg::SteeringPWMCommand>(this->steering_topic, 1, std::bind(&AutominySimController::steering_callback, this, std::placeholders::_1));
         //this->speed_sub = get_node()->create_subscription<autominy_msgs::msg::SpeedPWMCommand>(this->speed_topic, 1, std::bind(&AutominySimController::speed_callback, this, std::placeholders::_1));
 
 
@@ -160,11 +141,11 @@ namespace autominy_sim_control
 
             // Node handle to PID gains
             // Init PID gains from ROS parameter server
-            this->pids[i].reset(new control_toolbox::Pid());
-            this->pids[i]->initPid(joint_names[i].find("steering") != std::string::npos ? 0.2 : 0.001,
-                                   0,
-                                   joint_names[i].find("steering") != std::string::npos ? 0.0 : 0.0,
-                                   0,0);
+            this->pids[i].reset(new control_toolbox::PidROS(get_node(), joint_names[i]));
+            if(!this->pids[i]->initPid()) {
+                RCLCPP_ERROR(get_node()->get_logger(), "Could not initialize PID %s", joint_names[i].c_str());
+                return CallbackReturn::ERROR;
+            }
 
             this->joints.emplace_back(
                     JointHandle{std::ref(*state_handle), std::ref(*command_handle)});
@@ -205,58 +186,53 @@ namespace autominy_sim_control
         drive_f_l_vel = this->joints[2].feedback.get().get_value();
         drive_f_r_vel = this->joints[3].feedback.get().get_value();
 
-        // Set steering
-        error = this->left_steer_cmd - steer_l_pos;
-        command = pids[4]->computeCommand(error, period.nanoseconds());
-        this->joints[4].effort.get().set_value(command);
-
-        RCLCPP_ERROR(get_node()->get_logger(), "Cmd front left steering: %f", this->left_steer_cmd);
-        RCLCPP_ERROR(get_node()->get_logger(), "Feedback front left steering: %f", steer_l_pos);
-        RCLCPP_ERROR(get_node()->get_logger(), "Error left right steering: %f", error);
-        RCLCPP_ERROR(get_node()->get_logger(), "Front left steering: %f", command);
-
-
-        error = this->right_steer_cmd - steer_r_pos;
-        command = pids[5]->computeCommand(error, period.nanoseconds());
-        this->joints[5].effort.get().set_value(command);
-
-        RCLCPP_ERROR(get_node()->get_logger(), "Cmd front right steering: %f", this->right_steer_cmd);
-        RCLCPP_ERROR(get_node()->get_logger(), "Feedback front right steering: %f", steer_r_pos);
-        RCLCPP_ERROR(get_node()->get_logger(), "Error front right steering: %f", error);
-        RCLCPP_ERROR(get_node()->get_logger(), "Front right steering: %f", command);
+        //RCLCPP_ERROR(get_node()->get_logger(), "Cmd front right steering: %f", this->right_steer_cmd);
+        //RCLCPP_ERROR(get_node()->get_logger(), "Feedback front right steering: %f", steer_r_pos);
+        //RCLCPP_ERROR(get_node()->get_logger(), "Error front right steering: %f", error);
+        //RCLCPP_ERROR(get_node()->get_logger(), "Front right steering: %f", command);
 
 
         // Set Speed
         error = this->left_drive_cmd - drive_r_l_vel;
-        command = pids[0]->computeCommand(error, period.nanoseconds());
-        this->joints[0].effort.get().set_value(command);
-
-        RCLCPP_ERROR(get_node()->get_logger(), "Rear left speed: %f", command);
+        command = pids[0]->computeCommand(error, period);
+        //this->joints[0].effort.get().set_value(command);
 
         error = this->right_drive_cmd - drive_r_r_vel;
-        command = pids[1]->computeCommand(error, period.nanoseconds());
-        this->joints[1].effort.get().set_value(command);
-
-        RCLCPP_ERROR(get_node()->get_logger(), "Rear right speed: %f", command);
+        command = pids[1]->computeCommand(error, period);
+        //this->joints[1].effort.get().set_value(command);
 
         error = this->left_drive_cmd - drive_f_l_vel;
-        command = pids[2]->computeCommand(error, period.nanoseconds());
-        this->joints[2].effort.get().set_value(command);
-
-        RCLCPP_ERROR(get_node()->get_logger(), "Front left speed: %f", command);
+        command = pids[2]->computeCommand(error, period);
+        //this->joints[2].effort.get().set_value(command);
 
         error = this->right_drive_cmd - drive_f_r_vel;
-        command = pids[3]->computeCommand(error, period.nanoseconds());
-        this->joints[3].effort.get().set_value(command);
+        command = pids[3]->computeCommand(error, period);
+        //this->joints[3].effort.get().set_value(command);
 
-        RCLCPP_ERROR(get_node()->get_logger(), "Cmd front right speed: %f", this->right_drive_cmd);
+        /*RCLCPP_ERROR(get_node()->get_logger(), "Cmd front right speed: %f", this->right_drive_cmd);
         RCLCPP_ERROR(get_node()->get_logger(), "Feedback front right speed: %f", drive_f_r_vel);
         RCLCPP_ERROR(get_node()->get_logger(), "Error front right speed: %f", error);
-        RCLCPP_ERROR(get_node()->get_logger(), "Front right speed: %f", command);
+        RCLCPP_ERROR(get_node()->get_logger(), "Front right speed: %f", command);*/
 
         acc += (std::abs(this->linear_speed) * period.seconds());
 
         if (time - last_publish >= rclcpp::Duration::from_seconds(0.01)) {
+
+            // Set steering
+            error = this->left_steer_cmd - steer_l_pos;
+            command = std::clamp(steer_l_pos + pids[4]->computeCommand(error, (time - last_publish)), -0.6, 0.6);
+            this->joints[4].effort.get().set_value(command);
+
+            RCLCPP_ERROR(get_node()->get_logger(), "Cmd front left steering: %f", this->left_steer_cmd);
+            RCLCPP_ERROR(get_node()->get_logger(), "Feedback front left steering: %f", steer_l_pos);
+            RCLCPP_ERROR(get_node()->get_logger(), "Error left right steering: %f", error);
+            RCLCPP_ERROR(get_node()->get_logger(), "Front left steering: %f", command);
+
+
+            error = this->right_steer_cmd - steer_r_pos;
+            command = std::clamp(steer_r_pos + pids[5]->computeCommand(error, (time - last_publish)), -0.6, 0.6);
+            this->joints[5].effort.get().set_value(command);
+
             // Publish steer angle
             double cotan_steer, steer_angle_radians;
             cotan_steer = (1 / tan(steer_l_pos) + 1 / tan(steer_r_pos)) / 2;
@@ -337,7 +313,7 @@ namespace autominy_sim_control
         this->steer_left_joint = this->auto_declare<std::string>("steer_left_joint", "frontwheel_steering_left");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steer left joint set to: " << this->steer_left_joint);
 
-        this->steer_right_joint = this->auto_declare<std::string>("steer_right_joint", "frontwheel_steering_left");
+        this->steer_right_joint = this->auto_declare<std::string>("steer_right_joint", "frontwheel_steering_right");
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Steer right joint set to: " << this->steer_right_joint);
     }
 

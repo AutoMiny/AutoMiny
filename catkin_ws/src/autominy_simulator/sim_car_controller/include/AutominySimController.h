@@ -18,6 +18,7 @@
 // ros_controls
 #include <controller_interface/controller_interface.hpp>
 #include <control_toolbox/pid.hpp>
+#include <control_toolbox/pid_ros.hpp>
 #include "hardware_interface/loaned_command_interface.hpp"
 #include "hardware_interface/loaned_state_interface.hpp"
 //#include <hardware_interface/joint_command_interface.hpp>
@@ -71,7 +72,7 @@ namespace autominy_sim_control
       std::vector<JointHandle> joints;///< Handles to controlled joints.
       std::vector<std::string> joint_names;///< Controlled joint names.
 
-      typedef std::shared_ptr<control_toolbox::Pid> PidPtr;
+      typedef std::shared_ptr<control_toolbox::PidROS> PidPtr;
       std::vector<PidPtr> pids;
 
       rclcpp::Subscription<autominy_msgs::msg::SpeedPWMCommand>::SharedPtr speed_sub;
