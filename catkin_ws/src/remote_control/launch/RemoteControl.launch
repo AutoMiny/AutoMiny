@@ -15,5 +15,6 @@
     >
         <remap from="speed" to="/actuators/speed_normalized" />
         <remap from="steering" to="/actuators/steering_normalized" />
+        <param name="max_speed" value="0.3" />
     </node>
 </launch>

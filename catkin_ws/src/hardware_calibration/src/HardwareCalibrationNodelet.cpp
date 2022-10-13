@@ -114,7 +114,7 @@ namespace hardware_calibration {
                    + 1.3445417918423774e+000 * std::pow(x, 1)
                    + 3.8440484313852670e+000 * std::pow(x, 2)
                    - 3.3170433193228730e+000 * std::pow(x, 3);
-        mps *= 2.0;
+        //mps *= 2.0;
 
         // interpolation is not perfect so clip
         if (mps < 0) {

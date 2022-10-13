@@ -4,7 +4,7 @@
   <arg name="parent" default="$(var name)_base_link"/>
 
 
-  <node name="world_spawner" pkg="gazebo_ros" exec="spawn_entity.py" args="-topic /world/robot_description -x 2.890656 -y 1.951848 -z 0.0001 -Y 3.14159 -entity lab_model -spawn_service_timeout 60" respawn="false" output="screen" />
+  <node name="world_spawner" pkg="gazebo_ros" exec="spawn_entity.py" args="-topic /world/robot_description -x 2.890656 -y 1.951848 -z 0.0001 -Y 3.14159 -entity lab_model -timeout 60" respawn="false" output="screen" />
 
     <node pkg="robot_state_publisher" exec="robot_state_publisher" name="world_state_publisher">
       <param name="publish_frequency" value="50.0"/>

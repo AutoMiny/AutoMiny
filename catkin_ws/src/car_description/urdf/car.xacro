@@ -40,6 +40,9 @@
         <mesh filename="file://$(find car_description)/meshes/chasi.dae"/>
       </geometry>
     </collision>
+    <xacro:box_inertial_with_origin mass="30.0" x="0.2" y="0.1" z="0.05">
+      <origin rpy="0.0 0 0" xyz="0.115 0 -0.1" />
+    </xacro:box_inertial_with_origin>
   </link>
 
   <link name="$(arg tf_prefix)board">
@@ -56,11 +59,9 @@
         <mesh filename="file://$(find car_description)/meshes/board.dae"/>
       </geometry>
     </collision>
-    <inertial>
-      <origin rpy="0.0 0 0" xyz="0.115 0 0"/>
-      <mass value="1.0"/>
-      <inertia ixx="0.00213542" ixy="0.0" ixz="0.0" iyy="0.01235417" iyz="0.0" izz="0.01448542"/>
-    </inertial>
+    <xacro:box_inertial_with_origin x="0.3" y="0.1" z="0.1" mass="0.3" >
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:box_inertial_with_origin>
   </link>
 
   <link name="$(arg tf_prefix)camera_board">
@@ -99,10 +100,18 @@
           <cylinder length="0.025" radius="0.0325" />
         </geometry>
       </collision>
-      <xacro:cylinder_inertial_with_origin radius="0.025" length="0.0325" mass="0.05" >
+      <xacro:cylinder_inertial_with_origin radius="0.025" length="0.0325" mass="0.1" >
         <origin xyz="0 0 0" rpy="0 1.5707 1.5707" />
       </xacro:cylinder_inertial_with_origin>
     </link>
+
+    <gazebo reference="${name}">
+      <mu1>1.23</mu1>
+      <mu2>1.23</mu2>
+      <kp>1000000.0</kp> <!--contact stiffness-->
+      <kd>100.0</kd> <!--damping-->
+    </gazebo>
+
   </xacro:macro>
 
   <xacro:wheel name="$(arg tf_prefix)wheel_fr"/>
@@ -123,10 +132,7 @@
         <box size="0.001 0.001 0.001"/>
       </geometry>
     </collision>
-    <inertial>
-      <mass value="0.1"/>
-      <inertia ixx="0.00000002" ixy="0.0" ixz="0.0" iyy="0.00000002" iyz="0.0" izz="0.00000002"/>
-    </inertial>
+    <xacro:sphere_inertial radius="0.02" mass="0.1" />
   </link>
 
   <link name="$(arg tf_prefix)axis_fr">
@@ -142,10 +148,7 @@
         <box size="0.001 0.001 0.001"/>
       </geometry>
     </collision>
-    <inertial>
-      <mass value="0.1"/>
-      <inertia ixx="0.00000002" ixy="0.0" ixz="0.0" iyy="0.00000002" iyz="0.0" izz="0.00000002"/>
-    </inertial>
+    <xacro:sphere_inertial radius="0.02" mass="0.1" />
   </link>
 
   <link name="$(arg tf_prefix)imu">
@@ -302,50 +305,56 @@
 
   <joint name="$(arg tf_prefix)frontwheel_steering_left" type="revolute">
     <axis xyz="0 0 1"/>
-    <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
+    <limit effort="0.001" lower="-0.60" upper="0.60" velocity="1.0"/>
     <parent link="$(arg tf_prefix)base_link"/>
     <child link="$(arg tf_prefix)axis_fl"/>
     <origin xyz="0.255 0.08 0.03" rpy="0.0 0.0 0.0"/>
+    <dynamics damping="0.1" friction="0.01"/>
   </joint>
 
   <joint name="$(arg tf_prefix)frontwheel_steering_right" type="revolute">
     <axis xyz="0 0 1"/>
-    <limit effort="1000.0" lower="-0.55" upper="0.55" velocity="2"/>
+    <limit effort="0.001" lower="-0.60" upper="0.60" velocity="1.0"/>
     <parent link="$(arg tf_prefix)base_link"/>
     <child link="$(arg tf_prefix)axis_fr"/>
     <origin xyz="0.255 -0.08 0.03" rpy="0.0 0.0 0.0" />
+    <dynamics damping="0.1" friction="0.01"/>
   </joint>
 
-  <joint name="$(arg tf_prefix)frontwheel_left" type="revolute">
+  <joint name="$(arg tf_prefix)frontwheel_left" type="continuous">
     <axis xyz="0 1 0"/>
     <parent link="$(arg tf_prefix)axis_fl"/>
     <child link="$(arg tf_prefix)wheel_fl"/>
     <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
-    <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
+    <limit effort="100.0" velocity="100.0"/>
+    <dynamics damping="0.1" friction="0.01"/>
   </joint>
 
-  <joint name="$(arg tf_prefix)frontwheel_right" type="revolute">
+  <joint name="$(arg tf_prefix)frontwheel_right" type="continuous">
     <axis xyz="0 1 0"/>
     <parent link="$(arg tf_prefix)axis_fr"/>
     <child link="$(arg tf_prefix)wheel_fr"/>
     <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
-    <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
+    <limit effort="100.0" velocity="100.0"/>
+    <dynamics damping="0.1" friction="0.01"/>
   </joint>
 
-   <joint name="$(arg tf_prefix)rearwheel_left" type="revolute">
+   <joint name="$(arg tf_prefix)rearwheel_left" type="continuous">
     <axis xyz="0 1 0"/>
     <parent link="$(arg tf_prefix)base_link"/>
     <child link="$(arg tf_prefix)wheel_bl"/>
     <origin xyz="0 0.085 0.03" rpy="0.0 0.0 0.0"/>
-    <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
+    <limit effort="100.0" velocity="100.0"/>
+     <dynamics damping="0.1" friction="0.01"/>
    </joint>
 
-  <joint name="$(arg tf_prefix)rearwheel_right" type="revolute">
+  <joint name="$(arg tf_prefix)rearwheel_right" type="continuous">
     <axis xyz="0 1 0"/>
     <parent link="$(arg tf_prefix)base_link"/>
     <child link="$(arg tf_prefix)wheel_br"/>
     <origin xyz="0 -0.085 0.03" rpy="0.0 0.0 0.0" />
-    <limit effort="0.1" lower="-1000000000000.0" upper="1000000000000.0" velocity="124"/>
+    <limit effort="100.0" velocity="100.0"/>
+    <dynamics damping="0.1" friction="0.01"/>
   </joint>
 
   <joint name="$(arg tf_prefix)board_support_l" type="fixed">
@@ -389,16 +398,16 @@
 
         <joint name="$(arg tf_prefix)frontwheel_steering_left">
           <command_interface name="position">
-            <param name="min">-1</param>
-            <param name="max">1</param>
+            <param name="min">-0.60</param>
+            <param name="max">0.60</param>
           </command_interface>
           <state_interface name="position" />
             <state_interface name="velocity" />
         </joint>
         <joint name="$(arg tf_prefix)frontwheel_steering_right">
           <command_interface name="position">
-            <param name="min">-1</param>
-            <param name="max">1</param>
+            <param name="min">-0.60</param>
+            <param name="max">0.60</param>
           </command_interface>
           <state_interface name="position" />
           <state_interface name="velocity" />
@@ -641,22 +650,6 @@
         <frame_name>$(arg tf_prefix)laser</frame_name>
       </plugin>
     </sensor>
-  </gazebo>
-  <gazebo reference="$(arg tf_prefix)wheel_fl">
-    <mu1>1.34</mu1>
-    <mu2>1.34</mu2>
-  </gazebo>
-  <gazebo reference="$(arg tf_prefix)wheel_fr">
-    <mu1>1.34</mu1>
-    <mu2>1.34</mu2>
-  </gazebo>
-  <gazebo reference="$(arg tf_prefix)wheel_br">
-    <mu1>1.34</mu1>
-    <mu2>1.34</mu2>
-  </gazebo>
-  <gazebo reference="$(arg tf_prefix)wheel_bl">
-    <mu1>1.34</mu1>
-    <mu2>1.34</mu2>
   </gazebo>
 
   <gazebo reference="$(arg tf_prefix)support_r">

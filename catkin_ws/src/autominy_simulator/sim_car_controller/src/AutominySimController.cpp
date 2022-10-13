@@ -46,7 +46,7 @@ namespace autominy_sim_control
         this->voltage_pub = get_node()->create_publisher<autominy_msgs::msg::Voltage>(this->voltage_topic, 1);
 
         this->steering_sub = get_node()->create_subscription<autominy_msgs::msg::SteeringPWMCommand>(this->steering_topic, 1, std::bind(&AutominySimController::steering_callback, this, std::placeholders::_1));
-        //this->speed_sub = get_node()->create_subscription<autominy_msgs::msg::SpeedPWMCommand>(this->speed_topic, 1, std::bind(&AutominySimController::speed_callback, this, std::placeholders::_1));
+        this->speed_sub = get_node()->create_subscription<autominy_msgs::msg::SpeedPWMCommand>(this->speed_topic, 1, std::bind(&AutominySimController::speed_callback, this, std::placeholders::_1));
 
 
         RCLCPP_DEBUG_STREAM(get_node()->get_logger(), "Initialized controller '" << name << "' with:" <<
@@ -115,8 +115,7 @@ namespace autominy_sim_control
                     state_interfaces_.cbegin(), state_interfaces_.cend(),
                     [this, i](const auto & interface)
                     {
-                        return interface.get_prefix_name() == this->joint_names[i] &&
-                               interface.get_interface_name() == (this->joint_names[i].find("steering") != std::string::npos ? hardware_interface::HW_IF_POSITION : hardware_interface::HW_IF_VELOCITY);
+                        return interface.get_prefix_name() == this->joint_names[i];
                     });
 
             if (state_handle == state_interfaces_.cend())
@@ -178,36 +177,10 @@ namespace autominy_sim_control
         double steer_l_pos, steer_r_pos;
         double drive_r_l_vel, drive_r_r_vel, drive_f_l_vel, drive_f_r_vel;
 
-        steer_l_pos = this->joints[4].feedback.get().get_value();
-        steer_r_pos = this->joints[5].feedback.get().get_value();
-
-        drive_r_l_vel = this->joints[0].feedback.get().get_value();
-        drive_r_r_vel = this->joints[1].feedback.get().get_value();
-        drive_f_l_vel = this->joints[2].feedback.get().get_value();
-        drive_f_r_vel = this->joints[3].feedback.get().get_value();
-
         //RCLCPP_ERROR(get_node()->get_logger(), "Cmd front right steering: %f", this->right_steer_cmd);
         //RCLCPP_ERROR(get_node()->get_logger(), "Feedback front right steering: %f", steer_r_pos);
         //RCLCPP_ERROR(get_node()->get_logger(), "Error front right steering: %f", error);
         //RCLCPP_ERROR(get_node()->get_logger(), "Front right steering: %f", command);
-
-
-        // Set Speed
-        error = this->left_drive_cmd - drive_r_l_vel;
-        command = pids[0]->computeCommand(error, period);
-        //this->joints[0].effort.get().set_value(command);
-
-        error = this->right_drive_cmd - drive_r_r_vel;
-        command = pids[1]->computeCommand(error, period);
-        //this->joints[1].effort.get().set_value(command);
-
-        error = this->left_drive_cmd - drive_f_l_vel;
-        command = pids[2]->computeCommand(error, period);
-        //this->joints[2].effort.get().set_value(command);
-
-        error = this->right_drive_cmd - drive_f_r_vel;
-        command = pids[3]->computeCommand(error, period);
-        //this->joints[3].effort.get().set_value(command);
 
         /*RCLCPP_ERROR(get_node()->get_logger(), "Cmd front right speed: %f", this->right_drive_cmd);
         RCLCPP_ERROR(get_node()->get_logger(), "Feedback front right speed: %f", drive_f_r_vel);
@@ -217,21 +190,41 @@ namespace autominy_sim_control
         acc += (std::abs(this->linear_speed) * period.seconds());
 
         if (time - last_publish >= rclcpp::Duration::from_seconds(0.01)) {
+            steer_l_pos = this->joints[4].feedback.get().get_value();
+            steer_r_pos = this->joints[5].feedback.get().get_value();
+
+            drive_r_l_vel = this->joints[0].feedback.get().get_value();
+            drive_r_r_vel = this->joints[1].feedback.get().get_value();
+            drive_f_l_vel = this->joints[2].feedback.get().get_value();
+            drive_f_r_vel = this->joints[3].feedback.get().get_value();
 
             // Set steering
             error = this->left_steer_cmd - steer_l_pos;
             command = std::clamp(steer_l_pos + pids[4]->computeCommand(error, (time - last_publish)), -0.6, 0.6);
             this->joints[4].effort.get().set_value(command);
 
-            RCLCPP_ERROR(get_node()->get_logger(), "Cmd front left steering: %f", this->left_steer_cmd);
-            RCLCPP_ERROR(get_node()->get_logger(), "Feedback front left steering: %f", steer_l_pos);
-            RCLCPP_ERROR(get_node()->get_logger(), "Error left right steering: %f", error);
-            RCLCPP_ERROR(get_node()->get_logger(), "Front left steering: %f", command);
-
-
             error = this->right_steer_cmd - steer_r_pos;
             command = std::clamp(steer_r_pos + pids[5]->computeCommand(error, (time - last_publish)), -0.6, 0.6);
             this->joints[5].effort.get().set_value(command);
+
+            RCLCPP_ERROR(get_node()->get_logger(), "fl: %f rl: %f lin: %f feed: %f", left_drive_cmd, right_drive_cmd, linear_speed, drive_f_l_vel);
+
+            // Set Speed m/s => rad/s
+            error = this->linear_speed - drive_r_l_vel;
+            command = pids[0]->computeCommand(error, period);
+            this->joints[0].effort.get().set_value(left_drive_cmd * 4.0);
+
+            error = this->linear_speed - drive_r_r_vel;
+            command = pids[1]->computeCommand(error, period);
+            this->joints[1].effort.get().set_value(right_drive_cmd * 4.0);
+
+            error = this->left_drive_cmd - drive_f_l_vel;
+            command = pids[2]->computeCommand(error, period);
+            this->joints[2].effort.get().set_value(linear_speed / (wheel_diameter / 2.0) * 4.0);
+
+            error = this->right_drive_cmd - drive_f_r_vel;
+            command = pids[3]->computeCommand(error, period);
+            this->joints[3].effort.get().set_value(linear_speed / (wheel_diameter / 2.0) * 4.0);
 
             // Publish steer angle
             double cotan_steer, steer_angle_radians;
@@ -364,8 +357,8 @@ namespace autominy_sim_control
         /* convert input data [-1000 <-> 1000] */
         motor_voltage = (val / 3.0) * 5.0 / 255.0;// cmd * pwm_max_voltage / pwm_number of steps
         motor_speed = motor_voltage * 1000.0; // motor_voltage * speed_controller conversion factor (1V <-> 1000 rev/min)
-        wheel_speed = motor_speed / 5.5; // motor_speed / gear_ratio of the car
-        this->linear_speed = wheel_speed * 3.14159 * this->wheel_diameter / 60.0; // rpm * radius * 2pi / 60
+        wheel_speed = motor_speed / 5.0; // motor_speed / gear_ratio of the car (wheel rpm)
+        this->linear_speed = wheel_speed * 3.14159 * this->wheel_diameter / 60.0; // wheel rpm * radius * 2pi / 60
 
         //std::cout << "Volt: " << motor_voltage << ", Motor RPM: " << motor_speed << ", Wheel RPM: " << wheel_speed << ", Speed (m/s): " << linear_speed << std::endl;
         this->right_drive_cmd = (linear_speed * ((radius - this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
