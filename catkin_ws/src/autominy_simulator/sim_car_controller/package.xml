@@ -43,11 +43,6 @@
 
   <depend>rclcpp</depend>
   <depend>urdf</depend>
-
-  <depend>controller_interface</depend>
-  <depend>hardware_interface</depend>
-  <depend>control_toolbox</depend>
-
   <depend>controller_manager</depend>
   <depend>xacro</depend>
   <depend>geometry_msgs</depend>
@@ -56,8 +51,14 @@
   <depend>sensor_msgs</depend>
   <depend>tf2</depend>
   <depend>tf2_ros</depend>
-  <depend>gazebo_ros_control</depend>
-  <depend>joint_state_controller</depend>
+  <depend>gazebo_ros2_control</depend>
+  <depend>gazebo_ros_pkgs</depend>
+  <depend>hardware_interface</depend>
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+  <depend>controller_interface</depend>
+  <depend>joint_state_broadcaster</depend>
+  <depend>joint_state_publisher</depend>
   <depend>autominy_msgs</depend>
 
   <!-- The export tag contains other, unspecified, tags -->

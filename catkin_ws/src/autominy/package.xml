@@ -16,8 +16,6 @@
   <depend>rplidar_ros</depend>
   <depend>robot_localization</depend>
   <depend>xacro</depend>
-  <depend>rgbd_launch</depend>
-  <depend>rosbridge_server</depend>
   <export>
     <build_type>ament_cmake</build_type>
   </export>
