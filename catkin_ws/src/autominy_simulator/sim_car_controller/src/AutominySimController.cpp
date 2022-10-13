@@ -207,24 +207,24 @@ namespace autominy_sim_control
             command = std::clamp(steer_r_pos + pids[5]->computeCommand(error, (time - last_publish)), -0.6, 0.6);
             this->joints[5].effort.get().set_value(command);
 
-            RCLCPP_ERROR(get_node()->get_logger(), "fl: %f rl: %f lin: %f feed: %f", left_drive_cmd, right_drive_cmd, linear_speed, drive_f_l_vel);
-
             // Set Speed m/s => rad/s
-            error = this->linear_speed - drive_r_l_vel;
-            command = pids[0]->computeCommand(error, period);
-            this->joints[0].effort.get().set_value(left_drive_cmd * 4.0);
+            error = this->linear_speed / (wheel_diameter / 2.0) - drive_r_l_vel;
+            command = drive_r_l_vel + pids[0]->computeCommand(error, period);
+            this->joints[0].effort.get().set_value(command * 4.2);
 
-            error = this->linear_speed - drive_r_r_vel;
-            command = pids[1]->computeCommand(error, period);
-            this->joints[1].effort.get().set_value(right_drive_cmd * 4.0);
+            error = this->linear_speed / (wheel_diameter / 2.0) - drive_r_r_vel;
+            command = drive_r_r_vel + pids[1]->computeCommand(error, period);
+            this->joints[1].effort.get().set_value(command * 4.2);
+
+            //RCLCPP_ERROR(get_node()->get_logger(), "lin: %f feed: %f command: %f", linear_speed, drive_r_l_vel, linear_speed / (wheel_diameter / 2.0));
 
             error = this->left_drive_cmd - drive_f_l_vel;
-            command = pids[2]->computeCommand(error, period);
-            this->joints[2].effort.get().set_value(linear_speed / (wheel_diameter / 2.0) * 4.0);
+            command = drive_f_l_vel + pids[2]->computeCommand(error, period);
+            this->joints[2].effort.get().set_value(command * 4.2);
 
             error = this->right_drive_cmd - drive_f_r_vel;
-            command = pids[3]->computeCommand(error, period);
-            this->joints[3].effort.get().set_value(linear_speed / (wheel_diameter / 2.0) * 4.0);
+            command = drive_f_r_vel + pids[3]->computeCommand(error, period);
+            this->joints[3].effort.get().set_value(command * 4.2);
 
             // Publish steer angle
             double cotan_steer, steer_angle_radians;
