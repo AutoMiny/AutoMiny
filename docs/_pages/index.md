@@ -21,17 +21,17 @@ feature_row:
     url: "/docs/quick-start-guide/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
-  - image_path: /assets/images/melodic.png
+  - image_path: /assets/images/humble.png
     alt: "ROS"
-    title: "ROS Noetic Ninjemys"
-    excerpt: "Based on the widely used Robot Operating System in the newest version Noetic Ninjemys."
+    title: "ROS Humble Hawksbill"
+    excerpt: "Based on the widely used Robot Operating System (ROS2) in the newest version Humble Hawksbill."
     url: "https://ros.org/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
   - image_path: /assets/images/cof_orange_hex.png
     alt: "Ubuntu"
-    title: "Ubuntu 20.04"
-    excerpt: "Based on the newest LTS Ubuntu 20.04 Focal"
+    title: "Ubuntu 22.04"
+    excerpt: "Based on the newest LTS Ubuntu 22.04 Jammy"
     url: "https:/ubuntu.com/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
