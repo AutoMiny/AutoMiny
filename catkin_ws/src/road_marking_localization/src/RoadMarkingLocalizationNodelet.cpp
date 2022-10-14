@@ -58,7 +58,7 @@ namespace road_marking_localization {
         mapCloudPublisher = create_publisher<sensor_msgs::msg::PointCloud2>("map_pcl", qos);
         robotLocalizationSetPose = create_client<robot_localization::srv::SetPose>("/sensors/set_pose");
 
-        mapSubscriber = create_subscription<nav_msgs::msg::OccupancyGrid>("map", 1, std::bind(&RoadMarkingLocalizationNodelet::onMap, this, std::placeholders::_1));
+        mapSubscriber = create_subscription<nav_msgs::msg::OccupancyGrid>("map", qos, std::bind(&RoadMarkingLocalizationNodelet::onMap, this, std::placeholders::_1));
         positionEstimateSubscriber = create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>("initialpose", 1, std::bind(&RoadMarkingLocalizationNodelet::onEstimatedPosition, this, std::placeholders::_1));
 
         auto qos2 = rclcpp::QoS(2).get_rmw_qos_profile();
