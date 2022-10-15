@@ -15,10 +15,10 @@ namespace road_marking_localization {
         config.icp_max_correspondence_distance = declare_parameter<double>("icp_max_correspondence_distance", 0.10);
         config.icp_sample_size = declare_parameter<int>("icp_sample_size", 750);
         config.minimum_points = declare_parameter<int>("minimum_points", 250);
-        config.maximum_x_correction = declare_parameter<int>("maximum_x_correction", 0.3);
-        config.maximum_y_correction = declare_parameter<int>("maximum_y_correction", 0.3);
-        config.maximum_yaw_correction = declare_parameter<int>("maximum_yaw_correction", 0.5);
-        config.debug = declare_parameter<bool>("debug", true);;
+        config.maximum_x_correction = declare_parameter<double>("maximum_x_correction", 0.3);
+        config.maximum_y_correction = declare_parameter<double>("maximum_y_correction", 0.3);
+        config.maximum_yaw_correction = declare_parameter<double>("maximum_yaw_correction", 0.5);
+        config.debug = declare_parameter<bool>("debug", true);
         std::string base_link_frame = declare_parameter<std::string>("base_link_frame", "base_link");
         std::string map_frame = declare_parameter<std::string>("map_frame", "map");
         config.transformation_estimation = declare_parameter<int>("transformation_estimation", 0);
