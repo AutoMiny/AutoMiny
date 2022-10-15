@@ -13,14 +13,21 @@ import launch_ros.events.lifecycle
 
 import lifecycle_msgs.msg
 
+from ament_index_python import get_package_share_directory
+import os
+
 def generate_launch_description():
     """Run lifecycle nodes via launch."""
     ld = launch.LaunchDescription()
 
+    config = os.path.join(
+        get_package_share_directory('map_publisher'),
+        'map/fu_robotics_lab_map.yaml')
+
     # Prepare the map server node.
     map_server = launch_ros.actions.LifecycleNode(
         name='map_server', namespace="",
-        package='nav2_map_server', executable='map_server', output='screen')
+        package='nav2_map_server', executable='map_server', output='screen', parameters=[{"yaml_filename": config}])
 
     # When the map server reaches the 'inactive' state, make it take the 'activate' transition.
     register_event_handler_for_map_server_reaches_inactive_state = launch.actions.RegisterEventHandler(
