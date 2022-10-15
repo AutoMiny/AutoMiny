@@ -19,7 +19,7 @@ def generate_launch_description():
 
     # Prepare the map server node.
     map_server = launch_ros.actions.LifecycleNode(
-        name='map_server',
+        name='map_server', namespace="",
         package='nav2_map_server', executable='map_server', output='screen')
 
     # When the map server reaches the 'inactive' state, make it take the 'activate' transition.
@@ -51,7 +51,4 @@ def generate_launch_description():
     ld.add_action(map_server)
     ld.add_action(emit_event_to_request_that_map_server_does_configure_transition)
 
-    # ls = launch.LaunchService(argv=argv, debug=True)
-    ls = launch.LaunchService(argv=argv)
-    ls.include_launch_description(ld)
-    return ls.run()
+    return ld
