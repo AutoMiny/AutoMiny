@@ -13,7 +13,7 @@ import launch_ros.events.lifecycle
 
 import lifecycle_msgs.msg
 
-def main(argv=sys.argv[1:]):
+def generate_launch_description():
     """Run lifecycle nodes via launch."""
     ld = launch.LaunchDescription()
 
@@ -55,7 +55,3 @@ def main(argv=sys.argv[1:]):
     ls = launch.LaunchService(argv=argv)
     ls.include_launch_description(ld)
     return ls.run()
-
-
-if __name__ == '__main__':
-    main()
