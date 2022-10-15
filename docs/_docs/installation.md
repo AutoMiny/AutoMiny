@@ -12,7 +12,7 @@ source /opt/ros/humble/setup.bash
 sudo apt install git
 git clone https://github.com/autominy/autominy
 cd autominy/catkin_ws
-sudo apt install python3-rosdep python3-roslaunch python3-colcon-common-extensions clang
+sudo apt install python3-rosdep python3-colcon-common-extensions clang
 sudo rosdep init
 rosdep update
 rosdep install --from-paths . --ignore-src --rosdistro=humble -y
