@@ -91,6 +91,7 @@ namespace autominy_sim_control
 
         // Controller name
         this->name = internal::getNamespace(this->get_node());
+        this->motor_distance = 0;
 
         joint_names.emplace_back(this->get_node()->get_parameter("drive_rear_left_joint").as_string());
         joint_names.emplace_back(this->get_node()->get_parameter("drive_rear_right_joint").as_string());
@@ -187,8 +188,6 @@ namespace autominy_sim_control
         RCLCPP_ERROR(get_node()->get_logger(), "Error front right speed: %f", error);
         RCLCPP_ERROR(get_node()->get_logger(), "Front right speed: %f", command);*/
 
-        acc += (std::abs(this->linear_speed) * period.seconds());
-
         if (time - last_publish >= rclcpp::Duration::from_seconds(0.01)) {
             steer_l_pos = this->joints[4].feedback.get().get_value();
             steer_r_pos = this->joints[5].feedback.get().get_value();
@@ -210,20 +209,24 @@ namespace autominy_sim_control
             // Set Speed m/s => rad/s
             error = this->linear_speed / (wheel_diameter / 2.0) - drive_r_l_vel;
             command = drive_r_l_vel + pids[0]->computeCommand(error, period);
+            if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
             this->joints[0].effort.get().set_value(command * 4.2);
 
             error = this->linear_speed / (wheel_diameter / 2.0) - drive_r_r_vel;
             command = drive_r_r_vel + pids[1]->computeCommand(error, period);
+            if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
             this->joints[1].effort.get().set_value(command * 4.2);
 
             //RCLCPP_ERROR(get_node()->get_logger(), "lin: %f feed: %f command: %f", linear_speed, drive_r_l_vel, linear_speed / (wheel_diameter / 2.0));
 
             error = this->left_drive_cmd - drive_f_l_vel;
             command = drive_f_l_vel + pids[2]->computeCommand(error, period);
+            if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
             this->joints[2].effort.get().set_value(command * 4.2);
 
             error = this->right_drive_cmd - drive_f_r_vel;
             command = drive_f_r_vel + pids[3]->computeCommand(error, period);
+            if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
             this->joints[3].effort.get().set_value(command * 4.2);
 
             // Publish steer angle
@@ -243,11 +246,16 @@ namespace autominy_sim_control
             this->steer_angle_pub->publish(msg);
 
             // Publish ticks
+            // rad / s * m/s = > rad (wheel) => * 12.5 ratio for motor,
+            motor_distance += std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 * (time - last_publish).seconds() * 12.5;
+            RCLCPP_ERROR(get_node()->get_logger(), "%f %f %f %f %f %f", drive_r_r_vel, drive_r_l_vel, drive_f_r_vel, drive_f_l_vel, this->left_drive_cmd, this->right_drive_cmd);
+            uint8_t wheel_ticks = std::floor(motor_distance / (M_PI / 3.0));
+            motor_distance = std::fmod(motor_distance, (M_PI / 3.0));
+
             autominy_msgs::msg::Tick tick;
             tick.header.stamp = time;
             tick.header.frame_id = "base_link";
-            tick.value = acc / 0.003;
-            acc = std::fmod(acc, 0.003);
+            tick.value = wheel_ticks;
             ticks_pub->publish(tick);
 
             // Publish voltage
@@ -361,7 +369,7 @@ namespace autominy_sim_control
         this->linear_speed = wheel_speed * 3.14159 * this->wheel_diameter / 60.0; // wheel rpm * radius * 2pi / 60
 
         //std::cout << "Volt: " << motor_voltage << ", Motor RPM: " << motor_speed << ", Wheel RPM: " << wheel_speed << ", Speed (m/s): " << linear_speed << std::endl;
-        this->right_drive_cmd = (linear_speed * ((radius - this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
+        this->right_drive_cmd = (linear_speed * ((radius + this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
         this->left_drive_cmd = (linear_speed * ((radius - this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
         this->last_cmd_drive = linear_speed;
     }

@@ -89,6 +89,7 @@ namespace autominy_sim_control
       double wheel_distance;
       double wheel_diameter;
       double zero_steer_angle;
+      double motor_distance;
       std::string steering_topic;
       std::string steering_fb_topic;
       std::string speed_topic;

@@ -31,16 +31,16 @@ namespace hardware_calibration {
         steeringAnglePublisher = create_publisher<autominy_msgs::msg::SteeringAngle>("carstate/steering_angle", 1);
         speedMPSPublisher = create_publisher<autominy_msgs::msg::SpeedCommand>("actuators/speed", 1);
 
-        steeringFeedbackSubscriber = create_subscription<autominy_msgs::msg::SteeringFeedback>("arduino/steering_angle", 1,
+        steeringFeedbackSubscriber = create_subscription<autominy_msgs::msg::SteeringFeedback>("arduino/steering_angle", 100,
                                                            std::bind(&HardwareCalibrationNodelet::onSteeringFeedback, this, std::placeholders::_1));
-        speedSubscriber = create_subscription<autominy_msgs::msg::SpeedCommand>("actuators/speed", 1, std::bind(&HardwareCalibrationNodelet::onSpeedCommand, this, std::placeholders::_1));
-        steeringSubscriber = create_subscription<autominy_msgs::msg::SteeringCommand>("actuators/steering", 1, std::bind(&HardwareCalibrationNodelet::onSteeringCommand,
+        speedSubscriber = create_subscription<autominy_msgs::msg::SpeedCommand>("actuators/speed", 100, std::bind(&HardwareCalibrationNodelet::onSpeedCommand, this, std::placeholders::_1));
+        steeringSubscriber = create_subscription<autominy_msgs::msg::SteeringCommand>("actuators/steering", 100, std::bind(&HardwareCalibrationNodelet::onSteeringCommand,
                                            this, std::placeholders::_1));
-        wantedSpeedSubscriber = create_subscription<autominy_msgs::msg::NormalizedSpeedCommand>("actuators/speed_normalized", 1,
+        wantedSpeedSubscriber = create_subscription<autominy_msgs::msg::NormalizedSpeedCommand>("actuators/speed_normalized", 100,
                                                       std::bind(&HardwareCalibrationNodelet::onWantedSpeed, this, std::placeholders::_1));
-        wantedSteeringSubscriber = create_subscription<autominy_msgs::msg::NormalizedSteeringCommand>("actuators/steering_normalized", 1,
+        wantedSteeringSubscriber = create_subscription<autominy_msgs::msg::NormalizedSteeringCommand>("actuators/steering_normalized", 100,
                                                          std::bind(&HardwareCalibrationNodelet::onWantedSteering, this, std::placeholders::_1));
-        ticksSubscriber = create_subscription<autominy_msgs::msg::Tick>("arduino/ticks", 1, std::bind(&HardwareCalibrationNodelet::onTicks, this, std::placeholders::_1));
+        ticksSubscriber = create_subscription<autominy_msgs::msg::Tick>("arduino/ticks", 100, std::bind(&HardwareCalibrationNodelet::onTicks, this, std::placeholders::_1));
     }
 
     void HardwareCalibrationNodelet::onTicks(const autominy_msgs::msg::Tick::ConstSharedPtr& msg) {
