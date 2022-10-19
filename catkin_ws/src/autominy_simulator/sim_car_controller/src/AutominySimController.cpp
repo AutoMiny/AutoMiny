@@ -248,7 +248,7 @@ namespace autominy_sim_control
             // Publish ticks
             // rad / s * m/s = > rad (wheel) => * 12.5 ratio for motor,
             motor_distance += std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 * (time - last_publish).seconds() * 12.5;
-            RCLCPP_ERROR(get_node()->get_logger(), "%f %f %f %f %f %f", drive_r_r_vel, drive_r_l_vel, drive_f_r_vel, drive_f_l_vel, this->left_drive_cmd, this->right_drive_cmd);
+            //RCLCPP_ERROR(get_node()->get_logger(), "%f %f %f %f %f %f", drive_r_r_vel, drive_r_l_vel, drive_f_r_vel, drive_f_l_vel, this->left_drive_cmd, this->right_drive_cmd);
             uint8_t wheel_ticks = std::floor(motor_distance / (M_PI / 3.0));
             motor_distance = std::fmod(motor_distance, (M_PI / 3.0));
 
