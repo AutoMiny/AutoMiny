@@ -199,11 +199,11 @@ namespace autominy_sim_control
 
             // Set steering
             error = this->left_steer_cmd - steer_l_pos;
-            command = std::clamp(steer_l_pos + pids[4]->computeCommand(error, (time - last_publish)), -0.6, 0.6);
+            command = std::clamp(steer_l_pos + pids[4]->computeCommand(error, (time - last_publish)), -0.57, 0.57);
             this->joints[4].effort.get().set_value(command);
 
             error = this->right_steer_cmd - steer_r_pos;
-            command = std::clamp(steer_r_pos + pids[5]->computeCommand(error, (time - last_publish)), -0.6, 0.6);
+            command = std::clamp(steer_r_pos + pids[5]->computeCommand(error, (time - last_publish)), -0.57, 0.57);
             this->joints[5].effort.get().set_value(command);
 
             // Set Speed m/s => rad/s
@@ -238,7 +238,7 @@ namespace autominy_sim_control
             }
 
             // Publish steer angle feedback
-            auto steer_angle = internal::mapRange(-0.498, 0.512, 192, 420, -steer_angle_radians);
+            auto steer_angle = internal::mapRange(-0.498, 0.512, 200, 420, -steer_angle_radians);
             autominy_msgs::msg::SteeringFeedback msg;
             msg.value = static_cast<int16_t>(steer_angle);
             msg.header.stamp = time;
