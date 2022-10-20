@@ -238,7 +238,7 @@ namespace autominy_sim_control
             }
 
             // Publish steer angle feedback
-            auto steer_angle = internal::mapRange(-0.498, 0.512, 200, 420, -steer_angle_radians);
+            auto steer_angle = internal::mapRange(-0.50, 0.50, 193, 419, -steer_angle_radians);
             autominy_msgs::msg::SteeringFeedback msg;
             msg.value = static_cast<int16_t>(steer_angle);
             msg.header.stamp = time;

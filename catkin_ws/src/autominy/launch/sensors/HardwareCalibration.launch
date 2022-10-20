@@ -8,8 +8,8 @@
     >
         <param name="minimum_steering_feedback" value="$(env ROS_MINIMUM_STEERING_FEEDBACK 192)" />
         <param name="maximum_steering_feedback" value="$(env ROS_MAXIMUM_STEERING_FEEDBACK 420)" />
-        <param name="minimum_steering_radians" value="$(env ROS_MINIMUM_STEERING_RADIANS 0.38)" />
-        <param name="maximum_steering_radians" value="$(env ROS_MAXIMUM_STEERING_RADIANS -0.38)" />
+        <param name="minimum_steering_radians" value="$(env ROS_MINIMUM_STEERING_RADIANS 0.5)" />
+        <param name="maximum_steering_radians" value="$(env ROS_MAXIMUM_STEERING_RADIANS -0.5)" />
         <param name="minimum_steering_pwm" value="$(env ROS_MINIMUM_STEERING_PWM 950)" />
         <param name="maximum_steering_pwm" value="$(env ROS_MAXIMUM_STEERING_PWM 2150)" />
         <param name="minimum_speed_pwm" value="$(env ROS_MINIMUM_SPEED_PWM -1000)" />
