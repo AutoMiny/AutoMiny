@@ -34,8 +34,8 @@ namespace odometry {
         y += currentSpeed * sin(yaw) * dt;
 
         odom.header.stamp = t;
-        odom.header.frame_id = baseLinkFrame;
-        odom.child_frame_id = odomFrame;
+        odom.header.frame_id = odomFrame;
+        odom.child_frame_id = baseLinkFrame;
         odom.pose.pose.position.x = x;
         odom.pose.pose.position.y = y;
         odom.pose.pose.position.z = 0.0;
