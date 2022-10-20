@@ -8,7 +8,7 @@
 	</include>
 
 	<!-- launch simulation -->
-	<include file="$(find-pkg-share autominy_sim)/launch/sim.launch">
+	<include file="$(find-pkg-share autominy_sim)/launch/Simulation.launch.py">
 	</include>
 
 </launch>
