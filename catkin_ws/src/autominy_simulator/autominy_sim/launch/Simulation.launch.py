@@ -74,6 +74,23 @@ def generate_launch_description():
         output='screen'
     )
 
+    tf2_world_lab = Node(name= "tf2_world_lab",
+                         package = "tf2_ros",
+                         executable = "static_transform_publisher",
+                         arguments = ["2.35", "2.891", "0.0001", "-1.5708", "0", "0", "world", "lab_base_link"])
+
+    tf2_world_map = Node(name= "tf2_world_map",
+                         package = "tf2_ros",
+                         executable = "static_transform_publisher",
+                         arguments = ["0", "0", "0", "0", "0", "0", "world", "map"])
+
+    tf2_map_odom = Node(name= "tf2_map_odom",
+                         package = "tf2_ros",
+                         executable = "static_transform_publisher",
+                         arguments = ["0", "0", "0", "0", "0", "0", "map", "odom"])
+
+
+
     return LaunchDescription([
         RegisterEventHandler(
             event_handler=OnProcessExit(
@@ -88,6 +105,9 @@ def generate_launch_description():
             )
         ),
         node_robot_state_publisher,
+        tf2_world_lab,
+        tf2_world_map,
+        tf2_map_odom,
         gzserver,
         gzclient,
         spawn_world,

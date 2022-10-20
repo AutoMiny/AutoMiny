@@ -45,12 +45,11 @@
 		<arg name="live"            value="$(var live)" />
 	</include>
 
-	<!-- Localization -->
-	<include file="$(find-pkg-share autominy)/launch/sensors/Localization.launch">
-		<arg name="live"            value="$(var live)" />
-		<arg name="tf_prefix" value="$(var tf_prefix)" />
-		<arg name="agent_prefix" value="$(var agent_prefix)" />
-	</include>
+    <include file="$(find-pkg-share autominy)/launch/sensors/Localization.launch">
+        <arg name="live"            value="$(var live)" />
+        <arg name="tf_prefix" value="$(var tf_prefix)" />
+        <arg name="agent_prefix" value="$(var agent_prefix)" />
+    </include>
 
 	<!-- Map -->
 	<include file="$(find-pkg-share autominy)/launch/sensors/Map.launch">
