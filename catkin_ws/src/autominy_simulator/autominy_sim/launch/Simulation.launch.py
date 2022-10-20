@@ -17,7 +17,8 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('gazebo_ros'), 'launch'), '/gzserver.launch.py']),
         launch_arguments={
-            'world': os.path.join(get_package_share_directory('autominy_sim'), 'worlds/empty.world')
+            'world': os.path.join(get_package_share_directory('autominy_sim'), 'worlds/empty.world'),
+            'params_file': os.path.join(get_package_share_directory('autominy'), 'params/gazebo.yaml')
         }.items()
     )
 
