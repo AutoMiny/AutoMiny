@@ -24,6 +24,8 @@ namespace stereo_camera_pose_estimation {
         config.marker_frame = declare_parameter<std::string>("marker_frame", "marker");
         config.debug = declare_parameter<bool>("debug", true);
 
+        lastPoseEstimationTime = rclcpp::Time(0, 0, RCL_ROS_TIME);
+
         coefficients = std::make_shared<pcl::ModelCoefficients>();
         planePointCloud = std::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
         transformedPointCloud = std::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
@@ -34,14 +36,13 @@ namespace stereo_camera_pose_estimation {
         markerImagePublisher = create_publisher<sensor_msgs::msg::Image>("marker", 1);
 
         auto qos = rclcpp::QoS(2).get_rmw_qos_profile();
-        infraImageSubscriber.subscribe(this, "camera/color/image_rect_color", "raw", qos);
-        depthImageSubscriber.subscribe(this, "camera/depth/image_rect_raw", "raw", qos);
+        infraImageSubscriber.subscribe(this, "camera/color/image_rect_color", qos);
+        depthImageSubscriber.subscribe(this, "camera/depth/image_rect_raw", qos);
         infraCameraInfoSubscriber.subscribe(this, "camera/color/camera_info", qos);
         depthCameraInfoSubscriber.subscribe(this, "camera/depth/camera_info", qos);
 
         sync = std::make_shared<SynchronizerDepthImage>(SyncPolicyDepthImage(20));
-        sync->connectInput(infraImageSubscriber, infraCameraInfoSubscriber, depthImageSubscriber,
-                           depthCameraInfoSubscriber);
+        sync->connectInput(infraImageSubscriber, infraCameraInfoSubscriber, depthImageSubscriber,depthCameraInfoSubscriber);
         sync->registerCallback(std::bind(&StereoCameraPoseEstimationNodelet::onImage, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
     }
 

@@ -89,8 +89,8 @@ namespace stereo_camera_pose_estimation {
         sensor_msgs::msg::Image::SharedPtr getMarkerImage();
 
         /// subscriber
-        image_transport::SubscriberFilter depthImageSubscriber;
-        image_transport::SubscriberFilter infraImageSubscriber;
+        message_filters::Subscriber<sensor_msgs::msg::Image> depthImageSubscriber;
+        message_filters::Subscriber<sensor_msgs::msg::Image> infraImageSubscriber;
         message_filters::Subscriber<sensor_msgs::msg::CameraInfo> depthCameraInfoSubscriber;
         message_filters::Subscriber<sensor_msgs::msg::CameraInfo> infraCameraInfoSubscriber;
 
