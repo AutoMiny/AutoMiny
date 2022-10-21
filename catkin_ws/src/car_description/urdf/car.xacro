@@ -494,18 +494,19 @@
           <stddev>0.007</stddev>
         </noise>
       </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <plugin name="depth" filename="libgazebo_ros_camera.so">
           <ros>
-              <remapping>camera1/image_raw:=infra1/image_rect_raw</remapping>
-              <remapping>camera1/depth/image_raw:=depth/image_rect_raw</remapping>
-              <remapping>camera1/camera_info:=infra1/camera_info</remapping>
-              <remapping>camera1/depth/camera_info:=depth/camera_info</remapping>
-              <remapping>camera1/points:=depth/points</remapping>
+              <namespace>/sensors</namespace>
+              <remapping>camera/image_raw:=camera/infra1/image_rect_raw</remapping>
+              <remapping>camera/camera_info:=camera/infra1/camera_info</remapping>
+              <remapping>camera/depth/image_raw:=camera/depth/image_rect_raw</remapping>
+              <remapping>camera/depth/camera_info:=camera/depth/camera_info</remapping>
+              <remapping>camera/points:=camera/depth/points</remapping>
           </ros>
 
         <always_on>true</always_on>
         <update_rate>15.0</update_rate>
-        <camera_name>sensors/camera</camera_name>
+        <camera_name>camera</camera_name>
         <frame_name>$(arg tf_prefix)camera_depth_optical_frame</frame_name>
 
         <pointCloudCutoff>0.05</pointCloudCutoff>
@@ -545,15 +546,14 @@
           <stddev>0.01</stddev>
         </noise>
       </camera>
-      <plugin name="camera_controller2" filename="libgazebo_ros_camera.so">
+      <plugin name="color" filename="libgazebo_ros_camera.so">
           <ros>
-              <!-- <namespace>stereo</namespace> -->
-              <remapping>camera2/image_raw:=image_rect_color</remapping>
-              <remapping>camera2/camera_info:=camera_info</remapping>
+              <namespace>/sensors/camera</namespace>
+              <remapping>color/image_raw:=color/image_rect_color</remapping>
           </ros>
         <always_on>true</always_on>
         <update_rate>15.0</update_rate>
-        <camera_name>sensors/camera/color</camera_name>
+        <camera_name>color</camera_name>
         <frame_name>$(arg tf_prefix)camera_color_optical_frame</frame_name>
         <hack_baseline>0.0193</hack_baseline>
         <distortionK1>0.0</distortionK1>
