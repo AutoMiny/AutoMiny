@@ -245,7 +245,8 @@ namespace road_marking_localization {
             boxFilter.filter(*croppedCloud);
 
             if (croppedCloud->size() < config.minimum_points) {
-                RCLCPP_WARN(get_logger(),"Not enough points for correction");
+                auto clk = *get_clock();
+                RCLCPP_WARN_THROTTLE(get_logger(), clk, 5000,"Not enough points for correction");
                 return false;
             }
 
