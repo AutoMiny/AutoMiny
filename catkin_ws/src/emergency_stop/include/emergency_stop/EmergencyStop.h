@@ -12,8 +12,8 @@ namespace emergency_stop {
     struct EmergencyStopConfig {
         double angle_front = 0.7;
         double angle_back = 0.7;
-        double break_distance = 0.45;
-        bool break_distance_based_on_speed = false;
+        double brake_distance = 0.45;
+        bool brake_distance_based_on_speed = false;
         double reverse_minimum_distance = 0.28;
         double forward_minimum_distance = 0.07;
         double negative_acceleration = 4.0;

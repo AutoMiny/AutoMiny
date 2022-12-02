@@ -5,8 +5,8 @@ emergency_stop::EmergencyStopNodelet::~EmergencyStopNodelet() = default;
 emergency_stop::EmergencyStopNodelet::EmergencyStopNodelet(const rclcpp::NodeOptions &opts) : rclcpp::Node("emergency_stop", opts) {
     config.angle_front = declare_parameter<double>("angle_front", 0.7);
     config.angle_back = declare_parameter<double>("angle_back", 0.7);
-    config.break_distance = declare_parameter<double>("break_distance", 0.45);
-    config.break_distance_based_on_speed = declare_parameter<bool>("break_distance_based_on_speed", false);
+    config.brake_distance = declare_parameter<double>("brake_distance", 0.45);
+    config.brake_distance_based_on_speed = declare_parameter<bool>("brake_distance_based_on_speed", false);
     config.reverse_minimum_distance = declare_parameter<double>("reverse_minimum_distance", 0.28);
     config.forward_minimum_distance = declare_parameter<double>("forward_minimum_distance", 0.07);
     config.negative_acceleration = declare_parameter<double>("negative_acceleration", 4.0);
@@ -20,8 +20,8 @@ emergency_stop::EmergencyStopNodelet::EmergencyStopNodelet(const rclcpp::NodeOpt
 }
 
 void emergency_stop::EmergencyStopNodelet::onScan(const sensor_msgs::msg::LaserScan::ConstSharedPtr &scan) {
-    double breakDistance = config.break_distance;
-    if (config.break_distance_based_on_speed) {
+    double breakDistance = config.brake_distance;
+    if (config.brake_distance_based_on_speed) {
         breakDistance = std::pow(currentSpeed, 2) / 2.0 * config.negative_acceleration;
     }
 
@@ -106,8 +106,8 @@ emergency_stop::EmergencyStopNodelet::onConfig(const std::vector<rclcpp::Paramet
 
         if (name == "angle_front" && p.as_double() >= 0 && p.as_double() < 3.141) config.angle_front = p.as_double();
         if (name == "angle_back" && p.as_double() >= 0 && p.as_double() < 3.141) config.angle_back = p.as_double();
-        if (name == "break_distance" && p.as_double() >= 0 && p.as_double() < 2.0) config.break_distance = p.as_double();
-        if (name == "break_distance_based_on_speed") config.break_distance_based_on_speed = p.as_bool();
+        if (name == "brake_distance" && p.as_double() >= 0 && p.as_double() < 2.0) config.brake_distance = p.as_double();
+        if (name == "brake_distance_based_on_speed") config.brake_distance_based_on_speed = p.as_bool();
         if (name == "reverse_minimum_distance" && p.as_double() >= 0 && p.as_double() < 1.0) config.reverse_minimum_distance = p.as_double();
         if (name == "forward_minimum_distance" && p.as_double() >= 0 && p.as_double() < 1.0) config.forward_minimum_distance = p.as_double();
         if (name == "negative_acceleration" && p.as_double() >= 0 && p.as_double() < 10.0) config.negative_acceleration = p.as_double();
