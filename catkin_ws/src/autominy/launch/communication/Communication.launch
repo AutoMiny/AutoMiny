@@ -2,13 +2,13 @@
     <arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
 
     <!-- Relay into communication ns -->
-    <include file="$(find-pkg-share autominy)/launch/communication/Relay.launch">
+    <!--<include file="$(find-pkg-share autominy)/launch/communication/Relay.launch">
         <arg name="live"            value="$(var live)" />
-    </include>
+    </include>-->
 
     <!-- Multimaster communication -->
-    <include file="$(find-pkg-share autominy)/launch/communication/Multimaster.launch">
+    <!--<include file="$(find-pkg-share autominy)/launch/communication/Multimaster.launch">
         <arg name="live"            value="$(var live)" />
-    </include>
+    </include>-->
 
 </launch>
