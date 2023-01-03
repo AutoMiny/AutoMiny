@@ -1,7 +1,7 @@
 <launch>
 	<arg name="baudrate" default="$(env ROS_RPLIDAR_BAUDRATE 115200)" />
 
-	<node name="rplidar"          pkg="rplidar_ros"  exec="rplidarNode" output="screen">
+	<node name="rplidar"          pkg="rplidar_ros"  exec="rplidar_composition" output="screen">
 		<remap from="/sensors/scan" to="/sensors/rplidar/scan"/>
 
 		<param name="serial_port"         value="/dev/ttyLidar"/>
