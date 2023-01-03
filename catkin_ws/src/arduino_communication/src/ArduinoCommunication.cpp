@@ -78,6 +78,7 @@ void ArduinoCommunication::spin() {
     bool connected = false;
 
     rclcpp::Rate r(200);
+    std::shared_ptr<arduino_communication::ArduinoCommunication> nh(this);
     while (rclcpp::ok()) {
         try {
 
@@ -114,7 +115,7 @@ void ArduinoCommunication::spin() {
             RCLCPP_ERROR_THROTTLE(get_logger(), clk, 1000, "Could not connect to arduino %s", exception.what());
         }
 
-        rclcpp::spin(this->shared_from_this());
+        rclcpp::spin(nh);
         r.sleep();
     }
 }
