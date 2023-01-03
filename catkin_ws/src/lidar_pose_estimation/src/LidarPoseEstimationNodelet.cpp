@@ -3,8 +3,8 @@
 namespace lidar_pose_estimation {
     LidarPoseEstimationNodelet::LidarPoseEstimationNodelet(const rclcpp::NodeOptions &opts) : rclcpp::Node("lidar_pose_estimation", opts),
                                                                                               tfBroadcaster(this), tfBuffer(get_clock()), tfListener(tfBuffer) {
-        poles = pcl::PointCloud<pcl::PointXYZ>::Ptr();
-        data = pcl::PointCloud<pcl::PointXYZ>::Ptr();
+        poles = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud< pcl::PointXYZ>);
+        data = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud< pcl::PointXYZ>);
 
         config.max_dist = declare_parameter<double>("maxdist", 0.25);
         config.execution_frequency = declare_parameter<double>("execution_frequency", 1.0);
