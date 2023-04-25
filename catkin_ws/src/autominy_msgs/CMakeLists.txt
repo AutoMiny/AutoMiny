@@ -2,8 +2,10 @@ cmake_minimum_required(VERSION 3.22)
 project(autominy_msgs)
 
 find_package(ament_cmake REQUIRED)
+find_package(builtin_interfaces REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 ################################################
@@ -29,8 +31,8 @@ set(msg_files
 
 rosidl_generate_interfaces(${PROJECT_NAME}
         ${msg_files}
-        DEPENDENCIES std_msgs geometry_msgs
+        DEPENDENCIES builtin_interfaces std_msgs geometry_msgs nav_msgs
 )
 
-ament_export_dependencies(std_msgs geometry_msgs)
+ament_export_dependencies(builtin_interfaces std_msgs geometry_msgs nav_msgs)
 ament_package()
