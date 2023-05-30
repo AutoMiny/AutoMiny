@@ -376,5 +376,5 @@ namespace autominy_sim_control
 
 }
 
-#include "class_loader/register_macro.hpp"
-CLASS_LOADER_REGISTER_CLASS(autominy_sim_control::AutominySimController, controller_interface::ControllerInterface)
+#include "pluginlib/class_list_macros.hpp"
+PLUGINLIB_EXPORT_CLASS(autominy_sim_control::AutominySimController, controller_interface::ControllerInterface)

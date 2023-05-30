@@ -29,8 +29,7 @@ find_package(tf2_ros REQUIRED)
 include_directories(include)
 
 ## Declare a cpp library
-add_library(${PROJECT_NAME} SHARED src/AutominySimController.cpp
-                            include/AutominySimController.h)
+add_library(${PROJECT_NAME} SHARED src/AutominySimController.cpp)
 
 ament_target_dependencies(${PROJECT_NAME} autominy_msgs rclcpp urdf controller_interface hardware_interface control_toolbox controller_manager xacro geometry_msgs nav_msgs std_msgs sensor_msgs tf2 tf2_ros)
 
