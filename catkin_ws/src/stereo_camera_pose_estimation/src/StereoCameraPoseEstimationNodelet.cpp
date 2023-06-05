@@ -171,6 +171,10 @@ namespace stereo_camera_pose_estimation {
         try {
             auto t = tfBuffer.lookupTransform(config.camera_frame, pcl->header.frame_id, depthImage->header.stamp);
             Eigen::Affine3d tt = tf2::transformToEigen(t);
+
+            if (pcl->empty())
+                return false;
+
             pcl::transformPointCloud(*pcl, *transformedPointCloud, tt);
             transformedPointCloud->header.frame_id = config.camera_frame;
             transformedPointCloud->header.stamp = pcl->header.stamp;
