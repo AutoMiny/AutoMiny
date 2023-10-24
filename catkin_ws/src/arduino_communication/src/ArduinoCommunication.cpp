@@ -115,7 +115,7 @@ void ArduinoCommunication::spin() {
             RCLCPP_ERROR_THROTTLE(get_logger(), clk, 1000, "Could not connect to arduino %s", exception.what());
         }
 
-        rclcpp::spin(nh);
+        rclcpp::spin_some(nh);
         r.sleep();
     }
 }

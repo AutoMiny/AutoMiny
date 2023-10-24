@@ -81,6 +81,9 @@ install(
         DESTINATION lib/${PROJECT_NAME}
 )
 
+install(PROGRAMS scripts/gps.py scripts/gps_initialpose.py
+        DESTINATION lib/${PROJECT_NAME})
+
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(
         DIRECTORY launch

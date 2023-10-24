@@ -4,6 +4,7 @@
   <arg name="model" default="car"/>
   <arg name="tf_prefix" default=""/>
   <arg name="agent_prefix" default=""/>
+  <arg name="live" default="false"/>
 
   <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
     <param name="publish_frequency" value="50.0"/>
@@ -12,7 +13,7 @@
          value="$(command 'xacro \'$(find-pkg-share car_description)/urdf/$(var model).xacro\' tf_prefix:=$(var tf_prefix) car_name:=$(var tf_prefix)model_car agent_prefix:=$(var agent_prefix)')" />
   </node>
 
-  <node name="joint_state_publisher"
+  <node unless="$(var live)" name="joint_state_publisher"
         pkg ="joint_state_publisher"
         exec="joint_state_publisher">
   </node>

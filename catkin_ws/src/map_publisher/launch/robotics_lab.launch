@@ -1,6 +1,6 @@
 <launch>
     <arg name="tf_prefix" default="" />
-	<node pkg="tf2_ros" exec="static_transform_publisher" name="map_broadcaster"   args="0 0 0 0 0 0 1 map odom" />
+	<node pkg="tf2_ros" exec="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0 1 map odom" />
 
 	<!-- Run the map server-->
 	<arg name="map_file" default="$(find-pkg-share map_publisher)/map/fu_robotics_lab_map.yaml"/>

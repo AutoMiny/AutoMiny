@@ -14,18 +14,18 @@
 
         <remap from="odometry/filtered"  to="localization/filtered_map"/>
 
-        <remap from="odometry/wheel"     to="odometry/odom" />
+        <remap from="odometry/wheel"     to="odom" />
         <remap from="odometry/gps"       to="road_marking_localization/corrected_odom" />
         <remap from="imu/data"           to="imu" />
         <remap from="simulation/odom_ground_truth" to="$(var agent_prefix)/simulation/odom_ground_truth" />
 
     </node>
-
-    <!--<arg name="gps_id" value="$(env ROS_GPS_MARKER 999)" />
-    <remap from="gps" to="/communication/gps/$(var gps_id)" />
-	<remap from="localization" to="/sensors/localization/filtered_map" />
-	<include file="$(find-pkg-share road_marking_localization)/launch/Initialpose.launch">
-		<arg name="gps_id" value="$(var gps_id)" />
-	</include>-->
-
+    <group>
+    <arg name="gps_id" default="$(env ROS_GPS_MARKER 999)" />
+    <set_remap from="gps" to="/sensors/odometry/gps" />
+    <set_remap from="localization" to="/sensors/localization/filtered_map" />
+    <include file="$(find-pkg-share road_marking_localization)/launch/Initialpose.launch">
+        <arg name="gps_id" value="$(var gps_id)" />
+    </include>
+    </group>
 </launch>

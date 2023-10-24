@@ -2,6 +2,8 @@
 	<arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
 	<arg name="tf_prefix"       default="" />
 
+        <node pkg="tf2_ros" exec="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0 1 map odom" />
+
 	<include file="$(find-pkg-share map_publisher)/launch/robotics_lab.launch.py">
 	    <arg name="tf_prefix" value="$(var tf_prefix)" />
 	</include>

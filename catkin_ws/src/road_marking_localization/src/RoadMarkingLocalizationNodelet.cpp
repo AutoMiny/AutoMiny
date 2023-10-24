@@ -8,7 +8,7 @@ namespace road_marking_localization {
         config.y_box = declare_parameter<double>("y_box", 2.0);
         config.minimum_z = declare_parameter<double>("minimum_z", -0.02);
         config.maximum_z = declare_parameter<double>("maximum_z", 0.02);
-        config.threshold = declare_parameter<int>("threshold", 160);
+        config.threshold = declare_parameter<int>("threshold", 180);
         config.icp_max_iterations = declare_parameter<int>("icp_max_iterations", 5);
         config.icp_RANSAC_outlier_rejection_threshold = declare_parameter<double>("icp_RANSAC_outlier_rejection_threshold", 0.0);
         config.icp_RANSAC_iterations = declare_parameter<int>("icp_RANSAC_iterations", 0);
@@ -59,7 +59,7 @@ namespace road_marking_localization {
         robotLocalizationSetPose = create_client<robot_localization::srv::SetPose>("/sensors/set_pose");
 
         mapSubscriber = create_subscription<nav_msgs::msg::OccupancyGrid>("map", qos, std::bind(&RoadMarkingLocalizationNodelet::onMap, this, std::placeholders::_1));
-        positionEstimateSubscriber = create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>("initialpose", 1, std::bind(&RoadMarkingLocalizationNodelet::onEstimatedPosition, this, std::placeholders::_1));
+        positionEstimateSubscriber = create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>("/initialpose", 1, std::bind(&RoadMarkingLocalizationNodelet::onEstimatedPosition, this, std::placeholders::_1));
 
         auto qos2 = rclcpp::QoS(2).get_rmw_qos_profile();
         infraImageSubscriber.subscribe(this, "camera/infra1/image_rect_raw", "raw", qos2);

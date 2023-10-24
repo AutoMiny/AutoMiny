@@ -2,6 +2,8 @@
 	<arg name="baudrate" default="$(env ROS_ARDUINO_BAUDRATE 115200)" />
 
 	<!-- Arduino communication -->
+        <group>
+        <push-ros-namespace namespace="arduino" />
 	<node pkg="arduino_communication" exec="arduino_communication_node" name="arduino" output="screen">
 		<param name="baud" value="$(var baudrate)" />
 		<param name="device" value="/dev/ttyArduino" />
@@ -11,5 +13,5 @@
         <remap from="steering" to="/actuators/steering_pwm" />
         <remap from="led" to="/actuators/led" />
 	</node>
-
+        </group>
 </launch>

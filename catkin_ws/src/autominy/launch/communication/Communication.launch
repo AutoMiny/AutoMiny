@@ -1,14 +1,7 @@
 <launch>
     <arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
 
-    <!-- Relay into communication ns -->
-    <!--<include file="$(find-pkg-share autominy)/launch/communication/Relay.launch">
-        <arg name="live"            value="$(var live)" />
-    </include>-->
-
-    <!-- Multimaster communication -->
-    <!--<include file="$(find-pkg-share autominy)/launch/communication/Multimaster.launch">
-        <arg name="live"            value="$(var live)" />
-    </include>-->
-
+    <node name="gps" exec="gps.py" pkg="road_marking_localization">
+        <param name="id" value="$(env ROS_GPS_MARKER 999)"/>
+    </node>
 </launch>

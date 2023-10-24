@@ -3,7 +3,7 @@
     <arg name="tf_prefix"       default="" />
     <arg name="agent_prefix"    default="" />
 
-    <!--<node
+    <node namespace="road_marking_localization"
           pkg="road_marking_localization"
           name="road_marking_localization"
           exec="road_marking_localization_node"
@@ -15,6 +15,5 @@
         <remap from="$(var agent_prefix)/sensors/road_marking_localization/camera/depth/camera_info" to="$(var agent_prefix)/sensors/camera/depth/camera_info"/>
         <remap from="$(var agent_prefix)/sensors/road_marking_localization/initialpose" to="$(var agent_prefix)/initialpose"/>
         <remap from="$(var agent_prefix)/sensors/road_marking_localization/map" to="$(var agent_prefix)/sensors/map"/>
-
-    </node>-->
+    </node>
 </launch>

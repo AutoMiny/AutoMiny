@@ -30,7 +30,7 @@
         <param name="p_ref_2_x" value="$(env ROS_LIDAR_CALIBRATION_P_REF_2_X -0.035)" />
         <param name="p_ref_2_y" value="$(env ROS_LIDAR_CALIBRATION_P_REF_2_Y -0.055)" />
 
-        <remap from="/sensors/lidar_pose_estimation/scan" to="/sensors/rplidar/scan"/>
+        <remap from="scan" to="/sensors/rplidar/scan"/>
     </node>
 
 
