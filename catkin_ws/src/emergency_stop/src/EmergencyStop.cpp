@@ -25,6 +25,7 @@ void emergency_stop::EmergencyStopNodelet::onScan(const sensor_msgs::msg::LaserS
         breakDistance = std::pow(currentSpeed, 2) / 2.0 * config.negative_acceleration;
     }
 
+    emergencyStop = false;
     auto angleIncrement = scan->angle_increment;
     if (wantedSpeed >= 0) {    //forward.
         auto frontAngle = config.angle_front / 2.0;
@@ -32,20 +33,20 @@ void emergency_stop::EmergencyStopNodelet::onScan(const sensor_msgs::msg::LaserS
         auto end = static_cast<int>(frontAngle / angleIncrement);
 
         for (int i = 0; i < scan->ranges.size() && i < end; i++) {
-            if (scan->ranges[i] <= breakDistance + config.forward_minimum_distance &&
+            if (std::isfinite(scan->ranges[i]) && scan->ranges[i] <= breakDistance + config.forward_minimum_distance &&
                 scan->ranges[i] > config.forward_minimum_distance) {
                 emergencyStop = true;
-                return;
+                break;
             }
         }
 
         start = scan->ranges.size() - 1 - static_cast<int>(frontAngle / angleIncrement);
         end = scan->ranges.size();
         for (int k = start; k < end; k++) {
-            if (scan->ranges[k] <= breakDistance + config.forward_minimum_distance &&
+            if (std::isfinite(scan->ranges[k]) && scan->ranges[k] <= breakDistance + config.forward_minimum_distance &&
                 scan->ranges[k] > config.forward_minimum_distance) {
                 emergencyStop = true;
-                return;
+                break;
             }
         }
     }
@@ -56,14 +57,13 @@ void emergency_stop::EmergencyStopNodelet::onScan(const sensor_msgs::msg::LaserS
         int end = scan->ranges.size() / 2 + static_cast<int>(backAngle / angleIncrement);
         for (int j = start; j < end && j < scan->ranges.size(); j++) {
             // we might see the camera in the laser scan
-            if (scan->ranges[j] <= (breakDistance + config.reverse_minimum_distance) &&
+            if (std::isfinite(scan->ranges[j]) && scan->ranges[j] <= (breakDistance + config.reverse_minimum_distance) &&
                 scan->ranges[j] > config.reverse_minimum_distance) {
                 emergencyStop = true;
-                return;
+                break;
             }
         }
     }
-    emergencyStop = false;
 
     speedPublisher->publish(getSafeSpeed());
 }
