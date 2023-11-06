@@ -4,17 +4,17 @@ namespace road_marking_localization {
     RoadMarkingLocalizationNodelet::RoadMarkingLocalizationNodelet(const rclcpp::NodeOptions &opts) : rclcpp::Node("road_marking_localization", opts), tfBuffer(get_clock()), tfListener(tfBuffer) {
         config.blur_kernel_size = declare_parameter<int>("blur_kernel_size", 1);
         config.crop_top_pixels = declare_parameter<int>("crop_top_pixels", 50);
-        config.x_box = declare_parameter<double>("x_box", 2.0);
-        config.y_box = declare_parameter<double>("y_box", 2.0);
+        config.x_box = declare_parameter<double>("x_box", 3.0);
+        config.y_box = declare_parameter<double>("y_box", 3.0);
         config.minimum_z = declare_parameter<double>("minimum_z", -0.02);
         config.maximum_z = declare_parameter<double>("maximum_z", 0.02);
-        config.threshold = declare_parameter<int>("threshold", 180);
+        config.threshold = declare_parameter<int>("threshold", 200);
         config.icp_max_iterations = declare_parameter<int>("icp_max_iterations", 5);
         config.icp_RANSAC_outlier_rejection_threshold = declare_parameter<double>("icp_RANSAC_outlier_rejection_threshold", 0.0);
         config.icp_RANSAC_iterations = declare_parameter<int>("icp_RANSAC_iterations", 0);
         config.icp_max_correspondence_distance = declare_parameter<double>("icp_max_correspondence_distance", 0.10);
         config.icp_sample_size = declare_parameter<int>("icp_sample_size", 750);
-        config.minimum_points = declare_parameter<int>("minimum_points", 250);
+        config.minimum_points = declare_parameter<int>("minimum_points", 500);
         config.maximum_x_correction = declare_parameter<double>("maximum_x_correction", 0.3);
         config.maximum_y_correction = declare_parameter<double>("maximum_y_correction", 0.3);
         config.maximum_yaw_correction = declare_parameter<double>("maximum_yaw_correction", 0.5);
@@ -72,6 +72,7 @@ namespace road_marking_localization {
                            depthCameraInfoSubscriber);
         sync->registerCallback(std::bind(&RoadMarkingLocalizationNodelet::onImage, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
 
+        cb = add_on_set_parameters_callback(std::bind(&RoadMarkingLocalizationNodelet::onConfig, this, std::placeholders::_1));
     }
 
     void RoadMarkingLocalizationNodelet::onImage(const sensor_msgs::msg::Image::ConstSharedPtr &msg,
@@ -448,5 +449,38 @@ namespace road_marking_localization {
                 iterativeClosestPoint.setTransformationEstimation(transformationEstimation);
         }
     }
+
+rcl_interfaces::msg::SetParametersResult
+RoadMarkingLocalizationNodelet::onConfig(const std::vector<rclcpp::Parameter> &params) {
+
+    for (auto&& p : params) {
+        const auto& name = p.get_name();
+
+        if (name == "blur_kernel_size") config.blur_kernel_size = p.as_int();
+        if (name == "crop_top_pixels") config.crop_top_pixels = p.as_int();
+        if (name == "x_box") config.x_box = p.as_double();
+        if (name == "y_box") config.y_box = p.as_double();
+        if (name == "minimum_z") config.minimum_z = p.as_double();
+        if (name == "maximum_z") config.maximum_z = p.as_double();
+        if (name == "threshold") config.threshold = p.as_int();
+        if (name == "icp_max_iterations") config.icp_max_iterations = p.as_int();
+        if (name == "icp_RANSAC_outlier_rejection_threshold") config.icp_RANSAC_outlier_rejection_threshold = p.as_double();
+        if (name == "icp_RANSAC_iterations") config.icp_RANSAC_iterations = p.as_double();
+        if (name == "icp_max_correspondence_distance") config.icp_max_correspondence_distance = p.as_double();
+        if (name == "icp_sample_size") config.icp_sample_size = p.as_int();
+        if (name == "minimum_points") config.minimum_points = p.as_int();
+        if (name == "maximum_x_correction") config.maximum_x_correction = p.as_double();
+        if (name == "maximum_y_correction") config.maximum_y_correction = p.as_double();
+        if (name == "maximum_yaw_correction") config.maximum_yaw_correction = p.as_double();
+        if (name == "debug") config.debug = p.as_bool();
+        if (name == "transformation_estimation") config.transformation_estimation = p.as_int();
+    }
+
+    setConfig();
+    rcl_interfaces::msg::SetParametersResult result;
+    result.successful = true;
+    result.reason = "success";
+    return result;
+}
 
 }

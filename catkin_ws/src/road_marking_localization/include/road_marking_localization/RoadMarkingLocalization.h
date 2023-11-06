@@ -117,6 +117,7 @@ namespace road_marking_localization {
         sensor_msgs::msg::PointCloud2::ConstSharedPtr getMapPointCloud();
 
         void setConfig();
+	rcl_interfaces::msg::SetParametersResult onConfig(const std::vector<rclcpp::Parameter>& params);
 
         /// subscriber
         image_transport::SubscriberFilter depthImageSubscriber;
@@ -160,6 +161,7 @@ namespace road_marking_localization {
         pcl::Registration<pcl::PointXYZ, pcl::PointXYZ>::Matrix4 transformationMatrix;
         std::shared_ptr<pcl::registration::TransformationEstimation<pcl::PointXYZ, pcl::PointXYZ>> transformationEstimation;
 
+        OnSetParametersCallbackHandle::SharedPtr cb;
     public:
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW
     };
