@@ -79,7 +79,7 @@ emergency_stop::EmergencyStopNodelet::onWantedSpeed(const autominy_msgs::msg::Sp
 
 autominy_msgs::msg::SpeedPWMCommand emergency_stop::EmergencyStopNodelet::getSafeSpeed() {
     autominy_msgs::msg::SpeedPWMCommand msg;
-
+    msg.header.stamp = now();
     if (emergencyStop) {
         msg.value = 0;
     } else {
