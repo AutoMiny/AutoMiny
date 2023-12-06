@@ -48,7 +48,7 @@ namespace road_marking_localization {
         transformationMatrix.setIdentity();
         setConfig();
 
-        odometryPublisher = create_publisher<nav_msgs::msg::Odometry>("corrected_odom", 10);
+        odometryPublisher = create_publisher<nav_msgs::msg::Odometry>("corrected_odom", 1);
         thresholdedImagePublisher = create_publisher<sensor_msgs::msg::Image>("threshold", 1);
         rawPclPublisher = create_publisher<sensor_msgs::msg::PointCloud2>("raw_pcl", 1);
         croppedPclPublisher = create_publisher<sensor_msgs::msg::PointCloud2>("cropped_pcl", 1);
