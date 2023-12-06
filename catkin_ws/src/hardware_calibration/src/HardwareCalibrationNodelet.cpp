@@ -95,36 +95,10 @@ namespace hardware_calibration {
     }
 
     void HardwareCalibrationNodelet::onWantedSpeed(const autominy_msgs::msg::NormalizedSpeedCommand::ConstSharedPtr& msg) {
-        auto wantedSpeed = msg->value;
-
-        if (wantedSpeed < 0.0) {
-            wantedDirection = Direction::BACKWARD;
-        } else if (wantedSpeed > 0.0) {
-            wantedDirection = Direction::FORWARD;
-        }
-
-        if (wantedSpeed < -1.0 || wantedSpeed > 1.0) {
-            RCLCPP_INFO(get_logger(), "Wanted speed is not within range -1.0 to 1.0: %f. Clamping!", wantedSpeed);
-            wantedSpeed = boost::algorithm::clamp(wantedSpeed, -1.0, 1.0);
-        }
-
-        // function to go from [-1, 1] to m/s
-        auto x = std::abs(wantedSpeed);
-        auto mps = -2.3166083379533089e-002 * std::pow(x, 0)
-                   + 1.3445417918423774e+000 * std::pow(x, 1)
-                   + 3.8440484313852670e+000 * std::pow(x, 2)
-                   - 3.3170433193228730e+000 * std::pow(x, 3);
-        //mps *= 2.0;
-
-        // interpolation is not perfect so clip
-        if (mps < 0) {
-            mps = 0;
-        }
-
-        autominy_msgs::msg::SpeedCommand speedMsg;
-        speedMsg.header = msg->header;
-        speedMsg.value = std::copysign(mps, msg->value);
-        speedMPSPublisher->publish(speedMsg);
+        auto cmd = std::make_shared<autominy_msgs::msg::SpeedCommand>();
+        cmd->header = msg->header;
+        cmd->value = msg->value * 2.0;
+        onSpeedCommand(cmd);
     }
 
     void HardwareCalibrationNodelet::onWantedSteering(const autominy_msgs::msg::NormalizedSteeringCommand::ConstSharedPtr& msg) {
@@ -158,22 +132,10 @@ namespace hardware_calibration {
             wantedDirection = Direction::FORWARD;
         }
 
-        // The mapping is symmetric so interpolate the absolute value
-        auto x = std::abs(msg->value);
-
-        auto normalized = 1.5136448288272340e-002 * pow(x, 0)
-                          + 7.2086980469484707e-001 * pow(x, 1)
-                          + -5.7014814155497762e-001 * pow(x, 2)
-                          + 2.3646519448237449e-001 * pow(x, 3);
-
-        // interpolation is not perfect so clip
-        if (normalized < 0) {
-            normalized = 0;
-        }
-
         autominy_msgs::msg::SpeedPWMCommand command;
         command.header = msg->header;
-        command.value = (std::copysign(normalized, msg->value) * 1000.0) / 2.0;
+        command.value = msg->value / (config.ticks_to_m * 6.0) * 60.0 / 20000.0 * 1023.0 + 21.0;
+        if (msg-> value < 0.05) command.value = 0;
         speedPublisher->publish(command);
     }
 
