@@ -96,6 +96,7 @@ void emergency_stop::EmergencyStopNodelet::setCurrentSpeed(const autominy_msgs::
 void
 emergency_stop::EmergencyStopNodelet::setWantedSpeed(const autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr &speed) {
     wantedSpeed = speed->value;
+    speedPublisher->publish(getSafeSpeed());
 }
 
 rcl_interfaces::msg::SetParametersResult
