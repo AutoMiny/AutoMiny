@@ -22,7 +22,7 @@
                   false, false, false,
                   false, false, false,
                   true,  true, false]
-    imu0_queue_size: 100
+    imu0_queue_size: 1
     imu0_differential: true
     imu0_relative: false
     imu0_remove_gravitational_acceleration: false
@@ -33,7 +33,7 @@
                    true,  true, false,
                    false, false, false,
                    false, false, false]
-    odom0_queue_size: 100
+    odom0_queue_size: 1
     odom0_differential: true
     odom0_relative: false
 
@@ -43,7 +43,7 @@
                    false, false, false,
                    false, false, false,
                    false, false, false]
-    odom1_queue_size: 100
+    odom1_queue_size: 1
     odom1_differential: false
     odom1_relative: false
 
@@ -53,7 +53,7 @@
                    true,  true,  true,
                    true,  true,  true,
                    true,  true,  true]
-    odom2_queue_size: 100
+    odom2_queue_size: 1
     odom2_differential: false
     odom2_relative: false
 
