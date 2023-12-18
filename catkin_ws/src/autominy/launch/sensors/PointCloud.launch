@@ -1,63 +1,25 @@
 <?xml version="1.0" ?>
 <launch>
-	<arg name="use_nodelets" default="$(optenv USE_NODELETS false)"/>
-    <arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
-	<arg name="nodelet_manager" default="$(optenv POINTCLOUD_NODELET_MANAGER pointcloud_nodelet_manager)"/>
+    <arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
+<!--
+	<arg name="pcl_xyz_nodelet_manager" value="pcl_xyz_nodelet_manager" />
+    <arg name="pcl_xyzi_nodelet_manager" value="pcl_xyzi_nodelet_manager" />
+	<arg name="pcl_register_depth_nodelet_manager" value="pcl_register_depth_nodelet_manager" />
+	<arg name="pcl_xyzrgb_nodelet_manager" value="pcl_xyzrgb_nodelet_manager" />
 
-	<![CDATA[
-    <!--
-          FOR DEBUGGING: add to node tag: launch-prefix="gnome-terminal -x gdb --args"
-          additionally add <param name="/bond_disable_heartbeat_timeout" value="true" /> to debug nodelets
-    -->
-    ]]>
-	<arg unless="$(arg use_nodelets)" name="pcl_xyz_nodelet_manager" value="pcl_xyz_nodelet_manager" />
-	<arg if="$(arg use_nodelets)" name="pcl_xyz_nodelet_manager" value="$(arg nodelet_manager)" />
 
-    <arg unless="$(arg use_nodelets)" name="pcl_xyzi_nodelet_manager" value="pcl_xyzi_nodelet_manager" />
-    <arg if="$(arg use_nodelets)" name="pcl_xyzi_nodelet_manager" value="$(arg nodelet_manager)" />
-
-	<arg unless="$(arg use_nodelets)" name="pcl_register_depth_nodelet_manager" value="pcl_register_depth_nodelet_manager" />
-	<arg if="$(arg use_nodelets)" name="pcl_register_depth_nodelet_manager" value="$(arg nodelet_manager)" />
-
-	<arg unless="$(arg use_nodelets)" name="pcl_xyzrgb_nodelet_manager" value="pcl_xyzrgb_nodelet_manager" />
-	<arg if="$(arg use_nodelets)" name="pcl_xyzrgb_nodelet_manager" value="$(arg nodelet_manager)" />
-
-	<node unless="$(arg use_nodelets)"
+	<node
 		  pkg="nodelet"
-		  type="nodelet"
+		  exec="nodelet"
 		  name="pcl_xyz_nodelet_manager"
 		  args="manager">
 		<param name="num_worker_threads" value="8" />
 	</node>
 
-	<node unless="$(arg use_nodelets)"
-    		  pkg="nodelet"
-    		  type="nodelet"
-    		  name="pcl_xyzi_nodelet_manager"
-    		  args="manager">
-        <param name="num_worker_threads" value="8" />
-    </node>
-
-    <node unless="$(arg use_nodelets)"
-              pkg="nodelet"
-              type="nodelet"
-              name="pcl_register_depth_nodelet_manager"
-              args="manager">
-        <param name="num_worker_threads" value="8" />
-    </node>
-
-    <node unless="$(arg use_nodelets)"
-              pkg="nodelet"
-              type="nodelet"
-              name="pcl_xyzrgb_nodelet_manager"
-              args="manager">
-        <param name="num_worker_threads" value="8" />
-    </node>
-
 	<node pkg="nodelet"
-		  type="nodelet"
+		  exec="nodelet"
 		  name="point_cloud_xyz"
-		  args="load depth_image_proc/point_cloud_xyz $(arg pcl_xyz_nodelet_manager)"
+		  args="load depth_image_proc/point_cloud_xyz $(var pcl_xyz_nodelet_manager)"
 	>
 		<remap from="camera_info" to="/sensors/camera/depth/camera_info" />
 		<remap from="image_rect" to="/sensors/camera/depth/image_rect_raw" />
@@ -65,9 +27,9 @@
 	</node>
 
     <node pkg="nodelet"
-          type="nodelet"
+          exec="nodelet"
           name="point_cloud_xyzi"
-          args="load pcl_xyzi_image_proc/point_cloud_xyzi $(arg pcl_xyzi_nodelet_manager)"
+          args="load pcl_xyzi_image_proc/point_cloud_xyzi $(var pcl_xyzi_nodelet_manager)"
     >
         <remap from="depth/image_rect" to="/sensors/camera/depth/image_rect_raw" />
         <remap from="intensity/camera_info" to="/sensors/camera/infra1/camera_info" />
@@ -75,8 +37,8 @@
         <remap from="depth/points" to="/sensors/pointcloud/points_xyzi" />
     </node>
 
-    <node pkg="nodelet" type="nodelet" name="register_depth"
-        args="load depth_image_proc/register $(arg pcl_register_depth_nodelet_manager)">
+    <node pkg="nodelet" exec="nodelet" name="register_depth"
+        args="load depth_image_proc/register $(var pcl_register_depth_nodelet_manager)">
         <remap from="rgb/camera_info" to="/sensors/camera/color/camera_info" />
         <remap from="depth/camera_info" to="/sensors/camera/depth/camera_info" />
         <remap from="depth/image_rect" to="/sensors/camera/depth/image_rect_raw" />
@@ -85,24 +47,24 @@
     </node>
 
     <node pkg="nodelet"
-          type="nodelet"
+          exec="nodelet"
           name="point_cloud_xyzrgb"
-          args="load depth_image_proc/point_cloud_xyzrgb $(arg pcl_xyzrgb_nodelet_manager)"
+          args="load depth_image_proc/point_cloud_xyzrgb $(var pcl_xyzrgb_nodelet_manager)"
     >
         <remap from="rgb/camera_info" to="/sensors/camera/color/camera_info" />
         <remap from="rgb/image_rect_color" to="/sensors/camera/color/image_rect_color" />
         <remap from="depth_registered/image_rect" to="/sensors/camera/depth_aligned_to_color/image_rect_raw" />
         <remap from="depth_registered/points" to="/sensors/pointcloud/points_xyzrgb" />
-    </node>
+    </node>-->
 
 
 	<!--<node pkg="nodelet"
-		  type="nodelet"
+		  exec="nodelet"
 		  name="voxelgrid"
-		  args="load pcl/VoxelGrid $(arg pcl_nodelet_manager)"
+		  args="load pcl/VoxelGrid $(var pcl_nodelet_manager)"
 	>
-		<remap from="~input" to="/sensors/pointcloud/points_xyz" />
-		<remap from="~output" to="/sensors/pointcloud/points_xyz_voxelgrid_filtered" />
+		<remap from="input" to="/sensors/pointcloud/points_xyz" />
+		<remap from="output" to="/sensors/pointcloud/points_xyz_voxelgrid_filtered" />
 
 		<param name="filter_field_name" value="z"/>
 		<param name="filter_field_min" value="-1.0"/>

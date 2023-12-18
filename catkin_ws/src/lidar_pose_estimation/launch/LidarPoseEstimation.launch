@@ -1,58 +1,29 @@
 <?xml version="1.0" ?>
 <launch>
-    <arg name="use_nodelets" default="$(optenv USE_NODELETS false)"/>
-    <arg name="nodelet_manager" default="$(optenv DUMMY_NODELET_MANAGER dummy_nodelet_manager)"/>
-
     <![CDATA[
     <!--
           FOR DEBUGGING: add to node tag: launch-prefix="gnome-terminal -x gdb --args"
-          additionally add <param name="/bond_disable_heartbeat_timeout" value="true" /> to debug nodelets
     -->
     ]]>
 
-    <node name="$(anon reconfigure)" pkg="dynamic_reconfigure" type="dynparam" args="set_from_parameters lidar_pose_estimation">
-        <param name="max_dist" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_MAX_DISTANCE 0.25)" />
-        <param name="execution_frequency" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_EXECUTION_FREQUENCY 1.0)" />
-        <param name="cluster_tolerance" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_CLUSTER_TOLERANCE 0.02)" />
-        <param name="min_cluster_size" type="int" value="$(optenv ROS_LIDAR_CALIBRATION_MIN_CLUSTER_SIZE 10)" />
-        <param name="max_cluster_size" type="int" value="$(optenv ROS_LIDAR_CALIBRATION_MAX_CLUSTER_SIZE 100)" />
-        <param name="max_reference_distance_deviation" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_MAX_REFERENCE_DEVIATION 0.01)" />
-        <param name="roll" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_ROLL 0.0)" />
-        <param name="pitch" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_PITCH 0.0)" />
-        <param name="z" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_Z 0.0)" />
-        <param name="p_ref_1_x" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_P_REF_1_X -0.035)" />
-        <param name="p_ref_1_y" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_P_REF_1_Y -0.055)" />
-        <param name="p_ref_2_x" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_P_REF_2_X -0.035)" />
-        <param name="p_ref_2_y" type="double" value="$(optenv ROS_LIDAR_CALIBRATION_P_REF_2_Y -0.055)" />
-    </node>
-
     <!-- start standalone node -->
-    <node unless="$(arg use_nodelets)"
+    <node
           pkg="lidar_pose_estimation"
           name="lidar_pose_estimation"
-          type="lidar_pose_estimation_node"
+          exec="lidar_pose_estimation_node"
     >
+        <param name="max_dist" value="$(env ROS_LIDAR_CALIBRATION_MAX_DISTANCE 0.25)" />
+        <param name="execution_frequency" value="$(env ROS_LIDAR_CALIBRATION_EXECUTION_FREQUENCY 1.0)" />
+        <param name="cluster_tolerance" value="$(env ROS_LIDAR_CALIBRATION_CLUSTER_TOLERANCE 0.02)" />
+        <param name="min_cluster_size" value="$(env ROS_LIDAR_CALIBRATION_MIN_CLUSTER_SIZE 10)" />
+        <param name="max_cluster_size" value="$(env ROS_LIDAR_CALIBRATION_MAX_CLUSTER_SIZE 100)" />
+        <param name="max_reference_distance_deviation" value="$(env ROS_LIDAR_CALIBRATION_MAX_REFERENCE_DEVIATION 0.01)" />
+        <param name="roll" value="$(env ROS_LIDAR_CALIBRATION_ROLL 0.0)" />
+        <param name="pitch" value="$(env ROS_LIDAR_CALIBRATION_PITCH 0.0)" />
+        <param name="z" value="$(env ROS_LIDAR_CALIBRATION_Z 0.0)" />
+        <param name="p_ref_1_x" value="$(env ROS_LIDAR_CALIBRATION_P_REF_1_X -0.035)" />
+        <param name="p_ref_1_y" value="$(env ROS_LIDAR_CALIBRATION_P_REF_1_Y -0.055)" />
+        <param name="p_ref_2_x" value="$(env ROS_LIDAR_CALIBRATION_P_REF_2_X -0.035)" />
+        <param name="p_ref_2_y" value="$(env ROS_LIDAR_CALIBRATION_P_REF_2_Y -0.055)" />
     </node>
-
-    <!-- start nodelet (nodelet manager needed, see below) -->
-    <node if="$(arg use_nodelets)"
-          pkg="nodelet"
-          type="nodelet"
-          name="lidar_pose_estimation"
-          args="load lidar_pose_estimation/Nodelet $(arg nodelet_manager)"
-    >
-    </node>
-
-    <!-- start nodelet manager, if not already started from outside of this launch file -->
-    <!--
-    <node if="$(arg use_nodelets)"
-        pkg="nodelet"
-        type="nodelet"
-        name="$(arg nodelet_manager)"
-        args="manager"
-    >
-        <param name="num_worker_threads" value="64" />
-    </node>
-    -->
-
 </launch>

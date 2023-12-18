@@ -3,7 +3,7 @@
   <name>lanelet_force_navigation</name>
   <version>0.0.1</version>
   <description>
-    The hd_map package.
+    The lanelet_force_navigation package.
   </description>
 
 
@@ -15,17 +15,13 @@
 
   <author email="stephan.sundermann@fu-berlin.de">Stephan Sundermann</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
   <build_depend>cmake_modules</build_depend>
-  <build_depend>message_generation</build_depend>
-
-  <build_export_depend>message_runtime</build_export_depend>
-  <exec_depend>message_runtime</exec_depend>
 
   <depend>tf2</depend>
   <depend>nav_msgs</depend>
-  <depend>rospy</depend>
+  <depend>rclcpp</depend>
   <depend>std_msgs</depend>
   <depend>visualization_msgs</depend>
 

@@ -1,0 +1,30 @@
+<!-- -->
+<launch>
+  <arg name="name"  default="model_car"/>
+  <arg name="model" default="car"/>
+  <arg name="x"     default="0.0"/>
+  <arg name="y"     default="0.0"/>
+  <arg name="yaw"   default="0.0"/>
+
+  <arg name="world_frame" default="world"/>
+  <arg name="map_frame"   default="map"/>
+  <arg name="odom_frame"  default="odom"/>
+
+  <arg name="agent_prefix"  default=""/>
+  <arg name="tf_prefix"     default=""/>
+
+  <node name="spawn_urdf_$(var name)"
+        pkg ="gazebo_ros"
+        exec="spawn_entity.py"
+        output="screen"
+        args="-param -topic /robot_description
+              -entity $(var tf_prefix)$(var model)
+              -x $(var x) -y $(var y) -z 0.124 -R 0 -P 0 -Y $(var yaw) -timeout 60"/>
+
+  <include file="$(find-pkg-share sim_car_controller)/launch/control.launch">
+    <arg name="name"         value="$(var name)"/>
+    <arg name="agent_prefix" value="$(var agent_prefix)"/>
+    <arg name="tf_prefix"    value="$(var tf_prefix)"/>
+  </include>
+
+</launch>

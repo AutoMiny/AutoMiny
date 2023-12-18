@@ -1,0 +1,6 @@
+<library path="sim_car_controller">
+<class name="autominy_sim_control/AutominySimController" type="autominy_sim_control::AutominySimController" base_class_type="controller_interface::ControllerInterface">
+  <description>
+  </description>
+</class>
+</library>

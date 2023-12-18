@@ -13,8 +13,8 @@ Configuration of the `emergency_stop` package is done through rqt dynamic reconf
 |:------------------------------|:--------|:---------------------------------------------------------------------|
 | angle_front                   | 0.7     | Angle in front of the car to monitor                                 |
 | angle_back                    | 0.7     | Angle in back of the car to monitor                                  |
-| break_distance                | 0.45    | Constant brake distance                                              |
-| break_distance_based_on_speed | False   | Calculate brake distance based on speed                              |
+| brake_distance                | 0.45    | Constant brake distance                                              |
+| brake_distance_based_on_speed | False   | Calculate brake distance based on speed                              |
 | reverse_minimum_distance      | 0.28    | Minimum distance of obstacles to be considered while reverse driving |
 | forward_minimum_distance      | 0.07    | Minimum distance of obstacles to be considered while forward driving |
 | negative_acceleration         | 4.0     | Acceleration used in speed based braking                             |
