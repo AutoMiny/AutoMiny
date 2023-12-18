@@ -135,7 +135,7 @@ namespace hardware_calibration {
         autominy_msgs::msg::SpeedPWMCommand command;
         command.header = msg->header;
         command.value = msg->value / (config.ticks_to_m * 6.0) * 60.0 / 20000.0 * 1023.0 + 21.0;
-        if (msg-> value < 0.05) command.value = 0;
+        if (std::abs(msg->value) < 0.05) command.value = 0;
         speedPublisher->publish(command);
     }
 
