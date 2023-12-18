@@ -356,17 +356,11 @@ namespace autominy_sim_control
         else
             radius = std::numeric_limits<double>::max();
 
-        // TODO: this needs to be corrected
-
-        auto val = speed->value;
-        if (std::abs(val) < 20) {
-            val = 0;
+        /* convert input data [-1023 <-> 1023] */
+        this->linear_speed = (speed->value - 25.0) / 1024.0 * 19000.0 / 60.0 * 6.0 * 0.003;
+        if (std::abs(speed->value) < 20) {
+            this->linear_speed = 0;
         }
-        /* convert input data [-1000 <-> 1000] */
-        motor_voltage = (val / 3.0) * 5.0 / 255.0;// cmd * pwm_max_voltage / pwm_number of steps
-        motor_speed = motor_voltage * 1000.0; // motor_voltage * speed_controller conversion factor (1V <-> 1000 rev/min)
-        wheel_speed = motor_speed / 5.0; // motor_speed / gear_ratio of the car (wheel rpm)
-        this->linear_speed = wheel_speed * 3.14159 * this->wheel_diameter / 60.0; // wheel rpm * radius * 2pi / 60
 
         //std::cout << "Volt: " << motor_voltage << ", Motor RPM: " << motor_speed << ", Wheel RPM: " << wheel_speed << ", Speed (m/s): " << linear_speed << std::endl;
         this->right_drive_cmd = (linear_speed * ((radius + this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
