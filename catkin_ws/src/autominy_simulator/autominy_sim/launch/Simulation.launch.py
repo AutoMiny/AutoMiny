@@ -114,6 +114,13 @@ def generate_launch_description():
         output='screen',
     )
 
+    gazebo_ros_image_bridge = Node(
+        package='ros_gz_image',
+        executable='image_bridge',
+        arguments=['/sensors/camera/depth/image_rect_raw', '/sensors/camera/color/image_raw'],
+        output='screen',
+    )
+
 
     tf2_world_lab = Node(name= "tf2_world_lab",
                          package = "tf2_ros",
@@ -150,6 +157,7 @@ def generate_launch_description():
         tf2_world_map,
         tf2_map_odom,
         gazebo_ros_bridge,
+        gazebo_ros_image_bridge,
         gzserver,
         gzclient,
         spawn_world,

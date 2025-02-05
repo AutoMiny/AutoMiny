@@ -17,8 +17,20 @@
   gz_type_name: "gz.msgs.Imu"
   direction: GZ_TO_ROS
 
-#- ros_topic_name: "/sensors/rplidar/scan"
-#  gz_topic_name: "/sensors/rplidar/scan"
-#  ros_type_name: "sensor_msgs/msg/LaserScan"
-#  gz_type_name: "gz.msgs.LaserScan"
-#  direction: GZ_TO_ROS
+- ros_topic_name: "/sensors/rplidar/scan"
+  gz_topic_name: "/sensors/rplidar/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/sensors/camera/color/camera_info"
+  gz_topic_name: "/sensors/camera/color/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/sensors/camera/depth/camera_info"
+  gz_topic_name: "/sensors/camera/depth/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS
