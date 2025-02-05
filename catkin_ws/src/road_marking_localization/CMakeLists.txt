@@ -21,6 +21,7 @@ find_package(tf2_eigen REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(pcl_ros REQUIRED)
+find_package(PCL REQUIRED COMPONENTS registration)
 find_package(robot_localization REQUIRED)
 
 find_package(OpenCV REQUIRED)
@@ -58,8 +59,8 @@ target_link_libraries(${PROJECT_NAME}_node
         ${PROJECT_NAME}_nodelet
         )
 
-ament_target_dependencies(${PROJECT_NAME}_node rclcpp rclcpp_components image_transport nav_msgs sensor_msgs cv_bridge image_transport image_geometry tf2 tf2_ros tf2_eigen tf2_msgs tf2_geometry_msgs pcl_ros robot_localization)
-ament_target_dependencies(${PROJECT_NAME}_nodelet rclcpp rclcpp_components image_transport nav_msgs sensor_msgs cv_bridge image_transport image_geometry tf2 tf2_ros tf2_eigen tf2_msgs tf2_geometry_msgs pcl_ros robot_localization)
+ament_target_dependencies(${PROJECT_NAME}_node PCL rclcpp rclcpp_components image_transport nav_msgs sensor_msgs cv_bridge image_transport image_geometry tf2 tf2_ros tf2_eigen tf2_msgs tf2_geometry_msgs pcl_ros robot_localization)
+ament_target_dependencies(${PROJECT_NAME}_nodelet PCL rclcpp rclcpp_components image_transport nav_msgs sensor_msgs cv_bridge image_transport image_geometry tf2 tf2_ros tf2_eigen tf2_msgs tf2_geometry_msgs pcl_ros robot_localization)
 
 
 #############

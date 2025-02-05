@@ -1,5 +1,5 @@
 #include "rclcpp/rclcpp.hpp"
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 
 #include <image_transport/image_transport.hpp>
 #include <image_transport/subscriber_filter.hpp>
@@ -29,7 +29,7 @@
 #include <opencv2/aruco.hpp>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/static_transform_broadcaster.h>
-#include <image_geometry/pinhole_camera_model.h>
+#include <image_geometry/pinhole_camera_model.hpp>
 
 
 namespace stereo_camera_pose_estimation {

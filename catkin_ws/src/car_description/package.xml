@@ -15,8 +15,6 @@
 
   <depend>robot_state_publisher</depend>
   <depend>joint_state_publisher</depend>
-  <depend>gazebo_ros</depend>
-  <depend>gazebo_plugins</depend>
   <depend>odometry</depend>
 
   <!-- Use test_depend for packages you need only for testing: -->

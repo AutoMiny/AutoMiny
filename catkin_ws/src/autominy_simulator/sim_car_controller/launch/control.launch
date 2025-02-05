@@ -31,8 +31,6 @@
        <param name="voltage_topic" value="$(var agent_prefix)/sensors/arduino/voltage" />
     </node>-->
 
-    <node pkg="controller_manager" exec="spawner" args="joint_state_broadcaster"></node>
-    <node pkg="controller_manager" exec="spawner" args="sim_car_controller"></node>
 
 </launch>
 

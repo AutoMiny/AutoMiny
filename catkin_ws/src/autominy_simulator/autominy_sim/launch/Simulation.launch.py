@@ -7,24 +7,31 @@ from launch import LaunchDescription
 from launch.actions import ExecuteProcess, IncludeLaunchDescription, RegisterEventHandler
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import PathJoinSubstitution
 
 from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
 
 import xacro
 
 def generate_launch_description():
+    ros_gz_sim = get_package_share_directory('ros_gz_sim')
+    world = os.path.join(get_package_share_directory('autominy_sim'), 'worlds/empty.world')
     gzserver = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('gazebo_ros'), 'launch'), '/gzserver.launch.py']),
-        launch_arguments={
-            'world': os.path.join(get_package_share_directory('autominy_sim'), 'worlds/empty.world'),
-            'params_file': os.path.join(get_package_share_directory('autominy'), 'params/gazebo.yaml')
-        }.items()
+            get_package_share_directory('ros_gz_sim'), 'launch'), '/gz_sim.launch.py']),
+        #launch_arguments={
+        #    'world': os.path.join(get_package_share_directory('autominy_sim'), 'worlds/empty.world'),
+        #    'params_file': os.path.join(get_package_share_directory('autominy'), 'params/gazebo.yaml')
+        #}.items(),
+        launch_arguments={'gz_args': ['-r -s -v4 ', world], 'on_exit_shutdown': 'true'}.items()
     )
 
     gzclient = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('gazebo_ros'), 'launch'), '/gzclient.launch.py']),
+        PythonLaunchDescriptionSource(
+            os.path.join(ros_gz_sim, 'launch', 'gz_sim.launch.py')
+        ),
+        launch_arguments={'gz_args': '-g -v4 '}.items()
     )
 
 
@@ -45,23 +52,38 @@ def generate_launch_description():
                     ('joint_states', '/world/joint_states')]
     )
 
-    spawn_world = Node(package='gazebo_ros', executable='spawn_entity.py',
+    spawn_world = Node(package='ros_gz_sim', executable='create',
                         arguments=['-topic', '/world/robot_description',
-                                   '-entity', 'lab_model',
+                                   '-name', 'lab_model',
                                    '-x', '2.890656',
                                    '-y', '1.951848',
                                    '-z', '0.0001',
                                    '-Y', '3.14159'],
                         output='screen')
 
-    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
+    spawn_entity = Node(package='ros_gz_sim', executable='create',
                         arguments=['-topic', '/robot_description',
-                                   '-entity', 'model_car',
+                                   '-name', 'model_car',
                                    '-x', '0.189021',
                                    '-y', '4.092613',
                                    '-z', '0.05',
                                    '-Y', '-1.5708'],
                         output='screen')
+
+    robot_controllers = PathJoinSubstitution(
+        [
+            FindPackageShare("autominy_sim"),
+            "config",
+            "control.yaml",
+        ]
+    )
+    control_node = Node(
+        package="controller_manager",
+        executable="ros2_control_node",
+        parameters=[robot_controllers],
+        output="both",
+        namespace="rrbot",
+    )
 
     load_joint_state_controller = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
@@ -74,6 +96,24 @@ def generate_launch_description():
              'sim_car_controller'],
         output='screen'
     )
+
+    bridge_params = os.path.join(
+        get_package_share_directory('sim_car_controller'),
+        'config',
+        'gz_bridge.yaml'
+    )
+
+    gazebo_ros_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '--ros-args',
+            '-p',
+            f'config_file:={bridge_params}',
+        ],
+        output='screen',
+    )
+
 
     tf2_world_lab = Node(name= "tf2_world_lab",
                          package = "tf2_ros",
@@ -109,6 +149,7 @@ def generate_launch_description():
         tf2_world_lab,
         tf2_world_map,
         tf2_map_odom,
+        gazebo_ros_bridge,
         gzserver,
         gzclient,
         spawn_world,
