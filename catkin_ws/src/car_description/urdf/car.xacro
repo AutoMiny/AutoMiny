@@ -534,7 +534,7 @@
         </sensor>
     </gazebo>
 
-    <gazebo reference="$(arg tf_prefix)laser">
+    <!--<gazebo reference="$(arg tf_prefix)laser">
         <sensor type="gpu_lidar" name="rp_lidar_sensor">
             <pose relative_to='$(arg tf_prefix)laser'>0 0 0 0 0 0</pose>
             <visualize>true</visualize>
@@ -568,7 +568,7 @@
                 </noise>
             </ray>
         </sensor>
-    </gazebo>
+    </gazebo>-->
 
     <gazebo reference="$(arg tf_prefix)support_r">
         <material>Gazebo/Black</material>
