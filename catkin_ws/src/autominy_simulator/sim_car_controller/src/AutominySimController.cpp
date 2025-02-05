@@ -196,7 +196,20 @@ namespace autominy_sim_control
             drive_f_l_vel = this->joints[2].feedback.get().get_value();
             drive_f_r_vel = this->joints[3].feedback.get().get_value();
 
-            double wheelSpeed = this->linear_speed / (wheel_diameter / 2.0);
+            double currentLinearSpeed = (drive_r_l_vel + drive_r_r_vel) / 2.0 * (this->wheel_diameter / 2.0);
+            double wantedLinearSpeed = currentLinearSpeed + (this->linear_speed - currentLinearSpeed) * 0.03;
+
+            double radius = 0.0;
+            if (fabs(this->last_cmd_steer) > 0.001)
+                radius = fabs(this->axe_distance / tan(this->last_cmd_steer));
+            else
+                radius = std::numeric_limits<double>::max();
+
+            this->right_drive_cmd = (wantedLinearSpeed * ((radius + this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
+            this->left_drive_cmd = (wantedLinearSpeed * ((radius - this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
+
+
+            double wantedWheelSpeed = wantedLinearSpeed / (wheel_diameter / 2.0);
 
             // Set steering
             error = this->left_steer_cmd - steer_l_pos;
@@ -213,34 +226,34 @@ namespace autominy_sim_control
 
             // Set Speed m/s => rad/s
             error = this->linear_speed / (wheel_diameter / 2.0) - drive_r_l_vel;
-            command = drive_r_l_vel + pids[0]->computeCommand(error, period);
+            command = wantedWheelSpeed;
             if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
-            if (!this->joints[0].effort.get().set_value(wheelSpeed)) {
+            if (!this->joints[0].effort.get().set_value(command)) {
                 RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[0].c_str());
             }
 
             error = this->linear_speed / (wheel_diameter / 2.0) - drive_r_r_vel;
-            command = drive_r_r_vel + pids[1]->computeCommand(error, period);
+            command = wantedWheelSpeed;
             if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
-            if (!this->joints[1].effort.get().set_value(wheelSpeed)) {
+            if (!this->joints[1].effort.get().set_value(command)) {
                 RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[1].c_str());
             }
 
             //RCLCPP_ERROR(get_node()->get_logger(), "lin: %f feed: %f command: %f", linear_speed, drive_r_l_vel, wheelSpeed);
 
             error = this->left_drive_cmd - drive_f_l_vel;
-            command = drive_f_l_vel + pids[2]->computeCommand(error, period);
+            command = left_drive_cmd;
             if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
-            if (!this->joints[2].effort.get().set_value(left_drive_cmd)) {
+            if (!this->joints[2].effort.get().set_value(command)) {
                 RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[2].c_str());
             }
 
             //RCLCPP_ERROR(get_node()->get_logger(), "Vel left: %f", command);
 
             error = this->right_drive_cmd - drive_f_r_vel;
-            command = drive_f_r_vel + pids[3]->computeCommand(error, period);
+            command = right_drive_cmd;
             if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
-            if (!this->joints[3].effort.get().set_value(right_drive_cmd)) {
+            if (!this->joints[3].effort.get().set_value(command)) {
                 RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[3].c_str());
             }
 
