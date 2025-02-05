@@ -461,7 +461,8 @@
             <always_on>1</always_on>
             <visualize>true</visualize>
             <update_rate>15.0</update_rate>
-            <frame_name>$(arg tf_prefix)camera_depth_optical_frame</frame_name>
+            <!--<frame_name>$(arg tf_prefix)camera_depth_optical_frame</frame_name>-->
+            <topic>/sensors/camera/depth/image_rect_raw</topic>
 
             <camera>
                 <pose>0 0 0 0 0.20 0</pose>
@@ -471,25 +472,15 @@
                     <height>480</height>
                     <format>L8</format>
                 </image>
-                <depth_camera>
-                </depth_camera>
                 <clip>
-                    <near>0.01</near>
-                    <far>50.0</far>
+                    <near>0.05</near>
+                    <far>15.0</far>
                 </clip>
                 <noise>
                     <type>gaussian</type>
                     <mean>0.0</mean>
                     <stddev>0.007</stddev>
                 </noise>
-
-                <pointCloudCutoff>0.05</pointCloudCutoff>
-                <pointCloudCutoffMax>15.0</pointCloudCutoffMax>
-                <hack_baseline>0.007</hack_baseline>
-                <CxPrime>322.3056945800781</CxPrime>
-                <Cx>322.3056945800781</Cx>
-                <Cy>241.67051696777344</Cy>
-                <focal_length>383.795710</focal_length>
             </camera>
         </sensor>
     </gazebo>
@@ -534,7 +525,7 @@
         </sensor>
     </gazebo>
 
-    <!--<gazebo reference="$(arg tf_prefix)laser">
+    <gazebo reference="$(arg tf_prefix)laser">
         <sensor type="gpu_lidar" name="rp_lidar_sensor">
             <pose relative_to='$(arg tf_prefix)laser'>0 0 0 0 0 0</pose>
             <visualize>true</visualize>
@@ -568,7 +559,7 @@
                 </noise>
             </ray>
         </sensor>
-    </gazebo>-->
+    </gazebo>
 
     <gazebo reference="$(arg tf_prefix)support_r">
         <material>Gazebo/Black</material>
