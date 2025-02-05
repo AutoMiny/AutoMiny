@@ -32,7 +32,6 @@
             <geometry>
                 <mesh filename="file://$(find car_description)/meshes/chasi.dae"/>
             </geometry>
-            <material name="black"/>
         </visual>
         <collision>
             <origin rpy="0.0 0 0" xyz="0.135 0 0.01"/>
@@ -92,7 +91,6 @@
                 <geometry>
                     <mesh filename="file://$(find car_description)/meshes/wheel.dae"/>
                 </geometry>
-                <material name="black"/>
             </visual>
             <collision>
                 <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
