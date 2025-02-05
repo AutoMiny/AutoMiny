@@ -325,8 +325,8 @@
         <parent link="$(arg tf_prefix)axis_fl"/>
         <child link="$(arg tf_prefix)wheel_fl"/>
         <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
-        <limit effort="1.0" velocity="100.0"/>
-        <dynamics damping="0.2" friction="0.1"/>
+        <limit effort="100.0" velocity="100.0"/>
+        <dynamics damping="0.1" friction="0.1"/>
     </joint>
 
     <joint name="$(arg tf_prefix)frontwheel_right" type="continuous">
@@ -334,8 +334,8 @@
         <parent link="$(arg tf_prefix)axis_fr"/>
         <child link="$(arg tf_prefix)wheel_fr"/>
         <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
-        <limit effort="1.0" velocity="100.0"/>
-        <dynamics damping="0.2" friction="0.1"/>
+        <limit effort="100.0" velocity="100.0"/>
+        <dynamics damping="0.1" friction="0.1"/>
     </joint>
 
     <joint name="$(arg tf_prefix)rearwheel_left" type="continuous">
@@ -343,8 +343,8 @@
         <parent link="$(arg tf_prefix)base_link"/>
         <child link="$(arg tf_prefix)wheel_bl"/>
         <origin xyz="0 0.085 0.03" rpy="0.0 0.0 0.0"/>
-        <limit effort="1.0" velocity="100.0"/>
-        <dynamics damping="0.2" friction="0.1"/>
+        <limit effort="100.0" velocity="100.0"/>
+        <dynamics damping="0.1" friction="0.1"/>
     </joint>
 
     <joint name="$(arg tf_prefix)rearwheel_right" type="continuous">
@@ -352,8 +352,8 @@
         <parent link="$(arg tf_prefix)base_link"/>
         <child link="$(arg tf_prefix)wheel_br"/>
         <origin xyz="0 -0.085 0.03" rpy="0.0 0.0 0.0"/>
-        <limit effort="1.0" velocity="100.0"/>
-        <dynamics damping="0.2" friction="0.1"/>
+        <limit effort="100.0" velocity="100.0"/>
+        <dynamics damping="0.1" friction="0.1"/>
     </joint>
 
     <joint name="$(arg tf_prefix)board_support_l" type="fixed">
