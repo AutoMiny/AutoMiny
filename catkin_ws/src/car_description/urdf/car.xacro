@@ -430,19 +430,16 @@
         <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
           <parameters>$(find sim_car_controller)/config/control.yaml</parameters>
         </plugin>
-      </gazebo>
 
-    <gazebo>
-        <!--<plugin name="model_car_ground_truth" filename="libgazebo_ros_p3d.so">
-            <ros>
-                <namespace>p3d</namespace>
-                <remapping>odom:=/simulation/odom_ground_truth</remapping>
-            </ros>
-            <frame_name>map</frame_name>
-            <body_name>$(arg tf_prefix)base_link</body_name>
-            <update_rate>30.0</update_rate>
-        </plugin>-->
-    </gazebo>
+        <plugin
+              filename="gz-sim-odometry-publisher-system"
+              name="gz::sim::systems::OdometryPublisher">
+          <odom_frame>map</odom_frame>
+          <robot_base_frame>base_link</robot_base_frame>
+          <odom_publish_frequency>30.0</odom_publish_frequency>
+          <odom_topic>/simulation/odom_ground_truth</odom_topic>
+        </plugin>
+      </gazebo>
 
     <gazebo reference="$(arg tf_prefix)imu">
         <sensor name="$(arg tf_prefix)imu" type="imu">
