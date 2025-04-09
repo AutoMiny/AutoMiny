@@ -8,14 +8,14 @@ toc: true
 The autominy project must be installed on your computer to interact and develop for the car:
 
 ```bash
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash
 sudo apt install git
 git clone https://github.com/autominy/autominy
 cd autominy/catkin_ws
 sudo apt install python3-rosdep python3-colcon-common-extensions clang
 sudo rosdep init
 rosdep update
-rosdep install --from-paths . --ignore-src --rosdistro=humble -y
+rosdep install --from-paths . --ignore-src --rosdistro=jazzy -y
 colcon build --symlink-install --cmake-args -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
 source install/setup.bash
 ```
