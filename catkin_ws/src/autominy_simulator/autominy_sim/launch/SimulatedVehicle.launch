@@ -14,7 +14,7 @@
   <arg name="tf_prefix"     default=""/>
 
   <node name="spawn_urdf_$(var name)"
-        pkg ="gazebo_ros"
+        pkg ="ros_gz_sim"
         exec="spawn_entity.py"
         output="screen"
         args="-param -topic /robot_description

@@ -256,9 +256,9 @@ namespace stereo_camera_pose_estimation {
                         continue;
                     }
 
-                    cv::aruco::drawAxis(cvImage, imageCameraModel.intrinsicMatrix(),
-                                        imageCameraModel.distortionCoeffs(),
-                                        rvecs[i], tvecs[i], 0.1);
+                    cv::drawFrameAxes(cvImage, imageCameraModel.intrinsicMatrix(),
+                                     imageCameraModel.distortionCoeffs(),
+                                     rvecs[i], tvecs[i], 0.1);
                     cv::Mat1d cameraTransformRotation;
                     cv::Rodrigues(rvecs[i], cameraTransformRotation);
 

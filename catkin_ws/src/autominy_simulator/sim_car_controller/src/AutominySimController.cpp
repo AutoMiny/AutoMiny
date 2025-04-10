@@ -1,7 +1,6 @@
 #include "AutominySimController.h"
 #include <limits>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
+#include <memory>
 #include <tf2/utils.h>
 #include "hardware_interface/types/hardware_interface_type_values.hpp"
 
@@ -141,7 +140,7 @@ namespace autominy_sim_control
 
             // Node handle to PID gains
             // Init PID gains from ROS parameter server
-            this->pids[i].reset(new control_toolbox::PidROS(get_node(), joint_names[i]));
+            this->pids[i] = std::make_shared<control_toolbox::PidROS>(get_node(), joint_names[i]);
             if(!this->pids[i]->initPid()) {
                 RCLCPP_ERROR(get_node()->get_logger(), "Could not initialize PID %s", joint_names[i].c_str());
                 return CallbackReturn::ERROR;
@@ -156,14 +155,14 @@ namespace autominy_sim_control
         // Reset PIDs, zero effort commands
         for (unsigned int i = 0; i < this->pids.size(); ++i) {
             this->pids[i]->reset();
-            this->joints[i].effort.get().set_value(0.0);
+            if (!this->joints[i].effort.get().set_value(0.0)) {
+                RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %d", i);
+            }
         }
         this->left_steer_cmd = 0;
         this->right_steer_cmd = 0;
         this->left_drive_cmd = 0;
         this->right_drive_cmd = 0;
-
-        ::srand(::time(NULL));
 
         return CallbackReturn::SUCCESS;
     }
@@ -197,37 +196,66 @@ namespace autominy_sim_control
             drive_f_l_vel = this->joints[2].feedback.get().get_value();
             drive_f_r_vel = this->joints[3].feedback.get().get_value();
 
+            double currentLinearSpeed = (drive_r_l_vel + drive_r_r_vel) / 2.0 * (this->wheel_diameter / 2.0);
+            double wantedLinearSpeed = currentLinearSpeed + (this->linear_speed - currentLinearSpeed) * 0.03;
+
+            double radius = 0.0;
+            if (fabs(this->last_cmd_steer) > 0.001)
+                radius = fabs(this->axe_distance / tan(this->last_cmd_steer));
+            else
+                radius = std::numeric_limits<double>::max();
+
+            this->right_drive_cmd = (wantedLinearSpeed * ((radius + this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
+            this->left_drive_cmd = (wantedLinearSpeed * ((radius - this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
+
+
+            double wantedWheelSpeed = wantedLinearSpeed / (wheel_diameter / 2.0);
+
             // Set steering
             error = this->left_steer_cmd - steer_l_pos;
             command = std::clamp(steer_l_pos + pids[4]->computeCommand(error, (time - last_publish)), -0.57, 0.57);
-            this->joints[4].effort.get().set_value(command);
+            if (!this->joints[4].effort.get().set_value(command)) {
+                RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[4].c_str());
+            }
 
             error = this->right_steer_cmd - steer_r_pos;
             command = std::clamp(steer_r_pos + pids[5]->computeCommand(error, (time - last_publish)), -0.57, 0.57);
-            this->joints[5].effort.get().set_value(command);
+            if (!this->joints[5].effort.get().set_value(command)) {
+                RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[5].c_str());
+            }
 
             // Set Speed m/s => rad/s
             error = this->linear_speed / (wheel_diameter / 2.0) - drive_r_l_vel;
-            command = drive_r_l_vel + pids[0]->computeCommand(error, period);
+            command = wantedWheelSpeed;
             if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
-            this->joints[0].effort.get().set_value(command * 4.2);
+            if (!this->joints[0].effort.get().set_value(command)) {
+                RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[0].c_str());
+            }
 
             error = this->linear_speed / (wheel_diameter / 2.0) - drive_r_r_vel;
-            command = drive_r_r_vel + pids[1]->computeCommand(error, period);
+            command = wantedWheelSpeed;
             if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
-            this->joints[1].effort.get().set_value(command * 4.2);
+            if (!this->joints[1].effort.get().set_value(command)) {
+                RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[1].c_str());
+            }
 
-            //RCLCPP_ERROR(get_node()->get_logger(), "lin: %f feed: %f command: %f", linear_speed, drive_r_l_vel, linear_speed / (wheel_diameter / 2.0));
+            //RCLCPP_ERROR(get_node()->get_logger(), "lin: %f feed: %f command: %f", linear_speed, drive_r_l_vel, wheelSpeed);
 
             error = this->left_drive_cmd - drive_f_l_vel;
-            command = drive_f_l_vel + pids[2]->computeCommand(error, period);
+            command = left_drive_cmd;
             if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
-            this->joints[2].effort.get().set_value(command * 4.2);
+            if (!this->joints[2].effort.get().set_value(command)) {
+                RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[2].c_str());
+            }
+
+            //RCLCPP_ERROR(get_node()->get_logger(), "Vel left: %f", command);
 
             error = this->right_drive_cmd - drive_f_r_vel;
-            command = drive_f_r_vel + pids[3]->computeCommand(error, period);
+            command = right_drive_cmd;
             if (std::abs(linear_speed) < 0.01 && std::abs(drive_r_r_vel + drive_r_l_vel) / 2.0 < 0.01) command = 0;
-            this->joints[3].effort.get().set_value(command * 4.2);
+            if (!this->joints[3].effort.get().set_value(command)) {
+                RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[3].c_str());
+            }
 
             // Publish steer angle
             double cotan_steer, steer_angle_radians;

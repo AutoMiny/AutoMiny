@@ -11,7 +11,7 @@
   <arg name="odom_frame"  default="odom"/>
 
   <node name="spawn_urdf_$(var name)"
-        pkg ="gazebo_ros"
+        pkg ="ros_gz_sim"
         exec="spawn_entity.py"
         args="-topic /robot_description
               -entity $(var name)

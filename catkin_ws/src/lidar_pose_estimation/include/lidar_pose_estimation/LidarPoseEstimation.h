@@ -17,6 +17,7 @@
 #include "sensor_msgs/msg/laser_scan.hpp"
 #include "laser_geometry/laser_geometry.hpp"
 #include "pcl_conversions/pcl_conversions.h"
+#include <pcl/common/centroid.h>
 #include "pcl_ros/transforms.hpp"
 
 

@@ -51,8 +51,7 @@
   <depend>sensor_msgs</depend>
   <depend>tf2</depend>
   <depend>tf2_ros</depend>
-  <depend>gazebo_ros2_control</depend>
-  <depend>gazebo_ros_pkgs</depend>
+  <depend>ros_gz</depend>
   <depend>hardware_interface</depend>
   <depend>ros2_control</depend>
   <depend>ros2_controllers</depend>

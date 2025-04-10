@@ -1,7 +1,7 @@
 #pragma once
 
 #include "rclcpp/rclcpp.hpp"
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 
 #include <image_transport/image_transport.hpp>
 #include <image_transport/subscriber_filter.hpp>
@@ -15,7 +15,6 @@
 #include "sensor_msgs/image_encodings.hpp"
 #include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
 #include <opencv2/core/mat.hpp>
-#include <cv_bridge/cv_bridge.h>
 #include "nav_msgs/msg/occupancy_grid.hpp"
 #include "nav_msgs/msg/odometry.hpp"
 #include <pcl/registration/icp.h>
@@ -30,7 +29,7 @@
 #include <pcl/filters/crop_box.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
-#include <image_geometry/pinhole_camera_model.h>
+#include <image_geometry/pinhole_camera_model.hpp>
 #include <pcl_conversions/pcl_conversions.h>
 #include "tf2/convert.h"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"

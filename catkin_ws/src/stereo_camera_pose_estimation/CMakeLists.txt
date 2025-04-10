@@ -36,7 +36,7 @@ find_package(tf2_eigen REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(pcl_ros REQUIRED)
 
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED COMPONENTS objdetect)
 find_package(Eigen3 REQUIRED)
 
 include_directories(SYSTEM
