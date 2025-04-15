@@ -1,44 +1,67 @@
 #pragma once
 
-#include <remote_control/RemoteControlConfig.h>
+#include "rclcpp/rclcpp.hpp"
+
+#include "autominy_msgs/msg/normalized_steering_command.hpp"
+#include "autominy_msgs/msg/normalized_speed_command.hpp"
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_gamecontroller.h>
+#include <algorithm>
+
 
 namespace remote_control {
 
-/** RemoteControl class. Contains the general functionality of this package.
+    struct RemoteControlConfig {
+        double max_speed = 0.2;
+        double max_steering = 1.0;
+        int deadspot = 6000;
+    };
+
+/** RemoteControl nodelet. Does nothing. You can break
+ ** lines like this.
  **
  ** @ingroup @@
  */
-    class RemoteControl {
+    class RemoteControlNodelet : public rclcpp::Node {
     public:
-        /** Constructor.
-         */
-        RemoteControl();
-
         /** Destructor.
          */
-        virtual ~RemoteControl();
+        ~RemoteControlNodelet();;
 
-        /** Sets the current dynamic configuration.
-         **
-         ** @param config
+        /** Nodelet initialization. Called by nodelet manager on initialization,
+         ** can be used to e.g. subscribe to topics and define publishers.
          */
-        void setConfig(const remote_control::RemoteControlConfig& config);
+        RemoteControlNodelet(const rclcpp::NodeOptions& opts = rclcpp::NodeOptions());
 
-        bool checkInput();
+    private:
+        void onCheckInput();
+
+        void onPublish();
 
         double getSteering();
 
         double getSpeed();
-    private:
-        /// dynamic config attribute
-        remote_control::RemoteControlConfig config;
-        std::vector<SDL_GameController*> controllers;
-        bool initialized;
 
-        int currentSteering;
-        int currentSpeed;
-        int lastValue;
+        bool checkInput();
+
+
+        /// timer
+        rclcpp::TimerBase::SharedPtr inputTimer;
+        rclcpp::TimerBase::SharedPtr publishTimer;
+
+        /// publisher
+        rclcpp::Publisher<autominy_msgs::msg::NormalizedSpeedCommand>::SharedPtr speedPublisher;
+        rclcpp::Publisher<autominy_msgs::msg::NormalizedSteeringCommand>::SharedPtr steeringPublisher;
+
+        RemoteControlConfig config;
+
+        std::vector<SDL_GameController*> controllers;
+        bool initialized{};
+
+        int currentSteering{};
+        int currentSpeed{};
+        int lastValue{};
+
     };
 }

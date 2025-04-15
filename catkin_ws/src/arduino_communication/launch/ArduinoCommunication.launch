@@ -1,7 +1,7 @@
 <launch>
-	<arg name="baud" doc="Arduino communication baud rate" />
-	<node pkg="arduino_communication" type="arduino_communication_node" name="arduino" output="screen">
-		<param name="baud" value="$(arg baud)" />
+	<arg name="baud" description="Arduino communication baud rate" />
+	<node pkg="arduino_communication" exec="arduino_communication_node" name="arduino" output="screen">
+		<param name="baud" value="$(var baud)" />
 		<param name="device" value="/dev/ttyArduino" />
 	</node>
 </launch>
