@@ -6,6 +6,9 @@
     -->
     ]]>
 
+    <arg name="max_speed" default="0.3"/>
+    <arg name="max_steering" default="1.0"/>
+
     <!-- start standalone node -->
     <node
           pkg="remote_control"
@@ -15,6 +18,7 @@
     >
         <remap from="speed" to="/actuators/speed_normalized" />
         <remap from="steering" to="/actuators/steering_normalized" />
-        <param name="max_speed" value="0.3" />
+        <param name="max_speed" value="$(var max_speed)" />
+        <param name="max_steering" value="$(var max_steering)" />
     </node>
 </launch>
