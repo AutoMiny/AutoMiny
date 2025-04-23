@@ -197,7 +197,7 @@ namespace autominy_sim_control
             drive_f_r_vel = this->joints[3].feedback.get().get_value();
 
             double currentLinearSpeed = (drive_r_l_vel + drive_r_r_vel) / 2.0 * (this->wheel_diameter / 2.0);
-            double wantedLinearSpeed = currentLinearSpeed + (this->linear_speed - currentLinearSpeed) * 0.03;
+            double wantedLinearSpeed = currentLinearSpeed + (this->linear_speed - currentLinearSpeed) * 0.015;
 
             double radius = 0.0;
             if (fabs(this->last_cmd_steer) > 0.001)
@@ -205,9 +205,13 @@ namespace autominy_sim_control
             else
                 radius = std::numeric_limits<double>::max();
 
-            this->right_drive_cmd = (wantedLinearSpeed * ((radius + this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
-            this->left_drive_cmd = (wantedLinearSpeed * ((radius - this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
-
+            if (this->last_cmd_steer >= 0) {
+                this->right_drive_cmd = (wantedLinearSpeed * ((radius + this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
+                this->left_drive_cmd = (wantedLinearSpeed * ((radius - this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
+            } else {
+                this->right_drive_cmd = (wantedLinearSpeed * ((radius - this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
+                this->left_drive_cmd = (wantedLinearSpeed * ((radius + this->wheel_distance / 2.0) / (radius * this->wheel_diameter / 2.0)));
+            }
 
             double wantedWheelSpeed = wantedLinearSpeed / (wheel_diameter / 2.0);
 
@@ -217,12 +221,14 @@ namespace autominy_sim_control
             if (!this->joints[4].effort.get().set_value(command)) {
                 RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[4].c_str());
             }
+            RCLCPP_ERROR(get_node()->get_logger(), "Steering left: %f %f", command, this->left_drive_cmd);
 
             error = this->right_steer_cmd - steer_r_pos;
             command = std::clamp(steer_r_pos + pids[5]->computeCommand(error, (time - last_publish)), -0.57, 0.57);
             if (!this->joints[5].effort.get().set_value(command)) {
                 RCLCPP_ERROR(get_node()->get_logger(), "Could not set value for joint %s", this->joint_names[5].c_str());
             }
+            RCLCPP_ERROR(get_node()->get_logger(), "Steering right: %f %f", command, this->right_drive_cmd);
 
             // Set Speed m/s => rad/s
             error = this->linear_speed / (wheel_diameter / 2.0) - drive_r_l_vel;
