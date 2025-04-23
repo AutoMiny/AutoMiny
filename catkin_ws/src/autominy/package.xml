@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>autominy</name>
   <version>0.0.1</version>
   <description>Startup project</description>
@@ -12,13 +12,11 @@
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
   <license>proprietary</license>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>rplidar_ros</depend>
   <depend>robot_localization</depend>
-  <depend>fkie_multimaster</depend>
   <depend>xacro</depend>
-  <depend>rgbd_launch</depend>
-  <depend>rosbridge_server</depend>
   <export>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>

@@ -5,17 +5,6 @@ project(lanelet_force_navigation)
 ## Find catkin macros and libraries ##
 ######################################
 
-find_package(catkin REQUIRED COMPONENTS
-    rospy
-    sensor_msgs
-    tf2_geometry_msgs
-)
+find_package(ament_cmake REQUIRED)
 
-###################################
-## catkin specific configuration ##
-###################################
-
-catkin_package(
-    CATKIN_DEPENDS
-        visualization_msgs
-)
+ament_package()

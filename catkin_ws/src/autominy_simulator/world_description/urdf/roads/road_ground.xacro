@@ -37,7 +37,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://road_description/urdf/roads/dae/${dae}.dae" scale="${size} 1.0 ${size}"/>
+          <mesh filename="file://$(find road_description)/urdf/roads/dae/${dae}.dae" scale="${size} 1.0 ${size}"/>
         </geometry>
       </visual>
     </link>

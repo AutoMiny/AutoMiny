@@ -6,88 +6,96 @@
 #include <stdexcept>
 #include <string>
 
-// Boost
-#include <boost/shared_ptr.hpp>
-#include <boost/scoped_ptr.hpp>
-
 // ROS
-#include <ros/node_handle.h>
-#include <std_msgs/UInt16.h>
-#include <std_msgs/UInt8.h>
-#include <std_msgs/Float32.h>
-#include <sensor_msgs/Imu.h>
+#include "std_msgs/msg/u_int16.hpp"
+#include "std_msgs/msg/u_int8.hpp"
+#include "std_msgs/msg/float32.hpp"
+#include "sensor_msgs/msg/imu.hpp"
 
 // URDF
 #include <urdf/model.h>
 
 // ros_controls
-#include <controller_interface/controller.h>
-#include <control_toolbox/pid.h>
-#include <hardware_interface/joint_command_interface.h>
+#include <controller_interface/controller_interface.hpp>
+#include <control_toolbox/pid.hpp>
+#include <control_toolbox/pid_ros.hpp>
+#include "hardware_interface/loaned_command_interface.hpp"
+#include "hardware_interface/loaned_state_interface.hpp"
+//#include <hardware_interface/joint_command_interface.hpp>
 
 // autominy
-#include <autominy_msgs/SteeringPWMCommand.h>
-#include <autominy_msgs/SteeringFeedback.h>
-#include <autominy_msgs/SpeedPWMCommand.h>
-#include <autominy_msgs/Tick.h>
-#include <autominy_msgs/Voltage.h>
-
-#include <pluginlib/class_list_macros.h>
+#include "autominy_msgs/msg/steering_pwm_command.hpp"
+#include "autominy_msgs/msg/steering_feedback.hpp"
+#include "autominy_msgs/msg/speed_pwm_command.hpp"
+#include "autominy_msgs/msg/tick.hpp"
+#include "autominy_msgs/msg/voltage.hpp"
 
 namespace autominy_sim_control
 {
-  /**
+
+    /**
    * \brief 
    *
    */
-  template <class HardwareInterface>
-  class AutominySimController : public controller_interface::Controller<HardwareInterface>
+  class AutominySimController : public controller_interface::ControllerInterface
   {
     public:
-      AutominySimController();
       // public interface inherited from Controller
-      bool init(HardwareInterface* hw, ros::NodeHandle& root_nh, ros::NodeHandle& controller_nh);
+      CallbackReturn on_init() override;
       // public interface inherited from ControllerBase 
-      void starting(const ros::Time& time);
-      void stopping(const ros::Time& time);
-      void update(const ros::Time& time, const ros::Duration& period);
+      controller_interface::CallbackReturn on_activate(const rclcpp_lifecycle::State&) override;
+      controller_interface::CallbackReturn on_shutdown(const rclcpp_lifecycle::State&) override;
+      controller_interface::return_type update(const rclcpp::Time& time, const rclcpp::Duration& period) override;
 
-    private:
+      controller_interface::InterfaceConfiguration command_interface_configuration() const override;
+      controller_interface::InterfaceConfiguration state_interface_configuration() const override;
+
+      CallbackReturn on_configure(const rclcpp_lifecycle::State &previous_state) override;
+
+  private:
+
+      struct JointHandle
+      {
+          std::reference_wrapper<const hardware_interface::LoanedStateInterface> feedback;
+          std::reference_wrapper<hardware_interface::LoanedCommandInterface> effort;
+      };
+
       // helper functions
-      bool getJointName(const std::string& param_name);
       void setupParamas();
 
       // action subscriber
-      void steering_callback(autominy_msgs::SteeringPWMCommandConstPtr const &msg);
-      void speed_callback(autominy_msgs::SpeedPWMCommandConstPtr const &speed);
+      void steering_callback(autominy_msgs::msg::SteeringPWMCommand::ConstSharedPtr const &msg);
+      void speed_callback(autominy_msgs::msg::SpeedPWMCommand::ConstSharedPtr const &speed);
 
-      ros::NodeHandle controller_nh;
       std::string name;///< Controller name.
 
-      typedef typename HardwareInterface::ResourceHandleType JointHandle;
       std::vector<JointHandle> joints;///< Handles to controlled joints.
       std::vector<std::string> joint_names;///< Controlled joint names.
 
-      typedef boost::shared_ptr<control_toolbox::Pid> PidPtr;
+      typedef std::shared_ptr<control_toolbox::PidROS> PidPtr;
       std::vector<PidPtr> pids;
 
-      ros::Subscriber speed_sub;
-      ros::Subscriber imu_sub;
-      ros::Subscriber steering_sub;
-      ros::Publisher steer_angle_pub;
-      ros::Publisher ticks_pub;
-      ros::Publisher voltage_pub;
+      rclcpp::Subscription<autominy_msgs::msg::SpeedPWMCommand>::SharedPtr speed_sub;
+      rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub;
+      rclcpp::Subscription<autominy_msgs::msg::SteeringPWMCommand>::SharedPtr steering_sub;
+      rclcpp::Publisher<autominy_msgs::msg::SteeringFeedback>::SharedPtr steer_angle_pub;
+      rclcpp::Publisher<autominy_msgs::msg::Tick>::SharedPtr ticks_pub;
+      rclcpp::Publisher<autominy_msgs::msg::Voltage>::SharedPtr voltage_pub;
 
+
+      std::string drive_rear_left_joint, drive_rear_right_joint, drive_front_left_joint, drive_front_right_joint;
+      std::string steer_left_joint, steer_right_joint;
       double axe_distance;
       double wheel_distance;
       double wheel_diameter;
       double zero_steer_angle;
+      double motor_distance;
       std::string steering_topic;
       std::string steering_fb_topic;
       std::string speed_topic;
       std::string ticks_topic;
       std::string voltage_topic;
-      ros::Time last_publish;
+      rclcpp::Time last_publish;
 
       // joint commands
       double left_steer_cmd;

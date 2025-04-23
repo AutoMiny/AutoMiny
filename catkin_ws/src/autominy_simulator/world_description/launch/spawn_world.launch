@@ -1,9 +1,6 @@
 <!-- -->
 <launch>
-
-  <arg name="circuit_name" default="robotics_lab"/>
-
-  <include file="$(find world_description)/launch/spawn_$(arg circuit_name).launch">
+  <include file="$(find-pkg-share world_description)/launch/spawn_robotics_lab.launch">
   </include>
 
 </launch>  
