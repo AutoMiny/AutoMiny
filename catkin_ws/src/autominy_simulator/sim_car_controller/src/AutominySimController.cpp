@@ -10,7 +10,16 @@ namespace autominy_sim_control
     {
         std::string getNamespace(const rclcpp_lifecycle::LifecycleNode::SharedPtr nh) {
             const std::string complete_ns = nh->get_namespace();
-            std::size_t id   = complete_ns.find_last_of("/");
+
+            if (complete_ns.empty()) {
+                return "";
+            }
+
+            if (complete_ns.back() == '/') {
+                return complete_ns.substr(0, complete_ns.size() - 1);
+            }
+
+            const std::size_t id   = complete_ns.find_last_of('/');
             return complete_ns.substr(id + 1);
         }
 
