@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
     <name>low_voltage_shutdown</name>
     <version>0.0.1</version>
     <description>Shuts down the system once the battery is almost drained</description>
@@ -12,16 +12,14 @@
 
     <author email="stephan.sundermann@fu-berlin.de">Autonomos-Labs, FU Berlin</author>
 
-    <buildtool_depend>catkin</buildtool_depend>
+    <buildtool_depend>ament_cmake</buildtool_depend>
 
-    <build_depend>roscpp</build_depend>
-
-    <depend>nodelet</depend>
-    <depend>dynamic_reconfigure</depend>
+    <depend>rclcpp</depend>
+    <depend>rclcpp_components</depend>
     <depend>autominy_msgs</depend>
 
     <!-- export of nodelet definition XML -->
     <export>
-        <nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+        <build_type>ament_cmake</build_type>
     </export>
 </package>

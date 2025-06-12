@@ -55,7 +55,7 @@ aluminum peripherial evaluation case.
       <!--<visual>
         <origin xyz="${d435_cam_mount_from_center_offset} ${-d435_cam_depth_py} 0" rpy="${M_PI/2} 0 ${M_PI/2}"/>
         <geometry>
-          <mesh filename="package://realsense2_camera/meshes/d435/d435.dae" />
+          <mesh filename="file://$(find realsense2_camera)/meshes/d435/d435.dae" />
 
         </geometry>
         <material name="${sensor_name}aluminum"/>

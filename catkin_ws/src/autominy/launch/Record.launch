@@ -1,6 +1,6 @@
 <!-- Rosbag Record file -->
 <launch>
-	<node name="record" pkg="rosbag" type="record"
+	<node name="record" pkg="rosbag" exec="record"
 		  args="record -o /home/ros/
 /communication/gps/0
 /communication/gps/1

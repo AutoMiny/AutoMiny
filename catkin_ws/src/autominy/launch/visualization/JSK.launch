@@ -1,22 +1,18 @@
 <launch>
-	<arg name="live"            doc="Whether to instantiate a live system (true) or a bag-based one (false)" />
-	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
-	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
+	<arg name="live"            description="Whether to instantiate a live system (true) or a bag-based one (false)" />
 
-	<remap from="~sensors/speed" to="/sensors/speed" />
-	<remap from="~sensors/steering" to="/sensors/steering" />
-	<remap from="~sensors/voltage" to="/sensors/arduino/voltage" />
-	<remap from="~actuators/speed" to="/actuators/speed" />
-	<remap from="~actuators/steering" to="/actuators/steering" />
+	<remap from="sensors/speed" to="/sensors/speed" />
+	<remap from="sensors/steering" to="/sensors/steering" />
+	<remap from="sensors/voltage" to="/sensors/arduino/voltage" />
+	<remap from="actuators/speed" to="/actuators/speed" />
+	<remap from="actuators/steering" to="/actuators/steering" />
 
-    <remap from="~visualization/speed" to="speed" />
-    <remap from="~visualization/steering_angle" to="steering_angle" />
-    <remap from="~visualization/voltage" to="voltage" />
-    <remap from="~visualization/wanted_speed" to="wanted_speed" />
-    <remap from="~visualization/wanted_steering" to="wanted_steering" />
+    <remap from="visualization/speed" to="speed" />
+    <remap from="visualization/steering_angle" to="steering_angle" />
+    <remap from="visualization/voltage" to="voltage" />
+    <remap from="visualization/wanted_speed" to="wanted_speed" />
+    <remap from="visualization/wanted_steering" to="wanted_steering" />
 
-	<include file="$(find visualization_converter)/launch/VisualizationConverter.launch">
-		<arg name="use_nodelets"    value="$(arg use_nodelets)" />
-		<arg name="nodelet_manager" value="$(arg nodelet_manager)" />
+	<include file="$(find-pkg-share visualization_converter)/launch/VisualizationConverter.launch">
 	</include>
 </launch>

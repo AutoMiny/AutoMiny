@@ -1,9 +1,9 @@
 <launch>
-	<arg name="use_nodelets"    default="$(optenv USE_NODELETS false)" />
-	<arg name="nodelet_manager" default="$(optenv CORE_NODELET_MANAGER core_nodelet_manager)" />
 
 	<!-- BNO055 -->
-	<remap from="/sensors/bno055/imu" to="/sensors/imu" />
-	<include file="$(find bno055_usb_stick)/launch/BNO055.launch">
-	</include>
+    <node pkg="bno055_usb_stick" exec="bno055_usb_stick_node" name="bno055" output="screen">
+        <param name="device" value="/dev/ttyIMU"/>
+        <remap from="/sensors/bno055/imu" to="/sensors/imu" />
+    </node>
+
 </launch>

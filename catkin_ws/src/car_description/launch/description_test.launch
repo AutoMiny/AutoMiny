@@ -4,22 +4,22 @@
   <arg name="name"  default="autominy_car"/>
   <arg name="model" default="car"/>
 
-  <include file="$(find car_description)/launch/description.launch">
-    <arg name="name"  value="$(arg name)"/>
-    <arg name="model" value="$(arg model)"/>
+  <include file="$(find-pkg-share car_description)/launch/description.launch">
+    <arg name="name"  value="$(var name)"/>
+    <arg name="model" value="$(var model)"/>
   </include>
   
   <node name="joint_state_publisher"
         pkg ="joint_state_publisher"
-        type="joint_state_publisher">
+        exec="joint_state_publisher">
     <param name="use_gui" value="true"/>
     <remap from="/joint_states" 
-             to="/$(arg name)/joint_states" />
+             to="/$(var name)/joint_states" />
   </node>
 
   <node name="rviz"
         pkg ="rviz"
-        type="rviz"
-        args="-d $(find car_description)/config/description.rviz" />
+        exec="rviz"
+        args="-d $(find-pkg-share car_description)/config/description.rviz" />
 
 </launch>

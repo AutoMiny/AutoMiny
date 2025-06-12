@@ -3,12 +3,12 @@
   <link name="base_link">
     <visual>
       <geometry>
-         <mesh filename="package://world_description/model/world.dae"/>
+         <mesh filename="file://$(find world_description)/model/world.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-         <mesh filename="package://world_description/model/world.dae"/>
+         <mesh filename="file://$(find world_description)/model/world.dae"/>
       </geometry>
     </collision>
     <inertial>

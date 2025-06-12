@@ -1,29 +1,21 @@
 #pragma once
 
-#include <nodelet/nodelet.h>
-#include <ros/ros.h>
-#include <autominy_msgs/Voltage.h>
-#include <dynamic_reconfigure/server.h>
-#include <low_voltage_shutdown/LowVoltageShutdownConfig.h>
+#include "rclcpp/rclcpp.hpp"
+#include "autominy_msgs/msg/voltage.hpp"
 
 namespace low_voltage_shutdown {
 
-    class LowVoltageShutdownNodelet : public nodelet::Nodelet {
+    class LowVoltageShutdownNodelet : public rclcpp::Node {
 
     public:
-        void onInit() override;
-        void onVoltage(const autominy_msgs::VoltageConstPtr& msg);
-        void onConfig(const LowVoltageShutdownConfig& config, uint32_t level);
+        LowVoltageShutdownNodelet(const rclcpp::NodeOptions &opts = rclcpp::NodeOptions());
+
+        void onVoltage(const autominy_msgs::msg::Voltage::ConstSharedPtr &msg);
 
     private:
         /// subscriber
-        ros::Subscriber voltageSubscriber;
+        rclcpp::Subscription<autominy_msgs::msg::Voltage>::SharedPtr voltageSubscriber;
 
-        boost::shared_ptr<dynamic_reconfigure::Server<LowVoltageShutdownConfig>> configServer;
-        LowVoltageShutdownConfig config;
-
+        double shutdownVoltage;
     };
 }
-
-#include <pluginlib/class_list_macros.h>
-PLUGINLIB_EXPORT_CLASS(low_voltage_shutdown::LowVoltageShutdownNodelet, nodelet::Nodelet);
