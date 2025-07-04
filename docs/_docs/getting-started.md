@@ -55,27 +55,16 @@ ssh ros@192.168.43.[NUMBER]
 Now you can try to steer and drive the car. Place the car on a box and
 run:
 
-Driving the car at a speed level of 0.2:
+Setting the steering angle fifty percent to the left  (ROS 2):
 ```bash
-rostopic pub /actuators/speed_normalized autominy_msgs/NormalizedSpeedCommand "header:
-  seq: 0
-  stamp:
-    secs: 0
-    nsecs: 0
-  frame_id: ''
-value: 0.2"
+ros2 topic pub /actuators/steering_normalized autominy_msgs/NormalizedSteeringCommand "value: 0.5"
 ```
 
-Setting the steering angle fully to the left:
+Driving the car at a speed level of 0.2 (ROS 2):
 ```bash
-rostopic pub /actuators/steering_normalized autominy_msgs/NormalizedSteeringCommand "header:
-  seq: 0
-  stamp:
-    secs: 0
-    nsecs: 0
-  frame_id: ''
-value: 1.0"
+ros2 topic pub /actuators/speed_normalized autominy_msgs/NormalizedSpeedCommand "header: value: 0.2"
 ```
+
 
 ### Create a workspace
 The basic autominy packages are installed in ```/opt/autominy/catkin_ws```. However, your packages should not be placed in that workspace. The autominy workspace might get updated and your work might get lost. Instead create your own workspace:
