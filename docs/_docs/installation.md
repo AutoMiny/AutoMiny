@@ -33,7 +33,7 @@ echo "source /path/to/your/installation/catkin_ws/install/setup.zsh" >> ~/.zshrc
 ### Working on the car remotely
 You can connect to the ROS running on the car remotely from your computer by setting the environment variable `ROS_DOMAIN_ID`:
 
-The `ROS_DOMAIN_ID` must be the same on your computer as on the model car. The model car's 'ROS_DOMAIN_ID' can be calculated by `CAR_ID - 100`.
+The `ROS_DOMAIN_ID` must be the same on your computer as on the model car. The model car's 'ROS_DOMAIN_ID' can be calculated by 'CAR_ID' minus '100'.
 
 ```bash
 export ROS_DOMAIN_ID=[xyz]
